@@ -28,7 +28,6 @@ namespace BLLCRM
                 foreach (var item in NegocioCRM)
                 {
                     var negociocrmVSnegociofox = NegocioFOX.Where(t => t.CODIGOCRM == item.CODIGO_F.Trim()).ToList();
-
                     foreach (var item2 in negociocrmVSnegociofox)
                     {
 

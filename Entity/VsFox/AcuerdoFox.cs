@@ -8,6 +8,7 @@ namespace Entity.VsFox
 {
     public class AcuerdoFox
     {
+        public string CODIGO { get; set; }
         public string REFERENCIA1 { get; set; }
         public string INMUEBLE { get; set; }
         public string NEGOCIO { get; set; }

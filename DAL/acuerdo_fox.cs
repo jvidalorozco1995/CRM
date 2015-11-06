@@ -29,5 +29,6 @@ namespace DAL
         public Nullable<decimal> SALDOXCOBRAR { get; set; }
         public string FECHACARTERA { get; set; }
         public string CODCRM { get; set; }
+        public string CODIGO { get; set; }
     }
 }

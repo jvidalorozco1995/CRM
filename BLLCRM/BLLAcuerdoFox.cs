@@ -34,7 +34,9 @@ namespace BLLCRM
                    int result=0;
 
                    if (CantidadCRM.Count() > 0) { 
+
                        result = EliminarAcuerdo(NegoCRM.CODIGOCRM);
+
                    }else{
                         result = 1;
                    }
@@ -44,6 +46,7 @@ namespace BLLCRM
                         foreach (var item in CantidadFOX)
                         {
                             acuerdo_fox ac = new acuerdo_fox();
+                            ac.CODIGO = item.CODIGO;
                             ac.REFERENCIA1 = item.REFERENCIA1;
                             ac.INMUEBLE = item.INMUEBLE;
                             ac.NEGOCIO = item.NEGOCIO;

@@ -149,7 +149,7 @@ namespace DAL
             ConectionString = GetConnectionString();
             OdbcConnection objcon = new OdbcConnection(ConectionString);
             objcon.Open();
-            string cadena = "SELECT contven.contsucu+contven.contpedi AS 'referencia1', right(pedidet.dipeinmu,5)"
+            string cadena = "SELECT contven.contfech+contven.contcons as'Codigo',contven.contsucu+contven.contpedi AS 'referencia1', right(pedidet.dipeinmu,5)"
                      + " AS 'inmueble', contven.contpedi AS 'negocio', pedidos.pedifech AS 'fechanegocio', contven.contpago AS 'concepto',"
                      +" contven.contfech AS 'fechacuota', LEFT(contven.contfech,4) AS 'ano', RIGHT(LEFT(contven.contfech,6),2) AS 'mes', "
                      +" RIGHT(contven.contfech,2) AS 'dia', contven.conttran AS 'vlrcuota', contven.contpaga AS 'pagocuota', "
@@ -173,6 +173,8 @@ namespace DAL
                 foreach (DataRow row2 in tbproyectosfox.Rows)
                 {
                     AcuerdoFox Pfx = new AcuerdoFox();
+
+                    Pfx.CODIGO = row2["Codigo"].ToString().Trim();
                     Pfx.REFERENCIA1 = row2["referencia1"].ToString().Trim();
                     Pfx.INMUEBLE = row2["inmueble"].ToString().Trim();
                     Pfx.NEGOCIO = row2["negocio"].ToString().Trim();
