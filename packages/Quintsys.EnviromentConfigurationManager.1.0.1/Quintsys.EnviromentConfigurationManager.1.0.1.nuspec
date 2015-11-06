@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Quintsys.EnviromentConfigurationManager</id>
+    <version>1.0.1</version>
+    <title>Quintsys.EnviromentConfigurationManager</title>
+    <authors>qbantek</authors>
+    <owners>qbantek</owners>
+    <licenseUrl>https://github.com/QuintSys/EnviromentConfigurationManager/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/QuintSys/EnviromentConfigurationManager</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Provides access to configuration files and environment variables for client applications.</description>
+    <releaseNotes>- Bug fix: IEnviromentConfigManager must be public.</releaseNotes>
+    <tags>ConfigurationManager Enviroment Variables</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Configuration" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

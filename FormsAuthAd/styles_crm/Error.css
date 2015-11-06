@@ -1,0 +1,20 @@
+﻿.error {
+   background-color:#BC1010;
+   padding:6px 12px;
+   border-radius:4px;
+   color:white;
+   font-weight:bold;
+   margin-left:16px;
+   margin-top:6px;
+   position:absolute;
+}
+    .error:before {
+        content:'';
+        border-top:8px solid;
+        border-bottom:8px solid;
+        border-right:8px solid;
+        border-left:-16px solid;
+        left:-16px;
+        position:absolute;
+        top5px;
+    }

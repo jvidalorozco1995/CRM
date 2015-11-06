@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9C48EE2-8823-497E-B505-8C0041107DAE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entity</RootNamespace>
+    <AssemblyName>Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bancos.cs" />
+    <Compile Include="Configuracion_Negocio.cs" />
+    <Compile Include="Entiacuerdo_pago.cs" />
+    <Compile Include="EntiBitacoras.cs" />
+    <Compile Include="EntiBloques.cs" />
+    <Compile Include="EntiClientes.cs" />
+    <Compile Include="EntiEmpresa.cs" />
+    <Compile Include="EntiEntero.cs" />
+    <Compile Include="EntiInmueble.cs" />
+    <Compile Include="Entinegocio.cs" />
+    <Compile Include="VsFox\AcuerdoFox.cs" />
+    <Compile Include="VsFox\Inmuebles2Fox.cs" />
+    <Compile Include="VsFox\NegociosFox.cs" />
+    <Compile Include="EntiPlanos.cs" />
+    <Compile Include="EntiServerUser.cs" />
+    <Compile Include="EntiProyecto.cs" />
+    <Compile Include="EntiSala_Ventas.cs" />
+    <Compile Include="EntiTareas.cs" />
+    <Compile Include="EntiTrabajadores.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VClientes\Historial.cs" />
+    <Compile Include="VClientes\HistorialCientes.cs" />
+    <Compile Include="VClientes\VclienteInmu.cs" />
+    <Compile Include="VClientes\VrangoCLientes.cs" />
+    <Compile Include="VInmuebles\Vdetalleseparacion.cs" />
+    <Compile Include="VInmuebles\VInmuebles.cs" />
+    <Compile Include="VProyectos\VinteresProyecto.cs" />
+    <Compile Include="VProyectos\VProyectosF.cs" />
+    <Compile Include="VProyectos\VProyeT.cs" />
+    <Compile Include="VsFox\BloquesFox.cs" />
+    <Compile Include="VsFox\InmueblesFox.cs" />
+    <Compile Include="VsFox\ProyecFox .cs" />
+    <Compile Include="VTareas\VTarCLientes.cs" />
+    <Compile Include="VTareas\VTareasTrab.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

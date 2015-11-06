@@ -1,0 +1,229 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="FormsAuthAd.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>CRM | Mayales</title>
+    <asp:PlaceHolder runat="server">     
+          <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>  
+    
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    <link  rel="stylesheet" href="jqwidgets/styles/jqx.base.css"/>
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="vendor/metisMenu/dist/metisMenu.css" />
+    <link rel="stylesheet" href="vendor/animate.css/animate.css" />
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="vendor/select2-3.5.2/select2.css" />
+    <link rel="stylesheet" href="vendor/select2-bootstrap/select2-bootstrap.css" />
+    <link rel="stylesheet" href="vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
+    <link rel="stylesheet" href="vendor/bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.css" />
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
+    <!---Stylos Alerta--->
+     <link rel="stylesheet" href="vendor/sweetalert/lib/sweet-alert.css" />
+    <link rel="stylesheet" href="vendor/toastr/build/toastr.min.css" />
+    <link rel="stylesheet" href="styles_crm/static_custom.css"/>
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" />
+    <link rel="stylesheet" href="styles_crm/style.css"/>
+</head>
+
+<body style="border-top:0px;">
+<!-- Simple splash screen-->
+<div class="splash"><div class="color-line"></div><div class="splash-title"><h1>Mayales CRM</h1><p>Espere un momento por favor</p><img src="../../images_crm/loading-bars.svg" width="64" height="64" /> </div> </div>
+<!--[if lt IE 7]>
+<p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Header -->
+  <div id="header">
+    <div class="color-line">
+    </div>
+    <div id="logo" class="light-version">
+          <a href="/"><span class="text-primary">CRM Mayales</span></a>
+    </div>
+    <nav role="navigation">
+        <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+        <div class="small-logo">
+            <a href="/"><span class="text-primary">CRM Mayales</span></a>
+        </div>
+        <div class="navbar-right">
+            <ul class="nav navbar-nav no-borders">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                        <i class="pe-7s-speaker"></i>
+                    </a>
+                    <ul class="dropdown-menu hdropdown notification animated flipInX">
+                        <li>
+                            <a>
+                                <span class="label label-success">NEW</span> It is a long established.
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <span class="label label-warning">WAR</span> There are many variations.
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <span class="label label-danger">ERR</span> Contrary to popular belief.
+                            </a>
+                        </li>
+                        <li class="summary"><a href="#">See all notifications</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
+                        <i class="pe-7s-mail"></i>
+                        <span class="label label-success">4</span>
+                    </a>
+                    <ul class="dropdown-menu hdropdown animated flipInX">
+                        <li>
+                            <a>
+                                It is a long established.
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                There are many variations.
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                Lorem Ipsum is simply dummy.
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                Contrary to popular belief.
+                            </a>
+                        </li>
+                        <li class="summary"><a href="#">See All Messages</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+  
+ <form runat="server">
+   
+     <aside id="menu">
+    <div id="navigation">
+                <div class="profile-picture">
+                    <a href="">
+                        <img src="../../images_crm/user.png" class="img-circle m-b" alt="logo">
+                    </a>
+                    <section id="Section1">
+                        <div class="stats-label text-color">
+                            <span class="font-extra-bold">Bienvenido, <a id="A1" runat="server" class="username" href="~/Account/Manage" title="ha Iniciado sesion">
+                                <asp:LoginName ID="LoginName1" runat="server" CssClass="username" />
+                            </a>!
+                            </span>
+                        </div>
+                        <p>
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/" />
+                        </p>
+                    </section>
+                    <div class="stats-label text-color">
+                        <span class="font-extra-bold font-uppercase" id="Span1"></span>
+                        <div></div>
+                    </div>
+                </div>
+
+                <ul class="nav" id="side-menu">
+                    <li id="confi" class="">
+                        <a href="#" ><span class="nav-label">Configuración</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/Configuracion/GestProyectos.aspx">Proyectos</a></li>
+                            <li><a href="/Configuracion/GestBloques.aspx">Bloques</a></li>
+                            <li><a href="/Configuracion/GetInmuebles.aspx">Inmuebles</a></li>
+                            <li><a href="/Configuracion/SalasVentas.aspx">Sala de ventas</a></li>
+                            <li><a href="/Configuracion/ConfiguracionNegocio.aspx">Configuración Nota Aclaratoria</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href=""><span class="nav-label">Gest Comercial</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/Comercial/GesComercial.aspx">Comercial</a></li>
+                            <li><a href="/Comercial/clientes/Clientes.aspx">Clientes</a></li>
+                            <li><a href="/Comercial/Separaciones/Separaciones.aspx">Separaciones</a></li>
+                            <li><a href="">Informes</a>
+                           <ul class="nav nav-second-level">
+                            <li style="padding-left:20px"><a href="/Comercial/informes/InformesComercial.aspx">General</a></li>
+                            <li style="padding-left:20px"><a href="/Comercial/Informes/InfocomercialProyecspx.aspx">Proyectos</a></li>
+                            <li style="padding-left:20px"><a href="/Comercial/Informes/InfocomercialAsesor.aspx">Asesores</a></li>
+                        </ul>
+                            </li>
+                        </ul>
+                        
+                    </li>
+                        <li>
+                        <a href="#"><span class="nav-label">Gest Cartera</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/Cartera/GesCartera.aspx">Crear negocio</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><span class="nav-label">Administración</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/Administracion/AdminUsuarios.aspx">Asignación de permisos</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+  </aside>
+     <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </form>
+     <script src='<%= ResolveUrl("scripts/jquery-1.11.1.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/jquery/dist/jquery.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/slimScroll/jquery.slimscroll.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/bootstrap/dist/js/bootstrap.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/metisMenu/dist/metisMenu.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/iCheck/icheck.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/metisMenu/dist/metisMenu.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/sparkline/index.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/datatables/media/js/jquery.dataTables.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/sweetalert/lib/sweet-alert.min.js") %>'></script>
+    <script src='<%= ResolveUrl("vendor/toastr/build/toastr.min.js") %>'></script>
+    <script src='<%= ResolveUrl("scripts_crm/bootstrap-datepicker.js") %>'></script>
+    <script src='<%= ResolveUrl("scripts_crm/moment.min.js") %>'></script>
+    <script src='<%= ResolveUrl("BLLscripts/BLLTareas.js") %>'></script>
+    <script src='<%= ResolveUrl("BLLscripts/BLLIndex.js") %>'></script>
+    <script src='<%= ResolveUrl("scripts_crm/index.js") %>'></script>
+<!-- App scripts -->
+    <script src='<%= ResolveUrl("jqwidgets/jqxcore.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxdatatable.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxdata.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxgrid.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxgrid.pager.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxscrollbar.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxbuttons.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxlistbox.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxgrid.edit.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxinput.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxcalendar.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxdatetimeinput.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxgrid.selection.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxdropdownlist.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxslider.js") %>'></script>
+    <link  rel="stylesheet" href='<%= ResolveUrl("jqwidgets/styles/jqx.base.css") %>'/>
+     <script src='<%= ResolveUrl("jqwidgets/jqxgrid.columnsresize.js") %>'></script>
+  
+
+
+<script src='<%= ResolveUrl("scripts_crm/homer.js") %>'></script>
+</body>
+</html>
