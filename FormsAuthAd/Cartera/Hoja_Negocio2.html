@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Neon Admin Panel" />
+    <meta name="author" content="" />
+
+    <title>CRM | Hoja de negocio</title>
+
+
+    <link rel="stylesheet" href="../assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="../assets/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/neon-core.css">
+    <link rel="stylesheet" href="../assets/css/neon-theme.css">
+    <link rel="stylesheet" href="../assets/css/neon-forms.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+
+    <script src="../assets/js/jquery-1.11.0.min.js"></script>
+
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <style>
+        .txtarea {
+            width: 100%;
+            height: 300px;
+        }
+        .centrar {
+            /*nos posicionamos en el centro del navegador*/
+            /*determinamos una anchura*/
+            /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+            /*determinamos una altura*/
+            /*indicamos que el margen superior, es la mitad de la altura*/
+            width: 98%;
+            margin: 0 auto;
+            border: 1px solid #808080;
+            padding: 5px;
+            
+           
+        }
+        
+       
+        html * {
+            font-size: 100%;
+            /*color: #000 !important;
+            font-family: Arial !important;*/
+        }
+
+        
+    </style>
+</head>
+<body style="margin-top:0px;" data-url="http://neon.dev">
+
+    <div class="centrar">
+        <table border="1" cellspacing="0" cellpadding="0" style="width:100%; height:98%;">
+            <tr>
+                <td width="30%" rowspan="4" style="text-align:center;">
+
+                    <img src="../images_crm/logo.png" />
+                </td>
+                <td width=201 rowspan="2" style="text-align:center;">
+                    <strong> HOJA DE NEGOCIOS</strong>
+                </td>
+                <td valign=top style="text-align:center;">
+                    CODIGO
+                </td>
+            </tr>
+            <tr>
+                <td valign=top style="text-align:center;">
+                    GV-FO-01
+                </td>
+            </tr>
+            <tr>
+                <td rowspan=2 style="text-align:center;">
+                    PROCESO:<strong>GESTIÓN DE VENTAS</strong>
+                </td>
+                <td width=201 valign=top style="text-align:center;">
+                    VERSIÓN:2.0
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    FECHA: SEPTIEMBRE 2015
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="centrar">
+        <div  id="infoconyugue">
+            <!--<div class="panel-heading">
+                <h1 class="panel-title"><strong>Datos del propietario</strong></h1>
+            </div>-->
+            <div>
+                <div class="container">
+                    <table>
+                        <tr>
+                            <td class="col-lg-4"></td>
+                            <td style="padding-left:200px !important" class="col-lg-2">
+                                <label><strong>NOMBRE DEL PROYECTO</strong></label> <label id="Pinteres"></label>
+                            </td>
+                        </tr>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Fecha de Negocio</strong></th>
+                                <th class="col-lg-4" style="margin-right:70%;"><strong>Codigo</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4">31/08/2015</td>
+                                <td class="col-lg-4"><label id="codifox"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Propietario</strong></th>
+                                <th class="col-lg-4" style="float: center"><strong>Cedula</strong></th>
+                                <th class="col-lg-4"><strong>De</strong></th>
+                                <th class="col-lg-12"><strong>Estado civil</strong></th>
+                                <th class="col-lg-12" style="float: center"><strong>Fecha de nacimiento</strong></th>
+                                <th class="col-lg-4"><strong>Lugar</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="Lpropietario"></label></td>
+                                <td class="col-lg-4" style="float:center"><label id="Llugar"></label></td>
+                                <td class="col-lg-4" style="float:right"><label id="Lalugar"></label></td>
+                                <td class="col-lg-12"><label id="Lcivil"></label></td>
+                                <td class="col-lg-12" style="float:center"><label id="Lfnaci"></label></td>
+                                <td class="col-lg-4"><label id="Lalugar"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Conyugue</strong></th>
+                                <th class="col-lg-4"><strong>Cedula</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="Lconyugue"></label></td>
+                                <td class="col-lg-4"><label id="LCyugue"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                     <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Dirección de correspondencia</strong></th>
+                                <th class="col-lg-4"><strong>Tel. fijo</strong></th>
+                                <th class="col-lg-4"><strong>Empresa donde labora</strong></th>
+                                <th class="col-lg-4"><strong>Cargo</strong></th>
+                                <th class="col-lg-4"><strong>Profesión</strong></th>
+                                <th class="col-lg-4"><strong>Dirección</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="LdireccionCr"></label></td>
+                                <td class="col-lg-4"><label id="Lfijo"></label></td>
+                                <td class="col-lg-4"><label id="Lempresa"></label></td>
+                                <td class="col-lg-4"><label id="Lcargo"></label></td>
+                                <td class="col-lg-4"><label id="Lprofesion"></label></td>
+                                <td class="col-lg-4"><label id="LadireEmp"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Ingresos</strong></th>
+                                <th class="col-lg-4"><strong>Antiguedad</strong></th>
+                                <th class="col-lg-4"><strong>Correo Electronico</strong></th>
+                                <th class="col-lg-4"><strong>N hijos</strong></th>
+                                <th class="col-lg-4"><strong>Interes de compra</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="LIngresos"></label></td>
+                                <td class="col-lg-4"><label id="Lanti"></label></td>
+                                <td class="col-lg-4"><label id="LCorreo"></label></td>
+                                <td class="col-lg-4"><label id="LNhijos"></label></td>
+                                <td class="col-lg-4"><label id="Linteres"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Valor casa o apartamento</strong></th>
+                                <th class="col-lg-4"><strong>Inicial</strong></th>
+                                <th class="col-lg-4"><strong>Credito</strong></th>
+                                <th class="col-lg-4"><strong>Banco</strong></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="Lvalapto"></label></td>
+                                <td class="col-lg-4"><label id="Linicial"></label></td>
+                                <td class="col-lg-4"><label id="lacre"></label></td>
+                                <td class="col-lg-4"><label id="lbanco"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   
+                 </div>
+            </div>
+        </div>
+        <h3 style="text-align:center;">Forma de Pago cuota inicial</h3>
+        <div class="container">
+            <div id="tablapagos" style="padding:0px; margin:0px;"></div>
+        </div>
+        <div class="container">
+            <label>Presentación de documentos</label><br />
+            <table>
+                <thead>
+                    <tr><th><strong>NOTA ACLARATORIA</strong></th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label id="TxtConf" style="width:100%; height:100%;"></label></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-sm-9">
+            <table style="border:0px;">
+                <thead>
+                    <tr>
+                        <th style="width:60%"></th>
+                        <th style="width:20%"></th>
+                    </tr>
+                </thead>
+
+                <tbody style="margin:0px; bottom:0px;">
+                    <tr>
+                        <td><strong>Fecha de escritura: </strong><label id="Fescritura"></label></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fecha de entregame: </strong><label id="Fentrega"></label></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fecha de subrogación: </strong> <label id="fechasubro"></label></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Asesor que dio la información: </strong> <label id="Lasesor"></label></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Asesor que digilencio la hoja de negocio: </strong> <label id="LasesorC"></label></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medio por el cual se entero del proyecto?</strong></td>
+                    </tr>
+                    <tr>
+                        <td><label id="Lentero"></label></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-sm-9">
+            <label><strong>CONOZCO Y ACEPTO LO AQUI ESTIPULADO</strong></label>
+            <br />
+            <br />
+            <br />
+            <label>____________________________________</label><br />
+            <label>Firma del propietario</label>
+        </div>
+        <div class="col-sm-9">
+            <br />
+            <table border="1" style=" width: 100%; ">
+                <tr>
+                    <td style="border-left-style:solid"><strong> Elaborado por :</strong> Asesor de ventas</td>
+                    <td><strong>Aprobado por :</strong> Director de ventas</td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="invoice-right">
+
+                <br />
+
+                <a id="BtnImprimir" class="btn btn-primary btn-icon icon-left hidden-print">
+                    imprimir hoja de negocio
+                    <i class="entypo-doc-text"></i>
+                </a>
+                &nbsp;
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Scripts -->
+    <script src="../assets/js/gsap/main-gsap.js"></script>
+    <script src="../assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/joinable.js"></script>
+    <script src="../assets/js/resizeable.js"></script>
+    <script src="../assets/js/neon-api.js"></script>
+    <script src="../assets/js/neon-chat.js"></script>
+    <script src="../assets/js/neon-custom.js"></script>
+    <script src="../assets/js/neon-demo.js"></script>
+    <script src="../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/datatables/TableTools.min.js"></script>
+    <script src="../assets/js/dataTables.bootstrap.js"></script>
+    <script src="../assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+    <script src="../assets/js/datatables/lodash.min.js"></script>
+    <script src="../assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
+    <script src="../scripts_crm/accounting.js"></script>
+    <script src="../BLLscripts/BLLUtilidades.js"></script>
+    <script src="js/Hoja.js"></script>
+</body>
+</html>
