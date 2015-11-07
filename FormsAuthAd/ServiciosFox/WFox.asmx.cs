@@ -61,14 +61,7 @@ namespace FormsAuthAd.ServiciosFox
             return fx.InmueblesFox(b);
 
         }
-         [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<Inmuebles2Fox> Inmuebles2Fox(string b)
-        {
-
-            return fx.InmueblesFox2(b);
-
-        }
+        
         
     }
 }

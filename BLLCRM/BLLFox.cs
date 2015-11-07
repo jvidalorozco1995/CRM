@@ -46,9 +46,9 @@ namespace BLLCRM
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public List<Inmuebles2Fox> InmueblesFox2(string b)
+        public List<Inmuebles2Fox> InmueblesFox2()
         {
-            return dbf.ConsulInmuebles2(b);
+            return dbf.ConsulInmuebles2();
         }
 
     }

@@ -2,6 +2,7 @@
 using DAL;
 using Entity;
 using Entity.VInmuebles;
+using Entity.VsFox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,5 +99,23 @@ namespace FormsAuthAd.ServiciosFox
             return inm.Sepracionclientes();
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string insery()
+        {
+            AcuerdoFox();
+            return "ajsjas";
+        }
+
+        ConecFox fx = new ConecFox();
+        public void AcuerdoFox()
+        {
+            InsertAcuerdo(fx.ConsulAcuerdoPago());
+        }
+        public void InsertAcuerdo(List<AcuerdoFox> ac)
+        {
+            BLLAcuerdoFox hn = new BLLAcuerdoFox();
+            hn.Acuerdo(ac);
+        }
     }
 }

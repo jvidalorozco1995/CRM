@@ -42,9 +42,10 @@ namespace SwCRM
             _timer.Start();
         }
 
-
         ConecFox fx = new ConecFox();
-        public void ListNegocio() {
+
+        public void ListNegocio() 
+        {
             InsertNegocio(fx.ConsulNegocio());
         }
        
@@ -57,7 +58,6 @@ namespace SwCRM
         {
             InsertAcuerdo(fx.ConsulAcuerdoPago());
         }
-
         public void InsertAcuerdo(List<AcuerdoFox> ac)
         {
             BLLAcuerdoFox hn = new BLLAcuerdoFox();
