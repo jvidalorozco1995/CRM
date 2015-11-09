@@ -107,6 +107,15 @@ namespace FormsAuthAd.ServiciosFox
             return "ajsjas";
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<AcuerdoFox> LISTADO()
+        {
+
+            return fx.ConsulAcuerdoPago().Where(t => t.CODIGO == "2015093004").ToList();
+        }
+
+       
         ConecFox fx = new ConecFox();
         public void AcuerdoFox()
         {
