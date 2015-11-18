@@ -105,6 +105,7 @@
                 </div>
             </div>
         </div>
+
        <!--Modal reomver proyectos--->
     <div class="modal fade hmodal-danger" id="ModalRemover" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">

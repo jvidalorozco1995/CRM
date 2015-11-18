@@ -11,7 +11,6 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.Xml.Serialization;
     
     public partial class empresas
     {
@@ -23,7 +22,7 @@ namespace DAL
         public int ID_EMP { get; set; }
         public string NOMBRE_EMP { get; set; }
         public string TEL_EMP { get; set; }
-        [XmlIgnore]
+    
         public virtual ICollection<clientes> clientes { get; set; }
     }
 }

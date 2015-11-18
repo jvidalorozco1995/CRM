@@ -47,6 +47,7 @@ namespace Entity
         public Nullable<int> SEPARACION { get; set; }
         public string USER_NEGOCIO { get; set; }
         public string CODIGO_F { get; set; }
+        public string USER_CARTERA { get; set; }
         public Nullable<decimal> INGRESO { get; set; }
 
     }

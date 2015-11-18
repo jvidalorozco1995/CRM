@@ -132,6 +132,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Administracion\AdminUsuarios.aspx" />
+    <Content Include="Administracion\js\Admingestusu.js" />
     <Content Include="Administracion\js\Serveruser.js" />
     <Content Include="assets\css\bootstrap.css" />
     <Content Include="assets\css\custom.css" />
@@ -1368,6 +1369,7 @@
     <Content Include="Configuracion\ConfiguracionNegocio.aspx" />
     <Content Include="Configuracion\GestBloques.aspx" />
     <Content Include="Configuracion\GestProyectos.aspx" />
+    <Content Include="Administracion\GestUsuNegocios.aspx" />
     <Content Include="Configuracion\GetInmuebles.aspx" />
     <Content Include="Configuracion\js\bloques.js" />
     <Content Include="Configuracion\js\ConfiguracionNegocio.js" />
@@ -1375,6 +1377,7 @@
     <Content Include="Configuracion\js\Planos.js" />
     <Content Include="Configuracion\js\proyectos.js" />
     <Content Include="Configuracion\js\Salaventas.js" />
+    <Content Include="Configuracion\js\Serveruser.js" />
     <Content Include="Configuracion\ProyecPlanos.aspx" />
     <Content Include="Configuracion\SalasVentas.aspx" />
     <Content Include="Content\Site.css" />
@@ -4604,6 +4607,13 @@
     </Compile>
     <Compile Include="Configuracion\GestProyectos.aspx.designer.cs">
       <DependentUpon>GestProyectos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\GestUsuNegocios.aspx.cs">
+      <DependentUpon>GestUsuNegocios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\GestUsuNegocios.aspx.designer.cs">
+      <DependentUpon>GestUsuNegocios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\GetInmuebles.aspx.cs">
       <DependentUpon>GetInmuebles.aspx</DependentUpon>

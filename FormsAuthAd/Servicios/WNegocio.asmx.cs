@@ -35,19 +35,26 @@ namespace FormsAuthAd.Servicios
             return hn.lisHoja(idhoja);
         }
         [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<Entinegocio> lisAllHoja()
+        {
+            BLLnegocio hn = new BLLnegocio();
+            return hn.lisAllHoja();
+        }
+        [WebMethod]
         public List<Entiacuerdo_pago> _Acuerdopago(string ac)
         {
             BLLnegocio hn = new BLLnegocio();
             return hn.Lisacuerdop(ac);
         }
-       /* [WebMethod]
+        [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int InsertNegocioFox(List<NegociosFox> ac)
+        public int UpdateUsuarioCartera(int id, string USER_CARTERA)
         {
-            BLLNegocioFox hn = new BLLNegocioFox();
-            return hn.Hojanegocio(ac);
+            BLLnegocio hn = new BLLnegocio();
+            return hn.UpdateUsuarioCartera(id,USER_CARTERA);
 
-        }*/
+        }
         
 
 

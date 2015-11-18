@@ -1,5 +1,4 @@
-﻿
-var Wcliente = "/Servicios/WSeparaciones.asmx/cliente";
+﻿var Wcliente = "/Servicios/WSeparaciones.asmx/cliente";
 var WclienteAsociado = "/Servicios/WSeparaciones.asmx/_getAsociado";
 
 
@@ -24,8 +23,86 @@ var BLLnegocio = function () {
 var Waddnegocio = "/Servicios/WNegocio.asmx/DatoNegocio";
 var _banco;
 
+
+//tabla Proyectos CRM Asignar  Usuarios
+BLLnegocio.CrearTablaPro = function (proyectos) {
+    document.getElementById('Tabla2').innerHTML = "";
+    var tabla = '<table id="exampleP" class="table table-striped table-bordered table-hover">';
+    tabla += "<thead>";
+    tabla += "<tr>";
+    tabla += "<th>PROPIETARIO</th>";
+    tabla += "<th>CODIGO_F</th>";
+    tabla += "<th>USUARIO DE CARTERA</th>";
+  
+    tabla += "</tr>";
+    tabla += "</thead>";
+    tabla += "<tbody>";
+    $.each(proyectos, function (i, item) {
+
+
+        tabla += " <tr class='CargarNego' id=" + item.ID_HOJA + ">";
+        tabla += "<td style='width:200px'>" + item.PROPIETARIO + "</td>";
+        tabla += "<td>" + item.CODIGO_F + "</td>";
+        tabla += "<td>" + item.USER_CARTERA + "</td>";
+        tabla += "</td>";
+        tabla += "</tr>";
+
+    });
+    tabla += "</tbody>";
+    tabla += "</table>";
+    $('#Tabla2').append(tabla);
+    $('#exampleP').dataTable();
+}
+
 BLLnegocio.prototype = {
     
+
+    ListNegocio: function (Wsurl) {
+    
+        $.ajax({
+            type: "POST", url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                }
+                else {
+                    BLLnegocio.CrearTablaPro(result.d)
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(obj.responseText); }
+        });
+    },
+
+    UpdateCarteraNegocio: function (id, USER_CARTERA, Wsurl) {
+        var datos = "{'id':" + JSON.stringify(id) + ",'USER_CARTERA':" + JSON.stringify(USER_CARTERA)+"}";
+        $.ajax({
+            type: "POST", url: Wsurl, data: datos,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                    toastr.error(' CRM - Mayales no se pudo actualizar el usuario');
+                }
+                else {
+                    toastr.success(' CRM - Mayales' +
+                       '<br/>Se ha agregado de manera exitosa el usuario en el sistema');
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(obj.responseText); }
+        });
+
+
+    },
+
     _addHoja: function (dto, inm, ac) {
         var re;
         var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + "}";

@@ -146,7 +146,7 @@ var admUser = (function () {
            
             if (em.length < 1) {
                 toastr.error(' CRM - Mayales' +
-                       '</br>el campo email se encuentra vacio');
+                       '</br>el compo email se encuentra vacio');
             }
             else
             {

@@ -45,8 +45,6 @@ function BLLProyectos() {
                             document.getElementById('ComProyect').innerHTML = ""; 
                             break
                     }
-
-
                 }
                 else
                 {

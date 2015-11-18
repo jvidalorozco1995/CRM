@@ -217,6 +217,7 @@
           <Property Name="SEPARACION" Type="int" />
           <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
           <Property Name="USER_CREO" Type="varchar" MaxLength="60" />
+          <Property Name="USER_CARTERA" Type="varchar" MaxLength="60" />
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
         </EntityType>
         <EntityType Name="negocio_fox">
@@ -1981,6 +1982,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="USER_CREO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="USER_CARTERA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="acuerdo_fox">
           <Key>
@@ -2590,6 +2592,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="negocio">
             <EntityTypeMapping TypeName="CRMModel.negocio">
               <MappingFragment StoreEntitySet="negocio">
+                <ScalarProperty Name="USER_CARTERA" ColumnName="USER_CARTERA" />
                 <ScalarProperty Name="INGRESO" ColumnName="INGRESO" />
                 <ScalarProperty Name="USER_CREO" ColumnName="USER_CREO" />
                 <ScalarProperty Name="CODIGO_F" ColumnName="CODIGO_F" />

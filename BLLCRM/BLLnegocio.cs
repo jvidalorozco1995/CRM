@@ -59,8 +59,6 @@ namespace BLLCRM
                List<NegocioView> line = bd.NegocioView.Where(i => i.ID_NEGOCIO == idhoja).ToList();
                List<Entinegocio> _line = new List<Entinegocio>();
 
-
-
                if (line!=null)
                {
                    foreach (var item in line)
@@ -75,7 +73,8 @@ namespace BLLCRM
                        {
                            Cod_Sp = item2.COD + item2.INMU;
                        }
-
+                       hn.ID_NEGOCIO = item.ID_NEGOCIO;
+                       hn.ID_HOJA = item.ID_HOJA;
                        hn.PROPIETARIO = item.PROPIETARIO;
                        hn.CEDULA_P = item.CEDULA_P;
                        hn.CEDULA_CUY = item.CEDULA_CUY;
@@ -124,6 +123,91 @@ namespace BLLCRM
                throw;
            }
        }
+
+
+
+
+
+       public List<Entinegocio> lisAllHoja()
+       {
+           try
+           {
+               List<negocio> line = bd.negocio.ToList();
+               List<Entinegocio> linE = new List<Entinegocio>();
+
+               if (line.Count.Equals(0) && line.Equals(null))
+               {
+                   return linE;
+               }
+               else 
+               {
+                   foreach (var item in line)
+                   {
+                       Entinegocio hn = new Entinegocio();
+
+
+                       var _CodS = bd.VCod_SP.Where(sp => sp.CLIENTE == item.CEDULA_P).ToList();
+                       string Cod_Sp = "";
+
+                       foreach (var item2 in _CodS)
+                       {
+                           Cod_Sp = item2.COD + item2.INMU;
+                       }
+                       hn.ID_HOJA = item.ID_HOJA;
+                       hn.PROPIETARIO = item.PROPIETARIO;
+                       hn.CEDULA_P = item.CEDULA_P;
+                       hn.CEDULA_CUY = item.CEDULA_CUY;
+                       hn.EXPEDICION = item.EXPEDICION;
+                       hn.ESTADO_C = item.ESTADO_C;
+                       hn.FECHA_NACI = item.FECHA_NACI;
+                       hn.LUGAR = item.LUGAR;
+                       hn.DIRECCION_R = item.DIRECCION_R;
+                       hn.TELEFONO_P = item.TELEFONO_P;
+                       hn.EMPRESA = item.EMPRESA;
+                       hn.CARGO = item.CARGO;
+                       hn.DIRECCION_EMPR = item.DIRECCION_EMPR;
+                       hn.INGRESO = item.INGRESO;
+                       hn.ANTIGUEDAD = item.ANTIGUEDAD;
+                       hn.CORREO = item.CORREO;
+                       hn.NOMBRE_CONY = item.NOMBRE_CONY;
+                       hn.CEDULA_CUY = item.CEDULA_CUY;
+                       hn.TELE_CONY = item.TELE_CONY;
+                       hn.N_HIJO = item.N_HIJO;
+                       hn.INTERES_COM = item.INTERES_COM;
+                       hn.PROYECTO_INT = item.PROYECTO_INT.Trim();
+                       hn.FECHA_ENT = item.FECHA_ENT;
+                       hn.FECHA_ES = item.FECHA_ES;
+                       hn.FECHA_SUBRO = item.FECHA_SUBRO;
+                       hn.PROFESION = item.PROFESION;
+                       hn.ASESOR_INFO = item.ASESOR_INFO;
+                       hn.CLASE_INMU = item.CLASE_INMU;
+                       hn.BANCO = item.BANCO;
+                       hn.NO_CREDITO = item.NO_CREDITO;
+                       hn.MEDIO_ENT = item.MEDIO_ENT;
+                       hn.VALOR_CASA = item.VALOR_CASA;
+                       hn.INICIAL = item.INICIAL;
+                       hn.CREDITO = item.CREDITO;
+                       hn.USER_NEGOCIO = item.PROPIETARIO;
+                       hn.USER_CARTERA = item.USER_CARTERA;
+                       hn.CODIGO_F = Cod_Sp;
+                       linE.Add(hn);
+                   }
+                   return linE;
+               }
+  
+           }
+           catch (Exception)
+           {
+               return null;
+               throw;
+           }
+       }
+
+
+
+
+
+
 
        protected void Acuerdopago(List<acuerdo_pago> a, string negocio) {
            try
@@ -176,6 +260,31 @@ namespace BLLCRM
            }
        }
 
+
+       public int UpdateUsuarioCartera(int inm,string usuario)
+       {
+           try
+           {
+               var ctx = bd.negocio.First(t => t.ID_HOJA == inm);
+               ctx.USER_CARTERA = usuario;
+               int result= bd.SaveChanges();
+               if (result > 0)
+               {
+                   return 1;
+               }
+               else {
+
+                   return 0;
+               }
+              
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+       }
+
        protected void HistorialInmu(string c, string inm)
        {
            try
@@ -199,9 +308,9 @@ namespace BLLCRM
            try
            {  user = Membership.GetUser().ToString();
                historial_clientes hc = new historial_clientes();
-               hc.CLIENTEH=c;
-               hc.TRABAJADOR=user;
-               hc.FECHA=DateTime.Now;
+               hc.CLIENTEH = c;
+               hc.TRABAJADOR = user;
+               hc.FECHA = DateTime.Now;
                hc.DESCRIPCIONH="El cliente a inicado el proceso de compra del in inmueble "+inmu;
                bd.historial_clientes.Add(hc);
                bd.SaveChanges();

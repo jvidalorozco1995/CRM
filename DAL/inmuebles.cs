@@ -11,7 +11,6 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.Xml.Serialization;
     
     public partial class inmuebles
     {
@@ -30,9 +29,8 @@ namespace DAL
         public string AREA { get; set; }
         public Nullable<decimal> VAL_INMUEBLE { get; set; }
         public string INMUESTADO { get; set; }
-       
+    
         public virtual bloques bloques { get; set; }
-        [XmlIgnore]
         public virtual ICollection<inmueble_separacion> inmueble_separacion { get; set; }
     }
 }

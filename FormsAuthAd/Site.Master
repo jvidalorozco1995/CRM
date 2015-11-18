@@ -176,6 +176,7 @@
                         <a href="#"><span class="nav-label">Administración</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href="/Administracion/AdminUsuarios.aspx">Asignación de permisos</a></li>
+                            <li><a href="/Administracion/GestUsuNegocios.aspx">Usuarios negocio</a></li>
                         </ul>
                     </li>
                 </ul>
