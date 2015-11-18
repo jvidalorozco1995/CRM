@@ -322,6 +322,10 @@ function BLLProyectos() {
         $('#example4').dataTable();
     }
 
+
+
+
+
     ///Tabla Trabajadores para asignar Acceso al Proyecto
     BLLProyectos.TablaTrabajadores = function (trabajadores) {
         document.getElementById('tabla').innerHTML = "";

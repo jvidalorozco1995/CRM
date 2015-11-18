@@ -56,7 +56,6 @@ BLLnegocio.CrearTablaPro = function (proyectos) {
 
 BLLnegocio.prototype = {
     
-
     ListNegocio: function (Wsurl) {
     
         $.ajax({
@@ -72,13 +71,11 @@ BLLnegocio.prototype = {
                     BLLnegocio.CrearTablaPro(result.d)
 
                 }
-
-            },
+           },
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
-    },
-
-    UpdateCarteraNegocio: function (id, USER_CARTERA, Wsurl) {
+   },
+   UpdateCarteraNegocio: function (id, USER_CARTERA, Wsurl) {
         var datos = "{'id':" + JSON.stringify(id) + ",'USER_CARTERA':" + JSON.stringify(USER_CARTERA)+"}";
         $.ajax({
             type: "POST", url: Wsurl, data: datos,
@@ -93,17 +90,13 @@ BLLnegocio.prototype = {
                 else {
                     toastr.success(' CRM - Mayales' +
                        '<br/>Se ha agregado de manera exitosa el usuario en el sistema');
-
                 }
 
             },
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
-
-
-    },
-
-    _addHoja: function (dto, inm, ac) {
+     },
+   _addHoja: function (dto, inm, ac) {
         var re;
         var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + "}";
       $.ajax({
@@ -112,7 +105,7 @@ BLLnegocio.prototype = {
           dataType: 'json',
           async: true,
           success: function (result) {
-              if (result.d == "ER") { alert("NO fue posible registrar la hoja") }
+              if (result.d == "ER") { alert("No fue posible registrar la hoja") }
               else
               {   document.getElementById("button").innerHTML = "";
                   $("#button").append('<button class="btn btn-default btn-btn-circle Btimprimir" type="button" id=' + result.d + ' >Imprimir hoja de negocio</button>');
@@ -122,8 +115,7 @@ BLLnegocio.prototype = {
       });
 
     },
-
-     _Getcliente: function (cedula) {
+    _Getcliente: function (cedula) {
          var datos = "{ 'c':" + JSON.stringify(cedula) + " }";
          $.ajax({
              type:"POST", url: Wcliente, data:datos,
@@ -165,8 +157,7 @@ BLLnegocio.prototype = {
              $('#Lvalor').val(utl.FormatNumero(item.VALOR_INM));
              $("#Tvalor").append(utl.FormatNumero(item.VALOR_INM));
              val_casa = item.VALOR_INM;
-         })
-         
+         });
          inicial = parseFloat(val_casa) * (30) / 100;
          credito = parseFloat(val_casa) - (inicial);
          $('#Textinicial').val(inicial)

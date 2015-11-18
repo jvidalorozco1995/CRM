@@ -55,35 +55,6 @@
             </div>
         </div>
 
-       <!--Modal remover proyectos--->
-    <div class="modal fade hmodal-danger" id="ModalRemover" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="color-line"></div>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Remover Acceso</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group col-lg-6">
-                            <label>Codigo Proyecto</label>
-                            <input id="TxtCodigoT" class="form-control" readonly=""/>
-                        </div>
-                          <div class="form-group col-lg-6">
-                            <label>Proyecto</label>
-                            <input id="TxtProyectoT" class="form-control" readonly=""/>
-                        </div>
-                        <div id="TablaT">
-
-                        </div>
-                              
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" " id="BtnCancelarP">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
    
     <script src="../vendor/jquery/dist/jquery.min.js"></script>
     <script src="../vendor/jquery-ui/jquery-ui.min.js"></script>

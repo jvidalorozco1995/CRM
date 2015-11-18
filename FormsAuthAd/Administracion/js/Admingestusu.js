@@ -31,9 +31,6 @@ var admUser = (function () {
         })
     };
 
-
-
- 
     var _Inicio = function () {
         gp.ListTrabajadores(WsLisTra);
     }
