@@ -58,10 +58,14 @@ namespace SwCRM
         {
             InsertAcuerdo(fx.ConsulAcuerdoPago());
         }
+
+      
         public void InsertAcuerdo(List<AcuerdoFox> ac)
         {
             BLLAcuerdoFox hn = new BLLAcuerdoFox();
             hn.Acuerdo(ac);
+
+         
         }
         private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {

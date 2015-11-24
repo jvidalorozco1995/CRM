@@ -1322,7 +1322,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:InstallersSwCRM"
         "ProductCode" = "8:{CA3F510E-551D-4EBA-9101-BA406671C74B}"
-        "PackageCode" = "8:{D3A273BB-C16F-4858-8447-FDF5C94907CB}"
+        "PackageCode" = "8:{C44DE215-F58B-4A5C-9661-C446953FE64B}"
         "UpgradeCode" = "8:{A039D958-2FF9-4D78-96C2-336F13B7BA95}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

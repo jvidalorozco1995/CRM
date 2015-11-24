@@ -84,42 +84,41 @@ namespace FormsAuthAd.ServiciosFox
         {
             return inm.Lisepracion(p);
         }
-
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string DesistirInmueble(inmueble_separacion i)
         {
             return inm.Desistimiento(i);
         }
-
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<Vdetalleseparacion.SepracionInmueble> ClientesInmuebles()
         {
             return inm.Sepracionclientes();
         }
-
-        [WebMethod]
+        /*[WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string insery()
         {
             AcuerdoFox();
             return "ajsjas";
         }
-
+        */
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<AcuerdoFox> LISTADO()
         {
-
+            ConecFox fx = new ConecFox();
             return fx.ConsulAcuerdoPago().Where(t => t.CODIGO == "2015093004").ToList();
         }
-
-       
         ConecFox fx = new ConecFox();
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void AcuerdoFox()
         {
-            InsertAcuerdo(fx.ConsulAcuerdoPago());
+            //.Where(t=>t.CODCRM=="10MGC003B").ToList()
+              InsertAcuerdo(fx.ConsulAcuerdoPago());
+            
         }
         public void InsertAcuerdo(List<AcuerdoFox> ac)
         {

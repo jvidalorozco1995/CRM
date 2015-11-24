@@ -74,7 +74,6 @@ namespace DAL
                     foreach (DataRow row2 in tbproyectosfox.Rows)
                     {
                         NegociosFox Pfx = new NegociosFox();
-
                         Pfx.SUCURSAL = row2["pedisucu"].ToString().Trim();
                         Pfx.PROYECTO = row2["obranomb"].ToString().Trim();
                         Pfx.PPTO = row2["pedipres"].ToString().Trim();
@@ -116,8 +115,6 @@ namespace DAL
                         Pfx.SALDOPORPAGARDELACUOTAINICIAL = row2["pedisldi"].ToString().Trim();
                         Pfx.CODIGOINMUEBLE = row2["CODINMUEBLE"].ToString().Trim();
                         litNe.Add(Pfx);
-
-
                     }
                     return litNe;
                 }
@@ -157,7 +154,7 @@ namespace DAL
                      +" LEFT(contven.contfech,4)) AS 'fechaCartera', pedidos.pedidocu AS 'CodCRM'"
                      +" FROM contven contven, pedidet pedidet, pedidos pedidos"
                      +" WHERE pedidet.dipenume = pedidos.pedinume AND pedidet.dipesucu = pedidos.pedisucu"
-                     +" AND pedidet.dipepres = pedidos.pedipres AND pedidos.pedisucu = contven.contsucu AND pedidos.pedipres = contven.contpres AND pedidos.pedinume = contven.contpedi AND ((pedidet.dipedesi<>1))";
+                     + " AND pedidet.dipepres = pedidos.pedipres AND pedidos.pedisucu = contven.contsucu AND pedidos.pedipres = contven.contpres AND pedidos.pedinume = contven.contpedi AND ((pedidet.dipedesi<>1) AND (pedidos.pedidocu<>''))";
             OdbcDataAdapter daNegociofox = new OdbcDataAdapter(cadena, objcon);
             DataSet dsproyectofox = new DataSet("Pubs2");
             //daNegociofox.FillSchema(dsproyectofox, SchemaType.Source, "NEGOCIOS_FOX");

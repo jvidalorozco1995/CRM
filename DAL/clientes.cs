@@ -11,6 +11,7 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
+    using System.Xml.Serialization;
     
     public partial class clientes
     {
@@ -47,9 +48,13 @@ namespace DAL
         public string ASOCIADO { get; set; }
     
         public virtual empresas empresas { get; set; }
+        [XmlIgnore]
         public virtual ICollection<historial_clientes> historial_clientes { get; set; }
+        [XmlIgnore]
         public virtual ICollection<historial_inmueble> historial_inmueble { get; set; }
+        [XmlIgnore]
         public virtual ICollection<inmueble_separacion> inmueble_separacion { get; set; }
+        [XmlIgnore]
         public virtual ICollection<tareas> tareas { get; set; }
     }
 }

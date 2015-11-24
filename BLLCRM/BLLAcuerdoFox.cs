@@ -23,54 +23,86 @@ namespace BLLCRM
         /// <returns></returns>
         public int Acuerdo(List<AcuerdoFox> ListaAcuerdoFox)
         {
+            int Contador = 0;
+
             var NegociosCRM = bd.negocio_fox.ToList();
-            //Recorrer todos los negocios
-            foreach (var NegoCRM in NegociosCRM)
+
+            if (NegociosCRM.Count > 0)
             {
-                //Metodo para llenar la lista de los acuerdos de fox por el negocio
-                var AcuerdosFOX = ListaAcuerdoFox.ToList().Where(t => t.CODCRM == NegoCRM.CODIGOCRM);
-                //Metodo para llenar la lista de los acuerdos de fox desde SQL SERVER por el negocio
-                var AcuerdosCRM = bd.acuerdo_fox.ToList().Where(t => t.CODCRM == NegoCRM.CODIGOCRM);
-
-                //Si los acuerdos de fox y los acuerdos de CRM son mayor a CERO (0)
-                if (AcuerdosFOX.Count() > 0 || AcuerdosCRM.Count() > 0)
+                int a = NegociosCRM.Count;
+                //Recorrer todos los negocios
+                foreach (var NegoCRM in NegociosCRM)
                 {
-                    //Si los acuerdos de fox son igual a los acuerdos en CRM, entonces actualice los acuerdos
-                    if (AcuerdosFOX.Count() == AcuerdosCRM.Count())
-                    {
-                        //Actualiza los acuerdos <<<Se le pasan dos parametros de acuerdosFOX y acuerdosCRM>>>
-                        ActualizarAcuerdo(AcuerdosFOX, AcuerdosCRM);
-                    }
-                     //sino si es mayor entonces recorremos todos los acuerdos de fox.   
-                    else if (AcuerdosFOX.Count() > AcuerdosCRM.Count())
-                    {
-                        //Recorrer todos los acuerdos de fox
-                        foreach (var ac_fox in AcuerdosFOX)
-                        {
-                            //validar si el acuerdo del crm, existe en fox
-                            var ac_crm = AcuerdosCRM.Where(t => t.CODIGO == ac_fox.CODIGO);
+                    //Metodo para llenar la lista de los acuerdos de fox por el negocio
+                    var AcuerdosFOX = ListaAcuerdoFox.ToList().Where(t => t.CODCRM == NegoCRM.CODIGOCRM);
+                    //Metodo para llenar la lista de los acuerdos de fox desde SQL SERVER por el negocio
+                    var AcuerdosCRM = bd.acuerdo_fox.ToList().Where(t => t.CODCRM == NegoCRM.CODIGOCRM);
 
-                            //si el acuerdo existe lo actualizamos
-                            if (ac_crm.Count() > 0)
+                    var i = AcuerdosFOX.Count();
+                    var c = AcuerdosCRM.Count();
+                        //Si los acuerdos de fox y los acuerdos de CRM son mayor a CERO (0)
+                        if (AcuerdosFOX.Count() > 0 || AcuerdosCRM.Count() > 0)
+                        {
+                            //Si los acuerdos de fox son igual a los acuerdos en CRM, entonces actualice los acuerdos
+                            if (AcuerdosFOX.Count() == AcuerdosCRM.Count())
                             {
-                                //Actualizar los acuerdos
+                                //Actualiza los acuerdos <<<Se le pasan dos parametros de acuerdosFOX y acuerdosCRM>>>
                                 ActualizarAcuerdo(AcuerdosFOX, AcuerdosCRM);
                             }
-                            else
+                            //sino si es mayor entonces recorremos todos los acuerdos de fox.   
+                            else if (AcuerdosFOX.Count() > AcuerdosCRM.Count())
                             {
-                                //sino existe insertamos el acuerdo
-                                InsertarAcuerdo(ac_fox);
-                            }
+                               
+                                //Recorrer todos los acuerdos de fox
+                                foreach (AcuerdoFox ac_fox in AcuerdosFOX)
+                                {
+                                    //validar si el acuerdo del crm, existe en fox
+                                    var ac_crm = AcuerdosCRM.Where(t => t.CODIGO == ac_fox.CODIGO);
+                                   
 
+                                    //si el acuerdo existe lo actualizamos
+                                    if (ac_crm.Count() > 0)
+                                    {
+                                        //Actualizar los acuerdos
+                                        ActualizarAcuerdo(AcuerdosFOX, AcuerdosCRM);
+                                    }
+                                    else
+                                    {
+                                        Contador++;
+                                        //sino existe insertamos el acuerdo
+                                        acuerdo_fox ac = new acuerdo_fox();
+                                        ac.CODIGO = ac_fox.CODIGO;
+                                        ac.REFERENCIA1 = ac_fox.REFERENCIA1;
+                                        ac.INMUEBLE = ac_fox.INMUEBLE;
+                                        ac.NEGOCIO = ac_fox.NEGOCIO;
+                                        ac.FECHANEGOCIO = ac_fox.FECHANEGOCIO;
+                                        ac.CONCEPTO = ac_fox.CONCEPTO;
+                                        ac.FECHACUOTA = ac_fox.FECHACUOTA;
+                                        ac.ANO = ac_fox.ANO;
+                                        ac.MES = ac_fox.MES;
+                                        ac.DIA = ac_fox.DIA;
+                                        ac.VLRCUOTA = ac_fox.VLRCUOTA;
+                                        ac.PAGOCUOTA = ac_fox.PAGOCUOTA;
+                                        ac.SALDOXCOBRAR = ac_fox.SALDOXCOBRAR;
+                                        ac.FECHACARTERA = Convert.ToDateTime(ac_fox.FECHACARTERA).ToShortDateString();
+                                        ac.CODCRM = ac_fox.CODCRM;
+                                        bd.acuerdo_fox.Add(ac);
+                                       
+                                    }
+                                 }
+                                 
+                                
+                            }
+                            //sino si si los acuerdos de CRM son mayores a los acuerdos de FOX
+                            else if (AcuerdosCRM.Count() > AcuerdosFOX.Count())
+                            {
+                                //sino actualizamos el acuerdo
+                                ActualizarAcuerdo(AcuerdosFOX, AcuerdosCRM);
+                            }
                         }
-                    }
-                    //sino si si los acuerdos de CRM son mayores a los acuerdos de FOX
-                    else if (AcuerdosCRM.Count() > AcuerdosFOX.Count())
-                    {
-                        //sino actualizamos el acuerdo
-                        ActualizarAcuerdo(AcuerdosFOX, AcuerdosCRM);
-                    }
                 }
+                bd.SaveChanges();
+                var asasc = Contador;
             }
             return 1;
         }
@@ -131,36 +163,19 @@ namespace BLLCRM
                 }
 
             }
-
-            return 1;
+           return 1;
         }
         //Metodo para insertar el acuerdo
+      
         public int InsertarAcuerdo(AcuerdoFox ac_fox)
         {
             try
             {
-                acuerdo_fox ac = new acuerdo_fox();
-                ac.CODIGO = ac_fox.CODIGO;
-                ac.REFERENCIA1 = ac_fox.REFERENCIA1;
-                ac.INMUEBLE = ac_fox.INMUEBLE;
-                ac.NEGOCIO = ac_fox.NEGOCIO;
-                ac.FECHANEGOCIO = ac_fox.FECHANEGOCIO;
-                ac.CONCEPTO = ac_fox.CONCEPTO;
-                ac.FECHACUOTA = ac_fox.FECHACUOTA;
-                ac.ANO = ac_fox.ANO;
-                ac.MES = ac_fox.MES;
-                ac.DIA = ac_fox.DIA;
-                ac.VLRCUOTA = ac_fox.VLRCUOTA;
-                ac.PAGOCUOTA = ac_fox.PAGOCUOTA;
-                ac.SALDOXCOBRAR = ac_fox.SALDOXCOBRAR;
-                ac.FECHACARTERA = ac_fox.FECHACARTERA;
-                ac.CODCRM = ac_fox.CODCRM;
-                bd.acuerdo_fox.Add(ac);
-                bd.SaveChanges();
+             
             }
             catch (Exception ex) {
 
-                return 0;
+                throw ex;
             }
 
             return 1;
