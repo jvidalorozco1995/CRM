@@ -57,6 +57,7 @@
         <EntityTypeShape EntityType="CRMModel.acuerdo_fox" Width="1.5" PointX="5.375" PointY="14.75" />
         <EntityTypeShape EntityType="CRMModel.negocio_fox" Width="1.5" PointX="15.375" PointY="6.75" />
         <EntityTypeShape EntityType="CRMModel.NegocioView" Width="1.5" PointX="12.375" PointY="13.75" />
+        <EntityTypeShape EntityType="CRMModel.pagos_fox" Width="1.5" PointX="7.375" PointY="15.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

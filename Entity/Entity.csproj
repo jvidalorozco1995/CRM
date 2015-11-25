@@ -70,6 +70,7 @@
     <Compile Include="VProyectos\VProyeT.cs" />
     <Compile Include="VsFox\BloquesFox.cs" />
     <Compile Include="VsFox\InmueblesFox.cs" />
+    <Compile Include="VsFox\PagosFox.cs" />
     <Compile Include="VsFox\ProyecFox .cs" />
     <Compile Include="VTareas\VTarCLientes.cs" />
     <Compile Include="VTareas\VTareasTrab.cs" />

@@ -252,16 +252,27 @@
                                                    <input type="text" value="" id="Textasesorinf" class="form-control" name="" readonly="">
                                                </div>
                                                 <div class="form-group col-lg-6">
-                                                <label class="control-label">Medio por el cual se entero del proyecto</label>
-                                               <input type="text" value="" id="TextmedioInf" class="form-control" name="" readonly="">
-                                            </div>
+                                                  <label class="control-label">Medio por el cual se entero del proyecto</label>
+                                                   <input type="text" value="" id="TextmedioInf" class="form-control" name="" readonly="">
+                                               </div>
+                                               <div class="form-group col-lg-6">
+                                                   <label class="control-label">Asesor de cartera</label>
+                                                   <select id="CmbAsesorCart" class="form-control">
+                                                       <option></option>
+                                                   </select>
+                                               </div>
+                                                  <div style="float:left;padding-top:20px"><a id="BtnDisponibilidd"><img src="../images_crm/Buscar.png" style="float:left" /></a></div>
+                                                <div class="form-group col-lg-4">
+                                                   <label class="control-label">Documento Adjunto</label>
+                                                   <input type="file" name="UploadFile" id="txtUploadFile" class="makethispretty"  />
+                                               </div>
+                                              
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="panel-footer" id="button">
                                      <button class="btn btn-danger btn-btn-circle" type="button" id="BtnCrearH">Crear negocio</button>
-                                     
                                 </div>
                             </div>
                         </div>

@@ -112,6 +112,7 @@ namespace FormsAuthAd.ServiciosFox
             return fx.ConsulAcuerdoPago().Where(t => t.CODIGO == "2015093004").ToList();
         }
         ConecFox fx = new ConecFox();
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void AcuerdoFox()
@@ -120,6 +121,22 @@ namespace FormsAuthAd.ServiciosFox
               InsertAcuerdo(fx.ConsulAcuerdoPago());
             
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void PagosFox()
+        {
+            //.Where(t=>t.CODCRM=="10MGC003B").ToList()
+            InsertPago(fx.ConsultPagosFox());
+
+        }
+
+        public void InsertPago(List<PagosFox> ac)
+        {
+            BLLPagosFox hn = new BLLPagosFox();
+            hn.Pagos(ac);
+        }
+
         public void InsertAcuerdo(List<AcuerdoFox> ac)
         {
             BLLAcuerdoFox hn = new BLLAcuerdoFox();

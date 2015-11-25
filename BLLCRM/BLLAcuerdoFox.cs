@@ -89,6 +89,8 @@ namespace BLLCRM
                                         bd.acuerdo_fox.Add(ac);
                                        
                                     }
+
+                                    
                                  }
                                  
                                 

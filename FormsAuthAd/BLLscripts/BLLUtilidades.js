@@ -1,6 +1,6 @@
 ﻿var Wbancos = "/Servicios/WSeparaciones.asmx/_Bancos";
 var Wgetcliente = "/Servicios/WClientes.asmx/GetClientesT";
-
+var WsLisTra = "/Servicios/WTrabajador.asmx/ListTrabajadores";
 function BLLUtilidades() {
 
     BLLUtilidades.prototype.getUrl = function (name) {
@@ -8,6 +8,29 @@ function BLLUtilidades() {
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
         results = regex.exec(location.search);
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+
+    
+
+    BLLUtilidades.prototype.AsesorCartera = function () {
+        $.ajax({
+            type: "POST", url: WsLisTra,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+
+                if (result.d == null) {
+                    document.getElementById("#CmbAsesorCart").innerHTML = ""
+                    _ComboAsesor(result.d)
+                }
+                else {
+                    _ComboAsesor(result.d)
+                }
+            },
+            error: function (msg) { alert(msg.responseText); }
+        });
     }
 
     BLLUtilidades.prototype.Bancos = function () {
@@ -103,6 +126,18 @@ function BLLUtilidades() {
         })
          
     }
+
+    _ComboAsesor = function (banco) {
+
+        $.each(banco, function (i, item) {
+            var combo = '<option>';
+            combo += item.T_CEDULA;
+            combo += '</option>';
+            $('#CmbAsesorCart').append(combo);
+        })
+
+    }
+
 
     BLLUtilidades.prototype.FormatNumero = function (numero) {
         var NumeroF = accounting.formatMoney(numero, {

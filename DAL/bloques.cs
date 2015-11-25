@@ -26,7 +26,7 @@ namespace DAL
         public string NOMBRE_BLO { get; set; }
     
         public virtual proyectos proyectos { get; set; }
-        [XmlIgnore]
+         [XmlIgnore]
         public virtual ICollection<inmuebles> inmuebles { get; set; }
     }
 }

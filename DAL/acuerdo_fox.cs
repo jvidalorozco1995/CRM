@@ -30,5 +30,6 @@ namespace DAL
         public string FECHACARTERA { get; set; }
         public string CODCRM { get; set; }
         public string CODIGO { get; set; }
+        public Nullable<int> CODIGOTAREA { get; set; }
     }
 }

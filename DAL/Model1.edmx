@@ -25,6 +25,7 @@
           <Property Name="SALDOXCOBRAR" Type="decimal" Precision="20" Scale="2" />
           <Property Name="FECHACARTERA" Type="varchar" MaxLength="30" />
           <Property Name="CODCRM" Type="varchar" MaxLength="15" />
+          <Property Name="CODIGOTAREA" Type="int" />
         </EntityType>
         <EntityType Name="acuerdo_pago">
           <Key>
@@ -265,6 +266,30 @@
           <Property Name="AUTORIZADOAESCRITURARNOTARIA" Type="varchar" MaxLength="8" />
           <Property Name="SALDOPORPAGARDELACUOTAINICIAL" Type="text" />
           <Property Name="CODIGOINMUEBLE" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="pagos_fox">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Referencia1" Type="varchar" MaxLength="50" />
+          <Property Name="Obra" Type="varchar" MaxLength="30" />
+          <Property Name="Codterc" Type="varchar" MaxLength="15" />
+          <Property Name="Nit" Type="varchar" MaxLength="50" />
+          <Property Name="Recibo" Type="varchar" MaxLength="50" />
+          <Property Name="Nrecibo" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="varchar" MaxLength="30" />
+          <Property Name="Fecharecibo" Type="varchar" MaxLength="20" />
+          <Property Name="Concepto" Type="varchar" MaxLength="300" />
+          <Property Name="Vlrrecibo" Type="varchar" MaxLength="30" />
+          <Property Name="Nconsignacion" Type="varchar" MaxLength="20" />
+          <Property Name="Fechaconsignacion" Type="varchar" MaxLength="20" />
+          <Property Name="Vlrcuotaaplicado" Type="varchar" MaxLength="50" />
+          <Property Name="Detallecuota" Type="varchar" MaxLength="50" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Fechaelaboracion" Type="varchar" MaxLength="20" />
+          <Property Name="Ncheque" Type="varchar" MaxLength="50" />
+          <Property Name="Nota" Type="varchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="planos_Proyectos">
           <Key>
@@ -812,7 +837,9 @@ warning 6002: The table/view 'CRM.dbo.VTracliente' does not have a primary key d
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__tareas__TRABAJAD__571DF1D5">
-          <End Role="trabajadores" Type="Self.trabajadores" Multiplicity="0..1" />
+          <End Role="trabajadores" Type="Self.trabajadores" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="tareas" Type="Self.tareas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="trabajadores">
@@ -841,6 +868,7 @@ warning 6002: The table/view 'CRM.dbo.VTracliente' does not have a primary key d
           <EntitySet Name="inmuebles" EntityType="Self.inmuebles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="negocio" EntityType="Self.negocio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="negocio_fox" EntityType="Self.negocio_fox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pagos_fox" EntityType="Self.pagos_fox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="planos_Proyectos" EntityType="Self.planos_Proyectos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="proyectos" EntityType="Self.proyectos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="proyectos_trabajador" EntityType="Self.proyectos_trabajador" Schema="dbo" store:Type="Tables" />
@@ -1273,6 +1301,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySet Name="acuerdo_fox" EntityType="CRMModel.acuerdo_fox" />
           <EntitySet Name="negocio_fox" EntityType="CRMModel.negocio_fox" />
           <EntitySet Name="NegocioView" EntityType="CRMModel.NegocioView" />
+          <EntitySet Name="pagos_fox" EntityType="CRMModel.pagos_fox" />
           </EntityContainer>
         <EntityType Name="bitacora_tareas">
           <Key>
@@ -2004,6 +2033,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="FECHACARTERA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="CODCRM" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="CODIGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGOTAREA" Type="Int32" />
         </EntityType>
         <EntityType Name="negocio_fox">
           <Key>
@@ -2094,6 +2124,30 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="NOMBRES" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
+        </EntityType>
+        <EntityType Name="pagos_fox">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Referencia1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Obra" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Codterc" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Nit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Recibo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nrecibo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Fecharecibo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Concepto" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Vlrrecibo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nconsignacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fechaconsignacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Vlrcuotaaplicado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Detallecuota" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fechaelaboracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ncheque" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nota" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2638,6 +2692,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="acuerdo_fox">
             <EntityTypeMapping TypeName="CRMModel.acuerdo_fox">
               <MappingFragment StoreEntitySet="acuerdo_fox">
+                <ScalarProperty Name="CODIGOTAREA" ColumnName="CODIGOTAREA" />
                 <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
                 <ScalarProperty Name="CODCRM" ColumnName="CODCRM" />
                 <ScalarProperty Name="FECHACARTERA" ColumnName="FECHACARTERA" />
@@ -2745,6 +2800,31 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
                 <ScalarProperty Name="PROPIETARIO" ColumnName="PROPIETARIO" />
                 <ScalarProperty Name="ID_NEGOCIO" ColumnName="ID_NEGOCIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pagos_fox">
+            <EntityTypeMapping TypeName="CRMModel.pagos_fox">
+              <MappingFragment StoreEntitySet="pagos_fox">
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="Ncheque" ColumnName="Ncheque" />
+                <ScalarProperty Name="Fechaelaboracion" ColumnName="Fechaelaboracion" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Detallecuota" ColumnName="Detallecuota" />
+                <ScalarProperty Name="Vlrcuotaaplicado" ColumnName="Vlrcuotaaplicado" />
+                <ScalarProperty Name="Fechaconsignacion" ColumnName="Fechaconsignacion" />
+                <ScalarProperty Name="Nconsignacion" ColumnName="Nconsignacion" />
+                <ScalarProperty Name="Vlrrecibo" ColumnName="Vlrrecibo" />
+                <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+                <ScalarProperty Name="Fecharecibo" ColumnName="Fecharecibo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Nrecibo" ColumnName="Nrecibo" />
+                <ScalarProperty Name="Recibo" ColumnName="Recibo" />
+                <ScalarProperty Name="Nit" ColumnName="Nit" />
+                <ScalarProperty Name="Codterc" ColumnName="Codterc" />
+                <ScalarProperty Name="Obra" ColumnName="Obra" />
+                <ScalarProperty Name="Referencia1" ColumnName="Referencia1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

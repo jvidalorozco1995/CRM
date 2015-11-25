@@ -120,6 +120,9 @@
     <Compile Include="negocio_fox.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="pagos_fox.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="planos_Proyectos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

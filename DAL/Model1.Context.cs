@@ -63,5 +63,6 @@ namespace DAL
         public DbSet<acuerdo_fox> acuerdo_fox { get; set; }
         public DbSet<negocio_fox> negocio_fox { get; set; }
         public DbSet<NegocioView> NegocioView { get; set; }
+        public DbSet<pagos_fox> pagos_fox { get; set; }
     }
 }

@@ -38,10 +38,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,9 +78,6 @@
     </Reference>
     <Reference Include="Microsoft.ScriptManager.WebForms, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.4.5.6\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
@@ -1462,6 +1465,7 @@
     <Content Include="icons\iconset.svg" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
+    <Content Include="Images\cancel.png" />
     <Content Include="Images\heroAccent.png" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\marker_1.png" />
@@ -2125,7 +2129,9 @@
     <Content Include="assets\less\skins\red.less" />
     <Content Include="assets\less\skins\white.less" />
     <Content Include="assets\less\skins\yellow.less" />
+    <Content Include="handler\SubirArchivoHandler.ashx" />
     <None Include="Properties\PublishProfiles\Webmayales.pubxml" />
+    <Content Include="prueb.aspx" />
     <Content Include="sampledata\data.php" />
     <Content Include="sampledata\debt_top10_2010.csv" />
     <Content Include="sampledata\education_top10_2011.csv" />
@@ -2175,7 +2181,11 @@
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.uploadify.js" />
+    <Content Include="Scripts\jquery.uploadify.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\uploadify.css" />
+    <Content Include="Scripts\uploadify.swf" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -4646,6 +4656,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="handler\SubirArchivoHandler.ashx.cs">
+      <DependentUpon>SubirArchivoHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="LdapAuthentication.cs" />
     <Compile Include="Logon.aspx.cs">
       <DependentUpon>Logon.aspx</DependentUpon>
@@ -4655,6 +4668,13 @@
       <DependentUpon>Logon.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="prueb.aspx.cs">
+      <DependentUpon>prueb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="prueb.aspx.designer.cs">
+      <DependentUpon>prueb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ServiciosFox\WAcuerdosFox.asmx.cs">
       <DependentUpon>WAcuerdosFox.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -4766,6 +4786,7 @@
     <Folder Include="assets\js\aci-tree\php\tree\Item 7\Item 4\Item 3\" />
     <Folder Include="assets\js\aci-tree\php\tree\Item 7\Item 4\Item 4\" />
     <Folder Include="assets\js\selectboxit\css\" />
+    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

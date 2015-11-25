@@ -200,7 +200,81 @@ namespace DAL
         }
 
 
+        //Retorna la lista de Proyectos Multi-Fox
+        public List<PagosFox> ConsultPagosFox()
+        {
+            try
+            {
+                List<PagosFox> litP = new List<PagosFox>();
+                ConectionString = GetConnectionString();
+                OdbcConnection objcon = new OdbcConnection(ConectionString);
+                objcon.Open();
+                cadena = "SELECT LEFT(democuot,9) AS 'referencia1', movidet.demosucu AS 'obra', movimie.moviterc AS 'codterc',"
+                + " tercero.tercnitc AS 'cc/nit', movidet.demomovi AS 'recibo',"
+                + " movidet.demonota AS '#recibo', IIF(movimie.moviesta='A','Anulado','Vigente') AS 'estado',"
+                + " movimie.movifech AS 'fecharecibo', movimie.moviconc AS 'concepto', movimie.movivalo AS 'vlrdelrecibo',"
+                + " movimie.movinuco AS '#consignacion', movimie.movifeco AS 'fechaconsignacion', movidet.demogira AS 'vlrcuotaaplicado',"
+                + " movidet.democuot AS 'detalledelacuota', movimie.moviusua AS 'usuario', movimie.movidate AS 'fechaelaboración', "
+                + " movimie.movicheq AS '#cheque', movimie.movidoc1 AS 'notaqueanulo'"
+                + " FROM movidet movidet, movimie movimie, obradet obradet, obraspr obraspr, tercero tercero"
+                + " WHERE movidet.demonota = movimie.movicodi AND movidet.demomovi = movimie.movimovi AND movidet.demopres = movimie.movipres"
+                + " AND movidet.demosucu = movimie.movisucu AND movimie.moviterc = tercero.terccodi"
+                + " AND movidet.demosucu = obradet.obrdcodi AND movidet.demopres = obradet.obrdpres AND obradet.obrdcodi = obraspr.obracodi AND ((movidet.democuot<>''))"
+                + " ORDER BY movidet.democuot";
 
+                OdbcDataAdapter daProyectofox = new OdbcDataAdapter(cadena, objcon);
+                DataSet dsproyectofox = new DataSet("Pubs");
+                daProyectofox.FillSchema(dsproyectofox, SchemaType.Source, "PAGOS_FOX");
+                daProyectofox.Fill(dsproyectofox, "PAGOS_FOX");
+                DataTable tbproyectosfox = new DataTable();
+                tbproyectosfox = dsproyectofox.Tables["PAGOS_FOX"];
+                if (tbproyectosfox.Columns.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    foreach (DataRow row2 in tbproyectosfox.Rows)
+                    {
+                        PagosFox Pfx = new PagosFox();
+                        Pfx.Referencia1 = row2["referencia1"].ToString();
+                        Pfx.Obra = row2["obra"].ToString();
+                        Pfx.Codterc = row2["codterc"].ToString();
+                        Pfx.Nit = row2["cc/nit"].ToString();
+                        Pfx.Recibo = row2["recibo"].ToString();
+                        Pfx.Nrecibo = row2["#recibo"].ToString();
+                        Pfx.Estado = row2["estado"].ToString();
+                        Pfx.Fecharecibo = row2["fecharecibo"].ToString();
+                        Pfx.Concepto = row2["concepto"].ToString();
+                        Pfx.Vlrrecibo = row2["vlrdelrecibo"].ToString();  
+                        Pfx.Nconsignacion = row2["#consignacion"].ToString();
+                        Pfx.Fechaconsignacion = row2["fechaconsignacion"].ToString();
+                        Pfx.Vlrcuotaaplicado = row2["vlrcuotaaplicado"].ToString();
+                        Pfx.Detallecuota = row2["detalledelacuota"].ToString();
+                        Pfx.Usuario = row2["usuario"].ToString();
+                        Pfx.Fechaelaboracion = row2["fechaelaboración"].ToString();
+                        Pfx.Ncheque = row2["#cheque"].ToString();
+                        Pfx.Nota = row2["notaqueanulo"].ToString();
+                        litP.Add(Pfx);
+                    }
+                    return litP;
+                }
+            }
+            catch (OdbcException)
+            {
+                throw;
+
+            }
+            catch (NullReferenceException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         //Retorna la lista de Proyectos Multi-Fox
         public List<ProyecFox> ConsulProyec()

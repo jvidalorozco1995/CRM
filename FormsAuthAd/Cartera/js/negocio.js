@@ -48,7 +48,27 @@ var _admnegocio = (function () {
        $(document).on('click', '#BtnCrearH', function () {
             console.log(Dtohoja())
             console.log(acuerdoP)
-            _negocio._addHoja(Dtohoja(), inmueble,acuerdoP);
+            _negocio._addHoja(Dtohoja(), inmueble, acuerdoP);
+            var fileUpload = $("#txtUploadFile").get(0);
+            var files = fileUpload.files;
+            var test = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                test.append(files[i].name, files[i]);
+            }
+            $.ajax({
+                url: "../../handler/SubirArchivoHandler.ashx",
+                type: "POST",
+                contentType: false,
+                processData: false,
+                data: test,
+                // dataType: "json",
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
         });
 
         $(document).on('click', '#BtnDisponibilidad', function () {
@@ -70,6 +90,9 @@ var _admnegocio = (function () {
             }
                 
         });
+     
+
+     
 
         $(document).on('click', '#BtnAsociadoc', function () {
             cedula = $('#TxtIdentidad').val();
@@ -307,6 +330,7 @@ var _admnegocio = (function () {
         negocio.ASESOR_INFO = $("#Textasesorinf").val();
         negocio.MEDIO_ENT = $("#TextmedioInf").val();
         negocio.INGRESO = $("#TextIngresos").val();
+        negocio.USER_CARTERA = $("#CmbAsesorCart").val();
         negocio.ASOCIADO = cactual;
         negocio.SEPARACION = separacion;
         return negocio;
@@ -319,6 +343,7 @@ var _admnegocio = (function () {
         inmuebles._lisnegociosepracion(proyec);
         $('#Principal').hide();
         utl.Bancos();
+        utl.AsesorCartera();
     }
 
     return {
@@ -331,6 +356,8 @@ var _admnegocio = (function () {
 }());
 
 $(document).ready(function () {
+  
+
     
    $('#TextExpedicion').datepicker({
         format: 'yyyy/mm/dd',

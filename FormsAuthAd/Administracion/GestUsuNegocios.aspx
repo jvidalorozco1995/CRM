@@ -32,7 +32,7 @@
                 <div class="modal-content">
                     <div class="color-line"></div>
                     <div class="modal-header">
-                        <h4 class="modal-title">Asignacion de Proyectos</h4>
+                        <h4 class="modal-title">Asignacion de negocios</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group col-lg-6">
