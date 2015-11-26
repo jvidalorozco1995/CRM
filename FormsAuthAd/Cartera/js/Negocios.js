@@ -1,38 +1,39 @@
-﻿var gp = new BLLProyectos();
+﻿
 var neg = new BLLnegocio();
-
+var tar = new BLLTareas();
+var Ac = new BLLAcuerdosFox();
 var admUser = (function () {
 
-   
-    var WsLisTra = "/Servicios/WTrabajador.asmx/ListTrabajadores";//Cosulto Trabajadores
-    var WsListProyec = "/ServiciosFox/WProyectos.asmx/LisProyectos";//Consulto Proyectos CRM
-    var WsListNegocio = "/Servicios/WNegocio.asmx/lisAllHoja";//Consulto Proyectos CRM
-    var WsUpdateNegocio= "/Servicios/WNegocio.asmx/UpdateUsuarioCartera";//Consulto Proyectos CRM
+
+
+    var WsListNegocio = "/Servicios/WNegocioFox.asmx/lisHoja";//Consulto Proyectos CRM
+
 
     var _addHandlers = function () {
 
-        //Asignar Proyectos a trabajador MODAL
+        /*//Asignar Proyectos a trabajador MODAL
         $(document).on('click', '.Asignar', function () {
-            neg.ListNegocio(WsListNegocio,"Admingestusu");
+          
             $('#ModalAsignar').modal('show');
             var dtot = $(this).attr("id");
             var result = dtot.split('-');
             $('#TxtCodigo').val(result[0]);
             $('#TxtProyecto').val(result[1]);
         });
-
+        */
 
         //Asignar Proyectos al trabajador
         $(document).on('click', '.CargarNego', function () {
             cedula = $(this).attr("id");
             alert(cedula);
-            $('#ModalAsignar').modal('hide');
-            neg.UpdateCarteraNegocio(cedula, $('#TxtCodigo').val(), WsUpdateNegocio);
+            //$('#ModalAsignar').modal('hide');
+            tar.TareasNegocio(cedula);
+            Ac.AcuerdosFox(cedula);
         })
     };
 
     var _Inicio = function () {
-        gp.ListTrabajadores(WsLisTra);
+        neg.ListNegocioFOX(WsListNegocio, "Negocio");
     }
 
     return {

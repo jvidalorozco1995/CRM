@@ -16,8 +16,8 @@ namespace DAL
     {
         public int ID_AC_PF { get; set; }
         public string NO_ACUERDO { get; set; }
+        public string CUOTA { get; set; }
         public Nullable<System.DateTime> FECHA_PAGO { get; set; }
         public Nullable<decimal> VALOR_CUOTA { get; set; }
-        public string CUOTA { get; set; }
     }
 }

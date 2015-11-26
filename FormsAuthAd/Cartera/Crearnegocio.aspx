@@ -29,7 +29,7 @@
     <script src="../scripts_crm/HttpBll.js"></script>
     <script src="../BLLscripts/BLLInmuebles.js"></script>
     <script src="../BLLscripts/BLLnegocio.js"></script>
-    <script src="js/negocio.js"></script>   
+    <script src="js/GestCartera.js"></script>   
 
   
 

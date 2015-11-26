@@ -34,7 +34,7 @@ namespace DAL
         public Nullable<System.DateTime> FECHACREACION { get; set; }
         public Nullable<System.DateTime> FECHAMOD { get; set; }
         public string INFORMACION { get; set; }
-        public int ID_EMP { get; set; }
+        public Nullable<int> ID_EMP { get; set; }
         public string TRABAJADOR { get; set; }
         public string TEL_EMP { get; set; }
         public string NOMBRE_SALA { get; set; }

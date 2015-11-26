@@ -38,6 +38,6 @@ namespace Entity
         public int FECHACREA {get;set;}
         public int MES { get; set; }
         public int YEAR { get; set; }
-        public int EMPRESA_N { get; set; }
+        public int? EMPRESA_N { get; set; }
     }
 }

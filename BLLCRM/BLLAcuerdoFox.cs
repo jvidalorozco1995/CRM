@@ -144,7 +144,7 @@ namespace BLLCRM
                     if (ac_crm.VLRCUOTA != ac_fox.VLRCUOTA) { EntidadPosicion.VLRCUOTA = ac_fox.VLRCUOTA; Cantidad++; }
                     if (ac_crm.PAGOCUOTA != ac_fox.PAGOCUOTA) { EntidadPosicion.PAGOCUOTA = ac_fox.PAGOCUOTA; Cantidad++; }
                     if (ac_crm.SALDOXCOBRAR != ac_fox.SALDOXCOBRAR) { EntidadPosicion.SALDOXCOBRAR = ac_fox.SALDOXCOBRAR; Cantidad++; }
-                    if (ac_crm.FECHACARTERA != ac_fox.FECHACARTERA) { EntidadPosicion.FECHACARTERA = ac_fox.FECHACARTERA; Cantidad++; }
+                    if (ac_crm.FECHACARTERA != Convert.ToDateTime(ac_fox.FECHACARTERA).ToShortDateString()) { EntidadPosicion.FECHACARTERA = Convert.ToDateTime(ac_fox.FECHACARTERA).ToShortDateString(); Cantidad++; }
                     //Si contador es mayor a cero guardamos los cambios
                     if (Cantidad > 0)
                     {
@@ -167,21 +167,15 @@ namespace BLLCRM
             }
            return 1;
         }
-        //Metodo para insertar el acuerdo
-      
-        public int InsertarAcuerdo(AcuerdoFox ac_fox)
-        {
-            try
-            {
-             
-            }
-            catch (Exception ex) {
+        //Metodo para listar los acuerdos
+        public List<VacuerdosFox> AcuerdosFox(string Negocio) {
 
-                throw ex;
-            }
+            List<VacuerdosFox> Vacuerdo = bd.VacuerdosFox.Where(t=>t.REFERENCIA1 == Negocio).ToList();
 
-            return 1;
+            return Vacuerdo;
         }
+      
+       
     }
 
     }

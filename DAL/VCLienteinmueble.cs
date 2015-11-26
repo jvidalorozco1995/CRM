@@ -19,6 +19,7 @@ namespace DAL
         public string S_APELLIDO { get; set; }
         public string DIRECCION { get; set; }
         public string EMAIL { get; set; }
+        public Nullable<int> DIAS_T { get; set; }
         public Nullable<int> DIAS { get; set; }
         public string PROYEC_INTERES { get; set; }
         public string ASESOR { get; set; }
@@ -34,7 +35,6 @@ namespace DAL
         public string INMUEBLE { get; set; }
         public Nullable<System.DateTime> FECHASEPARACION { get; set; }
         public Nullable<System.DateTime> FECHAFINAL { get; set; }
-        public Nullable<int> DIAS_T { get; set; }
         public string ESTADO_C { get; set; }
     }
 }

@@ -12,10 +12,10 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class empresas
+    public partial class documentos_negocio
     {
-        public int ID_EMP { get; set; }
-        public string NOMBRE_EMP { get; set; }
-        public string TEL_EMP { get; set; }
+        public int ID { get; set; }
+        public string NEGOCIO { get; set; }
+        public string DOCUMENTO { get; set; }
     }
 }

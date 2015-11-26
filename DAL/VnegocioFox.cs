@@ -12,10 +12,15 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class empresas
+    public partial class VnegocioFox
     {
-        public int ID_EMP { get; set; }
-        public string NOMBRE_EMP { get; set; }
-        public string TEL_EMP { get; set; }
+        public string NOMBREBLOQUE { get; set; }
+        public string CEDULA_P { get; set; }
+        public string NOMBRECLIENTE { get; set; }
+        public string CODIGOINMUEBLE { get; set; }
+        public string CODIGOCRM { get; set; }
+        public string SUCURSAL { get; set; }
+        public string NEGOCIO { get; set; }
+        public int ID { get; set; }
     }
 }

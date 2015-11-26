@@ -12,10 +12,12 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class empresas
+    public partial class historial_acuerdos_pagos
     {
-        public int ID_EMP { get; set; }
-        public string NOMBRE_EMP { get; set; }
-        public string TEL_EMP { get; set; }
+        public int ID_HISTORIAL { get; set; }
+        public string CLIENTEH { get; set; }
+        public string TRABAJADOR { get; set; }
+        public string DESCRIPCIONH { get; set; }
+        public Nullable<System.DateTime> FECHA { get; set; }
     }
 }

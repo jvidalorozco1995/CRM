@@ -1,4 +1,6 @@
-﻿function BLLTareas() {
+﻿var BLLTareas = function () {
+
+};
 
     var WsInfotarea = "/Servicios/WTareas.asmx/InfoTareas";//Informacion de tareas especifica
     var WSEsTareas = "/Servicios/WTareas.asmx/ETareas";//Servicio para Terminar dar por finalizada la tarea
@@ -11,6 +13,8 @@
     var WEstadoTareas = "/Servicios/WTareas.asmx/ListaEstadoTareas";//Listado de tareas
     var WEstadoTareasclientes = "/Servicios/WTareas.asmx/ListaEstadoTareasclientes";
 
+    var WTareasNegocio = "/Servicios/WTareas.asmx/GetTareasNegocios"
+    
     var color = null;
 
     //Metodo para Crear cliente
@@ -49,6 +53,26 @@
             error: function (error) { alert(error.responseText); }
         });
 
+    }
+
+    BLLTareas.prototype.TareasNegocio = function (negocio) {
+        jsonData = "{'c':" + JSON.stringify(negocio) + "}";
+        $.ajax({
+            type: "POST", url: WTareasNegocio, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d === null) {
+                   
+                }
+                else {
+                    BLLTareas.TablaTareasNegocio(result.d);
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        })
     }
 
     BLLTareas.prototype.EstadoTareas = function (estado) {
@@ -547,4 +571,45 @@
         $('#estados').dataTable();
     };
 
-}
+    BLLTareas.TablaTareasNegocio = function (clientes) {
+        document.getElementById('clientesData').innerHTML = "";
+        var tabla = '<table id="estados" class="table table-striped table-bordered table-hover">';
+        tabla += "<thead>";
+        tabla += "<tr>";
+        tabla += "<th>CLIENTE</th>";
+        tabla += "<th>FECHA INICIO</th>";
+        tabla += "<th>FECHA FIN</th>";
+        tabla += "<th>Tareas</th>";
+        tabla += "</tr>";
+        tabla += "</thead>";
+        tabla += "<tbody>";
+        $.each(clientes, function (i, item) {
+            tabla += " <tr>";
+            tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + "</td>";
+            tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
+            tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
+            switch (item.ESTADO) {
+                case "T":
+                    tabla += "<td ><img src='../../images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    break
+                case "E":
+                    tabla += "<td ><img src='../../images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
+                    break
+                case "P":
+                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    break
+                case "V":
+                    tabla += "<td ><img src='../../images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    break
+                case null:
+                    tabla += "<td></td>";
+                    break
+            }
+            tabla += "</tr>";
+
+        });
+        tabla += "</tbody>";
+        tabla += "</table>";
+        $('#clientesData').append(tabla);
+        $('#estados').dataTable();
+    };

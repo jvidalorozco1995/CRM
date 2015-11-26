@@ -12,24 +12,22 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class acuerdo_fox
+    public partial class VacuerdosFox
     {
-        public int ID { get; set; }
         public string CODIGO { get; set; }
-        public string REFERENCIA1 { get; set; }
-        public string INMUEBLE { get; set; }
-        public string NEGOCIO { get; set; }
-        public string FECHANEGOCIO { get; set; }
         public string CONCEPTO { get; set; }
-        public string FECHACUOTA { get; set; }
-        public string ANO { get; set; }
-        public string MES { get; set; }
-        public string DIA { get; set; }
         public Nullable<decimal> VLRCUOTA { get; set; }
         public Nullable<decimal> PAGOCUOTA { get; set; }
         public Nullable<decimal> SALDOXCOBRAR { get; set; }
-        public string FECHACARTERA { get; set; }
+        public string INMUEBLE { get; set; }
+        public string NEGOCIO { get; set; }
         public string CODCRM { get; set; }
         public Nullable<int> CODIGOTAREA { get; set; }
+        public string FECHACARTERA { get; set; }
+        public Nullable<decimal> VLRINICIALCUOTA { get; set; }
+        public Nullable<decimal> VLRCREDITO { get; set; }
+        public Nullable<decimal> VLRNEGOCIO { get; set; }
+        public int ID { get; set; }
+        public string REFERENCIA1 { get; set; }
     }
 }

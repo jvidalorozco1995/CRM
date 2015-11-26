@@ -52,7 +52,7 @@ namespace DAL
         public Nullable<int> SEPARACION { get; set; }
         public string CODIGO_F { get; set; }
         public string USER_CREO { get; set; }
-        public Nullable<decimal> INGRESO { get; set; }
         public string USER_CARTERA { get; set; }
+        public Nullable<decimal> INGRESO { get; set; }
     }
 }

@@ -40,6 +40,16 @@ namespace FormsAuthAd.Servicios
             return bt.GetTareas(c);
         }
 
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
+        public List<VtareasNegocio> GetTareasNegocios(string c)
+        {
+            return bt.GestTareasNegocio(c);
+        }
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 

@@ -1331,6 +1331,7 @@
     <Content Include="assets\less\font-icons\font-awesome\css\font-awesome.min.css" />
     <Content Include="assets\less\font-icons\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\less\index.html" />
+    <Content Include="BLLscripts\BLLAcuerdosFox.js" />
     <Content Include="BLLscripts\BLLBloques.js" />
     <Content Include="BLLscripts\BLLClientes.js" />
     <Content Include="BLLscripts\BLLComercial.js" />
@@ -1354,7 +1355,9 @@
     <Content Include="Cartera\GesCartera.aspx" />
     <Content Include="Cartera\js\Cartera.js" />
     <Content Include="Cartera\js\Hoja.js" />
-    <Content Include="Cartera\js\negocio.js" />
+    <Content Include="Cartera\js\GestCartera.js" />
+    <Content Include="Cartera\js\Negocios.js" />
+    <Content Include="Cartera\Negocios.aspx" />
     <Content Include="Comercial\clientes\Clientes.aspx" />
     <Content Include="Comercial\clientes\js\clientes.js" />
     <Content Include="Comercial\GesComercial.aspx" />
@@ -2234,6 +2237,7 @@
     <Content Include="ServiciosFox\WAcuerdosFox.asmx" />
     <Content Include="ServiciosFox\WBloques.asmx" />
     <Content Include="ServiciosFox\WNegocios.asmx" />
+    <Content Include="Servicios\AcuerdosFox.asmx" />
     <Content Include="Servicios\WClientes.asmx" />
     <Content Include="Servicios\WConfiguracionNegocios.asmx" />
     <Content Include="Servicios\WEmpresas.asmx" />
@@ -2245,6 +2249,7 @@
     <Content Include="ServiciosFox\WInmuebles.asmx" />
     <Content Include="Servicios\WNegocio.asmx" />
     <Content Include="ServiciosFox\WProyectos.asmx" />
+    <Content Include="Servicios\WNegocioFox.asmx" />
     <Content Include="Servicios\WSala_Ventas.asmx" />
     <Content Include="Servicios\WSeparaciones.asmx" />
     <Content Include="Servicios\WServidores.asmx" />
@@ -4548,6 +4553,13 @@
     <Compile Include="Cartera\GesCartera.aspx.designer.cs">
       <DependentUpon>GesCartera.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cartera\Negocios.aspx.cs">
+      <DependentUpon>Negocios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cartera\Negocios.aspx.designer.cs">
+      <DependentUpon>Negocios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Comercial\clientes\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4687,6 +4699,10 @@
       <DependentUpon>WNegocios.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Servicios\AcuerdosFox.asmx.cs">
+      <DependentUpon>AcuerdosFox.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Servicios\WClientes.asmx.cs">
       <DependentUpon>WClientes.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -4729,6 +4745,10 @@
     </Compile>
     <Compile Include="ServiciosFox\WProyectos.asmx.cs">
       <DependentUpon>WProyectos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WNegocioFox.asmx.cs">
+      <DependentUpon>WNegocioFox.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WSala_Ventas.asmx.cs">

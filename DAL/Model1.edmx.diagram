@@ -4,61 +4,65 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="69171ca446b64ba8985192ee0c282ec6" Name="Diagrama1" ZoomLevel="77">
-        <EntityTypeShape EntityType="CRMModel.bitacora_tareas" PointX="0.75" PointY="8.625" Width="1.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.bloques" PointX="0.625" PointY="11.875" Width="1.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.inmuebles" PointX="11.25" PointY="11.75" Width="1.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.planos_Proyectos" PointX="0.625" PointY="12.75" Width="1.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.proyectos" PointX="3.125" PointY="12.625" Width="1.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.proyectos_trabajador" PointX="0.75" PointY="10.875" Width="1.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.trabajadores" PointX="4.5" PointY="13.5" Width="1.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.Vdetallesp" PointX="3.625" PointY="5.25" Width="3.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.Vinmuebles" PointX="7" PointY="6.25" Width="3.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.Vspt" PointX="10.375" PointY="6.25" Width="3" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.VTareas" PointX="7" PointY="6.75" Width="3.25" IsExpanded="false" />
-        <AssociationConnector Association="CRMModel.FK__bloques__BLOQUE___7A521F79" />
+      <Diagram DiagramId="69171ca446b64ba8985192ee0c282ec6" Name="Diagrama1" ZoomLevel="124">
+        <EntityTypeShape EntityType="CRMModel.acuerdo_fox" Width="1.5" PointX="5.75" PointY="1" />
+        <EntityTypeShape EntityType="CRMModel.acuerdo_pago" Width="1.5" PointX="7.75" PointY="1" />
+        <EntityTypeShape EntityType="CRMModel.bancos" Width="1.5" PointX="7.75" PointY="4" />
+        <EntityTypeShape EntityType="CRMModel.bitacora_tareas" Width="1.5" PointX="8.75" PointY="7" />
+        <EntityTypeShape EntityType="CRMModel.bloques" Width="1.5" PointX="1.5" PointY="12.875" />
+        <EntityTypeShape EntityType="CRMModel.clientes" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="CRMModel.concepto_p" Width="1.5" PointX="9.75" PointY="1" />
+        <EntityTypeShape EntityType="CRMModel.configuracion" Width="1.5" PointX="9.75" PointY="4" />
+        <EntityTypeShape EntityType="CRMModel.Configuracion_negocio" Width="1.5" PointX="8.75" PointY="10" />
+        <EntityTypeShape EntityType="CRMModel.documentos_negocio" Width="1.5" PointX="10.75" PointY="7" />
+        <EntityTypeShape EntityType="CRMModel.empresas" Width="1.5" PointX="10.75" PointY="10" />
+        <EntityTypeShape EntityType="CRMModel.historial_clientes" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="CRMModel.historial_inmueble" Width="1.5" PointX="3" PointY="17.125" />
+        <EntityTypeShape EntityType="CRMModel.informacion" Width="1.5" PointX="11.75" PointY="1" />
+        <EntityTypeShape EntityType="CRMModel.inmueble_separacion" Width="1.5" PointX="6" PointY="6.5" />
+        <EntityTypeShape EntityType="CRMModel.inmuebles" Width="1.5" PointX="3.75" PointY="12.25" />
+        <EntityTypeShape EntityType="CRMModel.negocio" Width="1.5" PointX="12.75" PointY="4" />
+        <EntityTypeShape EntityType="CRMModel.negocio_fox" Width="1.5" PointX="8.75" PointY="13" />
+        <EntityTypeShape EntityType="CRMModel.pagos_fox" Width="1.5" PointX="5.75" PointY="14" />
+        <EntityTypeShape EntityType="CRMModel.planos_Proyectos" Width="1.5" PointX="3.75" PointY="21" />
+        <EntityTypeShape EntityType="CRMModel.proyectos" Width="1.5" PointX="1.5" PointY="21" />
+        <EntityTypeShape EntityType="CRMModel.proyectos_trabajador" Width="1.5" PointX="6.75" PointY="10.875" />
+        <EntityTypeShape EntityType="CRMModel.sala_ventas" Width="1.5" PointX="13.75" PointY="1" />
+        <EntityTypeShape EntityType="CRMModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="14" />
+        <EntityTypeShape EntityType="CRMModel.tareas" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="CRMModel.trabajadores" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CRMModel.historial_acuerdos_pagos" Width="1.5" PointX="12.75" PointY="14" />
+        <EntityTypeShape EntityType="CRMModel.NegocioView" Width="1.5" PointX="14.75" PointY="4" />
+        <EntityTypeShape EntityType="CRMModel.VAsesoresT" Width="1.5" PointX="14.75" PointY="14" />
+        <EntityTypeShape EntityType="CRMModel.VCLienteinmueble" Width="1.5" PointX="16.75" PointY="1" />
+        <EntityTypeShape EntityType="CRMModel.Vclientes" Width="1.5" PointX="16.75" PointY="7" />
+        <EntityTypeShape EntityType="CRMModel.Vclienteseparacion" Width="1.5" PointX="10.75" PointY="17" />
+        <EntityTypeShape EntityType="CRMModel.VClientesTareas" Width="1.5" PointX="12.75" PointY="17" />
+        <EntityTypeShape EntityType="CRMModel.VCod_SP" Width="1.5" PointX="16.75" PointY="14" />
+        <EntityTypeShape EntityType="CRMModel.Vdetallesp" Width="1.5" PointX="14.75" PointY="17" />
+        <EntityTypeShape EntityType="CRMModel.VFechasProyectos" Width="1.5" PointX="16.75" PointY="17" />
+        <EntityTypeShape EntityType="CRMModel.Vinmuebles" Width="1.5" PointX="18.75" PointY="1" />
+        <EntityTypeShape EntityType="CRMModel.VinteresProyect" Width="1.5" PointX="18.75" PointY="5" />
+        <EntityTypeShape EntityType="CRMModel.Vsepracioninmuebles" Width="1.5" PointX="18.75" PointY="8" />
+        <EntityTypeShape EntityType="CRMModel.Vspt" Width="1.5" PointX="18.75" PointY="17" />
+        <EntityTypeShape EntityType="CRMModel.VTareas" Width="1.5" PointX="5.75" PointY="20" />
+        <EntityTypeShape EntityType="CRMModel.VtareasNegocio" Width="1.5" PointX="16.75" PointY="20" />
+        <EntityTypeShape EntityType="CRMModel.VTracliente" Width="1.5" PointX="18.75" PointY="20" />
+        <AssociationConnector Association="CRMModel.FK__bloques__BLOQUE___4CA06362" />
         <AssociationConnector Association="CRMModel.FK__inmuebles__INMUO__02E7657A" />
-        <AssociationConnector Association="CRMModel.FK__planos_Pr__TIPO___338A9CD5" />
-        <AssociationConnector Association="CRMModel.FK__proyectos__PROYE__1D9B5BB6" />
-        <AssociationConnector Association="CRMModel.FK__proyectos__TRABA__1CA7377D" />
-        <EntityTypeShape EntityType="CRMModel.tareas" PointX="6.625" PointY="12" Width="1.5" IsExpanded="false" />
-        <AssociationConnector Association="CRMModel.FK__tareas__TRABAJAD__48A5B54C" />
-        <EntityTypeShape EntityType="CRMModel.VTracliente" PointX="3.625" PointY="6.375" Width="3.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.sala_ventas" PointX="0.75" PointY="9.125" Width="1.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.VinteresProyect" PointX="3.625" PointY="5.75" Width="3.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.VAsesoresT" PointX="7" PointY="5.75" Width="3.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.VFechasProyectos" PointX="10.375" PointY="5.25" Width="3" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.historial_clientes" PointX="5.5" PointY="8.5" Width="1.5" IsExpanded="false" />
-        <AssociationConnector Association="CRMModel.FK__historial__traba__1FF8A574" />
-        <EntityTypeShape EntityType="CRMModel.informacion" PointX="10.375" PointY="5.75" Width="3" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.historial_inmueble" PointX="8.875" PointY="13.625" Width="1.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.inmueble_separacion" PointX="10.125" PointY="14.625" Width="1.5" IsExpanded="false" />
-        <AssociationConnector Association="CRMModel.FK__inmueble___INMUE__20CCCE1C" />
-        <EntityTypeShape EntityType="CRMModel.VCLienteinmueble" Width="3.25" PointX="7" PointY="7.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.VClientesTareas" Width="3" PointX="10.375" PointY="7.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.clientes" Width="1.5" PointX="9.375" PointY="8.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.empresas" Width="1.5" PointX="12.25" PointY="8.5" IsExpanded="false" />
-        <AssociationConnector Association="CRMModel.FK__clientes__EMPRES__1AC9DC03" />
-        <AssociationConnector Association="CRMModel.FK__historial__clien__1F04813B" ManuallyRouted="false" >
-        </AssociationConnector>
+        <AssociationConnector Association="CRMModel.FK__historial__clien__1F04813B" />
         <AssociationConnector Association="CRMModel.FK__historial__CLIEN__6F2063EF" />
         <AssociationConnector Association="CRMModel.FK__inmueble___CLIEN__1FD8A9E3" />
         <AssociationConnector Association="CRMModel.FK__tareas__CLIENTE__47B19113" />
-        <EntityTypeShape EntityType="CRMModel.Vclienteseparacion" Width="3.25" PointX="7" PointY="5.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.VCod_SP" Width="3.625" PointX="5.875" PointY="4.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.Vclientes" Width="1.5" PointX="4.25" PointY="4.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.concepto_p" Width="3" PointX="10.375" PointY="6.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.Vsepracioninmuebles" Width="3" PointX="1.125" PointY="4.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.bancos" Width="2.75" PointX="14" PointY="5.375" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.configuracion" Width="2.75" PointX="16.5" PointY="4.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.acuerdo_pago" Width="3.75" PointX="10.125" PointY="4.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.Configuracion_negocio" Width="1.5" PointX="6.875" PointY="3.5" IsExpanded="false" />
-        <EntityTypeShape EntityType="CRMModel.negocio" Width="1.5" PointX="0.75" PointY="14.75" />
-        <EntityTypeShape EntityType="CRMModel.acuerdo_fox" Width="1.5" PointX="5.375" PointY="14.75" />
-        <EntityTypeShape EntityType="CRMModel.negocio_fox" Width="1.5" PointX="15.375" PointY="6.75" />
-        <EntityTypeShape EntityType="CRMModel.NegocioView" Width="1.5" PointX="12.375" PointY="13.75" />
-        <EntityTypeShape EntityType="CRMModel.pagos_fox" Width="1.5" PointX="7.375" PointY="15.75" />
-        </Diagram>
+        <AssociationConnector Association="CRMModel.FK__historial__traba__1FF8A574" />
+        <AssociationConnector Association="CRMModel.FK__inmueble___INMUE__20CCCE1C" />
+        <AssociationConnector Association="CRMModel.FK__planos_Pr__PROYE__534D60F1" />
+        <AssociationConnector Association="CRMModel.FK__proyectos__PROYE__1D9B5BB6" />
+        <AssociationConnector Association="CRMModel.FK__proyectos__TRABA__1CA7377D" />
+        <AssociationConnector Association="CRMModel.FK__tareas__TRABAJAD__571DF1D5" />
+        <EntityTypeShape EntityType="CRMModel.VnegocioFox" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CRMModel.VacuerdosFox" Width="1.5" PointX="21.375" PointY="4.75" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

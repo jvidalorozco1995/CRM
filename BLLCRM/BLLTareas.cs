@@ -89,7 +89,47 @@ namespace BLLCRM
                 
                 throw;
             }
-        }        
+        }
+
+
+
+        /// <summary>
+        /// Metodo Retorna un listado de tareas asignadas a un cliente en especifico
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public List<VtareasNegocio> GestTareasNegocio(string c)
+        {
+            List<VtareasNegocio> lisT = bd.VtareasNegocio.OrderByDescending(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c).ToList();
+            List<VtareasNegocio> Vtc = new List<VtareasNegocio>();
+            if (lisT.Count.Equals(0))
+            {
+                return Vtc;
+            }
+            else
+            {
+
+                foreach (var item in lisT)
+                {
+                    VtareasNegocio lt = new VtareasNegocio();
+                    lt.CLIENTE = item.CLIENTE;
+                    lt.NOMBRES = item.NOMBRES;
+                    lt.CONCEPTO = item.CONCEPTO;
+                    lt.FECHAINICIO = item.FECHAINICIO;
+                    lt.FECHAFIN = item.FECHAFIN;
+                    lt.ESTADO = item.ESTADO;
+                    lt.ID_TAREA = item.ID_TAREA;
+                    lt.TRABAJADOR = item.TRABAJADOR;
+                    lt.NEGOCIO = item.NEGOCIO;
+                    Vtc.Add(lt);
+                }
+                return Vtc;
+            }
+
+        }
+
+
+
         /// <summary>
         /// Metodo Retorna un listado de tareas asignadas a un cliente en especifico
         /// </summary>

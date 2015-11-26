@@ -24,6 +24,41 @@ var Waddnegocio = "/Servicios/WNegocio.asmx/DatoNegocio";
 var _banco;
 
 
+
+//tabla para cargar los negocios al modulo de cartera
+BLLnegocio.CrearTabl = function (proyectos) {
+    document.getElementById('TblNegocios').innerHTML = "";
+    var tabla = '<table id="exampleP" class="table table-striped table-bordered table-hover">';
+    tabla += "<thead>";
+    tabla += "<tr>";
+    tabla += "<th>MANZANA/BLOQUE</th>";
+    tabla += "<th>CC/NIT</th>";
+    tabla += "<th>NOMBRE CLIENTE</th>";
+    tabla += "<th>INMUEBLE</th>";
+
+    tabla += "</tr>";
+    tabla += "</thead>";
+    tabla += "<tbody>";
+    $.each(proyectos, function (i, item) {
+        console.log(item.NEGOCIO);
+        tabla += " <tr class='CargarNego' id=" + item.NEGOCIO + ">";
+        tabla += "<td style='width:200px'>" + item.NOMBREBLOQUE + "</td>";
+        tabla += "<td>" + item.CEDULA_P + "</td>";
+        tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
+        tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
+        tabla += "</td>";
+        tabla += "</tr>";
+
+    });
+    tabla += "</tbody>";
+    tabla += "</table>";
+    $('#TblNegocios').append(tabla);
+    $('#exampleP').dataTable();
+}
+
+
+
+
 //tabla Proyectos CRM Asignar  Usuarios
 BLLnegocio.CrearTablaPro = function (proyectos) {
     document.getElementById('Tabla2').innerHTML = "";
@@ -56,8 +91,8 @@ BLLnegocio.CrearTablaPro = function (proyectos) {
 
 BLLnegocio.prototype = {
     
-    ListNegocio: function (Wsurl) {
-    
+    ListNegocio: function (Wsurl,neg) {
+   
         $.ajax({
             type: "POST", url: Wsurl,
             contentType: "application/json; charset=utf-8",
@@ -68,13 +103,39 @@ BLLnegocio.prototype = {
 
                 }
                 else {
-                    BLLnegocio.CrearTablaPro(result.d)
+                    if (neg == "Admingestusu") {
 
+                        BLLnegocio.CrearTablaPro(result.d)
+                    }
                 }
            },
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
-   },
+    },
+
+    ListNegocioFOX: function (Wsurl, neg) {
+ 
+        $.ajax({
+            type: "POST", url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                }
+                else {
+                  
+                        BLLnegocio.CrearTabl(result.d)
+                    
+
+                }
+            },
+            error: function (obj, error, objError) { alert(obj.responseText); }
+        });
+    },
+
+
    UpdateCarteraNegocio: function (id, USER_CARTERA, Wsurl) {
         var datos = "{'id':" + JSON.stringify(id) + ",'USER_CARTERA':" + JSON.stringify(USER_CARTERA)+"}";
         $.ajax({

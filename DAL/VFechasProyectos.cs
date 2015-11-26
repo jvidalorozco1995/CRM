@@ -15,9 +15,9 @@ namespace DAL
     public partial class VFechasProyectos
     {
         public Nullable<int> CONTADOR { get; set; }
-        public string NOMBRE_PROYEC { get; set; }
         public string ID_PROYEC { get; set; }
         public Nullable<int> MES { get; set; }
         public Nullable<int> YEAR { get; set; }
+        public string NOMBRE_PROYEC { get; set; }
     }
 }

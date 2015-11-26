@@ -14,6 +14,16 @@ namespace BLLCRM
         CRMEntiti bd = new CRMEntiti();
         private string resul;
         private string user = null;
+
+
+
+        public List<VnegocioFox> ListHojas()
+        {
+            List<VnegocioFox> list = bd.VnegocioFox.ToList();
+
+            return list;
+        }
+
         /// <summary>
         /// Metodo para alamacenar hoja de negocio en el sistema
         /// </summary>

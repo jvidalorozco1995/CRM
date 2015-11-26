@@ -18,11 +18,12 @@ namespace DAL
         public string CLIENTE { get; set; }
         public string TRABAJADOR { get; set; }
         public string CONCEPTO { get; set; }
+        public string NEGOCIO { get; set; }
         public Nullable<System.DateTime> FECHAINICIO { get; set; }
         public Nullable<System.DateTime> FECHAFIN { get; set; }
         public string ESTADO { get; set; }
     
-        public virtual trabajadores trabajadores { get; set; }
         public virtual clientes clientes { get; set; }
+        public virtual trabajadores trabajadores { get; set; }
     }
 }

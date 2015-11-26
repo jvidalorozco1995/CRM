@@ -17,9 +17,9 @@ namespace DAL
     {
         public trabajadores()
         {
+            this.historial_clientes = new HashSet<historial_clientes>();
             this.proyectos_trabajador = new HashSet<proyectos_trabajador>();
             this.tareas = new HashSet<tareas>();
-            this.historial_clientes = new HashSet<historial_clientes>();
         }
     
         public string T_CEDULA { get; set; }
@@ -27,10 +27,10 @@ namespace DAL
         public string EMAIL { get; set; }
         public string TIPO { get; set; }
         [XmlIgnore]
+        public virtual ICollection<historial_clientes> historial_clientes { get; set; } 
+        [XmlIgnore]
         public virtual ICollection<proyectos_trabajador> proyectos_trabajador { get; set; }
         [XmlIgnore]
         public virtual ICollection<tareas> tareas { get; set; }
-        [XmlIgnore]
-        public virtual ICollection<historial_clientes> historial_clientes { get; set; }
     }
 }

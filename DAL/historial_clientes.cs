@@ -20,7 +20,7 @@ namespace DAL
         public string DESCRIPCIONH { get; set; }
         public Nullable<System.DateTime> FECHA { get; set; }
     
-        public virtual trabajadores trabajadores { get; set; }
         public virtual clientes clientes { get; set; }
+        public virtual trabajadores trabajadores { get; set; }
     }
 }
