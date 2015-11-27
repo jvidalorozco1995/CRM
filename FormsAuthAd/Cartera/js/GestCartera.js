@@ -49,26 +49,6 @@ var _admnegocio = (function () {
             console.log(Dtohoja())
             console.log(acuerdoP)
             _negocio._addHoja(Dtohoja(), inmueble, acuerdoP);
-            var fileUpload = $("#txtUploadFile").get(0);
-            var files = fileUpload.files;
-            var test = new FormData();
-            for (var i = 0; i < files.length; i++) {
-                test.append(files[i].name, files[i]);
-            }
-            $.ajax({
-                url: "../../handler/SubirArchivoHandler.ashx",
-                type: "POST",
-                contentType: false,
-                processData: false,
-                data: test,
-                // dataType: "json",
-                success: function (result) {
-                    alert(result);
-                },
-                error: function (err) {
-                    alert(err.statusText);
-                }
-            });
         });
 
         $(document).on('click', '#BtnDisponibilidad', function () {

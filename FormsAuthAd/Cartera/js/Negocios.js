@@ -23,7 +23,7 @@ var admUser = (function () {
         });
         */
         $("#BtnActualizar").click(function () {
-            alert("presionaste wel boton actualizar");
+            
         });
 
         //Asignar Proyectos al trabajador
@@ -34,8 +34,38 @@ var admUser = (function () {
             tar.TareasNegocio(cedula);
             Ac.AcuerdosFox(cedula);
             neg.ListNegocioFOXID(WsListNegocioID, cedula);
-           Pag.PagosFox(cedula);
-        })
+            Pag.PagosFox(cedula);
+        });
+
+        //Asignar Proyectos al trabajador
+        $(document).on('click', '.RemoverP', function () {
+            cedula = $(this).attr("id");
+            alert(cedula);
+            var c =$("#" + cedula + "").get(0);
+            var files = c.files;
+            var test = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                test.append(files[i].name, files[i]);
+            }
+            $.ajax({
+                url: "../../handler/SubirArchivoHandler.ashx",
+                type: "POST",
+                contentType: false,
+                processData: false,
+                data: test,
+                // dataType: "json",
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+
+        });
+
+   
+
     };
 
     var _Inicio = function () {

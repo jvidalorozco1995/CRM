@@ -31,7 +31,7 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
     tabla += "<th>Fecha de recibo</th>";
     tabla += "<th>VLR RECIBO</th>";
     tabla += "</tr>";
-    tabla += "</thead>";ñ
+    tabla += "</thead>";
     tabla += "<tbody>";
     $.each(acuerdos, function (i, item) {
         console.log(item.FECHACARTERA);
@@ -39,7 +39,6 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
         tabla += "<td>" + item.Nrecibo + "</td>";
         tabla += "<td>" + item.Fecharecibo + "</td>";
         tabla += "<td>" + item.Vlrrecibo + "</td>";
-     
         tabla += "</tr>";
 
     });

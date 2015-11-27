@@ -35,17 +35,24 @@ BLLnegocio.CrearTabl = function (proyectos) {
     tabla += "<th>CC/NIT</th>";
     tabla += "<th>NOMBRE CLIENTE</th>";
     tabla += "<th>INMUEBLE</th>";
-
+    tabla += "<th>asa</th>";
+    tabla += "<th>asa</th>";
+    tabla += "<th>asa</th>";
     tabla += "</tr>";
     tabla += "</thead>";
     tabla += "<tbody>";
     $.each(proyectos, function (i, item) {
         console.log(item.NEGOCIO);
-        tabla += " <tr class='CargarNego' id=" + item.NEGOCIO + ">";
+        tabla += "<tr>";
         tabla += "<td style='width:200px'>" + item.NOMBREBLOQUE + "</td>";
         tabla += "<td>" + item.CEDULA_P + "</td>";
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
         tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
+        tabla += "<td style='width:20px;height: 20px' ><input type='file' name='UploadFile'  id=" + item.NEGOCIO + " class='subirfile' title='Detalle de separacion'></input></td>";
+        tabla += "<td style='width:20px;height: 20px' ><button id='" + item.NEGOCIO + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button></td>";
+        tabla += "<td style='width:20px;'>";
+        tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../images_crm/Drawing.png'/></a<";
+        tabla += "</td>";
         tabla += "</td>";
         tabla += "</tr>";
 
@@ -93,8 +100,7 @@ BLLnegocio.CrearTablaPro = function (proyectos) {
 }
 
 BLLnegocio.prototype = {
-    
-    ListNegocio: function (Wsurl,neg) {
+     ListNegocio: function (Wsurl, neg) {
    
         $.ajax({
             type: "POST", url: Wsurl,
@@ -292,14 +298,14 @@ BLLnegocio.prototype = {
          tabla+='</thead>';
          tabla += '<tbody>';
          for (var i = 0; i < pagos.length; i++)
-        {
+         {
              tabla +='<tr>';
              tabla+='<td>'+i+'</td>';
              tabla += '<td id=' + pagos[i].Fecha + "-" + i + "-" + pagos[i].Valor + ' class="BtFecha">' + pagos[i].Fecha + '</td>';
              tabla += '<td>' + pagos[i].Valor + '</td>';
              tabla += '</tr>';
              fecha_p = pagos[i].Fecha;
-        }
+         }
          tabla+='</tbody>';
          tabla += '</table>';
 
