@@ -11,14 +11,14 @@ using System.Web.Services;
 namespace FormsAuthAd.Servicios
 {
     /// <summary>
-    /// Summary description for WNegocioFox
+    /// Summary description for WPagosFox
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     [System.Web.Script.Services.ScriptService]
-    public class WNegocioFox : System.Web.Services.WebService
+    public class WPagosFox : System.Web.Services.WebService
     {
 
         [WebMethod]
@@ -26,25 +26,14 @@ namespace FormsAuthAd.Servicios
         {
             return "Hello World";
         }
-
-
+        
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<VnegocioFox> lisHoja()
+        public List<pagos_fox> PagosFox(string n)
         {
-            BLLNegocioFox hn = new BLLNegocioFox();
-            return hn.ListHojas();
+            BLLPagosFox hn = new BLLPagosFox();
+            return hn.PagosNegocio(n);
         }
-         [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<VnegocioFox> lisNegoID(string c)
-        {
-            BLLNegocioFox hn = new BLLNegocioFox();
-            return hn.ListaNegocioID(c);
-        }
-
         
-
-
     }
 }

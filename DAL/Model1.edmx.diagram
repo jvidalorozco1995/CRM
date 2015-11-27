@@ -60,8 +60,8 @@
         <AssociationConnector Association="CRMModel.FK__proyectos__PROYE__1D9B5BB6" />
         <AssociationConnector Association="CRMModel.FK__proyectos__TRABA__1CA7377D" />
         <AssociationConnector Association="CRMModel.FK__tareas__TRABAJAD__571DF1D5" />
-        <EntityTypeShape EntityType="CRMModel.VnegocioFox" Width="1.5" PointX="21.375" PointY="0.75" />
-        <EntityTypeShape EntityType="CRMModel.VacuerdosFox" Width="1.5" PointX="21.375" PointY="4.75" />
+        <EntityTypeShape EntityType="CRMModel.VacuerdosFox" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CRMModel.VnegocioFox" Width="1.5" PointX="21.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -22,5 +22,9 @@ namespace DAL
         public string SUCURSAL { get; set; }
         public string NEGOCIO { get; set; }
         public int ID { get; set; }
+        public Nullable<decimal> VLRCREDITO { get; set; }
+        public Nullable<decimal> VLRINICIALCUOTA { get; set; }
+        public Nullable<decimal> VLRNEGOCIO { get; set; }
+        public string FECHANEGOCIO { get; set; }
     }
 }

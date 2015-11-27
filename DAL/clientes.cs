@@ -46,13 +46,14 @@ namespace DAL
         public string INFORMACION { get; set; }
         public string ESTADO { get; set; }
         public string ASOCIADO { get; set; }
-    [XmlIgnore]
+
+          [XmlIgnore]
         public virtual ICollection<historial_clientes> historial_clientes { get; set; }
-        [XmlIgnore]
+          [XmlIgnore]
         public virtual ICollection<historial_inmueble> historial_inmueble { get; set; }
-        [XmlIgnore]
+          [XmlIgnore]
         public virtual ICollection<inmueble_separacion> inmueble_separacion { get; set; }
-        [XmlIgnore]
+          [XmlIgnore]
         public virtual ICollection<tareas> tareas { get; set; }
     }
 }

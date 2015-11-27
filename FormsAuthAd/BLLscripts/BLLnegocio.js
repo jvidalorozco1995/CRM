@@ -61,6 +61,9 @@ BLLnegocio.CrearTabl = function (proyectos) {
 
 //tabla Proyectos CRM Asignar  Usuarios
 BLLnegocio.CrearTablaPro = function (proyectos) {
+
+    $("TxtInmueble");
+
     document.getElementById('Tabla2').innerHTML = "";
     var tabla = '<table id="exampleP" class="table table-striped table-bordered table-hover">';
     tabla += "<thead>";
@@ -135,6 +138,36 @@ BLLnegocio.prototype = {
         });
     },
 
+    ListNegocioFOXID: function (Wsurl, neg) {
+        var datos = "{'c':" + JSON.stringify(neg) + "}";
+        $.ajax({
+            type: "POST", url: Wsurl, data: datos,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                }
+                else {
+                    alert(result.d[0].CODIGOINMUEBLE);
+              
+                    document.getElementById('TxtInmueble').value = result.d[0].CODIGOINMUEBLE;
+                    document.getElementById('TxtFecha').value = result.d[0].FECHANEGOCIO;
+                    document.getElementById('TxtVlrnegocio').value = result.d[0].VLRNEGOCIO;
+                    document.getElementById('TxtInicial').value = result.d[0].VLRINICIALCUOTA;
+                    document.getElementById('TxtVlrCredito').value = result.d[0].VLRCREDITO;
+             
+                    
+                    
+                    //$("TxtInmueble").val("JORGE"+result.d[0].CODIGOINMUEBLE);
+
+
+                }
+            },
+            error: function (obj, error, objError) { alert(obj.responseText); }
+        });
+    },
 
    UpdateCarteraNegocio: function (id, USER_CARTERA, Wsurl) {
         var datos = "{'id':" + JSON.stringify(id) + ",'USER_CARTERA':" + JSON.stringify(USER_CARTERA)+"}";

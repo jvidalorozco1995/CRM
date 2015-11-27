@@ -32,7 +32,7 @@ namespace DAL
         public string INMUESTADO { get; set; }
     
         public virtual bloques bloques { get; set; }
-        [XmlIgnore]
+          [XmlIgnore]
         public virtual ICollection<inmueble_separacion> inmueble_separacion { get; set; }
     }
 }

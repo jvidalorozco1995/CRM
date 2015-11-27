@@ -79,6 +79,37 @@ namespace BLLCRM
 
             return 1;
         }
+
+
+
+         public List<pagos_fox> PagosNegocio(string referencia)
+         {
+             try
+             {
+                 List<pagos_fox> pag = bd.pagos_fox.Where(t=>t.Referencia1 == referencia).ToList();
+                 return pag;
+             }
+             catch (DbEntityValidationException e)
+             {
+                 foreach (var eve in e.EntityValidationErrors)
+                 {
+                     Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                         eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                     foreach (var ve in eve.ValidationErrors)
+                     {
+                         Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                             ve.PropertyName, ve.ErrorMessage);
+                     }
+                 }
+                 throw;
+             }
+             finally
+             {
+
+             }
+
+             return null;
+         }
         
     }
 }

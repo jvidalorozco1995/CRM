@@ -24,9 +24,6 @@ namespace DAL
         public string CODCRM { get; set; }
         public Nullable<int> CODIGOTAREA { get; set; }
         public string FECHACARTERA { get; set; }
-        public Nullable<decimal> VLRINICIALCUOTA { get; set; }
-        public Nullable<decimal> VLRCREDITO { get; set; }
-        public Nullable<decimal> VLRNEGOCIO { get; set; }
         public int ID { get; set; }
         public string REFERENCIA1 { get; set; }
     }

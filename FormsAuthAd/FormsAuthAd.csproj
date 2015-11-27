@@ -1343,6 +1343,7 @@
     <Content Include="BLLscripts\BLLinfocomercialProyec.js" />
     <Content Include="BLLscripts\BLLInmuebles.js" />
     <Content Include="BLLscripts\BLLnegocio.js" />
+    <Content Include="BLLscripts\BLLPagosFox.js" />
     <Content Include="BLLscripts\BLLSala_Ventas.js" />
     <Content Include="BLLscripts\BLLTareas.js" />
     <Content Include="BLLscripts\BLLTrabajadores.js" />
@@ -2250,6 +2251,7 @@
     <Content Include="Servicios\WNegocio.asmx" />
     <Content Include="ServiciosFox\WProyectos.asmx" />
     <Content Include="Servicios\WNegocioFox.asmx" />
+    <Content Include="Servicios\WPagosFox.asmx" />
     <Content Include="Servicios\WSala_Ventas.asmx" />
     <Content Include="Servicios\WSeparaciones.asmx" />
     <Content Include="Servicios\WServidores.asmx" />
@@ -4749,6 +4751,10 @@
     </Compile>
     <Compile Include="Servicios\WNegocioFox.asmx.cs">
       <DependentUpon>WNegocioFox.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WPagosFox.asmx.cs">
+      <DependentUpon>WPagosFox.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WSala_Ventas.asmx.cs">

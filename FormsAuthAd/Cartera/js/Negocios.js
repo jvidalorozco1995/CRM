@@ -2,12 +2,13 @@
 var neg = new BLLnegocio();
 var tar = new BLLTareas();
 var Ac = new BLLAcuerdosFox();
+var Pag = new BLLPagosFox();
 var admUser = (function () {
 
 
 
     var WsListNegocio = "/Servicios/WNegocioFox.asmx/lisHoja";//Consulto Proyectos CRM
-
+    var WsListNegocioID = "/Servicios/WNegocioFox.asmx/lisNegoID";//Consulto Proyectos CRM
 
     var _addHandlers = function () {
 
@@ -21,6 +22,9 @@ var admUser = (function () {
             $('#TxtProyecto').val(result[1]);
         });
         */
+        $("#BtnActualizar").click(function () {
+            alert("presionaste wel boton actualizar");
+        });
 
         //Asignar Proyectos al trabajador
         $(document).on('click', '.CargarNego', function () {
@@ -29,6 +33,8 @@ var admUser = (function () {
             //$('#ModalAsignar').modal('hide');
             tar.TareasNegocio(cedula);
             Ac.AcuerdosFox(cedula);
+            neg.ListNegocioFOXID(WsListNegocioID, cedula);
+           Pag.PagosFox(cedula);
         })
     };
 

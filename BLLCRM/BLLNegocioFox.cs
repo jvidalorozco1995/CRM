@@ -24,6 +24,13 @@ namespace BLLCRM
             return list;
         }
 
+        public List<VnegocioFox> ListaNegocioID(string nego)
+        {
+            List<VnegocioFox> list = bd.VnegocioFox.Where(T=>T.NEGOCIO== nego).ToList();
+
+            return list;
+        }
+
         /// <summary>
         /// Metodo para alamacenar hoja de negocio en el sistema
         /// </summary>
