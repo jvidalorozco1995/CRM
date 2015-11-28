@@ -9,6 +9,7 @@ var admUser = (function () {
 
     var WsListNegocio = "/Servicios/WNegocioFox.asmx/lisHoja";//Consulto Proyectos CRM
     var WsListNegocioID = "/Servicios/WNegocioFox.asmx/lisNegoID";//Consulto Proyectos CRM
+    var WsActualizarAdjFox = "/Servicios/WNegocioFox.asmx/ActualizarAdj";//Consulto Proyectos CRM
 
     var _addHandlers = function () {
 
@@ -25,12 +26,31 @@ var admUser = (function () {
         $("#BtnActualizar").click(function () {
             
         });
+    
+
+
+        $(document).on('click', '.historial', function () {
+            cedula = $(this).attr("id");
+            alert(cedula);
+            Tr.InfoTareasNego(cedula);
+            $('#infoTareas').modal('show');
+            $('#BtnEditar').show();
+            $('#BtnTerminada').show();
+            $('#BtnPost').hide();
+          /*  Tr.InfoTareas(t);
+            $('#Txtdetalle').attr('readonly', true);
+            $('#fechainfo').attr('readonly', true);
+            Tr.lisbitacoras(t);*/
+         
+        });
 
         //Asignar Proyectos al trabajador
         $(document).on('click', '.CargarNego', function () {
             cedula = $(this).attr("id");
-            alert(cedula);
-            //$('#ModalAsignar').modal('hide');
+            //  alert(cedula);
+         
+            $('#PanelNego').show();
+            $('#PanelTareas').show();
             tar.TareasNegocio(cedula);
             Ac.AcuerdosFox(cedula);
             neg.ListNegocioFOXID(WsListNegocioID, cedula);
@@ -40,8 +60,9 @@ var admUser = (function () {
         //Asignar Proyectos al trabajador
         $(document).on('click', '.RemoverP', function () {
             cedula = $(this).attr("id");
-            alert(cedula);
-            var c =$("#" + cedula + "").get(0);
+            alert("#" + cedula + "");
+            var c = $("#" + cedula + "").get(0);
+            
             var files = c.files;
             var test = new FormData();
             for (var i = 0; i < files.length; i++) {
@@ -55,7 +76,11 @@ var admUser = (function () {
                 data: test,
                 // dataType: "json",
                 success: function (result) {
+                    
+                    neg.ListActualizarAdj(WsActualizarAdjFox, cedula, files[0].name);
                     alert(result);
+                    $("#" + cedula + "").prop('disabled', true);
+                    $(".RemoverP").prop('disabled', true);
                 },
                 error: function (err) {
                     alert(err.statusText);
@@ -64,9 +89,7 @@ var admUser = (function () {
 
         });
 
-   
-
-    };
+   };
 
     var _Inicio = function () {
         neg.ListNegocioFOX(WsListNegocio, "Negocio");
@@ -82,6 +105,9 @@ var admUser = (function () {
 }());
 $(document).ready(function () {
     admUser.init();
+    $(function () {
+        $('a[href$=".pdf"]').prop('target', '_blank');
+    });
     toastr.options = {
         "debug": false,
         "newestOnTop": false,

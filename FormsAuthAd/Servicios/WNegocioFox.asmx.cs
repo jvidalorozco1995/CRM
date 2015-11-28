@@ -35,13 +35,24 @@ namespace FormsAuthAd.Servicios
             BLLNegocioFox hn = new BLLNegocioFox();
             return hn.ListHojas();
         }
-         [WebMethod]
+
+        [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<VnegocioFox> lisNegoID(string c)
         {
             BLLNegocioFox hn = new BLLNegocioFox();
             return hn.ListaNegocioID(c);
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int ActualizarAdj(string CodCRM, string Documento)
+        {
+            BLLNegocioFox hn = new BLLNegocioFox();
+            return hn.ActualizarDocumentoAdj(CodCRM, Documento);
+        }
+
+        
 
         
 

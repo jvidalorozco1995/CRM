@@ -1359,6 +1359,7 @@
     <Content Include="Cartera\js\GestCartera.js" />
     <Content Include="Cartera\js\Negocios.js" />
     <Content Include="Cartera\Negocios.aspx" />
+    <Content Include="Cartera\prueba.html" />
     <Content Include="Comercial\clientes\Clientes.aspx" />
     <Content Include="Comercial\clientes\js\clientes.js" />
     <Content Include="Comercial\GesComercial.aspx" />

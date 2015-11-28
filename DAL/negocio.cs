@@ -54,5 +54,6 @@ namespace DAL
         public string USER_CREO { get; set; }
         public string USER_CARTERA { get; set; }
         public Nullable<decimal> INGRESO { get; set; }
+        public string DOCUMENTO { get; set; }
     }
 }

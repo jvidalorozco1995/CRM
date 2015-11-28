@@ -16,6 +16,21 @@ namespace BLLCRM
         private string user = null;
 
 
+        public int ActualizarDocumentoAdj(string CodCRM,string Documento) {
+
+            try
+            {
+                var item = bd.negocio.Where(t => t.CODIGO_F == CodCRM).FirstOrDefault();
+                item.DOCUMENTO = Documento;
+                bd.SaveChanges();
+
+                return 1;
+            }
+            catch (Exception ex) {
+                return 0;
+            }
+
+        }
 
         public List<VnegocioFox> ListHojas()
         {

@@ -8,11 +8,11 @@
     var WBitacora = "/Servicios/WTareas.asmx/Historialtareas";//Historial de tareas
     var WsListareas = "/Servicios/WTareas.asmx/GetTareasC";//Listar Tareas
     var WsListareasE = "/Servicios/WTareas.asmx/estamiacion";//Listar Tareas para estimacion
-
     var WsListareasAsesor = "/Servicios/WTareas.asmx/ListareasUserA";//Retorna un listado de todas las tareas asignadas a un asesor
     var WEstadoTareas = "/Servicios/WTareas.asmx/ListaEstadoTareas";//Listado de tareas
     var WEstadoTareasclientes = "/Servicios/WTareas.asmx/ListaEstadoTareasclientes";
-
+    
+    var WsInfoTareasNego = "/Servicios/WTareas.asmx/InfoTareasNego";//Informacion de tareas especifica
     var WTareasNegocio = "/Servicios/WTareas.asmx/GetTareasNegocios"
     
     var color = null;
@@ -153,6 +153,7 @@
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(clientes, function (i, item) {
+            alert(item.ID_TAREA);
             tabla += " <tr>";
             tabla += "<td>" + item.NOMBRES + '  ' + item.P_APELLIDO + '  ' + item.S_APELLIDO + "</td>";
             tabla += "<td>" + item.CONCEPTO + "</td>";
@@ -308,6 +309,29 @@
                     BLLTareas.CearComponente(result.d,op);
                 }
 
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+    }
+    
+
+
+    BLLTareas.prototype.InfoTareasNego = function (tarea) {
+        jsonData = "{ 'id':" + JSON.stringify(tarea) + " }";
+        $.ajax({
+            type: "POST", url: WsInfoTareasNego, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+
+                if (result.d == null) {
+                    toastr.error('CRM Mayales' +
+                        '</br>No fue posible cargar la información detallada de la tarea');
+                }
+                else {
+                    BLLTareas.ComponenteInfo(result.d);
+                }
             },
             error: function (error) { alert(error.responseText); }
         });
@@ -590,16 +614,16 @@
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
             switch (item.ESTADO) {
                 case "T":
-                    tabla += "<td ><img src='../../images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='../../images_crm/Completa.png' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "E":
-                    tabla += "<td ><img src='../../images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
+                    tabla += "<td ><img src='../../images_crm/Suspendido.png' class='historial' id=" + item.ID_TAREA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='../../images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='../../images_crm/Espera.png' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";

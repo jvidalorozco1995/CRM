@@ -57,6 +57,14 @@ namespace FormsAuthAd.Servicios
         {
             return bt.GetTareaInfo(id);
         }
+          [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
+        public List<VtareasNegocio> InfoTareasNego(int id)
+        {
+            return bt.GestTareasNego(id);
+        }
+        
 
 
         /// <summary>

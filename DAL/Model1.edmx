@@ -240,6 +240,7 @@ warning 6002: The table/view 'CRM.dbo.historial_acuerdos_pagos' does not have a 
           <Property Name="USER_CREO" Type="varchar" MaxLength="60" />
           <Property Name="USER_CARTERA" Type="varchar" MaxLength="60" />
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="DOCUMENTO" Type="varchar" MaxLength="400" />
         </EntityType>
         <EntityType Name="negocio_fox">
           <Key>
@@ -646,6 +647,7 @@ warning 6002: The table/view 'CRM.dbo.VnegocioFox' does not have a primary key d
           <Property Name="VLRINICIALCUOTA" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VLRNEGOCIO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="FECHANEGOCIO" Type="varchar" MaxLength="30" />
+          <Property Name="DOCUMENTO" Type="varchar" MaxLength="400" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM.dbo.Vsepracioninmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1192,7 +1194,8 @@ FROM [dbo].[VinteresProyect] AS [VinteresProyect]</DefiningQuery>
 [VnegocioFox].[VLRCREDITO] AS [VLRCREDITO], 
 [VnegocioFox].[VLRINICIALCUOTA] AS [VLRINICIALCUOTA], 
 [VnegocioFox].[VLRNEGOCIO] AS [VLRNEGOCIO], 
-[VnegocioFox].[FECHANEGOCIO] AS [FECHANEGOCIO]
+[VnegocioFox].[FECHANEGOCIO] AS [FECHANEGOCIO], 
+[VnegocioFox].[DOCUMENTO] AS [DOCUMENTO]
 FROM [dbo].[VnegocioFox] AS [VnegocioFox]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Vsepracioninmuebles" EntityType="Self.Vsepracioninmuebles" store:Type="Views" store:Schema="dbo">
@@ -1366,7 +1369,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySet Name="informacion" EntityType="CRMModel.informacion" />
           <EntitySet Name="inmueble_separacion" EntityType="CRMModel.inmueble_separacion" />
           <EntitySet Name="inmuebles" EntityType="CRMModel.inmuebles" />
-          <EntitySet Name="negocio" EntityType="CRMModel.negocio" />
           <EntitySet Name="negocio_fox" EntityType="CRMModel.negocio_fox" />
           <EntitySet Name="pagos_fox" EntityType="CRMModel.pagos_fox" />
           <EntitySet Name="planos_Proyectos" EntityType="CRMModel.planos_Proyectos" />
@@ -1443,6 +1445,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           </AssociationSet>
           <EntitySet Name="VacuerdosFox" EntityType="CRMModel.VacuerdosFox" />
           <EntitySet Name="VnegocioFox" EntityType="CRMModel.VnegocioFox" />
+          <EntitySet Name="negocio" EntityType="CRMModel.negocio" />
         </EntityContainer>
         <EntityType Name="acuerdo_fox">
           <Key>
@@ -1634,52 +1637,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="INMUESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="bloques" Relationship="CRMModel.FK__inmuebles__INMUO__02E7657A" FromRole="inmuebles" ToRole="bloques" />
           <NavigationProperty Name="inmueble_separacion" Relationship="CRMModel.FK__inmueble___INMUE__20CCCE1C" FromRole="inmuebles" ToRole="inmueble_separacion" />
-        </EntityType>
-        <EntityType Name="negocio">
-          <Key>
-            <PropertyRef Name="ID_NEGOCIO" />
-            <PropertyRef Name="ID_HOJA" />
-          </Key>
-          <Property Name="ID_NEGOCIO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PROPIETARIO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="EXPEDICION" Type="DateTime" Precision="0" />
-          <Property Name="ESTADO_C" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="FECHA_NACI" Type="DateTime" Precision="0" />
-          <Property Name="LUGAR" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION_R" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="EMPRESA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="TELFONO_EMP" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Name="CARGO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="PROFESION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION_EMPR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="ANTIGUEDAD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="CORREO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRE_CONY" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="CEDULA_CUY" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="TELE_CONY" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="N_HIJO" Type="Int32" />
-          <Property Name="INTERES_COM" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="PROYECTO_INT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="VALOR_CASA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="INICIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="CREDITO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="BANCO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="NO_CREDITO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="FECHA_ES" Type="DateTime" Precision="0" />
-          <Property Name="FECHA_ENT" Type="DateTime" Precision="0" />
-          <Property Name="FECHA_SUBRO" Type="DateTime" Precision="0" />
-          <Property Name="ASESOR_INFO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="MEDIO_ENT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ASOCIADO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="CLASE_INMU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="ID_HOJA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SEPARACION" Type="Int32" />
-          <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="USER_CREO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="USER_CARTERA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
         </EntityType>
         <EntityType Name="negocio_fox">
           <Key>
@@ -2357,6 +2314,54 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="VLRINICIALCUOTA" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VLRNEGOCIO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="FECHANEGOCIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DOCUMENTO" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="negocio">
+          <Key>
+            <PropertyRef Name="ID_NEGOCIO" />
+            <PropertyRef Name="ID_HOJA" />
+          </Key>
+          <Property Name="ID_NEGOCIO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PROPIETARIO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="EXPEDICION" Type="DateTime" Precision="0" />
+          <Property Name="ESTADO_C" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_NACI" Type="DateTime" Precision="0" />
+          <Property Name="LUGAR" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION_R" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="EMPRESA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="TELFONO_EMP" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="CARGO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="PROFESION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION_EMPR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ANTIGUEDAD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_CONY" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="CEDULA_CUY" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="TELE_CONY" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="N_HIJO" Type="Int32" />
+          <Property Name="INTERES_COM" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="PROYECTO_INT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VALOR_CASA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="INICIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CREDITO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BANCO" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="NO_CREDITO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_ES" Type="DateTime" Precision="0" />
+          <Property Name="FECHA_ENT" Type="DateTime" Precision="0" />
+          <Property Name="FECHA_SUBRO" Type="DateTime" Precision="0" />
+          <Property Name="ASESOR_INFO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="MEDIO_ENT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ASOCIADO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="CLASE_INMU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ID_HOJA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SEPARACION" Type="Int32" />
+          <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER_CREO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="USER_CARTERA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="DOCUMENTO" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2555,52 +2560,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="INMUDECS" ColumnName="INMUDECS" />
                 <ScalarProperty Name="INMUOBRA" ColumnName="INMUOBRA" />
                 <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="negocio">
-            <EntityTypeMapping TypeName="CRMModel.negocio">
-              <MappingFragment StoreEntitySet="negocio">
-                <ScalarProperty Name="INGRESO" ColumnName="INGRESO" />
-                <ScalarProperty Name="USER_CARTERA" ColumnName="USER_CARTERA" />
-                <ScalarProperty Name="USER_CREO" ColumnName="USER_CREO" />
-                <ScalarProperty Name="CODIGO_F" ColumnName="CODIGO_F" />
-                <ScalarProperty Name="SEPARACION" ColumnName="SEPARACION" />
-                <ScalarProperty Name="ID_HOJA" ColumnName="ID_HOJA" />
-                <ScalarProperty Name="CLASE_INMU" ColumnName="CLASE_INMU" />
-                <ScalarProperty Name="ASOCIADO" ColumnName="ASOCIADO" />
-                <ScalarProperty Name="MEDIO_ENT" ColumnName="MEDIO_ENT" />
-                <ScalarProperty Name="ASESOR_INFO" ColumnName="ASESOR_INFO" />
-                <ScalarProperty Name="FECHA_SUBRO" ColumnName="FECHA_SUBRO" />
-                <ScalarProperty Name="FECHA_ENT" ColumnName="FECHA_ENT" />
-                <ScalarProperty Name="FECHA_ES" ColumnName="FECHA_ES" />
-                <ScalarProperty Name="NO_CREDITO" ColumnName="NO_CREDITO" />
-                <ScalarProperty Name="BANCO" ColumnName="BANCO" />
-                <ScalarProperty Name="CREDITO" ColumnName="CREDITO" />
-                <ScalarProperty Name="INICIAL" ColumnName="INICIAL" />
-                <ScalarProperty Name="VALOR_CASA" ColumnName="VALOR_CASA" />
-                <ScalarProperty Name="PROYECTO_INT" ColumnName="PROYECTO_INT" />
-                <ScalarProperty Name="INTERES_COM" ColumnName="INTERES_COM" />
-                <ScalarProperty Name="N_HIJO" ColumnName="N_HIJO" />
-                <ScalarProperty Name="TELE_CONY" ColumnName="TELE_CONY" />
-                <ScalarProperty Name="CEDULA_CUY" ColumnName="CEDULA_CUY" />
-                <ScalarProperty Name="NOMBRE_CONY" ColumnName="NOMBRE_CONY" />
-                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
-                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
-                <ScalarProperty Name="DIRECCION_EMPR" ColumnName="DIRECCION_EMPR" />
-                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
-                <ScalarProperty Name="CARGO" ColumnName="CARGO" />
-                <ScalarProperty Name="TELFONO_EMP" ColumnName="TELFONO_EMP" />
-                <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
-                <ScalarProperty Name="TELEFONO_P" ColumnName="TELEFONO_P" />
-                <ScalarProperty Name="DIRECCION_R" ColumnName="DIRECCION_R" />
-                <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
-                <ScalarProperty Name="FECHA_NACI" ColumnName="FECHA_NACI" />
-                <ScalarProperty Name="ESTADO_C" ColumnName="ESTADO_C" />
-                <ScalarProperty Name="EXPEDICION" ColumnName="EXPEDICION" />
-                <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
-                <ScalarProperty Name="PROPIETARIO" ColumnName="PROPIETARIO" />
-                <ScalarProperty Name="ID_NEGOCIO" ColumnName="ID_NEGOCIO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3105,6 +3064,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="VnegocioFox">
             <EntityTypeMapping TypeName="CRMModel.VnegocioFox">
               <MappingFragment StoreEntitySet="VnegocioFox">
+                <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
                 <ScalarProperty Name="FECHANEGOCIO" ColumnName="FECHANEGOCIO" />
                 <ScalarProperty Name="VLRNEGOCIO" ColumnName="VLRNEGOCIO" />
                 <ScalarProperty Name="VLRINICIALCUOTA" ColumnName="VLRINICIALCUOTA" />
@@ -3117,6 +3077,53 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
                 <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
                 <ScalarProperty Name="NOMBREBLOQUE" ColumnName="NOMBREBLOQUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="negocio">
+            <EntityTypeMapping TypeName="CRMModel.negocio">
+              <MappingFragment StoreEntitySet="negocio">
+                <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
+                <ScalarProperty Name="INGRESO" ColumnName="INGRESO" />
+                <ScalarProperty Name="USER_CARTERA" ColumnName="USER_CARTERA" />
+                <ScalarProperty Name="USER_CREO" ColumnName="USER_CREO" />
+                <ScalarProperty Name="CODIGO_F" ColumnName="CODIGO_F" />
+                <ScalarProperty Name="SEPARACION" ColumnName="SEPARACION" />
+                <ScalarProperty Name="ID_HOJA" ColumnName="ID_HOJA" />
+                <ScalarProperty Name="CLASE_INMU" ColumnName="CLASE_INMU" />
+                <ScalarProperty Name="ASOCIADO" ColumnName="ASOCIADO" />
+                <ScalarProperty Name="MEDIO_ENT" ColumnName="MEDIO_ENT" />
+                <ScalarProperty Name="ASESOR_INFO" ColumnName="ASESOR_INFO" />
+                <ScalarProperty Name="FECHA_SUBRO" ColumnName="FECHA_SUBRO" />
+                <ScalarProperty Name="FECHA_ENT" ColumnName="FECHA_ENT" />
+                <ScalarProperty Name="FECHA_ES" ColumnName="FECHA_ES" />
+                <ScalarProperty Name="NO_CREDITO" ColumnName="NO_CREDITO" />
+                <ScalarProperty Name="BANCO" ColumnName="BANCO" />
+                <ScalarProperty Name="CREDITO" ColumnName="CREDITO" />
+                <ScalarProperty Name="INICIAL" ColumnName="INICIAL" />
+                <ScalarProperty Name="VALOR_CASA" ColumnName="VALOR_CASA" />
+                <ScalarProperty Name="PROYECTO_INT" ColumnName="PROYECTO_INT" />
+                <ScalarProperty Name="INTERES_COM" ColumnName="INTERES_COM" />
+                <ScalarProperty Name="N_HIJO" ColumnName="N_HIJO" />
+                <ScalarProperty Name="TELE_CONY" ColumnName="TELE_CONY" />
+                <ScalarProperty Name="CEDULA_CUY" ColumnName="CEDULA_CUY" />
+                <ScalarProperty Name="NOMBRE_CONY" ColumnName="NOMBRE_CONY" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
+                <ScalarProperty Name="DIRECCION_EMPR" ColumnName="DIRECCION_EMPR" />
+                <ScalarProperty Name="PROFESION" ColumnName="PROFESION" />
+                <ScalarProperty Name="CARGO" ColumnName="CARGO" />
+                <ScalarProperty Name="TELFONO_EMP" ColumnName="TELFONO_EMP" />
+                <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
+                <ScalarProperty Name="TELEFONO_P" ColumnName="TELEFONO_P" />
+                <ScalarProperty Name="DIRECCION_R" ColumnName="DIRECCION_R" />
+                <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
+                <ScalarProperty Name="FECHA_NACI" ColumnName="FECHA_NACI" />
+                <ScalarProperty Name="ESTADO_C" ColumnName="ESTADO_C" />
+                <ScalarProperty Name="EXPEDICION" ColumnName="EXPEDICION" />
+                <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
+                <ScalarProperty Name="PROPIETARIO" ColumnName="PROPIETARIO" />
+                <ScalarProperty Name="ID_NEGOCIO" ColumnName="ID_NEGOCIO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

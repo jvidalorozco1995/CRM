@@ -35,9 +35,9 @@ BLLnegocio.CrearTabl = function (proyectos) {
     tabla += "<th>CC/NIT</th>";
     tabla += "<th>NOMBRE CLIENTE</th>";
     tabla += "<th>INMUEBLE</th>";
-    tabla += "<th>asa</th>";
-    tabla += "<th>asa</th>";
-    tabla += "<th>asa</th>";
+    tabla += "<th>ADJUNTO</th>";
+    tabla += "<th>SUBIR</th>";
+    tabla += "<th>VER</th>";
     tabla += "</tr>";
     tabla += "</thead>";
     tabla += "<tbody>";
@@ -48,8 +48,22 @@ BLLnegocio.CrearTabl = function (proyectos) {
         tabla += "<td>" + item.CEDULA_P + "</td>";
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
         tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
-        tabla += "<td style='width:20px;height: 20px' ><input type='file' name='UploadFile'  id=" + item.NEGOCIO + " class='subirfile' title='Detalle de separacion'></input></td>";
-        tabla += "<td style='width:20px;height: 20px' ><button id='" + item.NEGOCIO + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button></td>";
+        if (item.DOCUMENTO != undefined) {
+           
+          //  tabla += "<td style='width:20px;height: 20px' ><input  type='text'   id=" + item.CODIGOCRM + " value='" + item.DOCUMENTO + "' class='subirfile'  title='Detalle de separacion' disabled></input></td>";
+            tabla += "<td style='width:20px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO +"'target='_blank'>" + item.DOCUMENTO + "</a></td>";
+            tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
+
+        } else {
+
+
+
+
+            tabla += "<td style='width:20px;height: 20px' ><input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'></input></td>";
+
+            tabla += "<td style='width:20px;height: 20px' ><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button></td>";
+
+        }
         tabla += "<td style='width:20px;'>";
         tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../images_crm/Drawing.png'/></a<";
         tabla += "</td>";
@@ -120,7 +134,31 @@ BLLnegocio.prototype = {
            },
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
-    },
+     },
+
+
+
+    
+     ListActualizarAdj: function (Wsurl, neg,adj) {
+         var datos = "{'CodCRM':" + JSON.stringify(neg) + ",'Documento':" + JSON.stringify(adj) + "}";
+         $.ajax({
+             type: "POST", url: Wsurl, data:datos,
+             contentType: "application/json; charset=utf-8",
+             dataType: 'json',
+             async: true,
+             success: function (result) {
+                 if (result.d == null) {
+
+                 }
+                 else {
+                  
+                     alert("Hoja de negocio adjuntada");
+                 }
+             },
+             error: function (obj, error, objError) { alert(obj.responseText); }
+         });
+     },
+
 
     ListNegocioFOX: function (Wsurl, neg) {
  
@@ -156,7 +194,7 @@ BLLnegocio.prototype = {
 
                 }
                 else {
-                    alert(result.d[0].CODIGOINMUEBLE);
+                   // alert(result.d[0].CODIGOINMUEBLE);
               
                     document.getElementById('TxtInmueble').value = result.d[0].CODIGOINMUEBLE;
                     document.getElementById('TxtFecha').value = result.d[0].FECHANEGOCIO;

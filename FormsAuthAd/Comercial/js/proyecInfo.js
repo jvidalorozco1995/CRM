@@ -337,8 +337,8 @@ var admComercial = (function () {
 
         $('#BtnPost').click(function () {
            if ($('#Txtdetalle').val().length < 1)
-            {
-                toastr.error('CRM Mayales - Notificacion' +
+           {
+               toastr.error('CRM Mayales - Notificacion' +
                    '</br> El campo descricpion de Tarea se encuentra vacio');
             }
             else

@@ -26,5 +26,6 @@ namespace DAL
         public Nullable<decimal> VLRINICIALCUOTA { get; set; }
         public Nullable<decimal> VLRNEGOCIO { get; set; }
         public string FECHANEGOCIO { get; set; }
+        public string DOCUMENTO { get; set; }
     }
 }

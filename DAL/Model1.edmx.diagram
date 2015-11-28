@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="69171ca446b64ba8985192ee0c282ec6" Name="Diagrama1" ZoomLevel="124">
+      <Diagram DiagramId="69171ca446b64ba8985192ee0c282ec6" Name="Diagrama1" ZoomLevel="107">
         <EntityTypeShape EntityType="CRMModel.acuerdo_fox" Width="1.5" PointX="5.75" PointY="1" />
         <EntityTypeShape EntityType="CRMModel.acuerdo_pago" Width="1.5" PointX="7.75" PointY="1" />
         <EntityTypeShape EntityType="CRMModel.bancos" Width="1.5" PointX="7.75" PointY="4" />
@@ -21,7 +21,6 @@
         <EntityTypeShape EntityType="CRMModel.informacion" Width="1.5" PointX="11.75" PointY="1" />
         <EntityTypeShape EntityType="CRMModel.inmueble_separacion" Width="1.5" PointX="6" PointY="6.5" />
         <EntityTypeShape EntityType="CRMModel.inmuebles" Width="1.5" PointX="3.75" PointY="12.25" />
-        <EntityTypeShape EntityType="CRMModel.negocio" Width="1.5" PointX="12.75" PointY="4" />
         <EntityTypeShape EntityType="CRMModel.negocio_fox" Width="1.5" PointX="8.75" PointY="13" />
         <EntityTypeShape EntityType="CRMModel.pagos_fox" Width="1.5" PointX="5.75" PointY="14" />
         <EntityTypeShape EntityType="CRMModel.planos_Proyectos" Width="1.5" PointX="3.75" PointY="21" />
@@ -62,6 +61,7 @@
         <AssociationConnector Association="CRMModel.FK__tareas__TRABAJAD__571DF1D5" />
         <EntityTypeShape EntityType="CRMModel.VacuerdosFox" Width="1.5" PointX="21.375" PointY="0.75" />
         <EntityTypeShape EntityType="CRMModel.VnegocioFox" Width="1.5" PointX="21.375" PointY="5.75" />
+        <EntityTypeShape EntityType="CRMModel.negocio" Width="1.5" PointX="21.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
