@@ -11,12 +11,9 @@
     var WsListareasAsesor = "/Servicios/WTareas.asmx/ListareasUserA";//Retorna un listado de todas las tareas asignadas a un asesor
     var WEstadoTareas = "/Servicios/WTareas.asmx/ListaEstadoTareas";//Listado de tareas
     var WEstadoTareasclientes = "/Servicios/WTareas.asmx/ListaEstadoTareasclientes";
-    
     var WsInfoTareasNego = "/Servicios/WTareas.asmx/InfoTareasNego";//Informacion de tareas especifica
     var WTareasNegocio = "/Servicios/WTareas.asmx/GetTareasNegocios"
-    
     var color = null;
-
     //Metodo para Crear cliente
     BLLTareas.prototype.CrearTarea = function (tarea, Wsurl) {
         jsonData = jsonData = "{ 'c':" + JSON.stringify(tarea) + " }";
@@ -234,11 +231,9 @@
             error: function (error) { alert(error.responseText); }
         })
     }
-
-  
-    BLLTareas.prototype.Etareas = function (t,bitacora) {
-       
-        jsonData = "{ 't':" + JSON.stringify(t) + ",'b':" + JSON.stringify(bitacora) + " }";
+   BLLTareas.prototype.Etareas = function (t,bitacora) {
+       jsonData = "{ 't':" + JSON.stringify(t) + ",'b':" + JSON.stringify(bitacora) + " }";
+       console.log(JSON.stringify(t));
         $.ajax({
             type: "POST", url: WSEsTareas, data: jsonData,
             contentType: "application/json; charset=utf-8",
@@ -257,10 +252,32 @@
             },
             error: function (error) { alert(error.responseText); }
         });
-    }
+   }
+
+   BLLTareas.prototype.TerminarTareaNego = function (t, b) {
+       jsonData = "{ 't':" + JSON.stringify(t) + ",'b':" + JSON.stringify(b) + " }";
+       $.ajax({
+           type: "POST", url: WPosponer, data: jsonData,
+           contentType: "application/json; charset=utf-8",
+           dataType: 'json',
+           async: true,
+           success: function (result) {
+               if (result.d == 0) {
+                   toastr.error('CRM Mayales' +
+                       '</br>No fue posible llevar a cabo el proceso..');
+               } else {
+                   toastr.success('CRM Mayales' +
+                       '</br>Se ha terminado la tarea de manera exitosa');
+                   BLLTareas.Deshabilitar();
+
+               }
+
+           },
+           error: function (error) { alert(error.responseText); }
+       });
+   }
 
     BLLTareas.prototype.PosponerTarea = function (t, b) {
-        
         jsonData = "{ 't':" + JSON.stringify(t) + ",'b':" + JSON.stringify(b) + " }";
         $.ajax({
             type: "POST", url: WPosponer, data: jsonData,
@@ -282,7 +299,6 @@
             error: function (error) { alert(error.responseText); }
         });
     }
-
     BLLTareas.Deshabilitar = function () {
         $('#BtnEditar').show();
         $('#BtnTerminada').show();
@@ -428,6 +444,7 @@
 
     }
    
+
     BLLTareas.ComponenteInfo = function (tareasinf) {
         var fechaini = null;
         var fechafin = null;

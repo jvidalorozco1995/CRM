@@ -1357,6 +1357,7 @@
     <Content Include="Cartera\js\Cartera.js" />
     <Content Include="Cartera\js\Hoja.js" />
     <Content Include="Cartera\js\GestCartera.js" />
+    <Content Include="Cartera\js\jquery.printElement.js" />
     <Content Include="Cartera\js\Negocios.js" />
     <Content Include="Cartera\Negocios.aspx" />
     <Content Include="Cartera\prueba.html" />

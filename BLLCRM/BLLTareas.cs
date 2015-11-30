@@ -373,7 +373,7 @@ namespace BLLCRM
             try
             {  string concepto ="";
             if (t.CONCEPTO.Equals("")){concepto = "Gestión a sido terminada";}
-               var contex = bd.tareas.First(u=> u.ID_TAREA==b.TAREA);
+               var contex = bd.tareas.First(u => u.ID_TAREA==b.TAREA);
                contex.ESTADO = "T";
                contex.CONCEPTO = concepto;
                contex.FECHAFIN = DateTime.Today;

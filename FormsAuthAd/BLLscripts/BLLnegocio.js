@@ -27,6 +27,7 @@ var _banco;
 
 //tabla para cargar los negocios al modulo de cartera
 BLLnegocio.CrearTabl = function (proyectos) {
+
     document.getElementById('TblNegocios').innerHTML = "";
     var tabla = '<table id="exampleP" class="table table-striped table-bordered table-hover">';
     tabla += "<thead>";
@@ -42,27 +43,21 @@ BLLnegocio.CrearTabl = function (proyectos) {
     tabla += "</thead>";
     tabla += "<tbody>";
     $.each(proyectos, function (i, item) {
-        console.log(item.NEGOCIO);
+       
         tabla += "<tr>";
         tabla += "<td style='width:200px'>" + item.NOMBREBLOQUE + "</td>";
         tabla += "<td>" + item.CEDULA_P + "</td>";
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
         tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
         if (item.DOCUMENTO != undefined) {
-           
-          //  tabla += "<td style='width:20px;height: 20px' ><input  type='text'   id=" + item.CODIGOCRM + " value='" + item.DOCUMENTO + "' class='subirfile'  title='Detalle de separacion' disabled></input></td>";
-            tabla += "<td style='width:20px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO +"'target='_blank'>" + item.DOCUMENTO + "</a></td>";
+
+            tabla += "<td style='width:20px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
             tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
 
         } else {
 
-
-
-
             tabla += "<td style='width:20px;height: 20px' ><input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'></input></td>";
-
             tabla += "<td style='width:20px;height: 20px' ><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button></td>";
-
         }
         tabla += "<td style='width:20px;'>";
         tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../images_crm/Drawing.png'/></a<";
@@ -194,18 +189,18 @@ BLLnegocio.prototype = {
 
                 }
                 else {
-                   // alert(result.d[0].CODIGOINMUEBLE);
-              
-                    document.getElementById('TxtInmueble').value = result.d[0].CODIGOINMUEBLE;
-                    document.getElementById('TxtFecha').value = result.d[0].FECHANEGOCIO;
-                    document.getElementById('TxtVlrnegocio').value = result.d[0].VLRNEGOCIO;
-                    document.getElementById('TxtInicial').value = result.d[0].VLRINICIALCUOTA;
-                    document.getElementById('TxtVlrCredito').value = result.d[0].VLRCREDITO;
-             
-                    
-                    
-                    //$("TxtInmueble").val("JORGE"+result.d[0].CODIGOINMUEBLE);
+                    var nego = result.d;
+                    $('#TxtInmueble').val(nego[0].CODIGOINMUEBLE);
+                    $('#TxtFecha').val(nego[0].FECHANEGOCIO);
+                    $('#TxtVlrnegocio').val(nego[0].VLRNEGOCIO);
+                    $('#TxtInicial').val(nego[0].VLRINICIALCUOTA);
+                    $('#TxtVlrCredito').val(nego[0].VLRCREDITO);
 
+                    $('#TxtInmueble').attr('readonly', true);
+                    $('#TxtFecha').attr('readonly', true);
+                    $('#TxtVlrnegocio').attr('readonly', true);
+                    $('#TxtInicial').attr('readonly', true);
+                    $('#TxtVlrCredito').attr('readonly', true);
 
                 }
             },
@@ -252,7 +247,9 @@ BLLnegocio.prototype = {
            error: function (msg) { alert(msg.responseText); }
       });
 
-    },
+   },
+
+
     _Getcliente: function (cedula) {
          var datos = "{ 'c':" + JSON.stringify(cedula) + " }";
          $.ajax({
@@ -379,8 +376,8 @@ BLLnegocio.prototype = {
         var entsb = fechasubr[0];
         var mesentsb = parseInt(fechasubr[1]) + 1;
         var diasentsb = fechasubr[2];
-    if (mesentsb < 10) { mesentsb = '0' + mesentsb }
-    var fechasubro = entsb + "/" + mesentsb + "/" + diasentsb;
-    $("#Textsubrogracion").val(fechasubro)
+        if (mesentsb < 10) { mesentsb = '0' + mesentsb }
+        var fechasubro = entsb + "/" + mesentsb + "/" + diasentsb;
+        $("#Textsubrogracion").val(fechasubro)
 },
 };

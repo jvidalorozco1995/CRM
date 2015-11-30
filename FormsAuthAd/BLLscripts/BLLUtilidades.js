@@ -21,7 +21,9 @@ function BLLUtilidades() {
         // redirect current page to new location
         window.location = redirect;
     }
-    
+
+
+   
 
     BLLUtilidades.prototype.AsesorCartera = function () {
         $.ajax({
