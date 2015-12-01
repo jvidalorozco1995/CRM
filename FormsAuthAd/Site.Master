@@ -170,6 +170,7 @@
                         <a href="#"><span class="nav-label">Gest Cartera</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href="/Cartera/GesCartera.aspx">Crear negocio</a></li>
+                             <li><a href="/Cartera/Negocios.aspx">Lista de negocios FOX</a></li>
                         </ul>
                     </li>
                     <li>
@@ -181,7 +182,7 @@
                     </li>
                 </ul>
             </div>
-  </aside>
+        </aside>
      <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
         <section class="">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />

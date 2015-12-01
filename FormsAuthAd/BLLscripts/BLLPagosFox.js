@@ -48,7 +48,7 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
     $('#pagos').dataTable();
 
    document.getElementById('oculto').innerHTML = "";
-    var tabla2 = '<table id="uculto" class="Table">';
+    var tabla2 = '<table id="uculto">';
     tabla2 += "<thead>";
     tabla2 += "<tr>";
     tabla2 += "<th>Recibo No.</th>";;
@@ -68,6 +68,7 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
     });
     tabla2 += "</tbody>";
     tabla2 += '</table>';
-   $('#oculto').append(tabla2);
+    $('#oculto').append(tabla2);
+    $('#uculto').dataTable();
 
 }

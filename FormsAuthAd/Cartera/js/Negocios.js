@@ -30,13 +30,13 @@ var admUser = (function () {
             // setTimeout(function () { neg.ListNegocioFOXID(WsListNegocioID, negocio); }, 1000);
           //  alert($('#oculto').text());
             // javascript: window.print();
-            PrintElem("#oculto");
+            // PrintElem("#oculto");
+            window.open("Estacuenta.html?negocio=" + negocio, 'Graph', 'height=900px,width=650px;resizable=false');
         });
 
         function PrintElem(eleme) {
             Popup($(eleme).html());
         }
-
         function Popup(data) {
             var mywindow = window.open('', 'my div', 'height=400,width=600');
             mywindow.document.write('<html><head><title>my div</title>');
@@ -50,22 +50,64 @@ var admUser = (function () {
             mywindow.focus(); // necessary for IE >= 10
             mywindow.print();
             mywindow.close();
-
             return true;
         }
 
-        /*printdiv = function (printdivname) {
-            var headstr = "<html><head><title>Booking Details</title></head><body>";
-            var footstr = "</body>";
-            var newstr = document.getElementById(printdivname).innerHTML;
-            var oldstr = document.body.innerHTML;
-            document.body.innerHTML = headstr + newstr + footstr;
-            window.print();
-            document.body.innerHTML = oldstr;
-            return false;
-        }*/
         $("#BtnActualizar").click(function () {
             
+        });
+
+        $('#BtnEditar').click(function () {
+            $('#BtnEditar').hide();
+            $('#BtnPost').show();
+            $('#BtnTerminada').hide();
+            $('#Txtdetalle').attr('readonly', false);
+            $('#fechainfo').attr('readonly', false);
+        })
+
+
+
+        $('#BtnPost').click(function () {
+            if ($('#Txtdetalle').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                    '</br> El campo descricpion de Tarea se encuentra vacio');
+            }
+            else {
+                if ($('#fechainfo').val().length < 1) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                    '</br> El campo Fecha de Tarera se encuentra vacio');
+                }
+                else {
+                    if ($('#TxtMotivo').val().length < 1) {
+                        toastr.error('CRM Mayales - Notificacion' +
+                        '</br> El campo descripcion se encuentra vacio');
+                    }
+                    else {
+                        var fechaEs = $('#fechainfo').val()
+                        if (fechaEs < fecha) {
+                            dia = null;
+                            mes = null;
+                            toastr.error('CRM Mayales - Notificacion' +
+                           '</br> La fecha selcccionada no puede ser menor a la del dia actual');
+                        }
+                        else {
+                            dia = null;
+                            mes = null;
+
+                            tar.PosponerTarea(_PosTareas(), _BitacorasDTO());
+                            setTimeout(function () { tar.TareasNegocio(negocio); }, 1000);
+                            setTimeout(function () { tar.lisbitacoras(cedula); }, 1000);
+                            /*setTimeout(function () { Tr.lisbitacoras(t); }, 1000)
+                            setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
+                            setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
+                            setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);*/
+                        }
+
+                    }
+                }
+            }
+
+
         });
   
         $(document).on('click', '#BtnTerminada', function (event) {
@@ -74,24 +116,27 @@ var admUser = (function () {
             setTimeout(function () { tar.InfoTareasNego(cedula, 0); }, 1000);
             setTimeout(function () { tar.TareasNegocio(negocio); }, 1000);
           
-
-            
-           
         });
 
-        $(document).on('click', '.historial', function () {
+        $(document).on('click', '.historial1', function () {
             cedula = $(this).attr("id");
             tar.InfoTareasNego(cedula);
             $('#infoTareas').modal('show');
             $('#BtnEditar').show();
             $('#BtnTerminada').show();
             $('#BtnPost').hide();
-           // tar.InfoTareasNego(cedula);
             $('#Txtdetalle').attr('readonly', true);
             $('#fechainfo').attr('readonly', true);
-           // tar.lisbitacoras(t);
+            tar.lisbitacoras(cedula);
          
         });
+
+
+
+
+     
+
+
         //Asignar Proyectos al trabajador
         $(document).on('click', '.CargarNego', function () {
             negocio = $(this).attr("id");

@@ -68,7 +68,6 @@ namespace SwCRM
             BLLAcuerdoFox hn = new BLLAcuerdoFox();
             hn.Acuerdo(ac);
 
-         
         }
 
         public void InsertPago(List<PagosFox> ac)

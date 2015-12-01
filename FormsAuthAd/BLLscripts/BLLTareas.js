@@ -626,21 +626,21 @@
         tabla += "<tbody>";
         $.each(clientes, function (i, item) {
             tabla += " <tr>";
-            tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + "</td>";
+            tabla += "<td id=" + item.ID_TAREA + " class='Infocl'>" + item.NOMBRES + "</td>";
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
             switch (item.ESTADO) {
                 case "T":
-                    tabla += "<td ><img src='../../images_crm/Completa.png' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='../../images_crm/Completa.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "E":
-                    tabla += "<td ><img src='../../images_crm/Suspendido.png' class='historial' id=" + item.ID_TAREA + " href='' /></td>";
+                    tabla += "<td ><img src='../../images_crm/Suspendido.png' class='historial1' id=" + item.ID_TAREA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='../../images_crm/Espera.png' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='../../images_crm/Espera.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";
