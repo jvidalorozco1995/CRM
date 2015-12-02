@@ -192,9 +192,9 @@ BLLnegocio.prototype = {
                     var nego = result.d;
                     $('#TxtInmueble').val(nego[0].CODIGOINMUEBLE);
                     $('#TxtFecha').val(nego[0].FECHANEGOCIO);
-                    $('#TxtVlrnegocio').val(nego[0].VLRNEGOCIO);
-                    $('#TxtInicial').val(nego[0].VLRINICIALCUOTA);
-                    $('#TxtVlrCredito').val(nego[0].VLRCREDITO);
+                    $('#TxtVlrnegocio').val(utl.FormatNumero(nego[0].VLRNEGOCIO));
+                    $('#TxtInicial').val(utl.FormatNumero(nego[0].VLRINICIALCUOTA));
+                    $('#TxtVlrCredito').val(utl.FormatNumero(nego[0].VLRCREDITO));
 
                     $('#TxtInmueble').attr('readonly', true);
                     $('#TxtFecha').attr('readonly', true);

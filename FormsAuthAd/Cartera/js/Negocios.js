@@ -26,12 +26,8 @@ var admUser = (function () {
         });
         */
         $("#BtnImprimir").click(function () {
-            //printdiv("oculto");
-            // setTimeout(function () { neg.ListNegocioFOXID(WsListNegocioID, negocio); }, 1000);
-          //  alert($('#oculto').text());
-            // javascript: window.print();
-            // PrintElem("#oculto");
-            window.open("Estacuenta.html?negocio=" + negocio, 'Graph', 'height=900px,width=650px;resizable=false');
+
+            window.open("Estacuenta.html?negocio=" + negocio, 'Graph', 'height=900px;width=650px;resizable=false;');
         });
 
         function PrintElem(eleme) {

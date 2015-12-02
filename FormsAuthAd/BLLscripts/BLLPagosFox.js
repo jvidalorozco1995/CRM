@@ -1,4 +1,5 @@
-﻿var BLLPagosFox = function () {
+﻿var utl = new BLLUtilidades();
+var BLLPagosFox = function () {
 
 };
 var WAPagosNegocio = "/Servicios/WPagosFox.asmx/pagosFox"
@@ -29,7 +30,7 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
     tabla += "<tr>";
     tabla += "<th>Recibo No.</th>";;
     tabla += "<th>Fecha de recibo</th>";
-    tabla += "<th>VLR RECIBO</th>";
+    tabla += "<th>Vlr Recibo</th>";
     tabla += "</tr>";
     tabla += "</thead>";
     tabla += "<tbody>";
@@ -38,7 +39,7 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
         tabla += " <tr class='CargarPagos' id=" + item.REFERENCIA1 + ">";
         tabla += "<td>" + item.Nrecibo + "</td>";
         tabla += "<td>" + item.Fecharecibo + "</td>";
-        tabla += "<td>" + item.Vlrrecibo + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.Vlrrecibo) + "</td>";
         tabla += "</tr>";
 
     });
@@ -62,7 +63,7 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
         tabla2 += " <tr class='CargarPagos' id=" + item.REFERENCIA1 + ">";
         tabla2 += "<td>" + item.Nrecibo + "</td>";
         tabla2 += "<td>" + item.Fecharecibo + "</td>";
-        tabla2 += "<td>" + item.Vlrrecibo + "</td>";
+        tabla2 += "<td>" + utl.FormatNumero(item.Vlrrecibo) + "</td>";
         tabla2 += "</tr>";
 
     });

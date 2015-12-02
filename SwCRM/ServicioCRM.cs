@@ -19,7 +19,6 @@ namespace SwCRM
     {
         private Timer _timer;
         private DateTime _lastRun = DateTime.Now.AddDays(-1);
-       
         public ServicioCRM()
         {
             InitializeComponent();
@@ -41,9 +40,7 @@ namespace SwCRM
             _timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
             _timer.Start();
         }
-
         ConecFox fx = new ConecFox();
-
         public void ListNegocio() 
         {
             InsertNegocio(fx.ConsulNegocio());
@@ -61,15 +58,11 @@ namespace SwCRM
         public void InsertPago(){
           InsertPago(fx.ConsultPagosFox());
         }
-
-      
         public void InsertAcuerdo(List<AcuerdoFox> ac)
         {
             BLLAcuerdoFox hn = new BLLAcuerdoFox();
             hn.Acuerdo(ac);
-
         }
-
         public void InsertPago(List<PagosFox> ac)
         {
             BLLPagosFox hn = new BLLPagosFox();

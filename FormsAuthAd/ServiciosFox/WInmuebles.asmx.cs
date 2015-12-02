@@ -131,6 +131,22 @@ namespace FormsAuthAd.ServiciosFox
 
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void TODO()
+        {
+            InsertNegocio(fx.ConsulNegocio());
+            InsertAcuerdo(fx.ConsulAcuerdoPago());
+            InsertPago(fx.ConsultPagosFox());
+
+        }
+
+        public void InsertNegocio(List<NegociosFox> ac)
+        {
+            BLLNegocioFox hn = new BLLNegocioFox();
+            hn.Hojanegocio(ac);
+        }
+
         public void InsertPago(List<PagosFox> ac)
         {
             BLLPagosFox hn = new BLLPagosFox();
