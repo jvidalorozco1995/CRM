@@ -13,6 +13,9 @@
     var WEstadoTareasclientes = "/Servicios/WTareas.asmx/ListaEstadoTareasclientes";
     var WsInfoTareasNego = "/Servicios/WTareas.asmx/InfoTareasNego";//Informacion de tareas especifica
     var WTareasNegocio = "/Servicios/WTareas.asmx/GetTareasNegocios"
+    var WCompromisosInsert = "/Servicios/WTareas.asmx/InsertCompromiso"
+    var WTareasNegocioCompromiso = "/Servicios/WTareas.asmx/GetTareasCompromiso";
+
     var color = null;
     //Metodo para Crear cliente
     BLLTareas.prototype.CrearTarea = function (tarea, Wsurl) {
@@ -52,6 +55,36 @@
 
     }
 
+   
+    BLLTareas.prototype.InsertCompromiso = function (tarea) {
+        jsonData = "{'c':" + JSON.stringify(tarea) + "}";
+        $.ajax({
+            type: "POST", url: WCompromisosInsert, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d === null) {
+
+                }
+                else {
+                    toastr.success('CRM  Mayales Notificacion' +
+                           '</br> La tarea se registrado de manera exitosa para el cliente con documento de identidad' +
+                           '</br>' + tarea.cliente + 
+                           '</br>' + 'Por el Asesor'
+                           + tarea.asesor + '');
+                    $('#Tareas').hide();
+                    $('#TxtClientes').val("");
+                    $('#TxtDescripcion').val("");
+                    $('#TxtFechaTarea').val("");
+                   
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        })
+    }
+
     BLLTareas.prototype.TareasNegocio = function (negocio) {
         jsonData = "{'c':" + JSON.stringify(negocio) + "}";
         $.ajax({
@@ -71,6 +104,29 @@
             error: function (error) { alert(error.responseText); }
         })
     }
+
+
+    BLLTareas.prototype.TareasNegocioCompromiso = function (negocio) {
+        jsonData = "{'c':" + JSON.stringify(negocio) + "}";
+        $.ajax({
+            type: "POST", url: WTareasNegocioCompromiso, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d === null) {
+
+                }
+                else {
+
+                    BLLTareas.TablaTareasNegocioCompromiso(result.d);
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        })
+    }
+
 
     BLLTareas.prototype.EstadoTareas = function (estado) {
         jsonData = "{'estado':" + JSON.stringify(estado) + "}";
@@ -629,7 +685,7 @@
             tabla += "<td id=" + item.ID_TAREA + " class='Infocl'>" + item.NOMBRES + "</td>";
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
-            switch (item.ESTADO) {
+           switch (item.ESTADO) {
                 case "T":
                     tabla += "<td ><img src='../../images_crm/Completa.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
                     break
@@ -651,6 +707,35 @@
         });
         tabla += "</tbody>";
         tabla += "</table>";
+        $('#clientesData').append(tabla);
+        $('#estados').dataTable();
+    };
+
+
+    BLLTareas.TablaTareasNegocioCompromiso = function (clientes) {
+        document.getElementById('clientesData').innerHTML = "";
+        var tabla = '<table id="estados" class="table table-striped table-bordered table-hover">';
+        tabla += "<thead>";
+        tabla += "<tr>";
+        tabla += "<th>CLIENTE</th>";
+        tabla += "<th>FECHA INICIO</th>";
+        tabla += "<th>FECHA FIN</th>";
+        tabla += "</tr>";
+        tabla += "</thead>";
+        tabla += "<tbody>";
+        var Cedula;
+        $.each(clientes, function (i, item) {
+            tabla += " <tr>";
+            tabla += "<td id=" + item.ID_TAREA + " class='Infocl'>" + item.NOMBRES + "</td>";
+            tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
+            tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
+            tabla += "</tr>";
+            
+        });
+        tabla += "</tbody>";
+        tabla += "</table>";
+
+       
         $('#clientesData').append(tabla);
         $('#estados').dataTable();
     };

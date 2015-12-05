@@ -25,11 +25,11 @@ namespace DAL
         public string ID_PROYEC { get; set; }
         public string NOMBRE_PROYEC { get; set; }
 
-           [XmlIgnore]
+        [XmlIgnore]
         public virtual ICollection<bloques> bloques { get; set; }
-           [XmlIgnore]
+        [XmlIgnore]
         public virtual ICollection<planos_Proyectos> planos_Proyectos { get; set; }
-           [XmlIgnore]
+        [XmlIgnore]
         public virtual ICollection<proyectos_trabajador> proyectos_trabajador { get; set; }
     }
 }

@@ -1,54 +1,17 @@
 ﻿
-var neg = new BLLnegocio();
+var Seg = new BLLSeguiNegocios();
 var tar = new BLLTareas();
-var Ac = new BLLAcuerdosFox();
-var Pag = new BLLPagosFox();
-var util = new BLLUtilidades;
-
 
 var admUser = (function () {
 
-    var WsListNegocio = "/Servicios/WNegocioFox.asmx/lisHoja";//Consulto Proyectos CRM
-    var WsListNegocioID = "/Servicios/WNegocioFox.asmx/lisNegoID";//Consulto Proyectos CRM
-    var WsActualizarAdjFox = "/Servicios/WNegocioFox.asmx/ActualizarAdj";//Consulto Proyectos CRM
+    var WsListNegocio = "/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisos";//Consulto Proyectos CRM
+ 
 
     var _addHandlers = function () {
-       /*//Asignar Proyectos a trabajador MODAL
-        $(document).on('click', '.Asignar', function () {
-          
-            $('#ModalAsignar').modal('show');
-            var dtot = $(this).attr("id");
-            var result = dtot.split('-');
-            $('#TxtCodigo').val(result[0]);
-            $('#TxtProyecto').val(result[1]);
-        });
-        */
-        $("#BtnImprimir").click(function () {
-
-            window.open("Estacuenta.html?negocio=" + negocio, 'Graph', 'height=900px;width=650px;resizable=false;');
-        });
-
-        function PrintElem(eleme) {
-            Popup($(eleme).html());
-        }
-        function Popup(data) {
-            var mywindow = window.open('', 'my div', 'height=400,width=600');
-            mywindow.document.write('<html><head><title>my div</title>');
-            /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
-            mywindow.document.write('</head><body style="margin:3px;padding:3px">');
-            mywindow.document.write('<div style="margin:3px;padding:3px;">');
-            mywindow.document.write(data);
-            mywindow.document.write('</div>');
-            mywindow.document.write('</body></html>');
-            mywindow.document.close(); // necessary for IE >= 10
-            mywindow.focus(); // necessary for IE >= 10
-            mywindow.print();
-            mywindow.close();
-            return true;
-        }
+      
 
         $("#BtnActualizar").click(function () {
-            
+
         });
 
         $('#BtnEditar').click(function () {
@@ -100,19 +63,59 @@ var admUser = (function () {
                     }
                 }
             }
-
-
         });
-  
+
         $(document).on('click', '#BtnTerminada', function (event) {
-          
+
             tar.TerminarTareaNego(_PosTareas(), _BitacorasDTO());
             setTimeout(function () { tar.InfoTareasNego(cedula, 0); }, 1000);
             setTimeout(function () { tar.TareasNegocio(negocio); }, 1000);
-          
+
         });
 
-        $(document).on('click', '.historial1', function () {
+        //Asignar Proyectos al trabajador
+        $(document).on('click', '.Detallett', function () {
+            negocio = $(this).attr("id");
+            ced = $(this).attr("tag");
+           
+            tar.TareasNegocioCompromiso(negocio);
+            $('#TxtClientes').val(ced);
+            //Ac.AcuerdosFox(negocio);
+            //neg.ListNegocioFOXID(WsListNegocioID, negocio);
+            //Pag.PagosFox(negocio);
+        });
+
+       
+        $(document).on('click', '#BtnCreaTarea', function (event) {
+            if ($('#TxtDescripcion').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                '<br/> no ha digitado nada en el campo descripcion de tarea');
+            }
+            else {
+                if ($('#TxtFechaTarea').val().length < 1) {
+                    toastr.error('CRM Mayales- Notificacion' +
+                        '<br/> No a seleccionado ninguna Fecha para realizar la tarea');
+                }
+                else {
+                    var fechata = $('#TxtFechaTarea').val()
+                    if (fechata < fecha) {
+                        toastr.error('CRM  Mayales Notificacion' +
+                            '</br> la fecha seleccionada para la tarea no puede ser menor que la actual');
+                    }
+                    else {
+
+                        Tr.InsertCompromiso(_DtoTareas());
+                        setTimeout(function () { tar.TareasNegocioCompromiso(negocio); }, 2000);
+                      
+
+                    }
+                }
+            }
+        });
+
+
+        
+        $(document).on('click', '.Infocl', function () {
             cedula = $(this).attr("id");
             tar.InfoTareasNego(cedula);
             $('#infoTareas').modal('show');
@@ -121,77 +124,32 @@ var admUser = (function () {
             $('#BtnPost').hide();
             $('#Txtdetalle').attr('readonly', true);
             $('#fechainfo').attr('readonly', true);
-            tar.lisbitacoras(cedula);
-         
-        });
-
-
-
-
-     
-
-
-        //Asignar Proyectos al trabajador
-        $(document).on('click', '.CargarNego', function () {
-            negocio = $(this).attr("id");
-            $('#PanelNego').show();
-            $('#PanelTareas').show();
-            $('#Tareas').show();
-            
-            tar.TareasNegocio(negocio);
-            Ac.AcuerdosFox(negocio);
-            neg.ListNegocioFOXID(WsListNegocioID, negocio);
-            Pag.PagosFox(negocio);
-        });
-
-        //Asignar Proyectos al trabajador
-        $(document).on('click', '.RemoverP', function () {
-            cedula = $(this).attr("id");
-            alert("#" + cedula + "");
-            var c = $("#" + cedula + "").get(0);
-            
-            var files = c.files;
-            var test = new FormData();
-            for (var i = 0; i < files.length; i++) {
-                test.append(files[i].name, files[i]);
-            }
-            $.ajax({
-                url: "../../handler/SubirArchivoHandler.ashx",
-                type: "POST",
-                contentType: false,
-                processData: false,
-                data: test,
-                // dataType: "json",
-                success: function (result) {
-                    neg.ListActualizarAdj(WsActualizarAdjFox, cedula, files[0].name);
-                    alert(result);
-                    $("#" + cedula + "").prop('disabled', true);
-                    $(".RemoverP").prop('disabled', true);
-                },
-                error: function (err) {
-                    alert(err.statusText);
-                }
-            });
+           // tar.lisbitacoras(cedula);
 
         });
+
+
+        
     };
 
     var _PosTareas = function () {
         var postarea = {};
         postarea.ID_TAREA = cedula;
         postarea.CONCEPTO = $('#Txtdetalle').val();
-      //  postarea.CLIENTE = cedula;
+        //  postarea.CLIENTE = cedula;
         postarea.ESTADO = "T";
         return postarea;
     }
 
     var _DtoTareas = function () {
         var tarea = {};
-        tarea.cliente = cedula;
+        tarea.cliente = $('#TxtClientes').val();
         tarea.trabajador = '';
         tarea.concepto = $('#TxtDescripcion').val();
-        tarea.fechainicio = $('#TxtFecha').val();
-        tarea.estado = 'E';
+        tarea.FECHAINICIO =  moment($('#TxtFechaTarea').val()).format("YYYY/MM/DD");
+        tarea.FECHAFIN = moment($('#TxtFechaTarea').val()).format("YYYY/MM/DD");
+        tarea.NEGOCIO = negocio;
+        tarea.estado = 'CO';
         return tarea;
     }
     var _BitacorasDTO = function () {
@@ -203,7 +161,8 @@ var admUser = (function () {
         return bitacora;
     }
     var _Inicio = function () {
-        neg.ListNegocioFOX(WsListNegocio, "Negocio");
+        $('#PanelTareas').show();
+        Seg.ListNegocios(WsListNegocio);
     }
 
     return {

@@ -27,11 +27,11 @@ namespace DAL
         public string EMAIL { get; set; }
         public string TIPO { get; set; }
 
-           [XmlIgnore]
+        [XmlIgnore]
         public virtual ICollection<historial_clientes> historial_clientes { get; set; }
-           [XmlIgnore]
+        [XmlIgnore]
         public virtual ICollection<proyectos_trabajador> proyectos_trabajador { get; set; }
-           [XmlIgnore]
+        [XmlIgnore]
         public virtual ICollection<tareas> tareas { get; set; }
     }
 }

@@ -52,8 +52,15 @@ namespace FormsAuthAd.Servicios
             return hn.ActualizarDocumentoAdj(CodCRM, Documento);
         }
 
-        
 
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<EntitiNegociosCompro> ConsultaNegociosCompromisos()
+        {
+            BLLNegociosCompro hn = new BLLNegociosCompro();
+            return hn.ListCompromisos();
+        }
         
 
 

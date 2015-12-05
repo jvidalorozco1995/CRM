@@ -31,10 +31,7 @@ namespace FormsAuthAd.ServiciosFox
         public void consultafox()
         {
             ListNegocio();
-          
         }
-
-       
 
         public void ListNegocio()
         {
@@ -47,6 +44,7 @@ namespace FormsAuthAd.ServiciosFox
             BLLNegocioFox hn = new BLLNegocioFox();
             hn.Hojanegocio(ac);
         }
+
 
     }
 }

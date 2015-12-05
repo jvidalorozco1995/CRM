@@ -70,5 +70,6 @@ namespace DAL
         public DbSet<VacuerdosFox> VacuerdosFox { get; set; }
         public DbSet<VnegocioFox> VnegocioFox { get; set; }
         public DbSet<negocio> negocio { get; set; }
+        public DbSet<VNegocioscompromisos> VNegocioscompromisos { get; set; }
     }
 }

@@ -1345,6 +1345,7 @@
     <Content Include="BLLscripts\BLLnegocio.js" />
     <Content Include="BLLscripts\BLLPagosFox.js" />
     <Content Include="BLLscripts\BLLSala_Ventas.js" />
+    <Content Include="BLLscripts\BLLSeguiNegocios.js" />
     <Content Include="BLLscripts\BLLTareas.js" />
     <Content Include="BLLscripts\BLLTrabajadores.js" />
     <Content Include="BLLscripts\BLLProyectos.js" />
@@ -1361,7 +1362,9 @@
     <Content Include="Cartera\js\GestCartera.js" />
     <Content Include="Cartera\js\jquery.printElement.js" />
     <Content Include="Cartera\js\Negocios.js" />
+    <Content Include="Cartera\js\SeguiNegocio.js" />
     <Content Include="Cartera\Negocios.aspx" />
+    <Content Include="Cartera\SeguiNegocios.aspx" />
     <Content Include="Comercial\clientes\Clientes.aspx" />
     <Content Include="Comercial\clientes\js\clientes.js" />
     <Content Include="Comercial\GesComercial.aspx" />
@@ -1525,6 +1528,7 @@
     <Content Include="images_crm\Home1.png" />
     <Content Include="images_crm\Home2.png" />
     <Content Include="images_crm\Buscar.png" />
+    <Content Include="images_crm\PV.png" />
     <Content Include="images_crm\Suspendido.png" />
     <Content Include="images_crm\tarea2.png" />
     <Content Include="images_crm\tareas.png" />
@@ -4564,6 +4568,13 @@
     </Compile>
     <Compile Include="Cartera\Negocios.aspx.designer.cs">
       <DependentUpon>Negocios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cartera\SeguiNegocios.aspx.cs">
+      <DependentUpon>SeguiNegocios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cartera\SeguiNegocios.aspx.designer.cs">
+      <DependentUpon>SeguiNegocios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comercial\clientes\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>

@@ -12,21 +12,21 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class VnegocioFox
+    public partial class VNegocioscompromisos
     {
-        public string NOMBREBLOQUE { get; set; }
-        public string CEDULA_P { get; set; }
-        public string NOMBRECLIENTE { get; set; }
-        public string CODIGOINMUEBLE { get; set; }
-        public string CODIGOCRM { get; set; }
-        public string SUCURSAL { get; set; }
-        public string NEGOCIO { get; set; }
         public int ID { get; set; }
+        public Nullable<decimal> VLRCUOTA { get; set; }
+        public string NOMBRECLIENTE { get; set; }
+        public string CEDULA_P { get; set; }
+        public string NOMBREBLOQUE { get; set; }
+        public string REFERENCIA1 { get; set; }
         public Nullable<decimal> VLRCREDITO { get; set; }
-        public Nullable<decimal> VLRINICIALCUOTA { get; set; }
         public Nullable<decimal> VLRNEGOCIO { get; set; }
-        public string FECHANEGOCIO { get; set; }
-        public string DOCUMENTO { get; set; }
+        public Nullable<decimal> VLRINICIALCUOTA { get; set; }
+        public string CODCRM { get; set; }
+        public Nullable<int> CODIGOTAREA { get; set; }
+        public Nullable<decimal> SALDOXCOBRAR { get; set; }
+        public string FECHACARTERA { get; set; }
         public string TELEFONO_P { get; set; }
         public string TELFONO_EMP { get; set; }
     }

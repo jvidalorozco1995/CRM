@@ -35,6 +35,16 @@ namespace FormsAuthAd.Servicios
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 
+        public int InsertCompromiso(tareas c)
+        {
+            return bt.InsertCompromiso(c);
+        }
+
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
         public List<VTareasTrab> GetTareasC(string c)
         {
             return bt.GetTareas(c);
@@ -48,6 +58,15 @@ namespace FormsAuthAd.Servicios
         public List<VtareasNegocio> GetTareasNegocios(string c)
         {
             return bt.GestTareasNegocio(c);
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
+        public List<VtareasNegocio> GetTareasCompromiso(string c)
+        {
+            return bt.GestTareasCompromiso(c);
         }
 
         [WebMethod]
