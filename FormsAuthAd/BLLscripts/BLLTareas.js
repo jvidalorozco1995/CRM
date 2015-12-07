@@ -505,7 +505,7 @@
         var fechaini = null;
         var fechafin = null;
         for (var i = 0; i < tareasinf.length; i++) {
-            if (tareasinf[i]["ESTADO"]=="T") {
+            if (tareasinf[i]["ESTADO"] == "T" || tareasinf[i]["ESTADO"] == "TR") {
                 $('#BtnEditar').hide();
                 $('#BtnPost').hide();
                 $('#BtnTerminada').hide();
@@ -720,15 +720,30 @@
         tabla += "<th>CLIENTE</th>";
         tabla += "<th>FECHA INICIO</th>";
         tabla += "<th>FECHA FIN</th>";
+        tabla += "<th>ESTADO</th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
         var Cedula;
         $.each(clientes, function (i, item) {
             tabla += " <tr>";
-            tabla += "<td id=" + item.ID_TAREA + " class='Infocl'>" + item.NOMBRES + "</td>";
+            tabla += "<td>" + item.NOMBRES + "</td>";
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
+            switch (item.ESTADO) {
+                case "TR":
+                    tabla += "<td ><img src='../../images_crm/Completa.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    break
+                case "PS":
+                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    break
+                case "CO":
+                    tabla += "<td ><img src='../../images_crm/libre.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    break
+                case null:
+                    tabla += "<td></td>";
+                    break
+            }
             tabla += "</tr>";
             
         });

@@ -12,9 +12,9 @@ namespace BLLCRM
     public class BLLNegociosCompro
     {
         CRMEntiti bd = new CRMEntiti();
-        public List<EntitiNegociosCompro> ListCompromisos()
+        public List<EntitiNegociosCompro> ListCompromisos(string c)
         {
-            List<VNegocioscompromisos> list = bd.VNegocioscompromisos.ToList();
+            List<VNegocioscompromisos> list = bd.VNegocioscompromisos.Where(t=>t.REFERENCIA1.Substring(0,3).Equals(c)).ToList();
             List<EntitiNegociosCompro> listcompromiso = new List<EntitiNegociosCompro>();
          
             foreach(var compromi in list) 

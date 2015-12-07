@@ -13,7 +13,6 @@ BLLSeguiNegocios.CrearTabl = function (proyectos) {
     var tabla = '<table id="exampleP" class="table table-striped table-bordered table-hover">';
     tabla += "<thead>";
     tabla += "<tr>";
-    tabla += "<th>CODIGO</th>";
     tabla += "<th>BLOQUE</th>";
     tabla += "<th>CEDULA</th>";
     tabla += "<th>NOMBRE CLIENTE</th>";
@@ -27,7 +26,6 @@ BLLSeguiNegocios.CrearTabl = function (proyectos) {
     $.each(proyectos, function (i, item) {
 
         tabla += "<tr>";
-        tabla += "<td style='width:200px'>" + item.ID + "</td>";
         tabla += "<td>" + item.NOMBREBLOQUE + "</td>";
         tabla += "<td>" + item.CEDULA_P + "</td>";
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
@@ -56,10 +54,12 @@ BLLSeguiNegocios.CrearTabl = function (proyectos) {
 
  
 BLLSeguiNegocios.prototype = {
-    ListNegocios: function (Wsurl) {
 
+    ListNegocios: function (Wsurl,Proyecto) {
+        var jsonData = "{ 'c':" + JSON.stringify(Proyecto) + " }";
         $.ajax({
             type: "POST", url: Wsurl,
+            data: jsonData,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             async: true,
@@ -68,7 +68,7 @@ BLLSeguiNegocios.prototype = {
 
                 }
                 else {
-                    alert(JSON.stringify(result.d));
+                   
                     BLLSeguiNegocios.CrearTabl(result.d);
                 }
             },

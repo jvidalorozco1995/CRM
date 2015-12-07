@@ -5,6 +5,7 @@ using Entity.VTareas;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,6 +108,12 @@ namespace BLLCRM
                     case "C":
                         historial.DESCRIPCIONH = "La tarea finalizada, el cliente decide iniciar proceso de compra";
                         break;
+                    case "PS":
+                        historial.DESCRIPCIONH = "Compromiso pospuesto";
+                        break;
+                    case "CO":
+                        historial.DESCRIPCIONH = "Compromiso creado";
+                        break;
                 }
                 historial.FECHA = DateTime.Now;
                 bd.historial_clientes.Add(historial);
@@ -164,7 +171,7 @@ namespace BLLCRM
         /// <returns></returns>
         public List<VtareasNegocio> GestTareasCompromiso(string c)
         {
-            List<VtareasNegocio> lisT = bd.VtareasNegocio.OrderByDescending(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c && t.ESTADO=="CO").ToList();
+            List<VtareasNegocio> lisT = bd.VtareasNegocio.OrderByDescending(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c && (t.ESTADO == "CO" || t.ESTADO == "PS" || t.ESTADO=="TR")).ToList();
             List<VtareasNegocio> Vtc = new List<VtareasNegocio>();
             if (lisT.Count.Equals(0))
             {
@@ -201,7 +208,7 @@ namespace BLLCRM
         /// <returns></returns>
         public List<VtareasNegocio> GestTareasNegocio(string c)
         {
-            List<VtareasNegocio> lisT = bd.VtareasNegocio.OrderByDescending(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c && t.ESTADO != "CO").ToList();
+            List<VtareasNegocio> lisT = bd.VtareasNegocio.OrderByDescending(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c && (t.ESTADO != "CO" && t.ESTADO != "PS" && t.ESTADO != "TR")).ToList();
             List<VtareasNegocio> Vtc = new List<VtareasNegocio>();
             if (lisT.Count.Equals(0))
             {
@@ -427,6 +434,37 @@ namespace BLLCRM
             }
         }
 
+
+        /// <summary>
+        /// Meotodo para actuaizar estado del compromiso en caso de q se haya
+        /// culminado completamente
+        /// </summary>
+        /// <param name="CompromisoCompletado"></param>
+        /// <returns></returns>
+        public int CompromisoCompletado(tareas t, bitacora_tareas b)
+        {
+            try
+            {
+                string concepto = "";
+                if (t.CONCEPTO.Equals("")) { concepto = "Gestión a sido terminada"; }
+                var contex = bd.tareas.First(u => u.ID_TAREA == b.TAREA);
+                contex.ESTADO = "T";
+                contex.CONCEPTO = concepto;
+                contex.FECHAFIN = DateTime.Today;
+                AddHistorialT(t, "T");
+                bd.SaveChanges();
+                Bitacoras(b, "C");
+                return 1;
+            }
+            catch (Exception)
+            {
+                return 0;
+                throw;
+            }
+        }
+
+
+
         /// <summary>
         /// Meotodo para actuaizar estado de tareas en caso de q se haya
         /// culminado completamente
@@ -473,8 +511,20 @@ namespace BLLCRM
                  bd.SaveChanges();
                  return 1;
             }
-            catch (Exception)
+            catch (DbEntityValidationException e)
             {
+
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+           
                 return 0;
                 throw;
             }

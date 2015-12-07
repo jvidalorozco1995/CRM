@@ -27,7 +27,7 @@ var _admnego = (function () {
                     $("#TxtInmueble").append(nego[0].CODIGOINMUEBLE);
                     $("#TxtCedula").append(nego[0].CEDULA_P);
                     $("#TxtNombrecliente").append(nego[0].NOMBRECLIENTE);
-                    
+                    javascript: window.print();
                 }
             },
             error: function (obj, error, objError) { alert(obj.responseText); }
@@ -36,15 +36,7 @@ var _admnego = (function () {
 
     var imprimir = function () {
 
-        $("#BtnImprimir").click(function () {
-            javascript: window.print();
-        });
-        
-
     }
-
-
-
 
     var _Inicio = function () {
        /* getHoha(idhoja);
@@ -62,8 +54,10 @@ var _admnego = (function () {
 
     return {
         init: function () {
+          
             _Inicio();
             _addHandlers();
+           
         },
     }
 
@@ -72,4 +66,5 @@ var _admnego = (function () {
 $(document).ready(function () {
 
     _admnego.init();
+    
 })

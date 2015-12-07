@@ -1,7 +1,8 @@
 ﻿
 var Seg = new BLLSeguiNegocios();
 var tar = new BLLTareas();
-
+var utl = new BLLUtilidades;
+var proyec = utl.getUrl('proyec');
 var admUser = (function () {
 
     var WsListNegocio = "/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisos";//Consulto Proyectos CRM
@@ -21,8 +22,6 @@ var admUser = (function () {
             $('#Txtdetalle').attr('readonly', false);
             $('#fechainfo').attr('readonly', false);
         })
-
-
 
         $('#BtnPost').click(function () {
             if ($('#Txtdetalle').val().length < 1) {
@@ -52,9 +51,12 @@ var admUser = (function () {
                             mes = null;
 
                             tar.PosponerTarea(_PosTareas(), _BitacorasDTO());
-                            setTimeout(function () { tar.TareasNegocio(negocio); }, 1000);
-                            setTimeout(function () { tar.lisbitacoras(cedula); }, 1000);
-                            /*setTimeout(function () { Tr.lisbitacoras(t); }, 1000)
+                            setTimeout(function () { tar.TareasNegocioCompromiso(negocio); }, 1000);
+                           
+                       //     setTimeout(function () { tar.lisbitacoras(cedula); }, 1000);
+                            setTimeout(function () { tar.lisbitacoras(t); }, 1000)
+                            $('#infoTareas').modal('hide');
+                            /*
                             setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
                             setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
                             setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);*/
@@ -67,19 +69,21 @@ var admUser = (function () {
 
         $(document).on('click', '#BtnTerminada', function (event) {
 
-            tar.TerminarTareaNego(_PosTareas(), _BitacorasDTO());
+            tar.TerminarTareaNego(_ComTareas(), _BitacorasDTO());
             setTimeout(function () { tar.InfoTareasNego(cedula, 0); }, 1000);
-            setTimeout(function () { tar.TareasNegocio(negocio); }, 1000);
-
+            setTimeout(function () { tar.TareasNegocioCompromiso(negocio); }, 1000);
+            setTimeout(function () { tar.lisbitacoras(t); }, 1000)
+            $('#infoTareas').modal('hide');
         });
 
         //Asignar Proyectos al trabajador
         $(document).on('click', '.Detallett', function () {
             negocio = $(this).attr("id");
             ced = $(this).attr("tag");
-           
+   
             tar.TareasNegocioCompromiso(negocio);
             $('#TxtClientes').val(ced);
+            $('#PanelTareas').show();
             //Ac.AcuerdosFox(negocio);
             //neg.ListNegocioFOXID(WsListNegocioID, negocio);
             //Pag.PagosFox(negocio);
@@ -104,7 +108,7 @@ var admUser = (function () {
                     }
                     else {
 
-                        Tr.InsertCompromiso(_DtoTareas());
+                        tar.InsertCompromiso(_DtoTareas());
                         setTimeout(function () { tar.TareasNegocioCompromiso(negocio); }, 2000);
                       
 
@@ -124,12 +128,9 @@ var admUser = (function () {
             $('#BtnPost').hide();
             $('#Txtdetalle').attr('readonly', true);
             $('#fechainfo').attr('readonly', true);
-           // tar.lisbitacoras(cedula);
+            tar.lisbitacoras(cedula);
 
         });
-
-
-        
     };
 
     var _PosTareas = function () {
@@ -137,7 +138,16 @@ var admUser = (function () {
         postarea.ID_TAREA = cedula;
         postarea.CONCEPTO = $('#Txtdetalle').val();
         //  postarea.CLIENTE = cedula;
-        postarea.ESTADO = "T";
+        postarea.ESTADO = "PS";
+        return postarea;
+    }
+
+    var _ComTareas = function () {
+        var postarea = {};
+        postarea.ID_TAREA = cedula;
+        postarea.CONCEPTO = $('#Txtdetalle').val();
+        //  postarea.CLIENTE = cedula;
+        postarea.ESTADO = "TR";
         return postarea;
     }
 
@@ -161,8 +171,10 @@ var admUser = (function () {
         return bitacora;
     }
     var _Inicio = function () {
-        $('#PanelTareas').show();
-        Seg.ListNegocios(WsListNegocio);
+        $('#TxtFechaTarea').datepicker({
+            format: 'yyyy/mm/dd',
+        });
+        Seg.ListNegocios(WsListNegocio, proyec);
     }
 
     return {

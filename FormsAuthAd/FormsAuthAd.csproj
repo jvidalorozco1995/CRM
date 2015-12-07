@@ -1353,6 +1353,7 @@
     <Content Include="BLLscripts\BLLUtilidades.js" />
     <Content Include="Cartera\Crearnegocio.aspx" />
     <Content Include="Cartera\Estacuenta.html" />
+    <Content Include="Cartera\GesNegocio.aspx" />
     <Content Include="Cartera\Hoja_Negocio2.html" />
     <Content Include="Cartera\Hoja_Negocio.html" />
     <Content Include="Cartera\GesCartera.aspx" />
@@ -1361,6 +1362,7 @@
     <Content Include="Cartera\js\Hoja.js" />
     <Content Include="Cartera\js\GestCartera.js" />
     <Content Include="Cartera\js\jquery.printElement.js" />
+    <Content Include="Cartera\js\negocioProyecto.js" />
     <Content Include="Cartera\js\Negocios.js" />
     <Content Include="Cartera\js\SeguiNegocio.js" />
     <Content Include="Cartera\Negocios.aspx" />
@@ -4561,6 +4563,13 @@
     </Compile>
     <Compile Include="Cartera\GesCartera.aspx.designer.cs">
       <DependentUpon>GesCartera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cartera\GesNegocio.aspx.cs">
+      <DependentUpon>GesNegocio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cartera\GesNegocio.aspx.designer.cs">
+      <DependentUpon>GesNegocio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cartera\Negocios.aspx.cs">
       <DependentUpon>Negocios.aspx</DependentUpon>

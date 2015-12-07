@@ -25,7 +25,7 @@ var admUser = (function () {
         */
         $("#BtnImprimir").click(function () {
 
-            window.open("Estacuenta.html?negocio=" + negocio, 'Graph', 'height=900px;width=650px;resizable=false;');
+            window.open("Estacuenta.html?negocio=" + negocio, 'Graph', 'height=700;width=400;resizable=false;');
         });
 
         function PrintElem(eleme) {

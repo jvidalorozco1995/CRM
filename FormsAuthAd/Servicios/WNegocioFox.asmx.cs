@@ -56,10 +56,10 @@ namespace FormsAuthAd.Servicios
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<EntitiNegociosCompro> ConsultaNegociosCompromisos()
+        public List<EntitiNegociosCompro> ConsultaNegociosCompromisos(string c)
         {
             BLLNegociosCompro hn = new BLLNegociosCompro();
-            return hn.ListCompromisos();
+            return hn.ListCompromisos(c);
         }
         
 
