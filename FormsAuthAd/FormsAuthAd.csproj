@@ -1355,9 +1355,9 @@
     <Content Include="Cartera\Estacuenta.html" />
     <Content Include="Cartera\GesNegocio.aspx" />
     <Content Include="Cartera\Hoja_Negocio2.html" />
-    <Content Include="Cartera\Hoja_Negocio.html" />
     <Content Include="Cartera\GesCartera.aspx" />
     <Content Include="Cartera\js\Cartera.js" />
+    <Content Include="Cartera\js\Compromisos.js" />
     <Content Include="Cartera\js\Estacuenta.js" />
     <Content Include="Cartera\js\Hoja.js" />
     <Content Include="Cartera\js\GestCartera.js" />
@@ -1366,6 +1366,7 @@
     <Content Include="Cartera\js\Negocios.js" />
     <Content Include="Cartera\js\SeguiNegocio.js" />
     <Content Include="Cartera\Negocios.aspx" />
+    <Content Include="Cartera\ReporteCompromisos.html" />
     <Content Include="Cartera\SeguiNegocios.aspx" />
     <Content Include="Comercial\clientes\Clientes.aspx" />
     <Content Include="Comercial\clientes\js\clientes.js" />
