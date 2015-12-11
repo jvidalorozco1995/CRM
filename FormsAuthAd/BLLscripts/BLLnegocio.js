@@ -51,7 +51,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
         tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
         if (item.DOCUMENTO != undefined) {
 
-            tabla += "<td style='width:20px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
+            tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
             tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
 
         } else {

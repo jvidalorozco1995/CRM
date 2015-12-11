@@ -1,12 +1,16 @@
 ﻿var utl = new BLLUtilidades();
 var Ac = new BLLAcuerdosFox();
 var Pag = new BLLPagosFox();
+var Tar = new BLLTareas();
 var _admnego = (function () {
     var WNegoID = "/Servicios/WNegocioFox.asmx/lisNegoID";
     var negocio = utl.getUrl('negocio');
 
     var _addHandlers = function () {
 
+        $("#BtnImprimir").click(function () {
+            javascript: window.print();
+        });
     }
     var getHoha = function (n) {
         jsondata = "{'c':" + JSON.stringify(n) + "}"
@@ -26,31 +30,25 @@ var _admnego = (function () {
                     $("#TxtInmueble").append(nego[0].CODIGOINMUEBLE);
                     $("#TxtCedula").append(nego[0].CEDULA_P);
                     $("#TxtNombrecliente").append(nego[0].NOMBRECLIENTE);
-                    javascript: window.print();
+                  
                 }
             },
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
     }
 
-    var imprimir = function () {
-
-    }
+ 
+   
 
     var _Inicio = function () {
-        /* getHoha(idhoja);
-         acuerdo(idhoja);
-         ConfiguracionNegocio();*/
+      
         getHoha(negocio);
-        imprimir();
-
-
-
-
-
-        Ac.CompromisosReporte(negocio);
+        Ac.AcuerdosReporte(negocio);
         Pag.PagosFoxCompromisos(negocio);
+        Tar.TareasNegocioCompromisoReporte(negocio);
+        
     }
+
 
     return {
         init: function () {
@@ -66,5 +64,6 @@ var _admnego = (function () {
 $(document).ready(function () {
 
     _admnego.init();
-
+    setTimeout(function () { javascript: window.print(); }, 2000);
+   
 })

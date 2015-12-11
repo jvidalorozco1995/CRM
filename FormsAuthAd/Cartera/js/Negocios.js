@@ -13,40 +13,18 @@ var admUser = (function () {
     var WsActualizarAdjFox = "/Servicios/WNegocioFox.asmx/ActualizarAdj";//Consulto Proyectos CRM
 
     var _addHandlers = function () {
-       /*//Asignar Proyectos a trabajador MODAL
-        $(document).on('click', '.Asignar', function () {
-          
-            $('#ModalAsignar').modal('show');
-            var dtot = $(this).attr("id");
-            var result = dtot.split('-');
-            $('#TxtCodigo').val(result[0]);
-            $('#TxtProyecto').val(result[1]);
+ 
+
+        $("#BtnImprimirCuenta").click(function () {
+
+            window.open("ReporteCompromisos.html?negocio=" + negocio, 'Graph', 'height=700;width=400;resizable=false;');
         });
-        */
         $("#BtnImprimir").click(function () {
 
             window.open("Estacuenta.html?negocio=" + negocio, 'Graph', 'height=700;width=400;resizable=false;');
         });
 
-        function PrintElem(eleme) {
-            Popup($(eleme).html());
-        }
-        function Popup(data) {
-            var mywindow = window.open('', 'my div', 'height=400,width=600');
-            mywindow.document.write('<html><head><title>my div</title>');
-            /*optional stylesheet*/ //mywindow.document.write('<link rel="stylesheet" href="main.css" type="text/css" />');
-            mywindow.document.write('</head><body style="margin:3px;padding:3px">');
-            mywindow.document.write('<div style="margin:3px;padding:3px;">');
-            mywindow.document.write(data);
-            mywindow.document.write('</div>');
-            mywindow.document.write('</body></html>');
-            mywindow.document.close(); // necessary for IE >= 10
-            mywindow.focus(); // necessary for IE >= 10
-            mywindow.print();
-            mywindow.close();
-            return true;
-        }
-
+       
         $("#BtnActualizar").click(function () {
             
         });
@@ -147,31 +125,38 @@ var admUser = (function () {
         //Asignar Proyectos al trabajador
         $(document).on('click', '.RemoverP', function () {
             cedula = $(this).attr("id");
-            alert("#" + cedula + "");
+            // alert("#" + cedula + "");
             var c = $("#" + cedula + "").get(0);
+
+         
             
             var files = c.files;
-            var test = new FormData();
-            for (var i = 0; i < files.length; i++) {
-                test.append(files[i].name, files[i]);
-            }
-            $.ajax({
-                url: "../../handler/SubirArchivoHandler.ashx",
-                type: "POST",
-                contentType: false,
-                processData: false,
-                data: test,
-                // dataType: "json",
-                success: function (result) {
-                    neg.ListActualizarAdj(WsActualizarAdjFox, cedula, files[0].name);
-                    alert(result);
-                    $("#" + cedula + "").prop('disabled', true);
-                    $(".RemoverP").prop('disabled', true);
-                },
-                error: function (err) {
-                    alert(err.statusText);
+            if (files[0] != undefined) {
+
+                var test = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    test.append(files[i].name, files[i]);
                 }
-            });
+                $.ajax({
+                    url: "../../handler/SubirArchivoHandler.ashx",
+                    type: "POST",
+                    contentType: false,
+                    processData: false,
+                    data: test,
+                    // dataType: "json",
+                    success: function (result) {
+                        neg.ListActualizarAdj(WsActualizarAdjFox, cedula, files[0].name);
+                        alert(result);
+                        $("#" + cedula + "").prop('disabled', true);
+                        $(".RemoverP").prop('disabled', true);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("Seleccione un archivo");
+            }
 
         });
     };

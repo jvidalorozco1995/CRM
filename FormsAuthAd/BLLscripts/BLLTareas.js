@@ -105,6 +105,28 @@
         })
     }
 
+    
+    BLLTareas.prototype.TareasNegocioCompromisoReporte = function (negocio) {
+        jsonData = "{'c':" + JSON.stringify(negocio) + "}";
+        $.ajax({
+            type: "POST", url: WTareasNegocioCompromiso, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d === null) {
+
+                }
+                else {
+
+                    BLLTareas.TablaTareasNegocioCompromisoReporte(result.d);
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        })
+    }
+
 
     BLLTareas.prototype.TareasNegocioCompromiso = function (negocio) {
         jsonData = "{'c':" + JSON.stringify(negocio) + "}";
@@ -749,8 +771,47 @@
         });
         tabla += "</tbody>";
         tabla += "</table>";
-
-       
         $('#clientesData').append(tabla);
         $('#estados').dataTable();
+    };
+
+
+    BLLTareas.TablaTareasNegocioCompromisoReporte = function (clientes) {
+        document.getElementById('Tblcompromiso').innerHTML = "";
+        var tabla = '<table id="estados" class="table table-striped table-bordered table-hover">';
+        tabla += "<thead>";
+        tabla += "<tr>";
+      
+        tabla += "<th>Fecha</th>";
+        tabla += "<th>Estado</th>";
+        tabla += "</tr>";
+        tabla += "</thead>";
+        tabla += "<tbody>";
+        var Cedula;
+        $.each(clientes, function (i, item) {
+            tabla += " <tr>";
+            tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
+            switch (item.ESTADO) {
+                case "TR":
+                    tabla += "<td ><img src='../../images_crm/Completa.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    break
+                case "PS":
+                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    break
+                case "CO":
+                    tabla += "<td ><img src='../../images_crm/libre.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    break
+                case null:
+                    tabla += "<td></td>";
+                    break
+            }
+            tabla += "</tr>";
+
+        });
+        tabla += "</tbody>";
+        tabla += "</table>";
+
+        $('#Tblcompromiso').append("<label><strong>Compromisos de pago</strong></label>");
+        $('#Tblcompromiso').append(tabla);
+    
     };

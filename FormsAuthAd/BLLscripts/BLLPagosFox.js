@@ -70,6 +70,7 @@ BLLPagosFox.TablaPagosCompromisos = function (acuerdos) {
     });
     tabla += "</tbody>";
     tabla += '</table>';
+    $('#pagosFox').append("<label><strong>Pagos realizados</strong></label>");
     $('#pagosFox').append(tabla);
    // $('#pagos').dataTable();
 
