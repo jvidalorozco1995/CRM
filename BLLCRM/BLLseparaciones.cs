@@ -126,7 +126,8 @@ namespace BLLCRM
                         separacion.NOMBRE_PROYEC = item.NOMBRE_PROYEC;
                         separacion.FECHASEPARACION = item.FECHASEPARACION;
                         DIAS_TR = Convert.ToInt32(item.DIAS - item.DIAS_T);
-                        separacion.CASA = item.NOMBRE_BLO.Trim() + " - " + item.CASA.Trim();
+                        //item.NOMBRE_BLO.Trim() + " - " + item.CASA.Trim()
+                        separacion.CASA = "CASA1";
                         separacion.DIAS = DIAS_TR;
                         separacion.ESTADO = item.ESTADO;
                         _Lseparacion.Add(separacion);

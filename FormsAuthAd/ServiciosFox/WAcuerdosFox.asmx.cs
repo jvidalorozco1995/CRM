@@ -33,8 +33,5 @@ namespace FormsAuthAd.ServiciosFox
             hn.Acuerdo(ac);
         }
 
-
-
-
     }
 }

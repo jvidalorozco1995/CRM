@@ -27,7 +27,7 @@ var _admnego = (function () {
                     $("#TxtInmueble").append(nego[0].CODIGOINMUEBLE);
                     $("#TxtCedula").append(nego[0].CEDULA_P);
                     $("#TxtNombrecliente").append(nego[0].NOMBRECLIENTE);
-                    javascript: window.print();
+                   
                 }
             },
             error: function (obj, error, objError) { alert(obj.responseText); }
@@ -44,11 +44,6 @@ var _admnego = (function () {
         ConfiguracionNegocio();*/
         getHoha(negocio);
         imprimir();
-      
-
-
-
-
         Ac.AcuerdosFoxReporte(negocio);
     }
 
@@ -66,5 +61,5 @@ var _admnego = (function () {
 $(document).ready(function () {
 
     _admnego.init();
-    
+    setTimeout(function () { javascript: window.print(); }, 2000);
 })

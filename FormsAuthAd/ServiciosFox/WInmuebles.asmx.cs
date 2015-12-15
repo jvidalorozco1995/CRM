@@ -128,7 +128,6 @@ namespace FormsAuthAd.ServiciosFox
         {
             //.Where(t=>t.CODCRM=="10MGC003B").ToList()
             InsertPago(fx.ConsultPagosFox());
-
         }
 
         [WebMethod]

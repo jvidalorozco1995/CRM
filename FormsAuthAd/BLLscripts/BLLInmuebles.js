@@ -420,35 +420,38 @@ function BLLInmuebles() {
         tabla += "<th>Inmueble</th>";
         tabla += "<th>Proyecto</th>";
         tabla += "<th>Fecha de sepracion</th>";
-        tabla += "<th></th>";
+        tabla += "<th>Nro dias</th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(inmuebles, function (i, item) {
-            tabla += " <tr>";
-            tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO + "</td>";
-            tabla += "<td>" + item.TELEFONO2 + "</td>";
-            tabla += "<td>" + $.trim(item.CASA) + "</td>";
-            tabla += "<td>" + $.trim(item.NOMBRE_PROYEC) + "</td>";
-            if (item.FECHASEPARACION == null) {
-                tabla += "<td></td>";
-            } else {
-                tabla += "<td>" + moment(item.FECHASEPARACION).format("YYYY/MM/DD") + "</td>";
-            }
-            if (item.ESTADO == "P") {
-                tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "><img src='../../images_crm/libre.png'> Dias " + item.DIAS + "</td>";
-            }
-            else {
-                if (item.ESTADO == "D") {
-                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Suspendido.png'></td>";
+            alert(JSON.stringify(item));
+            if (item.ESTADO != "C") {
+                tabla += " <tr>";
+                tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO + "</td>";
+                tabla += "<td>" + item.TELEFONO2 + "</td>";
+                tabla += "<td>" + $.trim(item.CASA) + "</td>";
+                tabla += "<td>" + $.trim(item.NOMBRE_PROYEC) + "</td>";
+                if (item.FECHASEPARACION == null) {
+                    tabla += "<td></td>";
+                } else {
+                    tabla += "<td>" + moment(item.FECHASEPARACION).format("YYYY/MM/DD") + "</td>";
+                }
+                if (item.ESTADO == "P") {
+                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "><img src='../../images_crm/libre.png'> Dias " + item.DIAS + "</td>";
                 }
                 else {
-                    if (item.ESTADO == "L") {
-                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Completa.png'></td>";
+                    if (item.ESTADO == "D") {
+                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Suspendido.png'></td>";
                     }
                     else {
-                        if (item.ESTADO == null) {
-                            tabla += "<td>Sin separaciones</td>";
+                        if (item.ESTADO == "L") {
+                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Completa.png'></td>";
+                        }
+                        else {
+                            if (item.ESTADO == null) {
+                                tabla += "<td>Sin separaciones</td>";
+                            }
                         }
                     }
                 }
@@ -460,7 +463,7 @@ function BLLInmuebles() {
         $('#sepraciones').append(tabla);
         $('#sepracion').dataTable();
     }
-
+    
     //listado de inmuebles separados
     BLLInmuebles.TablasepracionNegocio = function (inmuebles) {
         document.getElementById('sepraciones').innerHTML = "";
