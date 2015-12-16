@@ -41,7 +41,7 @@ function BLLInmuebles() {
                 else
                 {
                     toastr.success('CRM Mayales - Notificacion' +
-                  '<br/> el cliente a inicado el proceso de cipra del inmuele' + separacion.INMUEBLE);
+                  '<br/> el cliente ha iniciado el proceso de compra del inmueble' + separacion.INMUEBLE);
                 }
             },
             error: function (msg) { alert(msg.responseText); }
@@ -425,7 +425,7 @@ function BLLInmuebles() {
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(inmuebles, function (i, item) {
-            alert(JSON.stringify(item));
+           
             if (item.ESTADO != "C") {
                 tabla += " <tr>";
                 tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO + "</td>";
@@ -479,6 +479,7 @@ function BLLInmuebles() {
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(inmuebles, function (i, item) {
+
             tabla += " <tr>";
             tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO + "</td>";
             tabla += "<td>" + item.TELEFONO2 + "</td>";
@@ -719,31 +720,34 @@ function BLLInmuebles() {
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(inmuebles, function (i, item) {
-            tabla += " <tr>";
-            tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO + "</td>";
-            tabla += "<td>" + item.TELEFONO2 + "</td>";
-            tabla += "<td>" + $.trim(item.CASA) + "</td>";
-            tabla += "<td>" + $.trim(item.NOMBRE_PROYEC) + "</td>";
-            if (item.FECHASEPARACION == null)
-            {
-                tabla += "<td></td>";
-            } else {
-                tabla += "<td>" + moment(item.FECHASEPARACION).format("YYYY/MM/DD") + "</td>";
-            }
-            if (item.ESTADO == "P") {
-                tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/libre.png'></td>";
-            }
-            else {
-                if (item.ESTADO == "D") {
-                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Suspendido.png'></td>";
+            if (item.ESTADO != "C") {
+
+                tabla += " <tr>";
+                tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO + "</td>";
+                tabla += "<td>" + item.TELEFONO2 + "</td>";
+                tabla += "<td>" + $.trim(item.CASA) + "</td>";
+                tabla += "<td>" + $.trim(item.NOMBRE_PROYEC) + "</td>";
+                if (item.FECHASEPARACION == null)
+                {
+                    tabla += "<td></td>";
+                } else {
+                    tabla += "<td>" + moment(item.FECHASEPARACION).format("YYYY/MM/DD") + "</td>";
+                }
+                if (item.ESTADO == "P") {
+                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/libre.png'></td>";
                 }
                 else {
-                    if (item.ESTADO == "L") {
-                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Completa.png'></td>";
+                    if (item.ESTADO == "D") {
+                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Suspendido.png'></td>";
                     }
                     else {
-                        if (item.ESTADO ==null) {
-                            tabla += "<td>Sin separaciones</td>";
+                        if (item.ESTADO == "L") {
+                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Completa.png'></td>";
+                        }
+                        else {
+                            if (item.ESTADO ==null) {
+                                tabla += "<td>Sin separaciones</td>";
+                            }
                         }
                     }
                 }

@@ -155,22 +155,44 @@ BLLnegocio.prototype = {
      },
 
 
-    ListNegocioFOX: function (Wsurl, neg) {
+     ListNegocioFOX: function (Wsurl, neg) {
+
+         $.ajax({
+             type: "POST", url: Wsurl,
+             contentType: "application/json; charset=utf-8",
+             dataType: 'json',
+             async: true,
+             success: function (result) {
+                 if (result.d == null) {
+
+                 }
+                 else {
+
+                     BLLnegocio.CrearTabl(result.d)
+
+
+                 }
+             },
+             error: function (obj, error, objError) { alert(obj.responseText); }
+         });
+     },
+
+
+    ActualizarTodosLosNegocios: function (Wsurltodosnegocios) {
  
         $.ajax({
-            type: "POST", url: Wsurl,
+            type: "POST", url: Wsurltodosnegocios,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             async: true,
             success: function (result) {
                 if (result.d == null) {
-
+                    toastr.error(' CRM - Mayales no se pudo actualizar');
                 }
                 else {
-                  
-                        BLLnegocio.CrearTabl(result.d)
+                    toastr.success(' CRM - Mayales' +
+                        '<br/>Se han actualizado de manera exitosa todos los negocios');
                     
-
                 }
             },
             error: function (obj, error, objError) { alert(obj.responseText); }
@@ -231,7 +253,9 @@ BLLnegocio.prototype = {
      },
    _addHoja: function (dto, inm, ac) {
         var re;
-        var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + "}";
+
+      alert(JSON.stringify(dto));
+      var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + "}";
       $.ajax({
           type: "POST", url: Waddnegocio, data: datos,
           contentType: "application/json; charset=utf-8",
@@ -240,7 +264,15 @@ BLLnegocio.prototype = {
           success: function (result) {
               if (result.d == "ER") { alert("No fue posible registrar la hoja") }
               else
-              {   document.getElementById("button").innerHTML = "";
+              {
+                  toastr.options.timeOut = 120000;
+                  toastr.success(' CRM - Mayales'
+                       +'<br/>Hoja de negocio creada correctamente,'
+                       + 'Ya puede crear su negocio en multifox'
+                       + '<br/>CODIGO MULTIFOX:' + result.d
+                       + '<br/>CLIENTE:' + dto.PROPIETARIO);
+
+                  document.getElementById("button").innerHTML = "";
                   $("#button").append('<button class="btn btn-default btn-btn-circle Btimprimir" type="button" id=' + result.d + ' >Imprimir hoja de negocio</button>');
               }
           },

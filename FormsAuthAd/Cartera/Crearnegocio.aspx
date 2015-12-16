@@ -261,12 +261,7 @@
                                                        <option></option>
                                                    </select>
                                                </div>
-                                                  <div style="float:left;padding-top:20px"><a id="BtnDisponibilidd"><img src="../images_crm/Buscar.png" style="float:left" /></a></div>
-                                                <div class="form-group col-lg-4">
-                                                   <label class="control-label">Documento Adjunto</label>
-                                                   <input type="file" name="UploadFile" id="txtUploadFile" class="makethispretty"  />
-                                               </div>
-                                              
+                                               
                                         </div>
                                     </div>
                                 </div>

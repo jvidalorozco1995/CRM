@@ -70,7 +70,6 @@ namespace FormsAuthAd.ServiciosFox
             return inm.Detalleseparacion(inmueble);
         }
 
-
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string UpdateInmuCrm(List<inmuebles> i,string b)
@@ -132,30 +131,56 @@ namespace FormsAuthAd.ServiciosFox
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void TODO()
+        public string TODO()
         {
-            InsertNegocio(fx.ConsulNegocio());
-            InsertAcuerdo(fx.ConsulAcuerdoPago());
-            InsertPago(fx.ConsultPagosFox());
+            try {
 
+               InsertNegocio(fx.ConsulNegocio());
+               InsertAcuerdo(fx.ConsulAcuerdoPago());
+               InsertPago(fx.ConsultPagosFox());
+                return "1";
+             }
+            catch (Exception ex) {
+              
+                return null;
+            }
+            
         }
 
         public void InsertNegocio(List<NegociosFox> ac)
         {
-            BLLNegocioFox hn = new BLLNegocioFox();
-            hn.Hojanegocio(ac);
+            try
+            {
+                BLLNegocioFox hn = new BLLNegocioFox();
+                hn.Hojanegocio(ac);
+            }catch(Exception ex){
+            
+            }
         }
 
         public void InsertPago(List<PagosFox> ac)
         {
-            BLLPagosFox hn = new BLLPagosFox();
-            hn.Pagos(ac);
+            try
+            {
+                BLLPagosFox hn = new BLLPagosFox();
+                hn.Pagos(ac);
+            }
+            catch (Exception ex) {
+            
+            }
         }
 
         public void InsertAcuerdo(List<AcuerdoFox> ac)
         {
-            BLLAcuerdoFox hn = new BLLAcuerdoFox();
-            hn.Acuerdo(ac);
+            try
+            {
+                BLLAcuerdoFox hn = new BLLAcuerdoFox();
+                hn.Acuerdo(ac);
+            }
+            catch (Exception ex) 
+            { 
+            
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ var admUser = (function () {
     var WsListNegocio = "/Servicios/WNegocioFox.asmx/lisHoja";//Consulto Proyectos CRM
     var WsListNegocioID = "/Servicios/WNegocioFox.asmx/lisNegoID";//Consulto Proyectos CRM
     var WsActualizarAdjFox = "/Servicios/WNegocioFox.asmx/ActualizarAdj";//Consulto Proyectos CRM
-
+    var Wsurltodosnegocios = "/ServiciosFox/WInmuebles.asmx/TODO";
     var _addHandlers = function () {
  
 
@@ -26,7 +26,11 @@ var admUser = (function () {
 
        
         $("#BtnActualizar").click(function () {
-            
+
+            neg.ActualizarTodosLosNegocios(Wsurltodosnegocios);
+            setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 3000);
+           
+           
         });
 
         $('#BtnEditar').click(function () {

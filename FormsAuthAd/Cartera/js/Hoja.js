@@ -90,8 +90,6 @@ var _admhoja = (function () {
 
                     $("#TxtConf").append(Nombre);
                   
-                  
-            
                 }
 
             },

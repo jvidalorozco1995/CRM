@@ -244,7 +244,7 @@
                                                             <input type="tel" value="" id="TxtTel1" class="form-control" name="" placeholder="Celular" maxlength="10">
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <label>Correo Elecrtonico</label>
+                                                            <label>Correo</label>
                                                             <input type="email" value="" id="TxtEmail" class="form-control" name="" placeholder="">
                                                         </div>
                                                         
@@ -308,7 +308,7 @@
                                                                 <div class="radio">
                                                                     <label>
                                                                         <input type="checkbox" value="Urabnizacion abierta" id="check2"></label>
-                                                                    Urabnizacion abierta
+                                                                    Urbanización abierta
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -773,7 +773,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-6">
-                                        <label>Direccion de resicencia</label>
+                                        <label>Direccion de residencia</label>
                                         <input type="text" value="" id="Text6" class="form-control" placeholder="" readonly=""/>
                                     </div>
                                      <div class="form-group col-lg-6">

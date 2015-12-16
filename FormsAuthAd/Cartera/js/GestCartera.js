@@ -181,23 +181,6 @@ var _admnegocio = (function () {
         
         var dataAdapter = new $.jqx.dataAdapter(source);
 
-        /*var getEditorDataAdapter = function (datafield) {
-         var source =
-             {
-                 localData: setdata,
-                 dataType: "array",
-                 dataFields:
-                 [
-                  { name: 'CUOTA', type: 'string' },
-                  { name: 'FECHA_PAGO', type: 'string' },
-                  { name: 'VALOR_CUOTA', type: 'string' }
-                 ]
-             };
-            
-            return dataAdapter;
-            
-        };*/
-
         // initialize jqxDataTable
         $("#dataTable").jqxGrid(
         {

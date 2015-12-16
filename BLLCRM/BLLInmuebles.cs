@@ -370,7 +370,8 @@ namespace BLLCRM
                          
                           ctx.INMUESTADO = "3";
                           db.SaveChanges();
-                          EnviarConfirmacion(email,s.CLIENTE);
+
+                       //   EnviarConfirmacion(email,s.CLIENTE);
                           return 1;
                       }
                     }
