@@ -43,7 +43,7 @@ namespace BLLCRM
                HistorialCliente(n.CEDULA_P,inm);
                HistorialInmu(n.CEDULA_P, inm);
                bd.SaveChanges();
-               return Cod_Sp;
+               return Cod_Sp +"-"+n.ID_NEGOCIO;
            }
            catch (Exception)
            {

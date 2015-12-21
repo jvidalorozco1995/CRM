@@ -70,29 +70,31 @@ namespace BLLCRM
                                     {
                                         Contador++;
                                         //sino existe insertamos el acuerdo
-                                        acuerdo_fox ac = new acuerdo_fox();
-                                        ac.CODIGO = ac_fox.CODIGO;
-                                        ac.REFERENCIA1 = ac_fox.REFERENCIA1;
-                                        ac.INMUEBLE = ac_fox.INMUEBLE;
-                                        ac.NEGOCIO = ac_fox.NEGOCIO;
-                                        ac.FECHANEGOCIO = ac_fox.FECHANEGOCIO;
-                                        ac.CONCEPTO = ac_fox.CONCEPTO;
-                                        ac.FECHACUOTA = ac_fox.FECHACUOTA;
-                                        ac.ANO = ac_fox.ANO;
-                                        ac.MES = ac_fox.MES;
-                                        ac.DIA = ac_fox.DIA;
-                                        ac.VLRCUOTA = ac_fox.VLRCUOTA;
-                                        ac.PAGOCUOTA = ac_fox.PAGOCUOTA;
-                                        ac.SALDOXCOBRAR = ac_fox.SALDOXCOBRAR;
-                                        ac.FECHACARTERA = Convert.ToDateTime(ac_fox.FECHACARTERA).ToShortDateString();
-                                        ac.CODCRM = ac_fox.CODCRM;
-                                        bd.acuerdo_fox.Add(ac);
-                                       
+                                        try
+                                        {
+                                            acuerdo_fox ac = new acuerdo_fox();
+                                            ac.CODIGO = ac_fox.CODIGO;
+                                            ac.REFERENCIA1 = ac_fox.REFERENCIA1;
+                                            ac.INMUEBLE = ac_fox.INMUEBLE;
+                                            ac.NEGOCIO = ac_fox.NEGOCIO;
+                                            ac.FECHANEGOCIO = ac_fox.FECHANEGOCIO;
+                                            ac.CONCEPTO = ac_fox.CONCEPTO;
+                                            ac.FECHACUOTA = ac_fox.FECHACUOTA;
+                                            ac.ANO = ac_fox.ANO;
+                                            ac.MES = ac_fox.MES;
+                                            ac.DIA = ac_fox.DIA;
+                                            ac.VLRCUOTA = ac_fox.VLRCUOTA;
+                                            ac.PAGOCUOTA = ac_fox.PAGOCUOTA;
+                                            ac.SALDOXCOBRAR = ac_fox.SALDOXCOBRAR;
+                                            ac.FECHACARTERA = Convert.ToDateTime(ac_fox.FECHACARTERA).ToShortDateString();
+                                            ac.CODCRM = ac_fox.CODCRM;
+                                            bd.acuerdo_fox.Add(ac);
+                                        }catch (Exception ex) {
+                                         
+                                        }
                                     }
 
-                                    
                                  }
-                                 
                                 
                             }
                             //sino si si los acuerdos de CRM son mayores a los acuerdos de FOX
@@ -102,8 +104,9 @@ namespace BLLCRM
                                 ActualizarAcuerdo(AcuerdosFOX, AcuerdosCRM);
                             }
                         }
+                        bd.SaveChanges();
                 }
-                bd.SaveChanges();
+              
                 var asasc = Contador;
             }
             return 1;

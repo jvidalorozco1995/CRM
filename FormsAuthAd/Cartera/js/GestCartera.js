@@ -159,6 +159,7 @@ var _admnegocio = (function () {
         
         $(document).on('click', '.Btimprimir', function () {
             var idhoja = $(this).attr("id");
+            alert(idhoja);
             window.open("Hoja_Negocio2.html?idhoja=" + idhoja, 'Graph', 'height=900px,width=650px;resizable=false');
             //window.location = "Hoja_Negocio2.html?idhoja="+idhoja+"";
         });

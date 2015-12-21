@@ -108,7 +108,7 @@ namespace FormsAuthAd.ServiciosFox
         public List<AcuerdoFox> LISTADO()
         {
             ConecFox fx = new ConecFox();
-            return fx.ConsulAcuerdoPago().Where(t => t.CODIGO == "2015093004").ToList();
+            return fx.ConsulAcuerdoPago().ToList();
         }
         ConecFox fx = new ConecFox();
 

@@ -169,7 +169,7 @@ BLLnegocio.prototype = {
                  else {
 
                      BLLnegocio.CrearTabl(result.d)
-
+                    
 
                  }
              },
@@ -192,7 +192,7 @@ BLLnegocio.prototype = {
                 else {
                     toastr.success(' CRM - Mayales' +
                         '<br/>Se han actualizado de manera exitosa todos los negocios');
-                    
+                    $('#Cargando').hide();
                 }
             },
             error: function (obj, error, objError) { alert(obj.responseText); }
@@ -254,7 +254,7 @@ BLLnegocio.prototype = {
    _addHoja: function (dto, inm, ac) {
         var re;
 
-      alert(JSON.stringify(dto));
+
       var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + "}";
       $.ajax({
           type: "POST", url: Waddnegocio, data: datos,
@@ -265,15 +265,19 @@ BLLnegocio.prototype = {
               if (result.d == "ER") { alert("No fue posible registrar la hoja") }
               else
               {
+                  var k = result.d;
+                  var x = k.split('-');
                   toastr.options.timeOut = 120000;
                   toastr.success(' CRM - Mayales'
                        +'<br/>Hoja de negocio creada correctamente,'
                        + 'Ya puede crear su negocio en multifox'
-                       + '<br/>CODIGO MULTIFOX:' + result.d
+                       + '<br/>CODIGO MULTIFOX:' + x[0]
                        + '<br/>CLIENTE:' + dto.PROPIETARIO);
 
                   document.getElementById("button").innerHTML = "";
-                  $("#button").append('<button class="btn btn-default btn-btn-circle Btimprimir" type="button" id=' + result.d + ' >Imprimir hoja de negocio</button>');
+                  $("#button").append('<button class="btn btn-default btn-btn-circle Btimprimir" type="button" id=' + x[1] + ' >Imprimir hoja de negocio</button>');
+
+                
               }
           },
            error: function (msg) { alert(msg.responseText); }
@@ -329,7 +333,7 @@ BLLnegocio.prototype = {
          credito = parseFloat(val_casa) - (inicial);
          $('#Textinicial').val(inicial)
          $('#Textcredito').val(credito)
-         //utl.FormatNumero(inicial)
+        
      },
 
      _DtoclienteAso: function (cliente) {
@@ -411,5 +415,5 @@ BLLnegocio.prototype = {
         if (mesentsb < 10) { mesentsb = '0' + mesentsb }
         var fechasubro = entsb + "/" + mesentsb + "/" + diasentsb;
         $("#Textsubrogracion").val(fechasubro)
-},
+    },
 };

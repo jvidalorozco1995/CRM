@@ -26,10 +26,10 @@ var admUser = (function () {
 
        
         $("#BtnActualizar").click(function () {
-
+            $('#Cargando').show();
             neg.ActualizarTodosLosNegocios(Wsurltodosnegocios);
             setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 3000);
-           
+        
            
         });
 
@@ -67,6 +67,7 @@ var admUser = (function () {
                            '</br> La fecha selcccionada no puede ser menor a la del dia actual');
                         }
                         else {
+
                             dia = null;
                             mes = null;
 
@@ -74,16 +75,14 @@ var admUser = (function () {
                             setTimeout(function () { tar.TareasNegocio(negocio); }, 1000);
                             setTimeout(function () { tar.lisbitacoras(cedula); }, 1000);
                             /*setTimeout(function () { Tr.lisbitacoras(t); }, 1000)
-                            setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
-                            setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
-                            setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);*/
+                             setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
+                             setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
+                             setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);*/
                         }
 
                     }
                 }
             }
-
-
         });
   
         $(document).on('click', '#BtnTerminada', function (event) {
@@ -106,12 +105,6 @@ var admUser = (function () {
             tar.lisbitacoras(cedula);
          
         });
-
-
-
-
-     
-
 
         //Asignar Proyectos al trabajador
         $(document).on('click', '.CargarNego', function () {
@@ -192,6 +185,7 @@ var admUser = (function () {
         return bitacora;
     }
     var _Inicio = function () {
+        $('#Cargando').hide();
         neg.ListNegocioFOX(WsListNegocio, "Negocio");
     }
 
