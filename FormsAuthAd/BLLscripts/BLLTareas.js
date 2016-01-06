@@ -12,11 +12,11 @@
     var WEstadoTareas = "/Servicios/WTareas.asmx/ListaEstadoTareas";//Listado de tareas
     var WEstadoTareasclientes = "/Servicios/WTareas.asmx/ListaEstadoTareasclientes";
     var WsInfoTareasNego = "/Servicios/WTareas.asmx/InfoTareasNego";//Informacion de tareas especifica
-    var WTareasNegocio = "/Servicios/WTareas.asmx/GetTareasNegocios"
-    var WCompromisosInsert = "/Servicios/WTareas.asmx/InsertCompromiso"
+    var WTareasNegocio = "/Servicios/WTareas.asmx/GetTareasNegocios";
+    var WCompromisosInsert = "/Servicios/WTareas.asmx/InsertCompromiso";
     var WTareasNegocioCompromiso = "/Servicios/WTareas.asmx/GetTareasCompromiso";
-
     var color = null;
+
     //Metodo para Crear cliente
     BLLTareas.prototype.CrearTarea = function (tarea, Wsurl) {
         jsonData = jsonData = "{ 'c':" + JSON.stringify(tarea) + " }";
@@ -55,7 +55,6 @@
 
     }
 
-   
     BLLTareas.prototype.InsertCompromiso = function (tarea) {
         jsonData = "{'c':" + JSON.stringify(tarea) + "}";
         $.ajax({
@@ -73,8 +72,8 @@
                            '</br>' + tarea.cliente + 
                            '</br>' + 'Por el Asesor'
                            + tarea.asesor + '');
-                    $('#Tareas').hide();
-                    $('#TxtClientes').val("");
+                    $('#Tareas').show();
+                   // $('#TxtClientes').val("");
                     $('#TxtDescripcion').val("");
                     $('#TxtFechaTarea').val("");
                    

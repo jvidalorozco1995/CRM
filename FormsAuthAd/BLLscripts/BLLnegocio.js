@@ -49,21 +49,40 @@ BLLnegocio.CrearTabl = function (proyectos) {
         tabla += "<td>" + item.CEDULA_P + "</td>";
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
         tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
-        if (item.DOCUMENTO != undefined) {
+        if (item.DOCUMENTO != undefined && item.Estado !='CRM') {
 
             tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
             tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
 
-        } else {
+        } else if(item.Estado !='CRM') {
 
             tabla += "<td style='width:20px;height: 20px' ><input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'></input></td>";
             tabla += "<td style='width:20px;height: 20px' ><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button></td>";
+        } else {
+
+            tabla += "<td>No tiene adjunto</td>";
         }
-        tabla += "<td style='width:20px;'>";
-        tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../images_crm/Drawing.png'/></a<";
-        tabla += "</td>";
+
+        if (item.Estado != 'CRM') {
+            tabla += "<td style='width:20px;'>";
+            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../images_crm/Drawing.png'/></a<";
+            tabla += "</td>";
+
+        } else {
+
+            tabla += "<td>"
+            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../images_crm/Espera.png' disabled/></a<";
+            tabla += "</td>";
+            tabla += "<td style='width:20px;'>";
+            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../images_crm/Drawing.png' disabled/></a<";
+            tabla += "</td>";
+        }
         tabla += "</td>";
         tabla += "</tr>";
+
+
+
+
 
     });
     tabla += "</tbody>";

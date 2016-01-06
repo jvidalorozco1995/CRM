@@ -39,9 +39,8 @@ var _admnego = (function () {
     }
 
     var _Inicio = function () {
-       /* getHoha(idhoja);
-        acuerdo(idhoja);
-        ConfiguracionNegocio();*/
+      
+        $(".persona").append(negocio);
         getHoha(negocio);
         imprimir();
         Ac.AcuerdosFoxReporte(negocio);

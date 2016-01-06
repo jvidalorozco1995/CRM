@@ -205,7 +205,6 @@
     <Compile Include="VTracliente.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Xmlignore.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

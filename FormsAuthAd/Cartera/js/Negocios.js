@@ -26,11 +26,26 @@ var admUser = (function () {
 
        
         $("#BtnActualizar").click(function () {
+
+
+         
             $('#Cargando').show();
             neg.ActualizarTodosLosNegocios(Wsurltodosnegocios);
-            setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 3000);
-        
-           
+            setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 2000);
+            setTimeout(function () {
+
+            if (negocio != undefined) {
+               
+                $('#PanelNego').show();
+                $('#PanelTareas').show();
+                $('#Tareas').show();
+
+                tar.TareasNegocio(negocio);
+                Ac.AcuerdosFox(negocio);
+                neg.ListNegocioFOXID(WsListNegocioID, negocio);
+                Pag.PagosFox(negocio);
+            }
+            }, 2000);
         });
 
         $('#BtnEditar').click(function () {
@@ -74,10 +89,7 @@ var admUser = (function () {
                             tar.PosponerTarea(_PosTareas(), _BitacorasDTO());
                             setTimeout(function () { tar.TareasNegocio(negocio); }, 1000);
                             setTimeout(function () { tar.lisbitacoras(cedula); }, 1000);
-                            /*setTimeout(function () { Tr.lisbitacoras(t); }, 1000)
-                             setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
-                             setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
-                             setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);*/
+                           
                         }
 
                     }

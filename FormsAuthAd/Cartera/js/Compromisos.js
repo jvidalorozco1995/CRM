@@ -41,7 +41,7 @@ var _admnego = (function () {
    
 
     var _Inicio = function () {
-      
+        $(".persona").append(negocio);
         getHoha(negocio);
         Ac.AcuerdosReporte(negocio);
         Pag.PagosFoxCompromisos(negocio);

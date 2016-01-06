@@ -634,14 +634,15 @@ warning 6002: The table/view 'CRM.dbo.VnegocioFox' does not have a primary key d
         <EntityType Name="VnegocioFox">
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="Estado" />
           </Key>
           <Property Name="NOMBREBLOQUE" Type="varchar" MaxLength="150" />
           <Property Name="CEDULA_P" Type="varchar" MaxLength="13" />
           <Property Name="NOMBRECLIENTE" Type="varchar" MaxLength="300" />
-          <Property Name="CODIGOINMUEBLE" Type="varchar" MaxLength="15" />
-          <Property Name="CODIGOCRM" Type="varchar" MaxLength="15" />
+          <Property Name="CODIGOINMUEBLE" Type="varchar" MaxLength="16" />
+          <Property Name="CODIGOCRM" Type="varchar" MaxLength="50" />
           <Property Name="SUCURSAL" Type="varchar" MaxLength="50" />
-          <Property Name="NEGOCIO" Type="varchar" MaxLength="21" />
+          <Property Name="NEGOCIO" Type="varchar" MaxLength="50" />
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="VLRCREDITO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VLRINICIALCUOTA" Type="decimal" Precision="20" Scale="2" />
@@ -650,6 +651,7 @@ warning 6002: The table/view 'CRM.dbo.VnegocioFox' does not have a primary key d
           <Property Name="DOCUMENTO" Type="varchar" MaxLength="400" />
           <Property Name="TELEFONO_P" Type="varchar" MaxLength="13" />
           <Property Name="TELFONO_EMP" Type="varchar" MaxLength="11" />
+          <Property Name="Estado" Type="varchar" MaxLength="3" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM.dbo.VNegocioscompromisos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1221,7 +1223,8 @@ FROM [dbo].[VinteresProyect] AS [VinteresProyect]</DefiningQuery>
 [VnegocioFox].[FECHANEGOCIO] AS [FECHANEGOCIO], 
 [VnegocioFox].[DOCUMENTO] AS [DOCUMENTO], 
 [VnegocioFox].[TELEFONO_P] AS [TELEFONO_P], 
-[VnegocioFox].[TELFONO_EMP] AS [TELFONO_EMP]
+[VnegocioFox].[TELFONO_EMP] AS [TELFONO_EMP], 
+[VnegocioFox].[Estado] AS [Estado]
 FROM [dbo].[VnegocioFox] AS [VnegocioFox]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VNegocioscompromisos" EntityType="Self.VNegocioscompromisos" store:Type="Views" store:Schema="dbo">
@@ -1489,9 +1492,9 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
           <EntitySet Name="VacuerdosFox" EntityType="CRMModel.VacuerdosFox" />
-          <EntitySet Name="VnegocioFox" EntityType="CRMModel.VnegocioFox" />
           <EntitySet Name="negocio" EntityType="CRMModel.negocio" />
           <EntitySet Name="VNegocioscompromisos" EntityType="CRMModel.VNegocioscompromisos" />
+          <EntitySet Name="VnegocioFox" EntityType="CRMModel.VnegocioFox" />
         </EntityContainer>
         <EntityType Name="acuerdo_fox">
           <Key>
@@ -2344,26 +2347,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="REFERENCIA1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="VnegocioFox">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="NOMBREBLOQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRECLIENTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="CODIGOINMUEBLE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="CODIGOCRM" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="SUCURSAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NEGOCIO" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="VLRCREDITO" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="VLRINICIALCUOTA" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="VLRNEGOCIO" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="FECHANEGOCIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="DOCUMENTO" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="TELFONO_EMP" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="negocio">
           <Key>
             <PropertyRef Name="ID_NEGOCIO" />
@@ -2430,6 +2413,28 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="FECHACARTERA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="TELFONO_EMP" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VnegocioFox">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Estado" />
+          </Key>
+          <Property Name="NOMBREBLOQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRECLIENTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGOINMUEBLE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGOCRM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUCURSAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NEGOCIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="VLRCREDITO" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="VLRINICIALCUOTA" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="VLRNEGOCIO" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="FECHANEGOCIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DOCUMENTO" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="TELFONO_EMP" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3129,27 +3134,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VnegocioFox">
-            <EntityTypeMapping TypeName="CRMModel.VnegocioFox">
-              <MappingFragment StoreEntitySet="VnegocioFox">
-                <ScalarProperty Name="TELFONO_EMP" ColumnName="TELFONO_EMP" />
-                <ScalarProperty Name="TELEFONO_P" ColumnName="TELEFONO_P" />
-                <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
-                <ScalarProperty Name="FECHANEGOCIO" ColumnName="FECHANEGOCIO" />
-                <ScalarProperty Name="VLRNEGOCIO" ColumnName="VLRNEGOCIO" />
-                <ScalarProperty Name="VLRINICIALCUOTA" ColumnName="VLRINICIALCUOTA" />
-                <ScalarProperty Name="VLRCREDITO" ColumnName="VLRCREDITO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NEGOCIO" ColumnName="NEGOCIO" />
-                <ScalarProperty Name="SUCURSAL" ColumnName="SUCURSAL" />
-                <ScalarProperty Name="CODIGOCRM" ColumnName="CODIGOCRM" />
-                <ScalarProperty Name="CODIGOINMUEBLE" ColumnName="CODIGOINMUEBLE" />
-                <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
-                <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
-                <ScalarProperty Name="NOMBREBLOQUE" ColumnName="NOMBREBLOQUE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="negocio">
             <EntityTypeMapping TypeName="CRMModel.negocio">
               <MappingFragment StoreEntitySet="negocio">
@@ -3215,6 +3199,28 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
                 <ScalarProperty Name="VLRCUOTA" ColumnName="VLRCUOTA" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VnegocioFox">
+            <EntityTypeMapping TypeName="CRMModel.VnegocioFox">
+              <MappingFragment StoreEntitySet="VnegocioFox">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="TELFONO_EMP" ColumnName="TELFONO_EMP" />
+                <ScalarProperty Name="TELEFONO_P" ColumnName="TELEFONO_P" />
+                <ScalarProperty Name="DOCUMENTO" ColumnName="DOCUMENTO" />
+                <ScalarProperty Name="FECHANEGOCIO" ColumnName="FECHANEGOCIO" />
+                <ScalarProperty Name="VLRNEGOCIO" ColumnName="VLRNEGOCIO" />
+                <ScalarProperty Name="VLRINICIALCUOTA" ColumnName="VLRINICIALCUOTA" />
+                <ScalarProperty Name="VLRCREDITO" ColumnName="VLRCREDITO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NEGOCIO" ColumnName="NEGOCIO" />
+                <ScalarProperty Name="SUCURSAL" ColumnName="SUCURSAL" />
+                <ScalarProperty Name="CODIGOCRM" ColumnName="CODIGOCRM" />
+                <ScalarProperty Name="CODIGOINMUEBLE" ColumnName="CODIGOINMUEBLE" />
+                <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
+                <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
+                <ScalarProperty Name="NOMBREBLOQUE" ColumnName="NOMBREBLOQUE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

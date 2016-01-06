@@ -26,7 +26,7 @@ var admUser = (function () {
         $('#BtnPost').click(function () {
             if ($('#Txtdetalle').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
-                    '</br> El campo descricpion de Tarea se encuentra vacio');
+                    '</br> El campo descripcion de Tarea se encuentra vacio');
             }
             else {
                 if ($('#fechainfo').val().length < 1) {
@@ -91,6 +91,14 @@ var admUser = (function () {
 
        
         $(document).on('click', '#BtnCreaTarea', function (event) {
+
+            
+
+            if ($('#TxtClientes').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                '<br/> Seleccione al menos un cliente');
+            }
+
             if ($('#TxtDescripcion').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
                 '<br/> no ha digitado nada en el campo descripcion de tarea');
@@ -174,6 +182,7 @@ var admUser = (function () {
         $('#TxtFechaTarea').datepicker({
             format: 'yyyy/mm/dd',
         });
+       
         Seg.ListNegocios(WsListNegocio, proyec);
     }
 

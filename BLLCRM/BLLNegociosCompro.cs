@@ -41,7 +41,7 @@ namespace BLLCRM
                   //VENCIDA
                   Entidadcompromiso.ESTADO = "VE";
                 }
-                else if (DateTime.Now.Month == Convert.ToDateTime(compromi.FECHACARTERA).Month)
+                else if (Ndias(Convert.ToDateTime(compromi.FECHACARTERA), DateTime.Now) <= 15)
                 {
                     //PROXIMA A VENCER
                     Entidadcompromiso.ESTADO = "PV";
@@ -49,10 +49,16 @@ namespace BLLCRM
                 listcompromiso.Add(Entidadcompromiso);
             }
 
-
-
-            return listcompromiso;
+           return listcompromiso;
         }
+
+        /// <summary>
+        /// Retorna el Numero de dias entre una fecha y otra
+        /// </summary>
+        /// <param name="date1"></param>
+        /// <param name="date2"></param>
+        /// <returns></returns>
+        public int Ndias( DateTime date1, DateTime date2){ int dias = date1.Day - date2.Day; return dias;}
 
     }
 }

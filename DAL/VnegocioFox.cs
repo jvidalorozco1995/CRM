@@ -29,5 +29,6 @@ namespace DAL
         public string DOCUMENTO { get; set; }
         public string TELEFONO_P { get; set; }
         public string TELFONO_EMP { get; set; }
+        public string Estado { get; set; }
     }
 }
