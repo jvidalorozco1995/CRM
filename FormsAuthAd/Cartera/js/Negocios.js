@@ -31,7 +31,7 @@ var admUser = (function () {
          
             $('#Cargando').show();
             neg.ActualizarTodosLosNegocios(Wsurltodosnegocios);
-            setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 2000);
+            setTimeout(function () { location.reload(); }, 2000);
             setTimeout(function () {
 
             if (negocio != undefined) {

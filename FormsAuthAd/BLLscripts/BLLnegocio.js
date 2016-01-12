@@ -80,19 +80,12 @@ BLLnegocio.CrearTabl = function (proyectos) {
         tabla += "</td>";
         tabla += "</tr>";
 
-
-
-
-
     });
     tabla += "</tbody>";
     tabla += "</table>";
     $('#TblNegocios').append(tabla);
     $('#exampleP').dataTable();
 }
-
-
-
 
 //tabla Proyectos CRM Asignar  Usuarios
 BLLnegocio.CrearTablaPro = function (proyectos) {
@@ -151,8 +144,6 @@ BLLnegocio.prototype = {
      },
 
 
-
-    
      ListActualizarAdj: function (Wsurl, neg,adj) {
          var datos = "{'CodCRM':" + JSON.stringify(neg) + ",'Documento':" + JSON.stringify(adj) + "}";
          $.ajax({

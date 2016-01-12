@@ -492,7 +492,8 @@ var admComercial = (function () {
                 if ($('#teltrabajo').val() != "") { emp.AddPhone($('#teltrabajo').val(), _Datos().Empresa); }
                 setTimeout(function () { listc.ListClientes(proyec, WsLisClientes) }, 1000);
                 var cedula2 = $('#TxtIdentidad').val()
-                $('#TxtClientes').val(cedula2);     
+                $('#TxtClientes').val(cedula2);
+                _LimpiarFormulario();
             }
         });
 
@@ -640,6 +641,27 @@ var admComercial = (function () {
         persona.Asesor = "";
         persona.Informacion = $('#ComboEntero').val();
         return persona;
+    }
+
+
+    var _LimpiarFormulario = function () {
+       
+        $('#TxtIdentidad').val('');
+        $('#TxtNombres').val('');
+        $('#TxtP_apellido').val('');
+        $('#TxtS_apellido').val('');
+        $('#TxtTel1').val('');
+        $('#TxtDireccion').val('');
+        $('#TxtBarrio').val('');
+        $('#Combestadoc').val('');
+        $('#ComProyect').val('');
+        $('#TxtEmail').val('');
+        $('#CombSueldo').val('');
+        $('#Combpresuesto').val('');
+        $('#ComboBuscando').val('');
+        $('#CombSala').val('');
+        $('#ComboEntero').val('');
+        
     }
 
     var _DatosAsociado = function () {

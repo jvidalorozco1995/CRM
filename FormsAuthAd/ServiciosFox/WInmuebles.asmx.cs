@@ -95,14 +95,14 @@ namespace FormsAuthAd.ServiciosFox
         {
             return inm.Sepracionclientes();
         }
-        /*[WebMethod]
+        [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string insery()
+        public List<NegociosFox> insery()
         {
-            AcuerdoFox();
-            return "ajsjas";
+            
+            return fx.ConsulNegocio();
         }
-        */
+        
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<AcuerdoFox> LISTADO()
