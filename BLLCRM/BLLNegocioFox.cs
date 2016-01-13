@@ -59,19 +59,16 @@ namespace BLLCRM
                 var NegocioCRM = bd.negocio.ToList();
                 foreach (var item in NegocioCRM)
                 {
-                    
-                    var negociocrmVSnegociofox = NegocioFOX.Where(t => t.CODIGOCRM == item.CODIGO_F.Trim() && t.DESISTIDO == "False").ToList();
+                    //&& t.DESISTIDO == "False"
+                    var negociocrmVSnegociofox = NegocioFOX.Where(t => t.CODIGOCRM == item.CODIGO_F.Trim() ).ToList();
 
                     if (negociocrmVSnegociofox.Count != 0)
                     {
 
                         foreach (var item2 in negociocrmVSnegociofox)
                         {
-
-                            //if(item2.DESISTIDO)
-
-                            //Hago la consulta y comparo si el negocio ya esta insertado
-                            var vimp = bd.negocio_fox.Where(t => t.CODIGOCRM == item2.CODIGOCRM.Trim()).ToList();
+                           //Hago la consulta y comparo si el negocio ya esta insertado
+                            var vimp = bd.negocio_fox.Where(t => t.NEGOCIO == item2.NEGOCIO.Trim()).ToList();
 
                             //Compruebo si es mayor a 0
                             //si el negocio no existe insertelo, de lo contrario lo actualizamos 
@@ -126,7 +123,7 @@ namespace BLLCRM
                                 {
                                     foreach (var eve in e.EntityValidationErrors)
                                     {
-                                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                                        Console.WriteLine("Entity of type \"{0}\" en el estado \"{1}\" has the following validation errors:",
                                             eve.Entry.Entity.GetType().Name, eve.Entry.State);
                                         foreach (var ve in eve.ValidationErrors)
                                         {
@@ -209,8 +206,8 @@ namespace BLLCRM
                     else {
                         ///ELIMINAR LO QUE ESTE EN CRM PERO QUE EN FOX NO ESTE
                         ///
-                        var NegFox = bd.negocio_fox.Where(t => t.CODIGOCRM == item.CODIGO_F).First();
-                        bd.negocio_fox.Remove(NegFox);
+                        var NegFox = bd.negocio_fox.Where(t => t.CODIGOCRM == item.CODIGO_F).ToList();
+                        bd.negocio_fox.RemoveRange(NegFox);
                         bd.SaveChanges();
                                                                                 
                     }

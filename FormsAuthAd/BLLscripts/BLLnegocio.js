@@ -37,7 +37,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
     tabla += "<th>NOMBRE CLIENTE</th>";
     tabla += "<th>INMUEBLE</th>";
     tabla += "<th>ADJUNTO</th>";
-    tabla += "<th>SUBIR</th>";
+    tabla += "<th>ESTADO</th>";
     tabla += "<th>VER</th>";
     tabla += "</tr>";
     tabla += "</thead>";
@@ -49,32 +49,80 @@ BLLnegocio.CrearTabl = function (proyectos) {
         tabla += "<td>" + item.CEDULA_P + "</td>";
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
         tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
-        if (item.DOCUMENTO != undefined && item.Estado !='CRM') {
+        
+        if (item.DOCUMENTO != undefined && item.Estado == 'CRM') {
 
             tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
-            tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
-
-        } else if(item.Estado !='CRM') {
-
-            tabla += "<td style='width:20px;height: 20px' ><input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'></input></td>";
-            tabla += "<td style='width:20px;height: 20px' ><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button></td>";
-        } else {
-
-            tabla += "<td>No tiene adjunto</td>";
-        }
-
-        if (item.Estado != 'CRM') {
-            tabla += "<td style='width:20px;'>";
-            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../images_crm/Drawing.png'/></a<";
-            tabla += "</td>";
-
-        } else {
-
+         //   tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
             tabla += "<td>"
             tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../images_crm/Espera.png' disabled/></a<";
             tabla += "</td>";
             tabla += "<td style='width:20px;'>";
-            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../images_crm/Drawing.png' disabled/></a<";
+            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../images_crm/Drawing.png'/></a<";
+            tabla += "</td>";
+
+        } else if(item.Estado=='CRM') {
+
+            tabla += "<td style='width:120px;height: 20px'>"
+                  + "<div class='row'>"
+                      + "<div class='col-sm-9'>"
+                          + "<input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
+                      + "</div>"
+                      + "<div class='col-sm-3'>"
+                         + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
+                      + "</div>"
+                  +"</div>"
+                  + "</td>";
+            tabla += "<td>"
+            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../images_crm/Espera.png' disabled/></a<";
+            tabla += "</td>";
+            tabla += "<td style='width:20px;'>";
+            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../images_crm/Drawing.png'/></a<";
+            tabla += "</td>";
+                 //tabla += "<td style='width:20px;height: 20px' ></td>";
+        }
+
+        if (item.DOCUMENTO != undefined && item.Estado == 'FOX') {
+
+            tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
+            tabla += "<td>"
+            tabla += "<a title='Este negocio se encuentra en multifox'><img src='../images_crm/Completa.png'/></a<";
+            tabla += "</td>";
+            tabla += "<td style='width:20px;'>";
+            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../images_crm/Drawing.png'/></a>";
+            tabla += "</td>";
+
+        } else if (item.Estado == 'FOX') {
+
+            
+            tabla += "<td style='width:120px;height: 20px'>"
+                  + "<div class='row'>"
+                      + "<div class='col-sm-9'>"
+                          + "<input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
+                      + "</div>"
+                      + "<div class='col-sm-3'>"
+                         + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
+                      + "</div>"
+                  + "</div>"
+                  + "</td>";
+            tabla += "<td>"
+            tabla += "<a title='Este negocio se encuentra en multifox'><img src='../images_crm/Completa.png'/></a<";
+            tabla += "</td>";
+            tabla += "<td style='width:20px;'>";
+            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../images_crm/Drawing.png'/></a>";
+            tabla += "</td>";
+
+        }
+
+
+        if (item.Estado == 'DESISTIDO') {
+
+            tabla += "<td>No tiene Adjunto</td>";
+            tabla += "<td>"
+            tabla += "<a title='Este negocio esta desistido'><img src='../images_crm/PV.png' disabled/></a<";
+            tabla += "</td>";
+            tabla += "<td style='width:20px;'>";
+            tabla += "<a title='Este negocio esta desistido'><img src='../images_crm/Drawing.png' disabled/></a<";
             tabla += "</td>";
         }
         tabla += "</td>";

@@ -204,8 +204,8 @@ namespace BLLCRM
        }
 
 
-
-
+      
+     
 
 
 
@@ -303,10 +303,17 @@ namespace BLLCRM
            }
        }
 
+      
+       /// <summary>
+       /// Metodo para insertar el historial por cliente
+       /// </summary>
+       /// <param name="c"></param>
+       /// <param name="inmu"></param>
        protected void HistorialCliente(string c, string inmu)
        {
            try
-           {  user = Membership.GetUser().ToString();
+           {   
+               user = Membership.GetUser().ToString();
                historial_clientes hc = new historial_clientes();
                hc.CLIENTEH = c;
                hc.TRABAJADOR = user;
