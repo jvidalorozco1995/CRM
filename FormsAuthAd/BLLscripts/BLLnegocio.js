@@ -244,10 +244,13 @@ BLLnegocio.prototype = {
             dataType: 'json',
             async: true,
             success: function (result) {
-                if (result.d == null) {
-                    toastr.error(' CRM - Mayales no se pudo actualizar');
+               
+                if (result.d.indexOf("Excepción") > -1 || result.d.indexOf("Exception") > -1) {
+
+                    toastr.error(' CRM - Mayales no se pudo actualizar ' + result.d);
+                    $('#Cargando').hide();
                 }
-                else {
+                else if (result.d == 1) {
                     toastr.success(' CRM - Mayales' +
                         '<br/>Se han actualizado de manera exitosa todos los negocios');
                     $('#Cargando').hide();

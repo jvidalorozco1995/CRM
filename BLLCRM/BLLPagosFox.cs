@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entity.VsFox;
 using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace BLLCRM
 {
@@ -22,7 +23,7 @@ namespace BLLCRM
          /// </summary>
          /// <param name="NegocioFOX"></param>
          /// <returns></returns>
-         public int Pagos(List<PagosFox> PagosFOX)
+         public string Pagos(List<PagosFox> PagosFOX)
          {
             try
             {
@@ -61,7 +62,7 @@ namespace BLLCRM
             }
             catch (DbEntityValidationException e)
             {
-                foreach (var eve in e.EntityValidationErrors)
+                /*foreach (var eve in e.EntityValidationErrors)
                 {
                     Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
                         eve.Entry.Entity.GetType().Name, eve.Entry.State);
@@ -71,13 +72,22 @@ namespace BLLCRM
                             ve.PropertyName, ve.ErrorMessage);
                     }
                 }
-                throw;
+                throw;*/
+
+                // Get stack trace for the exception with source file information
+                var st = new StackTrace(e, true);
+                // Get the top stack frame
+                var frame = st.GetFrame(0);
+                // Get the line number from the stack frame
+                var line = frame.GetFileLineNumber();
+
+                return "Excepción pagos" + e.ToString() + "\nLinea: " + line;
             }
             finally {
          
             }
 
-            return 1;
+            return "1";
         }
 
 

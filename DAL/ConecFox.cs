@@ -121,19 +121,19 @@ namespace DAL
 
             }
 
-            catch (OdbcException)
+            catch (OdbcException ex)
             {
-                throw;
+                throw ex;
 
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException ex)
             {
-                throw;
+                throw ex;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
         
         }
@@ -142,59 +142,76 @@ namespace DAL
         //Retorna una lista de acuerdos de pagos de Multi-Fox
         public List<AcuerdoFox> ConsulAcuerdoPago() {
 
-            List<AcuerdoFox> litNe = new List<AcuerdoFox>();
-            ConectionString = GetConnectionString();
-            OdbcConnection objcon = new OdbcConnection(ConectionString);
-            objcon.Open();
-            string cadena = "SELECT contven.contfech+contven.contcons as'Codigo',contven.contsucu+contven.contpedi AS 'referencia1', right(pedidet.dipeinmu,5)"
-                     + " AS 'inmueble', contven.contpedi AS 'negocio', pedidos.pedifech AS 'fechanegocio', contven.contpago AS 'concepto',"
-                     +" contven.contfech AS 'fechacuota', LEFT(contven.contfech,4) AS 'ano', RIGHT(LEFT(contven.contfech,6),2) AS 'mes', "
-                     +" RIGHT(contven.contfech,2) AS 'dia', contven.conttran AS 'vlrcuota', contven.contpaga AS 'pagocuota', "
-                     +" contven.conttran-contven.contpaga AS 'saldoxcobrar', CTOD(RIGHT(LEFT(contven.contfech,6),2)+'/'+RIGHT(contven.contfech,2)+'/'+"
-                     +" LEFT(contven.contfech,4)) AS 'fechaCartera', pedidos.pedidocu AS 'CodCRM'"
-                     +" FROM contven contven, pedidet pedidet, pedidos pedidos"
-                     +" WHERE pedidet.dipenume = pedidos.pedinume AND pedidet.dipesucu = pedidos.pedisucu"
-                     + " AND pedidet.dipepres = pedidos.pedipres AND pedidos.pedisucu = contven.contsucu AND pedidos.pedipres = contven.contpres AND pedidos.pedinume = contven.contpedi AND ((pedidet.dipedesi<>1) AND (pedidos.pedidocu<>''))";
-            OdbcDataAdapter daNegociofox = new OdbcDataAdapter(cadena, objcon);
-            DataSet dsproyectofox = new DataSet("Pubs2");
-            //daNegociofox.FillSchema(dsproyectofox, SchemaType.Source, "NEGOCIOS_FOX");
-            daNegociofox.Fill(dsproyectofox, "ACUERDOS_FOX");
-            DataTable tbproyectosfox = new DataTable();
-            tbproyectosfox = dsproyectofox.Tables["ACUERDOS_FOX"];
-            if (tbproyectosfox.Columns.Count.Equals(0))
+            try
             {
-                return null;
-            }
-            else
-            {
-                foreach (DataRow row2 in tbproyectosfox.Rows)
+
+                List<AcuerdoFox> litNe = new List<AcuerdoFox>();
+                ConectionString = GetConnectionString();
+                OdbcConnection objcon = new OdbcConnection(ConectionString);
+                objcon.Open();
+                string cadena = "SELECT contven.contfech+contven.contcons as'Codigo',contven.contsucu+contven.contpedi AS 'referencia1', right(pedidet.dipeinmu,5)"
+                         + " AS 'inmueble', contven.contpedi AS 'negocio', pedidos.pedifech AS 'fechanegocio', contven.contpago AS 'concepto',"
+                         + " contven.contfech AS 'fechacuota', LEFT(contven.contfech,4) AS 'ano', RIGHT(LEFT(contven.contfech,6),2) AS 'mes', "
+                         + " RIGHT(contven.contfech,2) AS 'dia', contven.conttran AS 'vlrcuota', contven.contpaga AS 'pagocuota', "
+                         + " contven.conttran-contven.contpaga AS 'saldoxcobrar', CTOD(RIGHT(LEFT(contven.contfech,6),2)+'/'+RIGHT(contven.contfech,2)+'/'+"
+                         + " LEFT(contven.contfech,4)) AS 'fechaCartera', pedidos.pedidocu AS 'CodCRM'"
+                         + " FROM contven contven, pedidet pedidet, pedidos pedidos"
+                         + " WHERE pedidet.dipenume = pedidos.pedinume AND pedidet.dipesucu = pedidos.pedisucu"
+                         + " AND pedidet.dipepres = pedidos.pedipres AND pedidos.pedisucu = contven.contsucu AND pedidos.pedipres = contven.contpres AND pedidos.pedinume = contven.contpedi AND ((pedidet.dipedesi<>1) AND (pedidos.pedidocu<>''))";
+                OdbcDataAdapter daNegociofox = new OdbcDataAdapter(cadena, objcon);
+                DataSet dsproyectofox = new DataSet("Pubs2");
+                //daNegociofox.FillSchema(dsproyectofox, SchemaType.Source, "NEGOCIOS_FOX");
+                daNegociofox.Fill(dsproyectofox, "ACUERDOS_FOX");
+                DataTable tbproyectosfox = new DataTable();
+                tbproyectosfox = dsproyectofox.Tables["ACUERDOS_FOX"];
+                if (tbproyectosfox.Columns.Count.Equals(0))
                 {
-                    AcuerdoFox Pfx = new AcuerdoFox();
-
-                    Pfx.CODIGO = row2["Codigo"].ToString().Trim();
-                    Pfx.REFERENCIA1 = row2["referencia1"].ToString().Trim();
-                    Pfx.INMUEBLE = row2["inmueble"].ToString().Trim();
-                    Pfx.NEGOCIO = row2["negocio"].ToString().Trim();
-                    Pfx.FECHANEGOCIO = row2["fechanegocio"].ToString().Trim();
-                    Pfx.CONCEPTO = row2["concepto"].ToString().Trim();
-                    Pfx.FECHACUOTA = row2["fechacuota"].ToString().Trim();
-                    Pfx.ANO = row2["ano"].ToString().Trim();
-                    Pfx.MES = row2["mes"].ToString().Trim();
-                    Pfx.DIA = row2["dia"].ToString().Trim();
-                    Pfx.VLRCUOTA = Decimal.Parse(row2["vlrcuota"].ToString());
-                    Pfx.PAGOCUOTA = Decimal.Parse(row2["pagocuota"].ToString());
-                    Pfx.SALDOXCOBRAR = Decimal.Parse(row2["saldoxcobrar"].ToString());
-                    Pfx.FECHACARTERA = row2["fechaCartera"].ToString().Trim();
-                    Pfx.CODCRM = row2["CodCRM"].ToString().Trim();
-                    litNe.Add(Pfx);
-
-
+                    return null;
                 }
-                return litNe;
+                else
+                {
+                    foreach (DataRow row2 in tbproyectosfox.Rows)
+                    {
+                        AcuerdoFox Pfx = new AcuerdoFox();
+
+                        Pfx.CODIGO = row2["Codigo"].ToString().Trim();
+                        Pfx.REFERENCIA1 = row2["referencia1"].ToString().Trim();
+                        Pfx.INMUEBLE = row2["inmueble"].ToString().Trim();
+                        Pfx.NEGOCIO = row2["negocio"].ToString().Trim();
+                        Pfx.FECHANEGOCIO = row2["fechanegocio"].ToString().Trim();
+                        Pfx.CONCEPTO = row2["concepto"].ToString().Trim();
+                        Pfx.FECHACUOTA = row2["fechacuota"].ToString().Trim();
+                        Pfx.ANO = row2["ano"].ToString().Trim();
+                        Pfx.MES = row2["mes"].ToString().Trim();
+                        Pfx.DIA = row2["dia"].ToString().Trim();
+                        Pfx.VLRCUOTA = Decimal.Parse(row2["vlrcuota"].ToString());
+                        Pfx.PAGOCUOTA = Decimal.Parse(row2["pagocuota"].ToString());
+                        Pfx.SALDOXCOBRAR = Decimal.Parse(row2["saldoxcobrar"].ToString());
+                        Pfx.FECHACARTERA = row2["fechaCartera"].ToString().Trim();
+                        Pfx.CODCRM = row2["CodCRM"].ToString().Trim();
+                        litNe.Add(Pfx);
+
+
+                    }
+                    return litNe;
+                }
+
+
             }
-        
+            catch (OdbcException ex)
+            {
+                throw ex;
 
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
 
         
         }

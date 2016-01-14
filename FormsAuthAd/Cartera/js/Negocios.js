@@ -8,49 +8,61 @@ var util = new BLLUtilidades;
 
 var admUser = (function () {
 
-    var WsListNegocio = "/Servicios/WNegocioFox.asmx/lisHoja";//Consulto Proyectos CRM
-    var WsListNegocioID = "/Servicios/WNegocioFox.asmx/lisNegoID";//Consulto Proyectos CRM
-    var WsActualizarAdjFox = "/Servicios/WNegocioFox.asmx/ActualizarAdj";//Consulto Proyectos CRM
-    var Wsurltodosnegocios = "/ServiciosFox/WInmuebles.asmx/TODO";
+    var WsListNegocio = "/Servicios/WNegocioFox.asmx/lisHoja";//Consulto los negocios CRM
+    var WsListNegocioID = "/Servicios/WNegocioFox.asmx/lisNegoID";//Consulto los negocios por id CRM
+    var WsActualizarAdjFox = "/Servicios/WNegocioFox.asmx/ActualizarAdj";//Actualizar el adjunto CRM
+    var Wsurltodosnegocios = "/ServiciosFox/WInmuebles.asmx/TODO"; //Actualizar todos los negocios de CRM desde MULTIFOX
+    var negocio;
+    //Manejadores de los botones y eventos
     var _addHandlers = function () {
- 
 
+ 
+        //Boton para imprimir los compromisos de pagoss
         $("#BtnImprimirCuenta").click(function () {
 
             window.open("ReporteCompromisos.html?negocio=" + negocio, 'Graph', 'height=700;width=400;resizable=false;');
         });
+        //-----------------FIN--------------------//
+
+
+
+        //Boton para imprimir un estado de cuenta
         $("#BtnImprimir").click(function () {
 
             window.open("Estacuenta.html?negocio=" + negocio, 'Graph', 'height=700;width=400;resizable=false;');
         });
+        //-----------------FIN--------------------//
 
-       
+
+        //Boton de actualizar todos los Negocios de CRM con MULTIFOX
         $("#BtnActualizar").click(function () {
 
 
-         
+            $('#PanelNego').hide();
+            $('#PanelTareas').hide();
+            $('#Tareas').hide();
             $('#Cargando').show();
             neg.ActualizarTodosLosNegocios(Wsurltodosnegocios);
            
             setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 2000);
-            // setTimeout(function () { location.reload(); }, 2000);
-            //neg.ListNegocioFOX(WsListNegocio, "Negocio");
             setTimeout(function () {
-
-            if (negocio != undefined) {
+               if (negocio != undefined) {
                
-                $('#PanelNego').show();
-                $('#PanelTareas').show();
-                $('#Tareas').show();
+                    $('#PanelNego').show();
+                    $('#PanelTareas').show();
+                    $('#Tareas').show();
 
-                tar.TareasNegocio(negocio);
-                Ac.AcuerdosFox(negocio);
-                neg.ListNegocioFOXID(WsListNegocioID, negocio);
-                Pag.PagosFox(negocio);
-            }
+                    tar.TareasNegocio(negocio);
+                    Ac.AcuerdosFox(negocio);
+                    neg.ListNegocioFOXID(WsListNegocioID, negocio);
+                    Pag.PagosFox(negocio);
+                }
             }, 2000);
         });
+        //--------------------FIN------------------------///
 
+
+        //Boton para editar la tarea 
         $('#BtnEditar').click(function () {
             $('#BtnEditar').hide();
             $('#BtnPost').show();
@@ -58,9 +70,10 @@ var admUser = (function () {
             $('#Txtdetalle').attr('readonly', false);
             $('#fechainfo').attr('readonly', false);
         })
+        //------------------FIN-------------------------//
 
 
-
+        //Boton para guardar la tarea
         $('#BtnPost').click(function () {
             if ($('#Txtdetalle').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
@@ -99,7 +112,10 @@ var admUser = (function () {
                 }
             }
         });
-  
+        //--------------------------FIN-----------------------------------//
+
+
+        //Boton para terminar la tarea
         $(document).on('click', '#BtnTerminada', function (event) {
           
             tar.TerminarTareaNego(_PosTareas(), _BitacorasDTO());
@@ -107,7 +123,9 @@ var admUser = (function () {
             setTimeout(function () { tar.TareasNegocio(negocio); }, 1000);
           
         });
+        //---------------------------FIN----------------------------------//
 
+        //Boton para traerse el historial de la tarea
         $(document).on('click', '.historial1', function () {
             cedula = $(this).attr("id");
             tar.InfoTareasNego(cedula);
@@ -120,8 +138,10 @@ var admUser = (function () {
             tar.lisbitacoras(cedula);
          
         });
+        //---------------------------FIN----------------------------------//
 
-        //Asignar Proyectos al trabajador
+
+        //Cargar las tareas, acuerdos y pagos de los negocios
         $(document).on('click', '.CargarNego', function () {
             negocio = $(this).attr("id");
             $('#PanelNego').show();
@@ -133,8 +153,10 @@ var admUser = (function () {
             neg.ListNegocioFOXID(WsListNegocioID, negocio);
             Pag.PagosFox(negocio);
         });
+        //---------------------------FIN----------------------------------//
 
-        //Asignar Proyectos al trabajador
+
+        //Subir el archivo a la carpeta de imagenes
         $(document).on('click', '.RemoverP', function () {
             cedula = $(this).attr("id");
             // alert("#" + cedula + "");
@@ -171,8 +193,10 @@ var admUser = (function () {
             }
 
         });
-    };
+        //---------------------------FIN----------------------------------//
 
+    };
+    //****************ENTIDADES**********************//
     var _PosTareas = function () {
         var postarea = {};
         postarea.ID_TAREA = cedula;
@@ -191,6 +215,7 @@ var admUser = (function () {
         tarea.estado = 'E';
         return tarea;
     }
+
     var _BitacorasDTO = function () {
 
         var bitacora = {};
@@ -199,10 +224,13 @@ var admUser = (function () {
         bitacora.FECHAMOD = $('#fechainfo').val();
         return bitacora;
     }
+
     var _Inicio = function () {
         $('#Cargando').hide();
         neg.ListNegocioFOX(WsListNegocio, "Negocio");
     }
+
+    //****************FIN ENTIDADES**********************//
 
     return {
         init: function () {

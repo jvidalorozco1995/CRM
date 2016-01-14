@@ -116,7 +116,6 @@ namespace FormsAuthAd.ServiciosFox
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void AcuerdoFox()
         {
-            //.Where(t=>t.CODCRM=="10MGC003B").ToList()
               InsertAcuerdo(fx.ConsulAcuerdoPago());
             
         }
@@ -125,7 +124,6 @@ namespace FormsAuthAd.ServiciosFox
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void PagosFox()
         {
-            //.Where(t=>t.CODCRM=="10MGC003B").ToList()
             InsertPago(fx.ConsultPagosFox());
         }
 
@@ -138,48 +136,52 @@ namespace FormsAuthAd.ServiciosFox
                InsertNegocio(fx.ConsulNegocio());
                InsertAcuerdo(fx.ConsulAcuerdoPago());
                InsertPago(fx.ConsultPagosFox());
-                return "1";
+
+               return "1";
              }
             catch (Exception ex) {
               
-                return null;
+              return ex.ToString();
             }
             
         }
 
-        public void InsertNegocio(List<NegociosFox> ac)
+        public string InsertNegocio(List<NegociosFox> ac)
         {
             try
             {
                 BLLNegocioFox hn = new BLLNegocioFox();
-                hn.Hojanegocio(ac);
+                return hn.Hojanegocio(ac);
+
             }catch(Exception ex){
-            
+
+                return ex.ToString();
             }
         }
 
-        public void InsertPago(List<PagosFox> ac)
+        public string InsertPago(List<PagosFox> ac)
         {
             try
             {
                 BLLPagosFox hn = new BLLPagosFox();
-                hn.Pagos(ac);
+                return hn.Pagos(ac);
             }
             catch (Exception ex) {
-            
+
+                return ex.ToString();
             }
         }
 
-        public void InsertAcuerdo(List<AcuerdoFox> ac)
+        public string InsertAcuerdo(List<AcuerdoFox> ac)
         {
             try
             {
                 BLLAcuerdoFox hn = new BLLAcuerdoFox();
-                hn.Acuerdo(ac);
+                return hn.Acuerdo(ac);
             }
             catch (Exception ex) 
-            { 
-            
+            {
+                return ex.ToString();
             }
         }
     }
