@@ -190,12 +190,12 @@ namespace BLLCRM
                             try
                             {
                                 var item = lista.First();
-                                //Removemos el item
+                                //eliminamos la lista
                                 bd.acuerdo_fox.Remove(item);
                                 bd.SaveChanges();
                             }
                             catch (Exception e) {
-                                // Get stack trace for the exception with source file information
+                                // obtenemos la informacion 
                                 var st = new StackTrace(e, true);
                                 // Get the top stack frame
                                 var frame = st.GetFrame(0);

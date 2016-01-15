@@ -71,7 +71,7 @@ namespace BLLCRM
                         {
                            //Hago la consulta y comparo si el negocio ya esta insertado
                             var vimp = bd.negocio_fox.Where(t => t.NEGOCIO == item2.NEGOCIO.Trim()).ToList();
-
+                           
                             //Compruebo si es mayor a 0
                             //si el negocio no existe insertelo, de lo contrario lo actualizamos 
                             if (vimp.Count == 0)
@@ -136,8 +136,15 @@ namespace BLLCRM
                             }
                             else
                             {
+                                
+                                    
+                                
+                               
                                 try
                                 {
+                                    ///HISTORIAL QUE GUARDA, DEPENDIENDO DE SI EL NEGOCIO FUE DESISTIDO.
+                                       Historial(vimp);
+                                    //-----------------------------------------------------------------//
                                     int Cant = 0;
 
                                     if (vimp.First().SUCURSAL != item2.SUCURSAL) { vimp.First().SUCURSAL = item2.SUCURSAL; Cant++; }
@@ -190,7 +197,7 @@ namespace BLLCRM
                                     var st = new StackTrace(e, true);
                                     // Get the top stack frame
                                     var frame = st.GetFrame(0);
-                                    // Get the line number from the stack frame
+                                    // Obtiene la linea del error
                                     var line = frame.GetFileLineNumber();
 
                                     return "Excepción negocios" + e.ToString() + "\nLinea: " + line;
@@ -213,7 +220,7 @@ namespace BLLCRM
                             var st = new StackTrace(ex, true);
                             // Get the top stack frame
                             var frame = st.GetFrame(0);
-                            // Get the line number from the stack frame
+                            // Obtiene la linea del error
                             var line = frame.GetFileLineNumber();
 
                             return "Excepción negocios" + ex.ToString() + "\nLinea: " + line;
@@ -223,6 +230,30 @@ namespace BLLCRM
                 }
                 return "1";
              }
+
+
+
+
+        /// <summary>
+        /// Obtiene un negocio para poder insertar el historial de ese negocio
+        /// </summary>
+        /// <param name="vimp"></param>
+        public void Historial(List<negocio_fox> vimp) {
+           
+            //Si el negocio esta desistido entonces creamos un historial
+            if (vimp.First().DESISTIDO.Equals("True"))
+            {
+                var Inmueble = vimp.First().CODIGOINMUEBLE;
+                var Cliente = vimp.First().CODICLIENTE;
+                var Descripcion = "El cliente ha desistido del negocio con el inmueble " + Inmueble;
+
+                //Insertar el historial del negocio
+                if (bd.historial_clientes.Where(t => t.DESCRIPCIONH.Contains(Inmueble)).Count() <= 0)  { BLLnegocio.HistorialClienteDescripcion(Cliente, Inmueble, Descripcion); }
+                //Insertar el historial del inmueble
+                if (bd.historial_inmueble.Where(t => t.DESCRIPCION_S.Contains(Inmueble)).Count() <= 0) { BLLnegocio.HistorialInmuDescripcion(Cliente, Inmueble, Descripcion);    }
+             }
+
+        }
         
         /// <summary>
         /// Parses a date string and returns

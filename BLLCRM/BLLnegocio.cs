@@ -11,9 +11,9 @@ namespace BLLCRM
 {
    public class BLLnegocio
     {
-       CRMEntiti bd = new CRMEntiti();
+       static CRMEntiti bd = new CRMEntiti();
        private string resul;
-       private string user = null;
+       static string user = null;
        /// <summary>
        /// Metodo para alamacenar hoja de negocio en el sistema
        /// </summary>
@@ -303,13 +303,56 @@ namespace BLLCRM
            }
        }
 
-      
+
+       public static void HistorialInmuDescripcion(string c, string inm, string desc)
+       {
+           try
+           {
+               historial_inmueble him = new historial_inmueble();
+               him.CLIENTE = c;
+               him.INMUEBLE = inm;
+               him.FECHA = DateTime.Now;
+               him.DESCRIPCION_S = desc +" " + inm;
+               bd.historial_inmueble.Add(him);
+               bd.SaveChanges();
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+       }
+
+       /// <summary>
+       /// Metodo para insertar el historial por cliente y su descripcion
+       /// </summary>
+       /// <param name="c">este es el parametro del cliente</param>
+       /// <param name="inmu">este es el parametro del inmueble</param>
+       public static void HistorialClienteDescripcion(string c, string inmu,string desc)
+       {
+           try
+           {
+               user = Membership.GetUser().ToString();
+               historial_clientes hc = new historial_clientes();
+               hc.CLIENTEH = c;
+               hc.TRABAJADOR = user;
+               hc.FECHA = DateTime.Now;
+               hc.DESCRIPCIONH = desc+" " + inmu;
+               bd.historial_clientes.Add(hc);
+               bd.SaveChanges();
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+       }
        /// <summary>
        /// Metodo para insertar el historial por cliente
        /// </summary>
-       /// <param name="c"></param>
-       /// <param name="inmu"></param>
-       protected void HistorialCliente(string c, string inmu)
+       /// <param name="c">este es el parametro del cliente</param>
+       /// <param name="inmu">este es el parametro del inmueble</param>
+       public static void HistorialCliente(string c, string inmu)
        {
            try
            {   
