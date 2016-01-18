@@ -136,10 +136,6 @@ namespace BLLCRM
                             }
                             else
                             {
-                                
-                                    
-                                
-                               
                                 try
                                 {
                                     ///HISTORIAL QUE GUARDA, DEPENDIENDO DE SI EL NEGOCIO FUE DESISTIDO.

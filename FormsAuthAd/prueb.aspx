@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="prueb.aspx.cs" Inherits="FormsAuthAd.prueb" %>
+﻿J<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="prueb.aspx.cs" Inherits="FormsAuthAd.prueb" %>
 
 <!DOCTYPE html>
 
