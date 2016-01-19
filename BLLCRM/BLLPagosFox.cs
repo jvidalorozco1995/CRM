@@ -33,27 +33,31 @@ namespace BLLCRM
                 {
                     foreach (var pago in PagosFOX.Where(t => t.Referencia1 == item.SUCURSAL + item.NEGOCIO))
                     {
-                        pagos_fox pag = new pagos_fox();
-                        pag.Referencia1 = pago.Referencia1;
-                        pag.Obra = pago.Obra;
-                        pag.Codterc = pago.Codterc;
-                        pag.Nit = pago.Nit;
-                        pag.Recibo = pago.Recibo;
-                        pag.Nrecibo = pago.Nrecibo;
-                        pag.Estado = pago.Estado;
-                        pag.Fecharecibo = pago.Fecharecibo;
-                        pag.Concepto = pago.Concepto;
-                        pag.Vlrrecibo = pago.Vlrrecibo;
-                        pag.Nconsignacion = pago.Nconsignacion;
-                        pag.Fechaconsignacion = pago.Fechaconsignacion;
-                        pag.Vlrcuotaaplicado = pago.Vlrcuotaaplicado;
-                        pag.Detallecuota = pago.Detallecuota;
-                        pag.Usuario = pago.Usuario;
-                        pag.Fechaelaboracion = pago.Fechaelaboracion;
-                        pag.Ncheque = pago.Ncheque;
-                        pag.Nota = pago.Nota;
-                        bd.pagos_fox.Add(pag);
-                        bd.SaveChanges();
+                        if (pago != null)
+                        {
+                            pagos_fox pag = new pagos_fox();
+                            pag.Referencia1 = pago.Referencia1;
+                            pag.Obra = pago.Obra;
+                            pag.Codterc = pago.Codterc;
+                            pag.Nit = pago.Nit;
+                            pag.Recibo = pago.Recibo;
+                            pag.Nrecibo = pago.Nrecibo;
+                            pag.Estado = pago.Estado;
+                            pag.Fecharecibo = pago.Fecharecibo;
+                            pag.Concepto = pago.Concepto;
+                            pag.Vlrrecibo = pago.Vlrrecibo;
+                            pag.Nconsignacion = pago.Nconsignacion;
+                            pag.Fechaconsignacion = pago.Fechaconsignacion;
+                            pag.Vlrcuotaaplicado = pago.Vlrcuotaaplicado;
+                            pag.Detallecuota = pago.Detallecuota;
+                            pag.Usuario = pago.Usuario;
+                            pag.Fechaelaboracion = pago.Fechaelaboracion;
+                            pag.Ncheque = pago.Ncheque;
+                            pag.Nota = pago.Nota;
+                            bd.pagos_fox.Add(pag);
+                            bd.SaveChanges();
+                        }
+                      
                     }
                    
 

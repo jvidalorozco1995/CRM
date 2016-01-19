@@ -184,7 +184,7 @@ namespace BLLCRM
                     //sino eliminamos el acuerdo
                     else
                     {
-                        var lista = bd.acuerdo_fox.Where(p => p.CODIGO == ac_crm.CODIGO);
+                        /*var lista = bd.acuerdo_fox.Where(p => p.CODIGO == ac_crm.CODIGO);
                         if (lista.Count() > 0)
                         {
                             try
@@ -205,7 +205,7 @@ namespace BLLCRM
                                 return "Excepción acuerdos" + e.ToString() + "\nLinea: " + line;
                             
                             }
-                        }
+                        }*/
                     }
 
                 }
