@@ -17,8 +17,14 @@
     [CODCRM]       VARCHAR (15)    NULL,
     [CODIGOTAREA]  INT             NULL,
     CONSTRAINT [PK_acuerdo_fox] PRIMARY KEY CLUSTERED ([ID] ASC),
-    CONSTRAINT [FK_acuerdo_fox_negocio_fox] FOREIGN KEY ([CODCRM]) REFERENCES [dbo].[negocio_fox] ([CODIGOCRM]) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT [FK_acuerdo_fox_negocio_fox] FOREIGN KEY ([CODCRM]) REFERENCES [dbo].[negocio_fox] ([CODIGOCRM]) ON DELETE CASCADE ON UPDATE SET NULL
 );
+
+
+
+
+
+
 
 
 
@@ -26,35 +32,68 @@
 GO
 
 
-CREATE TRIGGER [dbo].[triggerTablaPruebas] ON [dbo].[acuerdo_fox]
+CREATE TRIGGER [dbo].[triggerAcFoxInsert] ON [dbo].[acuerdo_fox]
 
 
-AFTER INSERT, UPDATE, DELETE
+AFTER INSERT
 	AS
 
 	(SELECT FECHACARTERA  FROM INSERTED)
 
-BEGIN TRY 
-IF(SELECT ISDATE (FECHACARTERA)  FROM INSERTED)=1
+
+
    
   BEGIN
-    INSERT INTO tareas (CLIENTE,TRABAJADOR,CONCEPTO,FECHAINICIO,FECHAFIN,ESTADO)
+    INSERT INTO tareas (CLIENTE,TRABAJADOR,CONCEPTO,NEGOCIO,FECHAINICIO,FECHAFIN,ESTADO)
 	(SELECT 
 	 CEDULA_P
 	,USER_CARTERA
 	,'Tarea de cartera cliente'
-	,(SELECT  convert(datetime, FECHACARTERA,104)  FROM INSERTED AS I)
-	,(SELECT convert(datetime, FECHACARTERA,104)  FROM INSERTED AS I),'T' 
-	FROM negocio WHERE CODIGO_F = (SELECT I.CODCRM FROM INSERTED AS I))  
-	END 
-END TRY
-BEGIN CATCH
-    -- Execute the error retrieval routine.
-        SELECT 
-       /*ERROR_NUMBER() AS ErrorNumber,*/
-        ERROR_SEVERITY() AS ErrorSeverity,
-        ERROR_STATE() as ErrorState,
-        ERROR_PROCEDURE() as ErrorProcedure,
-        ERROR_LINE() as ErrorLine,
-        ERROR_MESSAGE() as ErrorMessage;   
-END CATCH
+	,(SELECT REFERENCIA1 FROM INSERTED AS I)
+	,(SELECT  convert(date, FECHACARTERA,104)  FROM INSERTED AS I)
+	,(SELECT convert(date, FECHACARTERA,104)  FROM INSERTED AS I),'V' 
+	 FROM negocio WHERE CODIGO_F = (SELECT I.CODCRM FROM INSERTED AS I))  
+
+	UPDATE acuerdo_fox set CODIGOTAREA =(SELECT MAX(ID_TAREA) from tareas) where ID = (SELECT ID FROM INSERTED)
+	END
+GO
+
+
+CREATE TRIGGER [dbo].[triggerAcFoxUpdate] ON [dbo].[acuerdo_fox]
+
+
+AFTER UPDATE
+	AS
+
+  BEGIN
+    UPDATE  tareas 
+	
+
+	SET
+	 FECHAINICIO =((SELECT  convert(date, FECHACARTERA,104)  FROM INSERTED AS I)),
+	 FECHAFIN =((SELECT  convert(date, FECHACARTERA,104)  FROM INSERTED AS I))
+
+	 WHERE ID_TAREA = (SELECT CODIGOTAREA FROM INSERTED)
+ 
+
+
+	
+	END
+GO
+
+
+CREATE TRIGGER [dbo].[triggerAcFoxDelete] ON [dbo].[acuerdo_fox]
+
+
+FOR DELETE
+	AS
+
+  BEGIN
+    
+	DELETE   tareas 
+	WHERE ID_TAREA IN (SELECT CODIGOTAREA FROM DELETED)
+
+	DELETE   pagos_fox 
+	WHERE Referencia1 IN (SELECT REFERENCIA1 FROM DELETED)
+
+  END

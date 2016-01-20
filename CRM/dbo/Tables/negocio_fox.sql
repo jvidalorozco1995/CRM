@@ -40,6 +40,35 @@
     [AUTORIZADOAESCRITURARNOTARIA]  VARCHAR (8)     NULL,
     [SALDOPORPAGARDELACUOTAINICIAL] TEXT            NULL,
     [CODIGOINMUEBLE]                VARCHAR (15)    NULL,
-    CONSTRAINT [PK_negocio_fox] PRIMARY KEY CLUSTERED ([CODIGOCRM] ASC)
+    CONSTRAINT [PK_negocio_fox_1] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
+
+
+
+
+
+GO
+CREATE UNIQUE NONCLUSTERED INDEX [IX_negocio_fox]
+    ON [dbo].[negocio_fox]([CODIGOCRM] ASC);
+
+
+GO
+
+
+CREATE TRIGGER [dbo].[triggerNegFoxDelete] ON [dbo].[negocio_fox]
+
+
+FOR DELETE
+	AS
+
+	
+
+
+
+   
+  BEGIN
+      
+	 DELETE acuerdo_fox WHERE NEGOCIO IN (SELECT D.NEGOCIO FROM deleted AS D)
+
+	END
