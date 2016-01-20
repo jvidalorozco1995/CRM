@@ -1,0 +1,7 @@
+﻿CREATE VIEW [dbo].[VCod_SP]
+AS
+SELECT        MAX(ID_SEPARACION) AS COD, RIGHT(INMUEBLE, 7) AS INMU, CLIENTE
+FROM            dbo.inmueble_separacion
+GROUP BY RIGHT(INMUEBLE, 7), CLIENTE
+
+

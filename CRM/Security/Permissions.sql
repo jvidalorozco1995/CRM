@@ -1,0 +1,3 @@
+﻿GRANT CONNECT TO [NT AUTHORITY\SYSTEM]
+    AS [dbo];
+

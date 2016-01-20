@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[empresas] (
+    [ID_EMP]     INT          IDENTITY (1, 1) NOT NULL,
+    [NOMBRE_EMP] VARCHAR (50) NULL,
+    [TEL_EMP]    VARCHAR (12) NULL,
+    PRIMARY KEY CLUSTERED ([ID_EMP] ASC)
+);
+

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[proyectos] (
+    [ID_PROYEC]     VARCHAR (10) NOT NULL,
+    [NOMBRE_PROYEC] VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([ID_PROYEC] ASC)
+);
+

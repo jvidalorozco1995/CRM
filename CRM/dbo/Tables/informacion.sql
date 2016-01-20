@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[informacion] (
+    [IDINFO]  INT          IDENTITY (1, 1) NOT NULL,
+    [DETALLE] VARCHAR (90) NULL,
+    [TIPO]    VARCHAR (2)  NULL,
+    PRIMARY KEY CLUSTERED ([IDINFO] ASC)
+);
+

@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[configuracion] (
+    [ID_CONT]       INT IDENTITY (1, 1) NOT NULL,
+    [CONTADOR_CONF] INT NULL,
+    PRIMARY KEY CLUSTERED ([ID_CONT] ASC)
+);
+
