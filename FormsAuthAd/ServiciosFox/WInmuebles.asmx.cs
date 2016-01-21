@@ -114,19 +114,21 @@ namespace FormsAuthAd.ServiciosFox
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<PagosFox> listPagosFox(string refe)
+        {
+
+           return fx.ConsultPagosFox(refe).ToList();
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void AcuerdoFox()
         {
               InsertAcuerdo(fx.ConsulAcuerdoPago());
             
         }
 
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public void PagosFox()
-        {
-            InsertPago(fx.ConsultPagosFox());
-        }
-
+    
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string TODO()
@@ -135,10 +137,23 @@ namespace FormsAuthAd.ServiciosFox
 
                InsertNegocio(fx.ConsulNegocio());
                InsertAcuerdo(fx.ConsulAcuerdoPago());
-               InsertPago(fx.ConsultPagosFox());
 
+               BLLNegocioFox hn = new BLLNegocioFox();
+               var listneg =  hn.NegociosFoxCRM();
+               foreach (var item in listneg) {
+                  //Lista de pagos por referencia o negocio 
+                  var listapag = listPagosFox(item.SUCURSAL + item.NEGOCIO);
+
+                  foreach (var list in listapag) {
+
+                      InsertPago(list);
+                       
+                  }
+             
+               }
+               
                return "1";
-             }
+            }
             catch (Exception ex) {
               
               return ex.ToString();
@@ -159,7 +174,7 @@ namespace FormsAuthAd.ServiciosFox
             }
         }
 
-        public string InsertPago(List<PagosFox> ac)
+        public string InsertPago(PagosFox ac)
         {
             try
             {

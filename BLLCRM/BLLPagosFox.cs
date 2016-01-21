@@ -23,18 +23,12 @@ namespace BLLCRM
          /// </summary>
          /// <param name="NegocioFOX"></param>
          /// <returns></returns>
-         public string Pagos(List<PagosFox> PagosFOX)
+         public string Pagos(PagosFox pago)
          {
+            
             try
             {
-                var NegocioCRM = bd.negocio_fox.ToList();
-                var c = bd.pagos_fox.RemoveRange(bd.pagos_fox.ToList());
-                foreach (var item in NegocioCRM)
-                {
-                    foreach (var pago in PagosFOX.Where(t => t.Referencia1 == item.SUCURSAL + item.NEGOCIO))
-                    {
-                        if (pago != null)
-                        {
+                            eliminarPago(pago);
                             pagos_fox pag = new pagos_fox();
                             pag.Referencia1 = pago.Referencia1;
                             pag.Obra = pago.Obra;
@@ -56,13 +50,13 @@ namespace BLLCRM
                             pag.Nota = pago.Nota;
                             bd.pagos_fox.Add(pag);
                             bd.SaveChanges();
-                        }
+                        
                       
-                    }
+                    
                    
 
 
-                }
+                
             }
             catch (DbEntityValidationException e)
             {
@@ -95,6 +89,20 @@ namespace BLLCRM
         }
 
 
+         public void eliminarPago(PagosFox pago) {
+
+             try
+             {
+                 var item = bd.pagos_fox.Where(t => t.Nrecibo == pago.Nrecibo).First();
+                 bd.pagos_fox.Remove(item);
+                 bd.SaveChanges();
+             }
+             catch (Exception ex) { 
+             
+             
+             }
+         }
+         
 
          public List<pagos_fox> PagosNegocio(string referencia)
          {

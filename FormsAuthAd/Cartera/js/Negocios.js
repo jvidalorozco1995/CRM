@@ -38,6 +38,8 @@ var admUser = (function () {
         $("#BtnActualizar").click(function () {
 
 
+         
+
             $('#PanelNego').hide();
             $('#PanelTareas').hide();
             $('#Tareas').hide();
@@ -45,7 +47,7 @@ var admUser = (function () {
             neg.ActualizarTodosLosNegocios(Wsurltodosnegocios);
            
             setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 2000);
-            setTimeout(function () {
+           /* setTimeout(function () {
                if (negocio != undefined) {
                
                     $('#PanelNego').show();
@@ -57,7 +59,7 @@ var admUser = (function () {
                     neg.ListNegocioFOXID(WsListNegocioID, negocio);
                     Pag.PagosFox(negocio);
                 }
-            }, 2000);
+            }, 2000);*/
         });
         //--------------------FIN------------------------///
 

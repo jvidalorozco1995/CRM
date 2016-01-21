@@ -34,6 +34,13 @@ namespace BLLCRM
 
         }
 
+        public List<negocio_fox> NegociosFoxCRM()
+        {
+            List<negocio_fox> list = bd.negocio_fox.ToList();
+
+            return list;
+        }
+
         public List<VnegocioFox> ListHojas()
         {
             List<VnegocioFox> list = bd.VnegocioFox.ToList();

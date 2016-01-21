@@ -218,7 +218,7 @@ namespace DAL
 
 
         //Retorna la lista de Proyectos Multi-Fox
-        public List<PagosFox> ConsultPagosFox()
+        public List<PagosFox> ConsultPagosFox(string refe)
         {
             try
             {
@@ -235,6 +235,7 @@ namespace DAL
                 + " movimie.movicheq AS '#cheque', movimie.movidoc1 AS 'notaqueanulo'"
                 + " FROM movidet movidet, movimie movimie, obradet obradet, obraspr obraspr, tercero tercero"
                 + " WHERE movidet.demonota = movimie.movicodi AND movidet.demomovi = movimie.movimovi AND movidet.demopres = movimie.movipres"
+                 + " AND LEFT(democuot,9) = '"+ refe +"'"
                 + " AND movidet.demosucu = movimie.movisucu AND movimie.moviterc = tercero.terccodi"
                 + " AND movidet.demosucu = obradet.obrdcodi AND movidet.demopres = obradet.obrdpres AND obradet.obrdcodi = obraspr.obracodi AND ((movidet.democuot<>''))"
                 + " ORDER BY movidet.democuot";
@@ -262,7 +263,7 @@ namespace DAL
                         Pfx.Nrecibo = row2["#recibo"].ToString();
                         Pfx.Estado = row2["estado"].ToString();
                         Pfx.Fecharecibo = row2["fecharecibo"].ToString();
-                        Pfx.Concepto = row2["concepto"].ToString();
+                        Pfx.Concepto =  row2["concepto"].ToString();
                         Pfx.Vlrrecibo = row2["vlrdelrecibo"].ToString();  
                         Pfx.Nconsignacion = row2["#consignacion"].ToString();
                         Pfx.Fechaconsignacion = row2["fechaconsignacion"].ToString();
