@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class VinteresProyect
+   using System.Xml.Serialization;        public partial class VinteresProyect
     {
         public Nullable<int> CONTADOR { get; set; }
         public string NOMBRE_PROYEC { get; set; }

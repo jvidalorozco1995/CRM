@@ -5,6 +5,7 @@ var listc = new BLLComercial();
 var utl = new BLLUtilidades();
 var inm = new BLLInmuebles();
 var emp = new BLLEmpresa();
+var act = new BLLActInmuebles();
 var admComercial = (function () {
     var map;
     var proyec = utl.getUrl('proyec');
@@ -94,6 +95,15 @@ var admComercial = (function () {
                     break;
             }
         });
+
+
+        
+
+        $(document).on('click', '#BtnActInmuebles', function () {
+
+            inm.UdateInmuebles(proyec);
+          
+        })
 
         $(document).on('click', '#Btnactivos', function () { listc._Lgescancelar(proyec, "A"); })
 
@@ -752,7 +762,11 @@ var admComercial = (function () {
         return separacion;
     }
     
-    var _initialize = function() {
+    var _initialize = function () {
+
+        var WsInmueblesFox = "/ServiciosFox/WFox.asmx/InmueblesFox";//LIstado de Inmuebles Multifox por Proyectos
+        inm.InmuenlesFox(proyec, WsInmueblesFox);
+
         var mapOptions = {
             zoom: 10
         };

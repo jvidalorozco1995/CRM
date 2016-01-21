@@ -57,8 +57,9 @@ namespace FormsAuthAd.ServiciosFox
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<InmueblesFox> InmueblesFox(string b)
         {
-
+           
             return fx.InmueblesFox(b);
+            
 
         }
         

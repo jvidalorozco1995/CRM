@@ -12,10 +12,11 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class informacion
+   using System.Xml.Serialization;        public partial class ActInmuebles
     {
-        public int IDINFO { get; set; }
-        public string DETALLE { get; set; }
-        public string TIPO { get; set; }
+        public int Codigo { get; set; }
+        public Nullable<System.DateTime> Fecha { get; set; }
+        public string Proyecto { get; set; }
+        public string Usuario { get; set; }
     }
 }

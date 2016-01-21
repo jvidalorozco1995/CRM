@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class planos_Proyectos
+   using System.Xml.Serialization;        public partial class planos_Proyectos
     {
         public int ID_PLA { get; set; }
         public string PROYECT { get; set; }

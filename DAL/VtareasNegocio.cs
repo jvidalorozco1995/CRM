@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class VtareasNegocio
+   using System.Xml.Serialization;        public partial class VtareasNegocio
     {
         public int ID_TAREA { get; set; }
         public string CLIENTE { get; set; }

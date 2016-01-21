@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class VTracliente
+   using System.Xml.Serialization;        public partial class VTracliente
     {
         public string CEDULA { get; set; }
         public string NOMBRES { get; set; }

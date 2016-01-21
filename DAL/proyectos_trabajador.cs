@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class proyectos_trabajador
+   using System.Xml.Serialization;        public partial class proyectos_trabajador
     {
         public int ID_PY { get; set; }
         public string TRABAJADOR { get; set; }

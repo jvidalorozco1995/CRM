@@ -116,24 +116,51 @@ namespace BLLCRM
             {
                 foreach (var item in i)
                 {
-                    var ctx = db.inmuebles.First(inm => inm.REFERENCIA==item.REFERENCIA && inm.INMUOBRA==b);
-                    if (ctx!=null)
+                    if (b.Length == 3)
                     {
-                        if (ctx.INMUESTADO.Equals("3"))
+                        var ctx = db.inmuebles.First(inm => inm.REFERENCIA == item.REFERENCIA && inm.INMUOBRA == b);
+                        if (ctx != null)
                         {
-                           
+                            if (ctx.INMUESTADO.Equals("3"))
+                            {
+
+                            }
+                            else
+                            {
+                                ctx.VAL_INMUEBLE = item.VAL_INMUEBLE;
+                                ctx.INMUESTADO = item.INMUESTADO;
+                                db.SaveChanges();
+
+                            }
                         }
-                        else 
+                        else
                         {
-                            ctx.VAL_INMUEBLE = item.VAL_INMUEBLE;
-                            ctx.INMUESTADO = item.INMUESTADO;
-                            db.SaveChanges();
-                           
+                            return mensaje = "No fue realizar el proceso de actualizacion";
                         }
                     }
                     else
                     {
-                        return mensaje = "No fue realizar el proceso de actualizacion";
+
+                        var ctx = db.inmuebles.First(inm => inm.REFERENCIA == item.REFERENCIA && inm.SUC == b);
+                        if (ctx != null)
+                        {
+                            if (ctx.INMUESTADO.Equals("3"))
+                            {
+
+                            }
+                            else
+                            {
+                                ctx.VAL_INMUEBLE = item.VAL_INMUEBLE;
+                                ctx.INMUESTADO = item.INMUESTADO;
+                                db.SaveChanges();
+
+                            }
+                        }
+                        else
+                        {
+                            return mensaje = "No fue realizar el proceso de actualizacion";
+                        }
+
                     }
                 }
                 return mensaje = "los inmuebles se actualizaron de manera exitosa";
@@ -144,6 +171,7 @@ namespace BLLCRM
                 throw;
             }
         }
+
 
         /// <summary>
         /// Metodo retorna una lista de inmuebles 

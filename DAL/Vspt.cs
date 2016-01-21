@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Vspt
+   using System.Xml.Serialization;        public partial class Vspt
     {
         public string NOMBRE_PROYEC { get; set; }
         public string T_CEDULA { get; set; }

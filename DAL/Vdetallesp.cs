@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Vdetallesp
+   using System.Xml.Serialization;        public partial class Vdetallesp
     {
         public string REFERENCIA { get; set; }
         public string NOMBRES { get; set; }

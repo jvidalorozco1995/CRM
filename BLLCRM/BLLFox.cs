@@ -51,5 +51,6 @@ namespace BLLCRM
             return dbf.ConsulInmuebles2();
         }
 
+
     }
 }

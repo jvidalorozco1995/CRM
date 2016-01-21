@@ -17,7 +17,9 @@
                         </div>
                         <ul class="nav nav-tabs">
                             <div class="pull-right">
-                                <button class="btn btn-danger btn-btn-circle" type="button" id="BtnSCliente">Crear Cliente</button>
+                              
+                                  <button class="btn btn-primary" type="button" id="BtnActInmuebles">Act. Inmuebles</button>
+                                  <button class="btn btn-danger btn-btn-circle" type="button" id="BtnSCliente">Crear Cliente</button>
                                 <!---<button class="btn btn-primary " type="button" id="BtnCancelar"><i class="fa fa-check"></i>Nuevo</button>--->
                             </div>
                             <li class="active"><a data-toggle="tab" href="#tab-1">Clientes</a></li>
@@ -26,6 +28,7 @@
                             <li class=""><a data-toggle="tab" href="#tab-3">Planos</a></li>
                             <li class=""><a data-toggle="tab" href="#tab-4">Localizacion</a></li>
                             <li class=""><a data-toggle="tab" href="#tab-6">separaciones</a></li>
+                           
                         </ul>
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">
@@ -44,7 +47,7 @@
                             <div id="tab-2" class="tab-pane">
                                 <div class="panel-body" id="TablaInmueble">
                                     <div class="panel panel-success">
-                                        <div class="panel-heading"></div>
+                                        <div class="panel-heading">  <label>Ultima vez actualizado</label></div>
                                         <div class="panel-body" style="text-align: center">
                                             <div class="btn-group" role="group">
                                                 <label>
@@ -882,7 +885,8 @@
     <script src="../gmaps/gmap3.js"></script>
     <script src="../BLLscripts/BLLEmpresa.js"></script>
     <script src="../BLLscripts/BLLUtilidades.js"></script>
-    <script src="../BLLscripts/BLLInmuebles.js"></script>
+    <script src="../BLLscripts/BLLActInmuebles.js"></script>
+     <script src="../BLLscripts/BLLInmuebles.js"></script>
     <script src="../BLLscripts/BLLProyectos.js"></script>
     <script src="../BLLscripts/BLLTareas.js"></script>
     <script src="../BLLscripts/BLLSala_Ventas.js"></script>

@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Vinmuebles
+   using System.Xml.Serialization;        public partial class Vinmuebles
     {
         public string INMUDECS { get; set; }
         public string INMUEBLE { get; set; }

@@ -1,5 +1,5 @@
 ﻿var utl = new BLLUtilidades();
-//var inm = new BLLInmuebles();
+var ac = new BLLActInmuebles();
 function BLLInmuebles() {
 
     var WsGetInmuebles = "/ServiciosFox/WInmuebles.asmx/GetInmuebles";
@@ -593,6 +593,8 @@ function BLLInmuebles() {
                     inmueblesCRM = {};
                     console.log('acon' + accounting)
                     console.log('inmuebles' + inmueblesCRM)
+
+                    ac.InsertActInmueble(bloque);
                
             },
             error: function (obj, error, objError) { console.log('Error' + obj.responseText); }

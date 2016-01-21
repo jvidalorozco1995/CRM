@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class VNegocioscompromisos
+   using System.Xml.Serialization;        public partial class VNegocioscompromisos
     {
         public int ID { get; set; }
         public Nullable<decimal> VLRCUOTA { get; set; }

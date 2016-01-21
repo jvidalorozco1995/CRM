@@ -72,9 +72,9 @@ namespace FormsAuthAd.ServiciosFox
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string UpdateInmuCrm(List<inmuebles> i,string b)
+        public string UpdateInmuCrm(List<inmuebles> i, string b)
         {
-            return inm.UpdateInmuebles(i,b);
+            return inm.UpdateInmuebles(i, b);
         }
 
         [WebMethod]

@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Vclienteseparacion
+   using System.Xml.Serialization;        public partial class Vclienteseparacion
     {
         public string CLIENTE { get; set; }
         public Nullable<int> ID_SEPARACION { get; set; }

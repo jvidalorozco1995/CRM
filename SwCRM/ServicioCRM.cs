@@ -56,7 +56,7 @@ namespace SwCRM
             InsertAcuerdo(fx.ConsulAcuerdoPago());
         }
         public void InsertPago(){
-          InsertPago(fx.ConsultPagosFox());
+        //  InsertPago(fx.ConsultPagosFox());
         }
         public void InsertAcuerdo(List<AcuerdoFox> ac)
         {
@@ -65,8 +65,8 @@ namespace SwCRM
         }
         public void InsertPago(List<PagosFox> ac)
         {
-            BLLPagosFox hn = new BLLPagosFox();
-            hn.Pagos(ac);
+          //  BLLPagosFox hn = new BLLPagosFox();
+          //  hn.Pagos(ac);
         }
         private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {

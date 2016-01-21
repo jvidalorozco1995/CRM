@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class VCLienteinmueble
+   using System.Xml.Serialization;        public partial class VCLienteinmueble
     {
         public string NOMBRES { get; set; }
         public string P_APELLIDO { get; set; }

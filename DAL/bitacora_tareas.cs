@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class bitacora_tareas
+   using System.Xml.Serialization;        public partial class bitacora_tareas
     {
         public int IDBITACORA { get; set; }
         public Nullable<int> TAREA { get; set; }
