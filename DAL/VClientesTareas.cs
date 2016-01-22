@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class VClientesTareas
+    public partial class VClientesTareas
     {
         public string CEDULA { get; set; }
         public string NOMBRES { get; set; }

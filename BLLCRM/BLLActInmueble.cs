@@ -33,5 +33,21 @@ namespace BLLCRM
             }
         }
 
+        public List<VActInmuebles> UltimaVezAct(string Proyecto) {
+
+            try {
+
+                List<VActInmuebles> UTVA = db.VActInmuebles.Where(t => t.Proyecto.Equals(Proyecto)).ToList();
+            
+                return UTVA;
+            }
+            catch (Exception ex) {
+
+                return null;
+            }
+        
+        }
+   
+
     }
 }

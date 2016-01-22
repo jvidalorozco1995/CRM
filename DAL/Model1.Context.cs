@@ -13,7 +13,7 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-   using System.Xml.Serialization;        public partial class CRMEntiti : DbContext
+    public partial class CRMEntiti : DbContext
     {
         public CRMEntiti()
             : base("name=CRMEntiti")
@@ -72,5 +72,6 @@ namespace DAL
         public DbSet<VNegocioscompromisos> VNegocioscompromisos { get; set; }
         public DbSet<VnegocioFox> VnegocioFox { get; set; }
         public DbSet<ActInmuebles> ActInmuebles { get; set; }
+        public DbSet<VActInmuebles> VActInmuebles { get; set; }
     }
 }

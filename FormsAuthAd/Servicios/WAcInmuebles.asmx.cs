@@ -39,6 +39,12 @@ namespace FormsAuthAd.Servicios
             return cl.InsertActInmuebles(p);
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<VActInmuebles> UltimaVezAct(string p)
+        {
+            return cl.UltimaVezAct(p);
+        }
 
 
     }

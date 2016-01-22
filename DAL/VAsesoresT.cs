@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class VAsesoresT
+    public partial class VAsesoresT
     {
         public Nullable<int> CONTADOR { get; set; }
         public string NOMBRES { get; set; }

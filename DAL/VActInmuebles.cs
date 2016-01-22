@@ -12,14 +12,11 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class historial_inmueble
+    public partial class VActInmuebles
     {
-        public int ID_HISTORIAL { get; set; }
-        public string CLIENTE { get; set; }
-        public string INMUEBLE { get; set; }
-        public Nullable<System.DateTime> FECHA { get; set; }
-        public string DESCRIPCION_S { get; set; }
-    
-        public virtual clientes clientes { get; set; }
+        public int Codigo { get; set; }
+        public Nullable<System.DateTime> Fecha { get ; set; }
+        public string Proyecto { get; set; }
+        public string Usuario { get; set; }
     }
 }

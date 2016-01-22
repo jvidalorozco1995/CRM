@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class concepto_p
+    public partial class concepto_p
     {
         public int ID_CON { get; set; }
         public string COD_CON { get; set; }

@@ -32,7 +32,7 @@
                         </ul>
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">
-                                 <div class="panel-body" id="Tabla">
+                                 <div class="panel-body" id="TablaClientes">
                                  </div>
                                 <div class="panel-footer">
                                      <div data-toggle="buttons" class="btn-group">
@@ -47,7 +47,7 @@
                             <div id="tab-2" class="tab-pane">
                                 <div class="panel-body" id="TablaInmueble">
                                     <div class="panel panel-success">
-                                        <div class="panel-heading">  <label>Ultima vez actualizado</label></div>
+                                        <div class="panel-heading">  <label id="lblact">Ultima vez actualizado</label></div>
                                         <div class="panel-body" style="text-align: center">
                                             <div class="btn-group" role="group">
                                                 <label>
@@ -848,6 +848,8 @@
                                 </div>
                             </div>
                         </div>
+                         <div class="panel-body" style="display:none;" id="Tabla">
+                                 </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                             <button type="button" class="btn btn-default" id="BtnEditarC">Editar</button>

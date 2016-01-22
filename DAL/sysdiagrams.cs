@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class sysdiagrams
+    public partial class sysdiagrams
     {
         public string name { get; set; }
         public int principal_id { get; set; }

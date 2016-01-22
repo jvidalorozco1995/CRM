@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class empresas
+    public partial class empresas
     {
         public int ID_EMP { get; set; }
         public string NOMBRE_EMP { get; set; }

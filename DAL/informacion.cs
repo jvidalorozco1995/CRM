@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class informacion
+    public partial class informacion
     {
         public int IDINFO { get; set; }
         public string DETALLE { get; set; }

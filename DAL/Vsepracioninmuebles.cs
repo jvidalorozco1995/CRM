@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class Vsepracioninmuebles
+    public partial class Vsepracioninmuebles
     {
         public string NOMBRE_PROYEC { get; set; }
         public string NOMBRE_BLO { get; set; }

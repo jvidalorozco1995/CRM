@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class bloques
+    public partial class bloques
     {
         public bloques()
         {
@@ -25,6 +25,6 @@ namespace DAL
         public string NOMBRE_BLO { get; set; }
     
         public virtual proyectos proyectos { get; set; }
-        [XmlIgnore]   public virtual ICollection<inmuebles> inmuebles { get; set; }
+        public virtual ICollection<inmuebles> inmuebles { get; set; }
     }
 }

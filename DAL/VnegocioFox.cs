@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class VnegocioFox
+    public partial class VnegocioFox
     {
         public string NOMBREBLOQUE { get; set; }
         public string CEDULA_P { get; set; }

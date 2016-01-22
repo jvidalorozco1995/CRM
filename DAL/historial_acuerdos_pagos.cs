@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class historial_acuerdos_pagos
+    public partial class historial_acuerdos_pagos
     {
         public int ID_HISTORIAL { get; set; }
         public string CLIENTEH { get; set; }

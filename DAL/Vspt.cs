@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class Vspt
+    public partial class Vspt
     {
         public string NOMBRE_PROYEC { get; set; }
         public string T_CEDULA { get; set; }
@@ -20,7 +20,7 @@ namespace DAL
         public int ID_PY { get; set; }
         public string NOMBRES { get; set; }
         public string TRABAJADOR { get; set; }
-        public int CONTADOR { get; set; }
         public string ESTADO { get; set; }
+        public int CONTADOR { get; set; }
     }
 }

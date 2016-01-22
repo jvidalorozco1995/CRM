@@ -432,6 +432,17 @@ warning 6002: The table/view 'CRM.dbo.NegocioView' does not have a primary key d
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'CRM.dbo.VActInmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VActInmuebles">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Proyecto" Type="varchar" MaxLength="3" />
+          <Property Name="Usuario" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM.dbo.VacuerdosFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VacuerdosFox">
           <Key>
@@ -1049,6 +1060,14 @@ FROM [dbo].[historial_acuerdos_pagos] AS [historial_acuerdos_pagos]</DefiningQue
 [NegocioView].[INGRESO] AS [INGRESO]
 FROM [dbo].[NegocioView] AS [NegocioView]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VActInmuebles" EntityType="Self.VActInmuebles" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VActInmuebles].[Codigo] AS [Codigo], 
+[VActInmuebles].[Fecha] AS [Fecha], 
+[VActInmuebles].[Proyecto] AS [Proyecto], 
+[VActInmuebles].[Usuario] AS [Usuario]
+FROM [dbo].[VActInmuebles] AS [VActInmuebles]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VacuerdosFox" EntityType="Self.VacuerdosFox" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [VacuerdosFox].[CODIGO] AS [CODIGO], 
@@ -1506,6 +1525,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySet Name="VNegocioscompromisos" EntityType="CRMModel.VNegocioscompromisos" />
           <EntitySet Name="VnegocioFox" EntityType="CRMModel.VnegocioFox" />
           <EntitySet Name="ActInmuebles" EntityType="CRMModel.ActInmuebles" />
+          <EntitySet Name="VActInmuebles" EntityType="CRMModel.VActInmuebles" />
         </EntityContainer>
         <EntityType Name="acuerdo_fox">
           <Key>
@@ -2456,6 +2476,15 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="Proyecto" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="VActInmuebles">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Proyecto" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3247,6 +3276,16 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="ActInmuebles">
             <EntityTypeMapping TypeName="CRMModel.ActInmuebles">
               <MappingFragment StoreEntitySet="ActInmuebles">
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VActInmuebles">
+            <EntityTypeMapping TypeName="CRMModel.VActInmuebles">
+              <MappingFragment StoreEntitySet="VActInmuebles">
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />

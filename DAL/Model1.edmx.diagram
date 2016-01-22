@@ -64,6 +64,7 @@
         <EntityTypeShape EntityType="CRMModel.VNegocioscompromisos" Width="1.5" PointX="21.375" PointY="20.75" />
         <EntityTypeShape EntityType="CRMModel.VnegocioFox" Width="1.5" PointX="21.375" PointY="5.75" />
         <EntityTypeShape EntityType="CRMModel.ActInmuebles" Width="1.5" PointX="8.375" PointY="22.75" />
+        <EntityTypeShape EntityType="CRMModel.VActInmuebles" Width="1.5" PointX="23.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

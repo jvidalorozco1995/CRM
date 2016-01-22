@@ -206,7 +206,7 @@ function BLLComercial() {
     }
     //Tabla de Cliente
     BLLComercial.CrearTabla = function (clientes) {
-        document.getElementById('Tabla').innerHTML = "";
+        document.getElementById('TablaClientes').innerHTML = "";
         var tabla = '<table id="example2" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr >";
@@ -287,7 +287,7 @@ function BLLComercial() {
         });
         tabla += "</tbody>";
         tabla += '</table>';
-        $('#Tabla').append(tabla);
+        $('#TablaClientes').append(tabla);
         $('#example2').dataTable();
 
     }

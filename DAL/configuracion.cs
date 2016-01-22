@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class configuracion
+    public partial class configuracion
     {
         public int ID_CONT { get; set; }
         public Nullable<int> CONTADOR_CONF { get; set; }

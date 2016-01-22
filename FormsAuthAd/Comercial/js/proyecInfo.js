@@ -48,6 +48,7 @@ var admComercial = (function () {
     var WsLisClientes = "/Servicios/WClientes.asmx/LisClientes";///Listado de clientes
     var WsGetClientes = "/Servicios/WClientes.asmx/GetClientesT";//trae Inoformacion de cliente
 
+    var WsInmueblesFox = "/ServiciosFox/WFox.asmx/InmueblesFox";//LIstado de Inmuebles Multifox por Proyectos
 
     var WSCrearTarea = "/Servicios/WTareas.asmx/InsertTarea";//Crear Treas
    
@@ -77,7 +78,7 @@ var admComercial = (function () {
             alert(tipo)
             switch (tipo) {
                 case "N":
-                    //gestion terminada porq el clinete decice comprar
+                    //gestion terminada porq el cliente decice comprar
                     listc._Cancelargestion(_BitacorasDTO(), cedula, "N");
                     Tr.Etareas(_DtoTareas(), _BitacorasDTO());
                     setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
@@ -102,6 +103,14 @@ var admComercial = (function () {
         $(document).on('click', '#BtnActInmuebles', function () {
 
             inm.UdateInmuebles(proyec);
+            setTimeout(function () {
+                act.ListActInmueble(proyec);
+                inm.InmuenlesFox(proyec, WsInmueblesFox);
+               // inm._Linmuebles(proyec);
+                inm.LisInmuebles(proyec);
+                
+            }, 2000);
+          
           
         })
 
@@ -764,8 +773,9 @@ var admComercial = (function () {
     
     var _initialize = function () {
 
-        var WsInmueblesFox = "/ServiciosFox/WFox.asmx/InmueblesFox";//LIstado de Inmuebles Multifox por Proyectos
+        act.ListActInmueble(proyec);
         inm.InmuenlesFox(proyec, WsInmueblesFox);
+        
 
         var mapOptions = {
             zoom: 10

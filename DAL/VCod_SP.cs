@@ -12,7 +12,6 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;       
     public partial class VCod_SP
     {
         public Nullable<int> COD { get; set; }

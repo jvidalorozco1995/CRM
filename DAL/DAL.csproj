@@ -154,6 +154,9 @@
     <Compile Include="trabajadores.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="VActInmuebles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="VacuerdosFox.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

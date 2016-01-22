@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class ActInmuebles
+    public partial class ActInmuebles
     {
         public int Codigo { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }

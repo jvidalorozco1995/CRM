@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class VacuerdosFox
+    public partial class VacuerdosFox
     {
         public string CODIGO { get; set; }
         public string CONCEPTO { get; set; }

@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class trabajadores
+    public partial class trabajadores
     {
         public trabajadores()
         {
@@ -26,8 +26,8 @@ namespace DAL
         public string EMAIL { get; set; }
         public string TIPO { get; set; }
     
-        [XmlIgnore]   public virtual ICollection<historial_clientes> historial_clientes { get; set; }
-        [XmlIgnore]   public virtual ICollection<proyectos_trabajador> proyectos_trabajador { get; set; }
-        [XmlIgnore]   public virtual ICollection<tareas> tareas { get; set; }
+        public virtual ICollection<historial_clientes> historial_clientes { get; set; }
+        public virtual ICollection<proyectos_trabajador> proyectos_trabajador { get; set; }
+        public virtual ICollection<tareas> tareas { get; set; }
     }
 }

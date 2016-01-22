@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-   using System.Xml.Serialization;        public partial class bancos
+    public partial class bancos
     {
         public int ID_BANCO { get; set; }
         public string NOMBRE_BANCO { get; set; }
