@@ -118,25 +118,30 @@ namespace BLLCRM
                 {
                     if (b.Length == 3)
                     {
-                        var ctx = db.inmuebles.First(inm =>inm.SUC == b);
-                        if (ctx != null)
+                        foreach (var item2 in db.inmuebles.Where(t => t.REFERENCIA == item.REFERENCIA))
                         {
-                            if (ctx.INMUESTADO.Equals("3"))
-                            {
 
+                         //   var ctx = db.inmuebles.First(inm => inm.REFERENCIA );
+                            if (item2 != null)
+                            {
+                                if (item2.INMUESTADO.Equals("3"))
+                                {
+
+                                }
+                                else
+                                {
+                                    item2.VAL_INMUEBLE = item.VAL_INMUEBLE;
+                                    item2.INMUESTADO = item.INMUESTADO;
+                                  
+
+                                }
                             }
                             else
                             {
-                                ctx.VAL_INMUEBLE = item.VAL_INMUEBLE;
-                                ctx.INMUESTADO = item.INMUESTADO;
-                                db.SaveChanges();
-
+                                return mensaje = "No fue realizar el proceso de actualización";
                             }
                         }
-                        else
-                        {
-                            return mensaje = "No fue realizar el proceso de actualizacion";
-                        }
+                       
                     }
                     else
                     {
@@ -163,6 +168,7 @@ namespace BLLCRM
 
                     }
                 }
+                  db.SaveChanges();
                 return mensaje = "los inmuebles se actualizaron de manera exitosa";
             }
             catch (Exception ex)

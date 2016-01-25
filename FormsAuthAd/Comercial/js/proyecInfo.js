@@ -235,8 +235,8 @@ var admComercial = (function () {
 
             if (fechafin < fecha)
             {
-                toastr.error('CRM Mayales - Notificacion'+
-                '<br/>La fecha de fianal no puede ser menor a la actual.');
+                toastr.error('CRM Mayales - Notificación'+
+                '<br/>La fecha de final no puede ser menor a la actual.');
             }
             else
             {
@@ -256,7 +256,7 @@ var admComercial = (function () {
                     if ($('#Cliente').val().length < 1)
                     {
                         toastr.error('CRM Mayales - Notificacion' +
-                    '<br/>Debe selccionar un cliente para continuar con el proceso de sepacion');
+                    '<br/>Debe selccionar un cliente para continuar con el proceso de separación');
                     }
                     else
                     {

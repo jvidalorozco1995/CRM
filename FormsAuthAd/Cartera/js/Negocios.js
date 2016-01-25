@@ -47,19 +47,19 @@ var admUser = (function () {
             neg.ActualizarTodosLosNegocios(Wsurltodosnegocios);
            
             setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 2000);
-           /* setTimeout(function () {
+            setTimeout(function () {
                if (negocio != undefined) {
                
-                    $('#PanelNego').show();
-                    $('#PanelTareas').show();
-                    $('#Tareas').show();
+                  //  $('#PanelNego').show();
+                   // $('#PanelTareas').show();
+                    //$('#Tareas').show();
 
                     tar.TareasNegocio(negocio);
                     Ac.AcuerdosFox(negocio);
                     neg.ListNegocioFOXID(WsListNegocioID, negocio);
                     Pag.PagosFox(negocio);
                 }
-            }, 2000);*/
+            }, 2000);
         });
         //--------------------FIN------------------------///
 
@@ -88,7 +88,7 @@ var admUser = (function () {
                 }
                 else {
                     if ($('#TxtMotivo').val().length < 1) {
-                        toastr.error('CRM Mayales - Notificacion' +
+                        toastr.error('CRM Mayales - Notificación' +
                         '</br> El campo descripcion se encuentra vacio');
                     }
                     else {

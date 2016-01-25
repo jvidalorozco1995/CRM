@@ -399,7 +399,7 @@ namespace DAL
                 ConectionString = GetConnectionString();
                 OdbcConnection objcon = new OdbcConnection(ConectionString);
                 objcon.Open();
-                cadena = "SELECT inmubloq+inmucodi AS 'referencia', inmuebl.inmuobra,inmuebl.inmudesc,left(inmuebl.inmuobra,3) AS 'suc', right(inmuebl.inmuobra,3) AS 'ppto', bloques.bloqcodi AS 'mza', inmuebl.inmucodi AS 'inmueble',inmuebl.inmuarea AS 'area', inmuebl.inmuvent AS 'vlr inmueble', IIF(inmuebl.inmuesta=1,1,0)*inmuebl.inmuvent AS 'vlr vendido', IIF(inmuebl.inmuesta<>1,1,0)*inmuebl.inmuvent AS 'vlr x vender', inmuebl.inmuesta AS 'estado' FROM bloques bloques, inmuebl inmuebl WHERE inmuebl.inmuobra = bloques.bloqobra AND ((bloques.bloqcodi=right(inmuebl.inmubloq,2))) and inmuobra LIKE '" + (b+"%") + "' order by inmueble ASC";  
+                cadena = "SELECT inmubloq+inmucodi AS 'referencia', inmuebl.inmuobra,inmuebl.inmudesc,left(inmuebl.inmuobra,3) AS 'suc', right(inmuebl.inmuobra,3) AS 'ppto', bloques.bloqcodi AS 'mza', inmuebl.inmucodi AS 'inmueble',inmuebl.inmuarea AS 'area', inmuebl.inmuvent AS 'vlr inmueble', IIF(inmuebl.inmuesta=1,1,0)*inmuebl.inmuvent AS 'vlr vendido', IIF(inmuebl.inmuesta<>1,1,0)*inmuebl.inmuvent AS 'vlr x vender', inmuebl.inmuesta AS 'estado' FROM bloques bloques, inmuebl inmuebl WHERE inmuebl.inmuobra = bloques.bloqobra AND ((bloques.bloqcodi=right(inmuebl.inmubloq,2))) and inmuobra LIKE '%" + (b+"%") + "' order by inmueble ASC";  
                 OdbcDataAdapter daProyectofox = new OdbcDataAdapter(cadena, objcon);
                 DataSet dsproyectofox = new DataSet("Pubs");
                 daProyectofox.FillSchema(dsproyectofox, SchemaType.Source, "BLOQUE_FOX");
