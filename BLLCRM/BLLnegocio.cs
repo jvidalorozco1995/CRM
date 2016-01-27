@@ -33,7 +33,7 @@ namespace BLLCRM
                        }
 
                user = Membership.GetUser().ToString();
-               n.ID_NEGOCIO = Convert.ToString(n.FECHA_NACI.Value.Day) + Convert.ToString(n.FECHA_NACI.Value.Month) + Convert.ToString(DateTime.Now.Year) + n.CEDULA_P;
+               n.ID_NEGOCIO = Convert.ToString(n.FECHA_NACI.Value.Day) + Convert.ToString(n.FECHA_NACI.Value.Month) + Convert.ToString(DateTime.Now.Year) + Convert.ToString(DateTime.Now.Second) + n.CEDULA_P;
                n.USER_CREO = user;
                n.CODIGO_F = Cod_Sp;
                bd.negocio.Add(n);
