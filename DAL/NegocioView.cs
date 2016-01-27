@@ -52,5 +52,6 @@ namespace DAL
         public string NOMBRES { get; set; }
         public string NOMBRE_PROYEC { get; set; }
         public Nullable<decimal> INGRESO { get; set; }
+        public string CODIGO_F { get; set; }
     }
 }

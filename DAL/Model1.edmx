@@ -430,6 +430,7 @@ warning 6002: The table/view 'CRM.dbo.NegocioView' does not have a primary key d
           <Property Name="NOMBRES" Type="varchar" MaxLength="25" />
           <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM.dbo.VActInmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1057,7 +1058,8 @@ FROM [dbo].[historial_acuerdos_pagos] AS [historial_acuerdos_pagos]</DefiningQue
 [NegocioView].[SEPARACION] AS [SEPARACION], 
 [NegocioView].[NOMBRES] AS [NOMBRES], 
 [NegocioView].[NOMBRE_PROYEC] AS [NOMBRE_PROYEC], 
-[NegocioView].[INGRESO] AS [INGRESO]
+[NegocioView].[INGRESO] AS [INGRESO], 
+[NegocioView].[CODIGO_F] AS [CODIGO_F]
 FROM [dbo].[NegocioView] AS [NegocioView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VActInmuebles" EntityType="Self.VActInmuebles" store:Type="Views" store:Schema="dbo">
@@ -1916,6 +1918,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="NOMBRES" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VAsesoresT">
           <Key>
@@ -2841,6 +2844,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="NegocioView">
             <EntityTypeMapping TypeName="CRMModel.NegocioView">
               <MappingFragment StoreEntitySet="NegocioView">
+                <ScalarProperty Name="CODIGO_F" ColumnName="CODIGO_F" />
                 <ScalarProperty Name="INGRESO" ColumnName="INGRESO" />
                 <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />

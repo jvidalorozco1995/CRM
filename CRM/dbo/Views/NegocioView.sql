@@ -4,7 +4,8 @@ SELECT        dbo.negocio.ID_NEGOCIO, dbo.negocio.PROPIETARIO, dbo.negocio.CEDUL
                          dbo.negocio.TELEFONO_P, dbo.negocio.EMPRESA, dbo.negocio.TELFONO_EMP, dbo.negocio.CARGO, dbo.negocio.PROFESION, dbo.negocio.DIRECCION_EMPR, dbo.negocio.ANTIGUEDAD, 
                          dbo.negocio.CORREO, dbo.negocio.NOMBRE_CONY, dbo.negocio.CEDULA_CUY, dbo.negocio.TELE_CONY, dbo.negocio.N_HIJO, dbo.negocio.INTERES_COM, dbo.negocio.VALOR_CASA, dbo.negocio.INICIAL, 
                          dbo.negocio.CREDITO, dbo.negocio.BANCO, dbo.negocio.NO_CREDITO, dbo.negocio.FECHA_ES, dbo.negocio.FECHA_ENT, dbo.negocio.FECHA_SUBRO, dbo.negocio.ASESOR_INFO, dbo.negocio.MEDIO_ENT, 
-                         dbo.negocio.ASOCIADO, dbo.negocio.CLASE_INMU, dbo.negocio.ID_HOJA, dbo.negocio.SEPARACION, dbo.trabajadores.NOMBRES, dbo.proyectos.NOMBRE_PROYEC, dbo.negocio.INGRESO
+                         dbo.negocio.ASOCIADO, dbo.negocio.CLASE_INMU, dbo.negocio.ID_HOJA, dbo.negocio.SEPARACION, dbo.trabajadores.NOMBRES, dbo.proyectos.NOMBRE_PROYEC, dbo.negocio.INGRESO, 
+                         dbo.negocio.CODIGO_F
 FROM            dbo.trabajadores INNER JOIN
                          dbo.negocio ON dbo.trabajadores.T_CEDULA = dbo.negocio.USER_CREO INNER JOIN
                          dbo.proyectos ON dbo.negocio.PROYECTO_INT = dbo.proyectos.ID_PROYEC
@@ -99,7 +100,7 @@ Begin DesignProperties =
                Right = 849
             End
             DisplayFlags = 280
-            TopColumn = 24
+            TopColumn = 26
          End
          Begin Table = "proyectos"
             Begin Extent = 
@@ -117,6 +118,60 @@ Begin DesignProperties =
    End
    Begin DataPane = 
       Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 40
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+   ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'      Width = 1500
+         Width = 1500
+         Width = 1500
       End
    End
    Begin CriteriaPane = 
@@ -138,8 +193,4 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
 

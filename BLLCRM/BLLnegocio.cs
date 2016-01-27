@@ -66,13 +66,13 @@ namespace BLLCRM
                        Entinegocio hn = new Entinegocio();
 
 
-                       var _CodS = bd.VCod_SP.Where(sp => sp.CLIENTE == item.CEDULA_P).ToList();
+                     /*  var _CodS = bd.VCod_SP.Where(sp => sp.CLIENTE == item.CEDULA_P).ToList();
                        string Cod_Sp = "";
 
                        foreach (var item2 in _CodS)
                        {
                            Cod_Sp = item2.COD + item2.INMU;
-                       }
+                       }*/
                        hn.ID_NEGOCIO = item.ID_NEGOCIO;
                        hn.ID_HOJA = item.ID_HOJA;
                        hn.PROPIETARIO = item.PROPIETARIO;
@@ -109,7 +109,7 @@ namespace BLLCRM
                        hn.INICIAL = item.INICIAL;
                        hn.CREDITO = item.CREDITO;
                        hn.USER_NEGOCIO = item.NOMBRES;
-                       hn.CODIGO_F = Cod_Sp;
+                       hn.CODIGO_F = item.CODIGO_F;
                        _line.Add(hn);
                    }
                    return _line;
@@ -146,13 +146,13 @@ namespace BLLCRM
                        Entinegocio hn = new Entinegocio();
 
 
-                       var _CodS = bd.VCod_SP.Where(sp => sp.CLIENTE == item.CEDULA_P).ToList();
+                      /* var _CodS = bd.VCod_SP.Where(sp => sp.CLIENTE == item.CEDULA_P).ToList();
                        string Cod_Sp = "";
 
                        foreach (var item2 in _CodS)
                        {
                            Cod_Sp = item2.COD + item2.INMU;
-                       }
+                       }*/
                        hn.ID_HOJA = item.ID_HOJA;
                        hn.PROPIETARIO = item.PROPIETARIO;
                        hn.CEDULA_P = item.CEDULA_P;
@@ -189,7 +189,7 @@ namespace BLLCRM
                        hn.CREDITO = item.CREDITO;
                        hn.USER_NEGOCIO = item.PROPIETARIO;
                        hn.USER_CARTERA = item.USER_CARTERA;
-                       hn.CODIGO_F = Cod_Sp;
+                       hn.CODIGO_F = item.CODIGO_F;
                        linE.Add(hn);
                    }
                    return linE;

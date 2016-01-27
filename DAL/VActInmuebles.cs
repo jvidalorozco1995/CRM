@@ -15,7 +15,7 @@ namespace DAL
     public partial class VActInmuebles
     {
         public int Codigo { get; set; }
-        public Nullable<System.DateTime> Fecha { get ; set; }
+        public Nullable<System.DateTime> Fecha { get; set; }
         public string Proyecto { get; set; }
         public string Usuario { get; set; }
     }
