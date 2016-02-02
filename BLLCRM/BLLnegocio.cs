@@ -66,13 +66,6 @@ namespace BLLCRM
                        Entinegocio hn = new Entinegocio();
 
 
-                     /*  var _CodS = bd.VCod_SP.Where(sp => sp.CLIENTE == item.CEDULA_P).ToList();
-                       string Cod_Sp = "";
-
-                       foreach (var item2 in _CodS)
-                       {
-                           Cod_Sp = item2.COD + item2.INMU;
-                       }*/
                        hn.ID_NEGOCIO = item.ID_NEGOCIO;
                        hn.ID_HOJA = item.ID_HOJA;
                        hn.PROPIETARIO = item.PROPIETARIO;
@@ -146,13 +139,6 @@ namespace BLLCRM
                        Entinegocio hn = new Entinegocio();
 
 
-                      /* var _CodS = bd.VCod_SP.Where(sp => sp.CLIENTE == item.CEDULA_P).ToList();
-                       string Cod_Sp = "";
-
-                       foreach (var item2 in _CodS)
-                       {
-                           Cod_Sp = item2.COD + item2.INMU;
-                       }*/
                        hn.ID_HOJA = item.ID_HOJA;
                        hn.PROPIETARIO = item.PROPIETARIO;
                        hn.CEDULA_P = item.CEDULA_P;
@@ -290,7 +276,7 @@ namespace BLLCRM
            try
            {   historial_inmueble him = new historial_inmueble();
                him.CLIENTE=c;
-               him.INMUEBLE=inm;
+               him.INMUEBLE= inm;
                him.FECHA=DateTime.Now;
                him.DESCRIPCION_S = "El inmueble"+ inm+ "  "+"ha pasado a un proceso de compra";
                bd.historial_inmueble.Add(him);

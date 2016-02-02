@@ -84,12 +84,12 @@ var admUser = (function () {
             else {
                 if ($('#fechainfo').val().length < 1) {
                     toastr.error('CRM Mayales - Notificacion' +
-                    '</br> El campo Fecha de Tarera se encuentra vacio');
+                    '</br> El campo Fecha de Tarea se encuentra vacio');
                 }
                 else {
                     if ($('#TxtMotivo').val().length < 1) {
                         toastr.error('CRM Mayales - Notificación' +
-                        '</br> El campo descripcion se encuentra vacio');
+                        '</br> El campo descripción se encuentra vacio');
                     }
                     else {
                         var fechaEs = $('#fechainfo').val()
@@ -97,7 +97,7 @@ var admUser = (function () {
                             dia = null;
                             mes = null;
                             toastr.error('CRM Mayales - Notificacion' +
-                           '</br> La fecha selcccionada no puede ser menor a la del dia actual');
+                           '</br> La fecha seleccionada no puede ser menor a la del dia actual');
                         }
                         else {
 
@@ -158,14 +158,10 @@ var admUser = (function () {
         //---------------------------FIN----------------------------------//
 
 
-        //Subir el archivo a la carpeta de imagenes
+        //Subir el archivo a la carpeta de imagenes que se llama UPLOAD
         $(document).on('click', '.RemoverP', function () {
             cedula = $(this).attr("id");
-            // alert("#" + cedula + "");
             var c = $("#" + cedula + "").get(0);
-
-         
-            
             var files = c.files;
             if (files[0] != undefined) {
 
@@ -179,20 +175,22 @@ var admUser = (function () {
                     contentType: false,
                     processData: false,
                     data: test,
-                    // dataType: "json",
                     success: function (result) {
                         neg.ListActualizarAdj(WsActualizarAdjFox, cedula, files[0].name);
-                        alert(result);
                         $("#" + cedula + "").prop('disabled', true);
                         $(".RemoverP").prop('disabled', true);
                     },
                     error: function (err) {
-                        alert(err.statusText);
+                      
+                        toastr.error(' CRM - Mayales' +
+                       '<br/>' + err.statusText);
                     }
                 });
             } else {
-                alert("Seleccione un archivo");
-            }
+
+                toastr.error(' CRM - Mayales' +
+                      '<br/>Seleccione un archivo por favor.');
+           }
 
         });
         //---------------------------FIN----------------------------------//

@@ -128,7 +128,6 @@ namespace FormsAuthAd.ServiciosFox
             
         }
 
-    
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string TODO()

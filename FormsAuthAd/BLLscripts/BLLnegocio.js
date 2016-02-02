@@ -205,7 +205,9 @@ BLLnegocio.prototype = {
                  }
                  else {
                   
-                     alert("Hoja de negocio adjuntada");
+                     toastr.success(' CRM - Mayales' +
+                        '<br/>Hoja de negocio adjuntada');
+                  
                  }
              },
              error: function (obj, error, objError) { alert(obj.responseText); }

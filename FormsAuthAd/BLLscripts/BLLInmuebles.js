@@ -272,12 +272,12 @@ function BLLInmuebles() {
                 {
                     $('#loadig').hide();
                     toastr.error('CRM Mayales - Notificacion' +
-                    '<br/>El cliente actualemte ya tiene un proceso de separacion en curso');
+                    '<br/>El cliente actualmente ya tiene un proceso de separacion en curso');
                 }
                 else
                 {
                     toastr.success('CRM Mayales - Notificacion' +
-                    '<br/>el inmueble fue separa de manera exitosa');
+                    '<br/>el inmueble fue separado de manera exitosa');
                     $('#Inmueble').val("");
                     $('#Cliente').val("");
                     $('#EmailCliente').val("");

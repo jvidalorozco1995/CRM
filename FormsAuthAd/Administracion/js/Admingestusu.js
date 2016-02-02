@@ -25,7 +25,6 @@ var admUser = (function () {
         //Asignar Proyectos al trabajador
         $(document).on('click', '.CargarNego', function () {
             cedula = $(this).attr("id");
-            alert(cedula);
             $('#ModalAsignar').modal('hide');
             neg.UpdateCarteraNegocio(cedula, $('#TxtCodigo').val(), WsUpdateNegocio);
         })

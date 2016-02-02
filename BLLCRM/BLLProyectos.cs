@@ -88,7 +88,7 @@ namespace BLLCRM
         }
 
         /// <summary>
-        /// Metodo para realizar la eliminacion de los proyectos almacenados
+        /// Metodo para realizar la eliminación de los proyectos almacenados
         /// en CRM haciedo la salvedad que ninguno de los inmebles pertecientes
         /// al proyecto este en proceso de compra,retorna un entero al realizar la peticion
         /// </summary>
@@ -204,7 +204,7 @@ namespace BLLCRM
         }
 
         /// <summary>
-        /// Listado de Proyectos por trabjador
+        /// Listado de Proyectos por trabajador
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
@@ -276,6 +276,7 @@ namespace BLLCRM
                 throw;
             }
         }
+
 
         public List<VTarCLientes> TareasClientetra(string p)
         {

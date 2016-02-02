@@ -24,3 +24,6 @@ namespace DAL
         public virtual trabajadores trabajadores { get; set; }
     }
 }
+
+
+

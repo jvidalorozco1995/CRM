@@ -18,7 +18,9 @@ namespace SwCRM
     public partial class ServicioCRM : ServiceBase
     {
         private Timer _timer;
+
         private DateTime _lastRun = DateTime.Now.AddDays(-1);
+
         public ServicioCRM()
         {
             InitializeComponent();
@@ -28,11 +30,13 @@ namespace SwCRM
             eventLog1.Source = "MySource";
             eventLog1.Log = "MyNewLog";
         }
+
         protected override void OnStop()
         {
             eventLog1.WriteEntry("Servicio Finalizado...!");
 
         }
+
         protected override void OnStart(string[] args)
         {
              eventLog1.WriteEntry("Servicio Iniciado...!");
@@ -40,7 +44,9 @@ namespace SwCRM
             _timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);
             _timer.Start();
         }
+
         ConecFox fx = new ConecFox();
+
         public void ListNegocio() 
         {
             InsertNegocio(fx.ConsulNegocio());
@@ -51,23 +57,56 @@ namespace SwCRM
             BLLNegocioFox hn = new BLLNegocioFox();
             hn.Hojanegocio(ac);
         }
+
         public void AcuerdoFox()
         {
             InsertAcuerdo(fx.ConsulAcuerdoPago());
         }
-        public void InsertPago(){
-        //  InsertPago(fx.ConsultPagosFox());
+
+        public List<PagosFox> listPagosFox(string refe)
+        {
+
+            return fx.ConsultPagosFox(refe).ToList();
         }
+
+        public void InsertPago(){
+            BLLNegocioFox hn = new BLLNegocioFox();
+            var listneg = hn.NegociosFoxCRM();
+            foreach (var item in listneg)
+            {
+                //Lista de pagos por referencia o negocio 
+                var listapag = listPagosFox(item.SUCURSAL + item.NEGOCIO);
+
+                foreach (var list in listapag)
+                {
+
+                    InsertPago(list);
+
+                }
+
+            }
+        }
+
         public void InsertAcuerdo(List<AcuerdoFox> ac)
         {
             BLLAcuerdoFox hn = new BLLAcuerdoFox();
             hn.Acuerdo(ac);
         }
-        public void InsertPago(List<PagosFox> ac)
+    
+        public string InsertPago(PagosFox ac)
         {
-          //  BLLPagosFox hn = new BLLPagosFox();
-          //  hn.Pagos(ac);
+            try
+            {
+                BLLPagosFox hn = new BLLPagosFox();
+                return hn.Pagos(ac);
+            }
+            catch (Exception ex)
+            {
+
+                return ex.ToString();
+            }
         }
+
         private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             // ignore the time, just compare the date

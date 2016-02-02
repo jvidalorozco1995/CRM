@@ -11,11 +11,11 @@ namespace BLLCRM
 {
     public class BLLConfiguracionNegocio
     {
-
+        //Obtiene la instancia de la base de datos
         CRMEntiti bd = new CRMEntiti();
 
         /// <summary>
-        /// Meotod para registrar los bloques en base de datos
+        /// Metodo para registrar los bloques en base de datos
         /// crm
         /// </summary>
         /// <param name="b"></param>
@@ -24,36 +24,39 @@ namespace BLLCRM
         {
             try
             {
+                //Instanciamos un objeto de la entidad
+                Configuracion_negocio config = new Configuracion_negocio();
 
 
-                var result = from r in bd.Configuracion_negocio where r.ID == 1 select r;
-
-                // Get the first record from the result
-                Configuracion_negocio product = result.First();
-
-                // Update the product name
-                 product.Nombre = b.Nombre;
+                 config.Nombre = b.Nombre;
+                 bd.Configuracion_negocio.Add(config);
                  bd.SaveChanges();
                 
                 return 1;
             }
             catch (DbUpdateException)
             {
+                //Retornamos cero en caso de que pase un error
                 return 0;
             }
             catch (Exception)
             {
+                //si se produce una excepcion la mandamos hacia adelante
                 throw;
             }
         }
 
+        /// <summary>
+        /// obtiene todas las configuraciones del negocio
+        /// </summary>
+        /// <returns></returns>
         public List<Configuracion_Negocio> getAll() {
 
             try {
 
-                List<Configuracion_negocio> Lconfi= bd.Configuracion_negocio.ToList();
-                List<Configuracion_Negocio> _lnegocio = new List<Configuracion_Negocio>();
-                if (Lconfi !=null)
+               List<Configuracion_negocio> Lconfi = bd.Configuracion_negocio.ToList();
+               List<Configuracion_Negocio> _lnegocio = new List<Configuracion_Negocio>();
+               if (Lconfi !=null)
                 {
                     foreach (var item in Lconfi)
                     {
@@ -61,8 +64,8 @@ namespace BLLCRM
                         confi.Nombre = item.Nombre;
                         _lnegocio.Add(confi);
                     }    
-                }
-                
+               }
+                //Retornamos una lista
                 return _lnegocio;
             }
             catch (DbUpdateException)
@@ -76,9 +79,5 @@ namespace BLLCRM
 
 
         }
-
-
-
-
-    }
+   }
 }
