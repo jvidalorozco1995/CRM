@@ -78,9 +78,10 @@ var admUser = (function () {
 
         //Asignar Proyectos al trabajador
         $(document).on('click', '.Detallett', function () {
+
             negocio = $(this).attr("id");
             ced = $(this).attr("tag");
-   
+            $(".div").css({ "display": "inline" });
             tar.TareasNegocioCompromiso(negocio);
             $('#TxtClientes').val(ced);
             $('#PanelTareas').show();

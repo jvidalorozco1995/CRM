@@ -64,6 +64,7 @@ BLLSeguiNegocios.prototype = {
             dataType: 'json',
             async: true,
             success: function (result) {
+               
                 if (result.d == null) {
 
                 }

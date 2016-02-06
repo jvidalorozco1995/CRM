@@ -1355,8 +1355,8 @@
     <Content Include="Cartera\Crearnegocio.aspx" />
     <Content Include="Cartera\Estacuenta.html" />
     <Content Include="Cartera\GesNegocio.aspx" />
-    <Content Include="Cartera\Hoja_Negocio2.html" />
     <Content Include="Cartera\GesCartera.aspx" />
+    <Content Include="Cartera\Hoja_Negocio2.html" />
     <Content Include="Cartera\js\Cartera.js" />
     <Content Include="Cartera\js\Compromisos.js" />
     <Content Include="Cartera\js\Estacuenta.js" />
@@ -1476,6 +1476,7 @@
     <Content Include="gmaps\lib\gmaps.streetview.js" />
     <Content Include="gmaps\lib\gmaps.styles.js" />
     <Content Include="gmaps\lib\gmaps.utils.js" />
+    <Content Include="handler\SubirArchivoHandler.ashx" />
     <Content Include="icons\iconset.svg" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -2144,7 +2145,6 @@
     <Content Include="assets\less\skins\red.less" />
     <Content Include="assets\less\skins\white.less" />
     <Content Include="assets\less\skins\yellow.less" />
-    <Content Include="handler\SubirArchivoHandler.ashx" />
     <None Include="Properties\PublishProfiles\Webmayales.pubxml" />
     <Content Include="prueb.aspx" />
     <Content Include="sampledata\data.php" />

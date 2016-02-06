@@ -16,7 +16,7 @@ var _admnego = (function () {
             async: true,
             success: function (result) {
                 if (result.d == null) {
-
+                    alert("Error");
                 }
                 else {
                     var nego = result.d;
