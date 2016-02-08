@@ -169,9 +169,9 @@
                         <li>
                         <a href="#"><span class="nav-label">Gest Cartera</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/Cartera/GesCartera.aspx">Crear negocio</a></li>
-                            <li><a href="/Cartera/Negocios.aspx">Lista de negocios FOX</a></li>
-                            <li><a href="/Cartera/GesNegocio.aspx">Seguimiento de Negocios</a></li>
+                            <li><a href="/Cartera/Crearnegocio/GesCartera.aspx">Crear negocio</a></li>
+                            <li><a href="/Cartera/ListaNegocioFox/Negocios.aspx">Lista de negocios FOX</a></li>
+                            <li><a href="/Cartera/SeguimientoNegocio/GesNegocio.aspx">Seguimiento de Negocios</a></li>
                         </ul>
                     </li>
                     <li>

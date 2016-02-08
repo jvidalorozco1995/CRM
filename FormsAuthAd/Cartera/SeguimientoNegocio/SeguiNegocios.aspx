@@ -172,31 +172,31 @@
   position: relative;
 }
 </style>
-     <script src="../vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../vendor/jquery-ui/jquery-ui.min.js"></script>
+     <script src="../../vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../../vendor/jquery-ui/jquery-ui.min.js"></script>
      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-    <link rel="stylesheet" href="../vendor/sweetalert/lib/sweet-alert.css" />
-    <link rel="stylesheet" href="../vendor/toastr/build/toastr.min.css" />
-    <link rel="stylesheet" href="../styles_crm/static_custom.css">
-    <script src="../gmaps/gmap3.js"></script>
-    <script src="../scripts_crm/HttpBll.js"></script>
-                <script src="../BLLscripts/BLLSeguiNegocios.js"></script>
-    <script src="../BLLscripts/BLLUtilidades.js"></script>
-   <script src="../BLLscripts/BLLnegocio.js"></script>
+    <link rel="stylesheet" href="../../vendor/sweetalert/lib/sweet-alert.css" />
+    <link rel="stylesheet" href="../../vendor/toastr/build/toastr.min.css" />
+    <link rel="stylesheet" href="../../styles_crm/static_custom.css">
+    <script src="../../gmaps/gmap3.js"></script>
+    <script src="../../scripts_crm/HttpBll.js"></script>
+                <script src="../../BLLscripts/BLLSeguiNegocios.js"></script>
+    <script src="../../BLLscripts/BLLUtilidades.js"></script>
+   <script src="../../BLLscripts/BLLnegocio.js"></script>
   
-    <script src="../BLLscripts/BLLTareas.js"></script>
+    <script src="../../BLLscripts/BLLTareas.js"></script>
 
 
-    <script src="../../vendor/sweetalert/lib/sweet-alert.min.js"></script>
-    <script src="../../vendor/toastr/build/toastr.min.js"></script>
-    <script src="../../vendor/moment/moment.js"></script>
-    <script src="../../vendor/select2-3.5.2/select2.min.js"></script>
-    <script src="../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../../vendor/sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="../../../vendor/toastr/build/toastr.min.js"></script>
+    <script src="../../../vendor/moment/moment.js"></script>
+    <script src="../../../vendor/select2-3.5.2/select2.min.js"></script>
+    <script src="../../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="../../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
 
-                <script src="js/SeguiNegocio.js"></script>
+                <script src="../js/SeguiNegocio.js"></script>
     
 
-    <script src="../scripts_crm/bootstrap-datepicker.js"></script>
-    <script src="../scripts_crm/accounting.js"></script>
+    <script src="../../scripts_crm/bootstrap-datepicker.js"></script>
+    <script src="../../scripts_crm/accounting.js"></script>
 </asp:Content>

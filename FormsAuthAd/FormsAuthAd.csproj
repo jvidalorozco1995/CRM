@@ -1352,11 +1352,11 @@
     <Content Include="BLLscripts\BLLProyectos.js" />
     <Content Include="BLLscripts\BLLUser.js" />
     <Content Include="BLLscripts\BLLUtilidades.js" />
-    <Content Include="Cartera\Crearnegocio.aspx" />
-    <Content Include="Cartera\Estacuenta.html" />
-    <Content Include="Cartera\GesNegocio.aspx" />
-    <Content Include="Cartera\GesCartera.aspx" />
-    <Content Include="Cartera\Hoja_Negocio2.html" />
+    <Content Include="Cartera\CrearNegocio\Crearnegocio.aspx" />
+    <Content Include="Cartera\ListaNegocioFox\Estacuenta.html" />
+    <Content Include="Cartera\SeguimientoNegocio\GesNegocio.aspx" />
+    <Content Include="Cartera\CrearNegocio\GesCartera.aspx" />
+    <Content Include="Cartera\CrearNegocio\Hoja_Negocio2.html" />
     <Content Include="Cartera\js\Cartera.js" />
     <Content Include="Cartera\js\Compromisos.js" />
     <Content Include="Cartera\js\Estacuenta.js" />
@@ -1366,9 +1366,9 @@
     <Content Include="Cartera\js\negocioProyecto.js" />
     <Content Include="Cartera\js\Negocios.js" />
     <Content Include="Cartera\js\SeguiNegocio.js" />
-    <Content Include="Cartera\Negocios.aspx" />
-    <Content Include="Cartera\ReporteCompromisos.html" />
-    <Content Include="Cartera\SeguiNegocios.aspx" />
+    <Content Include="Cartera\ListaNegocioFox\Negocios.aspx" />
+    <Content Include="Cartera\ListaNegocioFox\ReporteCompromisos.html" />
+    <Content Include="Cartera\SeguimientoNegocio\SeguiNegocios.aspx" />
     <Content Include="Comercial\clientes\Clientes.aspx" />
     <Content Include="Comercial\clientes\js\clientes.js" />
     <Content Include="Comercial\GesComercial.aspx" />
@@ -2145,6 +2145,8 @@
     <Content Include="assets\less\skins\red.less" />
     <Content Include="assets\less\skins\white.less" />
     <Content Include="assets\less\skins\yellow.less" />
+    <Content Include="Cartera\ListaNegocioFox\Web.config" />
+    <Content Include="Cartera\SeguimientoNegocio\Web.config" />
     <None Include="Properties\PublishProfiles\Webmayales.pubxml" />
     <Content Include="prueb.aspx" />
     <Content Include="sampledata\data.php" />
@@ -4553,39 +4555,39 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Cartera\Crearnegocio.aspx.cs">
+    <Compile Include="Cartera\CrearNegocio\Crearnegocio.aspx.cs">
       <DependentUpon>Crearnegocio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cartera\Crearnegocio.aspx.designer.cs">
+    <Compile Include="Cartera\CrearNegocio\Crearnegocio.aspx.designer.cs">
       <DependentUpon>Crearnegocio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cartera\GesCartera.aspx.cs">
+    <Compile Include="Cartera\CrearNegocio\GesCartera.aspx.cs">
       <DependentUpon>GesCartera.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cartera\GesCartera.aspx.designer.cs">
+    <Compile Include="Cartera\CrearNegocio\GesCartera.aspx.designer.cs">
       <DependentUpon>GesCartera.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cartera\GesNegocio.aspx.cs">
+    <Compile Include="Cartera\SeguimientoNegocio\GesNegocio.aspx.cs">
       <DependentUpon>GesNegocio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cartera\GesNegocio.aspx.designer.cs">
+    <Compile Include="Cartera\SeguimientoNegocio\GesNegocio.aspx.designer.cs">
       <DependentUpon>GesNegocio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cartera\Negocios.aspx.cs">
+    <Compile Include="Cartera\ListaNegocioFox\Negocios.aspx.cs">
       <DependentUpon>Negocios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cartera\Negocios.aspx.designer.cs">
+    <Compile Include="Cartera\ListaNegocioFox\Negocios.aspx.designer.cs">
       <DependentUpon>Negocios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cartera\SeguiNegocios.aspx.cs">
+    <Compile Include="Cartera\SeguimientoNegocio\SeguiNegocios.aspx.cs">
       <DependentUpon>SeguiNegocios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cartera\SeguiNegocios.aspx.designer.cs">
+    <Compile Include="Cartera\SeguimientoNegocio\SeguiNegocios.aspx.designer.cs">
       <DependentUpon>SeguiNegocios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comercial\clientes\Clientes.aspx.cs">

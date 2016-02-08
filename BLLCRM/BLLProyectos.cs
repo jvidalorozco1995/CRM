@@ -20,7 +20,7 @@ namespace BLLCRM
 
         /// <summary>
         /// Metodo para insertar Inmuebles traidos de multi-fox
-        /// si la operacion es realiaza con exito retorna un entero "1"
+        /// si la operacion es realiaza con exito retorna un entero "1"a
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>

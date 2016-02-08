@@ -1,35 +1,36 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Crearnegocio.aspx.cs" Inherits="FormsAuthAd.Cartera.Crearnegocio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
-    <script src='<%= ResolveUrl("../vendor/jquery/dist/jquery.min.js") %>'></script>
-    <script src='<%= ResolveUrl("../scripts/jquery-1.11.1.min.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxcore.js") %>'></script>
-     <script src='<%= ResolveUrl("../jqwidgets/jqxdatatable.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxdata.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxgrid.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxgrid.pager.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxscrollbar.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxbuttons.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxlistbox.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxgrid.edit.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxinput.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxcalendar.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxdatetimeinput.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxgrid.selection.js") %>'></script>
-    <script src='<%= ResolveUrl("../jqwidgets/jqxdropdownlist.js") %>'></script>
+    <script src='<%= ResolveUrl("../../vendor/jquery/dist/jquery.min.js") %>'></script>
+    <script src='<%= ResolveUrl("../../scripts/jquery-1.11.1.min.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxcore.js") %>'></script>
+     <script src='<%= ResolveUrl("../../jqwidgets/jqxdatatable.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxdata.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxgrid.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxgrid.pager.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxscrollbar.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxbuttons.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxlistbox.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxgrid.edit.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxinput.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxcalendar.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxdatetimeinput.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxgrid.selection.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxdropdownlist.js") %>'></script>
 
-    <link  rel="stylesheet" href="../jqwidgets/styles/jqx.base.css"/>
-    <script src="../../vendor/toastr/build/toastr.min.js"></script>
-    <script src="../../vendor/moment/moment.js"></script>
-    <script src="../../vendor/select2-3.5.2/select2.min.js"></script>
-    <script src="../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="../scripts_crm/accounting.js"></script>
-    <script src="../BLLscripts/BLLUtilidades.js"></script>
-    <script src="../scripts_crm/HttpBll.js"></script>
-    <script src="../BLLscripts/BLLInmuebles.js"></script>
-    <script src="../BLLscripts/BLLnegocio.js"></script>
-    <script src="js/GestCartera.js"></script>   
+    <link  rel="stylesheet" href="../../jqwidgets/styles/jqx.base.css"/>
+    <script src="../../../vendor/toastr/build/toastr.min.js"></script>
+    <script src="../../../vendor/moment/moment.js"></script>
+    <script src="../../../vendor/select2-3.5.2/select2.min.js"></script>
+    <script src="../../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="../../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../../scripts_crm/accounting.js"></script>
+    <script src="../../../BLLscripts/BLLUtilidades.js"></script>
+    <script src="../../../scripts_crm/HttpBll.js"></script>
+    <script src="../../../../BLLscripts/BLLActInmuebles.js"></script>
+    <script src="../../../../BLLscripts/BLLInmuebles.js"></script>
+    <script src="../../../../BLLscripts/BLLnegocio.js"></script>
+    <script src="../js/GestCartera.js"></script>
 
   
 
@@ -108,8 +109,8 @@
                                                 <label>Cedula</label>
                                                 <input type="text" value="" id="TxtIdentidad" class="form-control" maxlength="10"  style="float: left">
                                             </div>
-                                            <div style="float:left;padding-top:20px"><a id="BtnDisponibilidad"><img src="../images_crm/Buscar.png" style="float:left" /></a></div>
-                                            <div style="float:left;padding-top:20px"><a id="BtnAsociadoc"><img src="../images_crm/asociado.png" style="float:left" /></a></div>
+                                            <div style="float:left;padding-top:20px"><a id="BtnDisponibilidad"><img src="../../images_crm/Buscar.png" style="float:left" /></a></div>
+                                            <div style="float:left;padding-top:20px"><a id="BtnAsociadoc"><img src="../../images_crm/asociado.png" style="float:left" /></a></div>
                                             <div class="form-group col-lg-4">
                                                 <label>Expedicion</label>
                                                 <input type="text" value="" id="TextExpedicion" class="form-control" name="" >
