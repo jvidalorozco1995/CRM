@@ -38,7 +38,7 @@ var admUser = (function () {
         $("#BtnActualizar").click(function () {
 
 
-         
+            $(".div").css({ "display": "none" });
 
             $('#PanelNego').hide();
             $('#PanelTareas').hide();

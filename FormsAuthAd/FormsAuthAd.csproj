@@ -1358,9 +1358,9 @@
     <Content Include="Cartera\CrearNegocio\GesCartera.aspx" />
     <Content Include="Cartera\CrearNegocio\Hoja_Negocio2.html" />
     <Content Include="Cartera\js\Cartera.js" />
-    <Content Include="Cartera\js\Compromisos.js" />
-    <Content Include="Cartera\js\Estacuenta.js" />
-    <Content Include="Cartera\js\Hoja.js" />
+    <Content Include="Cartera\ListaNegocioFox\js\Compromisos.js" />
+    <Content Include="Cartera\ListaNegocioFox\js\Estacuenta.js" />
+    <Content Include="Cartera\CrearNegocio\js\Hoja.js" />
     <Content Include="Cartera\js\GestCartera.js" />
     <Content Include="Cartera\js\jquery.printElement.js" />
     <Content Include="Cartera\js\negocioProyecto.js" />
@@ -4844,7 +4844,7 @@
     <Folder Include="assets\js\aci-tree\php\tree\Item 7\Item 4\Item 3\" />
     <Folder Include="assets\js\aci-tree\php\tree\Item 7\Item 4\Item 4\" />
     <Folder Include="assets\js\selectboxit\css\" />
-    <Folder Include="Upload\" />
+    <Folder Include="Cartera\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
