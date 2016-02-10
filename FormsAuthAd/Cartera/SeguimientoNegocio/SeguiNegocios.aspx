@@ -43,7 +43,7 @@
                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                                         <a class="ptCerrar"><i class="fa fa-times"></i></a>
                                     </div>
-                                    Crear Tarea
+                                    Crear Compromiso
                                 </div>
                                 <div class="Border">
                                     <div class="tab-content">
@@ -59,11 +59,11 @@
                                                             <input type="number" value="" id="TxtClientes" class="form-control" readonly="">
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <label>Descricpion de Tarea numero de caracteres 100</label>
+                                                            <label>Descripción de compromiso numero de caracteres 100</label>
                                                             <textarea id="TxtDescripcion" class="form-control" rows="2" cols="3" maxlength="100"></textarea>
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <label>Fecha Tarea</label>
+                                                            <label>Fecha Compromiso</label>
                                                             <input id="TxtFechaTarea" type="text" value="" class="form-control">
                                                         </div>
                                                     </div>
@@ -71,7 +71,7 @@
                                             </div>
 
                                             <div class="text-right m-t-xs">
-                                                <button class="btn btn-success " type="button" id="BtnCreaTarea"><i class="fa fa-check"></i>Crear Tarea</button>
+                                                <button class="btn btn-success " type="button" id="BtnCreaTarea"><i class="fa fa-check"></i>Crear Compromiso</button>
                                             </div>
 
                                         </div>
@@ -109,27 +109,27 @@
                 <div class="modal-content">
                     <div class="color-line"></div>
                     <div class="modal-header">
-                        <h5 class="modal-title">Detalles de Tarea</h5>
+                        <h5 class="modal-title">Detalles de Compromiso</h5>
 
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="form-group col-lg-12">
-                                <label>Id de tarea</label>
+                                <label>Id de compromiso</label>
                                 <input type="text" value="" id="TxtIdTarea" class="form-control" readonly="">
                             </div>
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="form-group col-lg-6">
-                                        <label>Descricpion de Tarea</label>
+                                        <label>Descripcion de compromiso</label>
                                         <textarea id="Txtdetalle" class="form-control" rows="2" cols="3" readonly=""></textarea>
                                     </div>
                                     <div class="form-group col-lg-6">
-                                        <label>Fecha de inicio tarea</label>
+                                        <label>Fecha de inicio compromiso</label>
                                         <input id="fechainfo" type="text" value="" class="form-control" readonly="">
                                     </div>
                                      <div class="form-group col-lg-12">
-                                        <label id="labelfin">Fecha de Finalazacion</label>
+                                        <label id="labelfin">Fecha de Finalización</label>
                                         <input id="Fechafin" type="text" value="" class="form-control" readonly="">
                                     </div>
                                     <div class="form-group col-lg-12">
@@ -141,7 +141,7 @@
                             </div>
 
                         </div>
-                        <div style="border-top:solid;color:#E50000"><h4>Historial de tarea</h4></div>
+                        <div style="border-top:solid;color:#E50000"><h4>Historial de compromisos</h4></div>
                         <div id="TablaBitacoras">
                         </div>
                       </div>

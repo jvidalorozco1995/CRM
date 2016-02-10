@@ -64,6 +64,6 @@ var _admnego = (function () {
 $(document).ready(function () {
 
     _admnego.init();
-    setTimeout(function () { javascript: window.print(); }, 2000);
+    setTimeout(function () { javascript: window.print(); }, 1000);
    
 })

@@ -78,9 +78,9 @@ BLLAcuerdosFox.TablaAcuerdosReporte = function (acuerdos) {
         tabla += " <tr id=" + item.REFERENCIA1 + ">";
         tabla += "<td>" + item.REFERENCIA1 + "</td>";
         tabla += "<td>" + item.INMUEBLE + "</td>";
-        tabla += "<td>" + item.VLRCUOTA + "</td>";
-        tabla += "<td>" + item.PAGOCUOTA + "</td>";
-        tabla += "<td>" + item.SALDOXCOBRAR + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
         tabla += "</tr>";
 
 
@@ -115,9 +115,9 @@ BLLAcuerdosFox.TablaAcuerdosFoxReporte = function (acuerdos) {
         tabla += " <tr id=" + item.REFERENCIA1 + ">";
         tabla += "<td>" + item.REFERENCIA1 + "</td>";
         tabla += "<td>" + item.INMUEBLE + "</td>";
-        tabla += "<td>" + item.VLRCUOTA + "</td>";
-        tabla += "<td>" + item.PAGOCUOTA + "</td>";
-        tabla += "<td>" + item.SALDOXCOBRAR + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
         tabla += "</tr>";
 
         totalcuota = (totalcuota + item.VLRCUOTA);
@@ -128,9 +128,9 @@ BLLAcuerdosFox.TablaAcuerdosFoxReporte = function (acuerdos) {
     });
 
 
-    $("#Txtcuotas").text(totalcuota);
-    $("#TxtPago").text(totalpago);
-    $("#TxtSaldo").text(totalsaldo);
+    $("#Txtcuotas").text(utl.FormatNumero(totalcuota));
+    $("#TxtPago").text(utl.FormatNumero(totalpago));
+    $("#TxtSaldo").text(utl.FormatNumero(totalsaldo));
 
     tabla += "</tbody>";
     tabla += '</table>';
@@ -158,9 +158,9 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
         tabla += " <tr id=" + item.REFERENCIA1 + ">";
         tabla += "<td>" + item.REFERENCIA1 + "</td>";
         tabla += "<td>" + item.INMUEBLE + "</td>";
-        tabla += "<td>" + item.VLRCUOTA + "</td>";
-        tabla += "<td>" + item.PAGOCUOTA + "</td>";
-        tabla += "<td>" + item.SALDOXCOBRAR + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
+        tabla += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
         tabla += "</tr>";
 
       

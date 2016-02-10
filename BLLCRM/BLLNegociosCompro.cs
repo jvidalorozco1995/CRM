@@ -46,6 +46,10 @@ namespace BLLCRM
                     //PROXIMA A VENCER
                     Entidadcompromiso.ESTADO = "PV";
                 }
+                else {
+                    //EN ESPERA
+                    Entidadcompromiso.ESTADO = "ES";
+                }
                 listcompromiso.Add(Entidadcompromiso);
             }
 

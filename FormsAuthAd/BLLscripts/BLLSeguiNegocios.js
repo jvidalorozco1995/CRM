@@ -39,7 +39,9 @@ BLLSeguiNegocios.CrearTabl = function (proyectos) {
             case "PV":
                 tabla += "<td><img src='../../images_crm/pv.png' tag=" + item.CEDULA_P + " class='Detallett' id=" + item.REFERENCIA1 + " href=''/></td>";
                 break
-            
+            case "ES":
+                tabla += "<td><img src='../../images_crm/libre.png' tag=" + item.CEDULA_P + " class='Detallett' id=" + item.REFERENCIA1 + " href=''/></td>";
+                break
             case null:
                 tabla += "<td></td>";
                 break

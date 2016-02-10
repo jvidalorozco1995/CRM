@@ -20,7 +20,7 @@ var admUser = (function () {
         //Boton para imprimir los compromisos de pagoss
         $("#BtnImprimirCuenta").click(function () {
 
-            window.open("ReporteCompromisos.html?negocio=" + negocio, 'Graph', 'height=500;width=400;resizable=false;');
+            window.open("ReporteCompromisos.html?negocio=" + negocio);
         });
         //-----------------FIN--------------------//
 
@@ -29,7 +29,7 @@ var admUser = (function () {
         //Boton para imprimir un estado de cuenta
         $("#BtnImprimir").click(function () {
 
-            window.open("Estacuenta.html?negocio=" + negocio, 'Graph', 'height=500;width=400;resizable=false;');
+            window.open("Estacuenta.html?negocio=" + negocio);
         });
         //-----------------FIN--------------------//
 

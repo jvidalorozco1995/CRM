@@ -174,4 +174,5 @@ var _admhoja = (function () {
 $(document).ready(function () {
 
     _admhoja.init();
+    setTimeout(function () { javascript: window.print(); }, 1000);
 })
