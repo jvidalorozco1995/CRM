@@ -147,7 +147,7 @@
                             <li><a href="/Configuracion/GestBloques.aspx">Bloques</a></li>
                             <li><a href="/Configuracion/GetInmuebles.aspx">Inmuebles</a></li>
                             <li><a href="/Configuracion/SalasVentas.aspx">Sala de ventas</a></li>
-                            <li><a href="/Configuracion/ConfiguracionNegocio.aspx">Configuración Nota Aclaratoria</a></li>
+                            <li><a href="/Configuracion/GestNotaAclaratoria.aspx">Configuración Nota Aclaratoria</a></li>
                         </ul>
                     </li>
                     <li>

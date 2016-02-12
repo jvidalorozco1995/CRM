@@ -1385,12 +1385,14 @@
     <Content Include="Comercial\Separaciones\js\sepracion.js" />
     <Content Include="Configuracion\ConfiguracionNegocio.aspx" />
     <Content Include="Configuracion\GestBloques.aspx" />
+    <Content Include="Configuracion\GestNotaAclaratoria.aspx" />
     <Content Include="Configuracion\GestProyectos.aspx" />
     <Content Include="Administracion\GestUsuNegocios.aspx" />
     <Content Include="Configuracion\GetInmuebles.aspx" />
     <Content Include="Configuracion\js\bloques.js" />
     <Content Include="Configuracion\js\ConfiguracionNegocio.js" />
     <Content Include="Configuracion\js\inmuebles.js" />
+    <Content Include="Configuracion\js\negociosNota.js" />
     <Content Include="Configuracion\js\Planos.js" />
     <Content Include="Configuracion\js\proyectos.js" />
     <Content Include="Configuracion\js\Salaventas.js" />
@@ -4652,6 +4654,13 @@
     </Compile>
     <Compile Include="Configuracion\GestBloques.aspx.designer.cs">
       <DependentUpon>GestBloques.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\GestNotaAclaratoria.aspx.cs">
+      <DependentUpon>GestNotaAclaratoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuracion\GestNotaAclaratoria.aspx.designer.cs">
+      <DependentUpon>GestNotaAclaratoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Configuracion\GestProyectos.aspx.cs">
       <DependentUpon>GestProyectos.aspx</DependentUpon>

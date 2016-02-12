@@ -52,5 +52,6 @@
     <script src="../vendor/jquery/dist/jquery.min.js"></script>
     <script src="../vendor/jquery-ui/jquery-ui.min.js"></script>
     <script src="../BLLscripts/BLLConfiguracion_Negocio.js"></script>
+    <script src="../BLLscripts/BLLProyectos.js"></script>
     <script src="js/ConfiguracionNegocio.js"></script>
 </asp:Content>
