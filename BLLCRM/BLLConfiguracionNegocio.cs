@@ -24,11 +24,14 @@ namespace BLLCRM
         {
             try
             {
-                //Instanciamos un objeto de la entidad
-                Configuracion_negocio config = new Configuracion_negocio();
+                 //Instanciamos un objeto de la entidad
+                 Configuracion_negocio config = new Configuracion_negocio();
 
 
                  config.Nombre = b.Nombre;
+                 config.Proyecto = b.Proyecto;
+                 config.Estado = 1;
+               
                  bd.Configuracion_negocio.Add(config);
                  bd.SaveChanges();
                 
@@ -61,7 +64,10 @@ namespace BLLCRM
                     foreach (var item in Lconfi)
                     {
                         Configuracion_Negocio confi = new Configuracion_Negocio();
+                        confi.ID = item.ID;
                         confi.Nombre = item.Nombre;
+                        confi.Proyecto = item.Proyecto;
+                        confi.Estado = item.Estado;
                         _lnegocio.Add(confi);
                     }    
                }

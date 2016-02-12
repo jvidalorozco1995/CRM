@@ -51,7 +51,7 @@
             <PropertyRef Name="ID_BANCO" />
           </Key>
           <Property Name="ID_BANCO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NOMBRE_BANCO" Type="varchar" MaxLength="60" />
+          <Property Name="NOMBRE_BANCO" Type="varchar" MaxLength="80" />
         </EntityType>
         <EntityType Name="bitacora_tareas">
           <Key>
@@ -120,6 +120,8 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="text" />
+          <Property Name="Proyecto" Type="varchar" MaxLength="10" />
+          <Property Name="Estado" Type="int" />
         </EntityType>
         <EntityType Name="documentos_negocio">
           <Key>
@@ -138,7 +140,7 @@
           <Property Name="TEL_EMP" Type="varchar" MaxLength="12" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.historial_acuerdos_pagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.historial_acuerdos_pagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="historial_acuerdos_pagos">
           <Key>
             <PropertyRef Name="ID_HISTORIAL" />
@@ -386,7 +388,7 @@ warning 6002: The table/view 'CRM.dbo.historial_acuerdos_pagos' does not have a 
           <Property Name="TIPO" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.NegocioView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.NegocioView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="NegocioView">
           <Key>
             <PropertyRef Name="ID_NEGOCIO" />
@@ -433,7 +435,7 @@ warning 6002: The table/view 'CRM.dbo.NegocioView' does not have a primary key d
           <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VActInmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VActInmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VActInmuebles">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -444,7 +446,7 @@ warning 6002: The table/view 'CRM.dbo.VActInmuebles' does not have a primary key
           <Property Name="Usuario" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VacuerdosFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VacuerdosFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VacuerdosFox">
           <Key>
             <PropertyRef Name="ID" />
@@ -463,7 +465,7 @@ warning 6002: The table/view 'CRM.dbo.VacuerdosFox' does not have a primary key 
           <Property Name="REFERENCIA1" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VAsesoresT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VAsesoresT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VAsesoresT">
           <Key>
             <PropertyRef Name="T_CEDULA" />
@@ -473,7 +475,7 @@ warning 6002: The table/view 'CRM.dbo.VAsesoresT' does not have a primary key de
           <Property Name="T_CEDULA" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VCLienteinmueble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VCLienteinmueble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VCLienteinmueble">
           <Key>
             <PropertyRef Name="DIRECCION" />
@@ -503,7 +505,7 @@ warning 6002: The table/view 'CRM.dbo.VCLienteinmueble' does not have a primary 
           <Property Name="ESTADO_C" Type="varchar" MaxLength="1" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.Vclientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vclientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vclientes">
           <Key>
             <PropertyRef Name="CEDULA" />
@@ -536,7 +538,7 @@ warning 6002: The table/view 'CRM.dbo.Vclientes' does not have a primary key def
           <Property Name="ASOCIADO" Type="varchar" MaxLength="15" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.Vclienteseparacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vclienteseparacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vclienteseparacion">
           <Key>
             <PropertyRef Name="CLIENTE" />
@@ -545,7 +547,7 @@ warning 6002: The table/view 'CRM.dbo.Vclienteseparacion' does not have a primar
           <Property Name="ID_SEPARACION" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VClientesTareas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VClientesTareas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VClientesTareas">
           <Key>
             <PropertyRef Name="CEDULA" />
@@ -579,7 +581,7 @@ warning 6002: The table/view 'CRM.dbo.VClientesTareas' does not have a primary k
           <Property Name="TEL_EMP" Type="varchar" MaxLength="12" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VCod_SP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VCod_SP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VCod_SP">
           <Key>
             <PropertyRef Name="CLIENTE" />
@@ -589,7 +591,7 @@ warning 6002: The table/view 'CRM.dbo.VCod_SP' does not have a primary key defin
           <Property Name="CLIENTE" Type="varchar" MaxLength="13" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.Vdetallesp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vdetallesp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vdetallesp">
           <Key>
             <PropertyRef Name="REFERENCIA" />
@@ -608,7 +610,7 @@ warning 6002: The table/view 'CRM.dbo.Vdetallesp' does not have a primary key de
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
             <PropertyRef Name="ID_PROYEC" />
@@ -620,7 +622,7 @@ warning 6002: The table/view 'CRM.dbo.VFechasProyectos' does not have a primary 
           <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.Vinmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vinmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vinmuebles">
           <Key>
             <PropertyRef Name="ID_PROYEC" />
@@ -640,7 +642,7 @@ warning 6002: The table/view 'CRM.dbo.Vinmuebles' does not have a primary key de
           <Property Name="BLOQUE_CODI" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VinteresProyect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VinteresProyect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VinteresProyect">
           <Key>
             <PropertyRef Name="ID_PROYEC" />
@@ -651,7 +653,7 @@ warning 6002: The table/view 'CRM.dbo.VinteresProyect' does not have a primary k
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VnegocioFox">
           <Key>
             <PropertyRef Name="ID" />
@@ -675,7 +677,7 @@ warning 6002: The table/view 'CRM.dbo.VnegocioFox' does not have a primary key d
           <Property Name="Estado" Type="varchar" MaxLength="9" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VNegocioscompromisos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VNegocioscompromisos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VNegocioscompromisos">
           <Key>
             <PropertyRef Name="ID" />
@@ -685,7 +687,7 @@ warning 6002: The table/view 'CRM.dbo.VNegocioscompromisos' does not have a prim
           <Property Name="NOMBRECLIENTE" Type="varchar" MaxLength="300" />
           <Property Name="CEDULA_P" Type="varchar" MaxLength="13" />
           <Property Name="NOMBREBLOQUE" Type="varchar" MaxLength="150" />
-          <Property Name="REFERENCIA1" Type="varchar" MaxLength="21" />
+          <Property Name="REFERENCIA1" Type="varchar" MaxLength="50" />
           <Property Name="VLRCREDITO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VLRNEGOCIO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VLRINICIALCUOTA" Type="decimal" Precision="20" Scale="2" />
@@ -697,7 +699,7 @@ warning 6002: The table/view 'CRM.dbo.VNegocioscompromisos' does not have a prim
           <Property Name="TELFONO_EMP" Type="varchar" MaxLength="11" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.Vsepracioninmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vsepracioninmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vsepracioninmuebles">
           <Key>
             <PropertyRef Name="DIRECCION" />
@@ -747,7 +749,7 @@ warning 6002: The table/view 'CRM.dbo.Vsepracioninmuebles' does not have a prima
           <Property Name="ID_SEPARACION" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.Vspt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vspt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vspt">
           <Key>
             <PropertyRef Name="T_CEDULA" />
@@ -762,7 +764,7 @@ warning 6002: The table/view 'CRM.dbo.Vspt' does not have a primary key defined.
           <Property Name="TRABAJADOR" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VTareas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VTareas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VTareas">
           <Key>
             <PropertyRef Name="T_CEDULA" />
@@ -787,7 +789,7 @@ warning 6002: The table/view 'CRM.dbo.VTareas' does not have a primary key defin
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VtareasNegocio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VtareasNegocio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VtareasNegocio">
           <Key>
             <PropertyRef Name="ID_TAREA" />
@@ -803,7 +805,7 @@ warning 6002: The table/view 'CRM.dbo.VtareasNegocio' does not have a primary ke
           <Property Name="NOMBRES" Type="varchar" MaxLength="132" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM.dbo.VTracliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VTracliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VTracliente">
           <Key>
             <PropertyRef Name="CEDULA" />
@@ -824,7 +826,7 @@ warning 6002: The table/view 'CRM.dbo.VTracliente' does not have a primary key d
           <Property Name="ASESOR" Type="varchar" MaxLength="30" />
           <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
         </EntityType>
-        <Association Name="FK__bloques__BLOQUE___4CA06362">
+        <Association Name="FK__bloques__BLOQUE___31EC6D26">
           <End Role="proyectos" Type="Self.proyectos" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -914,7 +916,7 @@ warning 6002: The table/view 'CRM.dbo.VTracliente' does not have a primary key d
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__planos_Pr__PROYE__534D60F1">
+        <Association Name="FK__planos_Pr__PROYE__36B12243">
           <End Role="proyectos" Type="Self.proyectos" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1378,7 +1380,7 @@ FROM [dbo].[VtareasNegocio] AS [VtareasNegocio]</DefiningQuery>
 [VTracliente].[PROYEC_INTERES] AS [PROYEC_INTERES]
 FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__bloques__BLOQUE___4CA06362" Association="Self.FK__bloques__BLOQUE___4CA06362">
+          <AssociationSet Name="FK__bloques__BLOQUE___31EC6D26" Association="Self.FK__bloques__BLOQUE___31EC6D26">
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="bloques" EntitySet="bloques" />
           </AssociationSet>
@@ -1406,7 +1408,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <End Role="bloques" EntitySet="bloques" />
             <End Role="inmuebles" EntitySet="inmuebles" />
           </AssociationSet>
-          <AssociationSet Name="FK__planos_Pr__PROYE__534D60F1" Association="Self.FK__planos_Pr__PROYE__534D60F1">
+          <AssociationSet Name="FK__planos_Pr__PROYE__36B12243" Association="Self.FK__planos_Pr__PROYE__36B12243">
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="planos_Proyectos" EntitySet="planos_Proyectos" />
           </AssociationSet>
@@ -1566,7 +1568,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <PropertyRef Name="ID_BANCO" />
           </Key>
           <Property Name="ID_BANCO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMBRE_BANCO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_BANCO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="bitacora_tareas">
           <Key>
@@ -1641,6 +1643,8 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Proyecto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Int32" />
         </EntityType>
         <EntityType Name="documentos_negocio">
           <Key>
@@ -2437,7 +2441,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="NOMBRECLIENTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="NOMBREBLOQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="REFERENCIA1" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Name="REFERENCIA1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="VLRCREDITO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VLRNEGOCIO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VLRINICIALCUOTA" Type="Decimal" Precision="20" Scale="2" />
@@ -2605,6 +2609,8 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="Configuracion_negocio">
             <EntityTypeMapping TypeName="CRMModel.Configuracion_negocio">
               <MappingFragment StoreEntitySet="Configuracion_negocio">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
