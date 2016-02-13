@@ -62,7 +62,7 @@ var admComercial = (function () {
             empresa = $("#Text9").val();
             ce_asociado = $('#Text1').val();
             tel_asoc = $('#Text7').val();
-            alert(ce_asociado)
+           
         })
 
         $('#Btnsocio').click(function () {
@@ -75,7 +75,7 @@ var admComercial = (function () {
 
         $(document).on('change', '#gestcancelar', function () {
             var tipo = $('#gestcancelar').val();
-            alert(tipo)
+           
             switch (tipo) {
                 case "N":
                     //gestion terminada porq el cliente decice comprar

@@ -49,15 +49,56 @@ namespace BLLCRM
             }
         }
 
+
+
+
+        /// <summary>
+        /// Metodo para registrar los bloques en base de datos
+        /// crm
+        /// </summary>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        public int UpdateConfiguracionNegocio(Configuracion_negocio b)
+        {
+            try
+            {
+
+                var ctx = bd.Configuracion_negocio.Where(t => t.ID == b.ID).First();
+                if (ctx != null) {
+
+                    ctx.Nombre = b.Nombre;
+                    ctx.Proyecto = b.Proyecto;
+                    ctx.Estado = 0;
+                }
+
+                bd.SaveChanges();
+
+                return 1;
+            }
+            catch (DbUpdateException)
+            {
+                //Retornamos cero en caso de que pase un error
+                return 0;
+            }
+            catch (Exception)
+            {
+                //si se produce una excepcion la mandamos hacia adelante
+                throw;
+            }
+        }
+
+
+
+
         /// <summary>
         /// obtiene todas las configuraciones del negocio
         /// </summary>
         /// <returns></returns>
-        public List<Configuracion_Negocio> getAll() {
+        public List<Configuracion_Negocio> getAll(string Proyecto) {
 
             try {
 
-               List<Configuracion_negocio> Lconfi = bd.Configuracion_negocio.ToList();
+               List<Configuracion_negocio> Lconfi = bd.Configuracion_negocio.Where(t => t.Proyecto.Equals(Proyecto)).ToList();
                List<Configuracion_Negocio> _lnegocio = new List<Configuracion_Negocio>();
                if (Lconfi !=null)
                 {

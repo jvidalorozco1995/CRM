@@ -1,7 +1,10 @@
 ﻿var Conf = new BLLConfiguracion_Negocio();
+var utl = new BLLUtilidades();
 
 var admConfig = (function () {
-   // var WsLiConf = "/Servicios/WConfiguracionNegocios.asmx/InsertConfiguracion";//Listado de salas de ventas
+
+    var proyec = utl.getUrl('proyec');
+    var WsLiConf = "/Servicios/WConfiguracionNegocios.asmx/getAll";//Listado de salas de ventas
     var _addHandlers = function () {
 
         $('#BtnGuardar').click(function () {
@@ -13,27 +16,29 @@ var admConfig = (function () {
             }
             else {
                 Conf.AddConfiguracion_Negocio(_Dtosala(salave.toUpperCase()));
-               // setTimeout(function () { Conf.ListaSala(2, WsLisala); }, 2000)
+                setTimeout(function () { Conf.ListNotasAclaratorias(proyec, WsLiConf); }, 2000)
             }
         });
     };
 
 
-    /*var _Inicio = function () {
-        sala.ListaSala(2, WsLisala);
+   var _Inicio = function () {
+       Conf.ListNotasAclaratorias(proyec, WsLiConf);
     }
-    */
+    
     var _Dtosala = function (salav) {
         var Conf = {};
         Conf.ID = 0;
         Conf.Nombre = salav;
+        Conf.Proyecto = proyec;
+        
         return Conf;
 
     };
 
     return {
         init: function () {
-           // _Inicio();
+            _Inicio();
             _addHandlers();
         }
     }

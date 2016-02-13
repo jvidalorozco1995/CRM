@@ -40,9 +40,9 @@ namespace FormsAuthAd.Servicios
         /// <returns></returns>
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<Configuracion_Negocio> getAll()
+        public List<Configuracion_Negocio> getAll(string p)
         {
-            return cl.getAll();
+            return cl.getAll(p);
         }
 
 

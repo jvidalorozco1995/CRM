@@ -248,7 +248,7 @@ namespace BLLCRM
         public int UpdateCliente(clientes c){
             try
             {
-                var ctx=db.clientes.First(d => d.CEDULA == c.CEDULA);
+                var ctx = db.clientes.First(d => d.CEDULA == c.CEDULA);
                 if(ctx!= null)
 	            {
                     ctx.NOMBRES = c.NOMBRES.ToUpper();
