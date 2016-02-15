@@ -22,7 +22,7 @@ var admConfig = (function () {
     };
 
 
-   var _Inicio = function () {
+    var _Inicio = function () {
        Conf.ListNotasAclaratorias(proyec, WsLiConf);
     }
     

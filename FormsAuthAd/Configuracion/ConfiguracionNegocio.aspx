@@ -8,7 +8,8 @@
     <!---Contenedor-->
     <div class="content animate-panel">
         <div class="row">
-            <!---Panel Informacion General--->
+
+              <!---Panel Informacion General--->
             <div class="col-lg-7" id="Principal">
                 <div class="panel panel-danger">
                     <div class="panel-heading hbuilt">
@@ -18,11 +19,10 @@
                         <div class="col-lg-12 animated-panel zoomIn" style="animation-delay: 0.5s; -webkit-animation-delay: 0.5s; padding-top: 10px">
                           <div class="panel-body">
                         <div class="row">
-                            <div class="form-group col-lg-12">
+                            <div class="panel-body">
                                 <label>Descripción Aclaratoria</label>
-                                <textarea id="TxtDesConfiguracionNegocio" style="height:400px;" class="form-control"></textarea>
+                                <textarea id="TxtDesConfiguracionNegocio" style="height:130px;" class="form-control"></textarea>
                             </div>
-                        
                         </div>
                         <div class="text-right m-t-xs">
                             <button class="btn btn-danger" type="button" id="BtnGuardar"><i class="fa fa-check"></i>Guardar</button>
@@ -46,6 +46,8 @@
                 </div>
 
             </div>
+          
+
         </div>
     </div>
    </div>

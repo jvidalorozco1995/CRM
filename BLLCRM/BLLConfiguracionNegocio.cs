@@ -98,7 +98,7 @@ namespace BLLCRM
 
             try {
 
-               List<Configuracion_negocio> Lconfi = bd.Configuracion_negocio.Where(t => t.Proyecto.Equals(Proyecto)).ToList();
+                List<Configuracion_negocio> Lconfi = bd.Configuracion_negocio.Where(t => t.Proyecto.Equals(Proyecto)).OrderBy(t => t.ID).ToList();
                List<Configuracion_Negocio> _lnegocio = new List<Configuracion_Negocio>();
                if (Lconfi !=null)
                 {
