@@ -1,12 +1,15 @@
 ﻿
 var utl = new BLLUtilidades();
-
+var Numeros = /[0-9]/;
+var letras = /[a-zA-Z]/;
+var emailreg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 var _admhoja = (function () {
     var Wdtohoja = "/Servicios/WNegocio.asmx/lisHoja";
     var Wacuerdo = "/Servicios/WNegocio.asmx/_Acuerdopago";
     var WAddConfiguracionNegociogetAll = "/Servicios/WConfiguracionNegocios.asmx/getAll";
     var idhoja = utl.getUrl('idhoja');
-
+    var proyec = utl.getUrl('proyec');
+    
     var _addHandlers = function () {
 
 
@@ -67,10 +70,11 @@ var _admhoja = (function () {
     }
 
 
-    var ConfiguracionNegocio = function () {
-
+    var ConfiguracionNegocio = function (proyec) {
+        jsondata = "{'p':" + JSON.stringify(proyec) + "}"
         $.ajax({
             type: "POST", url: WAddConfiguracionNegociogetAll,
+            data: jsondata,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             async: true,
@@ -152,13 +156,13 @@ var _admhoja = (function () {
 
     }
 
-
+    
 
 
     var _Inicio = function () {
         getHoha(idhoja);
         acuerdo(idhoja);
-        ConfiguracionNegocio();
+        ConfiguracionNegocio(proyec);
         imprimir();
     }
 

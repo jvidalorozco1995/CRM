@@ -49,9 +49,6 @@ namespace BLLCRM
             }
         }
 
-
-
-
         /// <summary>
         /// Metodo para registrar los bloques en base de datos
         /// crm
@@ -64,13 +61,13 @@ namespace BLLCRM
             {
 
                 var ctx = bd.Configuracion_negocio.Where(t => t.ID == b.ID).First();
-                if (ctx != null) {
+                if (ctx != null) 
+                {
 
                     ctx.Nombre = b.Nombre;
                     ctx.Proyecto = b.Proyecto;
                     ctx.Estado = 0;
                 }
-
                 bd.SaveChanges();
 
                 return 1;
@@ -87,18 +84,16 @@ namespace BLLCRM
             }
         }
 
-
-
-
         /// <summary>
         /// obtiene todas las configuraciones del negocio
         /// </summary>
         /// <returns></returns>
         public List<Configuracion_Negocio> getAll(string Proyecto) {
 
-            try {
+            try 
+            {
 
-                List<Configuracion_negocio> Lconfi = bd.Configuracion_negocio.Where(t => t.Proyecto.Equals(Proyecto)).OrderBy(t => t.ID).ToList();
+               List<Configuracion_negocio> Lconfi = bd.Configuracion_negocio.Where(t => t.Proyecto.Equals(Proyecto)).OrderBy(t => t.ID).ToList();
                List<Configuracion_Negocio> _lnegocio = new List<Configuracion_Negocio>();
                if (Lconfi !=null)
                 {

@@ -1,6 +1,9 @@
 ﻿var _negocio = new BLLnegocio();
 var utl = new BLLUtilidades();
 var inmuebles = new BLLInmuebles();
+var emailreg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+var Numeros = /[0-9]/;
+var letras = /[a-zA-Z]/;
 var _admnegocio = (function () {
     var cedula = "";
     var bandera = 0;
@@ -48,7 +51,9 @@ var _admnegocio = (function () {
        $(document).on('click', '#BtnCrearH', function () {
             console.log(Dtohoja())
             console.log(acuerdoP)
-            _negocio._addHoja(Dtohoja(), inmueble, acuerdoP);
+            Validar();
+           _negocio._addHoja(Dtohoja(), inmueble, acuerdoP);
+            
         });
 
         $(document).on('click', '#BtnDisponibilidad', function () {
@@ -159,8 +164,7 @@ var _admnegocio = (function () {
         
         $(document).on('click', '.Btimprimir', function () {
             var idhoja = $(this).attr("id");
-            alert(idhoja);
-            window.open("Hoja_Negocio2.html?idhoja=" + idhoja, 'Graph', 'height=900px,width=650px;resizable=false');
+            window.open("Hoja_Negocio2.html?idhoja=" + idhoja + '&proyec="' + proyec, 'Graph', 'height=900px,width=650px;resizable=false');
             //window.location = "Hoja_Negocio2.html?idhoja="+idhoja+"";
         });
 
@@ -301,6 +305,325 @@ var _admnegocio = (function () {
       
     }
 
+    var Validar = function () {
+
+
+
+        if ($('#TxtNombres').val().length < 1 || !letras.test($('#TxtNombres').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                '</br></br>1 - No a digitado nada en el campo nombre' +
+                '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TxtNombres').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        } else if ($('#TxtIdentidad').val().length < 1 || !Numeros.test($('#TxtIdentidad').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo identificacion' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TxtIdentidad').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#TextExpedicion').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo identificacion' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextExpedicion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#Textcivil').val().length < 1 || !letras.test($('#Textcivil').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo estado civil' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textcivil').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textnacimiento').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo fecha de nacimiento' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textnacimiento').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textlugar').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo lugar' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textlugar').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textdireccion').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo dirección' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textdireccion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textphone').val().length < 1 || !Numeros.test($('#Textphone').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Telefóno' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textphone').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextEmp').val().length < 1 || !letras.test($('#TextEmp').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Empresa' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextEmp').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textcargo').val().length < 1 || !letras.test($('#Textcargo').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Cargo' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textcargo').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textprofesion').val().length < 1 || !letras.test($('#Textprofesion').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Profesión' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textprofesion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextdireccionE').val().length < 1 || !letras.test($('#TextdireccionE').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Dirección' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextdireccionE').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#Textantiguedad').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Antiguedad' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textantiguedad').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textcorreo').val().length < 1 || !emailreg.test($('#Textcorreo').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Correo' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textcorreo').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textconyugue').val().length < 1 || !letras.test($('#Textconyugue').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Conyugue' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textconyugue').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextidentificacionC').val().length < 1 || !Numeros.test($('#TextidentificacionC').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Identificación' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextidentificacionC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TexttelC').val().length < 1 || !Numeros.test($('#TexttelC').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo celular' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TexttelC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextIngresos').val().length < 1 || !Numeros.test($('#TextIngresos').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo ingresos' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextIngresos').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextNh').val().length < 1 || !Numeros.test($('#TextNh').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Nro de hijos' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextNh').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextInt').val().length < 1 ) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Interes de compra' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextInt').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextPinteres').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo proyecto de interes' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextPinteres').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Lvalor').val().length < 1 || !Numeros.test($('#Lvalor').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Valor' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Lvalor').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textinicial').val().length < 1 || !Numeros.test($('#Textinicial').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Cuota inicial' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textinicial').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textcredito').val().length < 1 || !Numeros.test($('#Textcredito').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Credito' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textcredito').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#ComBancos').val().length < 1 || !letras.test($('#ComBancos').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Bancos' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#ComBancos').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textcuota').val().length < 1 || !Numeros.test($('#Textcuota').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Nro de cuotas' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textcuota').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#Textescritura').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Fecha de escritura' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textescritura').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#Textentrega').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Fecha de entrega' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textentrega').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#Textsubrogracion').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Fecha de sugrogación' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textsubrogracion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textasesorinf').val().length < 1 || !letras.test($('#Textasesorinf').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo asesor' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#Textasesorinf').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#TextmedioInf').val().length < 1 || !letras.test($('#TextmedioInf').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo medio por el cual se entero' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextmedioInf').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#CmbAsesorCart').val().length < 1 || !letras.test($('#CmbAsesorCart').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo asesor de cartera' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#CmbAsesorCart').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+
+
+
+    }
     var _Inicio = function () {
         $("#Lvalor").hide();
         $("#Butimprimir").hide();

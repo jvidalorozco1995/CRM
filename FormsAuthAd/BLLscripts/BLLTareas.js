@@ -227,7 +227,7 @@
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(clientes, function (i, item) {
-            alert(item.ID_TAREA);
+            
             tabla += " <tr>";
             tabla += "<td>" + item.NOMBRES + '  ' + item.P_APELLIDO + '  ' + item.S_APELLIDO + "</td>";
             tabla += "<td>" + item.CONCEPTO + "</td>";

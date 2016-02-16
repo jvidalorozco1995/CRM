@@ -273,7 +273,7 @@
                             </div>
                         </div>
                     </div>     
-            </div>
+               </div>
         </div>
       
               <div class="modal fade hmodal-danger" id="asociadoModal" tabindex="-1" role="dialog" aria-hidden="true">
