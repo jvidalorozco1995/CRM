@@ -101,6 +101,7 @@ var _admhoja = (function () {
         });
     }
 
+   
     var acuerdo = function (idhoja) {
         jsondata = "{'ac':" + JSON.stringify(idhoja) + "}"
         $.ajax({
@@ -123,6 +124,7 @@ var _admhoja = (function () {
         });
     }
       
+
     var LLenarTabla = function (datos) {
         document.getElementById('tablapagos').innerHTML = "";
         var tabla = '<table class="table" style="font-size: 75%!important;" id="tablaspa">';

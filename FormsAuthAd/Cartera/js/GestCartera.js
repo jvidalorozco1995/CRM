@@ -628,7 +628,7 @@ var _admnegocio = (function () {
         $("#Lvalor").hide();
         $("#Butimprimir").hide();
         inmuebles._lisnegociosepracion(proyec);
-        $('#Principal').hide();
+       // $('#Principal').hide();
         utl.Bancos();
         utl.AsesorCartera();
     }
