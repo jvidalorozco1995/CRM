@@ -325,7 +325,9 @@ BLLnegocio.prototype = {
           dataType: 'json',
           async: true,
           success: function (result) {
-              if (result.d == "ER") { alert("No fue posible registrar la hoja") }
+              if (result.d == "ER") {
+                  toastr.error(' CRM - Mayales no se pudo guardar la hoja');
+              }
               else
               {
                   var k = result.d;
@@ -356,7 +358,33 @@ BLLnegocio.prototype = {
              contentType: "application/json; charset=utf-8",
              dataType: 'json',
              async: true,
-             success: function (result){if (result.d == "") { _Dto = result.d } else { _Dto = result.d }},
+             success: function (result) {
+                 if (result.d == "") { _Dto = result.d } else {
+                     
+                     document.getElementById("Tvalor").innerHTML = "";
+                   
+                     item = result.d[0];
+
+                         $('#TxtNombres').val(item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO);
+                         $('#Textcivil').val(item.ESTADO_CIVIL);
+                         $('#Textdireccion').val(item.DIRECCION + " " + item.BARRIO);
+                         $('#Textphone').val(item.TELEFONO2);
+                         $('#TextEmp').val(item.EMPRESA);
+                         $('#Textcorreo').val(item.EMAIL);
+                         $('#TextInt').val(item.INMU_INTERES);
+                         $('#Textasesorinf').val(item.ASESOR);
+                         $('#TextmedioInf').val(item.INFORMACION);
+                         $('#TextPinteres').val(item.PROYEC_INTERES);
+                         $('#Lvalor').val(utl.FormatNumero(item.VALOR_INM));
+                         $("#Tvalor").append(utl.FormatNumero(item.VALOR_INM));
+
+                     val_casa = item.VALOR_INM;
+                     inicial = parseFloat(val_casa) * (30) / 100;
+                     credito = parseFloat(val_casa) - (inicial);
+                     $('#Textinicial').val(inicial)
+                     $('#Textcredito').val(credito)
+                 }
+             },
              error: function (msg) { alert(msg.responseText); }
          });
          this._Dtocliente(_Dto)

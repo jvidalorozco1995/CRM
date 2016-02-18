@@ -67,10 +67,10 @@ var _admnegocio = (function () {
                 case 1:
                     document.getElementById("Lvalor").innerHTML = "";
                     cedula = $("#TxtIdentidad").val();
-                    utl._DtoAsociado(cedula)
+                    utl._DtoAsociado(cedula);
                     cactual = localStorage.getItem("CedulaAct");
                     _negocio._Getcliente(cactual);
-                    break
+                    break;
 
             }
                 
@@ -103,7 +103,8 @@ var _admnegocio = (function () {
             separacion = result[1];
             inmueble = result[2];
             $('#TxtIdentidad').val(persona);
-            $('#Principal').show();
+            $('#datos').show();
+            $('#BtnDisponibilidad').click();
             $('#clientesnegocio').hide();
         });
 
@@ -628,7 +629,7 @@ var _admnegocio = (function () {
         $("#Lvalor").hide();
         $("#Butimprimir").hide();
         inmuebles._lisnegociosepracion(proyec);
-       // $('#Principal').hide();
+        $('#datos').hide();
         utl.Bancos();
         utl.AsesorCartera();
     }
