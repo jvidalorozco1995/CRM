@@ -144,6 +144,7 @@
                         <a href="#" ><span class="nav-label">Configuración</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href="/Configuracion/GestProyectos.aspx">Proyectos</a></li>
+                            <li><a href="/Configuracion/Bancos.aspx">Bancos</a></li>
                             <li><a href="/Configuracion/GestBloques.aspx">Bloques</a></li>
                             <li><a href="/Configuracion/GetInmuebles.aspx">Inmuebles</a></li>
                             <li><a href="/Configuracion/SalasVentas.aspx">Sala de ventas</a></li>

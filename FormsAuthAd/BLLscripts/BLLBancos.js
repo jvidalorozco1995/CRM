@@ -2,11 +2,38 @@
 
     var bloquesCRM = null;
     
+  
 
-    
+    //Retorna una lista de bancos de MultiFox
+    BLLBancos.prototype.CrearBanco = function (Wsurl,banco) {
+
+        jsonData = "{ 'b':" + JSON.stringify(banco) + " }";
+
+        $.ajax({
+            type: "POST", url: Wsurl, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d === 1) {
+                    toastr.success(' CRM - Mayales notificacion' +
+                     '</br></br>Banco Registrado de Manera Exitosa en el Sistema');
+                  
+                  
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>Ha habido un error en el sistema y no se ha podido guardar');
+                    
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
+
     //Retorna una lista de bancos de MultiFox
     BLLBancos.prototype.ListBancos = function (Wsurl) {
-        alert("lista banco");
+        
         $.ajax({
             type: "POST",
             url: Wsurl,
@@ -40,7 +67,7 @@
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(bancos, function (i, item) {
-            alert(item.ID_BANCO);
+           
             tabla += " <tr>";
             tabla += "<td style='width:100px'>" + item.ID_BANCO + "</td>";
             tabla += "<td>" + item.NOMBRE_BANCO + "</td>";

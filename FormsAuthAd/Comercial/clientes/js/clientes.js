@@ -3,6 +3,7 @@ var cl = new BLLClientes();
 var Tr = new BLLTareas();
 var pry = new BLLProyectos();
 var tra = new BLLTrabajadores();
+
 var admclientes = (function () {
 
     var WsListProyec = "/ServiciosFox/WProyectos.asmx/LisProyectos";//Consulto Proyectos CRM
