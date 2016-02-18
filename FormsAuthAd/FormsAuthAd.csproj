@@ -1333,6 +1333,7 @@
     <Content Include="assets\less\index.html" />
     <Content Include="BLLscripts\BLLActInmuebles.js" />
     <Content Include="BLLscripts\BLLAcuerdosFox.js" />
+    <Content Include="BLLscripts\BLLBancos.js" />
     <Content Include="BLLscripts\BLLBloques.js" />
     <Content Include="BLLscripts\BLLClientes.js" />
     <Content Include="BLLscripts\BLLComercial.js" />
@@ -1383,12 +1384,14 @@
     <Content Include="Comercial\ProyectoInf.aspx" />
     <Content Include="Comercial\Separaciones\Separaciones.aspx" />
     <Content Include="Comercial\Separaciones\js\sepracion.js" />
+    <Content Include="Configuracion\Bancos.aspx" />
     <Content Include="Configuracion\ConfiguracionNegocio.aspx" />
     <Content Include="Configuracion\GestBloques.aspx" />
     <Content Include="Configuracion\GestNotaAclaratoria.aspx" />
     <Content Include="Configuracion\GestProyectos.aspx" />
     <Content Include="Administracion\GestUsuNegocios.aspx" />
     <Content Include="Configuracion\GetInmuebles.aspx" />
+    <Content Include="Configuracion\js\Bancos.js" />
     <Content Include="Configuracion\js\bloques.js" />
     <Content Include="Configuracion\js\ConfiguracionNegocio.js" />
     <Content Include="Configuracion\js\inmuebles.js" />
@@ -2255,6 +2258,7 @@
     <Content Include="ServiciosFox\WNegocios.asmx" />
     <Content Include="Servicios\AcuerdosFox.asmx" />
     <Content Include="Servicios\WAcInmuebles.asmx" />
+    <Content Include="Servicios\WBancos.asmx" />
     <Content Include="Servicios\WClientes.asmx" />
     <Content Include="Servicios\WConfiguracionNegocios.asmx" />
     <Content Include="Servicios\WEmpresas.asmx" />
@@ -4641,6 +4645,13 @@
     <Compile Include="Comercial\Separaciones\Separaciones.aspx.designer.cs">
       <DependentUpon>Separaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Configuracion\Bancos.aspx.cs">
+      <DependentUpon>Bancos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Bancos.aspx.designer.cs">
+      <DependentUpon>Bancos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Configuracion\ConfiguracionNegocio.aspx.cs">
       <DependentUpon>ConfiguracionNegocio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4744,6 +4755,10 @@
     </Compile>
     <Compile Include="Servicios\WAcInmuebles.asmx.cs">
       <DependentUpon>WAcInmuebles.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WBancos.asmx.cs">
+      <DependentUpon>WBancos.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WClientes.asmx.cs">

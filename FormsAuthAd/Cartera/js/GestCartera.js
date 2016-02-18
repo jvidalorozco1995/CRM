@@ -52,7 +52,6 @@ var _admnegocio = (function () {
             console.log(Dtohoja())
             console.log(acuerdoP)
             Validar();
-           _negocio._addHoja(Dtohoja(), inmueble, acuerdoP);
             
         });
 
@@ -75,8 +74,6 @@ var _admnegocio = (function () {
             }
                 
         });
-     
-
      
 
         $(document).on('click', '#BtnAsociadoc', function () {
@@ -329,7 +326,7 @@ var _admnegocio = (function () {
         }
         else if ($('#TextExpedicion').val().length < 1) {
             toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - No a digitado nada en el campo identificacion' +
+                   '</br></br>1 - No a digitado nada en el campo fecha de expedición' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
             //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TextExpedicion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
@@ -445,9 +442,9 @@ var _admnegocio = (function () {
 
         }
 
-        else if ($('#Textconyugue').val().length < 1 || !letras.test($('#Textconyugue').val())) {
+       /* else if (!letras.test($('#Textconyugue').val())) {
             toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - No a digitado nada en el campo Conyugue' +
+                   '</br></br>1 - digite un nombre valido el campo Conyugue' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
             //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textconyugue').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
@@ -455,25 +452,36 @@ var _admnegocio = (function () {
 
         }
 
-        else if ($('#TextidentificacionC').val().length < 1 || !Numeros.test($('#TextidentificacionC').val())) {
+        else if (!Numeros.test($('#TextidentificacionC').val())) {
             toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - No a digitado nada en el campo Identificación' +
+                   '</br></br>1 - No a digitado nada en el campo Identificación del conyugue' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
             //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TextidentificacionC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
-        }
+        }*
 
-        else if ($('#TexttelC').val().length < 1 || !Numeros.test($('#TexttelC').val())) {
+        else if (!Numeros.test($('#TexttelC').val())) {
             toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - No a digitado nada en el campo celular' +
+                   '</br></br>1 - digite un numero valido en el campo celular' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
             //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TexttelC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
         }
+        
+         else if (!Numeros.test($('#TextNh').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - digite un numero valido en el campo Nro de hijos' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            //$("#TxtIdentidad").css("background-color", "yellow");
+            $('#TextNh').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        */
 
         else if ($('#TextIngresos').val().length < 1 || !Numeros.test($('#TextIngresos').val())) {
             toastr.error('CRM Mayales - Notificacion' +
@@ -485,15 +493,7 @@ var _admnegocio = (function () {
 
         }
 
-        else if ($('#TextNh').val().length < 1 || !Numeros.test($('#TextNh').val())) {
-            toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - No a digitado nada en el campo Nro de hijos' +
-                   '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
-            $('#TextNh').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
-            return false;
-
-        }
+       
 
         else if ($('#TextInt').val().length < 1 ) {
             toastr.error('CRM Mayales - Notificacion' +
@@ -619,6 +619,9 @@ var _admnegocio = (function () {
             $('#CmbAsesorCart').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
+        } else {
+
+            _negocio._addHoja(Dtohoja(), inmueble, acuerdoP);
         }
 
 

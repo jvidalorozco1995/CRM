@@ -51,7 +51,7 @@
                         </div>
                         <ul class="nav nav-tabs">
 
-                            <li class="active"><a data-toggle="tab" href="#tab-100">Clientes</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab-100">Separaciónes</a></li>
 
 
                         </ul>
@@ -164,7 +164,7 @@
                                                     <label>Direccion</label>
                                                     <input type="text" value="" id="TextdireccionE" class="form-control">
                                                 </div>
-                                                <div class="form-group col-lg-4">
+                                                <div class="form-group col-lg-6">
                                                     <label>Antiguedad</label>
                                                     <input type="text" value="" id="Textantiguedad" class="form-control">
                                                 </div>

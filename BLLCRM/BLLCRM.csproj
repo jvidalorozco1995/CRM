@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="BLLActInmueble.cs" />
     <Compile Include="BLLAcuerdoFox.cs" />
+    <Compile Include="BLLBancos.cs" />
     <Compile Include="BLLBloques.cs" />
     <Compile Include="BLLClientes.cs" />
     <Compile Include="BLLNegociosCompro.cs" />
