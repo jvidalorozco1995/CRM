@@ -17,7 +17,7 @@ function BLLEmpresa() {
                 if (result.d == 0) {
                     document.getElementById('CombEmpresa').innerHTML = "";
                     toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>No fue posible llevar a cabo el registro de la empresa ya exite registrada');
+                   '</br></br>No fue posible llevar a cabo el registro de la empresa ya existe registrada');
                 }
                 else {
                     if (result.d == 2) {
