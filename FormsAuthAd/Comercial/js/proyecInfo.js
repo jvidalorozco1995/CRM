@@ -41,18 +41,16 @@ var admComercial = (function () {
     var inmu ="";
     var separacion = {};
 
-    var WsCrearCliente = "/Servicios/WClientes.asmx/InsertCliente";//Inserta Cliente en bd
-    var WsLisala = "/Servicios/WSala_Ventas.asmx/ListSala";//Listado de salas de ventas
-    var WAsociado = "/Servicios/WClientes.asmx/_InsertClienteAs";
 
-    var WsLisClientes = "/Servicios/WClientes.asmx/LisClientes";///Listado de clientes
-    var WsGetClientes = "/Servicios/WClientes.asmx/GetClientesT";//trae Inoformacion de cliente
-
-    var WsInmueblesFox = "/ServiciosFox/WFox.asmx/InmueblesFox";//LIstado de Inmuebles Multifox por Proyectos
-
-    var WSCrearTarea = "/Servicios/WTareas.asmx/InsertTarea";//Crear Treas
-   
-    var WsLisImnuE = "/ServiciosFox/WInmuebles.asmx/InmuEstados";//Listar Tareas
+    var WsCrearCliente = funcionUrlGlobal("/Servicios/WClientes.asmx/InsertCliente");//Inserta Cliente en bd
+    var WsLisala = funcionUrlGlobal("/Servicios/WSala_Ventas.asmx/ListSala");//Listado de salas de ventas
+    var WAsociado = funcionUrlGlobal("/Servicios/WClientes.asmx/_InsertClienteAs");
+    var WsLisClientes = funcionUrlGlobal("/Servicios/WClientes.asmx/LisClientes");///Listado de clientes
+    var WsGetClientes = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");//trae Inoformacion de cliente
+    var WsInmueblesFox = funcionUrlGlobal("/ServiciosFox/WFox.asmx/InmueblesFox");//LIstado de Inmuebles Multifox por Proyectos
+    var WSCrearTarea = funcionUrlGlobal("/Servicios/WTareas.asmx/InsertTarea");//Crear Treas
+    var WsLisImnuE = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/InmuEstados");//Listar Tareas
+    var WAcActualizado = funcionUrlGlobal("/Servicios/WAcInmuebles.asmx/UltimaVezAct"); //Ultima vez actualizado
 
 
     var _addHandlers = function () {
@@ -104,7 +102,7 @@ var admComercial = (function () {
 
             inm.UdateInmuebles(proyec);
             setTimeout(function () {
-                act.ListActInmueble(proyec);
+                act.ListActInmueble(proyec,WsActualizarInm);
                 inm.InmuenlesFox(proyec, WsInmueblesFox);
                // inm._Linmuebles(proyec);
                 inm.LisInmuebles(proyec);
@@ -773,7 +771,7 @@ var admComercial = (function () {
     
     var _initialize = function () {
 
-        act.ListActInmueble(proyec);
+        act.ListActInmueble(proyec, WAcActualizado);
         inm.InmuenlesFox(proyec, WsInmueblesFox);
         
 

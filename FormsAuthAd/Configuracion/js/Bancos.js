@@ -1,6 +1,8 @@
 ﻿var bq = new BLLBancos();
-var WsListBancos = "/Servicios/WBancos.asmx/LisBancos";//Consulto bancos Cargados  CRM
-var WsInsertBancos = "/Servicios/WBancos.asmx/InsertBancos";//Consulto bancos Cargados  CRM
+var utl = new BLLUtilidades();
+
+var WsListBancos = funcionUrlGlobal("/Servicios/WBancos.asmx/LisBancos");//Consulto bancos Cargados  CRM
+var WsInsertBancos = funcionUrlGlobal("/Servicios/WBancos.asmx/InsertBancos");//Consulto bancos Cargados  CRM
 
 var admBancos = (function () {
     $('#MensajeCRM').hide();

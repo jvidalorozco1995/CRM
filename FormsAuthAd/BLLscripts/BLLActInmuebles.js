@@ -4,7 +4,6 @@
 var utl = new BLLUtilidades();
 
 var WAcuerdosNegocio = "/Servicios/WAcInmuebles.asmx/InsertActualizacion"
-var WAcActualizado = "/Servicios/WAcInmuebles.asmx/UltimaVezAct"
 
 BLLActInmuebles.prototype.InsertActInmueble = function (proyecto) {
     jsonData = "{'p':" + JSON.stringify(proyecto) + "}";
@@ -20,7 +19,7 @@ BLLActInmuebles.prototype.InsertActInmueble = function (proyecto) {
     })
 }
 
-BLLActInmuebles.prototype.ListActInmueble = function (proyecto) {
+BLLActInmuebles.prototype.ListActInmueble = function (proyecto, WAcActualizado) {
     jsonData = "{'p':" + JSON.stringify(proyecto) + "}";
     $.ajax({
         type: "POST", url: WAcActualizado, data: jsonData,

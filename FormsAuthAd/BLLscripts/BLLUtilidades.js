@@ -1,6 +1,20 @@
-﻿var Wbancos = "/Servicios/WSeparaciones.asmx/_Bancos";
-var Wgetcliente = "/Servicios/WClientes.asmx/GetClientesT";
-var WsLisTra = "/Servicios/WTrabajador.asmx/ListTrabajadores";
+﻿
+
+
+var Wbancos = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_Bancos", '');
+var Wgetcliente = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT",'');
+var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores",'');
+
+
+//Funcion que devuelve la URL del proyecto
+function funcionUrlGlobal(url) {
+    var opcion = '';
+    var UrlGlobal= "";
+    if (opcion == 'PU') { UrlGlobal = '/CRM' + url; } else if (opcion == '') { UrlGlobal = url; } else if (opcion == 'PR') { UrlGlobal = '/CRM_TEST' + url; }
+    return UrlGlobal;
+}
+
+
 function BLLUtilidades() {
 
     BLLUtilidades.prototype.getUrl = function (name) {
@@ -21,9 +35,6 @@ function BLLUtilidades() {
         // redirect current page to new location
         window.location = redirect;
     }
-
-
-   
 
     BLLUtilidades.prototype.AsesorCartera = function () {
         $.ajax({

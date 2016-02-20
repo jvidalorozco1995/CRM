@@ -114,5 +114,6 @@
     <script src="../BLLscripts/BLLBancos.js"></script>
     <script src="../scripts_crm/bootstrap-datepicker.js"></script>
     <script src="../scripts_crm/accounting.js"></script>
+    <script src="../BLLscripts/BLLUtilidades.js"></script>
     <script src="js/Bancos.js"></script>
 </asp:Content>
