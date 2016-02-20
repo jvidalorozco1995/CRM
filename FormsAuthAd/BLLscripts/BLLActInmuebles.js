@@ -32,7 +32,7 @@ BLLActInmuebles.prototype.ListActInmueble = function (proyecto) {
             $.each(result.d, function (i, item) {
                 var responseDate = moment(item.Fecha).format('DD/MM/YYYY HH:mm');
                 $("#lblact").text("");
-                $("#lblact").append("Ultima vez actualizado " + responseDate);
+                $("#lblact").append("Ultima vez Actualizado " + responseDate);
             });
           
 
