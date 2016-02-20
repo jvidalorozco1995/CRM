@@ -24,9 +24,6 @@ var admBancos = (function () {
         
     };
 
-   
-
-
     var _Inicio = function () {
         $('#Pbancos').hide();
         bq.ListBancos(WsListBancos);

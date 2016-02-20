@@ -22,7 +22,7 @@
                   
                 } else {
                     toastr.error(' CRM - Notificacion' +
-                        '</br>Ha habido un error en el sistema y no se ha podido guardar');
+                        '</br>Ha habido un error en el sistema y no se ha podido guardar.');
                     
                 }
 
