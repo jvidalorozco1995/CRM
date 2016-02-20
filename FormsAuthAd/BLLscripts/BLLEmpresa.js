@@ -28,7 +28,7 @@ function BLLEmpresa() {
                         selec = empres.NOMBRE_EMP;
                         document.getElementById('CombEmpresa').innerHTML = "";
                         toastr.success('CRM Mayales - Notificacion' +
-                        '</br></br>Se registro de manera exitosa la empresa en sistema.');
+                        '</br></br>Se registro de manera exitosa la empresa en sistema');
                     }
 
 
