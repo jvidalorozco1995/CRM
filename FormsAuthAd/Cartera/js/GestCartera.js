@@ -311,7 +311,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                 '</br></br>1 - No a digitado nada en el campo nombre' +
                 '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TxtNombres').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -319,7 +318,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo identificacion' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TxtIdentidad').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -328,7 +326,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo fecha de expedición' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TextExpedicion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -337,8 +334,7 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo estado civil' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
-            $('#Textcivil').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+           $('#Textcivil').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
         }
@@ -347,7 +343,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo fecha de nacimiento' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textnacimiento').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -357,7 +352,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo lugar' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textlugar').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -367,7 +361,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo dirección' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textdireccion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -377,7 +370,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Telefóno' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textphone').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -387,7 +379,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Empresa' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TextEmp').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -397,8 +388,7 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Cargo' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
-            $('#Textcargo').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+             $('#Textcargo').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
         }
@@ -407,7 +397,7 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Profesión' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
+          
             $('#Textprofesion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -417,7 +407,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Dirección' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TextdireccionE').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -426,7 +415,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Antiguedad' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textantiguedad').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -436,7 +424,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Correo' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textcorreo').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -482,12 +469,10 @@ var _admnegocio = (function () {
 
         }
         */
-
         else if ($('#TextIngresos').val().length < 1 || !Numeros.test($('#TextIngresos').val())) {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo ingresos' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TextIngresos').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -499,7 +484,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Interes de compra' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TextInt').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -509,7 +493,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo proyecto de interes' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TextPinteres').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -519,7 +502,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Valor' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Lvalor').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -529,7 +511,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Cuota inicial' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textinicial').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -539,7 +520,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Credito' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textcredito').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -549,7 +529,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Bancos' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#ComBancos').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -559,7 +538,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Nro de cuotas' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textcuota').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -568,7 +546,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Fecha de escritura' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textescritura').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -577,7 +554,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Fecha de entrega' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textentrega').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -586,7 +562,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Fecha de sugrogación' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textsubrogracion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -596,7 +571,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo asesor' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#Textasesorinf').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -605,7 +579,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo medio por el cual se entero' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#TextmedioInf').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -615,7 +588,6 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo asesor de cartera' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
             $('#CmbAsesorCart').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -623,9 +595,6 @@ var _admnegocio = (function () {
 
             _negocio._addHoja(Dtohoja(), inmueble, acuerdoP);
         }
-
-
-
 
     }
     var _Inicio = function () {
