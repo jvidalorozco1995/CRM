@@ -18,6 +18,8 @@ function BLLInmuebles() {
     var Wseparaciones = "/Servicios/WSeparaciones.asmx/_SeparacionLis";
     var Wconfirmarsepracion = "/Servicios/WSeparaciones.asmx/_Confirmarseparacion";
 
+    var WAcuerdosNegocio = "/Servicios/WAcInmuebles.asmx/InsertActualizacion"
+
     var accounting = [];
     var inmueblesCRM = {};
 
@@ -593,8 +595,8 @@ function BLLInmuebles() {
                     inmueblesCRM = {};
                     console.log('acon' + accounting)
                     console.log('inmuebles' + inmueblesCRM)
-
-                    ac.InsertActInmueble(bloque);
+                    
+                    ac.InsertActInmueble(bloque, WAcuerdosNegocio);
                
             },
             error: function (obj, error, objError) { console.log('Error' + obj.responseText); }

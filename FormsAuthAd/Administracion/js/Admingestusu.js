@@ -1,13 +1,13 @@
 ﻿var gp = new BLLProyectos();
 var neg = new BLLnegocio();
-
+var Utl = new BLLUtilidades();
 var admUser = (function () {
 
    
-    var WsLisTra = "/Servicios/WTrabajador.asmx/ListTrabajadores";//Cosulto Trabajadores
-    var WsListProyec = "/ServiciosFox/WProyectos.asmx/LisProyectos";//Consulto Proyectos CRM
-    var WsListNegocio = "/Servicios/WNegocio.asmx/lisAllHoja";//Consulto Proyectos CRM
-    var WsUpdateNegocio= "/Servicios/WNegocio.asmx/UpdateUsuarioCartera";//Consulto Proyectos CRM
+    var WsLisTra =  funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores");//Cosulto Trabajadores
+    var WsListProyec = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos CRM
+    var WsListNegocio = funcionUrlGlobal("/Servicios/WNegocio.asmx/lisAllHoja");//Consulto Proyectos CRM
+    var WsUpdateNegocio= funcionUrlGlobal("/Servicios/WNegocio.asmx/UpdateUsuarioCartera");//Consulto Proyectos CRM
 
     var _addHandlers = function () {
 

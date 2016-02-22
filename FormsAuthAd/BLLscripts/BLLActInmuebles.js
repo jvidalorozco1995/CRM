@@ -3,12 +3,12 @@
 };
 var utl = new BLLUtilidades();
 
-var WAcuerdosNegocio = "/Servicios/WAcInmuebles.asmx/InsertActualizacion"
 
-BLLActInmuebles.prototype.InsertActInmueble = function (proyecto) {
+
+BLLActInmuebles.prototype.InsertActInmueble = function (proyecto,wsUrl) {
     jsonData = "{'p':" + JSON.stringify(proyecto) + "}";
     $.ajax({
-        type: "POST", url: WAcuerdosNegocio, data: jsonData,
+        type: "POST", url: wsUrl, data: jsonData,
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
         async: true,

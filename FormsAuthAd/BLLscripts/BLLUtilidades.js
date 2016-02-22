@@ -1,9 +1,9 @@
 ﻿
 
 
-var Wbancos = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_Bancos", '');
-var Wgetcliente = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT",'');
-var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores",'');
+var Wbancos = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_Bancos");
+var Wgetcliente = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");
+var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores");
 
 
 //Funcion que devuelve la URL del proyecto
