@@ -6,7 +6,7 @@ var tra = new BLLTrabajadores();
 
 var admclientes = (function () {
 
-    var WsListProyec = "/ServiciosFox/WProyectos.asmx/LisProyectos";//Consulto Proyectos CRM
+    var WsListProyec = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos CRM
     var cliente = null;
     var bandera = 0;
 

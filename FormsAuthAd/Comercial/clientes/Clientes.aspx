@@ -186,6 +186,7 @@
     <script src="../../BLLscripts/BLLProyectos.js"></script>
     <script src="../../BLLscripts/BLLTareas.js"></script>
     <script src="../../BLLscripts/BLLClientes.js"></script>
+    <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="js/clientes.js"></script>
 </asp:Content>
 

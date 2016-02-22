@@ -166,5 +166,6 @@
     <script src="../../scripts_crm/moment.min.js"></script>
      <script src="../../BLLscripts/BLLProyectos.js"></script>
     <script src="../../BLLscripts/BLLinfocomercialProyec.js"></script>
+    <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="js/infocomercialProye.js"></script>
 </asp:Content>

@@ -152,6 +152,7 @@
     <script src="../../scripts_crm/moment.min.js"></script>
     <script src="../../BLLscripts/BLLTrabajadores.js"></script>
     <script src="../../BLLscripts/BLLInfocomercialase.js"></script>
+    <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="js/InforcomercialAsesor.js"></script>
 </asp:Content>
 

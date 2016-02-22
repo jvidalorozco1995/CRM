@@ -2,7 +2,7 @@
 var pr = new BLLProyectos();
 var adminfo = (function () {
 
-    var WsListProyec = "/ServiciosFox/WProyectos.asmx/LisProyectos";//Consulto Proyectos CRM
+    var WsListProyec = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos CRM
 
     var proyec = "";
     var asesor = "";
