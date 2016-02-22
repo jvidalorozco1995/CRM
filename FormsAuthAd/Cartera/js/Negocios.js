@@ -8,10 +8,10 @@ var util = new BLLUtilidades;
 
 var admUser = (function () {
 
-    var WsListNegocio = "/Servicios/WNegocioFox.asmx/lisHoja";//Consulto los negocios CRM
-    var WsListNegocioID = "/Servicios/WNegocioFox.asmx/lisNegoID";//Consulto los negocios por id CRM
-    var WsActualizarAdjFox = "/Servicios/WNegocioFox.asmx/ActualizarAdj";//Actualizar el adjunto CRM
-    var Wsurltodosnegocios = "/ServiciosFox/WInmuebles.asmx/TODO"; //Actualizar todos los negocios de CRM desde MULTIFOX
+    var WsListNegocio = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/lisHoja");//Consulto los negocios CRM
+    var WsListNegocioID = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/lisNegoID");//Consulto los negocios por id CRM
+    var WsActualizarAdjFox = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ActualizarAdj");//Actualizar el adjunto CRM
+    var Wsurltodosnegocios = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/TODO"); //Actualizar todos los negocios de CRM desde MULTIFOX
     var negocio;
     //Manejadores de los botones y eventos
     var _addHandlers = function () {

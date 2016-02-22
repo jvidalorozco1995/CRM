@@ -5,7 +5,7 @@ var utl = new BLLUtilidades;
 var proyec = utl.getUrl('proyec');
 var admUser = (function () {
 
-    var WsListNegocio = "/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisos";//Consulto Proyectos CRM
+    var WsListNegocio = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisos");//Consulto Proyectos CRM
  
 
     var _addHandlers = function () {

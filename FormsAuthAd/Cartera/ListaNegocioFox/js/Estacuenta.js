@@ -1,7 +1,7 @@
 ﻿var utl = new BLLUtilidades();
 var Ac = new BLLAcuerdosFox();
 var _admnego = (function () {
-    var WNegoID= "/Servicios/WNegocioFox.asmx/lisNegoID";
+    var WNegoID= funcionUrlGlobal("/Servicios/WNegocioFox.asmx/lisNegoID");
     var negocio = utl.getUrl('negocio');
 
     var _addHandlers = function () {

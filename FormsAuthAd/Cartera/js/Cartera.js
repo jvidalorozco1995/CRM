@@ -1,4 +1,4 @@
-﻿var Wproyect = "/ServiciosFox/WProyectos.asmx/LisProyecTrabajador";
+﻿var Wproyect = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyecTrabajador");
 _negocio = new BLLnegocio();
 proyect = new BLLProyectos();
 

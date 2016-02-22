@@ -3,7 +3,7 @@ var Py = new BLLProyectos()
 
 var admComercialProyect = (function () {
 
-    var WSLisProyect = "/ServiciosFox/WProyectos.asmx/LisProyecTrabajador";
+    var WSLisProyect = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyecTrabajador");
     //var WSLisProyect = "/ServiciosFox/WProyectos.asmx/ProyectosTrabajador";
     var _addHandlers = function () {
 
@@ -30,3 +30,4 @@ $(document).ready(function () {
     $(".scroll-area").scrollspy({ target: "#myNavbar" });
     admComercialProyect.init();
 });
+
