@@ -1,9 +1,9 @@
 ﻿
 function BLLEmpresa() {
 
-    Wcrearempresa = "/Servicios/WEmpresas.asmx/InsertEmpresa";
-    WSEmpresa = "/Servicios/WEmpresas.asmx/LisEmprsa";
-    WSAddphone = "/Servicios/WEmpresas.asmx/AddTelefono";
+    Wcrearempresa = funcionUrlGlobal("/Servicios/WEmpresas.asmx/InsertEmpresa");
+    WSEmpresa = funcionUrlGlobal("/Servicios/WEmpresas.asmx/LisEmprsa");
+    WSAddphone = funcionUrlGlobal("/Servicios/WEmpresas.asmx/AddTelefono");
     var selec = null;
 
     BLLEmpresa.prototype.Addempresa = function (empres) {

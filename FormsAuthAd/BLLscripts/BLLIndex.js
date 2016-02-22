@@ -47,13 +47,13 @@ function BLLIndex() {
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/DD/MM"); + "</td>";
             switch (item.ESTADO) {
                 case "E":
-                    tabla += "<td><img src='../../images_crm/Suspendido.png' class='historial2' id=" + item.ID_TAREA + "/" + item.CEDULA + " href='' /></td>";
+                    tabla += "<td><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'' class='historial2' id=" + item.ID_TAREA + "/" + item.CEDULA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td><img src='../../images_crm/Pospuesta.png' class='historial2' id=" + item.ID_TAREA + "/" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td><img src='"+  funcionUrlGlobal('/images_crm/Pospuesta.png') +"' class='historial2' id=" + item.ID_TAREA + "/" + item.CEDULA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td><img src='../../images_crm/Espera.png' class='historial2' id=" + item.ID_TAREA + "/" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "' class='historial2' id=" + item.ID_TAREA + "/" + item.CEDULA + " href=''/></td>";
                     break
 
             }

@@ -2,19 +2,19 @@
 
 };
 
-    var WsInfotarea = "/Servicios/WTareas.asmx/InfoTareas";//Informacion de tareas especifica
-    var WSEsTareas = "/Servicios/WTareas.asmx/ETareas";//Servicio para Terminar dar por finalizada la tarea
-    var WPosponer = "/Servicios/WTareas.asmx/Postareas";//Servicio que pospone las tareas
-    var WBitacora = "/Servicios/WTareas.asmx/Historialtareas";//Historial de tareas
-    var WsListareas = "/Servicios/WTareas.asmx/GetTareasC";//Listar Tareas
-    var WsListareasE = "/Servicios/WTareas.asmx/estamiacion";//Listar Tareas para estimacion
-    var WsListareasAsesor = "/Servicios/WTareas.asmx/ListareasUserA";//Retorna un listado de todas las tareas asignadas a un asesor
-    var WEstadoTareas = "/Servicios/WTareas.asmx/ListaEstadoTareas";//Listado de tareas
-    var WEstadoTareasclientes = "/Servicios/WTareas.asmx/ListaEstadoTareasclientes";
-    var WsInfoTareasNego = "/Servicios/WTareas.asmx/InfoTareasNego";//Informacion de tareas especifica
-    var WTareasNegocio = "/Servicios/WTareas.asmx/GetTareasNegocios";
-    var WCompromisosInsert = "/Servicios/WTareas.asmx/InsertCompromiso";
-    var WTareasNegocioCompromiso = "/Servicios/WTareas.asmx/GetTareasCompromiso";
+var WsInfotarea =  funcionUrlGlobal("/Servicios/WTareas.asmx/InfoTareas");//Informacion de tareas especifica
+var WSEsTareas = funcionUrlGlobal("/Servicios/WTareas.asmx/ETareas");//Servicio para Terminar dar por finalizada la tarea
+var WPosponer = funcionUrlGlobal("/Servicios/WTareas.asmx/Postareas");//Servicio que pospone las tareas
+var WBitacora = funcionUrlGlobal("/Servicios/WTareas.asmx/Historialtareas");//Historial de tareas
+var WsListareas = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasC");//Listar Tareas
+var WsListareasE = funcionUrlGlobal("/Servicios/WTareas.asmx/estamiacion");//Listar Tareas para estimacion
+var WsListareasAsesor = funcionUrlGlobal("/Servicios/WTareas.asmx/ListareasUserA");//Retorna un listado de todas las tareas asignadas a un asesor
+var WEstadoTareas = funcionUrlGlobal("/Servicios/WTareas.asmx/ListaEstadoTareas");//Listado de tareas
+var WEstadoTareasclientes = funcionUrlGlobal("/Servicios/WTareas.asmx/ListaEstadoTareasclientes");
+var WsInfoTareasNego = funcionUrlGlobal("/Servicios/WTareas.asmx/InfoTareasNego");//Informacion de tareas especifica
+var WTareasNegocio = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasNegocios");
+var WCompromisosInsert = funcionUrlGlobal("/Servicios/WTareas.asmx/InsertCompromiso");
+var WTareasNegocioCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasCompromiso");
     var color = null;
 
     //Metodo para Crear cliente
@@ -234,16 +234,16 @@
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/DD/MM"); + "</td>";
             switch (item.ESTADO) {
                 case "E":
-                    tabla += "<td><img src='../../images_crm/Suspendido.png' class='Detallett' id=" + item.ID_TAREA +'/'+ item.CEDULA +" href='' /></td>";
+                    tabla += "<td><img src='images_crm/Suspendido.png' class='Detallett' id=" + item.ID_TAREA +'/'+ item.CEDULA +" href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td><img src='../../images_crm/Pospuesta.png' class='Detallett' id=" + item.ID_TAREA + '/' + item.CEDULA + " href=''/></td>";
+                    tabla += "<td><img src='images_crm/Pospuesta.png' class='Detallett' id=" + item.ID_TAREA + '/' + item.CEDULA + " href=''/></td>";
                     break
                 case "T":
-                    tabla += "<td><img src='../../images_crm/Completa.png' class='Detallett' id=" + item.ID_TAREA + '/' + item.CEDULA + " href=''/></td>";
+                    tabla += "<td><img src='images_crm/Completa.png' class='Detallett' id=" + item.ID_TAREA + '/' + item.CEDULA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='../../images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";
@@ -493,16 +493,16 @@
                     tabla += "<td>"+fechafin+"</td>";
                     switch (item.ESTADO) {
                         case "T":
-                            tabla += "<td ><img src='../../images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                            tabla += "<td ><img src='images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                             break
                         case "E":
-                            tabla += "<td ><img src='../../images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
+                            tabla += "<td ><img src='images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
                             break
                         case "P":
-                            tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                            tabla += "<td ><img src='images_crm/Pospuesta.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                             break
                         case "V":
-                            tabla += "<td ><img src='../../images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                            tabla += "<td ><img src='images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                             break
                         case null:
                             tabla += "<td></td>";
@@ -629,16 +629,16 @@
 
         switch (op) {
             case "T":
-                return color = "<img src='../../images_crm/Completa.png' href=''/>";
+                return color = "<img src='images_crm/Completa.png' href=''/>";
                 break
             case "E":
-                return color = "<img src='../../images_crm/Suspendido.png' href=''/>";
+                return color = "<img src='images_crm/Suspendido.png' href=''/>";
                 break
             case "P":
-                return color = "<img src='../../images_crm/Pospuesta.png' href=''/>";
+                return color = "<img src='images_crm/Pospuesta.png' href=''/>";
                 break
             case "V":
-                return color = "<img src='../../images_crm/Espera.png' href=''/>";
+                return color = "<img src='images_crm/Espera.png' href=''/>";
                 break
             case null:
                 return color = "";
@@ -665,16 +665,16 @@
             tabla += "<td>" + item.ASESOR + "</td>";
             switch (item.ESTADO) {
                 case "T":
-                    tabla += "<td ><img src='../../images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case "E":
-                    tabla += "<td ><img src='../../images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
+                    tabla += "<td ><img src='images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Pospuesta.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='../../images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";
@@ -708,16 +708,16 @@
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
            switch (item.ESTADO) {
                 case "T":
-                    tabla += "<td ><img src='../../images_crm/Completa.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Completa.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "E":
-                    tabla += "<td ><img src='../../images_crm/Suspendido.png' class='historial1' id=" + item.ID_TAREA + " href='' /></td>";
+                    tabla += "<td ><img src=.images_crm/Suspendido.png' class='historial1' id=" + item.ID_TAREA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Pospuesta.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='../../images_crm/Espera.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Espera.png' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";
@@ -753,13 +753,13 @@
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
             switch (item.ESTADO) {
                 case "TR":
-                    tabla += "<td ><img src='../../images_crm/Completa.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Completa.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "PS":
-                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Pospuesta.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "CO":
-                    tabla += "<td ><img src='../../images_crm/libre.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/libre.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";
@@ -792,13 +792,13 @@
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
             switch (item.ESTADO) {
                 case "TR":
-                    tabla += "<td ><img src='../../images_crm/Completa.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Completa.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "PS":
-                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Pospuesta.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "CO":
-                    tabla += "<td ><img src='../../images_crm/libre.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/libre.png' class='Infocl' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";

@@ -20,17 +20,17 @@
     <script src='<%= ResolveUrl("../../jqwidgets/jqxdropdownlist.js") %>'></script>
 
     <link rel="stylesheet" href="../../jqwidgets/styles/jqx.base.css" />
-    <script src="../../../vendor/toastr/build/toastr.min.js"></script>
-    <script src="../../../vendor/moment/moment.js"></script>
-    <script src="../../../vendor/select2-3.5.2/select2.min.js"></script>
-    <script src="../../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="../../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="../../../scripts_crm/accounting.js"></script>
-    <script src="../../../BLLscripts/BLLUtilidades.js"></script>
-    <script src="../../../scripts_crm/HttpBll.js"></script>
-    <script src="../../../../BLLscripts/BLLActInmuebles.js"></script>
-    <script src="../../../../BLLscripts/BLLInmuebles.js"></script>
-    <script src="../../../../BLLscripts/BLLnegocio.js"></script>
+    <script src="../../vendor/toastr/build/toastr.min.js"></script>
+    <script src="../../vendor/moment/moment.js"></script>
+    <script src="../../vendor/select2-3.5.2/select2.min.js"></script>
+    <script src="../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../scripts_crm/accounting.js"></script>
+    <script src="../../BLLscripts/BLLUtilidades.js"></script>
+    <script src="../../scripts_crm/HttpBll.js"></script>
+    <script src="../../BLLscripts/BLLActInmuebles.js"></script>
+    <script src="../../BLLscripts/BLLInmuebles.js"></script>
+    <script src="../../BLLscripts/BLLnegocio.js"></script>
     <script src="../js/GestCartera.js"></script>
 
 
@@ -95,11 +95,11 @@
 
                                                     <div style="float: left; padding-top: 20px">
                                                         <a id="BtnDisponibilidad">
-                                                            <img src="../../images_crm/Buscar.png" style="float: left" /></a>
+                                                            <img src="../..images_crm/Buscar.png" style="float: left" /></a>
                                                     </div>
                                                     <div style="float: left; padding-top: 20px">
                                                         <a id="BtnAsociadoc">
-                                                            <img src="../../images_crm/asociado.png" style="float: left" />
+                                                            <img src="../..images_crm/asociado.png" style="float: left" />
                                                         </a>
                                                     </div>
                                                 </div>

@@ -3,14 +3,14 @@ var exportJsonToCSV;
 var jsonObj;
 function BLLClientes() {
 
-    WSUpdateCliente = "/Servicios/WClientes.asmx/UpdateCLiente";
-    WLisclientes = "/Servicios/WClientes.asmx/LClientes";
-    Wgetcliente = "/Servicios/WClientes.asmx/GetClientesT";
-    WClienteTareas = "/Servicios/WClientes.asmx/ClienteTareas"; 
-    WClientehistorial = "/Servicios/WClientes.asmx/Historialcliente";
-    WClienteFehas = "/Servicios/WClientes.asmx/ListClientesfechasAP";
-    var WLisepracion = "/Servicios/WInmuebles.asmx/Listadosepracion";
-    WValidarcliente = "/Servicios/WClientes.asmx/_ValidarClientes";
+    WSUpdateCliente = funcionUrlGlobal("/Servicios/WClientes.asmx/UpdateCLiente");
+    WLisclientes = funcionUrlGlobal("/Servicios/WClientes.asmx/LClientes");
+    Wgetcliente = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");
+    WClienteTareas = funcionUrlGlobal("/Servicios/WClientes.asmx/ClienteTareas"); 
+    WClientehistorial = funcionUrlGlobal("/Servicios/WClientes.asmx/Historialcliente");
+    WClienteFehas = funcionUrlGlobal("/Servicios/WClientes.asmx/ListClientesfechasAP");
+    var WLisepracion = funcionUrlGlobal("/Servicios/WInmuebles.asmx/Listadosepracion");
+    WValidarcliente = funcionUrlGlobal("/Servicios/WClientes.asmx/_ValidarClientes");
    
 
     var color = null;
@@ -353,16 +353,16 @@ function BLLClientes() {
             switch (item.ESTADO) {
 
                 case "T":
-                    tabla += "<td ><img src='../../images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case "E":
-                    tabla += "<td ><img src='../../images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
+                    tabla += "<td ><img src='images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td ><img src='../../images_crm/Pospuesta.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Pospuesta.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='../../images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";

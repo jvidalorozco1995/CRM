@@ -41,7 +41,7 @@
                   
                     </div>
                     <div class="panel-footer">
-                        <img src="../../images_crm/excel.png"/ class="excel">
+                        <img src="../..images_crm/excel.png"/ class="excel">
                    </div>
                  </div>
             </div>

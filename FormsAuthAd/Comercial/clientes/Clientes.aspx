@@ -41,7 +41,7 @@
                   
                     </div>
                     <div class="panel-footer">
-                        <img src="../../images_crm/excel.png"/ class="excel">
+                        <img src="../..images_crm/excel.png"/ class="excel">
                         
                     </div>
                  </div>
@@ -182,11 +182,12 @@
      <script src="../../vendor/select2-3.5.2/select2.min.js"></script>
     <script src="../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
     <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="../../BLLscripts/BLLTrabajadores.js"></script>
     <script src="../../BLLscripts/BLLProyectos.js"></script>
     <script src="../../BLLscripts/BLLTareas.js"></script>
     <script src="../../BLLscripts/BLLClientes.js"></script>
-    <script src="../../BLLscripts/BLLUtilidades.js"></script>
+    
     <script src="js/clientes.js"></script>
 </asp:Content>
 

@@ -34,13 +34,13 @@ BLLSeguiNegocios.CrearTabl = function (proyectos) {
         tabla += "<td>" + item.FECHACARTERA + "</td>";
         switch (item.ESTADO) {
             case "VE":
-                tabla += "<td><img src='../../images_crm/Suspendido.png' tag="+item.CEDULA_P+"  class='Detallett' id=" + item.REFERENCIA1 + " href='' /></td>";
+                tabla += "<td><img src='images_crm/Suspendido.png' tag="+item.CEDULA_P+"  class='Detallett' id=" + item.REFERENCIA1 + " href='' /></td>";
                 break
             case "PV":
-                tabla += "<td><img src='../../images_crm/pv.png' tag=" + item.CEDULA_P + " class='Detallett' id=" + item.REFERENCIA1 + " href=''/></td>";
+                tabla += "<td><img src='images_crm/pv.png' tag=" + item.CEDULA_P + " class='Detallett' id=" + item.REFERENCIA1 + " href=''/></td>";
                 break
             case "ES":
-                tabla += "<td><img src='../../images_crm/libre.png' tag=" + item.CEDULA_P + " class='Detallett' id=" + item.REFERENCIA1 + " href=''/></td>";
+                tabla += "<td><img src='images_crm/libre.png' tag=" + item.CEDULA_P + " class='Detallett' id=" + item.REFERENCIA1 + " href=''/></td>";
                 break
             case null:
                 tabla += "<td></td>";

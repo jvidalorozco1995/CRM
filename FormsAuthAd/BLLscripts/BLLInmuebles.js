@@ -2,23 +2,23 @@
 var ac = new BLLActInmuebles();
 function BLLInmuebles() {
 
-    var WsGetInmuebles = "/ServiciosFox/WInmuebles.asmx/GetInmuebles";
-    var Wseparacion = "/ServiciosFox/WInmuebles.asmx/SepararInmueble";
-    var WDetalleseparacion = "/ServiciosFox/WInmuebles.asmx/Detalleseparacion";
-    var WUpdateinmuebles = "/ServiciosFox/WInmuebles.asmx/UpdateInmuCrm";
-    var WLisepracion = "/ServiciosFox/WInmuebles.asmx/Listadosepracion";
-    var Wdesistir = "/ServiciosFox/WInmuebles.asmx/DesistirInmueble";
-    var Winmsepaciones = "/ServiciosFox/WInmuebles.asmx/ClientesInmuebles";
+    var WsGetInmuebles = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/GetInmuebles");
+    var Wseparacion = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/SepararInmueble");
+    var WDetalleseparacion = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/Detalleseparacion");
+    var WUpdateinmuebles = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/UpdateInmuCrm");
+    var WLisepracion = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/Listadosepracion");
+    var Wdesistir = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/DesistirInmueble");
+    var Winmsepaciones = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/ClientesInmuebles");
 
-    var WsepAsesor = "/Servicios/WSeparaciones.asmx/_sepracionesAsesor";
-    var Wseproyecto = "/Servicios/WSeparaciones.asmx/_sepracionesproyecto";
-    var WseparacionAP = "/Servicios/WSeparaciones.asmx/_sepracionesAP";
-    var WseparacionFechas = "/Servicios/WSeparaciones.asmx/_sepracionesFechas";
-    var Wseparacionde = "/Servicios/WSeparaciones.asmx/_sepracionesDetalle";
-    var Wseparaciones = "/Servicios/WSeparaciones.asmx/_SeparacionLis";
-    var Wconfirmarsepracion = "/Servicios/WSeparaciones.asmx/_Confirmarseparacion";
+    var WsepAsesor = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesAsesor");
+    var Wseproyecto = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesproyecto");
+    var WseparacionAP = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesAP");
+    var WseparacionFechas = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesFechas");
+    var Wseparacionde = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesDetalle");
+    var Wseparaciones = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_SeparacionLis");
+    var Wconfirmarsepracion = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_Confirmarseparacion");
 
-    var WAcuerdosNegocio = "/Servicios/WAcInmuebles.asmx/InsertActualizacion"
+    var WAcuerdosNegocio = funcionUrlGlobal("/Servicios/WAcInmuebles.asmx/InsertActualizacion");
 
     var accounting = [];
     var inmueblesCRM = {};
@@ -440,15 +440,15 @@ function BLLInmuebles() {
                     tabla += "<td>" + moment(item.FECHASEPARACION).format("YYYY/MM/DD") + "</td>";
                 }
                 if (item.ESTADO == "P") {
-                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "><img src='../../images_crm/libre.png'> Dias " + item.DIAS + "</td>";
+                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "><img src='..images_crm/libre.png'> Dias " + item.DIAS + "</td>";
                 }
                 else {
                     if (item.ESTADO == "D") {
-                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Suspendido.png'></td>";
+                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/Suspendido.png'></td>";
                     }
                     else {
                         if (item.ESTADO == "L") {
-                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Completa.png'></td>";
+                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/Completa.png'></td>";
                         }
                         else {
                             if (item.ESTADO == null) {
@@ -738,15 +738,15 @@ function BLLInmuebles() {
                     tabla += "<td>" + moment(item.FECHASEPARACION).format("YYYY/MM/DD") + "</td>";
                 }
                 if (item.ESTADO == "P") {
-                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/libre.png'></td>";
+                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/libre.png'></td>";
                 }
                 else {
                     if (item.ESTADO == "D") {
-                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Suspendido.png'></td>";
+                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/Suspendido.png'></td>";
                     }
                     else {
                         if (item.ESTADO == "L") {
-                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='../../images_crm/Completa.png'></td>";
+                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/Completa.png'></td>";
                         }
                         else {
                             if (item.ESTADO ==null) {

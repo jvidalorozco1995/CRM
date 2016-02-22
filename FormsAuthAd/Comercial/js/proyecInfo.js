@@ -51,7 +51,7 @@ var admComercial = (function () {
     var WSCrearTarea = funcionUrlGlobal("/Servicios/WTareas.asmx/InsertTarea");//Crear Treas
     var WsLisImnuE = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/InmuEstados");//Listar Tareas
     var WAcActualizado = funcionUrlGlobal("/Servicios/WAcInmuebles.asmx/UltimaVezAct"); //Ultima vez actualizado
-
+ 
 
     var _addHandlers = function () {
 
@@ -97,12 +97,12 @@ var admComercial = (function () {
 
 
         
-
+       
         $(document).on('click', '#BtnActInmuebles', function () {
 
             inm.UdateInmuebles(proyec);
             setTimeout(function () {
-                act.ListActInmueble(proyec,WsActualizarInm);
+                act.ListActInmueble(proyec, WAcActualizado);
                 inm.InmuenlesFox(proyec, WsInmueblesFox);
                // inm._Linmuebles(proyec);
                 inm.LisInmuebles(proyec);

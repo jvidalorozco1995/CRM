@@ -7,23 +7,23 @@ function BLLUser() {
     var usrship = null;
     var ctx = null;
 
-    var WsUSerActived = "/Servicios/WServidores.asmx/LisUser";//Retorna listas de usuarios del dominio
+    var WsUSerActived = funcionUrlGlobal("/Servicios/WServidores.asmx/LisUser");//Retorna listas de usuarios del dominio
 
-    var WInsertUser = "/Servicios/WServidores.asmx/InsertUser";//Servicio para cargar usuario a la base de datos CRM
+    var WInsertUser = funcionUrlGlobal("/Servicios/WServidores.asmx/InsertUser");//Servicio para cargar usuario a la base de datos CRM
 
-    var WInsertUserShip = "/Servicios/WServidores.asmx/InsertUserShip";//Servicio para cargar usuario a la base de datos memberShip
+    var WInsertUserShip = funcionUrlGlobal("/Servicios/WServidores.asmx/InsertUserShip");//Servicio para cargar usuario a la base de datos memberShip
 
-    var WgetUserMShip = "/Servicios/WServidores.asmx/GetUSerShip";//Servicio para cargar usuario a la base de datos memberShip
+    var WgetUserMShip = funcionUrlGlobal("/Servicios/WServidores.asmx/GetUSerShip");//Servicio para cargar usuario a la base de datos memberShip
 
-    var WInsertRol = "/Servicios/WServidores.asmx/InsertRol";//Servicio para crear un rol en membership
+    var WInsertRol = funcionUrlGlobal("/Servicios/WServidores.asmx/InsertRol");//Servicio para crear un rol en membership
 
-    var WLisroles = "/Servicios/WServidores.asmx/LisRoles";//Retorna listado roles creados en el sistema
+    var WLisroles = funcionUrlGlobal("/Servicios/WServidores.asmx/LisRoles");//Retorna listado roles creados en el sistema
     
-    var Wasinarpermiso = "/Servicios/WServidores.asmx/AsignarPermiso";//Asignar permisos a usuarios del sistema
+    var Wasinarpermiso = funcionUrlGlobal("/Servicios/WServidores.asmx/AsignarPermiso");//Asignar permisos a usuarios del sistema
 
-    var WAcesosUser = "/Servicios/WServidores.asmx/ListAcceso";
+    var WAcesosUser = funcionUrlGlobal("/Servicios/WServidores.asmx/ListAcceso");
 
-    var WDeleteAcceso = "/Servicios/WServidores.asmx/RemoveAcceso";
+    var WDeleteAcceso = funcionUrlGlobal("/Servicios/WServidores.asmx/RemoveAcceso");
 
     BLLUser.prototype.AccesoUser = function (usuario) {
         jsondata = "{'user':" + JSON.stringify(usuario) + "}";

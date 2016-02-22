@@ -37,7 +37,7 @@
 
 <body style="border-top:0px;">
 <!-- Simple splash screen-->
-<div class="splash"><div class="color-line"></div><div class="splash-title"><h1>Mayales CRM</h1><p>Espere un momento por favor</p><img src="../../images_crm/loading-bars.svg" width="64" height="64" /> </div> </div>
+<div class="splash"><div class="color-line"></div><div class="splash-title"><h1>Mayales CRM</h1><p>Espere un momento por favor</p><img src='<%= ResolveUrl("images_crm/loading-bars.svg") %>' width="64" height="64" /> </div> </div>
 <!--[if lt IE 7]>
 <p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -120,7 +120,7 @@
     <div id="navigation">
                 <div class="profile-picture">
                     <a href="">
-                        <img src="../../images_crm/user.png" class="img-circle m-b" alt="logo">
+                        <img src='<%= ResolveUrl("images_crm/user.png") %>' class="img-circle m-b" alt="logo">
                     </a>
                     <section id="Section1">
                         <div class="stats-label text-color">
@@ -143,25 +143,26 @@
                     <li id="confi" class="">
                         <a href="#" ><span class="nav-label">Configuración</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/Configuracion/GestProyectos.aspx">Proyectos</a></li>
-                            <li><a href="/Configuracion/Bancos.aspx">Bancos</a></li>
-                            <li><a href="/Configuracion/GestBloques.aspx">Bloques</a></li>
-                            <li><a href="/Configuracion/GetInmuebles.aspx">Inmuebles</a></li>
-                            <li><a href="/Configuracion/SalasVentas.aspx">Sala de ventas</a></li>
-                            <li><a href="/Configuracion/GestNotaAclaratoria.aspx">Configuración Nota Aclaratoria</a></li>
+                            
+                            <li><a href='<%= ResolveUrl("Configuracion/GestProyectos.aspx") %>'>Proyectos</a></li>
+                            <li><a href='<%= ResolveUrl("Configuracion/Bancos.aspx") %>'>Bancos</a></li>
+                            <li><a href='<%= ResolveUrl("Configuracion/GestBloques.aspx") %>'>Bloques</a></li>
+                            <li><a href='<%= ResolveUrl("Configuracion/GetInmuebles.aspx")%>'>Inmuebles</a></li>
+                            <li><a href='<%= ResolveUrl("Configuracion/SalasVentas.aspx")%>'>Sala de ventas</a></li>
+                            <li><a href='<%= ResolveUrl("Configuracion/GestNotaAclaratoria.aspx")%>'>Configuración Nota Aclaratoria</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href=""><span class="nav-label">Gest Comercial</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/Comercial/GesComercial.aspx">Comercial</a></li>
-                            <li><a href="/Comercial/clientes/Clientes.aspx">Clientes</a></li>
-                            <li><a href="/Comercial/Separaciones/Separaciones.aspx">Separaciones</a></li>
+                            <li><a href='<%= ResolveUrl("Comercial/GesComercial.aspx")%>'>Comercial</a></li>
+                            <li><a href='<%= ResolveUrl("Comercial/Comercial/clientes/Clientes.aspx")%>'>Clientes</a></li>
+                            <li><a href='<%= ResolveUrl("Comercial/Separaciones/Separaciones.aspx")%>'>Separaciones</a></li>
                             <li><a href="">Informes</a>
                            <ul class="nav nav-second-level">
-                            <li style="padding-left:20px"><a href="/Comercial/informes/InformesComercial.aspx">General</a></li>
-                            <li style="padding-left:20px"><a href="/Comercial/Informes/InfocomercialProyecspx.aspx">Proyectos</a></li>
-                            <li style="padding-left:20px"><a href="/Comercial/Informes/InfocomercialAsesor.aspx">Asesores</a></li>
+                            <li style="padding-left:20px"><a href='<%= ResolveUrl("Comercial/informes/InformesComercial.aspx")%>'>General</a></li>
+                            <li style="padding-left:20px"><a href= '<%= ResolveUrl("Comercial/Informes/InfocomercialProyecspx.aspx")%>'>Proyectos</a></li>
+                            <li style="padding-left:20px"><a href='<%= ResolveUrl("Comercial/Informes/InfocomercialAsesor.aspx")%>'>Asesores</a></li>
                         </ul>
                             </li>
                         </ul>
@@ -170,16 +171,16 @@
                         <li>
                         <a href="#"><span class="nav-label">Gest Cartera</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/Cartera/Crearnegocio/GesCartera.aspx">Crear negocio</a></li>
-                            <li><a href="/Cartera/ListaNegocioFox/Negocios.aspx">Lista de negocios FOX</a></li>
-                            <li><a href="/Cartera/SeguimientoNegocio/GesNegocio.aspx">Seguimiento de Negocios</a></li>
+                            <li><a href='<%= ResolveUrl("Cartera/Crearnegocio/GesCartera.aspx")%>'>Crear negocio</a></li>
+                            <li><a href='<%= ResolveUrl("Cartera/ListaNegocioFox/Negocios.aspx")%>'>Lista de negocios FOX</a></li>
+                            <li><a href='<%= ResolveUrl("Cartera/SeguimientoNegocio/GesNegocio.aspx")%>'>Seguimiento de Negocios</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#"><span class="nav-label">Administración</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/Administracion/AdminUsuarios.aspx">Asignación de permisos</a></li>
-                            <li><a href="/Administracion/GestUsuNegocios.aspx">Usuarios negocio</a></li>
+                            <li><a href= '<%= ResolveUrl("Administracion/AdminUsuarios.aspx")%>'>Asignación de permisos</a></li>
+                            <li><a href='<%= ResolveUrl("Administracion/GestUsuNegocios.aspx")%>'>Usuarios negocio</a></li>
                         </ul>
                     </li>
                 </ul>

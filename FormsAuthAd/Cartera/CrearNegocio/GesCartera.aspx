@@ -16,7 +16,7 @@
     <script src="../../vendor/jquery-ui/jquery-ui.min.js"></script>
     <script src="../../scripts_crm/HttpBll.js"></script>
     <script src="../../BLLscripts/BLLUtilidades.js"></script>
-    <script src="../../../BLLscripts/BLLnegocio.js"></script>
-    <script src="../../../BLLscripts/BLLProyectos.js"></script>
+    <script src="../../BLLscripts/BLLnegocio.js"></script>
+    <script src="../../BLLscripts/BLLProyectos.js"></script>
     <script src="../js/Cartera.js"></script>
 </asp:Content>

@@ -1,5 +1,5 @@
-﻿var Wcliente = "/Servicios/WSeparaciones.asmx/cliente";
-var WclienteAsociado = "/Servicios/WSeparaciones.asmx/_getAsociado";
+﻿var Wcliente = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/cliente");
+var WclienteAsociado = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_getAsociado");
 
 
 var _Dto="";
@@ -55,10 +55,10 @@ BLLnegocio.CrearTabl = function (proyectos) {
             tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
          //   tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
             tabla += "<td>"
-            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../../../images_crm/Espera.png' disabled/></a<";
+            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../../..images_crm/Espera.png' disabled/></a<";
             tabla += "</td>";
             tabla += "<td style='width:20px;'>";
-            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../../../images_crm/Drawing.png'/></a<";
+            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../../..images_crm/Drawing.png'/></a<";
             tabla += "</td>";
 
         } else if(item.Estado=='CRM') {
@@ -74,10 +74,10 @@ BLLnegocio.CrearTabl = function (proyectos) {
                   +"</div>"
                   + "</td>";
             tabla += "<td>"
-            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../../images_crm/Espera.png' disabled/></a<";
+            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../..images_crm/Espera.png' disabled/></a<";
             tabla += "</td>";
             tabla += "<td style='width:20px;'>";
-            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../../images_crm/Drawing.png'/></a<";
+            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='../..images_crm/Drawing.png'/></a<";
             tabla += "</td>";
                  //tabla += "<td style='width:20px;height: 20px' ></td>";
         }
@@ -86,10 +86,10 @@ BLLnegocio.CrearTabl = function (proyectos) {
 
             tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
             tabla += "<td>"
-            tabla += "<a title='Este negocio se encuentra en multifox'><img src='../../images_crm/Completa.png'/></a<";
+            tabla += "<a title='Este negocio se encuentra en multifox'><img src='../..images_crm/Completa.png'/></a<";
             tabla += "</td>";
             tabla += "<td style='width:20px;'>";
-            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../../images_crm/Drawing.png'/></a>";
+            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../..images_crm/Drawing.png'/></a>";
             tabla += "</td>";
 
         } else if (item.Estado == 'FOX') {
@@ -106,10 +106,10 @@ BLLnegocio.CrearTabl = function (proyectos) {
                   + "</div>"
                   + "</td>";
             tabla += "<td>"
-            tabla += "<a title='Este negocio se encuentra en multifox'><img src='../../images_crm/Completa.png'/></a<";
+            tabla += "<a title='Este negocio se encuentra en multifox'><img src='../..images_crm/Completa.png'/></a<";
             tabla += "</td>";
             tabla += "<td style='width:20px;'>";
-            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../../images_crm/Drawing.png'/></a>";
+            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='../..images_crm/Drawing.png'/></a>";
             tabla += "</td>";
 
         }
@@ -119,10 +119,10 @@ BLLnegocio.CrearTabl = function (proyectos) {
 
             tabla += "<td>No tiene Adjunto</td>";
             tabla += "<td>"
-            tabla += "<a title='Este negocio esta desistido'><img src='../../images_crm/PV.png' disabled/></a<";
+            tabla += "<a title='Este negocio esta desistido'><img src='../..images_crm/PV.png' disabled/></a<";
             tabla += "</td>";
             tabla += "<td style='width:20px;'>";
-            tabla += "<a title='Este negocio esta desistido'><img src='../../images_crm/Drawing.png' disabled/></a<";
+            tabla += "<a title='Este negocio esta desistido'><img src='../..images_crm/Drawing.png' disabled/></a<";
             tabla += "</td>";
         }
         tabla += "</td>";
