@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
     <link rel="stylesheet" href="vendor/bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.css" />
     <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css" />
-    <!---Stylos Alerta--->
+    <!---Styles Alerta--->
      <link rel="stylesheet" href="vendor/sweetalert/lib/sweet-alert.css" />
     <link rel="stylesheet" href="vendor/toastr/build/toastr.min.css" />
     <link rel="stylesheet" href="styles_crm/static_custom.css"/>
@@ -204,6 +204,7 @@
     <script src='<%= ResolveUrl("vendor/toastr/build/toastr.min.js") %>'></script>
     <script src='<%= ResolveUrl("scripts_crm/bootstrap-datepicker.js") %>'></script>
     <script src='<%= ResolveUrl("scripts_crm/moment.min.js") %>'></script>
+      <script src='<%= ResolveUrl("BLLscripts/BLLUtilidades.js") %>'></script>
     <script src='<%= ResolveUrl("BLLscripts/BLLTareas.js") %>'></script>
     <script src='<%= ResolveUrl("BLLscripts/BLLIndex.js") %>'></script>
     <script src='<%= ResolveUrl("scripts_crm/index.js") %>'></script>

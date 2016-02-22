@@ -2,7 +2,7 @@
 var tareas = new BLLTareas();
 function BLLIndex() {
 
-    var WtareasUser = "/Servicios/WTareas.asmx/ListareasTra";//Listado de tareas asignados a un trabajador
+    var WtareasUser = funcionUrlGlobal("/Servicios/WTareas.asmx/ListareasTra");//Listado de tareas asignados a un trabajador
 
     BLLIndex.prototype.getTareas = function () {
        //jsonData = "{'t':" + JSON.stringify(trabajador) + "}";
