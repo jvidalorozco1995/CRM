@@ -51,5 +51,6 @@
     <script src="../vendor/jquery/dist/jquery.min.js"></script>
     <script src="../vendor/jquery-ui/jquery-ui.min.js"></script>
     <script src="../BLLscripts/BLLSala_Ventas.js"></script>
+    <script src="../BLLscripts/BLLUtilidades.js"></script>
     <script src="js/Salaventas.js"></script>
 </asp:Content>

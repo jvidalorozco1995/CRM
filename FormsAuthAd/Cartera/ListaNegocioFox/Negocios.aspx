@@ -214,7 +214,7 @@
     <script src="../../BLLscripts/BLLEmpresa.js"></script>
   
     <script src="../../BLLscripts/BLLSala_Ventas.js"></script>
-<script src="../../BLLscripts/BLLClientes.js"></script>
+    <script src="../../BLLscripts/BLLClientes.js"></script>
 
     <script src="../../scripts_crm/bootstrap-datepicker.js"></script>
     <script src="../../scripts_crm/accounting.js"></script>

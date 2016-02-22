@@ -5,13 +5,13 @@ var admBloques = (function () {
 
     var proyectos = null;
 
-    var WsListProyecfox = "/ServiciosFox/WProyectos.asmx/LisProyectos";//Consulto Proyectos Cargados  CRM
+    var WsListProyecfox = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos Cargados  CRM
 
-    var WsListBloquesfox = "/ServiciosFox/WFox.asmx/BloquesFox";//Listar Proyectos de MultiFox;
+    var WsListBloquesfox = funcionUrlGlobal("/ServiciosFox/WFox.asmx/BloquesFox");//Listar Proyectos de MultiFox;
 
-    var WsInsertBloques = "/ServiciosFox/WBloques.asmx/InsertBloques";//Insertar Bloques a CRM
+    var WsInsertBloques = funcionUrlGlobal("/ServiciosFox/WBloques.asmx/InsertBloques");//Insertar Bloques a CRM
 
-    var WsLisBloquesCRM = "/ServiciosFox/WBloques.asmx/GetBloques";//Devuelve Listado de Bloques CRM
+    var WsLisBloquesCRM = funcionUrlGlobal("/ServiciosFox/WBloques.asmx/GetBloques");//Devuelve Listado de Bloques CRM
 
     var _addHandlers = function () {
 

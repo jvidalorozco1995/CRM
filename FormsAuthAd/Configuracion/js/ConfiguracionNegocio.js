@@ -4,7 +4,7 @@ var utl = new BLLUtilidades();
 var admConfig = (function () {
 
     var proyec = utl.getUrl('proyec');
-    var WsLiConf = "/Servicios/WConfiguracionNegocios.asmx/getAll";//Listado de salas de ventas
+    var WsLiConf = funcionUrlGlobal("/Servicios/WConfiguracionNegocios.asmx/getAll");//Listado de salas de ventas
     var _addHandlers = function () {
 
         $('#BtnGuardar').click(function () {

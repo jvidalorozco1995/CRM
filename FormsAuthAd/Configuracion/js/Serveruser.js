@@ -15,13 +15,13 @@ var admUser = (function () {
     $('#BtnRol').hide(); 
     $('#PermisosPanel').hide();
 
-    var WsListProyec = "/ServiciosFox/WProyectos.asmx/LisProyectos";//Consulto Proyectos CRM
+    var WsListProyec =funcionUrlGlobal( "/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos CRM
 
-    var WsLisTra = "/Servicios/WTrabajador.asmx/ListTrabajadores";//Cosulto Trabajadores
-    var WsAsigProyec = "/Servicios/WTrabajador.asmx/AsignarProyectos";
+    var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores");//Cosulto Trabajadores
+    var WsAsigProyec = funcionUrlGlobal("/Servicios/WTrabajador.asmx/AsignarProyectos");
 
-    var WsRemoverp = "/ServiciosFox/WProyectos.asmx/DeleteAcceso";
-    var WsLisTp = "/ServiciosFox/WProyectos.asmx/LisTraProyectos";
+    var WsRemoverp = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/DeleteAcceso");
+    var WsLisTp = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisTraProyectos");
 
     var _addHandlers = function () {
 

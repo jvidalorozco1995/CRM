@@ -7,14 +7,14 @@ var admProyectos = (function () {
 
     var proyec = null;
     ///Servicios Proyectos
-    var WsListProyec = "/ServiciosFox/WProyectos.asmx/LisProyectos";//Consulto Proyectos CRM
-    var WsInsertProyecFox = "/ServiciosFox/WProyectos.asmx/InsertProyecFox";//Inserto Proyectos A CRM
+    var WsListProyec = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos CRM
+    var WsInsertProyecFox = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/InsertProyecFox");//Inserto Proyectos A CRM
 
 
-    var WsListProyecfox = "/ServiciosFox/WFox.asmx/consultafox";//Consulto Proyectos Fox
+    var WsListProyecfox = funcionUrlGlobal("/ServiciosFox/WFox.asmx/consultafox");//Consulto Proyectos Fox
 
-    var WsEliminarP = "/ServiciosFox/WProyectos.asmx/DeleteProyecto";
-    var WAddPlanos = "/ServiciosFox/WProyectos.asmx/Addplanos";
+    var WsEliminarP = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/DeleteProyecto");
+    var WAddPlanos = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/Addplanos");
 
     var _addHandlers = function () {
         

@@ -45,5 +45,6 @@
      <script src="../vendor/jquery/dist/jquery.min.js"></script>
     <script src="../vendor/jquery-ui/jquery-ui.min.js"></script>
     <script src="../BLLscripts/BLLBloques.js"></script>
+    <script src="../BLLscripts/BLLUtilidades.js"></script>
     <script src="js/bloques.js"></script>
 </asp:Content>

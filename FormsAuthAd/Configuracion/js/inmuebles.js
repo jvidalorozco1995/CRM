@@ -4,15 +4,15 @@ var inm = new BLLInmuebles();
 var admInmuebles = (function () {
     var bloque = null;
 
-    var WsListProyecfox = "/ServiciosFox/WProyectos.asmx/LisProyectos";//Consulto Proyectos Cargados  CRM
+    var WsListProyecfox = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos Cargados  CRM
 
-    var WsLisBloquesCRM = "/ServiciosFox/WBloques.asmx/GetBloques";//Devuelve Listado de Bloques CRM
+    var WsLisBloquesCRM = funcionUrlGlobal("/ServiciosFox/WBloques.asmx/GetBloques");//Devuelve Listado de Bloques CRM
 
-    var WsInmuebles = "/ServiciosFox/WInmuebles.asmx/ListImnueblesBlo";//Listado de Inmuebles CRM
+    var WsInmuebles = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/ListImnueblesBlo");//Listado de Inmuebles CRM
 
-    var WsInmueblesFox = "/ServiciosFox/WFox.asmx/InmueblesFox";//LIstado de Inmuebles Multifox por Proyectos
+    var WsInmueblesFox = funcionUrlGlobal("/ServiciosFox/WFox.asmx/InmueblesFox");//LIstado de Inmuebles Multifox por Proyectos
 
-    var WsAddInmuebles = "/ServiciosFox/WInmuebles.asmx/InsertInmuCrm";//Inserto inmuebles a Multifox
+    var WsAddInmuebles = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/InsertInmuCrm");//Inserto inmuebles a Multifox
 
     var _addHandlers = function () {
 

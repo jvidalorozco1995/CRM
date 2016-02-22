@@ -18,6 +18,6 @@
     <script src="../../gmaps/gmap3.min.js"></script>
     <script src="../../BLLscripts/BLLTrabajadores.js"></script>
     <script src="../../BLLscripts/BLLProyectos.js"></script>
-    
+    <script src="../BLLscripts/BLLUtilidades.js"></script>
     <script src="js/negociosNota.js"></script>
 </asp:Content>

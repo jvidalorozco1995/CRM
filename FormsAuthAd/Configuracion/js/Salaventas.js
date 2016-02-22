@@ -1,7 +1,7 @@
 ﻿var sala = new BLLSala_Ventas();
 
 var admSalas = (function () {
-    var WsLisala = "/Servicios/WSala_Ventas.asmx/ListSala";//Listado de salas de ventas
+    var WsLisala = funcionUrlGlobal("/Servicios/WSala_Ventas.asmx/ListSala");//Listado de salas de ventas
     var _addHandlers = function () {
 
         $('#BtnGuardar').click(function () {
