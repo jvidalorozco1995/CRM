@@ -95,11 +95,11 @@
 
                                                     <div style="float: left; padding-top: 20px">
                                                         <a id="BtnDisponibilidad">
-                                                            <img src="../..images_crm/Buscar.png" style="float: left" /></a>
+                                                            <img src= '<%= ResolveUrl("../../images_crm/Buscar.png") %>'  style="float: left" /></a>
                                                     </div>
                                                     <div style="float: left; padding-top: 20px">
                                                         <a id="BtnAsociadoc">
-                                                            <img src="../..images_crm/asociado.png" style="float: left" />
+                                                            <img src='<%= ResolveUrl("../../images_crm/asociado.png") %>'    style="float: left" />
                                                         </a>
                                                     </div>
                                                 </div>

@@ -41,7 +41,7 @@
                   
                     </div>
                     <div class="panel-footer">
-                        <img src="../..images_crm/excel.png"/ class="excel">
+                       <img src='<%= ResolveUrl("../../images_crm/excel.png") %>' / class="excel">
                    </div>
                  </div>
             </div>
@@ -175,6 +175,7 @@
     <script src="../../BLLscripts/BLLProyectos.js"></script>
     <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="../../BLLscripts/BLLClientes.js"></script>
+    <script src="../../BLLscripts/BLLActInmuebles.js"></script>
     <script src="../../BLLscripts/BLLInmuebles.js"></script>
     <script src="js/sepracion.js"></script>
 </asp:Content>

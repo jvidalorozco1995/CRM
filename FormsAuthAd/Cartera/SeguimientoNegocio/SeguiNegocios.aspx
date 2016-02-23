@@ -187,12 +187,12 @@
     <script src="../../BLLscripts/BLLTareas.js"></script>
 
 
-    <script src="../../../vendor/sweetalert/lib/sweet-alert.min.js"></script>
-    <script src="../../../vendor/toastr/build/toastr.min.js"></script>
-    <script src="../../../vendor/moment/moment.js"></script>
-    <script src="../../../vendor/select2-3.5.2/select2.min.js"></script>
-    <script src="../../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="../../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="../../vendor/sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="../../vendor/toastr/build/toastr.min.js"></script>
+    <script src="../../vendor/moment/moment.js"></script>
+    <script src="../../vendor/select2-3.5.2/select2.min.js"></script>
+    <script src="../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
 
                 <script src="../js/SeguiNegocio.js"></script>
     

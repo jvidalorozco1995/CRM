@@ -1,17 +1,17 @@
 ﻿function BLLInfocomercial() {
 
-    var Winfcomercial = "/Servicios/Winfocomercial.asmx/Infotareas";
-    var WinfProyectos = "/Servicios/Winfocomercial.asmx/InfoProyectos"; 
-    var WinfAsesor = "/Servicios/Winfocomercial.asmx/InfoAsesor";
-    var WInfechas = "/Servicios/Winfocomercial.asmx/LisclientesFechas";//por fechas
-    var WItrabaja = "/Servicios/Winfocomercial.asmx/LisclientesT";//por fechas
-    var WclietesAsesor = "/Servicios/Winfocomercial.asmx/LisclientesAsesores"
-    var Wclientesproyectos = "/Servicios/Winfocomercial.asmx/Lisclientesproyectos";
-    var WFechasTareas = "/Servicios/Winfocomercial.asmx/FechaTareascliente";
+    var Winfcomercial =funcionUrlGlobal( "/Servicios/Winfocomercial.asmx/Infotareas");
+    var WinfProyectos = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/InfoProyectos"); 
+    var WinfAsesor = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/InfoAsesor");
+    var WInfechas = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/LisclientesFechas");//por fechas
+    var WItrabaja = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/LisclientesT");//por fechas
+    var WclietesAsesor = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/LisclientesAsesores");
+    var Wclientesproyectos = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/Lisclientesproyectos");
+    var WFechasTareas = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/FechaTareascliente");
 
-    var WFechasAsesorCliente = "/Servicios/Winfocomercial.asmx/FechacliteAsesor";
-    var WFechasRango = "/Servicios/Winfocomercial.asmx/FechaRango";
-    var WFechasRangoProyec = "/Servicios/Winfocomercial.asmx/FechaRangoProyectos";
+    var WFechasAsesorCliente = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/FechacliteAsesor");
+    var WFechasRango = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/FechaRango");
+    var WFechasRangoProyec = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/FechaRangoProyectos");
 
     var barData = [];
     var fecha = [];

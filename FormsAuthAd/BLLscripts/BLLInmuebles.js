@@ -440,15 +440,15 @@ function BLLInmuebles() {
                     tabla += "<td>" + moment(item.FECHASEPARACION).format("YYYY/MM/DD") + "</td>";
                 }
                 if (item.ESTADO == "P") {
-                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "><img src='..images_crm/libre.png'> Dias " + item.DIAS + "</td>";
+                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "><img src='"+funcionUrlGlobal( '/images_crm/libre.png')+"'> Dias " + item.DIAS + "</td>";
                 }
                 else {
                     if (item.ESTADO == "D") {
-                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/Suspendido.png'></td>";
+                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'></td>";
                     }
                     else {
                         if (item.ESTADO == "L") {
-                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/Completa.png'></td>";
+                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
                         }
                         else {
                             if (item.ESTADO == null) {
@@ -738,15 +738,15 @@ function BLLInmuebles() {
                     tabla += "<td>" + moment(item.FECHASEPARACION).format("YYYY/MM/DD") + "</td>";
                 }
                 if (item.ESTADO == "P") {
-                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/libre.png'></td>";
+                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/libre.png') +"'></td>";
                 }
                 else {
                     if (item.ESTADO == "D") {
-                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/Suspendido.png'></td>";
+                        tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'></td>";
                     }
                     else {
                         if (item.ESTADO == "L") {
-                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='images_crm/Completa.png'></td>";
+                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "> <img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
                         }
                         else {
                             if (item.ESTADO ==null) {

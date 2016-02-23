@@ -3,7 +3,7 @@
 function BLLProyectos() {
 
 
-    var WEstaAsesor = "/ServiciosFox/WProyectos.asmx/Lisasesortarea";
+    var WEstaAsesor = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/Lisasesortarea");
    
     
     BLLProyectos.prototype.listadotareasP = function (p) {
@@ -259,7 +259,7 @@ function BLLProyectos() {
             tabla += "<button id='" + item.ID_PROYEC + "' class='btn btn-danger btn-xs RemoverP' type='button'>Eliminar</button>";
             tabla += "</td>";
             tabla += "<td style='width:20px;'>";
-            tabla += "<a class='Planos' id=" + item.ID_PROYEC + "><img src='..images_crm/Drawing.png'/></a<";
+            tabla += "<a class='Planos' id=" + item.ID_PROYEC + "><img src='"+funcionUrlGlobal('/images_crm/Drawing.png')+"'/></a<";
             tabla += "</td>";
             tabla += "</tr>";
         });
@@ -638,16 +638,16 @@ function BLLProyectos() {
             tabla += "<td>" + item.ASESOR + "</td>";
             switch (item.ESTADO) {
                 case "T":
-                    tabla += "<td ><img src='..images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal("/images_crm/Completa.png") + "'     class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case "E":
-                    tabla += "<td ><img src='images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal("/images_crm/Suspendido.png") + "'  class='historial' id=" + item.CEDULA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td ><img src='images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal("/images_crm/Suspendido.png") + "' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal("/images_crm/Espera.png") + "' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";

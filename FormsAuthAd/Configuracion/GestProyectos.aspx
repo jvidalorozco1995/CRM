@@ -23,7 +23,7 @@
                                  <center>
                                  <div class="alert alert-danger" role="alert" id="MensajeFox" style="width:80%">
                                   <h1> CRM - Mayales</h1>
-                                  <h3> Actualemte no Existen Proyectos Cargados MultiFox</h3>
+                                  <h3> Actualmente no Existen Proyectos Cargados MultiFox</h3>
                                  </div>
                                </center>
                             </div>
@@ -82,8 +82,8 @@
 
      <script src="../vendor/jquery/dist/jquery.min.js"></script>
     <script src="../vendor/jquery-ui/jquery-ui.min.js"></script>
+     <script src="../BLLscripts/BLLUtilidades.js"></script>
     <script src="../BLLscripts/BLLTrabajadores.js"></script>
     <script src="../BLLscripts/BLLProyectos.js"></script>
-    <script src="../BLLscripts/BLLUtilidades.js"></script>
     <script src="js/proyectos.js"></script>
 </asp:Content>

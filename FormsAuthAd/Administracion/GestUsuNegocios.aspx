@@ -61,10 +61,11 @@
     <link rel="stylesheet" href="../vendor/sweetalert/lib/sweet-alert.css" />
     <link rel="stylesheet" href="../vendor/toastr/build/toastr.min.css" />
     <link rel="stylesheet" href="../styles_crm/static_custom.css">
+    
+       <script src="../BLLscripts/BLLUtilidades.js"></script>
     <script src="../BLLscripts/BLLTrabajadores.js"></script>
     <script src="../BLLscripts/BLLProyectos.js"></script>
     <script src="../BLLscripts/BLLUser.js"></script>
-       <script src="../BLLscripts/BLLUtilidades.js"></script>
      <script src="../scripts_crm/HttpBll.js"></script>
     <script src="../BLLscripts/BLLnegocio.js"></script>
     <script src="../Administracion/js/Admingestusu.js"></script>

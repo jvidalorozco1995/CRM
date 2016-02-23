@@ -2,7 +2,7 @@
 function BLLAcuerdosFox() {
 
 }
-var WsUrl = "/Servicios/AcuerdosFox.asmx/AcuerdosNegocio";
+var WsUrl = funcionUrlGlobal("/Servicios/AcuerdosFox.asmx/AcuerdosNegocio");
 
 
 BLLAcuerdosFox.prototype.AcuerdosReporte = function (negocio) {

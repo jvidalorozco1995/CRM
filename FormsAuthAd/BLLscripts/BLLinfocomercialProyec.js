@@ -11,12 +11,12 @@
     var singleBarOptions = {};
     var singleBarData = {};
 
-    var Winfcomercial = "/Servicios/Winfocomercial.asmx/InfoProyectos";
-    var WLisproyectosInteres = "/Servicios/WInfocomercialProyec.asmx/LisproyectosInteres";
-    var WclietesAsesor = "/Servicios/WInfocomercialProyec.asmx/LisproyectosAsesor";
-    var WRangotareasp = "/Servicios/WInfocomercialProyec.asmx/LisRangotareas";
-    var WRangoclinetesp = "/Servicios/WInfocomercialProyec.asmx/LisPclientes";
-    var WAsesorRango = "/Servicios/WInfocomercialProyec.asmx/LisPAsesores";
+    var Winfcomercial = funcionUrlGlobal("/Servicios/Winfocomercial.asmx/InfoProyectos");
+    var WLisproyectosInteres = funcionUrlGlobal("/Servicios/WInfocomercialProyec.asmx/LisproyectosInteres");
+    var WclietesAsesor = funcionUrlGlobal("/Servicios/WInfocomercialProyec.asmx/LisproyectosAsesor");
+    var WRangotareasp = funcionUrlGlobal("/Servicios/WInfocomercialProyec.asmx/LisRangotareas");
+    var WRangoclinetesp = funcionUrlGlobal("/Servicios/WInfocomercialProyec.asmx/LisPclientes");
+    var WAsesorRango = funcionUrlGlobal("/Servicios/WInfocomercialProyec.asmx/LisPAsesores");
 
     BLLinfocomercialProyec.prototype.Infotarea = function (proyecto) {
         JsData = "{'p':"+JSON.stringify(proyecto)+"}";

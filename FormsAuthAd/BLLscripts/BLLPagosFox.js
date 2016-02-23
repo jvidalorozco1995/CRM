@@ -2,7 +2,7 @@
 var BLLPagosFox = function () {
 
 };
-var WAPagosNegocio = "/Servicios/WPagosFox.asmx/pagosFox"
+var WAPagosNegocio = funcionUrlGlobal("/Servicios/WPagosFox.asmx/pagosFox");
 BLLPagosFox.prototype.PagosFox = function (negocio) {
     jsonData = "{'n':" + JSON.stringify(negocio) + "}";
     $.ajax({

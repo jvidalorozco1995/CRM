@@ -1,6 +1,6 @@
 ﻿function BLLConfiguracion_Negocio() {
 
-    var WAddConfiguracionNegocio = "/Servicios/WConfiguracionNegocios.asmx/InsertConfiguracion";
+    var WAddConfiguracionNegocio = funcionUrlGlobal("/Servicios/WConfiguracionNegocios.asmx/InsertConfiguracion");
     
 
 

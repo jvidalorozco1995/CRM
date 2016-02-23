@@ -1,6 +1,6 @@
 ﻿function BLLSala_Ventas() {
 
-    var WAddsala = "/Servicios/WSala_Ventas.asmx/InsertSala";
+    var WAddsala =  funcionUrlGlobal("/Servicios/WSala_Ventas.asmx/InsertSala");
 
     BLLSala_Ventas.prototype.AddSala = function (sala) {
         

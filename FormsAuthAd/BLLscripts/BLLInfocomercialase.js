@@ -1,9 +1,9 @@
 ﻿function BLLInfocomercialase() {
 
-    var WInfoasesor = "/Servicios/WInfocomercialAsesor.asmx/LisAsesor";
-    var WInfoasesorpro = "/Servicios/WInfocomercialAsesor.asmx/Asesorproyect";
-    var WInfoasesorFec = "/Servicios/WInfocomercialAsesor.asmx/AsesorFechas";
-    var WInfoasesorFecPr = "/Servicios/WInfocomercialAsesor.asmx/AsesorProyectosFechas";
+    var WInfoasesor = funcionUrlGlobal("/Servicios/WInfocomercialAsesor.asmx/LisAsesor");
+    var WInfoasesorpro = funcionUrlGlobal("/Servicios/WInfocomercialAsesor.asmx/Asesorproyect");
+    var WInfoasesorFec = funcionUrlGlobal("/Servicios/WInfocomercialAsesor.asmx/AsesorFechas");
+    var WInfoasesorFecPr = funcionUrlGlobal("/Servicios/WInfocomercialAsesor.asmx/AsesorProyectosFechas");
 
     var barData = [];
     var fecha = [];

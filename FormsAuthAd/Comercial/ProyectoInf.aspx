@@ -82,11 +82,11 @@
                                         <!-- Wrapper for slides -->
                                         <div class="carousel-inner" role="listbox">
                                             <div class="item active">
-                                                <img src="..images_crm/Planos2.jpg" alt="Chania">
+                                                <img src='<%= ResolveUrl("../images_crm/Planos2.jpg")%>' alt="Chania">
                                             </div>
 
                                             <div class="item">
-                                                <img src="..images_crm/Planos2.jpg" alt="Flower">
+                                                <img src='<%= ResolveUrl("../images_crm/Planos2.jpg")%>' alt="Flower">
                                             </div>
                                         </div>
 
@@ -205,7 +205,7 @@
                                                             <label>Documento de Identidad *</label>
                                                           <input type="text" value="" id="TxtIdentidad" class="form-control" maxlength="10" autofocus="" style="float:left">
                                                          </div>
-                                                        <div style="float:left;padding-top:20px"><a id="BtnDisponibilidad"><img src="..images_crm/Buscar.png" style="float:left" /></a></div>
+                                                        <div style="float:left;padding-top:20px"><a id="BtnDisponibilidad"><img src='<%= ResolveUrl("../images_crm/Buscar.png")%>'style="float:left" /></a></div>
                                                         <div class="form-group col-lg-6">
                                                             <label>Nombre *</label>
                                                             <input type="text" value="" id="TxtNombres" class="form-control" name="" placeholder="Nombre">

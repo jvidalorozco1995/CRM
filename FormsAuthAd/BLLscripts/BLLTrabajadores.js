@@ -141,16 +141,16 @@
             tabla += "<td>" + item.PROYECTO_INT + "</td>";
             switch (item.ESTADO) {
                 case "T":
-                    tabla += "<td ><img src='images_crm/Completa.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'  class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case "E":
-                    tabla += "<td ><img src='images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href='' /></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "' class='historial' id=" + item.CEDULA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td ><img src='images_crm/Suspendido.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='images_crm/Espera.png' class='historial' id=" + item.CEDULA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "' class='historial' id=" + item.CEDULA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";

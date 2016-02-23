@@ -225,11 +225,11 @@ function BLLComercial() {
             tabla += "<td>" + item.NOMBRES + '  ' + item.P_APELLIDO + '  ' + item.S_APELLIDO + "</td>";
             tabla += "<td>" + item.DIRECCION + "</td>";
             tabla += "<td style='width:20px;height: 20px'>";
-            tabla += "<img src='..images_crm/Crear.png'  class='BtnTarea' type='button' id='" + item.CEDULA + "/" + item.EMAIL + "' title='Crear Tareas'></img>";
+            tabla += "<img src='"+funcionUrlGlobal('/images_crm/Crear.png')+"'class='BtnTarea' type='button' id='" + item.CEDULA + "/" + item.EMAIL + "' title='Crear Tareas'></img>";
             tabla += "</td>";
             if (item.ESTADO_I == null)
             {
-                tabla += "<td style='width:20px;height: 20px'><img src='..images_crm/agregar.png'  id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+                tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/agregar.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
                 
             }
             else
@@ -237,25 +237,25 @@ function BLLComercial() {
                 if (item.ESTADO_I == "D")
                 {
 
-                    tabla += "<td style='width:20px;height: 20px'><img src='..images_crm/agregar.png'  id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+                    tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/agregar.png') + "'  id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
                 }
                 else
                 { 
                     if (item.ESTADO_I == "L")
                     {
                         //tabla += "<td style='width:20px;height: 20px'><img src='..images_crm/agregar.png'  id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
-                        tabla += "<td style='width:20px;height: 20px' ><img src='..images_crm/Home2.png' id=" + item.REFERENCIA + " class='inmsdetalles' title='Detalle de separacion'></img></td>";
+                        tabla += "<td style='width:20px;height: 20px' ><img src= '" + funcionUrlGlobal('/images_crm/Home2.png') + "' id='" + item.REFERENCIA + " class='inmsdetalles' title='Detalle de separacion'></img></td>";
                     }
                     else
                     {
                         if (item.ESTADO_I == "P")
                         {
-                            tabla += "<td style='width:20px;height: 20px' ><img src='..images_crm/Home2.png' id=" + item.REFERENCIA + " class='inmsdetalles' title='Detalle de separacion'></img></td>";
+                            tabla += "<td style='width:20px;height: 20px' ><img src= '" + funcionUrlGlobal('/images_crm/Home2.png') + "' id='" + item.REFERENCIA + " class='inmsdetalles' title='Detalle de separacion'></img></td>";
                             
                         }
                         else
                         {
-                            tabla += "<td style='width:20px;height: 20px'><img src='..images_crm/agregar.png'  id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+                            tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/agregar.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
                         }
                     }
                 }
@@ -263,23 +263,23 @@ function BLLComercial() {
             }
             if (item.ESTADO_C == "A")
             {
-                tabla += "<td style='width:20px;height: 20px'><img src='..images_crm/_Auser.png'  id='" + item.CEDULA + "/" + item.EMAIL + "'></img></td>";
+                tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/_Auser.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "'></img></td>";
             }
             else
             {
                 if (item.ESTADO_C == "N")
                 {
-                    tabla += "<td style='width:20px;height: 20px'><img src='..images_crm/user_error.png'  id='" + item.CEDULA + "/" + item.EMAIL + "' ></img></td>";
+                    tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/user_error.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "' ></img></td>";
                 }
                 else
                 {
                     if (item.ESTADO_C == "C")
                     {
-                        tabla += "<td style='width:20px;height: 20px'><img src='..images_crm/checked_user.png'  id='" + item.CEDULA + "/" + item.EMAIL + "'></img></td>";
+                        tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/checked_user.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "'></img></td>";
                     }
                     else
                     {
-                        if (item.ESTADO_C == null) { tabla += "<td style='width:20px;height: 20px'><img src='..images_crm/_Auser.png'  id='" + item.CEDULA + "/" + item.EMAIL + "'></img></td>"; }
+                        if (item.ESTADO_C == null) { tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/_Auser.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "'></img></td>"; }
                     }
                 }
             }

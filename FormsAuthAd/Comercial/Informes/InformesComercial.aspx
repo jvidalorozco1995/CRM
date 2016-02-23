@@ -179,9 +179,9 @@
     <script src="../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
     <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="../../scripts_crm/moment.min.js"></script>
+     <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="../../BLLscripts/BLLTrabajadores.js"></script>
     <script src="../../BLLscripts/BLLProyectos.js"></script>
     <script src="../../BLLscripts/BLLInfocomercial.js"></script>
-    <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="js/Infocomercial.js"></script>
 </asp:Content>
