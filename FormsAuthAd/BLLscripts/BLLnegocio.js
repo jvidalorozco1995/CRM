@@ -66,7 +66,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
             tabla += "<td style='width:120px;height: 20px'>"
                   + "<div class='row'>"
                       + "<div class='col-sm-9'>"
-                          + "<input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
+                          + "<input type='file' name='UploadFile'  accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
                       + "</div>"
                       + "<div class='col-sm-3'>"
                          + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
@@ -343,7 +343,7 @@ BLLnegocio.prototype = {
                   $("#button").append('<button class="btn btn-default btn-btn-circle Btimprimir" type="button" id=' + x[1] + ' >Imprimir hoja de negocio</button>');
                   
                   setTimeout(function () {
-                      $('#datos').hide();
+                      //$('#datos').hide();
                       inmuebles._lisnegociosepracion(proyec);
                   }, 2000);
                   

@@ -8,7 +8,7 @@ var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores");
 
 //Funcion que devuelve la URL del proyecto
 function funcionUrlGlobal(url) {
-    var opcion = 'PR';
+    var opcion = '';
     var UrlGlobal= "";
     if (opcion == 'PU') { UrlGlobal = '/CRM' + url; } else if (opcion == '') { UrlGlobal = url; } else if (opcion == 'PR') { UrlGlobal = '/CRM_TEST' + url; }
     return UrlGlobal;
@@ -29,10 +29,10 @@ function BLLUtilidades() {
         e = e || window.event; // for IE
         e.preventDefault(); 
 
-        // launch a new window with your PDF
+        // lanzar una nueva ventana en una nueva ventana
         window.open(path, 'somename'/* options */);
 
-        // redirect current page to new location
+        // redirecta a una nueva pagina
         window.location = redirect;
     }
 

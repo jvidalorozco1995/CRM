@@ -145,10 +145,10 @@
                         <ul class="nav nav-second-level">
                             
                             <li><a href='<%= ResolveUrl("Configuracion/GestProyectos.aspx") %>'>Proyectos</a></li>
-                            <li><a href='<%= ResolveUrl("Configuracion/Bancos.aspx") %>'>Bancos</a></li>
                             <li><a href='<%= ResolveUrl("Configuracion/GestBloques.aspx") %>'>Bloques</a></li>
                             <li><a href='<%= ResolveUrl("Configuracion/GetInmuebles.aspx")%>'>Inmuebles</a></li>
                             <li><a href='<%= ResolveUrl("Configuracion/SalasVentas.aspx")%>'>Sala de ventas</a></li>
+                             <li><a href='<%= ResolveUrl("Configuracion/Bancos.aspx") %>'>Bancos</a></li>
                             <li><a href='<%= ResolveUrl("Configuracion/GestNotaAclaratoria.aspx")%>'>Configuración Nota Aclaratoria</a></li>
                         </ul>
                     </li>
