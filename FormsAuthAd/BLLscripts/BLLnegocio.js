@@ -50,7 +50,8 @@ BLLnegocio.CrearTabl = function (proyectos) {
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
         tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
         
-        if (item.DOCUMENTO != undefined && item.Estado == 'CRM') {
+        if (item.DOCUMENTO != undefined && item.Estado == 'CRM')
+        {
 
             tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
          //   tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
@@ -61,7 +62,9 @@ BLLnegocio.CrearTabl = function (proyectos) {
             tabla += "<a title='Este negocio no se ha cargado a multifox'><img src= '" + funcionUrlGlobal("/images_crm/Drawing.png") + "'/></a<";
             tabla += "</td>";
 
-        } else if(item.Estado=='CRM') {
+        }
+         else if (item.Estado == 'CRM')
+        {
 
             tabla += "<td style='width:120px;height: 20px'>"
                   + "<div class='row'>"
