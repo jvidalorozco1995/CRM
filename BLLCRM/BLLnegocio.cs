@@ -24,7 +24,7 @@ namespace BLLCRM
        public string Hojanegocio(negocio n,string inm, List<acuerdo_pago> ac) {
            try
            {
-                var _CodS = bd.VCod_SP.Where(sp => sp.CLIENTE == n.CEDULA_P).ToList();
+                var _CodS = bd.VCod_SP.Where(sp => sp.COD == n.SEPARACION).ToList();
                        string Cod_Sp = "";
 
                        foreach (var item2 in _CodS)

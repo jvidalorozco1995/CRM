@@ -164,8 +164,10 @@ var _admhoja = (function () {
 
 
     var _Inicio = function () {
+      
         getHoha(idhoja);
         acuerdo(idhoja);
+        
         ConfiguracionNegocio(proyec);
         imprimir();
     }

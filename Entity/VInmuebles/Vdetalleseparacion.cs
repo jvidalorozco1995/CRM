@@ -40,6 +40,9 @@ namespace Entity.VInmuebles
             public string CASA { get; set; }
             public string ESTADO { get; set; }
             public int  ID_S { get; set; }
+
+            public string CODIGO_F { get; set; }
+            public string ID_NEGOCIO { get; set; }
         }
     }
 }

@@ -51,5 +51,7 @@ namespace DAL
         public string ASESOR { get; set; }
         public string INMU_INTERES { get; set; }
         public int ID_SEPARACION { get; set; }
+        public string CODIGO_F { get; set; }
+        public string ID_NEGOCIO { get; set; }
     }
 }

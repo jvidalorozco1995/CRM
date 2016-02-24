@@ -383,7 +383,7 @@ warning 6002: The table/view 'CRM_TEST.dbo.historial_acuerdos_pagos' does not ha
             <PropertyRef Name="T_CEDULA" />
           </Key>
           <Property Name="T_CEDULA" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="NOMBRES" Type="varchar" MaxLength="25" />
+          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
           <Property Name="TIPO" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -429,7 +429,7 @@ warning 6002: The table/view 'CRM_TEST.dbo.NegocioView' does not have a primary 
           <Property Name="CLASE_INMU" Type="varchar" MaxLength="45" />
           <Property Name="ID_HOJA" Type="int" Nullable="false" />
           <Property Name="SEPARACION" Type="int" />
-          <Property Name="NOMBRES" Type="varchar" MaxLength="25" />
+          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
           <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
@@ -743,10 +743,12 @@ warning 6002: The table/view 'CRM_TEST.dbo.Vsepracioninmuebles' does not have a 
           <Property Name="TEL_EMP" Type="varchar" MaxLength="12" />
           <Property Name="NOMBRE_SALA" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ID_SALA" Type="int" Nullable="false" />
-          <Property Name="TRABAJADOR" Type="varchar" MaxLength="25" />
+          <Property Name="TRABAJADOR" Type="varchar" MaxLength="60" />
           <Property Name="ASESOR" Type="varchar" MaxLength="30" />
           <Property Name="INMU_INTERES" Type="varchar" MaxLength="20" />
           <Property Name="ID_SEPARACION" Type="int" Nullable="false" />
+          <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
+          <Property Name="ID_NEGOCIO" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_TEST.dbo.Vspt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1317,7 +1319,9 @@ FROM [dbo].[VNegocioscompromisos] AS [VNegocioscompromisos]</DefiningQuery>
 [Vsepracioninmuebles].[TRABAJADOR] AS [TRABAJADOR], 
 [Vsepracioninmuebles].[ASESOR] AS [ASESOR], 
 [Vsepracioninmuebles].[INMU_INTERES] AS [INMU_INTERES], 
-[Vsepracioninmuebles].[ID_SEPARACION] AS [ID_SEPARACION]
+[Vsepracioninmuebles].[ID_SEPARACION] AS [ID_SEPARACION], 
+[Vsepracioninmuebles].[CODIGO_F] AS [CODIGO_F], 
+[Vsepracioninmuebles].[ID_NEGOCIO] AS [ID_NEGOCIO]
 FROM [dbo].[Vsepracioninmuebles] AS [Vsepracioninmuebles]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Vspt" EntityType="Self.Vspt" store:Type="Views" store:Schema="dbo">
@@ -1862,7 +1866,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <PropertyRef Name="T_CEDULA" />
           </Key>
           <Property Name="T_CEDULA" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRES" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TIPO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="historial_clientes" Relationship="CRMModel.FK__historial__traba__1FF8A574" FromRole="trabajadores" ToRole="historial_clientes" />
@@ -1919,7 +1923,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="CLASE_INMU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ID_HOJA" Type="Int32" Nullable="false" />
           <Property Name="SEPARACION" Type="Int32" />
-          <Property Name="NOMBRES" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -2135,10 +2139,12 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="TEL_EMP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_SALA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ID_SALA" Type="Int32" Nullable="false" />
-          <Property Name="TRABAJADOR" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="TRABAJADOR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="ASESOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="INMU_INTERES" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ID_SEPARACION" Type="Int32" Nullable="false" />
+          <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_NEGOCIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Vspt">
           <Key>
@@ -3067,6 +3073,8 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="Vsepracioninmuebles">
             <EntityTypeMapping TypeName="CRMModel.Vsepracioninmuebles">
               <MappingFragment StoreEntitySet="Vsepracioninmuebles">
+                <ScalarProperty Name="ID_NEGOCIO" ColumnName="ID_NEGOCIO" />
+                <ScalarProperty Name="CODIGO_F" ColumnName="CODIGO_F" />
                 <ScalarProperty Name="ID_SEPARACION" ColumnName="ID_SEPARACION" />
                 <ScalarProperty Name="INMU_INTERES" ColumnName="INMU_INTERES" />
                 <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />

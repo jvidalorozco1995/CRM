@@ -351,8 +351,9 @@ public class negocioR {
     {
         try
         {
+            // T.ASESOR == user
             user = Membership.GetUser().ToString();
-            List<Vsepracioninmuebles> ls = bd.Vsepracioninmuebles.Where(T => T.ID_PROYEC == p && T.ASESOR == user &&(T.ESTADO=="L" || T.ESTADO =="C")).ToList();
+            List<Vsepracioninmuebles> ls = bd.Vsepracioninmuebles.Where(T => T.ID_PROYEC == p  && T.ESTADO=="L" || T.ESTADO =="C").ToList();
             List<Vdetalleseparacion.SepracionInmueble> _Lseparacion = new List<Vdetalleseparacion.SepracionInmueble>();
             if (ls.Count.Equals(0))
             {
@@ -378,6 +379,8 @@ public class negocioR {
                     separacion.CASA = item.NOMBRE_BLO.Trim() + " - " + item.CASA.Trim();
                     separacion.DIAS = DIAS_TR;
                     separacion.ESTADO = item.ESTADO;
+                    separacion.CODIGO_F = item.CODIGO_F;
+                    separacion.ID_NEGOCIO = item.ID_NEGOCIO;
                     _Lseparacion.Add(separacion);
                 }
                 return _Lseparacion;

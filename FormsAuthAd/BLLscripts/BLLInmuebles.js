@@ -472,6 +472,7 @@ function BLLInmuebles() {
         var tabla = '<table id="sepracion" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr>";
+        tabla += "<th>Codigo CRM</th>"
         tabla += "<th>Cliente</th>";
         tabla += "<th>Telefono</th>";
         tabla += "<th>Inmueble</th>";
@@ -481,17 +482,29 @@ function BLLInmuebles() {
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(inmuebles, function (i, item) {
-
+          
             tabla += " <tr>";
+            if (item.CODIGO_F != null)
+            {
+                tabla += "<td>" + item.CODIGO_F + "</td>";
+
+            } else
+            {
+
+                tabla += "<td>" + "No tiene negocio" + "</td>";
+            }
+           
             tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO + "</td>";
             tabla += "<td>" + item.TELEFONO2 + "</td>";
             tabla += "<td>" + $.trim(item.CASA) + "</td>";
             tabla += "<td>" + $.trim(item.NOMBRE_PROYEC) + "</td>";
-            if (item.ESTADO = 'C')
+            if (item.ESTADO == 'C')
             {
-                tabla += "<td class='Btimprimir'id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td>";
+                
+                tabla += "<td class='Btimprimir'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td>";
             }
-            else if (item.ESTADO = 'L') {
+            else if (item.ESTADO == 'L')
+            {
 
                 tabla += "<td class='CargarN'id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "  style='width:22px'><button class='btn btn-success btn-xs' type='button'>Crear Hoja de negocio</button></td>";
 

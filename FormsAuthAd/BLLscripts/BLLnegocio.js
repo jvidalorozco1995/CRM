@@ -346,7 +346,8 @@ BLLnegocio.prototype = {
                   $("#button").append('<button class="btn btn-default btn-btn-circle Btimprimir" type="button" id=' + x[1] + ' >Imprimir hoja de negocio</button>');
                   
                   setTimeout(function () {
-                      //$('#datos').hide();
+                      $('#datos').hide();
+                      var proyec = utl.getUrl('proyec');
                       inmuebles._lisnegociosepracion(proyec);
                   }, 2000);
                   
