@@ -352,7 +352,7 @@ public class negocioR {
         try
         {
             user = Membership.GetUser().ToString();
-            List<Vsepracioninmuebles> ls = bd.Vsepracioninmuebles.Where(T => T.ID_PROYEC == p && T.ASESOR == user && T.ESTADO=="L").ToList();
+            List<Vsepracioninmuebles> ls = bd.Vsepracioninmuebles.Where(T => T.ID_PROYEC == p && T.ASESOR == user &&(T.ESTADO=="L" || T.ESTADO =="C")).ToList();
             List<Vdetalleseparacion.SepracionInmueble> _Lseparacion = new List<Vdetalleseparacion.SepracionInmueble>();
             if (ls.Count.Equals(0))
             {

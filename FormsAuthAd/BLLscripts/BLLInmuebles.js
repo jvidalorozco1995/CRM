@@ -487,8 +487,16 @@ function BLLInmuebles() {
             tabla += "<td>" + item.TELEFONO2 + "</td>";
             tabla += "<td>" + $.trim(item.CASA) + "</td>";
             tabla += "<td>" + $.trim(item.NOMBRE_PROYEC) + "</td>";
-            tabla += "<td class='CargarN'id=" + item.CLIENTE +"/"+item.ID_S +"/"+item.INMUEBLE+"  style='width:22px'><button class='btn btn-success btn-xs' type='button'>Crear Hoja de negocio</button></td>";
-            tabla += "</tr>";
+            if (item.ESTADO = 'C')
+            {
+                tabla += "<td class='Btimprimir'id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td>";
+            }
+            else if (item.ESTADO = 'L') {
+
+                tabla += "<td class='CargarN'id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "  style='width:22px'><button class='btn btn-success btn-xs' type='button'>Crear Hoja de negocio</button></td>";
+
+            }
+              tabla += "</tr>";
         });
         tabla += "</tbody>";
         tabla += "</table>";

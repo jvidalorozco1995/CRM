@@ -196,7 +196,9 @@ function BLLClientes() {
 
     //Meotodo para actualizar Clientes
     BLLClientes.prototype.UpdateClientes = function (cliente) {
-        jsonData = "{'{c':" + JSON.stringify(cliente) + "}";
+      
+
+        jsonData = "{ 'c':" + JSON.stringify(cliente) + " }";
         $.ajax({
             type: "POST", url: WSUpdateCliente,data: jsonData,
             contentType: "application/json; charset=utf-8",
