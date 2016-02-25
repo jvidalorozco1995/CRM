@@ -53,7 +53,10 @@ var _admnegocio = (function () {
             console.log(acuerdoP)
             Validar();
             
-        });
+       });
+       $(document).on('click', '#BtnSiguiente', function () {
+           $('.nav-tabs a:last').tab('show')
+       });
 
         $(document).on('click', '#BtnDisponibilidad', function () {
             switch (bandera) {
@@ -203,7 +206,7 @@ var _admnegocio = (function () {
               },
               {
 
-                  text: 'FECHA_PAGO',
+                  text: 'FECHA PAGO',
                   datafield: 'FECHA_PAGO',
                   columntype: 'string',
                   columntype: 'datetimeinput',
@@ -212,7 +215,7 @@ var _admnegocio = (function () {
               },
 
              {
-                 text: 'VALOR_CUOTA',
+                 text: 'VALOR CUOTA',
                  editable: false,
                  columntype: 'VALOR_CUOTA',
                  datafield: 'VALOR_CUOTA',

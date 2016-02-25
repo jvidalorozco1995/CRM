@@ -252,12 +252,13 @@
                                                 </div>
                                                 <div class="form-group col-lg-6">
                                                         <label class="control-label">Medio por el cual se entero del proyecto</label>
-                                                        <input type="text" value="" id="TextmedioInf" class="form-control" name="">
+                                                        <input type="text" value="" id="TextmedioInf" class="form-control" name="">                                                   
                                                 </div>
-
                                             </div>
+                                           
                                         </div>
-                                        <div class="panel-footer">
+                                        <div class="panel-footer" id="divsiguiente">
+                                            <button class="btn btn-danger btn-btn-circle" type="button" id="BtnSiguiente">Siguiente</button>
                                         </div>
                                     </div>
 
