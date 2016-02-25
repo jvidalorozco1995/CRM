@@ -285,7 +285,7 @@
                                                     </div>
                                                     <div class="form-group col-lg-2">
                                                         <label class="control-label">No cuota</label>
-                                                        <input type="number" value="" id="Textcuota" class="form-control" name="">
+                                                        <input type="number" value="" id="Textcuota" class="form-control" name="" >
                                                     </div>
                                                 </div>
                                             </div>
