@@ -161,6 +161,11 @@ var admUser = (function () {
         });
         //---------------------------FIN----------------------------------//
 
+        //Subir el archivo a la carpeta de imagenes que se llama UPLOAD
+        $(document).on('click', '.Modal', function () {
+            $('#planos').modal('show');
+        });
+        
 
         //Subir el archivo a la carpeta de imagenes que se llama UPLOAD
         $(document).on('click', '.RemoverP', function () {

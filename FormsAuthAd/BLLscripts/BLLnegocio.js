@@ -66,16 +66,21 @@ BLLnegocio.CrearTabl = function (proyectos) {
          else if (item.Estado == 'CRM')
         {
 
-            tabla += "<td style='width:120px;height: 20px'>"
-                  + "<div class='row'>"
-                      + "<div class='col-sm-9'>"
-                          + "<input type='file' name='UploadFile'  accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
-                      + "</div>"
+             tabla += "<td style='width:120px;height: 20px'>"
                       + "<div class='col-sm-3'>"
-                         + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
+                         + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs Modal' type='button'>Subir</button>"
                       + "</div>"
-                  +"</div>"
-                  + "</td>";
+             + "</td>";
+            //tabla += "<td style='width:120px;height: 20px'>"
+            //      + "<div class='row'>"
+            //          + "<div class='col-sm-9'>"
+            //              + "<input type='file' name='UploadFile'  accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
+            //          + "</div>"
+            //          + "<div class='col-sm-3'>"
+            //             + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
+            //          + "</div>"
+            //      +"</div>"
+            //      + "</td>";
             tabla += "<td>"
             tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='" + funcionUrlGlobal("/images_crm/Espera.png") + "' disabled/></a<";
             tabla += "</td>";
@@ -98,16 +103,16 @@ BLLnegocio.CrearTabl = function (proyectos) {
         } else if (item.Estado == 'FOX') {
 
             
-            tabla += "<td style='width:120px;height: 20px'>"
-                  + "<div class='row'>"
-                      + "<div class='col-sm-9'>"
-                          + "<input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
-                      + "</div>"
-                      + "<div class='col-sm-3'>"
-                         + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
-                      + "</div>"
-                  + "</div>"
-                  + "</td>";
+            //tabla += "<td style='width:120px;height: 20px'>"
+            //      + "<div class='row'>"
+            //          + "<div class='col-sm-9'>"
+            //              + "<input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
+            //          + "</div>"
+            //          + "<div class='col-sm-3'>"
+            //             + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
+            //          + "</div>"
+            //      + "</div>"
+            //      + "</td>";
             tabla += "<td>"
             tabla += "<a title='Este negocio se encuentra en multifox'><img src='" + funcionUrlGlobal("/images_crm/Completa.png") + "'/></a<";
             tabla += "</td>";

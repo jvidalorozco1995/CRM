@@ -27,7 +27,7 @@
                             </div>
                             <li class="active"><a data-toggle="tab" href="#tab-1">Negocios</a></li>
                         </ul>
-                        <div class="tab-content">
+                        <div class="tab-content scroll2">
                             <div id="tab-1" class="tab-pane active">
                                  <div class="panel-body" id="TblNegocios">
                                  </div>
@@ -117,7 +117,34 @@
             </div>
 
 
+<div class="modal fade hmodal-danger" id="planos" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cargar Imagen</h5>
 
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <form method="POST" EncType="Multipart/Form-Data"> 
+                                    <div class="form-group col-lg-12">
+                                        <label></label>
+                                        <input type="file" class="form-control" name="inputFile" id="inputFile"/>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success " type="button" id="BtnLoadplano">Registrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
   
        <div class="modal fade hmodal-danger" id="infoTareas" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -171,6 +198,8 @@
             </div>
         </div>
 </div>
+
+            
                 </div>
             </div>
     
@@ -178,6 +207,10 @@
  
             
 <style type="text/css">
+    .scroll2 {
+        height:300px;
+        overflow: scroll;
+    }
     .scroll {
         height:700px;
         overflow: scroll;
