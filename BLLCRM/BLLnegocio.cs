@@ -118,9 +118,6 @@ namespace BLLCRM
        }
 
 
-
-
-
        public List<Entinegocio> lisAllHoja()
        {
            try
@@ -190,11 +187,6 @@ namespace BLLCRM
        }
 
 
-      
-     
-
-
-
        protected void Acuerdopago(List<acuerdo_pago> a, string negocio) {
            try
            {
@@ -246,7 +238,6 @@ namespace BLLCRM
            }
        }
 
-
        public int UpdateUsuarioCartera(int inm,string usuario)
        {
            try
@@ -288,7 +279,6 @@ namespace BLLCRM
                throw;
            }
        }
-
 
        public static void HistorialInmuDescripcion(string c, string inm, string desc)
        {

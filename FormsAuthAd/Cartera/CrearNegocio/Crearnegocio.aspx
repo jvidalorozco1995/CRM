@@ -76,6 +76,7 @@
                                     <li class=""><a data-toggle="tab" href="#tab-2">Acuerdo de pago</a></li>
                                 </ul>
                                 <div class="tab-content">
+                                     <!---------Tab 1---------->
                                     <div  id="tab-1" class="tab-pane active">
                                         <div class="panel-body">
                                             
@@ -259,6 +260,8 @@
                                         <div class="panel-footer">
                                         </div>
                                     </div>
+
+
                                     <!--tab2-->
                                     <div id="tab-2" class="tab-pane" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
                                         <div class="panel-body" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
