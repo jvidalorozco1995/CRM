@@ -279,7 +279,7 @@
                                                     </div>
                                                     <div class="form-group col-lg-3">
                                                         <label class="control-label">Creditó</label>
-                                                        <input type="text" value="" id="Textcredito" class="form-control" name="">
+                                                        <input type="text" value="" id="Textcredito" class="form-control" name=""  readonly>
                                                     </div>
                                                     <div class="form-group col-lg-4">
                                                         <label class="control-label">Banco</label>
@@ -287,9 +287,17 @@
                                                             <option></option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group col-lg-2">
-                                                        <label class="control-label">No cuota</label>
+                                                    <div class="form-group col-lg-3">
+                                                        <label class="control-label">No cuotas</label>
                                                         <input type="number" value="" id="Textcuota" class="form-control" name="" >
+                                                    </div>
+                                                    <div class="form-group col-lg-3">
+                                                        <label class="control-label">Separación</label>
+                                                        <input type="text" value="" id="Textseparacion" class="form-control" name="" >
+                                                    </div>
+                                                    <div class="form-group col-lg-4">
+                                                        <label class="control-label">Fecha primera cuota</label>
+                                                        <input type="date" value="" id="TextFecinicial" class="form-control" name="">
                                                     </div>
                                                 </div>
                                             </div>
