@@ -11,6 +11,30 @@
     <div id="wrapper">
 
         <div class="content animate-panel"  style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                                            <div class="pull-right">
+                                           <div class="dt-buttons btn-group">
+       
+                                              <a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>MultiFox y CRM</span>
+                                                   <img src="../../images_crm/fox.png" style="width:20px;height:18px" /> 
+                                              </a>
+                                               <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>Desistido</span>
+                                                    <img src="../../images_crm/PV.png" style="width:15px;height:15px" /> 
+                                               </a>
+                                               <a class="btn btn-default buttons-pdf buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>CRM pero no en MultiFox</span>
+                                                    <img src="../../images_crm/Espera.png" style="width:15px;height:15px" />
+                                               </a>
+       
+                                           </div>
+                                    </div>
+                               </div>
+            </div>
+
             <div class="row">
                 <!---Panel Informacion General--->
                 <div class="col-lg-7" id="Principal">

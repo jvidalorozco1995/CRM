@@ -143,6 +143,18 @@ var admUser = (function () {
         });
         //---------------------------FIN----------------------------------//
 
+        
+
+        $(document).on('click', '.limpiar', function () {
+
+            $(".div").css({ "display": "none" });
+
+            $('#PanelNego').hide();
+            $('#PanelTareas').hide();
+            $('#Tareas').hide();
+
+        });
+
 
         //Cargar las tareas, acuerdos y pagos de los negocios
         $(document).on('click', '.CargarNego', function () {

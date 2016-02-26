@@ -45,7 +45,14 @@ BLLnegocio.CrearTabl = function (proyectos) {
     $.each(proyectos, function (i, item) {
        
         tabla += "<tr>";
-        tabla += "<td style='width:200px'>" + item.NOMBREBLOQUE + "</td>";
+        if (item.Estado == 'CRM') {
+
+            tabla += "<td style='width:200px'> <a class='limpiar' id=" + item.NEGOCIO + ">" + item.NOMBREBLOQUE + "</a></td>";
+        }
+        else {
+            tabla += "<td style='width:200px'> <a class='CargarNego' id=" + item.NEGOCIO + ">" + item.NOMBREBLOQUE + "</a></td>";
+        }
+
         tabla += "<td>" + item.CEDULA_P + "</td>";
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
         tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
@@ -54,7 +61,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
         {
 
             tabla += "<td style='width:20px;'>";
-            tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span>Bajar</a>";
+            tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
             tabla += "</td>";
             //tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
             //tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
@@ -70,7 +77,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
         {
              
              tabla += "<td style='width:20px; height:10px;'>";
-             tabla += "<a href='#' id=" + item.CODIGOCRM + " class='btn btn-success btn-xs Modal'><span class='glyphicon glyphicon-upload'></span>Subir</a>";
+             tabla += "<a href='#' id=" + item.CODIGOCRM + " class='btn btn-success btn-xs Modal'><span class='glyphicon glyphicon-upload'></span> Subir</a>";
              tabla += "</td>";
             //tabla += "<td style='width:120px;height: 20px'>"
             //      + "<div class='row'>"
@@ -93,11 +100,11 @@ BLLnegocio.CrearTabl = function (proyectos) {
 
         if (item.DOCUMENTO != undefined && item.Estado == 'FOX') {
             tabla += "<td style='width:20px;'>";
-            tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span>Bajar</a>";
+            tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
             tabla += "</td>";
         //    tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
             tabla += "<td>"
-            tabla += "<a title='Este negocio se encuentra en multifox'><img src='" + funcionUrlGlobal("/images_crm/Completa.png") + "'/></a<";
+            tabla += "<a title='Este negocio se encuentra en multifox'><img style='width:20px; height:10px; src='" + funcionUrlGlobal("/images_crm/fox.png") + "'/></a<";
             tabla += "</td>";
            /* tabla += "<td style='width:20px;'>";
             tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='" + funcionUrlGlobal("/images_crm/Drawing.png") + "'/></a>";
@@ -106,7 +113,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
         } else if (item.Estado == 'FOX') {
 
             tabla += "<td style='width:20px; height:10px;'>";
-            tabla += "<a href='#' id=" + item.CODIGOCRM + " class='btn btn-success btn-xs Modal'><span class='glyphicon glyphicon-upload'></span>Subir</a>";
+            tabla += "<a href='#' id=" + item.CODIGOCRM + " class='btn btn-success btn-xs Modal'><span class='glyphicon glyphicon-upload'></span> Subir</a>";
             tabla += "</td>";
             //tabla += "<td style='width:120px;height: 20px'>"
             //      + "<div class='row'>"
@@ -119,7 +126,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
             //      + "</div>"
             //      + "</td>";
             tabla += "<td>"
-            tabla += "<a title='Este negocio se encuentra en multifox'><img src='" + funcionUrlGlobal("/images_crm/Completa.png") + "'/></a<";
+            tabla += "<a title='Este negocio se encuentra en multifox'><img src='" + funcionUrlGlobal("/images_crm/fox.png") + "' style='width:22px; height:22px;'/></a<";
             tabla += "</td>";
            /* tabla += "<td style='width:20px;'>";
             tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='" + funcionUrlGlobal("/images_crm/Drawing.png") + "'/></a>";
