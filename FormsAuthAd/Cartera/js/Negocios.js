@@ -13,6 +13,7 @@ var admUser = (function () {
     var WsActualizarAdjFox = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ActualizarAdj");//Actualizar el adjunto CRM
     var Wsurltodosnegocios = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/TODO"); //Actualizar todos los negocios de CRM desde MULTIFOX
     var negocio;
+    var CODIGOCRM;
     //Manejadores de los botones y eventos
     var _addHandlers = function () {
 
@@ -164,13 +165,15 @@ var admUser = (function () {
         //Subir el archivo a la carpeta de imagenes que se llama UPLOAD
         $(document).on('click', '.Modal', function () {
             $('#planos').modal('show');
+            CODIGOCRM = $(this).attr("id");
+
         });
         
 
         //Subir el archivo a la carpeta de imagenes que se llama UPLOAD
         $(document).on('click', '.RemoverP', function () {
-            cedula = $(this).attr("id");
-            var c = $("#" + cedula + "").get(0);
+           // cedula = $(this).attr("id");
+            var c = $("#UploadFile").get(0);
             var files = c.files;
             if (files[0] != undefined) {
 
@@ -185,9 +188,12 @@ var admUser = (function () {
                     processData: false,
                     data: test,
                     success: function (result) {
-                        neg.ListActualizarAdj(WsActualizarAdjFox, cedula, files[0].name);
-                        $("#" + cedula + "").prop('disabled', true);
-                        $(".RemoverP").prop('disabled', true);
+                        neg.ListActualizarAdj(WsActualizarAdjFox, CODIGOCRM, files[0].name);
+                       
+                      
+                        setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 1000);
+                        $("#UploadFile").replaceWith($("#UploadFile").val('').clone(true));
+                        $('#planos').modal('hide');
                     },
                     error: function (err) {
                       
@@ -195,6 +201,7 @@ var admUser = (function () {
                        '<br/>' + err.statusText);
                     }
                 });
+                
             } else {
 
                 toastr.error(' CRM - Mayales' +

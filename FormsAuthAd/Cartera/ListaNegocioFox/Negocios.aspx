@@ -116,8 +116,8 @@
                      </div>
             </div>
 
-
-<div class="modal fade hmodal-danger" id="planos" tabindex="-1" role="dialog" aria-hidden="true">
+     <!--Modal para cargar la imagen-->
+    <div class="modal fade hmodal-danger" id="planos" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="color-line"></div>
@@ -132,7 +132,7 @@
                                     <form method="POST" EncType="Multipart/Form-Data"> 
                                     <div class="form-group col-lg-12">
                                         <label></label>
-                                        <input type="file" class="form-control" name="inputFile" id="inputFile"/>
+                                        <input type='file' name='UploadFile' id="UploadFile"  accept='.pdf,.docx' class='form-control subirfile' title='Detalle de separacion'/>
                                     </div>
                                     </form>
                                 </div>
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-success " type="button" id="BtnLoadplano">Registrar</button>
+                        <button class="btn btn-success RemoverP " type="button" id="RemoverP">Registrar</button>
                     </div>
                 </div>
             </div>
