@@ -407,8 +407,10 @@ BLLnegocio.prototype = {
                      val_casa = item.VALOR_INM;
                      inicial = parseFloat(val_casa) * (30) / 100;
                      credito = parseFloat(val_casa) - (inicial);
-                     $('#Textinicial').val(inicial)
-                     $('#Textcredito').val(credito)
+                     separacion = parseFloat(inicial / 10);
+                     $('#Textinicial').val((utl.FormatNumero(inicial)))
+                     $('#Textcredito').val((utl.FormatNumero(credito)))
+                     $('#Textseparacion').val((utl.FormatNumero(separacion)))
                  }
              },
              error: function (msg) { alert(msg.responseText); }
@@ -467,9 +469,18 @@ BLLnegocio.prototype = {
      },
 
      _RecalcularCredito: function () {
-         inicial = $('#Textinicial').val();
-         credito = val_casa - inicial;
-         $('#Textcredito').val(utl.FormatNumero(credito))
+         var inicial = $('#Textinicial').val();
+         var inici = +inicial.replace(/[^\d\.-]/g, '');
+         inicial = inici;
+         var valorcasa = $('#Lvalor').val();
+         var ini = +valorcasa.replace(/[^\d\.-]/g, '');
+         valorcasa = ini;
+         credito = valorcasa - inicial;
+         $('#Textcredito').val(utl.FormatNumero(credito));
+         separacion = parseFloat(inicial / 10);
+         $('#Textseparacion').val(utl.FormatNumero(separacion));
+         
+
      },
 
      _TablaPagos: function (pagos) {

@@ -125,13 +125,77 @@ var _admnegocio = (function () {
             $('#Principal').hide();
             $('#clientesnegocio').show();
         });
+        $("#Textseparacion").change(function () {
+            var separacion = $('#Textseparacion').val();
+            var sep = +separacion.replace(/[^\d\.-]/g, '');
+            $('#Textseparacion').val((utl.FormatNumero(sep)))
+        });
 
         $("#Textinicial").change(function () {
             var c_inicial = $('#Textinicial').val()
             _negocio._RecalcularCredito();
             $('#Textinicial').val(utl.FormatNumero(c_inicial))
-        });
 
+            dataSet = [];
+            var date = new Date();
+            var dia1 = date.getDate();
+            var año1 = date.getFullYear();
+            var mes1 = date.getMonth() + 1;
+            if (mes1 < 10) { mes1 = '0' + mes1 }
+            var fecha2 = año1 + "/" + mes1 + "/" + dia1;
+            ms = Date.parse($('#TextFecinicial').val());
+            var fecha = new Date(ms);
+            var dia = fecha.getDate();
+            var año = fecha.getFullYear();
+            var mes = fecha.getMonth() + 1;
+            var cuotas = $('#Textcuota').val();
+            var cred = $('#Textcredito').val();
+            var cre = +cred.replace(/[^\d\.-]/g, '');
+            cred = cre;
+            var inicial = $('#Textinicial').val();
+            var ini = +inicial.replace(/[^\d\.-]/g, '');
+            var separacion = $('#Textseparacion').val();
+            var sep = +separacion.replace(/[^\d\.-]/g, '');
+            var valorC = $("#Lvalor").val();
+            var valor = +valorC.replace(/[^\d\.-]/g, '');
+            var val_casa = valor;
+            var amorizar = 0.0;
+            separacion = sep;
+            inicial = ini;
+            var credito = parseFloat(inicial - separacion);
+            $("#valcredito").val(credito);
+            var nomc;
+            amorizar = parseFloat(credito) / cuotas;
+            for (var i = 0; i <= cuotas; i++) {
+                if (mes < 10) { mes = '0' + mes };
+                if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
+                fecha = año + "/" + mes + "/" + dia;
+                if (i === 0) {
+                    nomc = "Separación";
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(separacion)) });
+                } else {
+                    nomc = "Cuota No." + i;
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(amorizar.toFixed(0)) });
+                }
+
+
+                mes = parseInt(mes) + 1;
+            }
+            nomc = "SUBROGACIÓN";
+            if (mes < 10) { mes = '0' + mes };
+            if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
+            fecha = año + "/" + mes + "/" + dia;
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(cred)) });
+            $("#Textsubrogracion").val(fecha)
+            _FechaEscitura(fecha)
+            tabla(dataSet);
+            $('#dataTable').jqxGrid('refresh');
+            $('#dataTable').jqxGrid('refreshdata');
+
+
+
+
+        });
         $('#Textcuota').change(function () {
             dataSet = [];
             var date = new Date();
@@ -140,27 +204,107 @@ var _admnegocio = (function () {
             var mes = date.getMonth() + 1;
             var fecha = año + "/" + mes + "/" + dia;
             var cuotas = $('#Textcuota').val();
+            var cred = $('#Textcredito').val();
+            var cre = +cred.replace(/[^\d\.-]/g, '');
+            cred = cre;
+            var inicial = $('#Textinicial').val();
+            var ini = +inicial.replace(/[^\d\.-]/g, '');
+            var separacion = $('#Textseparacion').val();
+            var sep = +separacion.replace(/[^\d\.-]/g, '');
             var valorC = $("#Lvalor").val();
             var valor = +valorC.replace(/[^\d\.-]/g, '');
             var val_casa = valor;
             var amorizar = 0.0;
-            var credito = parseFloat(val_casa) * (30) / 100;
+            separacion = sep;
+            inicial= ini;
+            var credito = parseFloat(inicial-separacion);
             $("#valcredito").val(credito);
             var nomc;
             amorizar = parseFloat(credito) / cuotas;
-            for (var i = 0; i < cuotas; i++) {
+            for (var i = 0; i <= cuotas; i++) {
                 if (mes < 10) { mes = '0' + mes };
                 if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
                 fecha = año + "/" + mes + "/" + dia;
-                if (i === 0) { nomc = "Separación"; } else { nomc = "Cuota No." + i; }
-                dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
+                if (i === 0) {
+                    nomc = "Separación";
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(separacion)) });
+                } else {
+                    nomc = "Cuota No." + i;
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(amorizar.toFixed(0)) });
+                }
+               
+               
                 mes = parseInt(mes) + 1;
             }
-            
+            nomc = "SUBROGACIÓN";
+            if (mes < 10) { mes = '0' + mes };
+            if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
+            fecha = año + "/" + mes + "/" + dia;
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(cred)) });
+            $("#Textsubrogracion").val(fecha)
             _FechaEscitura(fecha)
             tabla(dataSet);
             $('#dataTable').jqxGrid('refresh');
             $('#dataTable').jqxGrid('refreshdata');
+            
+        });
+        $('#TextFecinicial').change(function () {
+            dataSet = [];
+            var date = new Date();
+            var dia1 = date.getDate();
+            var año1 = date.getFullYear();
+            var mes1 = date.getMonth() + 1;
+            if (mes1 < 10) { mes1 = '0' + mes1 }
+            var fecha2 = año1 + "/" + mes1 + "/" + dia1;
+            ms = Date.parse($('#TextFecinicial').val());
+            var fecha = new Date(ms);
+            var dia = fecha.getDate();
+            var año = fecha.getFullYear();
+            var mes = fecha.getMonth() + 1;
+            var cuotas = $('#Textcuota').val();
+            var cred = $('#Textcredito').val();
+            var cre = +cred.replace(/[^\d\.-]/g, '');
+            cred = cre;
+            var inicial = $('#Textinicial').val();
+            var ini = +inicial.replace(/[^\d\.-]/g, '');
+            var separacion = $('#Textseparacion').val();
+            var sep = +separacion.replace(/[^\d\.-]/g, '');
+            var valorC = $("#Lvalor").val();
+            var valor = +valorC.replace(/[^\d\.-]/g, '');
+            var val_casa = valor;
+            var amorizar = 0.0;
+            separacion = sep;
+            inicial = ini;
+            var credito = parseFloat(inicial - separacion);
+            $("#valcredito").val(credito);
+            var nomc;
+            amorizar = parseFloat(credito) / cuotas;
+            for (var i = 0; i <= cuotas; i++) {
+                if (mes < 10) { mes = '0' + mes };
+                if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
+                fecha = año + "/" + mes + "/" + dia;
+                if (i === 0) {
+                    nomc = "Separación";
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA':utl.FormatNumero( parseFloat(separacion)) });
+                } else {
+                    nomc = "Cuota No." + i;
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(amorizar.toFixed(0)) });
+                }
+
+
+                mes = parseInt(mes) + 1;
+            }
+            nomc = "SUBROGACIÓN";
+            if (mes < 10) { mes = '0' + mes };
+            if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
+            fecha = año + "/" + mes + "/" + dia;
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(cred)) });
+            $("#Textsubrogracion").val(fecha)
+            _FechaEscitura(fecha)
+            tabla(dataSet);
+            $('#dataTable').jqxGrid('refresh');
+            $('#dataTable').jqxGrid('refreshdata');
+
         });
         
         $(document).on('click', '.Btimprimir', function () {
@@ -216,7 +360,7 @@ var _admnegocio = (function () {
 
              {
                  text: 'VALOR CUOTA',
-                 editable: false,
+                 editable: true,
                  columntype: 'VALOR_CUOTA',
                  datafield: 'VALOR_CUOTA',
              }
@@ -237,7 +381,7 @@ var _admnegocio = (function () {
         if (diasent < 10) { diasent = '0' + diasent };
         if (mesent < 10) { mesent = '0' + mesent }
         var fechescri = ent + "/" + mesent + "/" + diasent;
-        $("#Textescritura").val(fechescri)
+        //$("#Textescritura").val(fechescri)
         _Fechaentrega(fechescri);
     }
 
@@ -249,7 +393,7 @@ var _admnegocio = (function () {
         if (mesent > 12) { ent = parseInt(ent) + 1; mesentsb = 1; }
         if (mesent < 10) { mesent = '0' + mesent }
         var fechasent = ent + "/" + mesent + "/" + diasent;
-        $("#Textentrega").val(fechasent)
+        //$("#Textentrega").val(fechasent)
         _Fechasubrogracion(fechasent);
     }
 
@@ -261,7 +405,7 @@ var _admnegocio = (function () {
         if (mesentsb > 12) { entsb = parseInt(entsb) + 1; mesentsb = 1; }
         if (mesentsb < 10) { mesentsb = '0' + mesentsb }
         var fechasubro = entsb + "/" + mesentsb + "/" + diasentsb;
-        $("#Textsubrogracion").val(fechasubro)
+        //$("#Textsubrogracion").val(fechasubro)
     }
 
     var Dtohoja = function () {
@@ -637,9 +781,12 @@ $(document).ready(function () {
         format: 'yyyy/mm/dd',
     });
 
-    $('#Textsubrogracion').datepicker({
-        format: 'yyyy/mm/dd',
-    });
+    //$('#Textsubrogracion').datepicker({
+    //    format: 'yyyy/mm/dd',
+    //});
+    //$('#TextFecinicial').datepicker({
+    //    format: 'yyyy/mm/dd',
+    //});
     $('#nuevafc').datepicker({
         format: 'yyyy/mm/dd',
     });
