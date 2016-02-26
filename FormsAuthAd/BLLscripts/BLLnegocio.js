@@ -32,10 +32,11 @@ BLLnegocio.CrearTabl = function (proyectos) {
     var tabla = '<table id="exampleP" class="table table-striped table-bordered table-hover">';
     tabla += "<thead>";
     tabla += "<tr>";
-    tabla += "<th>MANZANA/BLOQUE</th>";
-    tabla += "<th>CC/NIT</th>";
-    tabla += "<th>NOMBRE CLIENTE</th>";
+    tabla += "<th>PROYECTO</th>";
+    tabla += "<th>MANZANA O BLOQUE</th>";
     tabla += "<th>INMUEBLE</th>";
+    tabla += "<th>CC</th>";
+    tabla += "<th>PROPIETARIO</th>";
     tabla += "<th>ADJUNTO</th>";
     tabla += "<th>ESTADO</th>";
    // tabla += "<th>VER</th>";
@@ -45,6 +46,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
     $.each(proyectos, function (i, item) {
        
         tabla += "<tr>";
+        tabla += "<td>" + item.SUCURSAL + "</td>";
         if (item.Estado == 'CRM') {
 
             tabla += "<td style='width:200px'> <a class='limpiar' id=" + item.NEGOCIO + ">" + item.NOMBREBLOQUE + "</a></td>";
@@ -52,10 +54,10 @@ BLLnegocio.CrearTabl = function (proyectos) {
         else {
             tabla += "<td style='width:200px'> <a class='CargarNego' id=" + item.NEGOCIO + ">" + item.NOMBREBLOQUE + "</a></td>";
         }
-
+        tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
         tabla += "<td>" + item.CEDULA_P + "</td>";
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";
-        tabla += "<td>" + item.CODIGOINMUEBLE + "</td>";
+      
         
         if (item.DOCUMENTO != undefined && item.Estado == 'CRM')
         {

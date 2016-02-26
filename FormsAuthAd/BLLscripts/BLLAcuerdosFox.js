@@ -144,8 +144,8 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
     var tabla = '<table id="TblAcuerdosFox" class="table table-striped table-bordered table-hover">';
     tabla += "<thead>";
     tabla += "<tr>";
-    tabla += "<th>Referencia</th>";
-    tabla += "<th>Inmueble</th>";
+    tabla += "<th>N-Cuota</th>";
+    tabla += "<th>Tipo</th>";
     tabla += "<th>Vlr cuota</th>";
     tabla += "<th>Pago cuota</th>";
     tabla += "<th>Saldo x cobrar</th>";
@@ -156,7 +156,7 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
     $.each(acuerdos, function (i, item) {
 
         tabla += " <tr id=" + item.REFERENCIA1 + ">";
-        tabla += "<td>" + item.REFERENCIA1 + "</td>";
+        tabla += "<td>" + item.CODIGO + "</td>";
         tabla += "<td>" + item.INMUEBLE + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";

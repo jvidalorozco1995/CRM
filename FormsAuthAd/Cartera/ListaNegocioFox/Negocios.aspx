@@ -47,7 +47,7 @@
                             <div class="pull-right">
                               
                                   <button class="btn btn-danger btn-btn-circle" type="button" id="BtnActualizar">Actualizar</button>
-                         <img src="../../Images/loading.gif" style="width:25px;height:25px" id="Cargando"/>
+                                  <img src="../../Images/loading.gif" style="width:25px;height:25px" id="Cargando"/>
                             </div>
                             <li class="active"><a data-toggle="tab" href="#tab-1">Negocios</a></li>
                         </ul>
