@@ -1,9 +1,10 @@
 ﻿CREATE VIEW dbo.VacuerdosFox
 AS
-SELECT        dbo.acuerdo_fox.CODIGO, dbo.acuerdo_fox.CONCEPTO, dbo.acuerdo_fox.VLRCUOTA, dbo.acuerdo_fox.PAGOCUOTA, dbo.acuerdo_fox.SALDOXCOBRAR, dbo.acuerdo_fox.INMUEBLE, dbo.acuerdo_fox.NEGOCIO, 
-                         dbo.acuerdo_fox.CODCRM, dbo.acuerdo_fox.CODIGOTAREA, dbo.acuerdo_fox.FECHACARTERA, dbo.acuerdo_fox.ID, dbo.acuerdo_fox.REFERENCIA1
+SELECT        dbo.acuerdo_fox.CODIGO, dbo.concepto_p.DESCRIPCION AS 'CONCEPTO', dbo.acuerdo_fox.VLRCUOTA, dbo.acuerdo_fox.PAGOCUOTA, dbo.acuerdo_fox.SALDOXCOBRAR, dbo.acuerdo_fox.INMUEBLE, 
+                         dbo.acuerdo_fox.NEGOCIO, dbo.acuerdo_fox.CODCRM, dbo.acuerdo_fox.CODIGOTAREA, dbo.acuerdo_fox.FECHACARTERA, dbo.acuerdo_fox.ID, dbo.acuerdo_fox.REFERENCIA1
 FROM            dbo.acuerdo_fox INNER JOIN
-                         dbo.negocio_fox ON dbo.acuerdo_fox.CODCRM = dbo.negocio_fox.CODIGOCRM
+                         dbo.negocio_fox ON dbo.acuerdo_fox.CODCRM = dbo.negocio_fox.CODIGOCRM INNER JOIN
+                         dbo.concepto_p ON dbo.acuerdo_fox.CONCEPTO = dbo.concepto_p.ID_CON
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
@@ -77,6 +78,16 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
+         Begin Table = "negocio_fox"
+            Begin Extent = 
+               Top = 2
+               Left = 456
+               Bottom = 284
+               Right = 919
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
          Begin Table = "acuerdo_fox"
             Begin Extent = 
                Top = 6
@@ -87,15 +98,15 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "negocio_fox"
+         Begin Table = "concepto_p"
             Begin Extent = 
-               Top = 2
-               Left = 456
-               Bottom = 284
-               Right = 919
+               Top = 76
+               Left = 1044
+               Bottom = 285
+               Right = 1214
             End
             DisplayFlags = 280
-            TopColumn = 11
+            TopColumn = 0
          End
       End
    End
@@ -143,6 +154,8 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VacuerdosFox';
+
+
 
 
 GO

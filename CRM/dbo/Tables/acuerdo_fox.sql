@@ -5,7 +5,7 @@
     [INMUEBLE]     VARCHAR (15)    NULL,
     [NEGOCIO]      VARCHAR (15)    NULL,
     [FECHANEGOCIO] VARCHAR (30)    NULL,
-    [CONCEPTO]     TEXT            NULL,
+    [CONCEPTO]     VARCHAR (50)    NULL,
     [FECHACUOTA]   VARCHAR (30)    NULL,
     [ANO]          VARCHAR (10)    NULL,
     [MES]          VARCHAR (10)    NULL,
@@ -19,6 +19,8 @@
     CONSTRAINT [PK_acuerdo_fox] PRIMARY KEY CLUSTERED ([ID] ASC),
     CONSTRAINT [FK_acuerdo_fox_negocio_fox] FOREIGN KEY ([CODCRM]) REFERENCES [dbo].[negocio_fox] ([CODIGOCRM]) ON DELETE CASCADE ON UPDATE SET NULL
 );
+
+
 
 
 
