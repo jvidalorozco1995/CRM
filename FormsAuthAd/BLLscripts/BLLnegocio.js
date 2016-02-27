@@ -65,15 +65,10 @@ BLLnegocio.CrearTabl = function (proyectos) {
             tabla += "<td style='width:20px;'>";
             tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
             tabla += "</td>";
-            //tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
-            //tabla += "<td style='width:20px;height: 20px'><button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button' disabled>Subir</button></td>";
             tabla += "<td>"
             tabla += "<a title='Este negocio no se ha cargado a multifox'><img src= '" + funcionUrlGlobal("/images_crm/Espera.png") + "' disabled/></a<";
             tabla += "</td>";
-            /*tabla += "<td style='width:20px;'>";
-            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src= '" + funcionUrlGlobal("/images_crm/Drawing.png") + "'/></a<";
-            tabla += "</td>";*/
-
+            
         }
          else if (item.Estado == 'CRM')
         {
@@ -81,59 +76,29 @@ BLLnegocio.CrearTabl = function (proyectos) {
              tabla += "<td style='width:20px; height:10px;'>";
              tabla += "<a href='#' id=" + item.CODIGOCRM + " class='btn btn-success btn-xs Modal'><span class='glyphicon glyphicon-upload'></span> Subir</a>";
              tabla += "</td>";
-            //tabla += "<td style='width:120px;height: 20px'>"
-            //      + "<div class='row'>"
-            //          + "<div class='col-sm-9'>"
-            //              + "<input type='file' name='UploadFile'  accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
-            //          + "</div>"
-            //          + "<div class='col-sm-3'>"
-            //             + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
-            //          + "</div>"
-            //      +"</div>"
-            //      + "</td>";
-            tabla += "<td>"
-            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='" + funcionUrlGlobal("/images_crm/Espera.png") + "' disabled/></a<";
-            tabla += "</td>";
-           /* tabla += "<td style='width:20px;'>";
-            tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='" + funcionUrlGlobal("/images_crm/Drawing.png") + "'/></a<";
-            tabla += "</td>";*/
-                 //tabla += "<td style='width:20px;height: 20px' ></td>";
+             tabla += "<td>"
+             tabla += "<a title='Este negocio no se ha cargado a multifox'><img src='" + funcionUrlGlobal("/images_crm/Espera.png") + "' disabled/></a<";
+             tabla += "</td>";
         }
 
         if (item.DOCUMENTO != undefined && item.Estado == 'FOX') {
             tabla += "<td style='width:20px;'>";
             tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
             tabla += "</td>";
-        //    tabla += "<td style='width:200px;height: 20px'> <a href='../Upload/" + item.DOCUMENTO + "'target='_blank'>" + item.DOCUMENTO + "</a></td>";
-            tabla += "<td>"
-            tabla += "<a title='Este negocio se encuentra en multifox'><img style='width:20px; height:10px; src='" + funcionUrlGlobal("/images_crm/fox.png") + "'/></a<";
-            tabla += "</td>";
-           /* tabla += "<td style='width:20px;'>";
-            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='" + funcionUrlGlobal("/images_crm/Drawing.png") + "'/></a>";
-            tabla += "</td>";*/
-
-        } else if (item.Estado == 'FOX') {
-
-            tabla += "<td style='width:20px; height:10px;'>";
-            tabla += "<a href='#' id=" + item.CODIGOCRM + " class='btn btn-success btn-xs Modal'><span class='glyphicon glyphicon-upload'></span> Subir</a>";
-            tabla += "</td>";
-            //tabla += "<td style='width:120px;height: 20px'>"
-            //      + "<div class='row'>"
-            //          + "<div class='col-sm-9'>"
-            //              + "<input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.CODIGOCRM + " class='subirfile' title='Detalle de separacion'/>"
-            //          + "</div>"
-            //          + "<div class='col-sm-3'>"
-            //             + "<button id='" + item.CODIGOCRM + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
-            //          + "</div>"
-            //      + "</div>"
-            //      + "</td>";
             tabla += "<td>"
             tabla += "<a title='Este negocio se encuentra en multifox'><img src='" + funcionUrlGlobal("/images_crm/fox.png") + "' style='width:22px; height:22px;'/></a<";
             tabla += "</td>";
-           /* tabla += "<td style='width:20px;'>";
-            tabla += "<a class='CargarNego' id=" + item.NEGOCIO + "><img src='" + funcionUrlGlobal("/images_crm/Drawing.png") + "'/></a>";
-            tabla += "</td>";*/
+           
 
+        } else if (item.Estado == 'FOX') {
+
+            tabla += "<td style='width:20px;'>";
+            tabla += "<a href='#' id=" + item.CODIGOCRM + " class='btn btn-success btn-xs Modal'><span class='glyphicon glyphicon-upload'></span> Subir</a>";
+            tabla += "</td>";
+            tabla += "<td>"
+            tabla += "<a title='Este negocio se encuentra en multifox'><img src='" + funcionUrlGlobal("/images_crm/fox.png") + "' style='width:22px; height:22px;'/></a<";
+            tabla += "</td>";
+           
         }
 
 
@@ -143,9 +108,6 @@ BLLnegocio.CrearTabl = function (proyectos) {
             tabla += "<td>"
             tabla += "<a title='Este negocio esta desistido'><img src='" + funcionUrlGlobal("/images_crm/PV.png") + "' disabled/></a<";
             tabla += "</td>";
-          /*  tabla += "<td style='width:20px;'>";
-            tabla += "<a title='Este negocio esta desistido'><img src='" + funcionUrlGlobal("/images_crm/Drawing.png") + "' disabled/></a<";
-            tabla += "</td>";*/
         }
         tabla += "</td>";
         tabla += "</tr>";

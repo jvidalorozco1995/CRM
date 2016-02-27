@@ -19,15 +19,15 @@
        
                                               <a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
                                                <span>MultiFox y CRM</span>
-                                                   <img src="../../images_crm/fox.png" style="width:20px;height:18px" /> 
+                                                   <img src='<%= ResolveUrl("../../images_crm/Fox.png") %>' style="width:20px;height:18px" /> 
                                               </a>
                                                <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
                                                <span>Desistido</span>
-                                                    <img src="../../images_crm/PV.png" style="width:15px;height:15px" /> 
+                                                    <img src='<%= ResolveUrl("../../images_crm/PV.png") %>' style="width:15px;height:15px" /> 
                                                </a>
                                                <a class="btn btn-default buttons-pdf buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
                                                <span>CRM pero no en MultiFox</span>
-                                                    <img src="../../images_crm/Espera.png" style="width:15px;height:15px" />
+                                                    <img src='<%= ResolveUrl("../../images_crm/Espera.png") %>' style="width:15px;height:15px" />
                                                </a>
        
                                            </div>
