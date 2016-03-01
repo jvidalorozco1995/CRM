@@ -31,9 +31,9 @@
 
 
 
+
+
 GO
-
-
 CREATE TRIGGER [dbo].[triggerAcFoxInsert] ON [dbo].[acuerdo_fox]
 
 
@@ -53,7 +53,7 @@ AFTER INSERT
 	,'Tarea de cartera cliente'
 	,(SELECT REFERENCIA1 FROM INSERTED AS I)
 	,(SELECT  convert(date, FECHACARTERA,104)  FROM INSERTED AS I)
-	,(SELECT convert(date, FECHACARTERA,104)  FROM INSERTED AS I),'V' 
+	,(SELECT convert(date, FECHACARTERA,104)  FROM INSERTED AS I),'E' 
 	 FROM negocio WHERE CODIGO_F = (SELECT I.CODCRM FROM INSERTED AS I))  
 
 	UPDATE acuerdo_fox set CODIGOTAREA =(SELECT MAX(ID_TAREA) from tareas) where ID = (SELECT ID FROM INSERTED)

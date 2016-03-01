@@ -208,7 +208,7 @@ namespace BLLCRM
         /// <returns></returns>
         public List<VtareasNegocio> GestTareasNegocio(string c)
         {
-            List<VtareasNegocio> lisT = bd.VtareasNegocio.OrderByDescending(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c && (t.ESTADO != "CO" && t.ESTADO != "PS" && t.ESTADO != "TR")).ToList();
+            List<VtareasNegocio> lisT = bd.VtareasNegocio.OrderBy(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c && (t.ESTADO != "CO" && t.ESTADO != "PS" && t.ESTADO != "TR")).ToList();
             List<VtareasNegocio> Vtc = new List<VtareasNegocio>();
             if (lisT.Count.Equals(0))
             {

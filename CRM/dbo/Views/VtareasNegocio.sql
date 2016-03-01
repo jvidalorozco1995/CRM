@@ -1,10 +1,23 @@
 ﻿CREATE VIEW dbo.VtareasNegocio
 AS
+
+
+
+SELECT        NEGOCIO.ID_TAREA, NEGOCIO.CLIENTE, NEGOCIO.TRABAJADOR, NEGOCIO.CONCEPTO, NEGOCIO.NEGOCIO, NEGOCIO.FECHAFIN, 'T' AS ESTADO, NEGOCIO.FECHAINICIO, 
+                         { fn CONCAT({ fn CONCAT(dbo.clientes.NOMBRES, ' ' + dbo.clientes.P_APELLIDO) }, ' ' + dbo.clientes.P_APELLIDO) } AS NOMBRES
+FROM            dbo.tareas AS NEGOCIO INNER JOIN
+                         dbo.clientes ON NEGOCIO.CLIENTE = dbo.clientes.CEDULA
+						 INNER JOIN acuerdo_fox  on NEGOCIO.ID_TAREA = acuerdo_fox.codigotarea
+WHERE        (NEGOCIO.NEGOCIO IS NOT NULL) AND acuerdo_fox.SALDOXCOBRAR = 0
+
+UNION
+
 SELECT        NEGOCIO.ID_TAREA, NEGOCIO.CLIENTE, NEGOCIO.TRABAJADOR, NEGOCIO.CONCEPTO, NEGOCIO.NEGOCIO, NEGOCIO.FECHAFIN, NEGOCIO.ESTADO, NEGOCIO.FECHAINICIO, 
                          { fn CONCAT({ fn CONCAT(dbo.clientes.NOMBRES, ' ' + dbo.clientes.P_APELLIDO) }, ' ' + dbo.clientes.P_APELLIDO) } AS NOMBRES
 FROM            dbo.tareas AS NEGOCIO INNER JOIN
                          dbo.clientes ON NEGOCIO.CLIENTE = dbo.clientes.CEDULA
-WHERE        (NEGOCIO.NEGOCIO IS NOT NULL)
+						 INNER JOIN acuerdo_fox  on NEGOCIO.ID_TAREA = acuerdo_fox.codigotarea
+WHERE        (NEGOCIO.NEGOCIO IS NOT NULL) AND acuerdo_fox.SALDOXCOBRAR > 0
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]

@@ -708,16 +708,16 @@ var WTareasNegocioCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTare
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
            switch (item.ESTADO) {
                 case "T":
-                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' class='' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "E":
-                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "' class='historial1' id=" + item.ID_TAREA + " href='' /></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "' class='' id=" + item.ID_TAREA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Pospuesta.png') + "' class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Pospuesta.png') + "' class='' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "'  class='historial1' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "'  class='' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";

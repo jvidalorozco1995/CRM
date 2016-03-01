@@ -32,7 +32,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
     var tabla = '<table id="exampleP" class="table table-striped table-bordered table-hover">';
     tabla += "<thead>";
     tabla += "<tr>";
-    tabla += "<th>PROYECTO</th>";
+    tabla += "<th>CODIGO CRM</th>";
     tabla += "<th>MANZANA O BLOQUE</th>";
     tabla += "<th>INMUEBLE</th>";
     tabla += "<th>CC</th>";
@@ -46,7 +46,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
     $.each(proyectos, function (i, item) {
        
         tabla += "<tr>";
-        tabla += "<td>" + item.SUCURSAL + "</td>";
+        tabla += "<td>" + item.CODIGOCRM + "</td>";
         if (item.Estado == 'CRM') {
 
             tabla += "<td style='width:200px'> <a class='limpiar' id=" + item.NEGOCIO + ">" + item.NOMBREBLOQUE + "</a></td>";
@@ -89,7 +89,6 @@ BLLnegocio.CrearTabl = function (proyectos) {
             tabla += "<a title='Este negocio se encuentra en multifox'><img src='" + funcionUrlGlobal("/images_crm/fox.png") + "' style='width:22px; height:22px;'/></a<";
             tabla += "</td>";
            
-
         } else if (item.Estado == 'FOX') {
 
             tabla += "<td style='width:20px;'>";
@@ -153,6 +152,7 @@ BLLnegocio.CrearTablaPro = function (proyectos) {
 }
 
 BLLnegocio.prototype = {
+
      ListNegocio: function (Wsurl, neg) {
    
         $.ajax({
@@ -165,6 +165,7 @@ BLLnegocio.prototype = {
 
                 }
                 else {
+
                     if (neg == "Admingestusu") {
 
                         BLLnegocio.CrearTablaPro(result.d)
@@ -190,7 +191,7 @@ BLLnegocio.prototype = {
                  else {
                   
                      toastr.success(' CRM - Mayales' +
-                        '<br/>Hoja de negocio adjuntada');
+                        '<br/>Hoja de negocio Adjuntada');
                   
                  }
              },
