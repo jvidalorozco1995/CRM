@@ -99,9 +99,15 @@ BLLnegocio.CrearTabl = function (proyectos) {
             tabla += "</td>";
            
         }
+        if (item.DOCUMENTO != undefined && item.Estado == 'DESISTIDO') {
 
-
-        if (item.Estado == 'DESISTIDO') {
+            tabla += "<td style='width:20px;'>";
+            tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
+            tabla += "</td>";
+            tabla += "<td>"
+            tabla += "<a title='Este negocio esta desistido'><img src='" + funcionUrlGlobal("/images_crm/PV.png") + "' disabled/></a<";
+            tabla += "</td>";
+        }else  if (item.Estado == 'DESISTIDO') {
 
             tabla += "<td>No tiene Adjunto</td>";
             tabla += "<td>"

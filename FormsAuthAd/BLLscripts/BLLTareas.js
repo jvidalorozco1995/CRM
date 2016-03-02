@@ -84,6 +84,7 @@ var WTareasNegocioCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTare
         })
     }
 
+
     BLLTareas.prototype.TareasNegocio = function (negocio) {
         jsonData = "{'c':" + JSON.stringify(negocio) + "}";
         $.ajax({
@@ -308,7 +309,7 @@ var WTareasNegocioCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTare
             error: function (error) { alert(error.responseText); }
         })
     }
-   BLLTareas.prototype.Etareas = function (t,bitacora) {
+    BLLTareas.prototype.Etareas = function (t,bitacora) {
        jsonData = "{ 't':" + JSON.stringify(t) + ",'b':" + JSON.stringify(bitacora) + " }";
        console.log(JSON.stringify(t));
         $.ajax({

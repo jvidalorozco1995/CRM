@@ -232,8 +232,9 @@
             
 <style type="text/css">
     .scroll2 {
-        height:300px;
-        overflow: scroll;
+       height:300px;
+       overflow-y: scroll;
+       overflow-x:hidden;
     }
     .scroll {
         height:700px;
