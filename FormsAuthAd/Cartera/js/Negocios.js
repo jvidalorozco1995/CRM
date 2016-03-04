@@ -13,6 +13,7 @@ var admUser = (function () {
     var WsActualizarAdjFox = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ActualizarAdj");//Actualizar el adjunto CRM
     var Wsurltodosnegocios = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/TODO"); //Actualizar todos los negocios de CRM desde MULTIFOX
     var negocio;
+    var cedula;
     var CODIGOCRM;
     //Manejadores de los botones y eventos
     var _addHandlers = function () {

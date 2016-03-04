@@ -26,6 +26,14 @@
                                  </div>
                             </div>
                         </div>
+                         <br />
+
+                        <div class="tab-content">
+                            <div class="tab-pane active">
+                                 <div class="panel-body" id="TblAcuerdos">
+                                 </div>
+                            </div>
+                        </div>
                     </div>
 
                       
@@ -37,16 +45,63 @@
                     <div class="panel panel-success">
                         <div class="panel-body">
                                 <!---Panel Crear Tarea--->
-                            <div class="hpanel" id="Tareas">
-                                <div class="panel-heading hbuilt">
+                            
+                           <!---Panel de las tareas generadas por cada pago--->
+                           <div class="hpanel" id="PanelTareas">
+                               <div class="panel-heading hbuilt">
+                                    <div class="panel-tools">
+                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                                         <a class="Pcreartarea"><i class="fa fa-times"></i></a>
+                                    </div>Tareas
+                               </div>
+                                  
+
+                                <div class="Border no-padding">
+                                    <div class="tab-content">
+                                        <div id="clientesData" class="p-m tab-pane active">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                              </div>
+                                <!---Panel de las tareas generadas por cada pago--->
+                           <div class="hpanel" id="PanelNego">
+                               <div class="panel-heading hbuilt">
                                     <div class="panel-tools">
                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
-                                        <a class="ptCerrar"><i class="fa fa-times"></i></a>
+                                        <a class="Pcreartarea"><i class="fa fa-times"></i></a>
                                     </div>
-                                    Crear Compromiso
-                                </div>
-                                <div class="Border">
+                                    Pagos Realizados
+                               </div>
+
+                                 <div class="Border no-padding">
                                     <div class="tab-content">
+                                        <div id="pagosFox" class="p-m tab-pane active">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                          
+
+                             <div>
+                                  <button class="btn btn-success " type="button" id="BtnImprimirCuenta">Imprimir Compromisos</button>
+                                  <button class="btn btn-success " type="button" id="BtnImprimir">Imprimir Estado de cuenta</button>
+                              </div>
+                           </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+                </div>
+            </div>
+        </div>
+    
+     <div class="modal fade hmodal-danger" id="Tareas" tabindex="-1" role="dialog" aria-hidden="true">
+                                
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
                                         <div id="Div1" class="p-m tab-pane active">
 
                                             <div class="row">
@@ -78,32 +133,7 @@
 
                                     </div>
                                 </div>
-                            </div>
-                           
-                              <!---Panel lista de compromisos--->
-                           <div class="hpanel" id="PanelNego">
-                            <div class="panel-heading hbuilt">
-                                    <div class="panel-tools">
-                                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
-                                        <a class="Pcreartarea"><i class="fa fa-times"></i></a>
-                                    </div>
-                                    Informacion Cliente
-                            </div>
-                            <div class="panel panel-success">
-                                <div class="panel-body" id="clientesData">
-                                </div>
-                             </div>
-                            
-                         </div>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-                </div>
-            </div>
-        </div>
-    
-                
+                            </div>          
     <div class="modal fade hmodal-danger" id="infoTareas" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -153,6 +183,9 @@
 
                     </div>
                 </div>
+
+                 
+
             </div>
         </div>
                       
@@ -183,9 +216,9 @@
                 <script src="../../BLLscripts/BLLSeguiNegocios.js"></script>
     <script src="../../BLLscripts/BLLUtilidades.js"></script>
    <script src="../../BLLscripts/BLLnegocio.js"></script>
-  
+  <script src="../../BLLscripts/BLLAcuerdosFox.js"></script>
     <script src="../../BLLscripts/BLLTareas.js"></script>
-
+     <script src="../../BLLscripts/BLLPagosFox.js"></script>
 
     <script src="../../vendor/sweetalert/lib/sweet-alert.min.js"></script>
     <script src="../../vendor/toastr/build/toastr.min.js"></script>

@@ -1,7 +1,9 @@
 ﻿
 var Seg = new BLLSeguiNegocios();
+var Ac = new BLLAcuerdosFox();
 var tar = new BLLTareas();
 var utl = new BLLUtilidades;
+var Pag = new BLLPagosFox();
 var proyec = utl.getUrl('proyec');
 var admUser = (function () {
 
@@ -78,19 +80,29 @@ var admUser = (function () {
 
         //Asignar Proyectos al trabajador
         $(document).on('click', '.Detallett', function () {
-
             negocio = $(this).attr("id");
-            ced = $(this).attr("tag");
+             cedula = $(this).attr("tag");
+           
+            
             $(".div").css({ "display": "inline" });
-            tar.TareasNegocioCompromiso(negocio);
-            $('#TxtClientes').val(ced);
-            $('#PanelTareas').show();
-            //Ac.AcuerdosFox(negocio);
-            //neg.ListNegocioFOXID(WsListNegocioID, negocio);
-            //Pag.PagosFox(negocio);
-        });
 
-       
+            $('#PanelNego').show();
+            $('#PanelTareas').show();
+            tar.TareasNegocio(negocio);
+            Ac.AcuerdosFox(negocio);
+            Pag.PagosFox(negocio);
+           
+        });
+        $(document).on('click', '.Detallett1', function () {
+            negocio = $(this).attr("id");
+            
+            $(".div").css({ "display": "inline" });
+            $('#TxtClientes').val(cedula);
+            $('#Tareas').modal('show');
+            
+
+
+        });
         $(document).on('click', '#BtnCreaTarea', function (event) {
 
             

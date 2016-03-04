@@ -69,6 +69,7 @@ BLLAcuerdosFox.TablaAcuerdosReporte = function (acuerdos) {
     tabla += "<th>Vlr cuota</th>";
     tabla += "<th>Pago cuota</th>";
     tabla += "<th>Saldo x cobrar</th>";
+ 
     tabla += "</tr>";
     tabla += "</thead>";
     tabla += "<tbody>";
@@ -81,6 +82,7 @@ BLLAcuerdosFox.TablaAcuerdosReporte = function (acuerdos) {
         tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
+       
         tabla += "</tr>";
 
 
@@ -104,6 +106,7 @@ BLLAcuerdosFox.TablaAcuerdosFoxReporte = function (acuerdos) {
     tabla += "<th>Vlr cuota</th>";
     tabla += "<th>Pago cuota</th>";
     tabla += "<th>Saldo x cobrar</th>";
+
     tabla += "</tr>";
     tabla += "</thead>";
     tabla += "<tbody>";
@@ -118,6 +121,7 @@ BLLAcuerdosFox.TablaAcuerdosFoxReporte = function (acuerdos) {
         tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
+      
         tabla += "</tr>";
 
         totalcuota = (totalcuota + item.VLRCUOTA);
@@ -150,6 +154,7 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
     tabla += "<th>Vlr cuota</th>";
     tabla += "<th>Pago cuota</th>";
     tabla += "<th>Saldo x cobrar</th>";
+    tabla += "<th>Compromiso</th>";
     tabla += "</tr>";
     tabla += "</thead>";
     tabla += "<tbody>";
@@ -163,10 +168,7 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
         tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
-        tabla += "</tr>";
-
-      
-
+        tabla += "<td><img src= '" + funcionUrlGlobal('/images_crm/libre.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href='' /></td>";
     });
     tabla += "</tbody>";
     tabla += '</table>';
