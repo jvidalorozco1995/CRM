@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Neon Admin Panel" />
+    <meta name="author" content="" />
+
+    <title class="persona">CRM | compromisos de pagos</title>
+
+
+    <link rel="stylesheet" href="../../assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="../../assets/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/neon-core.css">
+    <link rel="stylesheet" href="../../assets/css/neon-theme.css">
+    <link rel="stylesheet" href="../../assets/css/neon-forms.css">
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+
+    <script src="../../assets/js/jquery-1.11.0.min.js"></script>
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <style>
+        .txtarea {
+            width: 100%;
+            height: 300px;
+        }
+
+        .centrar {
+            /*nos posicionamos en el centro del navegador*/
+            /*determinamos una anchura*/
+            /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+            /*determinamos una altura*/
+            /*indicamos que el margen superior, es la mitad de la altura*/
+            width: 98%;
+            margin: 0 auto;
+            border: 0px solid #808080;
+            padding: 5px;
+        }
+
+        html * {
+            font-size: 100%;
+            /*color: #000 !important;
+            font-family: Arial !important;*/
+        }
+    </style>
+</head>
+<body style="margin-top:0px;" data-url="http://neon.dev">
+    <div class="centrar">
+        <div class="row">
+            <div class="col-md-3" style="float:left;"><img src="../../images_crm/logo.png" width="48px;" /></div>
+            <div class="col-md-8" style="float:right">
+                <span class="pull-right-">
+                    <script>
+                        var today = new Date();
+                        document.write("Fecha de Impresión <br/>" + today.toLocaleString());
+                    </script>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="centrar">
+        <div id="infoconyugue">
+            <!--<div class="panel-heading">
+                <h1 class="panel-title"><strong>Datos del propietario comentas</strong></h1>
+            </div>-->
+            <div style="padding-top:20px;">
+                <div class="container">
+                </div>
+
+                <div class="centrar">
+                    <table class="col-lg-12" style="float:none; margin:0 auto;">
+                        <thead>
+                            <tr>
+                                <th class="col-lg-3"><strong>Cedula</strong></th>
+                                <th class="col-lg-3"><strong>Cliente</strong></th>
+                                <th class="col-lg-3"><strong>Inmueble</strong></th>
+                                <th class="col-lg-3"><strong>Vlr Inmueble</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-3"><label id="TxtCedula"></label></td>
+                                <td class="col-lg-3"><label id="TxtNombrecliente"></label></td>
+                                <td class="col-lg-3"><label id="TxtInmueble"></label></td>
+                                <td class="col-lg-3"><label id="TxtVlrInmueble"></label></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <table class="col-lg-12" style="float:none; margin:0 auto;">
+                       <tbody>
+                            <tr>
+                                <td class="col-lg-12">
+
+                                    <!--Cuotas-->
+                                   <div id="TblCuotas" class="col-lg-4"> </div>
+
+                                    <!--Pagos Realizados-->
+                                    <div id="pagosFox" class="col-lg-4" style=" float:left;">
+                                    </div>
+
+                                     <!--Compromisos de pagos-->
+                                     <div id="Tblcompromiso" class="col-lg-4" style="float:right;">
+                                    </div>
+                                </td>
+                             </tr>
+                        </tbody>
+                    </table>
+                  </div>
+               </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="invoice-right">
+                 <br />
+                 <a id="BtnImprimir" class="btn btn-primary btn-icon icon-left hidden-print" style="display:none;">
+                    imprimir
+                    <i class="entypo-doc-text"></i>
+                </a>
+                &nbsp;
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Scripts -->
+    <script src="../../assets/js/gsap/main-gsap.js"></script>
+    <script src="../../assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/joinable.js"></script>
+    <script src="../../assets/js/resizeable.js"></script>
+    <script src="../../assets/js/neon-api.js"></script>
+    <script src="../../assets/js/neon-chat.js"></script>
+    <script src="../../assets/js/neon-custom.js"></script>
+    <script src="../../assets/js/neon-demo.js"></script>
+    <script src="../../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/datatables/TableTools.min.js"></script>
+    <script src="../../assets/js/dataTables.bootstrap.js"></script>
+    <script src="../../assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+    <script src="../../assets/js/datatables/lodash.min.js"></script>
+    <script src="../../assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+    <script src="../../vendor/moment/moment.js"></script>
+    <script src="../../scripts_crm/accounting.js"></script>
+    <script src="../../BLLscripts/BLLUtilidades.js"></script>
+    <script src="../../BLLscripts/BLLPagosFox.js"></script>
+    <script src="../../BLLscripts/BLLAcuerdosFox.js"></script>
+    <script src="../../BLLscripts/BLLTareas.js"></script>
+
+    <script src="js/Compromisos.js"></script>
+</body>
+</html>

@@ -1355,6 +1355,7 @@
     <Content Include="BLLscripts\BLLUtilidades.js" />
     <Content Include="Cartera\CrearNegocio\Crearnegocio.aspx" />
     <Content Include="Cartera\ListaNegocioFox\Estacuenta.html" />
+    <Content Include="Cartera\SeguimientoNegocio\Estacuenta.html" />
     <Content Include="Cartera\SeguimientoNegocio\GesNegocio.aspx" />
     <Content Include="Cartera\CrearNegocio\GesCartera.aspx" />
     <Content Include="Cartera\CrearNegocio\Hoja_Negocio2.html" />
@@ -1369,6 +1370,9 @@
     <Content Include="Cartera\js\SeguiNegocio.js" />
     <Content Include="Cartera\ListaNegocioFox\Negocios.aspx" />
     <Content Include="Cartera\ListaNegocioFox\ReporteCompromisos.html" />
+    <Content Include="Cartera\SeguimientoNegocio\js\Compromisos.js" />
+    <Content Include="Cartera\SeguimientoNegocio\js\Estacuenta.js" />
+    <Content Include="Cartera\SeguimientoNegocio\ReporteCompromisos.html" />
     <Content Include="Cartera\SeguimientoNegocio\SeguiNegocios.aspx" />
     <Content Include="Comercial\clientes\Clientes.aspx" />
     <Content Include="Comercial\clientes\js\clientes.js" />

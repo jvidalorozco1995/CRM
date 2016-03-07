@@ -85,7 +85,7 @@
                                 </div>
                           
 
-                             <div>
+                              <div>
                                   <button class="btn btn-success " type="button" id="BtnImprimirCuenta">Imprimir Compromisos</button>
                                   <button class="btn btn-success " type="button" id="BtnImprimir">Imprimir Estado de cuenta</button>
                               </div>
@@ -96,6 +96,14 @@
                  </div>
                 </div>
             </div>
+        </div>
+
+
+    <div class="col-lg-5 scroll " style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s; display:none">
+                        <div class="panel panel-success">
+                        <div class="panel-body" id="oculto">
+                     </div>
+                            </div>
         </div>
     
      <div class="modal fade hmodal-danger" id="Tareas" tabindex="-1" role="dialog" aria-hidden="true">
@@ -133,7 +141,8 @@
 
                                     </div>
                                 </div>
-                            </div>          
+                            </div>    
+          
     <div class="modal fade hmodal-danger" id="infoTareas" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
