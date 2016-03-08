@@ -112,24 +112,21 @@ var admUser = (function () {
             Pag.PagosFox(negocio);
            
         });
+
         $(document).on('click', '.Detallett1', function () {
             negocio = $(this).attr("id");
             
             $(".div").css({ "display": "inline" });
             $('#TxtClientes').val(cedula);
             $('#Tareas').modal('show');
-            
-
-
         });
+
         $(document).on('click', '#BtnCreaTarea', function (event) {
 
-            
-
-            if ($('#TxtClientes').val().length < 1) {
+             if ($('#TxtClientes').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
                 '<br/> Seleccione al menos un cliente');
-            }
+             }
 
             if ($('#TxtDescripcion').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
@@ -151,14 +148,11 @@ var admUser = (function () {
                         tar.InsertCompromiso(_DtoTareas());
                         setTimeout(function () { tar.TareasNegocioCompromiso(negocio); }, 2000);
                       
-
                     }
                 }
             }
         });
 
-
-        
         $(document).on('click', '.Infocl', function () {
             cedula = $(this).attr("id");
             tar.InfoTareasNego(cedula);
