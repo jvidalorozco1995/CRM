@@ -10,8 +10,27 @@ var admUser = (function () {
     var WsListNegocio = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisos");//Consulto Proyectos CRM
  
 
+
     var _addHandlers = function () {
       
+
+
+        //Boton para imprimir los compromisos de pagoss
+        $("#BtnImprimirCuenta").click(function () {
+
+            window.open("ReporteCompromisos.html?negocio=" + negocio);
+        });
+        //-----------------FIN--------------------//
+
+
+
+        //Boton para imprimir un estado de cuenta
+        $("#BtnImprimir").click(function () {
+
+            window.open("Estacuenta.html?negocio=" + negocio);
+        });
+        //-----------------FIN--------------------//
+
 
         $("#BtnActualizar").click(function () {
 
