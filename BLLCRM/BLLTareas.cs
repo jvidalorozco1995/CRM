@@ -199,7 +199,35 @@ namespace BLLCRM
 
         }
 
+        public List<tareas> GestTareasCompromisoCO(string c)
+        {
+            List<tareas> lisT = bd.tareas.OrderByDescending(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c && (t.ESTADO == "CO" || t.ESTADO == "PS" || t.ESTADO == "TR")).ToList();
+            List<tareas> Vtc = new List<tareas>();
+            if (lisT.Count.Equals(0))
+            {
+                return Vtc;
+            }
+            else
+            {
 
+                foreach (var item in lisT)
+                {
+                    tareas lt = new tareas();
+                    lt.CLIENTE = item.CLIENTE;
+                    lt.TRABAJADOR = item.TRABAJADOR;
+                    lt.CONCEPTO = item.CONCEPTO;
+                    lt.FECHAINICIO = item.FECHAINICIO;
+                    lt.FECHAFIN = item.FECHAFIN;
+                    lt.ESTADO = item.ESTADO;
+                    lt.ID_TAREA = item.ID_TAREA;
+                    lt.TRABAJADOR = item.TRABAJADOR;
+                    lt.NEGOCIO = item.NEGOCIO;
+                    Vtc.Add(lt);
+                }
+                return Vtc;
+            }
+
+        }
 
         /// <summary>
         /// Metodo Retorna un listado de tareas asignadas a un cliente en especifico

@@ -15,6 +15,8 @@ var WsInfoTareasNego = funcionUrlGlobal("/Servicios/WTareas.asmx/InfoTareasNego"
 var WTareasNegocio = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasNegocios");
 var WCompromisosInsert = funcionUrlGlobal("/Servicios/WTareas.asmx/InsertCompromiso");
 var WTareasNegocioCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasCompromiso");
+var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasCompromisoCO");
+
     var color = null;
 
     //Metodo para Crear cliente
@@ -149,6 +151,26 @@ var WTareasNegocioCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTare
         })
     }
 
+    BLLTareas.prototype.TareasNegocioCompromisoCO = function (negocio) {
+        jsonData = "{'c':" + JSON.stringify(negocio) + "}";
+        $.ajax({
+            type: "POST", url: WTareasNegocioCompromisoCO, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d === null) {
+
+                }
+                else {
+
+                    BLLTareas.TablaTareasNegocioCompromiso(result.d);
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        })
+    }
 
     BLLTareas.prototype.EstadoTareas = function (estado) {
         jsonData = "{'estado':" + JSON.stringify(estado) + "}";
@@ -749,7 +771,7 @@ var WTareasNegocioCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTare
         var Cedula;
         $.each(clientes, function (i, item) {
             tabla += " <tr>";
-            tabla += "<td>" + item.NOMBRES + "</td>";
+            tabla += "<td>" + item.CLIENTE + "</td>";
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
             switch (item.ESTADO) {

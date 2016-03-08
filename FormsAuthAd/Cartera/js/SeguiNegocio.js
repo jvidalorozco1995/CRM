@@ -107,8 +107,8 @@ var admUser = (function () {
 
             $('#PanelNego').show();
             $('#PanelTareas').show();
-            tar.TareasNegocio(negocio);
-            Ac.AcuerdosFox(negocio);
+            tar.TareasNegocioCompromisoCO(negocio);
+            Ac.AcuerdosFoxCompromiso(negocio);
             Pag.PagosFox(negocio);
            
         });

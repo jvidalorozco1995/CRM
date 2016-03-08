@@ -72,6 +72,15 @@ namespace FormsAuthAd.Servicios
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 
+        public List<tareas> GetTareasCompromisoCO(string c)
+        {
+            return bt.GestTareasCompromisoCO(c);
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
         public List<VTareasTrab> InfoTareas(int id)
         {
             return bt.GetTareaInfo(id);
