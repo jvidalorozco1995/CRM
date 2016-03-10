@@ -209,7 +209,10 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
         tabla += "<tbody>";
 
         $.each(acuerdos, function (i, item) {
-
+            var f = new Date();
+            f = (f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
+            var f2 = item.FECHACARTERA;
+            
             tabla += " <tr id=" + item.REFERENCIA1 + ">";
             tabla += "<td>" + item.CODIGO + "</td>";
             tabla += "<td>" + item.CONCEPTO + "</td>";
@@ -217,7 +220,16 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
             tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
             tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
             tabla += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
-            tabla += "<td><img src= '" + funcionUrlGlobal('/images_crm/libre.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href='' /></td>";
+            if (item.SALDOXCOBRAR == 0) {
+                tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
+            } else if (f < f2) {
+                tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
+            }
+            else {
+                tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
+            }
+           
+            tabla += "</tr>";
         });
         tabla += "</tbody>";
         tabla += '</table>';
