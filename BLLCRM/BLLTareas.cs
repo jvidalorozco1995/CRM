@@ -265,6 +265,24 @@ namespace BLLCRM
         }
 
 
+        /// <summary>
+        /// Llama un procedimiento para actualizar las tareas
+        /// </summary>
+        public void UpdateTareasEstados()
+        {
+
+            try
+            {
+
+                bd.tareas_actualizar();
+                
+            } catch (Exception ex) {
+
+                throw ex;
+            }
+
+        }
+
 
         /// <summary>
         /// Metodo Retorna un listado de tareas asignadas a un cliente en especifico

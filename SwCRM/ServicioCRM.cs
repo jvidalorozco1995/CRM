@@ -46,6 +46,7 @@ namespace SwCRM
         }
 
         ConecFox fx = new ConecFox();
+        BLLTareas tar = new BLLTareas();
 
         public void ListNegocio() 
         {
@@ -67,6 +68,11 @@ namespace SwCRM
         {
 
             return fx.ConsultPagosFox(refe).ToList();
+        }
+
+        public void UpdateTareasEstados() {
+
+            tar.UpdateTareasEstados();
         }
 
         public void InsertPago(){
@@ -116,6 +122,7 @@ namespace SwCRM
                 ListNegocio();
                 AcuerdoFox();
                 InsertPago();
+                UpdateTareasEstados();
                 // stop the timer while we are running the cleanup task
                 _timer.Stop();
                 //
