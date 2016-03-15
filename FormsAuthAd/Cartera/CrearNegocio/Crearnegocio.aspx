@@ -31,8 +31,7 @@
     <script src="../../BLLscripts/BLLActInmuebles.js"></script>
     <script src="../../BLLscripts/BLLInmuebles.js"></script>
     <script src="../../BLLscripts/BLLnegocio.js"></script>
-    <script src="../js/GestCartera.js"></script>
-
+    <script src="js/GestCartera.js"></script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">

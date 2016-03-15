@@ -19,5 +19,5 @@
     <script src="../../BLLscripts/BLLTrabajadores.js"></script>
     <script src="../../BLLscripts/BLLProyectos.js"></script>
     <script src="../../BLLscripts/BLLUtilidades.js"></script>
-    <script src="../js/negocioProyecto.js"></script>
+    <script src="js/negocioProyecto.js"></script>
 </asp:Content>

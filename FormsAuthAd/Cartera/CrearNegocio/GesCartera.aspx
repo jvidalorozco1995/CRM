@@ -18,5 +18,5 @@
     <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="../../BLLscripts/BLLnegocio.js"></script>
     <script src="../../BLLscripts/BLLProyectos.js"></script>
-    <script src="../js/Cartera.js"></script>
+    <script src="js/Cartera.js"></script>
 </asp:Content>

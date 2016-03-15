@@ -7,6 +7,7 @@ var _admnego = (function () {
     var _addHandlers = function () {
 
     }
+
     var getHoha = function (n) {
         jsondata = "{'c':" + JSON.stringify(n) + "}"
         $.ajax({

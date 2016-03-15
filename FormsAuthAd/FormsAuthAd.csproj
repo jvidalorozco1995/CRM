@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1359,15 +1360,14 @@
     <Content Include="Cartera\SeguimientoNegocio\GesNegocio.aspx" />
     <Content Include="Cartera\CrearNegocio\GesCartera.aspx" />
     <Content Include="Cartera\CrearNegocio\Hoja_Negocio2.html" />
-    <Content Include="Cartera\js\Cartera.js" />
+    <Content Include="Cartera\CrearNegocio\js\Cartera.js" />
     <Content Include="Cartera\ListaNegocioFox\js\Compromisos.js" />
     <Content Include="Cartera\ListaNegocioFox\js\Estacuenta.js" />
     <Content Include="Cartera\CrearNegocio\js\Hoja.js" />
-    <Content Include="Cartera\js\GestCartera.js" />
-    <Content Include="Cartera\js\jquery.printElement.js" />
-    <Content Include="Cartera\js\negocioProyecto.js" />
-    <Content Include="Cartera\js\Negocios.js" />
-    <Content Include="Cartera\js\SeguiNegocio.js" />
+    <Content Include="Cartera\CrearNegocio\js\GestCartera.js" />
+    <Content Include="Cartera\SeguimientoNegocio\js\negocioProyecto.js" />
+    <Content Include="Cartera\ListaNegocioFox\js\Negocios.js" />
+    <Content Include="Cartera\SeguimientoNegocio\js\SeguiNegocio.js" />
     <Content Include="Cartera\ListaNegocioFox\Negocios.aspx" />
     <Content Include="Cartera\ListaNegocioFox\ReporteCompromisos.html" />
     <Content Include="Cartera\SeguimientoNegocio\js\Compromisos.js" />

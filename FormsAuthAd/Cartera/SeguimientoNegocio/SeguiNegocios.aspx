@@ -236,8 +236,8 @@
     <script src="../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
     <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
 
-                <script src="../js/SeguiNegocio.js"></script>
     
+    <script src="js/SeguiNegocio.js"></script>
 
     <script src="../../scripts_crm/bootstrap-datepicker.js"></script>
     <script src="../../scripts_crm/accounting.js"></script>
