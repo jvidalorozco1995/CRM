@@ -4,7 +4,7 @@
 var utl = new BLLUtilidades();
 
 
-
+//prueba
 BLLActInmuebles.prototype.InsertActInmueble = function (proyecto,wsUrl) {
     jsonData = "{'p':" + JSON.stringify(proyecto) + "}";
     $.ajax({
