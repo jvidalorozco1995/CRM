@@ -265,6 +265,25 @@ namespace BLLCRM
         }
 
 
+        /// <summary>
+        /// Llama un procedimiento para actualizar las tareas
+        /// </summary>
+        public string UpdateTareasEstados()
+        {
+
+            try
+            {
+                bd.tareas.Where(t=>t.ESTADO != "T").ToList().ForEach(c => c.ESTADO = "V");
+                bd.SaveChanges();
+                return "Ok";
+
+            } catch (Exception ex) {
+
+                return "Error"+ex.Message;
+            }
+
+        }
+
 
         /// <summary>
         /// Metodo Retorna un listado de tareas asignadas a un cliente en especifico

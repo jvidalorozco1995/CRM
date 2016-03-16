@@ -40,6 +40,13 @@ namespace FormsAuthAd.Servicios
             return bt.InsertCompromiso(c);
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
+        public string update()
+        {
+           return bt.UpdateTareasEstados();
+        }
 
 
         [WebMethod]

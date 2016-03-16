@@ -47,6 +47,8 @@ namespace SwCRM
 
         ConecFox fx = new ConecFox();
 
+        BLLTareas tar = new BLLTareas();
+
         public void ListNegocio() 
         {
             InsertNegocio(fx.ConsulNegocio());
@@ -69,28 +71,49 @@ namespace SwCRM
             return fx.ConsultPagosFox(refe).ToList();
         }
 
+        public void UpdateTareasEstados() {
+
+           string mess = tar.UpdateTareasEstados();
+           eventLog1.WriteEntry(mess);
+        }
+
         public void InsertPago(){
-            BLLNegocioFox hn = new BLLNegocioFox();
-            var listneg = hn.NegociosFoxCRM();
-            foreach (var item in listneg)
+
+            try
             {
-                //Lista de pagos por referencia o negocio 
-                var listapag = listPagosFox(item.SUCURSAL + item.NEGOCIO);
-
-                foreach (var list in listapag)
+                BLLNegocioFox hn = new BLLNegocioFox();
+                var listneg = hn.NegociosFoxCRM();
+                foreach (var item in listneg)
                 {
+                    //Lista de pagos por referencia o negocio 
+                    var listapag = listPagosFox(item.SUCURSAL + item.NEGOCIO);
 
-                    InsertPago(list);
+                    foreach (var list in listapag)
+                    {
+
+                        InsertPago(list);
+
+                    }
 
                 }
+            }
+            catch (Exception ex) {
 
+                eventLog1.WriteEntry(ex.ToString());
             }
         }
 
         public void InsertAcuerdo(List<AcuerdoFox> ac)
         {
-            BLLAcuerdoFox hn = new BLLAcuerdoFox();
-            hn.Acuerdo(ac);
+            try
+            {
+                BLLAcuerdoFox hn = new BLLAcuerdoFox();
+                hn.Acuerdo(ac);
+            }
+            catch (Exception ex) {
+
+                eventLog1.WriteEntry(ex.ToString());
+            }
         }
     
         public string InsertPago(PagosFox ac)
@@ -102,7 +125,7 @@ namespace SwCRM
             }
             catch (Exception ex)
             {
-
+                eventLog1.WriteEntry(ex.ToString());
                 return ex.ToString();
             }
         }
@@ -116,6 +139,7 @@ namespace SwCRM
                 ListNegocio();
                 AcuerdoFox();
                 InsertPago();
+                UpdateTareasEstados();
                 // stop the timer while we are running the cleanup task
                 _timer.Stop();
                 //

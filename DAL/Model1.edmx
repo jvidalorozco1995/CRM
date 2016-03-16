@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CRMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ActInmuebles">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -986,6 +986,7 @@ warning 6002: The table/view 'CRM_TEST.dbo.VTracliente' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="tareas_actualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="CRMModelStoreContainer">
           <EntitySet Name="ActInmuebles" EntityType="Self.ActInmuebles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="acuerdo_fox" EntityType="Self.acuerdo_fox" Schema="dbo" store:Type="Tables" />
@@ -1534,6 +1535,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySet Name="VnegocioFox" EntityType="CRMModel.VnegocioFox" />
           <EntitySet Name="ActInmuebles" EntityType="CRMModel.ActInmuebles" />
           <EntitySet Name="VActInmuebles" EntityType="CRMModel.VActInmuebles" />
+          <FunctionImport Name="tareas_actualizar" />
         </EntityContainer>
         <EntityType Name="acuerdo_fox">
           <Key>
@@ -3311,6 +3313,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="tareas_actualizar" FunctionName="CRMModel.Store.tareas_actualizar" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3326,7 +3329,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
         <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
