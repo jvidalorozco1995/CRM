@@ -15,6 +15,6 @@ AS
 
 	UPDATE tareas
     SET tareas.ESTADO = 'V'
-    WHERE ESTADO !='T';    
+    WHERE ESTADO !='T' AND GETDATE() > tareas.FECHAINICIO;     
 --END
 
