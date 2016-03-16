@@ -15,6 +15,6 @@ namespace DAL
     public partial class Vclienteseparacion
     {
         public string CLIENTE { get; set; }
-        public Nullable<int> ID_SEPARACION { get; set; }
+        public int ID_SEPARACION { get; set; }
     }
 }

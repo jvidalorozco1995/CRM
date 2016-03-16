@@ -212,7 +212,8 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
             var f = new Date();
             f = (f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
             var f2 = item.FECHACARTERA;
-            
+            alert(f);
+            alert(f2);
             tabla += " <tr id=" + item.REFERENCIA1 + ">";
             tabla += "<td>" + item.CODIGO + "</td>";
             tabla += "<td>" + item.CONCEPTO + "</td>";

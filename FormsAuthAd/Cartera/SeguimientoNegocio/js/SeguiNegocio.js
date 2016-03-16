@@ -72,7 +72,7 @@ var admUser = (function () {
                             mes = null;
 
                             tar.PosponerTarea(_PosTareas(), _BitacorasDTO());
-                            setTimeout(function () { tar.TareasNegocioCompromiso(negocio); }, 1000);
+                            setTimeout(function () { tar.TareasNegocioCompromisoCO(negocio); }, 1000);
                            
                        //     setTimeout(function () { tar.lisbitacoras(cedula); }, 1000);
                             setTimeout(function () { tar.lisbitacoras(t); }, 1000)
@@ -146,7 +146,7 @@ var admUser = (function () {
                     else {
 
                         tar.InsertCompromiso(_DtoTareas());
-                        setTimeout(function () { tar.TareasNegocioCompromiso(negocio); }, 2000);
+                        setTimeout(function () { tar.TareasNegocioCompromisoCO(negocio); }, 2000);
                       
                     }
                 }

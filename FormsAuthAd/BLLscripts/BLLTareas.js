@@ -787,6 +787,9 @@ var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTa
                 case "V":
                     tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "'  class='' id=" + item.ID_TAREA + " href=''/></td>";
                     break
+                case "CO":
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "'  class='' id=" + item.ID_TAREA + " href=''/></td>";
+                    break
                 case null:
                     tabla += "<td></td>";
                     break
