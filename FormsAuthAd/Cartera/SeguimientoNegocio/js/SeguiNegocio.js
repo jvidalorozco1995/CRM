@@ -194,6 +194,7 @@ var admUser = (function () {
         tarea.FECHAFIN = moment($('#TxtFechaTarea').val()).format("YYYY/MM/DD");
         tarea.NEGOCIO = negocio;
         tarea.estado = 'CO';
+        tarea.TIPO = 'CO';
         return tarea;
     }
     var _BitacorasDTO = function () {
