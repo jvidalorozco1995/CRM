@@ -28,13 +28,13 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<ActInmuebles> ActInmuebles { get; set; }
         public DbSet<acuerdo_fox> acuerdo_fox { get; set; }
         public DbSet<acuerdo_pago> acuerdo_pago { get; set; }
         public DbSet<bancos> bancos { get; set; }
         public DbSet<bitacora_tareas> bitacora_tareas { get; set; }
         public DbSet<bloques> bloques { get; set; }
         public DbSet<clientes> clientes { get; set; }
-        public DbSet<concepto_p> concepto_p { get; set; }
         public DbSet<configuracion> configuracion { get; set; }
         public DbSet<Configuracion_negocio> Configuracion_negocio { get; set; }
         public DbSet<documentos_negocio> documentos_negocio { get; set; }
@@ -44,17 +44,19 @@ namespace DAL
         public DbSet<informacion> informacion { get; set; }
         public DbSet<inmueble_separacion> inmueble_separacion { get; set; }
         public DbSet<inmuebles> inmuebles { get; set; }
+        public DbSet<negocio> negocio { get; set; }
         public DbSet<negocio_fox> negocio_fox { get; set; }
         public DbSet<pagos_fox> pagos_fox { get; set; }
         public DbSet<planos_Proyectos> planos_Proyectos { get; set; }
         public DbSet<proyectos> proyectos { get; set; }
         public DbSet<proyectos_trabajador> proyectos_trabajador { get; set; }
         public DbSet<sala_ventas> sala_ventas { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<tareas> tareas { get; set; }
         public DbSet<trabajadores> trabajadores { get; set; }
         public DbSet<historial_acuerdos_pagos> historial_acuerdos_pagos { get; set; }
         public DbSet<NegocioView> NegocioView { get; set; }
+        public DbSet<VActInmuebles> VActInmuebles { get; set; }
+        public DbSet<VacuerdosFox> VacuerdosFox { get; set; }
         public DbSet<VAsesoresT> VAsesoresT { get; set; }
         public DbSet<VCLienteinmueble> VCLienteinmueble { get; set; }
         public DbSet<Vclientes> Vclientes { get; set; }
@@ -65,17 +67,13 @@ namespace DAL
         public DbSet<VFechasProyectos> VFechasProyectos { get; set; }
         public DbSet<Vinmuebles> Vinmuebles { get; set; }
         public DbSet<VinteresProyect> VinteresProyect { get; set; }
+        public DbSet<VnegocioFox> VnegocioFox { get; set; }
+        public DbSet<VNegocioscompromisos> VNegocioscompromisos { get; set; }
         public DbSet<Vsepracioninmuebles> Vsepracioninmuebles { get; set; }
         public DbSet<Vspt> Vspt { get; set; }
         public DbSet<VTareas> VTareas { get; set; }
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
-        public DbSet<VacuerdosFox> VacuerdosFox { get; set; }
-        public DbSet<negocio> negocio { get; set; }
-        public DbSet<VNegocioscompromisos> VNegocioscompromisos { get; set; }
-        public DbSet<VnegocioFox> VnegocioFox { get; set; }
-        public DbSet<ActInmuebles> ActInmuebles { get; set; }
-        public DbSet<VActInmuebles> VActInmuebles { get; set; }
     
         public virtual int tareas_actualizar()
         {

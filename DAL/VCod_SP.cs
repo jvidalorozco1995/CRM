@@ -14,7 +14,7 @@ namespace DAL
     
     public partial class VCod_SP
     {
-        public Nullable<int> COD { get; set; }
+        public int COD { get; set; }
         public string INMU { get; set; }
         public string CLIENTE { get; set; }
     }

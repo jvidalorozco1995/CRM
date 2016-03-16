@@ -21,5 +21,6 @@ namespace DAL
         public string DESCRIPCION_S { get; set; }
     
         public virtual clientes clientes { get; set; }
+        public virtual clientes clientes1 { get; set; }
     }
 }
