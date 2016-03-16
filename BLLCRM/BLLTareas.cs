@@ -201,7 +201,7 @@ namespace BLLCRM
 
         public List<tareas> GestTareasCompromisoCO(string c)
         {
-            List<tareas> lisT = bd.tareas.OrderByDescending(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c && (t.TIPO == "CO")).ToList();
+            List<tareas> lisT = bd.tareas.OrderByDescending(l => l.FECHAINICIO).Where(t => t.NEGOCIO == c && (t.TIPO== "CO")).ToList();
             List<tareas> Vtc = new List<tareas>();
             if (lisT.Count.Equals(0))
             {
@@ -273,10 +273,9 @@ namespace BLLCRM
 
             try
             {
-                bd.tareas.Where(t=>t.ESTADO != "T").ToList().ForEach(c => c.ESTADO = "V");
+                bd.tareas.Where(t=>t.ESTADO != "T" && t.FECHAINICIO < DateTime.Now ).ToList().ForEach(c => c.ESTADO = "V");
                 bd.SaveChanges();
                 return "Ok";
-
             } catch (Exception ex) {
 
                 return "Error"+ex.Message;
