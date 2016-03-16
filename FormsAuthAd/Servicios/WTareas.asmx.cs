@@ -43,9 +43,9 @@ namespace FormsAuthAd.Servicios
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 
-        public void update()
+        public string update()
         {
-           bt.UpdateTareasEstados();
+           return bt.UpdateTareasEstados();
         }
 
 

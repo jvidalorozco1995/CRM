@@ -268,17 +268,18 @@ namespace BLLCRM
         /// <summary>
         /// Llama un procedimiento para actualizar las tareas
         /// </summary>
-        public void UpdateTareasEstados()
+        public string UpdateTareasEstados()
         {
 
             try
             {
+                bd.tareas.Where(t=>t.ESTADO != "T").ToList().ForEach(c => c.ESTADO = "V");
+                bd.SaveChanges();
+                return "Ok";
 
-                bd.tareas_actualizar();
-                
             } catch (Exception ex) {
 
-                throw ex;
+                return "Error"+ex.Message;
             }
 
         }
