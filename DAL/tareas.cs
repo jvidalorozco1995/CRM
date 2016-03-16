@@ -23,6 +23,7 @@ namespace DAL
         public Nullable<System.DateTime> FECHAFIN { get; set; }
         public string ESTADO { get; set; }
         public string TIPO { get; set; }
+
         public virtual clientes clientes { get; set; }
         public virtual trabajadores trabajadores { get; set; }
     }

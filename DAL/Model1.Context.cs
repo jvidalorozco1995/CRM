@@ -12,9 +12,6 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Objects;
-    using System.Data.Objects.DataClasses;
-    using System.Linq;
     
     public partial class CRMEntiti : DbContext
     {
@@ -76,10 +73,5 @@ namespace DAL
         public DbSet<VnegocioFox> VnegocioFox { get; set; }
         public DbSet<ActInmuebles> ActInmuebles { get; set; }
         public DbSet<VActInmuebles> VActInmuebles { get; set; }
-    
-        public virtual int tareas_actualizar()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("tareas_actualizar");
-        }
     }
 }
