@@ -2,6 +2,24 @@
 function BLLAcuerdosFox() {
 
 }
+function fRight(str, n) {
+    if (n <= 0)
+        return "";
+    else if (n > String(str).length)
+        return str;
+    else {
+        var iLen = String(str).length;
+        return String(str).substring(iLen, iLen - n);
+    }
+}
+function fLeft(str, n) {
+    if (n <= 0)
+        return "";
+    else if (n > String(str).length)
+        return str;
+    else
+        return String(str).substring(0, n);
+}
 var WsUrl = funcionUrlGlobal("/Servicios/AcuerdosFox.asmx/AcuerdosNegocio");
 
 
@@ -210,10 +228,21 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
 
         $.each(acuerdos, function (i, item) {
             var f = new Date();
-            f = (f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear());
+            var d = f.getDate();
+            if (d < 10) { d = "0" + d };
+            var m = (f.getMonth());
+            if (m < 10) { m = "0" + m };
+            f = ( d + "/" + m + "/" + f.getFullYear());
             var f2 = item.FECHACARTERA;
-            alert(f);
-            alert(f2);
+            var izq = fLeft(f2, 2);
+            var der = fRight(f2, 4);
+            var med = fRight(fLeft(f2, 5), 2) -1;
+            var izq1 = fLeft(f, 2);
+            var der1 = fRight(f, 4);
+            var med1 = fRight(fLeft(f, 5), 2);
+            var date1 = new Date(der1, med1, izq1);
+            var date2 = new Date(der, med, izq);
+
             tabla += " <tr id=" + item.REFERENCIA1 + ">";
             tabla += "<td>" + item.CODIGO + "</td>";
             tabla += "<td>" + item.CONCEPTO + "</td>";
@@ -223,13 +252,14 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
             tabla += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
             if (item.SALDOXCOBRAR == 0) {
                 tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
-            } else if (f < f2) {
+            }else{
+            if (date1 < date2) {
                 tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
             }
             else {
-                tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
+                tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/espera.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
             }
-           
+            }
             tabla += "</tr>";
         });
         tabla += "</tbody>";
@@ -239,3 +269,4 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
         $('#TblAcuerdos').append(tabla);
         $('#TblAcuerdosFox').dataTable();
     }
+
