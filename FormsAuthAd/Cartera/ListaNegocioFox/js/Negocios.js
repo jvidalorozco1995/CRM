@@ -37,7 +37,7 @@ var admUser = (function () {
 
 
         //Boton de actualizar todos los Negocios de CRM con MULTIFOX
-        $("#BtnActualizar").click(function () {
+         $("#BtnActualizar").click(function () {
 
 
             $(".div").css({ "display": "none" });

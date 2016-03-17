@@ -8,7 +8,7 @@ var proyec = utl.getUrl('proyec');
 var admUser = (function () {
 
     var WsListNegocio = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisos");//Consulto Proyectos CRM
- 
+    var Wsurltodosnegocios = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/TODO"); //Actualizar todos los negocios de CRM desde MULTIFOX
 
 
     var _addHandlers = function () {
@@ -22,7 +22,17 @@ var admUser = (function () {
         });
         //-----------------FIN--------------------//
 
+        //Boton de actualizar todos los Negocios de CRM con MULTIFOX
+        $("#BtnActualizar").click(function () {
 
+
+            $('#Cargando').show();
+            Seg.ActualizarTodosLosNegocios(Wsurltodosnegocios);
+
+            setTimeout(function () { Seg.ListNegocios(WsListNegocio, proyec); }, 2000);
+            
+        });
+        //--------------------FIN------------------------///
 
         //Boton para imprimir un estado de cuenta
         $("#BtnImprimir").click(function () {
@@ -32,9 +42,7 @@ var admUser = (function () {
         //-----------------FIN--------------------//
 
 
-        $("#BtnActualizar").click(function () {
-
-        });
+        
 
         $('#BtnEditar').click(function () {
             $('#BtnEditar').hide();
@@ -209,7 +217,7 @@ var admUser = (function () {
         $('#TxtFechaTarea').datepicker({
             format: 'yyyy/mm/dd',
         });
-       
+        $('#Cargando').hide();
         Seg.ListNegocios(WsListNegocio, proyec);
     }
 
