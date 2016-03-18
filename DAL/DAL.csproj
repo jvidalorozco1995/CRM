@@ -72,6 +72,9 @@
     <Compile Include="clientes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="compromisosxcuota.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ConecFox.cs" />
     <Compile Include="configuracion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
