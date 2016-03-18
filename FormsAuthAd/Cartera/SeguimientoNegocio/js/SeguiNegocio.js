@@ -128,6 +128,13 @@ var admUser = (function () {
             $('#TxtClientes').val(cedula);
             $('#Tareas').modal('show');
         });
+        $(document).on('click', '.Detallett2', function () {
+            negocio = $(this).attr("id");
+            alert(negocio);
+            //$(".div").css({ "display": "inline" });
+            //$('#TxtClientes').val(cedula);
+            //$('#Tareas').modal('show');
+        });
 
         $(document).on('click', '#BtnCreaTarea', function (event) {
 
@@ -245,3 +252,4 @@ $(document).ready(function () {
         "timeOut": "4000",
     };
 })
+

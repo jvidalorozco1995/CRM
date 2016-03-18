@@ -8,6 +8,32 @@
     <div id="wrapper">
 
         <div class="content animate-panel"  style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+             <div class="row">
+                <div class="col-sm-5 text-center">
+                                            <div class="pull-right">
+                                           <div class="dt-buttons btn-group">
+       
+                                              <a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>Pago realizado</span>
+                                                   <img src='<%= ResolveUrl("../../images_crm/Completa.png") %>' style="width:20px;height:18px" /> 
+                                              </a>
+                                               <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>Pago pendiente</span>
+                                                    <img src='<%= ResolveUrl("../../images_crm/libre.png") %>' style="width:15px;height:15px" /> 
+                                               </a>
+                                               <a class="btn btn-default buttons-pdf buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>Pago vencido</span>
+                                                    <img src='<%= ResolveUrl("../../images_crm/Espera.png") %>' style="width:15px;height:15px" />
+                                               </a>
+                                                <a class="btn btn-default buttons-pdf buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>Negocio abierto</span>
+                                                    <img src='<%= ResolveUrl("../../images_crm/PV.png") %>' style="width:15px;height:15px" />
+                                               </a>
+       
+                                           </div>
+                                    </div>
+                               </div>
+            </div>
             <div class="row">
                 <!---Panel Informacion General--->
                 <div class="col-lg-7" id="Principal">
@@ -110,14 +136,14 @@
                             </div>
         </div>
     
-     <div class="modal fade hmodal-danger" id="Tareas" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal fade hmodal-danger"  id="Tareas" tabindex="-1" role="dialog" aria-hidden="true">
                                 
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                         <div id="Div1" class="p-m tab-pane active">
 
                                             <div class="row">
-                                                <div class="col-lg-3 text-center">
+                                                <div class="col-lg-4 text-center">
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="row">
@@ -140,7 +166,12 @@
                                             <div class="text-right m-t-xs">
                                                 <button class="btn btn-success " type="button" id="BtnCreaTarea"><i class="fa fa-check"></i>Crear Compromiso</button>
                                             </div>
-
+                                             <div class="tab-content">
+                                            <div class="tab-pane active">
+                                                 <div class="panel-body " id="TblAcuerdos2">
+                                                 </div>
+                                            </div>
+                                        </div>
                                         </div>
 
                                     </div>

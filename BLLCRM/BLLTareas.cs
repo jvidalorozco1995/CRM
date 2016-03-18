@@ -34,14 +34,14 @@ namespace BLLCRM
                     c.TRABAJADOR = user;
                     c.FECHAINICIO =Convert.ToDateTime(c.FECHAINICIO);
                     c.FECHAFIN = Convert.ToDateTime(c.FECHAFIN);
-                    bd.tareas.Add(c);
+                    var j = bd.tareas.Add(c);
                     bd.SaveChanges();
-                    return 1;
-                
-            }
+                    return j.ID_TAREA; 
+
+                   }
             catch
             {
-                throw;
+                return 0;
             }
         }
         

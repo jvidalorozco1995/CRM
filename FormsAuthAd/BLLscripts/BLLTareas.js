@@ -73,7 +73,7 @@ var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTa
                            '</br> La tarea se registrado de manera exitosa para el cliente con documento de identidad' +
                            '</br>' + tarea.cliente + 
                            '</br>' + 'Por el Asesor'
-                           + tarea.asesor + '');
+                           + tarea.asesor + '' + result.d);
                     $('#Tareas').show();
                    // $('#TxtClientes').val("");
                     $('#TxtDescripcion').val("");

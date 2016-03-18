@@ -84,6 +84,7 @@ BLLAcuerdosFox.prototype.AcuerdosFoxCompromiso = function (negocio) {
         async: true,
         success: function (result) {
             BLLAcuerdosFox.TablaAcuerdoFoxCompromiso(result.d);
+            
         },
         error: function (obj, error, objError) { alert(objError); }
     });
@@ -266,7 +267,65 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
         tabla += '</table>';
 
 
+        document.getElementById('TblAcuerdos2').innerHTML = "";
+        var tabla2 = '<table id="TblAcuerdosFox2" class="table table-striped table-bordered table-hover">';
+        tabla2 += "<thead>";
+        tabla2 += "<tr>";
+        tabla2 += "<th>No.Cuota</th>";
+        tabla2 += "<th>Tipo</th>";
+        tabla2 += "<th>Fecha</th>";
+        tabla2 += "<th>Vlr cuota</th>";
+        tabla2 += "<th>Pago cuota</th>";
+        tabla2 += "<th>Saldo x cobrar</th>";
+        tabla2 += "<th>Compromiso</th>";
+        tabla2 += "</tr>";
+        tabla2 += "</thead>";
+        tabla2 += "<tbody>";
+
+        $.each(acuerdos, function (i, item) {
+            var f = new Date();
+            var d = f.getDate();
+            if (d < 10) { d = "0" + d };
+            var m = (f.getMonth());
+            if (m < 10) { m = "0" + m };
+            f = (d + "/" + m + "/" + f.getFullYear());
+            var f2 = item.FECHACARTERA;
+            var izq = fLeft(f2, 2);
+            var der = fRight(f2, 4);
+            var med = fRight(fLeft(f2, 5), 2) - 1;
+            var izq1 = fLeft(f, 2);
+            var der1 = fRight(f, 4);
+            var med1 = fRight(fLeft(f, 5), 2);
+            var date1 = new Date(der1, med1, izq1);
+            var date2 = new Date(der, med, izq);
+
+            tabla2 += " <tr id=" + item.REFERENCIA1 + ">";
+            tabla2 += "<td style='width:200px'> <a class='Detallett2' id=" + item.CODIGO + ">" + item.CODIGO + "</a></td>";
+            tabla2 += "<td>" + item.CONCEPTO + "</td>";
+            tabla2 += "<td>" + item.FECHACARTERA + "</td>";
+            tabla2 += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
+            tabla2 += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
+            tabla2 += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
+            if (item.SALDOXCOBRAR == 0) {
+                tabla2 += "<td ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
+            } else {
+                if (date1 < date2) {
+                    tabla2 += "<td ><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
+                }
+                else {
+                    tabla2 += "<td ><img src='" + funcionUrlGlobal('/images_crm/espera.png') + "' tag=" + item.CODIGO + "  class='Detallett1' id=" + item.REFERENCIA1 + " href=''/></td>";
+                }
+            }
+            tabla2 += "</tr>";
+        });
+        tabla2 += "</tbody>";
+        tabla2 += '</table>';
+
+
+
+        $('#TblAcuerdos2').append(tabla2);
         $('#TblAcuerdos').append(tabla);
         $('#TblAcuerdosFox').dataTable();
     }
+
 
