@@ -73,6 +73,7 @@
         <AssociationConnector Association="Model1.FK__proyectos__TRABA__1CA7377D" ManuallyRouted="false" />
         <AssociationConnector Association="Model1.FK__tareas__TRABAJAD__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="Model1.FK__tareas__TRABAJAD__571DF1D5" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model1.compromisosxcuota" Width="1.5" PointX="19.375" PointY="20.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

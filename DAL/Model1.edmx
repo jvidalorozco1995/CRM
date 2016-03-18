@@ -99,6 +99,14 @@
           <Property Name="ESTADO" Type="varchar" MaxLength="1" />
           <Property Name="ASOCIADO" Type="varchar" MaxLength="15" />
         </EntityType>
+        <EntityType Name="compromisosxcuota">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_TAREA" Type="int" />
+          <Property Name="CODIGO" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="configuracion">
           <Key>
             <PropertyRef Name="ID_CONT" />
@@ -1100,6 +1108,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTracliente' does not have a primar
           <EntitySet Name="bitacora_tareas" EntityType="Self.bitacora_tareas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bloques" EntityType="Self.bloques" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="clientes" EntityType="Self.clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="compromisosxcuota" EntityType="Self.compromisosxcuota" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="configuracion" EntityType="Self.configuracion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Configuracion_negocio" EntityType="Self.Configuracion_negocio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="documentos_negocio" EntityType="Self.documentos_negocio" Schema="dbo" store:Type="Tables" />
@@ -2805,7 +2814,16 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
           <FunctionImport Name="tareas_actualizar" />
+          <EntitySet Name="compromisosxcuota" EntityType="Model1.compromisosxcuota" />
         </EntityContainer>
+        <EntityType Name="compromisosxcuota">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_TAREA" Type="Int32" />
+          <Property Name="CODIGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3601,6 +3619,15 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="tareas_actualizar" FunctionName="Model1.Store.tareas_actualizar" />
+          <EntitySetMapping Name="compromisosxcuota">
+            <EntityTypeMapping TypeName="Model1.compromisosxcuota">
+              <MappingFragment StoreEntitySet="compromisosxcuota">
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
