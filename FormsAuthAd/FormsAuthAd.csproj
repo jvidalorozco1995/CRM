@@ -1338,6 +1338,7 @@
     <Content Include="BLLscripts\BLLBloques.js" />
     <Content Include="BLLscripts\BLLClientes.js" />
     <Content Include="BLLscripts\BLLComercial.js" />
+    <Content Include="BLLscripts\BLLCompromisoCuenta.js" />
     <Content Include="BLLscripts\BLLConfiguracion_Negocio.js" />
     <Content Include="BLLscripts\BLLEmpresa.js" />
     <Content Include="BLLscripts\BLLIndex.js" />
@@ -2265,6 +2266,7 @@
     <Content Include="Servicios\WAcInmuebles.asmx" />
     <Content Include="Servicios\WBancos.asmx" />
     <Content Include="Servicios\WClientes.asmx" />
+    <Content Include="Servicios\WCompromisoCuota.asmx" />
     <Content Include="Servicios\WConfiguracionNegocios.asmx" />
     <Content Include="Servicios\WEmpresas.asmx" />
     <Content Include="ServiciosFox\WFox.asmx" />
@@ -4768,6 +4770,10 @@
     </Compile>
     <Compile Include="Servicios\WClientes.asmx.cs">
       <DependentUpon>WClientes.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WCompromisoCuota.asmx.cs">
+      <DependentUpon>WCompromisoCuota.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WConfiguracionNegocios.asmx.cs">

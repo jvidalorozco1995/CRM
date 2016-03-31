@@ -56,6 +56,7 @@
     <Compile Include="BLLBancos.cs" />
     <Compile Include="BLLBloques.cs" />
     <Compile Include="BLLClientes.cs" />
+    <Compile Include="BLLCompromisosCuota.cs" />
     <Compile Include="BLLNegociosCompro.cs" />
     <Compile Include="BLLConfiguracionNegocio.cs" />
     <Compile Include="BLLEmpresas.cs" />

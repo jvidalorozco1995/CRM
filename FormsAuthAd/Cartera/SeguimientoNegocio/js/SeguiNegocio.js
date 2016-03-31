@@ -2,6 +2,7 @@
 var Seg = new BLLSeguiNegocios();
 var Ac = new BLLAcuerdosFox();
 var tar = new BLLTareas();
+var com = new BLLCompromisoCuenta();
 var utl = new BLLUtilidades;
 var Pag = new BLLPagosFox();
 var proyec = utl.getUrl('proyec');
@@ -130,14 +131,12 @@ var admUser = (function () {
         });
         $(document).on('click', '.Detallett2', function () {
             negocio = $(this).attr("id");
-            alert(negocio);
-            //$(".div").css({ "display": "inline" });
-            //$('#TxtClientes').val(cedula);
-            //$('#Tareas').modal('show');
         });
 
         $(document).on('click', '#BtnCreaTarea', function (event) {
-
+            var compromiso = {};
+                
+           
              if ($('#TxtClientes').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
                 '<br/> Seleccione al menos un cliente');
@@ -160,9 +159,23 @@ var admUser = (function () {
                     }
                     else {
 
+                        $('#TblAcuerdos2').find('tr').each(function () {
+                            var row = $(this);
+                            if (row.find('input[type="checkbox"]').is(':checked')) {
+
+                                
+                                compromiso.ID_TAREA = '123';
+                                compromiso.CODIGO = $(this).attr("id");
+                                com.InserCompromisoCuota(compromiso);
+                            }
+                        });
                         tar.InsertCompromiso(_DtoTareas());
                         setTimeout(function () { tar.TareasNegocioCompromisoCO(negocio); }, 2000);
                       
+
+                       
+
+
                     }
                 }
             }
@@ -199,6 +212,7 @@ var admUser = (function () {
         postarea.ESTADO = "TR";
         return postarea;
     }
+
 
     var _DtoTareas = function () {
         var tarea = {};

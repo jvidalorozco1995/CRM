@@ -262,8 +262,8 @@
    <script src="../../BLLscripts/BLLnegocio.js"></script>
   <script src="../../BLLscripts/BLLAcuerdosFox.js"></script>
     <script src="../../BLLscripts/BLLTareas.js"></script>
-     <script src="../../BLLscripts/BLLPagosFox.js"></script>
-
+    <script src="../../BLLscripts/BLLCompromisoCuenta.js"></script>
+    <script src="../../BLLscripts/BLLPagosFox.js"></script>   
     <script src="../../vendor/sweetalert/lib/sweet-alert.min.js"></script>
     <script src="../../vendor/toastr/build/toastr.min.js"></script>
     <script src="../../vendor/moment/moment.js"></script>

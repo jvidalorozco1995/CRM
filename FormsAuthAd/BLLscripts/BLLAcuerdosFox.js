@@ -271,6 +271,7 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
         var tabla2 = '<table id="TblAcuerdosFox2" class="table table-striped table-bordered table-hover">';
         tabla2 += "<thead>";
         tabla2 += "<tr>";
+        tabla2 += "<th>Select</th>";
         tabla2 += "<th>No.Cuota</th>";
         tabla2 += "<th>Tipo</th>";
         tabla2 += "<th>Fecha</th>";
@@ -298,9 +299,11 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
             var med1 = fRight(fLeft(f, 5), 2);
             var date1 = new Date(der1, med1, izq1);
             var date2 = new Date(der, med, izq);
-
-            tabla2 += " <tr id=" + item.REFERENCIA1 + ">";
-            tabla2 += "<td style='width:200px'> <a class='Detallett2' id=" + item.CODIGO + ">" + item.CODIGO + "</a></td>";
+            
+            tabla2 += " <tr id=" + item.CODIGO + " tag=" + item.REFERENCIA1 + ">";
+            
+            tabla2 += "<td><input type='checkbox'/> <a class='Detallett2' id=" + item.CODIGO + "></a></td>";
+            tabla2 += "<td style='width:200px'> <a >" + item.CODIGO + "</a></td>";
             tabla2 += "<td>" + item.CONCEPTO + "</td>";
             tabla2 += "<td>" + item.FECHACARTERA + "</td>";
             tabla2 += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
