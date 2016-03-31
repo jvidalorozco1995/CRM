@@ -22,5 +22,6 @@ namespace DAL
         public string TRABAJADOR { get; set; }
         public string ESTADO { get; set; }
         public int CONTADOR { get; set; }
+
     }
 }
