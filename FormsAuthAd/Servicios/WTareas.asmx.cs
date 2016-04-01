@@ -99,7 +99,11 @@ namespace FormsAuthAd.Servicios
         {
             return bt.GestTareasNego(id);
         }
-        
+        [WebMethod]
+        public List<VTareasTrab> InfotareasCompromiso(int id)
+        {
+            return bt.GetTareaCompromisos(id);
+        }
 
 
         /// <summary>

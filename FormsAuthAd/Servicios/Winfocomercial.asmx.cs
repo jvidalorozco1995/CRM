@@ -39,6 +39,7 @@ namespace FormsAuthAd.Servicios
         {
             return info.InfoTrabajador(a);
         }
+       
 
         [WebMethod]
         public List<EntiClientes> LisclientesFechas(DateTime fechaini, DateTime fechafin)

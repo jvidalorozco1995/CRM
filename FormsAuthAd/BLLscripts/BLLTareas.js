@@ -16,6 +16,7 @@ var WTareasNegocio = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasNegocios
 var WCompromisosInsert = funcionUrlGlobal("/Servicios/WTareas.asmx/InsertCompromiso");
 var WTareasNegocioCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasCompromiso");
 var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasCompromisoCO");
+var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/InfotareasCompromiso");
 
     var color = null;
 
@@ -477,6 +478,26 @@ var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTa
             error: function (error) { alert(error.responseText); }
         });
     }
+    BLLTareas.prototype.InfoTareasCompromiso = function (tarea) {
+        jsonData = "{ 'id':" + JSON.stringify(tarea) + " }";
+        $.ajax({
+            type: "POST", url: WsInfotareaCompromiso, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+
+                if (result.d == null) {
+                    toastr.error('CRM Mayales' +
+                        '</br>No fue posible cargar la información detallada de la tarea');
+                }
+                else {
+                    BLLTareas.ComponenteInfo(result.d);
+                }
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+    }
 
     BLLTareas.CearComponente = function (tareas,op) {
         switch (op) {
@@ -581,6 +602,10 @@ var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTa
            
         }
     }
+
+
+
+
 
     BLLTareas.cumpliento = function (tareas) {
         var total = 0;
@@ -777,13 +802,13 @@ var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTa
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
             switch (item.ESTADO) {
-                case "T":
+                case "TR":
                     tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "E":
                     tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "' class='historial' id=" + item.ID_TAREA + " href='' /></td>";
                     break
-                case "P":
+                case "PS":
                     tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Pospuesta.png') + "' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "V":

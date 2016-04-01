@@ -106,6 +106,7 @@ namespace BLLCRM
             }
         }
 
+
         /// <summary>
         /// Retorna una lista de clientes en un rango de fecha especifico
         /// </summary>

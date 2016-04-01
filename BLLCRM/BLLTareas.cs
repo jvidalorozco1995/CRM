@@ -356,7 +356,39 @@ namespace BLLCRM
                 throw;
             }
         }
+        public List<VTareasTrab> GetTareaCompromisos(int id)
+        {
 
+            try
+            {
+                List<VTareasCompromiso> linf = bd.VTareasCompromiso.OrderByDescending(i => i.FECHAINICIO).Where(v => v.ID_TAREA == id).ToList();
+                List<VTareasTrab> lisinf = new List<VTareasTrab>();
+                if (linf.Count.Equals(0))
+                {
+                    return null;
+                }
+                else
+                {
+                    foreach (var item in linf)
+                    {
+                        VTareasTrab vt = new VTareasTrab();
+                        vt.CONCEPTO = item.CONCEPTO;
+                        vt.FECHAINICIO = item.FECHAINICIO;
+                        vt.FECHAFIN = item.FECHAFIN;
+                        vt.ESTADO = item.ESTADO;
+                        vt.ID_TAREA = item.ID_TAREA;
+                        lisinf.Add(vt);
+                    }
+                    return lisinf;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         /// <summary>
         /// Meotodo retorna las tares asignadas a un asesor
         /// para un dia especifico y se encuntre activas

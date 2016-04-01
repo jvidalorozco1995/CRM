@@ -74,6 +74,7 @@
     <Compile Include="VsFox\PagosFox.cs" />
     <Compile Include="VsFox\ProyecFox .cs" />
     <Compile Include="VTareas\VTarCLientes.cs" />
+    <Compile Include="VTareas\VTareasCompromisos.cs" />
     <Compile Include="VTareas\VTareasTrab.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

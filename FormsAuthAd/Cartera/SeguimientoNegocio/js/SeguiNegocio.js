@@ -101,7 +101,7 @@ var admUser = (function () {
         $(document).on('click', '.historial', function () {
             cedula = $(this).attr("id");
             
-            tar.InfoTareas(cedula);
+            tar.InfoTareasCompromiso(cedula);
             $('#infoTareas').modal('show');
             $('#BtnEditar').show();
             $('#BtnTerminada').show();
