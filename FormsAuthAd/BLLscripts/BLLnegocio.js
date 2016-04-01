@@ -32,6 +32,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
     var tabla = '<table id="exampleP" class="table table-striped table-bordered table-hover">';
     tabla += "<thead>";
     tabla += "<tr>";
+    tabla += "<th>PROYECTO</th>";
     tabla += "<th>CODIGO CRM</th>";
     tabla += "<th>MANZANA O BLOQUE</th>";
     tabla += "<th>INMUEBLE</th>";
@@ -46,6 +47,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
     $.each(proyectos, function (i, item) {
        
         tabla += "<tr>";
+        tabla += "<td>" + item.SUCURSAL + "</td>";
         tabla += "<td>" + item.CODIGOCRM + "</td>";
         if (item.Estado == 'CRM') {
 
