@@ -159,6 +159,7 @@
                                                             <label>Fecha Compromiso</label>
                                                             <input id="TxtFechaTarea" type="text" value="" class="form-control">
                                                         </div>
+                                                                                                               
                                                     </div>
                                                 </div>
                                             </div>

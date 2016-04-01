@@ -2820,7 +2820,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_TAREA" Type="Int32" />
           <Property Name="CODIGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>

@@ -97,6 +97,22 @@ var admUser = (function () {
             }
         });
 
+        //Boton para traerse el historial de la tarea
+        $(document).on('click', '.historial', function () {
+            cedula = $(this).attr("id");
+            
+            tar.InfoTareas(cedula);
+            $('#infoTareas').modal('show');
+            $('#BtnEditar').show();
+            $('#BtnTerminada').show();
+            $('#BtnPost').hide();
+            $('#Txtdetalle').attr('readonly', true);
+            $('#fechainfo').attr('readonly', true);
+            tar.lisbitacoras(cedula);
+
+        });
+        //---------------------------FIN----------------------------------//
+
         $(document).on('click', '#BtnTerminada', function (event) {
 
             tar.TerminarTareaNego(_ComTareas(), _BitacorasDTO());
@@ -159,22 +175,21 @@ var admUser = (function () {
                     }
                     else {
 
-                        $('#TblAcuerdos2').find('tr').each(function () {
+                        tar.InsertCompromiso(_DtoTareas());
+                                         
+                        setTimeout(function () { $('#TblAcuerdos2').find('tr').each(function () {
                             var row = $(this);
                             if (row.find('input[type="checkbox"]').is(':checked')) {
 
-                                
-                                compromiso.ID_TAREA = '123';
+
+                                compromiso.ID_TAREA = $('#TxtClientes').val();
                                 compromiso.CODIGO = $(this).attr("id");
                                 com.InserCompromisoCuota(compromiso);
+                                $('#Tareas').hide();
                             }
                         });
-                        tar.InsertCompromiso(_DtoTareas());
+                        }, 2000);
                         setTimeout(function () { tar.TareasNegocioCompromisoCO(negocio); }, 2000);
-                      
-
-                       
-
 
                     }
                 }
