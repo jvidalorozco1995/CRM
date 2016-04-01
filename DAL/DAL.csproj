@@ -203,6 +203,9 @@
     <Compile Include="VTareas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="VTareasCompromiso.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="VtareasNegocio.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

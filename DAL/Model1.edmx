@@ -784,6 +784,31 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTareas' does not have a primary ke
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'CRM_PRUEBA.dbo.VTareasCompromiso' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VTareasCompromiso">
+          <Key>
+            <PropertyRef Name="T_CEDULA" />
+            <PropertyRef Name="CEDULA" />
+            <PropertyRef Name="ID_TAREA" />
+            <PropertyRef Name="DIRECCION" />
+          </Key>
+          <Property Name="T_CEDULA" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CEDULA" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="NOMBRES" Type="varchar" MaxLength="50" />
+          <Property Name="P_APELLIDO" Type="varchar" MaxLength="40" />
+          <Property Name="CONCEPTO" Type="varchar" MaxLength="100" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="2" />
+          <Property Name="ID_TAREA" Type="int" Nullable="false" />
+          <Property Name="FECHAINICIO" Type="date" />
+          <Property Name="FECHAFIN" Type="date" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="TELEFONO2" Type="varchar" MaxLength="13" />
+          <Property Name="S_APELLIDO" Type="varchar" MaxLength="40" />
+          <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
+          <Property Name="ASESOR" Type="varchar" MaxLength="30" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VtareasNegocio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VtareasNegocio">
           <Key>
@@ -1465,6 +1490,25 @@ FROM [dbo].[Vspt] AS [Vspt]</DefiningQuery>
 [VTareas].[ASESOR] AS [ASESOR], 
 [VTareas].[EMAIL] AS [EMAIL]
 FROM [dbo].[VTareas] AS [VTareas]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VTareasCompromiso" EntityType="Self.VTareasCompromiso" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VTareasCompromiso].[T_CEDULA] AS [T_CEDULA], 
+[VTareasCompromiso].[CEDULA] AS [CEDULA], 
+[VTareasCompromiso].[NOMBRES] AS [NOMBRES], 
+[VTareasCompromiso].[P_APELLIDO] AS [P_APELLIDO], 
+[VTareasCompromiso].[CONCEPTO] AS [CONCEPTO], 
+[VTareasCompromiso].[ESTADO] AS [ESTADO], 
+[VTareasCompromiso].[ID_TAREA] AS [ID_TAREA], 
+[VTareasCompromiso].[FECHAINICIO] AS [FECHAINICIO], 
+[VTareasCompromiso].[FECHAFIN] AS [FECHAFIN], 
+[VTareasCompromiso].[DIRECCION] AS [DIRECCION], 
+[VTareasCompromiso].[TELEFONO2] AS [TELEFONO2], 
+[VTareasCompromiso].[S_APELLIDO] AS [S_APELLIDO], 
+[VTareasCompromiso].[PROYEC_INTERES] AS [PROYEC_INTERES], 
+[VTareasCompromiso].[ASESOR] AS [ASESOR], 
+[VTareasCompromiso].[EMAIL] AS [EMAIL]
+FROM [dbo].[VTareasCompromiso] AS [VTareasCompromiso]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VtareasNegocio" EntityType="Self.VtareasNegocio" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -2815,6 +2859,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           </AssociationSet>
           <FunctionImport Name="tareas_actualizar" />
           <EntitySet Name="compromisosxcuota" EntityType="Model1.compromisosxcuota" />
+          <EntitySet Name="VTareasCompromiso" EntityType="Model1.VTareasCompromiso" />
         </EntityContainer>
         <EntityType Name="compromisosxcuota">
           <Key>
@@ -2823,6 +2868,29 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="ID_TAREA" Type="Int32" />
           <Property Name="CODIGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VTareasCompromiso">
+          <Key>
+            <PropertyRef Name="T_CEDULA" />
+            <PropertyRef Name="CEDULA" />
+            <PropertyRef Name="ID_TAREA" />
+            <PropertyRef Name="DIRECCION" />
+          </Key>
+          <Property Name="T_CEDULA" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P_APELLIDO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CONCEPTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TAREA" Type="Int32" Nullable="false" />
+          <Property Name="FECHAINICIO" Type="DateTime" Precision="0" />
+          <Property Name="FECHAFIN" Type="DateTime" Precision="0" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO2" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="S_APELLIDO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PROYEC_INTERES" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ASESOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3625,6 +3693,27 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
                 <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VTareasCompromiso">
+            <EntityTypeMapping TypeName="Model1.VTareasCompromiso">
+              <MappingFragment StoreEntitySet="VTareasCompromiso">
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+                <ScalarProperty Name="PROYEC_INTERES" ColumnName="PROYEC_INTERES" />
+                <ScalarProperty Name="S_APELLIDO" ColumnName="S_APELLIDO" />
+                <ScalarProperty Name="TELEFONO2" ColumnName="TELEFONO2" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="FECHAFIN" ColumnName="FECHAFIN" />
+                <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
+                <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="CONCEPTO" ColumnName="CONCEPTO" />
+                <ScalarProperty Name="P_APELLIDO" ColumnName="P_APELLIDO" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+                <ScalarProperty Name="T_CEDULA" ColumnName="T_CEDULA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
