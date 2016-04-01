@@ -73,11 +73,12 @@ var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTa
                            '</br> La tarea se registrado de manera exitosa para el cliente con documento de identidad' +
                            '</br>' + tarea.cliente + 
                            '</br>' + 'Por el Asesor'
-                           + tarea.asesor + '' + result.d);
+                           + tarea.asesor + ''  );
                     $('#Tareas').show();
-                   // $('#TxtClientes').val("");
+                    $('#TxtClientes').val(result.d);
                     $('#TxtDescripcion').val("");
                     $('#TxtFechaTarea').val("");
+                   
                    
                 }
 
@@ -433,6 +434,7 @@ var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTa
 
 
     BLLTareas.prototype.InfoTareasNego = function (tarea) {
+        
         jsonData = "{ 'id':" + JSON.stringify(tarea) + " }";
         $.ajax({
             type: "POST", url: WsInfoTareasNego, data: jsonData,
@@ -440,7 +442,7 @@ var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTa
             dataType: 'json',
             async: true,
             success: function (result) {
-
+                alert(JSON.stringify(result.d));
                 if (result.d == null) {
                     toastr.error('CRM Mayales' +
                         '</br>No fue posible cargar la información detallada de la tarea');
@@ -776,24 +778,27 @@ var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTa
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
             switch (item.ESTADO) {
                 case "T":
-                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' class='' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "E":
-                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "' class='' id=" + item.ID_TAREA + " href='' /></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "' class='historial' id=" + item.ID_TAREA + " href='' /></td>";
                     break
                 case "P":
-                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Pospuesta.png') + "' class='' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Pospuesta.png') + "' class='historial' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "V":
-                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "'  class='' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "'  class='historial' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case "CO":
-                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "'  class='' id=" + item.ID_TAREA + " href=''/></td>";
+                    tabla += "<td ><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "'  class='historial' id=" + item.ID_TAREA + " href=''/></td>";
                     break
                 case null:
                     tabla += "<td></td>";
                     break
             }
+
+          
+
             tabla += "</tr>";
             
         });

@@ -15,8 +15,7 @@ BLLCompromisoCuenta.prototype.InserCompromisoCuota = function (compromiso) {
 
             }
             else {
-                toastr.success();
-               
+                      
             }
 
         },
