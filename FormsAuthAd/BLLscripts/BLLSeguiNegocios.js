@@ -25,7 +25,7 @@ BLLSeguiNegocios.CrearTabl = function (proyectos) {
     tabla += "<tbody>";
     $.each(proyectos, function (i, item) {
 
-        tabla += "<tr>";
+        tabla += "<tr id=" + item.REFERENCIA1 + ">";
         tabla += "<td>" + item.NOMBREBLOQUE + "</td>";
         tabla += "<td>" + item.CEDULA_P + "</td>";
         tabla += "<td>" + item.NOMBRECLIENTE + "</td>";

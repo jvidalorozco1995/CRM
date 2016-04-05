@@ -43,7 +43,9 @@
                             <a class="Pcreartarea" style="background: #E50000"><i class="fa fa-times"></i></a>
                         </div>
                         <ul class="nav nav-tabs">
+                             
                             <div class="pull-right">
+                                <input id="NombreProyecto" type="text" style=" font-size:18px; height:32px; width:200px" value="">
                               
                                   <button class="btn btn-danger btn-btn-circle" type="button" id="BtnActualizar">Actualizar</button>
                                   <img src="../../Images/loading.gif" style="width:25px;height:25px" id="Cargando"/>
@@ -249,6 +251,20 @@
   padding: 10px;
   position: relative;
 }
+</style>
+ <style type="text/css">
+
+.highlighted {
+    background: red;
+}
+
+#data tr {
+    background: white;
+}
+
+</style>
+    <style>
+.alternar:hover{ background-color:#B9F8F8;}
 </style>
      <script src="../../vendor/jquery/dist/jquery.min.js"></script>
     <script src="../../vendor/jquery-ui/jquery-ui.min.js"></script>

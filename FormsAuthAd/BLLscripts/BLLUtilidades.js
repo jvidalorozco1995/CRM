@@ -23,6 +23,23 @@ function BLLUtilidades() {
         results = regex.exec(location.search);
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
+    BLLUtilidades.prototype.getUrlpro = function (name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+       var j = fRight(location.search, 3);
+        results = j;
+        return results;
+    }
+    BLLUtilidades.prototype.getUrlnom = function (name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var j = location.search;
+        var h = j.length;
+        j = fLeft(j, h - 3);
+        j = fRight(j, h - 11);
+      
+        results = j.replace("%20", " ");
+        results = results.replace("%20", " ");
+        return results;
+    }
 
     function openPdf(e, path, redirect) {
         // stop the browser from going to the href
@@ -176,4 +193,22 @@ function BLLUtilidades() {
     }
     
     
+}
+function fRight(str, n) {
+    if (n <= 0)
+        return "";
+    else if (n > String(str).length)
+        return str;
+    else {
+        var iLen = String(str).length;
+        return String(str).substring(iLen, iLen - n);
+    }
+}
+function fLeft(str, n) {
+    if (n <= 0)
+        return "";
+    else if (n > String(str).length)
+        return str;
+    else
+        return String(str).substring(0, n);
 }

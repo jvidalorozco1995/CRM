@@ -5,7 +5,9 @@ var tar = new BLLTareas();
 var com = new BLLCompromisoCuenta();
 var utl = new BLLUtilidades;
 var Pag = new BLLPagosFox();
-var proyec = utl.getUrl('proyec');
+var proyecnombre = utl.getUrlnom('proyec');
+var proyec = utl.getUrlpro('proyec');
+var negocio2 = "";
 var admUser = (function () {
 
     var WsListNegocio = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisos");//Consulto Proyectos CRM
@@ -124,11 +126,16 @@ var admUser = (function () {
 
         //Asignar Proyectos al trabajador
         $(document).on('click', '.Detallett', function () {
+            if (negocio2 != "") {
+                celda = document.getElementById(negocio)
+                celda.style.backgroundColor = "white";
+            }
             negocio = $(this).attr("id");
-             cedula = $(this).attr("tag");
-           
-            
-            $(".div").css({ "display": "inline" });
+            cedula = $(this).attr("tag");
+            celda = document.getElementById(negocio)
+            celda.style.backgroundColor = "green";
+            negocio2 = negocio;
+          $(".div").css({ "display": "inline" });
 
             $('#PanelNego').show();
             $('#PanelTareas').show();
@@ -144,9 +151,6 @@ var admUser = (function () {
             $(".div").css({ "display": "inline" });
             $('#TxtClientes').val(cedula);
             $('#Tareas').modal('show');
-        });
-        $(document).on('click', '.Detallett2', function () {
-            negocio = $(this).attr("id");
         });
 
         $(document).on('click', '#BtnCreaTarea', function (event) {
@@ -254,6 +258,7 @@ var admUser = (function () {
             format: 'yyyy/mm/dd',
         });
         $('#Cargando').hide();
+        $("#NombreProyecto").val(proyecnombre);
         Seg.ListNegocios(WsListNegocio, proyec);
     }
 

@@ -587,7 +587,7 @@ function BLLProyectos() {
             comp = '<div class="' + respuesta + '">';
             comp += '<div class="hpanel hred contact-panel">';
             comp += '<div class="panel-body">';
-            comp += '<h3 class="Inmueble"><a href="SeguiNegocios.aspx?proyec=' + item.ID_PROYEC + '">' + item.NOMBRE_PROYEC + '</a></h3>';
+            comp += '<h3 class="Inmueble"><a href="SeguiNegocios.aspx?proyec=' + item.NOMBRE_PROYEC.trim() + item.ID_PROYEC + '">' + item.NOMBRE_PROYEC + '</a></h3>';
             comp += '<div class="text-muted font-bold m-b-xs">Valledupar - Cesar</div>';
             comp += '</div>';
             comp += '<div class="panel-footer contact-footer">';
