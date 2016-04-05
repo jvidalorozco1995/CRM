@@ -123,7 +123,7 @@
 
                              <div>
                                   <button class="btn btn-success " type="button" id="BtnImprimirCuenta">Imprimir Compromisos</button>
-                                  <button class="btn btn-success " type="button" id="BtnImprimir">Imprimir Estado de cuenta</button>
+                                  <button class="btn btn-success " type="button" id="BtnImprimir" style="display:none">Imprimir Estado de cuenta</button>
                               </div>
                            </div>
                          </div>
