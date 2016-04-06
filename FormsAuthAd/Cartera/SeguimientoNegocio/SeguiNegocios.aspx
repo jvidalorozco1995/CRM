@@ -10,27 +10,22 @@
         <div class="content animate-panel"  style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
              <div class="row">
                 <div class="col-sm-5 text-center">
-                                            <div class="pull-right">
-                                           <div class="dt-buttons btn-group">
+                                            <div class="pull-left">
+                                           
        
-                                              <a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
-                                               <span>Pago realizado</span>
-                                                   <img src='<%= ResolveUrl("../../images_crm/Completa.png") %>' style="width:20px;height:18px" /> 
-                                              </a>
-                                               <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                             
+                                               <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroES"> <img src='<%= ResolveUrl("../../images_crm/Completa.png") %>' style="width:20px;height:18px" /> Negocio al dia</button>
+                                                  
+                                                  
+                                             
+                                              <%-- <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
                                                <span>Pago pendiente</span>
                                                     <img src='<%= ResolveUrl("../../images_crm/libre.png") %>' style="width:15px;height:15px" /> 
-                                               </a>
-                                               <a class="btn btn-default buttons-pdf buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
-                                               <span>Pago vencido</span>
-                                                    <img src='<%= ResolveUrl("../../images_crm/Espera.png") %>' style="width:15px;height:15px" />
-                                               </a>
-                                                <a class="btn btn-default buttons-pdf buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
-                                               <span>Negocio abierto</span>
-                                                    <img src='<%= ResolveUrl("../../images_crm/PV.png") %>' style="width:15px;height:15px" />
-                                               </a>
-       
-                                           </div>
+                                               </a>--%>
+                                               <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroVE"><img src='<%= ResolveUrl("../../images_crm/Espera.png") %>' style="width:15px;height:15px" />Negocio vencido</button>
+                                               
+                                                    
+
                                     </div>
                                </div>
             </div>

@@ -11,6 +11,8 @@ var negocio2 = "";
 var admUser = (function () {
 
     var WsListNegocio = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisos");//Consulto Proyectos CRM
+    var WsListNegocioVE = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisosVE");//Consulto Proyectos CRM
+    var WsListNegocioES = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ConsultaNegociosCompromisosES");//Consulto Proyectos CRM
     var Wsurltodosnegocios = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/TODO"); //Actualizar todos los negocios de CRM desde MULTIFOX
 
 
@@ -129,11 +131,13 @@ var admUser = (function () {
             if (negocio2 != "") {
                 celda = document.getElementById(negocio)
                 celda.style.backgroundColor = "white";
+             
             }
             negocio = $(this).attr("id");
             cedula = $(this).attr("tag");
             celda = document.getElementById(negocio)
-            celda.style.backgroundColor = "green";
+            celda.style.backgroundColor = "gray";
+           
             negocio2 = negocio;
           $(".div").css({ "display": "inline" });
 
@@ -210,6 +214,17 @@ var admUser = (function () {
             $('#Txtdetalle').attr('readonly', true);
             $('#fechainfo').attr('readonly', true);
             tar.lisbitacoras(cedula);
+
+        });
+
+
+        $("#FiltroVE").click(function () {
+           
+            Seg.ListNegocios(WsListNegocioVE, proyec);
+        });
+        $("#FiltroES").click(function () {
+          
+            Seg.ListNegocios(WsListNegocioES, proyec);
 
         });
     };
