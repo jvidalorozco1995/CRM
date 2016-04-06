@@ -61,7 +61,23 @@ namespace FormsAuthAd.Servicios
             BLLNegociosCompro hn = new BLLNegociosCompro();
             return hn.ListCompromisos(c);
         }
-        
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<EntitiNegociosCompro> ConsultaNegociosCompromisosVE(string c)
+        {
+            BLLNegociosCompro hn = new BLLNegociosCompro();
+            return hn.ListCompromisosfiltroVE(c);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<EntitiNegociosCompro> ConsultaNegociosCompromisosES(string c)
+        {
+            BLLNegociosCompro hn = new BLLNegociosCompro();
+            return hn.ListCompromisosfiltroES(c);
+        }
+
 
 
     }
