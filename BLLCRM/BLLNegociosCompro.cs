@@ -35,7 +35,7 @@ namespace BLLCRM
                 Entidadcompromiso.TELEFONO_P = compromi.TELEFONO_P;
                 Entidadcompromiso.TELFONO_EMP = compromi.TELFONO_EMP;
                 Entidadcompromiso.CODCRM = compromi.CODCRM;
-                if (bd.VCantidadcompromisos.Where(t => t.REFERENCIA1 == compromi.REFERENCIA1).Count()>0)
+                if (bd.VCantidadcompromisos.Where(t => t.REFERENCIA1 == compromi.REFERENCIA1).Count() > 0)
                 {
                     
                        //VENCIDA
