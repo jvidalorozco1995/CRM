@@ -76,6 +76,7 @@ namespace DAL
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<compromisosxcuota> compromisosxcuota { get; set; }
         public DbSet<VTareasCompromiso> VTareasCompromiso { get; set; }
+        public DbSet<VCantidadcompromisos> VCantidadcompromisos { get; set; }
     
         public virtual int tareas_actualizar()
         {

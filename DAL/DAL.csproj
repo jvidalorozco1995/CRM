@@ -161,6 +161,9 @@
     <Compile Include="VAsesoresT.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="VCantidadcompromisos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="VCLienteinmueble.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

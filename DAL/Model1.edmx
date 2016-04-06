@@ -466,6 +466,16 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VAsesoresT' does not have a primary
           <Property Name="T_CEDULA" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'CRM_PRUEBA.dbo.VCantidadcompromisos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VCantidadcompromisos">
+          <Key>
+            <PropertyRef Name="ESTADO" />
+          </Key>
+          <Property Name="CANTIDAD" Type="int" />
+          <Property Name="REFERENCIA1" Type="varchar" MaxLength="100" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VCLienteinmueble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VCLienteinmueble">
           <Key>
@@ -1234,6 +1244,13 @@ FROM [dbo].[VacuerdosFox] AS [VacuerdosFox]</DefiningQuery>
 [VAsesoresT].[NOMBRES] AS [NOMBRES], 
 [VAsesoresT].[T_CEDULA] AS [T_CEDULA]
 FROM [dbo].[VAsesoresT] AS [VAsesoresT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VCantidadcompromisos" EntityType="Self.VCantidadcompromisos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VCantidadcompromisos].[CANTIDAD] AS [CANTIDAD], 
+[VCantidadcompromisos].[REFERENCIA1] AS [REFERENCIA1], 
+[VCantidadcompromisos].[ESTADO] AS [ESTADO]
+FROM [dbo].[VCantidadcompromisos] AS [VCantidadcompromisos]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VCLienteinmueble" EntityType="Self.VCLienteinmueble" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -2860,6 +2877,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <FunctionImport Name="tareas_actualizar" />
           <EntitySet Name="compromisosxcuota" EntityType="Model1.compromisosxcuota" />
           <EntitySet Name="VTareasCompromiso" EntityType="Model1.VTareasCompromiso" />
+          <EntitySet Name="VCantidadcompromisos" EntityType="Model1.VCantidadcompromisos" />
         </EntityContainer>
         <EntityType Name="compromisosxcuota">
           <Key>
@@ -2891,6 +2909,14 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="PROYEC_INTERES" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ASESOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VCantidadcompromisos">
+          <Key>
+            <PropertyRef Name="ESTADO" />
+          </Key>
+          <Property Name="CANTIDAD" Type="Int32" />
+          <Property Name="REFERENCIA1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3714,6 +3740,15 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
                 <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
                 <ScalarProperty Name="T_CEDULA" ColumnName="T_CEDULA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VCantidadcompromisos">
+            <EntityTypeMapping TypeName="Model1.VCantidadcompromisos">
+              <MappingFragment StoreEntitySet="VCantidadcompromisos">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="REFERENCIA1" ColumnName="REFERENCIA1" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -19,7 +19,7 @@ namespace BLLCRM
          
             foreach(var compromi in list) 
             {
-
+               
                 EntitiNegociosCompro Entidadcompromiso = new EntitiNegociosCompro();
                 Entidadcompromiso.ID = compromi.ID;
                 Entidadcompromiso.NOMBRECLIENTE = compromi.NOMBRECLIENTE;
@@ -35,20 +35,17 @@ namespace BLLCRM
                 Entidadcompromiso.TELEFONO_P = compromi.TELEFONO_P;
                 Entidadcompromiso.TELFONO_EMP = compromi.TELFONO_EMP;
                 Entidadcompromiso.CODCRM = compromi.CODCRM;
-
-                if (DateTime.Now > Convert.ToDateTime(compromi.FECHACARTERA))
+                if (bd.VCantidadcompromisos.Where(t => t.REFERENCIA1 == compromi.REFERENCIA1).Count()>0)
                 {
-                  //VENCIDA
-                  Entidadcompromiso.ESTADO = "VE";
-                }
-                else if (Ndias(Convert.ToDateTime(compromi.FECHACARTERA), DateTime.Now) <= 15)
-                {
-                    //PROXIMA A VENCER
-                    Entidadcompromiso.ESTADO = "PV";
+                    
+                       //VENCIDA
+                       Entidadcompromiso.ESTADO = "VE";
+                    
                 }
                 else {
-                    //EN ESPERA
-                    Entidadcompromiso.ESTADO = "ES";
+                      //EN ESPERA
+                      Entidadcompromiso.ESTADO = "ES";
+                  
                 }
                 listcompromiso.Add(Entidadcompromiso);
             }
