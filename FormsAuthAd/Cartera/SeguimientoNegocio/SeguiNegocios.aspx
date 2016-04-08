@@ -47,7 +47,7 @@
                             </div>
                             <li class="active"><a data-toggle="tab" href="#tab-1">Negocios</a></li>
                         </ul>
-                        <div class="tab-content">
+                         <div class="tab-content scroll2">
                             <div id="tab-1" class="tab-pane active">
                                  <div class="panel-body" id="TblNegociosComp">
                                  </div>
@@ -257,6 +257,24 @@
     background: white;
 }
 
+</style>
+<style type="text/css">
+    .scroll2 {
+       height:300px;
+       overflow-y: scroll;
+       overflow-x:hidden;
+    }
+    .scroll {
+        height:700px;
+        overflow: scroll;
+    }
+    .Border {
+  background: #fff;
+  border: 1.5px solid #E50000;
+  border-radius: 2px;
+  padding: 10px;
+  position: relative;
+}
 </style>
     <style>
 .alternar:hover{ background-color:#B9F8F8;}
