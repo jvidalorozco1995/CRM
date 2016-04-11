@@ -282,6 +282,9 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
         tabla2 += "</tr>";
         tabla2 += "</thead>";
         tabla2 += "<tbody>";
+        var totalpago = 0;
+        var totalsaldo = 0;
+        var totalcuota = 0;
 
         $.each(acuerdos, function (i, item) {
             var f = new Date();
@@ -320,7 +323,15 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
                 }
             }
             tabla2 += "</tr>";
+            totalcuota = (totalcuota + item.VLRCUOTA);
+            totalsaldo = (totalsaldo + item.SALDOXCOBRAR);
+            totalpago = (totalpago + item.PAGOCUOTA);
+
         });
+        $("#Txtcuotas").text(utl.FormatNumero(totalcuota));
+        $("#TxtPago").text(utl.FormatNumero(totalpago));
+        $("#TxtSaldo").text(utl.FormatNumero(totalsaldo));
+
         tabla2 += "</tbody>";
         tabla2 += '</table>';
 

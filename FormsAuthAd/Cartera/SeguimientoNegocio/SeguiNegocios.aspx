@@ -11,21 +11,8 @@
              <div class="row">
                 <div class="col-sm-5 text-center">
                                             <div class="pull-left">
-                                           
-       
-                                             
-                                               <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroES"> <img src='<%= ResolveUrl("../../images_crm/Completa.png") %>' style="width:20px;height:18px" /> Negocio al dia</button>
-                                                  
-                                                  
-                                             
-                                              <%-- <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
-                                               <span>Pago pendiente</span>
-                                                    <img src='<%= ResolveUrl("../../images_crm/libre.png") %>' style="width:15px;height:15px" /> 
-                                               </a>--%>
-                                               <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroVE"><img src='<%= ResolveUrl("../../images_crm/Espera.png") %>' style="width:15px;height:15px" />Negocio vencido</button>
-                                               
-                                                    
-
+                                           <%-- <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroES"> <img src='<%= ResolveUrl("../../images_crm/Completa.png") %>' style="width:20px;height:18px" /> Negocio al dia</button>
+                                            <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroVE"><img src='<%= ResolveUrl("../../images_crm/Espera.png") %>' style="width:15px;height:15px" />Negocio vencido</button>--%>
                                     </div>
                                </div>
             </div>
@@ -40,10 +27,13 @@
                         <ul class="nav nav-tabs">
                              
                             <div class="pull-right">
+                                <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroES"> <img src='<%= ResolveUrl("../../images_crm/Completa.png") %>' style="width:20px;height:18px" /> Negocio al dia</button>
+                                            <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroVE"><img src='<%= ResolveUrl("../../images_crm/Espera.png") %>' style="width:15px;height:15px" />Negocio vencido</button>
                                 <input id="NombreProyecto" type="text" style=" font-size:18px; height:32px; width:200px" value="">
                               
                                   <button class="btn btn-danger btn-btn-circle" type="button" id="BtnActualizar">Actualizar</button>
                                   <img src="../../Images/loading.gif" style="width:25px;height:25px" id="Cargando"/>
+                                
                             </div>
                             <li class="active"><a data-toggle="tab" href="#tab-1">Negocios</a></li>
                         </ul>
@@ -54,7 +44,24 @@
                             </div>
                         </div>
                          <br />
-
+                                      <div class="row">
+                <div class="col-sm-12 text-center">
+                                            <div class="pull-right">
+                                <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>Valor cuota : </span>
+                                                   <label id="Txtcuotas"></label>
+                                               </a>
+                        <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>Valor Pago : </span>
+                                                   <label id="TxtPago"></label> 
+                                               </a>
+                        <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                               <span>Valor saldo : </span>
+                                                   <label id="TxtSaldo"></label> 
+                                               </a>
+                        </div>
+                    </div>
+                                          </div>
                         <div class="tab-content">
                             <div class="tab-pane active">
                                  <div class="panel-body" id="TblAcuerdos">

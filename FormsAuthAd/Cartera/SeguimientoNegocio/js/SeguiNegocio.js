@@ -143,6 +143,7 @@ var admUser = (function () {
 
             $('#PanelNego').show();
             $('#PanelTareas').show();
+            $('#valores').show();
             tar.TareasNegocioCompromisoCO(negocio);
             Ac.AcuerdosFoxCompromiso(negocio);
             Pag.PagosFox(negocio);

@@ -24,7 +24,7 @@ BLLActInmuebles.prototype.ListActInmueble = function (proyecto, WAcActualizado) 
     $.ajax({
         type: "POST", url: WAcActualizado, data: jsonData,
         contentType: "application/json; charset=utf-8",
-        dataType: 'json',
+        dataType: 'json', 
         async: true,
         success: function (result) {
 
