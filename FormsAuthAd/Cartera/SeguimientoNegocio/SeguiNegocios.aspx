@@ -29,8 +29,8 @@
                             <div class="pull-right">
                                 <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroES"> <img src='<%= ResolveUrl("../../images_crm/Completa.png") %>' style="width:20px;height:18px" /> Negocio al dia</button>
                                             <button class="btn btn-default buttons-copy buttons-html5 btn-sm" type="button" id="FiltroVE"><img src='<%= ResolveUrl("../../images_crm/Espera.png") %>' style="width:15px;height:15px" />Negocio vencido</button>
-                                <input id="NombreProyecto" type="text" style=" font-size:18px; height:32px; width:200px" value="">
-                              
+                                <input id="NombreProyecto" type="text" style=" font-size:18px; height:32px; width:200px" value="" disabled>
+                             
                                   <button class="btn btn-danger btn-btn-circle" type="button" id="BtnActualizar">Actualizar</button>
                                   <img src="../../Images/loading.gif" style="width:25px;height:25px" id="Cargando"/>
                                 
