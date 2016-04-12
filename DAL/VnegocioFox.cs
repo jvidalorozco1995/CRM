@@ -30,5 +30,8 @@ namespace DAL
         public string TELEFONO_P { get; set; }
         public string TELFONO_EMP { get; set; }
         public string Estado { get; set; }
+        public string CodNegocio { get; set; }
+        public Nullable<System.DateTime> FECHA_ES { get; set; }
+        public string USER_CREO { get; set; }
     }
 }

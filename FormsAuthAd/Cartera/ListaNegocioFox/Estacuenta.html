@@ -42,7 +42,7 @@
             /*indicamos que el margen izquierdo, es la mitad de la anchura*/
             /*determinamos una altura*/
             /*indicamos que el margen superior, es la mitad de la altura*/
-            width: 98%;
+            width: 97%;
             margin: 0 auto;
             border: 0px solid #808080;
             padding: 5px;
@@ -57,27 +57,101 @@
     </style>
 </head>
 <body style="margin-top:0px;" data-url="http://neon.dev">
-
+   
     <div class="centrar">
         <div class="row">
-            <div class="col-md-3" style="float:left;"><img src="../../images_crm/logo.png" width="48px;" /></div>
+
             <div class="col-md-8" style="float:right">
                 <span class="pull-right-">
                     <script>
                         var today = new Date();
-                        document.write("Fecha de Impresión <br/>" + today.toLocaleString());
+                        document.write("<strong>Fecha de Impresión</strong> <br/>" + today.toLocaleString());
                     </script>
                 </span>
             </div>
+            <div class="col-md-4">
+                <h3 class="h3"><strong> CONSTRUCTORA LOS MAYALES S.A</strong></h3>
+            </div>
         </div>
-     </div>
-     <div class="centrar">
-        <div id="infoconyugue">
-            <!--<div class="panel-heading">
-                <h1 class="panel-title"><strong>Datos del propietario comentas</strong></h1>
-            </div>-->
+
+
+
+        <div class="row">
+            <hr style="border-color: #000000 !important ; margin-top:0px; margin-bottom:2px;" />
+            <hr style="border-color: #000000 !important ; margin-top:0px; margin-bottom:2px;" />
             <div style="padding-top:20px;">
-                <div class="container">
+               
+                <div class="row">
+
+                    <div class="pull-left">
+                        <div class="col-md-4">
+                        <strong>PROYECTO: </strong>
+                        <label id="TxtNombreProyecto"></label>
+                            </div>
+                    </div>
+
+                    <div class="pull-right">
+                        <div class="col-md-4">
+                            <strong>NEGOCIO: </strong>
+                            <label id="TxtCodNegocio"></label>
+                        </div>
+                </div>
+                  
+               </div>
+               
+        </div>
+            <hr style="border-color: #000000 !important; margin-top:0px;  margin-bottom:2px;" />
+            <hr style="border-color: #000000 !important; margin-top:0px; margin-bottom:2px;" />
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><strong>DATOS DEL NEGOCIO</strong></h5>
+                   
+                    <hr style="border-color: #000000 !important; margin-top:0px; margin-bottom:2px;" />
+                    <hr style="border-color: #000000 !important; margin-top:0px; margin-bottom:2px;" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <table>
+                    <tr>
+                        <td class="col-lg-4"></td>
+                        <td style="padding-left:200px !important" class="col-lg-2"></td>
+                    </tr>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-12"><strong>Inmueble</strong></th>
+                              
+                                <th class="col-lg-12"><strong>Vlr Inmueble</strong></th>
+                                <th class="col-lg-12"><strong>Vlr Inicial cuota</strong></th>
+                                <th class="col-lg-12"><strong>Vlr credito</strong></th>
+                               
+                                <th class="col-lg-4"><strong>Fecha de Negocio</strong></th>
+                               
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-12"><label id="TxtInmueble"></label></td>
+                               
+                                <td class="col-lg-12"><label id="TxtVlrInmueble"></label></td>
+                                <td class="col-lg-12"><label id="TxtCuotaInicial"></label></td>
+                                <td class="col-lg-12"><label id="TxtVlrcredito"></label></td>
+                                <td class="col-lg-4"><label id="TxtFechaNegocio"></label></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+            
+
+            <div class="row">
+                <div class="col-md-4">
                     <table>
                         <tr>
                             <td class="col-lg-4"></td>
@@ -87,96 +161,152 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="col-lg-4"><strong>Nombre del proyecto</strong></th>
-                                <th class="col-lg-4"><strong>Fecha de Negocio</strong></th>
-                                <th class="col-lg-4"><strong>Inmueble</strong></th>
-                                <th class="col-lg-12"><strong>Vlr Inmueble</strong></th>
+                              
+                              
+                                <th class="col-lg-12"><strong>Fecha escrituración</strong></th>
+                                <th class="col-lg-12"><strong>Vendedor</strong></th>
+
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td class="col-lg-4"><label id="TxtNombreProyecto"></label></td>
-                                <td class="col-lg-4"><label id="TxtFechaNegocio"></label></td>
-                                <td class="col-lg-4"><label id="TxtInmueble"></label></td>
-                                <td class="col-lg-12"><label id="TxtVlrInmueble"></label></td>
+                        
+                               
+                                <td class="col-lg-12"><label id="TxtFescrituracion"></label></td>
+                                <td class="col-lg-12"><label id="TxtVendedor"></label></td>
+
+
                             </tr>
                         </tbody>
-                     </table>
+                    </table>
 
+                </div>
+            </div>
+
+
+            
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><strong>DATOS DEL PROPIETARIO</strong></h5>
+
+                    <hr style="border-color: #000000 !important; margin-top:0px; margin-bottom:2px;" />
+                    <hr style="border-color: #000000 !important; margin-top:0px; margin-bottom:2px;" />
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4">
+                    <table>
+                        <tr>
+                            <td class="col-lg-4"></td>
+                            <td style="padding-left:200px !important" class="col-lg-2"></td>
+                        </tr>
+                    </table>
                     <table>
                         <thead>
                             <tr>
-                                <th class="col-lg-4"><strong>Cedula</strong></th>
-                                <th class="col-lg-4" style="float:center"><strong>Cliente</strong></th>
-                               
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="col-lg-4"><label id="TxtCedula"></label></td>
-                                <td class="col-lg-4" style="float:center"><label id="TxtNombrecliente"></label></td>
+
+
+                                <th class="col-lg-12"><strong>Cedula</strong></th>
+                                <th class="col-lg-12"><strong>Propietario</strong></th>
                               
-                            </tr>
-                        </tbody>
-                    </table>
-                  </div>
-                 <div class="col-sm-9" id="TblAcuerdos">
-
-                 </div>
-                <div style="float:right">
-                    <table style="text-align:right;" >
-                        <thead>
-                            <tr>
-                                <th class="col-lg-4"><strong>Total cuotas </strong></th>
-                                <th class="col-lg-4"><strong>Total pago </strong></th>
-                                <th class="col-lg-4"><strong>Total saldo </strong></th>
+                                <th class="col-lg-12"><strong>Telefóno</strong></th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <tr>
-                                <td class="col-lg-4"><label id="Txtcuotas"></label><br /></td>
-                                <td class="col-lg-4"><label id="TxtPago"></label><br /></td>
-                                <td class="col-lg-4"><label id="TxtSaldo"></label><br /></td>
+
+                                <td class="col-lg-4"><label id="TxtCedula"></label></td>
+                                <td class="col-lg-4"><label id="TxtNombrecliente"></label></td>
+                                <td class="col-lg-4"><label id="TxtTelefono"></label></td>
+                                
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                </div>
-             </div>
-                   
 
-        <div class="col-sm-6" style="display:none;">
-            <div class="invoice-right">
-              <br />
-               <a id="BtnImprimir" class="btn btn-primary btn-icon icon-left hidden-print">
-                    imprimir
-                    <i class="entypo-doc-text"></i>
-                </a>
-                &nbsp;
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><strong>ESTADO DEL NEGOCIO</strong></h5>
+
+                    <hr style="border-color: #000000 !important; margin-top:0px; margin-bottom:2px;" />
+                    <hr style="border-color: #000000 !important; margin-top:0px; margin-bottom:2px;" />
+                </div>
+            </div>
+
+
+            <div class="col-sm-9" id="TblAcuerdos">
+
+            </div>
+            <div style="float:right">
+                <table style="text-align:right;">
+                    <thead>
+                        <tr>
+                            <th class="col-lg-4"><strong>Total cuotas </strong></th>
+                            <th class="col-lg-4"><strong>Total pago </strong></th>
+                            <th class="col-lg-4"><strong>Total saldo </strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-lg-4"><label id="Txtcuotas"></label><br /></td>
+                            <td class="col-lg-4"><label id="TxtPago"></label><br /></td>
+                            <td class="col-lg-4"><label id="TxtSaldo"></label><br /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+      </div>
+</div>
+
+
+        <div class="centrar">
+            <div id="infoconyugue">
+                <!--<div class="panel-heading">
+                    <h1 class="panel-title"><strong>Datos del propietario comentas</strong></h1>
+                </div>-->
+                
+            </div>
+
+
+            <div class="col-sm-6" style="display:none;">
+                <div class="invoice-right">
+                    <br />
+                    <a id="BtnImprimir" class="btn btn-primary btn-icon icon-left hidden-print">
+                        imprimir
+                        <i class="entypo-doc-text"></i>
+                    </a>
+                    &nbsp;
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Bottom Scripts -->
-    <script src="../../assets/js/gsap/main-gsap.js"></script>
-    <script src="../../assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
-    <script src="../../assets/js/bootstrap.js"></script>
-    <script src="../../assets/js/joinable.js"></script>
-    <script src="../../assets/js/resizeable.js"></script>
-    <script src="../../assets/js/neon-api.js"></script>
-    <script src="../../assets/js/neon-chat.js"></script>
-    <script src="../../assets/js/neon-custom.js"></script>
-    <script src="../../assets/js/neon-demo.js"></script>
-    <script src="../../assets/js/jquery.dataTables.min.js"></script>
-    <script src="../../assets/js/datatables/TableTools.min.js"></script>
-    <script src="../../assets/js/dataTables.bootstrap.js"></script>
-    <script src="../../assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
-    <script src="../../assets/js/datatables/lodash.min.js"></script>
-    <script src="../../assets/js/datatables/responsive/js/datatables.responsive.js"></script>
-    <script src="../../vendor/moment/moment.js"></script>
-    <script src="../../scripts_crm/accounting.js"></script>
-    <script src="../../BLLscripts/BLLUtilidades.js"></script>
-    <script src="../../BLLscripts/BLLAcuerdosFox.js"></script>
-    <script src="js/Estacuenta.js"></script>
+        <!-- Bottom Scripts -->
+        <script src="../../assets/js/gsap/main-gsap.js"></script>
+        <script src="../../assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+        <script src="../../assets/js/bootstrap.js"></script>
+        <script src="../../assets/js/joinable.js"></script>
+        <script src="../../assets/js/resizeable.js"></script>
+        <script src="../../assets/js/neon-api.js"></script>
+        <script src="../../assets/js/neon-chat.js"></script>
+        <script src="../../assets/js/neon-custom.js"></script>
+        <script src="../../assets/js/neon-demo.js"></script>
+        <script src="../../assets/js/jquery.dataTables.min.js"></script>
+        <script src="../../assets/js/datatables/TableTools.min.js"></script>
+        <script src="../../assets/js/dataTables.bootstrap.js"></script>
+        <script src="../../assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+        <script src="../../assets/js/datatables/lodash.min.js"></script>
+        <script src="../../assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+        <script src="../../vendor/moment/moment.js"></script>
+        <script src="../../scripts_crm/accounting.js"></script>
+        <script src="../../BLLscripts/BLLUtilidades.js"></script>
+        <script src="../../BLLscripts/BLLAcuerdosFox.js"></script>
+        <script src="js/Estacuenta.js"></script>
 </body>
 </html>

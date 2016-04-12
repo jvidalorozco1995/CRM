@@ -662,6 +662,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primar
             <PropertyRef Name="ID" />
             <PropertyRef Name="Estado" />
           </Key>
+          <Property Name="CodNegocio" Type="varchar" MaxLength="50" />
           <Property Name="NOMBREBLOQUE" Type="varchar" MaxLength="150" />
           <Property Name="CEDULA_P" Type="varchar" MaxLength="13" />
           <Property Name="NOMBRECLIENTE" Type="varchar" MaxLength="300" />
@@ -678,6 +679,8 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primar
           <Property Name="TELEFONO_P" Type="varchar" MaxLength="13" />
           <Property Name="TELFONO_EMP" Type="varchar" MaxLength="11" />
           <Property Name="Estado" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="FECHA_ES" Type="date" />
+          <Property Name="USER_CREO" Type="varchar" MaxLength="60" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VNegocioscompromisos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1399,6 +1402,7 @@ FROM [dbo].[VinteresProyect] AS [VinteresProyect]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VnegocioFox" EntityType="Self.VnegocioFox" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+[VnegocioFox].[CodNegocio] AS [CodNegocio], 
 [VnegocioFox].[NOMBREBLOQUE] AS [NOMBREBLOQUE], 
 [VnegocioFox].[CEDULA_P] AS [CEDULA_P], 
 [VnegocioFox].[NOMBRECLIENTE] AS [NOMBRECLIENTE], 
@@ -1414,7 +1418,9 @@ FROM [dbo].[VinteresProyect] AS [VinteresProyect]</DefiningQuery>
 [VnegocioFox].[DOCUMENTO] AS [DOCUMENTO], 
 [VnegocioFox].[TELEFONO_P] AS [TELEFONO_P], 
 [VnegocioFox].[TELFONO_EMP] AS [TELFONO_EMP], 
-[VnegocioFox].[Estado] AS [Estado]
+[VnegocioFox].[Estado] AS [Estado], 
+[VnegocioFox].[FECHA_ES] AS [FECHA_ES], 
+[VnegocioFox].[USER_CREO] AS [USER_CREO]
 FROM [dbo].[VnegocioFox] AS [VnegocioFox]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VNegocioscompromisos" EntityType="Self.VNegocioscompromisos" store:Type="Views" store:Schema="dbo">
@@ -2320,6 +2326,9 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="TELFONO_EMP" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodNegocio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_ES" Type="DateTime" Precision="0" />
+          <Property Name="USER_CREO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VNegocioscompromisos">
           <Key>
@@ -3559,6 +3568,9 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="VnegocioFox">
             <EntityTypeMapping TypeName="Model1.VnegocioFox">
               <MappingFragment StoreEntitySet="VnegocioFox">
+                <ScalarProperty Name="USER_CREO" ColumnName="USER_CREO" />
+                <ScalarProperty Name="FECHA_ES" ColumnName="FECHA_ES" />
+                <ScalarProperty Name="CodNegocio" ColumnName="CodNegocio" />
                 <ScalarProperty Name="NOMBREBLOQUE" ColumnName="NOMBREBLOQUE" />
                 <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
                 <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
