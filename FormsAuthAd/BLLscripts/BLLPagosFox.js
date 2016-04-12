@@ -83,9 +83,9 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
     var tabla = '<table id="pagos" class="table table-striped table-bordered table-hover">';
     tabla += "<thead>";
     tabla += "<tr>";
-    tabla += "<th>Recibo No.</th>";;
-    tabla += "<th>Fecha de recibo</th>";
-    tabla += "<th>Vlr Recibo</th>";
+    tabla += "<th>RECIBO NO.</th>";;
+    tabla += "<th>FECHA DE RECIBO</th>";
+    tabla += "<th>VLR RECIBIDO</th>";
     tabla += "</tr>";
     tabla += "</thead>";
     tabla += "<tbody>";
@@ -107,9 +107,9 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
     var tabla2 = '<table id="uculto">';
     tabla2 += "<thead>";
     tabla2 += "<tr>";
-    tabla2 += "<th>Recibo No.</th>";;
-    tabla2 += "<th>Fecha de recibo</th>";
-    tabla2 += "<th>Vlr recibo</th>";
+    tabla += "<th>RECIBO NO.</th>";;
+    tabla += "<th>FECHA DE RECIBO</th>";
+    tabla += "<th>VLR RECIBIDO</th>";
     tabla2 += "</tr>";
     tabla2 += "</thead>";
     tabla2 += "<tbody>";

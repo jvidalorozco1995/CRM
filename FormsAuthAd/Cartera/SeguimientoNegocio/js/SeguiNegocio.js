@@ -120,9 +120,8 @@ var admUser = (function () {
         $(document).on('click', '#BtnTerminada', function (event) {
 
             tar.TerminarTareaNego(_ComTareas(), _BitacorasDTO());
-            setTimeout(function () { tar.InfoTareasNego(cedula, 0); }, 1000);
-            setTimeout(function () { tar.TareasNegocioCompromiso(negocio); }, 1000);
-            setTimeout(function () { tar.lisbitacoras(t); }, 1000)
+            setTimeout(function () { Ac.AcuerdosFoxCompromiso(negocio); }, 1000);
+            setTimeout(function () { tar.TareasNegocioCompromisoCO(negocio); }, 1000)
             $('#infoTareas').modal('hide');
         });
 
@@ -274,7 +273,7 @@ var admUser = (function () {
             format: 'yyyy/mm/dd',
         });
         $('#Cargando').hide();
-        $("#NombreProyecto").val(proyecnombre);
+        $("#NombreProyecto").text(proyecnombre);
         Seg.ListNegocios(WsListNegocio, proyec);
     }
 

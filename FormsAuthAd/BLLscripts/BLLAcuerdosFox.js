@@ -216,17 +216,18 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
         var tabla = '<table id="TblAcuerdosFox" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr>";
-        tabla += "<th>No.Cuota</th>";
-        tabla += "<th>Tipo</th>";
-        tabla += "<th>Fecha</th>";
-        tabla += "<th>Vlr cuota</th>";
-        tabla += "<th>Pago cuota</th>";
-        tabla += "<th>Saldo x cobrar</th>";
-        tabla += "<th>Compromiso</th>";
+        tabla += "<th>NO.CUOTA</th>";
+        tabla += "<th>REFERENCIA</th>";
+        tabla += "<th>FECHA</th>";
+        tabla += "<th>VLR CUOTA</th>";
+        tabla += "<th>PAGO CUOTA</th>";
+        tabla += "<th>SALDO X COBRAR</th>";
+        tabla += "<th>COMPROMISO</th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
-
+        var cantidadcuota;
+        cantidadcuota = 0;
         $.each(acuerdos, function (i, item) {
             var f = new Date();
             var d = f.getDate();
@@ -243,10 +244,24 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
             var med1 = fRight(fLeft(f, 5), 2);
             var date1 = new Date(der1, med1, izq1);
             var date2 = new Date(der, med, izq);
+            
+            var titulo;
+            if (item.CONCEPTO == "SEPARACION") {
+                titulo = "SEPARACION";
+            } else {
+                if (item.CONCEPTO == "SUBROGACION") {
+                    titulo = "SUBROGACION";
+                }else
+                {
+                    cantidadcuota = cantidadcuota + 1;
+                    titulo = "CUOTA NO. " + cantidadcuota;
+                }
+
+            }
 
             tabla += " <tr id=" + item.REFERENCIA1 + ">";
+            tabla += "<td>" + titulo + "</td>";
             tabla += "<td>" + item.CODIGO + "</td>";
-            tabla += "<td>" + item.CONCEPTO + "</td>";
             tabla += "<td>" + item.FECHACARTERA + "</td>";
             tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
             tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
@@ -272,20 +287,20 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
         tabla2 += "<thead>";
         tabla2 += "<tr>";
         tabla2 += "<th>Select</th>";
-        tabla2 += "<th>No.Cuota</th>";
-        tabla2 += "<th>Tipo</th>";
-        tabla2 += "<th>Fecha</th>";
-        tabla2 += "<th>Vlr cuota</th>";
-        tabla2 += "<th>Pago cuota</th>";
-        tabla2 += "<th>Saldo x cobrar</th>";
-        tabla2 += "<th>Compromiso</th>";
+        tabla2 += "<th>REFERENCIA</th>";
+        tabla2 += "<th>NO.CUOTA</th>";
+        tabla2 += "<th>FECHA</th>";
+        tabla2 += "<th>VLR CUOTA</th>";
+        tabla2 += "<th>PAGO CUOTA</th>";
+        tabla2 += "<th>SALDO X COBRAR</th>";
+        tabla2 += "<th>COMPROMISO</th>";
         tabla2 += "</tr>";
         tabla2 += "</thead>";
         tabla2 += "<tbody>";
         var totalpago = 0;
         var totalsaldo = 0;
         var totalcuota = 0;
-
+        cantidadcuota = 0;
         $.each(acuerdos, function (i, item) {
             var f = new Date();
             var d = f.getDate();
@@ -302,12 +317,23 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
             var med1 = fRight(fLeft(f, 5), 2);
             var date1 = new Date(der1, med1, izq1);
             var date2 = new Date(der, med, izq);
-            
+            var titulo;
+            if (item.CONCEPTO == "SEPARACION") {
+                titulo = "SEPARACION";
+            } else {
+                if (item.CONCEPTO == "SUBROGACION") {
+                    titulo = "SUBROGACION";
+                } else {
+                    cantidadcuota = cantidadcuota + 1;
+                    titulo = "CUOTA NO. " + cantidadcuota;
+                }
+
+            }
             tabla2 += " <tr id=" + item.CODIGO + " tag=" + item.REFERENCIA1 + ">";
             
             tabla2 += "<td><input type='checkbox'/> <a class='Detallett2' id=" + item.CODIGO + "></a></td>";
             tabla2 += "<td style='width:200px'> <a >" + item.CODIGO + "</a></td>";
-            tabla2 += "<td>" + item.CONCEPTO + "</td>";
+            tabla2 += "<td>" + titulo + "</td>";
             tabla2 += "<td>" + item.FECHACARTERA + "</td>";
             tabla2 += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
             tabla2 += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
