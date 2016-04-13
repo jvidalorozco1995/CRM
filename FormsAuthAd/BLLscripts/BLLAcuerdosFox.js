@@ -135,8 +135,9 @@ BLLAcuerdosFox.TablaAcuerdosFoxReporte = function (acuerdos) {
     var tabla = '<table id="TblAcuerdosFox" class="table table-striped table-bordered table-hover">';
     tabla += "<thead>";
     tabla += "<tr>";
-    tabla += "<th>Referencia</th>";
-    tabla += "<th>Inmueble</th>";
+    tabla += "<th>No.Cuota</th>";
+
+    tabla += "<th>Fecha cuota</th>";
     tabla += "<th>Vlr cuota</th>";
     tabla += "<th>Pago cuota</th>";
     tabla += "<th>Saldo x cobrar</th>";
@@ -147,12 +148,30 @@ BLLAcuerdosFox.TablaAcuerdosFoxReporte = function (acuerdos) {
     var totalpago = 0;
     var totalsaldo = 0;
     var totalcuota = 0;
+    var cantidadcuota;
+    cantidadcuota = 0;
     $.each(acuerdos, function (i, item) {
 
+
+        var titulo;
+        if (item.CONCEPTO == "SEPARACION") {
+            titulo = "SEPARACION";
+        } else {
+            if (item.CONCEPTO == "SUBROGACION") {
+                titulo = "SUBROGACION";
+            } else {
+                cantidadcuota = cantidadcuota + 1;
+                titulo = "CUOTA NO. " + cantidadcuota;
+            }
+
+        }
+
+
         tabla += " <tr id=" + item.REFERENCIA1 + ">";
-        tabla += "<td>" + item.REFERENCIA1 + "</td>";
-        tabla += "<td>" + item.INMUEBLE + "</td>";
+        tabla += "<td>" + titulo + "</td>";
+        tabla += "<td>" + item.FECHACARTERA + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.VLRCUOTA) + "</td>";
+       
         tabla += "<td>" + utl.FormatNumero(item.PAGOCUOTA) + "</td>";
         tabla += "<td>" + utl.FormatNumero(item.SALDOXCOBRAR) + "</td>";
       
@@ -193,6 +212,7 @@ BLLAcuerdosFox.TablaAcuerdosFox = function (acuerdos) {
     tabla += "<tbody>";
 
     $.each(acuerdos, function (i, item) {
+
 
         tabla += " <tr id=" + item.REFERENCIA1 + ">";
         tabla += "<td>" + item.CODIGO + "</td>";
