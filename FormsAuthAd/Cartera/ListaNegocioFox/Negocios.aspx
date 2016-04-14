@@ -49,7 +49,7 @@
                                   <button class="btn btn-danger btn-btn-circle" type="button" id="BtnActualizar">Actualizar</button>
                                   <img src="../../Images/loading.gif" style="width:25px;height:25px" id="Cargando"/>
                             </div>
-                            <li class="active"><a data-toggle="tab" href="#tab-1">Negocios</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab-1">NEGOCIOS</a></li>
                         </ul>
                         <div class="tab-content scroll2">
                             <div id="tab-1" class="tab-pane active">
