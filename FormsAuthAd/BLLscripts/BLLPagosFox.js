@@ -103,28 +103,28 @@ BLLPagosFox.TablaPagosNegocio = function (acuerdos) {
     $('#pagosFox').append(tabla);
     $('#pagos').dataTable();
 
-   document.getElementById('oculto').innerHTML = "";
-    var tabla2 = '<table id="uculto">';
-    tabla2 += "<thead>";
-    tabla2 += "<tr>";
-    tabla += "<th>RECIBO NO.</th>";;
-    tabla += "<th>FECHA DE RECIBO</th>";
-    tabla += "<th>VLR RECIBIDO</th>";
-    tabla2 += "</tr>";
-    tabla2 += "</thead>";
-    tabla2 += "<tbody>";
-    $.each(acuerdos, function (i, item) {
+   //document.getElementById('oculto').innerHTML = "";
+   // var tabla2 = '<table id="uculto">';
+   // tabla2 += "<thead>";
+   // tabla2 += "<tr>";
+   // tabla += "<th>RECIBO NO.</th>";;
+   // tabla += "<th>FECHA DE RECIBO</th>";
+   // tabla += "<th>VLR RECIBIDO</th>";
+   // tabla2 += "</tr>";
+   // tabla2 += "</thead>";
+   // tabla2 += "<tbody>";
+   // $.each(acuerdos, function (i, item) {
 
-        tabla2 += " <tr class='CargarPagos' id=" + item.REFERENCIA1 + ">";
-        tabla2 += "<td>" + item.Nrecibo + "</td>";
-        tabla2 += "<td>" + item.Fecharecibo + "</td>";
-        tabla2 += "<td>" + utl.FormatNumero(item.Vlrrecibo) + "</td>";
-        tabla2 += "</tr>";
+   //     tabla2 += " <tr class='CargarPagos' id=" + item.REFERENCIA1 + ">";
+   //     tabla2 += "<td>" + item.Nrecibo + "</td>";
+   //     tabla2 += "<td>" + item.Fecharecibo + "</td>";
+   //     tabla2 += "<td>" + utl.FormatNumero(item.Vlrrecibo) + "</td>";
+   //     tabla2 += "</tr>";
 
-    });
-    tabla2 += "</tbody>";
-    tabla2 += '</table>';
-    $('#oculto').append(tabla2);
-    $('#uculto').dataTable();
+   // });
+   // tabla2 += "</tbody>";
+   // tabla2 += '</table>';
+   // $('#oculto').append(tabla2);
+   // $('#uculto').dataTable();
 
 }
