@@ -46,35 +46,33 @@ BLLPagosFox.prototype.PagosFoxCompromisos = function (negocio) {
 
 
 
-
-
-BLLPagosFox.TablaPagosCompromisos = function (acuerdos) {
-    document.getElementById('pagosFox').innerHTML = "";
-    var tabla = '<table id="pagos" class="table table-striped table-bordered table-hover">';
-    tabla += "<thead>";
-    tabla += "<tr>";
+BLLPagosFox.TablaPagosCompromisos = function (acuerdos) { 
+    document.getElementById('pagosFox').innerHTML = ""; 
+    var tabla = '<table id="pagos" class="table table-striped table-bordered table-hover">'; 
+    tabla += "<thead>"; 
+    tabla += "<tr>"; 
     tabla += "<th>Recibo No.</th>";;
-    tabla += "<th>Fecha de recibo</th>";
-    tabla += "<th>Vlr Recibo</th>";
-    tabla += "</tr>";
-    tabla += "</thead>";
-    tabla += "<tbody>";
-    $.each(acuerdos, function (i, item) {
-
-        tabla += " <tr class='CargarPagos' id=" + item.REFERENCIA1 + ">";
-        tabla += "<td>" + item.Nrecibo + "</td>";
-        tabla += "<td>" + item.Fecharecibo + "</td>";
-        tabla += "<td>" + utl.FormatNumero(item.Vlrrecibo) + "</td>";
-        tabla += "</tr>";
-
-    });
-    tabla += "</tbody>";
-    tabla += '</table>';
-    $('#pagosFox').append("<label><strong>Pagos realizados</strong></label>");
-    $('#pagosFox').append(tabla);
-   // $('#pagos').dataTable();
-
-}
+    tabla += "<th>Fecha de recibo</th>"; 
+    tabla += "<th>Vlr Recibo</th>"; 
+    tabla += "</tr>"; 
+    tabla += "</thead>"; 
+    tabla += "<tbody>"; 
+    $.each(acuerdos, function (i, item) { 
+         
+        tabla += " <tr class='CargarPagos' id=" + item.REFERENCIA1 + ">"; 
+        tabla += "<td>" + item.Nrecibo + "</td>"; 
+        tabla += "<td>" + item.Fecharecibo + "</td>"; 
+        tabla += "<td>" + utl.FormatNumero(item.Vlrrecibo) + "</td>"; 
+        tabla += "</tr>"; 
+         
+    }); 
+    tabla += "</tbody>"; 
+    tabla += '</table>'; 
+    $('#pagosFox').append("<label><strong>Pagos realizados</strong></label>"); 
+    $('#pagosFox').append(tabla); 
+   // $('#pagos').dataTable(); 
+     
+} 
 
 
 

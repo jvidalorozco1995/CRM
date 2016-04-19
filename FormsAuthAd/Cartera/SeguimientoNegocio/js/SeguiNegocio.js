@@ -22,8 +22,8 @@ var admUser = (function () {
 
         //Boton para imprimir los compromisos de pagoss
         $("#BtnImprimirCuenta").click(function () {
-
-            window.open("ReporteCompromisos.html?negocio=" + negocio);
+            window.open("Estacuenta.html?negocio=" + negocio);
+            //window.open("ReporteCompromisos.html?negocio=" + negocio);
         });
         //-----------------FIN--------------------//
 
