@@ -31,9 +31,9 @@ namespace FormsAuthAd.Servicios
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<compromisosxcuota> LisCompromisoCuota()
+        public List<compromisosxcuota> LisCompromisoCuota( int tarea)
         {
-            return cl.Listcompromisosxcuota();
+            return cl.Listcompromisosxcuota(tarea);
         }
 
     }

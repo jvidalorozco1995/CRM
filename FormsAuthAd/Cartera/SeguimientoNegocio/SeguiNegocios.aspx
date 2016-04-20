@@ -211,18 +211,25 @@
                                         <label id="labelfin">Fecha de Finalización</label>
                                         <input id="Fechafin" type="text" value="" class="form-control" readonly="">
                                     </div>
-                                    <div class="form-group col-lg-12">
-                                        <label id="labelmotivo">descripcion</label>
-                                        <textarea id="TxtMotivo" class="form-control" rows="2" cols="3"></textarea>
+                                   
+                                     <div class="form-group col-lg-12">
+                                        <label id="labelcompromisos">Referencia de pago </label>
+                                            <input type="text" value="" id="TxtCuotas" class="form-control" readonly="">
+                                        
+                                    </div>
+                                     <div class="form-group col-lg-12">
+                                        <label id="labelmotivo">Descripcion</label>
+                                        <textarea id="TxtMotivo" class="form-control" rows="2" cols="3" style="display:normal"></textarea>
                                     </div>
 
                                 </div>
                             </div>
 
-                        </div>
+                        
                         <div style="border-top:solid;color:#E50000"><h4>Historial de compromisos</h4></div>
                         <div id="TablaBitacoras">
                         </div>
+                            </div>
                       </div>
                     <div class="modal-footer">
                         <button class="btn btn-success " type="button" id="BtnEditar">Editar</button>

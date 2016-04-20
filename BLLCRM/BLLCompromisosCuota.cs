@@ -45,13 +45,14 @@ namespace BLLCRM
             /// </summary>
             /// <param name="b"></param>
             /// <returns></returns>
-            public List<compromisosxcuota> Listcompromisosxcuota()
+            public List<compromisosxcuota> Listcompromisosxcuota( int tarea)
             {
 
                 try
                 {
-                    List<compromisosxcuota> lisb = bd.compromisosxcuota.ToList();
-                    List<compromisosxcuota> lisbcrm = new List<compromisosxcuota>();
+                    List<compromisosxcuota> lisb = bd.compromisosxcuota.Where(t => t.ID_TAREA == tarea).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<compromisosxcuota> lisbcrm = new List<compromisosxcuota>();
                     if (lisb.Count.Equals(0))
                     {
                         return lisbcrm;

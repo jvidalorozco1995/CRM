@@ -104,8 +104,9 @@ var admUser = (function () {
         //Boton para traerse el historial de la tarea
         $(document).on('click', '.historial', function () {
             cedula = $(this).attr("id");
-            
+            tareabuscar = $(this).attr("tga");
             tar.InfoTareasCompromiso(cedula);
+            com.InfoCompromisoCuota(cedula);
             $('#infoTareas').modal('show');
             $('#BtnEditar').show();
             $('#BtnTerminada').show();
