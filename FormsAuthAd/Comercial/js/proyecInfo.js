@@ -545,7 +545,10 @@ var admComercial = (function () {
                     inm.EstadosInmuebles(WsLisImnuE, 1, cod_pro);
                     break
                 case "2":
-                    inm.EstadosInmuebles(WsLisImnuE,2, cod_pro);
+                    inm.EstadosInmuebles(WsLisImnuE, 2, cod_pro);
+                    break
+                default:
+                    inm.EstadosInmuebles(WsLisImnuE, 24, cod_pro);
                     break
             }
 

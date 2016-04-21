@@ -674,6 +674,7 @@ function BLLInmuebles() {
         tabla += "<th>Inmueble</th>";;
         tabla += "<th>Area</th>";
         tabla += "<th>Precio</th>";
+        tabla += "<th>Estado</th>";
         tabla += "<th>accion</th>";
         tabla += "</tr>";
         tabla += "</thead>";
@@ -684,25 +685,30 @@ function BLLInmuebles() {
             tabla += "<td>" + item.AREA + "</td>";
             tabla += "<td>" + utl.FormatNumero(item.VAL_INMUEBLE) + "</td>";
             
+            
             if (item.INMUESTADO == '0')
             {
+               tabla += "<td>Disponible</td>";
                tabla += "<td style='width:22px'><button id='" + item.REFERENCIA + "'class='btn btn-success btn-xs separar' type='button'>Separar</button></td>";
             }
             else
             {
                 if (item.INMUESTADO == '1')
                 {
+                    tabla += "<td>Ocupado</td>";
                     tabla += "<td style='width:22px'></td>";
                 }
                 else
                 {
                     if (item.INMUESTADO == '2')
                     {
+                        tabla += "<td>Disponible</td>";
                         tabla += "<td style='width:22px'><button id='" + item.REFERENCIA + "'class='btn btn-success btn-xs separar' type='button'>Separar</button></td>";
                     }
                     else
                     {
                         if (item.INMUESTADO == '3') {
+                            tabla += "<td>Separado</td>";
                             tabla += "<td style='width:22px'><button id='" + item.REFERENCIA + "' class='btn btn-primary btn-xs detalleSepa' type='button'>Detalle sepracion</button></td>";
                         }
                     }

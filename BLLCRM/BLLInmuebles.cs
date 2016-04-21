@@ -304,7 +304,31 @@ namespace BLLCRM
                         return null;
                     }
                     break;
-               
+
+                case 24:
+                    try
+                    {
+                        var lisiS = GetEstado(p, "24");
+
+                        List<VInmuebles> VimS = new List<VInmuebles>();
+                        foreach (var item in lisiS)
+                        {
+                            VInmuebles inmD = new VInmuebles();
+                            inmD.REFERENCIA = item.REFERENCIA;
+                            inmD.INMUEBLE = item.INMUEBLE;
+                            inmD.NOMBRE_PROYEC = item.NOMBRE_PROYEC;
+                            inmD.AREA = item.AREA;
+                            inmD.VAL_INMUEBLE = item.VAL_INMUEBLE;
+                            inmD.INMUESTADO = item.INMUESTADO;
+                            VimS.Add(inmD);
+                        }
+                        return VimS;
+                    }
+                    catch (Exception)
+                    {
+                        return null;
+                    }
+                    break;
             }
             return null;
         }
@@ -361,15 +385,31 @@ namespace BLLCRM
         {
             try
             {
-                List<Vinmuebles> vim = db.Vinmuebles.Where(d => d.ID_BLOQUE == p && d.INMUESTADO == e).ToList();
-                if (vim.Count().Equals(0))
-                {
-                    return vim;
-                }
-                else
-                {
-                    return vim;
+                if (e.Equals("24")) {
 
+                    List<Vinmuebles> vim = db.Vinmuebles.Where(d => d.ID_BLOQUE == p ).ToList();
+                    if (vim.Count().Equals(0))
+                    {
+                        return vim;
+                    }
+                    else
+                    {
+                        return vim;
+
+                    }
+
+                }
+                else {
+                    List<Vinmuebles> vim = db.Vinmuebles.Where(d => d.ID_BLOQUE == p && d.INMUESTADO == e).ToList();
+                    if (vim.Count().Equals(0))
+                    {
+                        return vim;
+                    }
+                    else
+                    {
+                        return vim;
+
+                    }
                 }
             }
             catch (Exception)

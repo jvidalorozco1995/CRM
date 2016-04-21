@@ -51,8 +51,6 @@
                         <ul class="nav nav-tabs">
 
                             <li class="active"><a data-toggle="tab" href="#tab-100">Separaciónes</a></li>
-
-
                         </ul>
                         <div class="tab-content">
                             <div id="tab-100" class="tab-pane active">
