@@ -788,6 +788,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
         var tabla = '<table id="estados" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr>";
+        
         tabla += "<th>CLIENTE</th>";
         tabla += "<th>FECHA INICIO</th>";
         tabla += "<th>FECHA FIN</th>";
@@ -798,6 +799,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
         var Cedula;
         $.each(clientes, function (i, item) {
             tabla += " <tr>";
+            
             tabla += "<td>" + item.CLIENTE + "</td>";
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
             tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
