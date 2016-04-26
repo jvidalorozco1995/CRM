@@ -291,6 +291,7 @@ function BLLClientes() {
 
     BLLClientes.infoClientes = function (cliente) {
         $.each(cliente, function (i, item) {
+            
             $('#Text1').val(item.CEDULA);
             $('#Text2').val(item.NOMBRES);
             $('#Text3').val(item.P_APELLIDO);

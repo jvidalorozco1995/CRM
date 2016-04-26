@@ -17,6 +17,7 @@ var admComercial = (function () {
     var empresa = null;
     var vivir = null;
     var motivo = null;
+    var codigoEmp = null;
     var opt = 0;
     var persona = {};
     var t = 0;
@@ -78,11 +79,11 @@ var admComercial = (function () {
        
 
         $(document).on('click', '.select', function () {
-            var datos = $(this).attr("id");
-            alert(datos);
-            //$('.TxtCodEmp').css("display","none")
-            $('.TxtCodEmp').val(datos);
-        
+            codigoEmp = $(this).attr("id");
+            var NombEmp = $(this).attr("tag");
+            $('#CombEmpresa').val(NombEmp);
+            $('#ModalAsignar').modal('hide');
+            
         });
         
         
@@ -224,7 +225,7 @@ var admComercial = (function () {
                
             }
         });
-        TblEmpresas
+        
         $('#Btnempresa').click(function () {
             var e = $('#Empresa').val();
             var tel = $('#teltrabajo').val();
@@ -677,7 +678,7 @@ var admComercial = (function () {
         persona.Estado_civil = $('#Combestadoc').val().toUpperCase();
         persona.proyec_interes = $('#ComProyect').val().toUpperCase();
         persona.Email = $('#TxtEmail').val().toUpperCase();
-        persona.Empresa = empresa;
+        persona.Empresa = codigoEmp;
         persona.Sueldo = $('#CombSueldo').val().toUpperCase();
         persona.presu_compra = $('#Combpresuesto').val().toUpperCase();
         persona.Inmu_Interes = $('#ComboBuscando').val().toUpperCase();

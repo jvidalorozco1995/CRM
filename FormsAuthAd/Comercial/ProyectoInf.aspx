@@ -250,19 +250,20 @@
                                                             <label>Correo</label>
                                                             <input type="email" value="" id="TxtEmail" class="form-control" name="" placeholder="">
                                                         </div>
-                                                        <div class="form-group col-lg-1">
-                                                            <label>CO</label>
-                                                             <input type="text"  id="TxtCodEmp" class="TxtCodEmp form-control" name="TxtCodEmp"  >
+                                                      
+                                                        <div class="form-group col-lg-6">
+                                                             
+                                                          <label>Empresa</label>
+                                                             <div class="input-group">
+                                             
+                                                      <input type="tel" value="" id="CombEmpresa" class="form-control" name="" placeholder="Empresa" maxlength="10" readonly>
+                                                                   <div class="input-group-addon" style="padding:0px 12px;color:black !important" id="BtnModalEmpresa">
+	                                                    <span  class="glyphicon glyphicon-search"></span> 
+                                                       </div>
+                                                      </div>
+                                                            </div>
+                                                           
 
-                                                            
-                                                        </div>
-                                                        <div class="form-group col-lg-5">
-                                                            <label>Empresa donde labora</label>
-                                                             <input type="tel" value="" id="CombEmpresa" class="form-control" name="" placeholder="Celular" maxlength="10" readonly>
-
-                                                            <a id="BtnModalEmpresa"><img src='<%= ResolveUrl("../images_crm/Buscar.png")%>'style="float:left" /></a>
-                                                        </div>
-                                                        
                                                         <div class="form-group col-lg-6">
                                                             <label>Telefono de trabajo</label>
                                                             <input type="text" value="" id="teltrabajo" class="form-control" />

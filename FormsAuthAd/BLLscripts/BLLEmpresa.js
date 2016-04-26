@@ -68,6 +68,7 @@ function BLLEmpresa() {
                 else {
 
                     BLLEmpresa.CrearTabla(result.d)
+                    BLLEmpresa.comboEmpresa(result.d);
                 }
 
             },
@@ -80,17 +81,15 @@ function BLLEmpresa() {
             var empr = '<option value='+item.ID_EMP+'>';
             empr += item.NOMBRE_EMP;
             empr += '</option>';
-            $('#CombEmpresa').append(empr);
+           
             $('#Text9').append(empr);
         });
 
-        $('#CombEmpresa').val(selec);
-        $('#CombEmpresa').append('<option>Otro</option>');
+      
 
     }
 
     //Creacion de componentes
-
     BLLEmpresa.CrearTabla = function (empresas) {
         proyecCRM = empresas;
         document.getElementById('TblEmpresas').innerHTML = "";
@@ -104,8 +103,8 @@ function BLLEmpresa() {
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(empresas, function (i, item) {
-            tabla += " <tr>";
-            tabla += "<td class='select' style='width:100px' id=" + item.ID_EMP + ">" + item.ID_EMP + "</td>";
+            tabla += " <tr  class='select' style='width:100px'  tag=" + item.NOMBRE_EMP + " id=" + item.ID_EMP + ">";
+            tabla += "<td>" + item.ID_EMP + "</td>";
             tabla += "<td>" + item.NOMBRE_EMP + "</td>";
             tabla += "<td>" + item.TEL_EMP + "</td>";
             tabla += "</tr>";
