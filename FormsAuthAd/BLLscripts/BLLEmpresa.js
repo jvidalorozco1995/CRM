@@ -63,11 +63,11 @@ function BLLEmpresa() {
             success: function (result) {
                 if (result.d == null) {
 
-                    document.getElementById('CombEmpresa').innerHTML = "";
-                    $('#CombEmpresa').append('<option>Seleccionar..<option>');
+                   
                 }
                 else {
-                    BLLEmpresa.comboEmpresa(result.d)
+
+                    BLLEmpresa.CrearTabla(result.d)
                 }
 
             },
@@ -88,6 +88,35 @@ function BLLEmpresa() {
         $('#CombEmpresa').append('<option>Otro</option>');
 
     }
+
+    //Creacion de componentes
+
+    BLLEmpresa.CrearTabla = function (empresas) {
+        proyecCRM = empresas;
+        document.getElementById('TblEmpresas').innerHTML = "";
+       
+        var tabla = '<table id="example3" class="table table-striped table-bordered table-hover">';
+        tabla += "<thead>";
+        tabla += "<tr>";
+        tabla += "<th>Codigo</th>";
+        tabla += "<th>Nombre</th>";
+        tabla += "<th>Teléfono</th>";
+        tabla += "</thead>";
+        tabla += "<tbody>";
+        $.each(empresas, function (i, item) {
+            tabla += " <tr>";
+            tabla += "<td class='select' style='width:100px' id=" + item.ID_EMP + ">" + item.ID_EMP + "</td>";
+            tabla += "<td>" + item.NOMBRE_EMP + "</td>";
+            tabla += "<td>" + item.TEL_EMP + "</td>";
+            tabla += "</tr>";
+        });
+        tabla += "</tbody>";
+        tabla += "</table>";
+        $('#TblEmpresas').append(tabla);
+        $('#example3').dataTable();
+    }
+
+    
 
 
     BLLEmpresa.Ordenar = function (myArr, indexOne, indexTwo) {

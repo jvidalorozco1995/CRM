@@ -60,8 +60,32 @@ var admComercial = (function () {
             empresa = $("#Text9").val();
             ce_asociado = $('#Text1').val();
             tel_asoc = $('#Text7').val();
-           
-        })
+
+        });
+
+        $('#BtnModalEmpresa').click(function () {
+
+            $('#ModalAsignar').modal('show');
+
+        });
+
+        $('#BtnCEmpresa').click(function () {
+
+            $('#ModalAsignar').modal('hide');
+            $('#Empresar').modal('show');
+        });
+
+       
+
+        $(document).on('click', '.select', function () {
+            var datos = $(this).attr("id");
+            alert(datos);
+            //$('.TxtCodEmp').css("display","none")
+            $('.TxtCodEmp').val(datos);
+        
+        });
+        
+        
 
         $('#Btnsocio').click(function () {
             $("#asociado").modal('show');
@@ -187,6 +211,7 @@ var admComercial = (function () {
             setTimeout(function () { listc.ListClientes(proyec, WsLisClientes); }, 2000)
         });
 
+
         $(document).on('change', '#CombEmpresa', function () {
             var selec = $('#CombEmpresa').val();
             if (selec == "Otro")
@@ -199,13 +224,14 @@ var admComercial = (function () {
                
             }
         });
-
+        TblEmpresas
         $('#Btnempresa').click(function () {
             var e = $('#Empresa').val();
             var tel = $('#teltrabajo').val();
             $('#Empresar').modal('hide');
             emp.Addempresa(_DtoEmpresa(e, tel));
             setTimeout(function () { emp.GetEmpresa() }, 1000);
+            $('#ModalAsignar').modal('show');
             });
 
         $('#BtncDetalle').click(function () { $('#detallesepracion').hide(); $('#SepararInmueble').hide(); $('#Informacion').hide();})
@@ -774,6 +800,7 @@ var admComercial = (function () {
     
     var _initialize = function () {
 
+        
         act.ListActInmueble(proyec, WAcActualizado);
         inm.InmuenlesFox(proyec, WsInmueblesFox);
         

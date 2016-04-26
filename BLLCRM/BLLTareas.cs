@@ -56,7 +56,7 @@ namespace BLLCRM
         {
             try 
             {
-                var ctx = bd.tareas.Where(l => l.CLIENTE == c.CLIENTE && l.ESTADO!="T").ToList();
+                var ctx = bd.tareas.Where(l => l.CLIENTE == c.CLIENTE && l.ESTADO!="T" && l.NEGOCIO == null).ToList();
                 if (ctx.Count.Equals(0))
                 {
                     user = Membership.GetUser().ToString();
@@ -550,9 +550,11 @@ namespace BLLCRM
         /// <param name="tareascompletadas"></param>
         /// <returns></returns>
         public int TareaCompletada(tareas t, bitacora_tareas b) {
+
+            
             try
             {  string concepto ="";
-            if (t.CONCEPTO.Equals("")){concepto = "Gestión a sido terminada";}
+            if (t.CONCEPTO==null){concepto = "Gestión a sido terminada";}
                var contex = bd.tareas.First(u => u.ID_TAREA==b.TAREA);
                contex.ESTADO = "T";
                contex.CONCEPTO = concepto;
@@ -565,7 +567,7 @@ namespace BLLCRM
             catch (Exception)
             {
                 return 0;
-                throw;
+            
             }
         }
 

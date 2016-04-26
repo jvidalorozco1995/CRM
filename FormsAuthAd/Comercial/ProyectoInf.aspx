@@ -250,13 +250,19 @@
                                                             <label>Correo</label>
                                                             <input type="email" value="" id="TxtEmail" class="form-control" name="" placeholder="">
                                                         </div>
-                                                        
-                                                        <div class="form-group col-lg-6">
-                                                            <label>Empresa donde labora</label>
-                                                            <select id="CombEmpresa" class="form-control">
-                                                                <option>Seleccionar..</option>
-                                                            </select>
+                                                        <div class="form-group col-lg-1">
+                                                            <label>CO</label>
+                                                             <input type="text"  id="TxtCodEmp" class="TxtCodEmp form-control" name="TxtCodEmp"  >
+
+                                                            
                                                         </div>
+                                                        <div class="form-group col-lg-5">
+                                                            <label>Empresa donde labora</label>
+                                                             <input type="tel" value="" id="CombEmpresa" class="form-control" name="" placeholder="Celular" maxlength="10" readonly>
+
+                                                            <a id="BtnModalEmpresa"><img src='<%= ResolveUrl("../images_crm/Buscar.png")%>'style="float:left" /></a>
+                                                        </div>
+                                                        
                                                         <div class="form-group col-lg-6">
                                                             <label>Telefono de trabajo</label>
                                                             <input type="text" value="" id="teltrabajo" class="form-control" />
@@ -548,6 +554,33 @@
             </div>
            
         </div>
+
+
+             <!--Modal Empresas--->
+            <div class="modal fade hmodal-success" id="ModalAsignar" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Listado de Empresas</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <!--Empresas--->
+                        <div id="TblEmpresas"  >
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="BtnCEmpresa">Crear Empresa</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCancelar">Cerrar</button>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
           <div class="modal fade hmodal-danger" id="asociado" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -885,6 +918,13 @@
     <link rel="stylesheet" href="../vendor/toastr/build/toastr.min.css" />
     <link rel="stylesheet" href="../styles_crm/static_custom.css">
     <script src="../gmaps/gmap3.js"></script>
+    
+    <script src="../vendor/sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="../vendor/toastr/build/toastr.min.js"></script>
+    <script src="../vendor/moment/moment.js"></script>
+    <script src="../vendor/select2-3.5.2/select2.min.js"></script>
+    <script src="../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="../BLLscripts/BLLEmpresa.js"></script>
     <script src="../BLLscripts/BLLUtilidades.js"></script>
     <script src="../BLLscripts/BLLActInmuebles.js"></script>
@@ -894,12 +934,6 @@
     <script src="../BLLscripts/BLLSala_Ventas.js"></script>
     <script src="../BLLscripts/BLLClientes.js"></script>
     <script src="../BLLscripts/BLLComercial.js"></script>
-    <script src="../vendor/sweetalert/lib/sweet-alert.min.js"></script>
-    <script src="../vendor/toastr/build/toastr.min.js"></script>
-    <script src="../vendor/moment/moment.js"></script>
-    <script src="../vendor/select2-3.5.2/select2.min.js"></script>
-    <script src="../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="js/proyecInfo.js"></script>
     <script src="../scripts_crm/bootstrap-datepicker.js"></script>
     <script src="../scripts_crm/accounting.js"></script>

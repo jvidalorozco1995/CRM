@@ -498,7 +498,8 @@ namespace BLLCRM
         }    
 
       
-        protected string inmuSeparacion(inmueble_separacion s) {
+        protected string inmuSeparacion(inmueble_separacion s)
+        {
             try
             {
                 var ctx = db.inmueble_separacion.Where(c => c.CLIENTE == s.CLIENTE && c.ESTADO=="P").ToList();
@@ -521,7 +522,6 @@ namespace BLLCRM
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
@@ -537,7 +537,8 @@ namespace BLLCRM
                 hm.CLIENTE = s.CLIENTE;
                 hm.INMUEBLE = s.INMUEBLE;
                 switch (op)
-                {   case "S":
+                {
+                   case "S":
                      hm.DESCRIPCION_S = "El cliente ha iniciado el proceso de  separacion del inmueble " + hm.INMUEBLE;
                    break;
                    case "D":
@@ -812,7 +813,7 @@ namespace BLLCRM
                 }
             }
             catch (Exception)
-            {
+            { 
                 
                 throw;
             }
@@ -820,7 +821,7 @@ namespace BLLCRM
         }
 
         /// <summary>
-        /// Meotodo para condirma la separacion del inmueble
+        /// Meotodo para confirmar la separacion del inmueble
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
