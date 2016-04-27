@@ -5,6 +5,7 @@
     var WTasesor = funcionUrlGlobal("/Servicios/WTrabajador.asmx/LisTAsesor"); 
     var WTasesorClientes = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListClientesAsesor"); 
     var WTasesorClientesAP =funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListClientesAsesorAP");
+    var WTasesorClientesUSU = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListClientesAsesorUSU");
     
 
     BLLTrabajadores.prototype.InserTrabajador = function (trabajador) {
@@ -108,6 +109,27 @@
         jsonData = "{ 't':" + JSON.stringify(trabajador) + ",'p':" + JSON.stringify(proyectos) + " }";
         $.ajax({
             type: "POST", url: WTasesorClientesAP, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d === null) {
+
+                    BLLTrabajadores.TablaClientes(result.d);
+                }
+                else {
+                    BLLTrabajadores.TablaClientes(result.d);
+                }
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+    }
+
+    BLLTrabajadores.prototype.CLientesAsesorUSU = function (proyectos) {
+
+        jsonData = "{'p':" + JSON.stringify(proyectos) + " }";
+        $.ajax({
+            type: "POST", url: WTasesorClientesUSU, data: jsonData,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             async: true,

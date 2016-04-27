@@ -6,7 +6,11 @@ function BLLClientes() {
     WSUpdateCliente = funcionUrlGlobal("/Servicios/WClientes.asmx/UpdateCLiente");
     WLisclientes = funcionUrlGlobal("/Servicios/WClientes.asmx/LClientes");
     Wgetcliente = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");
-    WClienteTareas = funcionUrlGlobal("/Servicios/WClientes.asmx/ClienteTareas"); 
+    WClienteTareas = funcionUrlGlobal("/Servicios/WClientes.asmx/ClienteTareas");
+
+    WClienteTareasxusuario = funcionUrlGlobal("/Servicios/WClientes.asmx/ClienteTareasUsuario");
+
+    
     WClientehistorial = funcionUrlGlobal("/Servicios/WClientes.asmx/Historialcliente");
     WClienteFehas = funcionUrlGlobal("/Servicios/WClientes.asmx/ListClientesfechasAP");
     var WLisepracion = funcionUrlGlobal("/Servicios/WInmuebles.asmx/Listadosepracion");
@@ -234,6 +238,27 @@ function BLLClientes() {
                 }
                 else
                 {
+                    dtoJson = result.d;
+                    BLLClientes.TablaClientes(result.d);
+                }
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
+
+
+    //listado de clientes realcionadas con sus tareas x usuario
+    BLLClientes.prototype.LisClientesTareasXusuario = function () {
+        $.ajax({
+            type: "POST", url: WClienteTareasxusuario,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d === null) {
+                    BLLClientes.TablaClientes(result.d);
+                }
+                else {
                     dtoJson = result.d;
                     BLLClientes.TablaClientes(result.d);
                 }

@@ -156,7 +156,8 @@
                         <a href=""><span class="nav-label">Gest Comercial</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href='<%= ResolveUrl("Comercial/GesComercial.aspx")%>'>Comercial</a></li>
-                            <li><a href='<%= ResolveUrl("Comercial/clientes/Clientes.aspx")%>'>Clientes</a></li>
+                            <li><a href='<%= ResolveUrl("Comercial/clientes/ClientesXusuario.aspx")%>'>Mis clientes</a></li>
+                            <li><a href='<%= ResolveUrl("Comercial/clientes/Clientes.aspx")%>'>Mis clientes por proy.</a></li>
                             <li><a href='<%= ResolveUrl("Comercial/Separaciones/Separaciones.aspx")%>'>Separaciones</a></li>
                             <li><a href="">Informes</a>
                            <ul class="nav nav-second-level">

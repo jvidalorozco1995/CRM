@@ -371,6 +371,61 @@ namespace BLLCRM
             }
         }
 
+
+        /// <summary>
+        /// Metodo retorna listado de cliente con relacion a sus tareas
+        /// mas reciente
+        /// </summary>
+        /// <returns></returns>
+        public List<VTarCLientes> TareasClienteUsuario()
+        {
+            try
+            {
+                user = Membership.GetUser().ToString();
+                List<VClientesTareas> vtc = db.VClientesTareas.Where(t=>t.ASESOR== user).OrderByDescending(d => d.ID_TAREA).ToList();
+                List<VTarCLientes> listc = new List<VTarCLientes>();
+                if (vtc.Count.Equals(0))
+                {
+                    return listc;
+                }
+                else
+                {
+
+                    foreach (var item in vtc)
+                    {
+                        VTarCLientes estadot = new VTarCLientes();
+                        estadot.CEDULA = item.CEDULA;
+                        estadot.NOMBRES = item.NOMBRES;
+                        estadot.P_APELLIDO = item.P_APELLIDO;
+                        estadot.S_APELLIDO = item.S_APELLIDO;
+                        estadot.FECHAINICIO = item.FECHACREACION;
+                        estadot.TELEFONO2 = item.TELEFONO2;
+                        estadot.EMAIL = item.EMAIL;
+                        estadot.DIRECCION = item.DIRECCION;
+                        estadot.PROYECTO_INT = item.NOMBRE_PROYEC;
+                        estadot.ASESOR = item.NOMBE_AS;
+                        estadot.ESTADO = item.ESTADO;
+                        estadot.NOMBRE_SALA = item.NOMBRE_SALA;
+                        estadot.BARRIO = item.BARRIO;
+                        estadot.ESTADO_CIVIL = item.ESTADO_CIVIL;
+                        estadot.SUELDO = item.SUELDO;
+                        estadot.PRESU_COMPRA = item.PRESU_COMPRA;
+                        estadot.INMU_INTERES = item.INMU_INTERES;
+                        estadot.NOMBRE_EMP = item.NOMBRE_EMP;
+                        estadot.TEL_EMP = item.TEL_EMP;
+                        listc.Add(estadot);
+                    }
+                    return listc;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         /// <summary>
         /// Metodo retorna un listado del historial del
         /// cliente

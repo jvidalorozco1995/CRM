@@ -7,6 +7,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace BLLCRM
 {
@@ -211,6 +212,48 @@ namespace BLLCRM
             try
             {
                 List<VClientesTareas> lisa = db.VClientesTareas.Where(v => v.ASESOR == t && v.PROYEC_INTERES==p).ToList();
+                List<VTarCLientes> Asesor = new List<VTarCLientes>();
+                if (lisa.Count.Equals(0))
+                {
+                    return Asesor;
+                }
+                else
+                {
+                    foreach (var item in lisa)
+                    {
+                        VTarCLientes ase = new VTarCLientes();
+                        ase.CEDULA = item.CEDULA;
+                        ase.NOMBRES = item.NOMBRES;
+                        ase.P_APELLIDO = item.P_APELLIDO;
+                        ase.S_APELLIDO = item.S_APELLIDO;
+                        ase.ASESOR = item.NOMBE_AS;
+                        ase.PROYECTO_INT = item.NOMBRE_PROYEC;
+                        ase.ESTADO = item.ESTADO;
+                        Asesor.Add(ase);
+                    }
+                    return Asesor;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+
+        /// <summary>
+        /// Retorna una liosta de clientes filtrados por asesor y proyectos
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public List<VTarCLientes> ListClientesUSU(string p)
+        {
+            try
+            {
+               string user = Membership.GetUser().ToString();
+                List<VClientesTareas> lisa = db.VClientesTareas.Where(v => v.ASESOR == user && v.PROYEC_INTERES == p).ToList();
                 List<VTarCLientes> Asesor = new List<VTarCLientes>();
                 if (lisa.Count.Equals(0))
                 {

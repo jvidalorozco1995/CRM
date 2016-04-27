@@ -80,5 +80,12 @@ namespace FormsAuthAd.Servicios
              return Bt.ListClientesAP(p,t);
          }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<VTarCLientes> ListClientesAsesorUSU(string p)
+        {
+            return Bt.ListClientesUSU(p);
+        }
+        
     }
 }

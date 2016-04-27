@@ -1376,7 +1376,9 @@
     <Content Include="Cartera\SeguimientoNegocio\ReporteCompromisos.html" />
     <Content Include="Cartera\SeguimientoNegocio\SeguiNegocios.aspx" />
     <Content Include="Comercial\clientes\Clientes.aspx" />
+    <Content Include="Comercial\clientes\ClientesXusuario.aspx" />
     <Content Include="Comercial\clientes\js\clientes.js" />
+    <Content Include="Comercial\clientes\js\clientesxusuario.js" />
     <Content Include="Comercial\GesComercial.aspx" />
     <Content Include="Comercial\Informes\InfocomercialAsesor.aspx" />
     <Content Include="Comercial\Informes\InfocomercialProyecspx.aspx" />
@@ -4623,6 +4625,13 @@
     </Compile>
     <Compile Include="Comercial\clientes\Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comercial\clientes\ClientesXusuario.aspx.cs">
+      <DependentUpon>ClientesXusuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comercial\clientes\ClientesXusuario.aspx.designer.cs">
+      <DependentUpon>ClientesXusuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comercial\GesComercial.aspx.cs">
       <DependentUpon>GesComercial.aspx</DependentUpon>

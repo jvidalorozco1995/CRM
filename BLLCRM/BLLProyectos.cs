@@ -313,12 +313,80 @@ namespace BLLCRM
             }
         }
 
-       /// <summary>
-       /// Retorna un listado de proyectos al cual tiene aseso 
-       /// un asesor en especifico y muestra disponibilidad 
-       /// de inmuebles para cada uno de sus proyectos
-       /// </summary>
-       /// <returns></returns>
+
+
+        public List<VTarCLientes> TareasClientetraUSU(string p)
+        {
+            try
+            {
+                if (p == null || p=="")
+                {
+
+                    user = Membership.GetUser().ToString();
+                    List<VClientesTareas> vtc = bd.VClientesTareas.OrderByDescending(d => d.ID_TAREA).Where(l =>l.ASESOR == user).ToList();
+                    List<VTarCLientes> listc = new List<VTarCLientes>();
+                    if (vtc.Count.Equals(0))
+                    {
+                        return listc;
+                    }
+                    else
+                    {
+                        foreach (var item in vtc)
+                        {
+                            VTarCLientes estadot = new VTarCLientes();
+                            estadot.CEDULA = item.CEDULA;
+                            estadot.NOMBRES = item.NOMBRES;
+                            estadot.P_APELLIDO = item.P_APELLIDO;
+                            estadot.S_APELLIDO = item.S_APELLIDO;
+                            estadot.ASESOR = item.NOMBE_AS;
+                            estadot.PROYECTO_INT = item.NOMBRE_PROYEC;
+                            estadot.ESTADO = item.ESTADO;
+                            listc.Add(estadot);
+                        }
+                        return listc;
+                    }
+
+                }
+                else {
+                    user = Membership.GetUser().ToString();
+                    List<VClientesTareas> vtc = bd.VClientesTareas.OrderByDescending(d => d.ID_TAREA).Where(l => l.PROYEC_INTERES == p && l.ASESOR == user).ToList();
+                    List<VTarCLientes> listc = new List<VTarCLientes>();
+                    if (vtc.Count.Equals(0))
+                    {
+                        return listc;
+                    }
+                    else
+                    {
+                        foreach (var item in vtc)
+                        {
+                            VTarCLientes estadot = new VTarCLientes();
+                            estadot.CEDULA = item.CEDULA;
+                            estadot.NOMBRES = item.NOMBRES;
+                            estadot.P_APELLIDO = item.P_APELLIDO;
+                            estadot.S_APELLIDO = item.S_APELLIDO;
+                            estadot.ASESOR = item.NOMBE_AS;
+                            estadot.PROYECTO_INT = item.NOMBRE_PROYEC;
+                            estadot.ESTADO = item.ESTADO;
+                            listc.Add(estadot);
+                        }
+                        return listc;
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Retorna un listado de proyectos al cual tiene aseso 
+        /// un asesor en especifico y muestra disponibilidad 
+        /// de inmuebles para cada uno de sus proyectos
+        /// </summary>
+        /// <returns></returns>
         public List<Vspt> getTrabajadorproyecto()
         {
             try

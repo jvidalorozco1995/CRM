@@ -115,7 +115,20 @@ namespace FormsAuthAd.Servicios
         {
             return cl.TareasCliente();
         }
-        
+
+
+        /// <summary>
+        /// retorna listado de cliente con relacion a asesor
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
+        public List<VTarCLientes> ClienteTareasUsuario()
+        {
+            return cl.TareasClienteUsuario();
+        }
+
         /// <summary>
         /// Metodo retona el historial relacionado a algun cliente en especifico
         /// </summary>

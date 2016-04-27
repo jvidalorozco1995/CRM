@@ -4,7 +4,8 @@ function BLLProyectos() {
 
 
     var WEstaAsesor = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/Lisasesortarea");
-   
+    var WEstaAsesorUSU = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisasesortareaUSU");
+    
     
     BLLProyectos.prototype.listadotareasP = function (p) {
         jsondata = "{'p':"+JSON.stringify(p)+"}"
@@ -27,6 +28,27 @@ function BLLProyectos() {
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
     }
+
+    BLLProyectos.prototype.listadotareasUSU = function (p) {
+        jsondata = "{'p':" + JSON.stringify(p) + "}"
+        $.ajax({
+            type: "POST", url: WEstaAsesorUSU, data: jsondata,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+
+                if (result.d == null) {
+                    BLLProyectos.Detalletareas(result.d);
+                }
+                else {
+                    BLLProyectos.Detalletareas(result.d);
+                }
+            },
+            error: function (obj, error, objError) { alert(obj.responseText); }
+        });
+    }
+
 
     //Metodo para retornar Lista de Proyectos CMR
     BLLProyectos.prototype.ListProyec = function (op, Wsurl) {

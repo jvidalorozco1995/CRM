@@ -102,6 +102,15 @@ namespace FormsAuthAd.ServiciosFox
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 
+        public List<VTarCLientes> LisasesortareaUSU(string p)
+        {
+            return Py.TareasClientetraUSU(p);
+        }
+
+        
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
         public List<Vspt> ProyectosTrabajador()
         {
             return Py.getTrabajadorproyecto();
