@@ -293,6 +293,7 @@
     <style>
 .alternar:hover{ background-color:#B9F8F8;}
 </style>
+
      <script src="../../vendor/jquery/dist/jquery.min.js"></script>
     <script src="../../vendor/jquery-ui/jquery-ui.min.js"></script>
      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>

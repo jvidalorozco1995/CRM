@@ -2524,20 +2524,6 @@
     <Content Include="vendor\datatables\media\images\sort_both.png" />
     <Content Include="vendor\datatables\media\images\sort_desc.png" />
     <Content Include="vendor\datatables\media\images\sort_desc_disabled.png" />
-    <Content Include="vendor\datatables\media\js\dataTables.bootstrap.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.bootstrap.min.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.bootstrap4.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.bootstrap4.min.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.foundation.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.foundation.min.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.jqueryui.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.jqueryui.min.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.material.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.material.min.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.semanticui.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.semanticui.min.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.uikit.js" />
-    <Content Include="vendor\datatables\media\js\dataTables.uikit.min.js" />
     <Content Include="vendor\datatables\media\js\jquery.dataTables.js" />
     <Content Include="vendor\datatables\media\js\jquery.dataTables.min.js" />
     <Content Include="vendor\datatables\media\js\jquery.js" />
@@ -4128,6 +4114,11 @@
   <ItemGroup>
     <None Include="Scripts\_references.js" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="styles_crm\datepicker.less" />
+    <Content Include="scripts_jqw\angular.min.js.map" />
+    <Content Include="scripts_jqw\jquery-1.10.2.min.map" />
+    <Content Include="scripts_jqw\jquery-1.11.1.min.map" />
+    <Content Include="scripts_jqw\jquery.mobile-1.4.3.min.map" />
     <Content Include="vendor\animate.css\.bower.json" />
     <Content Include="vendor\animate.css\.editorconfig" />
     <Content Include="vendor\animate.css\animate-config.json" />
@@ -4526,11 +4517,6 @@
     <Content Include="vendor\toastr\build\toastr.js.map" />
     <Content Include="vendor\xeditable\LICENSE-MIT" />
     <Content Include="vendor\xeditable\README.md" />
-    <Content Include="styles_crm\datepicker.less" />
-    <Content Include="scripts_jqw\angular.min.js.map" />
-    <Content Include="scripts_jqw\jquery-1.10.2.min.map" />
-    <Content Include="scripts_jqw\jquery-1.11.1.min.map" />
-    <Content Include="scripts_jqw\jquery.mobile-1.4.3.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
