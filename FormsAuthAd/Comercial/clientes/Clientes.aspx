@@ -13,14 +13,22 @@
             <div class="col-lg-7" id="Principal">
                 <div class="panel panel-danger">
                     <div class="panel-heading hbuilt">
-                        general de clientes
+                        General de clientes
                         <div class="pull-right">
+
                             <div class="form-group">
+                               
                                 <div class="col-sm-12">
-                                    <input id="Txtinico" style="height: 22px;width:90px" type="text" title="Filtar proyectos">
-                                    <input id="Txtfin" style="height: 22px;width:90px" type="text" title="Filtar proyectos">
-                                    <select id="ComProyect" style="height: 22px;width:100px" title="Filtar proyectos"><option></option></select>
-                                    <select id="CombAsesores" style="height: 22px;width:100px" title="Filtar asesores"></select>
+                                    <input id="Txtinico" style="height: 22px;width:90px" type="text" placeholder="Fecha inicio" title="Filtar proyectos">
+                                    <input id="Txtfin" style="height: 22px;width:90px" type="text" placeholder="Fecha fin" title="Filtar proyectos">
+                                    <select id="ComProyect" style="height: 22px;width:100px"  title="Filtar proyectos">
+                                       <option>
+                                            Seleccione proyecto...
+                                       </option>
+                                    </select>
+                                    <select id="CombAsesores" style="height: 22px;width:100px" title="Filtar asesores">
+                                        <option>Seleccione asesor...</option>
+                                    </select>
                                     <button type="button" id="BtnFiltar" class="btn btn-success btn-xs">Filtar</button>
                                 </div>
                             </div>
@@ -31,8 +39,8 @@
                             <div data-toggle="buttons" class="btn-group">
                              <button class="btn btn-danger btn-xs" type="button" id="Btnvencido">Vencido</button>
                              <button class="btn btn-success btn-xs" type="button" id="Btnterminada">Atendidas</button>
-                              <button class="btn btn-warning btn-xs" type="button" id="Btnespera">No atendidas</button>
-                                <button class="btn btn-warning btn-xs" type="button" id="Btnpospuesta" style="background:#E67E22">Pospuesta</button>
+                             <button class="btn btn-warning btn-xs" type="button" id="Btnespera">No atendidas</button>
+                             <button class="btn btn-warning btn-xs" type="button" id="Btnpospuesta" style="background:#E67E22">Pospuesta</button>
                             </div>
                         </div>
                     </div>

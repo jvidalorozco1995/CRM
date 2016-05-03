@@ -13,7 +13,7 @@
             <div class="col-lg-7" id="Principal">
                 <div class="panel panel-danger">
                     <div class="panel-heading hbuilt">
-                        general de clientes
+                        General de clientes
                         <div class="pull-right">
                             <div class="form-group">
                                 <div class="col-sm-12">

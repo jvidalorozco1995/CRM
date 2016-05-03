@@ -113,8 +113,7 @@
     </nav>
 </div>
 
-  
- <form runat="server">
+<form runat="server">
    
      <aside id="menu">
     <div id="navigation">
@@ -157,7 +156,7 @@
                         <ul class="nav nav-second-level">
                             <li><a href='<%= ResolveUrl("Comercial/GesComercial.aspx")%>'>Comercial</a></li>
                             <li><a href='<%= ResolveUrl("Comercial/clientes/ClientesXusuario.aspx")%>'>Mis clientes</a></li>
-                            <li><a href='<%= ResolveUrl("Comercial/clientes/Clientes.aspx")%>'>Mis clientes por proy.</a></li>
+                            <li><a href='<%= ResolveUrl("Comercial/clientes/Clientes.aspx")%>'>Listado general clientes</a></li>
                             <li><a href='<%= ResolveUrl("Comercial/Separaciones/Separaciones.aspx")%>'>Separaciones</a></li>
                             <li><a href="">Informes</a>
                            <ul class="nav nav-second-level">
@@ -187,7 +186,7 @@
                 </ul>
             </div>
         </aside>
-     <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+      <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
         <section class="">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
         </section>
@@ -210,7 +209,7 @@
     <script src='<%= ResolveUrl("BLLscripts/BLLTareas.js") %>'></script>
     <script src='<%= ResolveUrl("BLLscripts/BLLIndex.js") %>'></script>
     <script src='<%= ResolveUrl("scripts_crm/index.js") %>'></script>
-<!-- App scripts -->
+     <!-- App scripts -->
     <script src='<%= ResolveUrl("jqwidgets/jqxcore.js") %>'></script>
     <script src='<%= ResolveUrl("jqwidgets/jqxdatatable.js") %>'></script>
     <script src='<%= ResolveUrl("jqwidgets/jqxdata.js") %>'></script>
