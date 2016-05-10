@@ -49,6 +49,7 @@ namespace Entity
         public string CODIGO_F { get; set; }
         public string USER_CARTERA { get; set; }
         public Nullable<decimal> INGRESO { get; set; }
-
+        public string INMUEBLE { get; set; }
+        public string NOMBRE_BLO { get; set; }
     }
 }

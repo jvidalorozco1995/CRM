@@ -32,7 +32,7 @@ var _admhoja = (function () {
                     var eval = result.d;
                     $("#Pinteres").append(eval[0].PROYECTO_INT);
                     $("#Lpropietario").append(eval[0].PROPIETARIO)
-                    $("#Llugar").append(eval[0].CEDULA_P);
+                    $("#Lcedula").append(eval[0].CEDULA_P);
                     $("#Lcivil").append(eval[0].ESTADO_C);
                     $("#Lfnaci").append(moment(eval[0].FECHA_NACI).format("YYYY/DD/MM"));
                     $("#Lalugar").append(eval[0].LUGAR);
@@ -53,6 +53,11 @@ var _admhoja = (function () {
                     $("#Linicial").append(utl.FormatNumero(eval[0].INICIAL));
                     $("#lacre").append(utl.FormatNumero(eval[0].CREDITO));
                     $("#lbanco").append(eval[0].BANCO);
+
+                    $("#linmueble").append(eval[0].NOMBRE_BLO);
+                    
+
+                    $("#Lfexpedicion").append(moment(eval[0].EXPEDICION).format("YYYY/DD/MM"));
                     //$("#Lpropietario").append(eval[0].NO_CREDITO);
                     $("#Fescritura").append(moment(eval[0].FECHA_ES).format("YYYY/DD/MM"));
                     $("#Fentrega").append(moment(eval[0].FECHA_ENT).format("YYYY/DD/MM"));

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CRM_PRUEBAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ActInmuebles">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -465,6 +465,8 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.NegocioView' does not have a primar
           <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
+          <Property Name="INMUEBLE" Type="varchar" MaxLength="16" />
+          <Property Name="NOMBRE_BLO" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VActInmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -654,6 +656,15 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vdetallesp' does not have a primary
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VfechasAsesor">
+          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
+          <Property Name="MES" Type="int" />
+          <Property Name="YEAR" Type="int" />
+          <Property Name="CONTADOR" Type="int" />
+          <Property Name="T_CEDULA" Type="varchar" MaxLength="30" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
@@ -696,6 +707,12 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VistaTareasPorClientes">
+          <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
+          <Property Name="ID_TAREA" Type="int" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VnegocioFox">
@@ -1178,8 +1195,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTracliente' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="tareas_actualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="Model1StoreContainer">
+        <EntityContainer Name="CRM_PRUEBAModelStoreContainer">
           <EntitySet Name="ActInmuebles" EntityType="Self.ActInmuebles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Actividades" EntityType="Self.Actividades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ActividadxTramite" EntityType="Self.ActividadxTramite" Schema="dbo" store:Type="Tables" />
@@ -1259,7 +1275,9 @@ FROM [dbo].[historial_acuerdos_pagos] AS [historial_acuerdos_pagos]</DefiningQue
 [NegocioView].[NOMBRES] AS [NOMBRES], 
 [NegocioView].[NOMBRE_PROYEC] AS [NOMBRE_PROYEC], 
 [NegocioView].[INGRESO] AS [INGRESO], 
-[NegocioView].[CODIGO_F] AS [CODIGO_F]
+[NegocioView].[CODIGO_F] AS [CODIGO_F], 
+[NegocioView].[INMUEBLE] AS [INMUEBLE], 
+[NegocioView].[NOMBRE_BLO] AS [NOMBRE_BLO]
 FROM [dbo].[NegocioView] AS [NegocioView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VActInmuebles" EntityType="Self.VActInmuebles" store:Type="Views" store:Schema="dbo">
@@ -1698,10 +1716,11 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="CRM_PRUEBAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ActInmuebles">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -1710,6 +1729,25 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="Fecha" Type="DateTime" Precision="3" />
           <Property Name="Proyecto" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Actividades">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Simultaneo" Type="Int32" />
+          <Property Name="Actividad_Dependiente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ActividadxTramite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_tramite" Type="Int32" />
+          <Property Name="Id_Actividad" Type="Int32" />
         </EntityType>
         <EntityType Name="acuerdo_fox">
           <Key>
@@ -1810,6 +1848,14 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <NavigationProperty Name="tareas" Relationship="Self.FK__tareas__CLIENTE__398D8EEE" FromRole="clientes" ToRole="tareas" />
           <NavigationProperty Name="tareas1" Relationship="Self.FK__tareas__CLIENTE__47B19113" FromRole="clientes" ToRole="tareas" />
         </EntityType>
+        <EntityType Name="compromisosxcuota">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TAREA" Type="Int32" />
+          <Property Name="CODIGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="configuracion">
           <Key>
             <PropertyRef Name="ID_CONT" />
@@ -1825,6 +1871,14 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Proyecto" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Documento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_Actividad" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="documentos_negocio">
           <Key>
@@ -2099,6 +2153,14 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <NavigationProperty Name="tareas" Relationship="Self.FK__tareas__TRABAJAD__3A81B327" FromRole="trabajadores" ToRole="tareas" />
           <NavigationProperty Name="tareas1" Relationship="Self.FK__tareas__TRABAJAD__571DF1D5" FromRole="trabajadores" ToRole="tareas" />
         </EntityType>
+        <EntityType Name="Tramites">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="historial_acuerdos_pagos">
           <Key>
             <PropertyRef Name="ID_HISTORIAL" />
@@ -2153,6 +2215,8 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INMUEBLE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VActInmuebles">
           <Key>
@@ -2187,6 +2251,14 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="CONTADOR" Type="Int32" />
           <Property Name="NOMBRES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="T_CEDULA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VCantidadcompromisos">
+          <Key>
+            <PropertyRef Name="ESTADO" />
+          </Key>
+          <Property Name="CANTIDAD" Type="Int32" />
+          <Property Name="REFERENCIA1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="VCLienteinmueble">
           <Key>
@@ -2355,6 +2427,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <PropertyRef Name="ID" />
             <PropertyRef Name="Estado" />
           </Key>
+          <Property Name="CodNegocio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NOMBREBLOQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRECLIENTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
@@ -2371,7 +2444,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="TELFONO_EMP" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CodNegocio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FECHA_ES" Type="DateTime" Precision="0" />
           <Property Name="USER_CREO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -2459,6 +2531,29 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="TRABAJADOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VTareas">
+          <Key>
+            <PropertyRef Name="T_CEDULA" />
+            <PropertyRef Name="CEDULA" />
+            <PropertyRef Name="ID_TAREA" />
+            <PropertyRef Name="DIRECCION" />
+          </Key>
+          <Property Name="T_CEDULA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CEDULA" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P_APELLIDO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="CONCEPTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TAREA" Type="Int32" Nullable="false" />
+          <Property Name="FECHAINICIO" Type="DateTime" Precision="0" />
+          <Property Name="FECHAFIN" Type="DateTime" Precision="0" />
+          <Property Name="DIRECCION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFONO2" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="S_APELLIDO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PROYEC_INTERES" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ASESOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VTareasCompromiso">
           <Key>
             <PropertyRef Name="T_CEDULA" />
             <PropertyRef Name="CEDULA" />
@@ -2795,14 +2890,18 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
         </Association>
         <EntityContainer Name="CRMEntiti" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ActInmuebles" EntityType="Self.ActInmuebles" />
+          <EntitySet Name="Actividades" EntityType="Self.Actividades" />
+          <EntitySet Name="ActividadxTramite" EntityType="Self.ActividadxTramite" />
           <EntitySet Name="acuerdo_fox" EntityType="Self.acuerdo_fox" />
           <EntitySet Name="acuerdo_pago" EntityType="Self.acuerdo_pago" />
           <EntitySet Name="bancos" EntityType="Self.bancos" />
           <EntitySet Name="bitacora_tareas" EntityType="Self.bitacora_tareas" />
           <EntitySet Name="bloques" EntityType="Self.bloques" />
           <EntitySet Name="clientes" EntityType="Self.clientes" />
+          <EntitySet Name="compromisosxcuota" EntityType="Self.compromisosxcuota" />
           <EntitySet Name="configuracion" EntityType="Self.configuracion" />
           <EntitySet Name="Configuracion_negocio" EntityType="Self.Configuracion_negocio" />
+          <EntitySet Name="Documento" EntityType="Self.Documento" />
           <EntitySet Name="documentos_negocio" EntityType="Self.documentos_negocio" />
           <EntitySet Name="empresas" EntityType="Self.empresas" />
           <EntitySet Name="historial_clientes" EntityType="Self.historial_clientes" />
@@ -2819,11 +2918,13 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySet Name="sala_ventas" EntityType="Self.sala_ventas" />
           <EntitySet Name="tareas" EntityType="Self.tareas" />
           <EntitySet Name="trabajadores" EntityType="Self.trabajadores" />
+          <EntitySet Name="Tramites" EntityType="Self.Tramites" />
           <EntitySet Name="historial_acuerdos_pagos" EntityType="Self.historial_acuerdos_pagos" />
           <EntitySet Name="NegocioView" EntityType="Self.NegocioView" />
           <EntitySet Name="VActInmuebles" EntityType="Self.VActInmuebles" />
           <EntitySet Name="VacuerdosFox" EntityType="Self.VacuerdosFox" />
           <EntitySet Name="VAsesoresT" EntityType="Self.VAsesoresT" />
+          <EntitySet Name="VCantidadcompromisos" EntityType="Self.VCantidadcompromisos" />
           <EntitySet Name="VCLienteinmueble" EntityType="Self.VCLienteinmueble" />
           <EntitySet Name="Vclientes" EntityType="Self.Vclientes" />
           <EntitySet Name="Vclienteseparacion" EntityType="Self.Vclienteseparacion" />
@@ -2838,6 +2939,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySet Name="Vsepracioninmuebles" EntityType="Self.Vsepracioninmuebles" />
           <EntitySet Name="Vspt" EntityType="Self.Vspt" />
           <EntitySet Name="VTareas" EntityType="Self.VTareas" />
+          <EntitySet Name="VTareasCompromiso" EntityType="Self.VTareasCompromiso" />
           <EntitySet Name="VtareasNegocio" EntityType="Self.VtareasNegocio" />
           <EntitySet Name="VTracliente" EntityType="Self.VTracliente" />
           <AssociationSet Name="FK__bloques__BLOQUE___5AEE82B9" Association="Self.FK__bloques__BLOQUE___5AEE82B9">
@@ -2928,97 +3030,15 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <End Role="trabajadores" EntitySet="trabajadores" />
             <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
-          <FunctionImport Name="tareas_actualizar" />
-          <EntitySet Name="compromisosxcuota" EntityType="Model1.compromisosxcuota" />
-          <EntitySet Name="VTareasCompromiso" EntityType="Model1.VTareasCompromiso" />
-          <EntitySet Name="VCantidadcompromisos" EntityType="Model1.VCantidadcompromisos" />
-          <EntitySet Name="Actividades" EntityType="Model1.Actividades" />
-          <EntitySet Name="ActividadxTramite" EntityType="Model1.ActividadxTramite" />
-          <EntitySet Name="Documento" EntityType="Model1.Documento" />
-          <EntitySet Name="Tramites" EntityType="Model1.Tramites" />
         </EntityContainer>
-        <EntityType Name="compromisosxcuota">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_TAREA" Type="Int32" />
-          <Property Name="CODIGO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="VTareasCompromiso">
-          <Key>
-            <PropertyRef Name="T_CEDULA" />
-            <PropertyRef Name="CEDULA" />
-            <PropertyRef Name="ID_TAREA" />
-            <PropertyRef Name="DIRECCION" />
-          </Key>
-          <Property Name="T_CEDULA" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="P_APELLIDO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="CONCEPTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="ID_TAREA" Type="Int32" Nullable="false" />
-          <Property Name="FECHAINICIO" Type="DateTime" Precision="0" />
-          <Property Name="FECHAFIN" Type="DateTime" Precision="0" />
-          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONO2" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="S_APELLIDO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="PROYEC_INTERES" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ASESOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="VCantidadcompromisos">
-          <Key>
-            <PropertyRef Name="ESTADO" />
-          </Key>
-          <Property Name="CANTIDAD" Type="Int32" />
-          <Property Name="REFERENCIA1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Actividades">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Simultaneo" Type="Int32" />
-          <Property Name="Actividad_Dependiente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="ActividadxTramite">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Id_tramite" Type="Int32" />
-          <Property Name="Id_Actividad" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Documento">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Id_Actividad" Type="Int32" />
-          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Tramites">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="CRMEntiti">
+        <EntityContainerMapping StorageEntityContainer="CRM_PRUEBAModelStoreContainer" CdmEntityContainer="CRMEntiti">
           <EntitySetMapping Name="ActInmuebles">
-            <EntityTypeMapping TypeName="Model1.ActInmuebles">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.ActInmuebles">
               <MappingFragment StoreEntitySet="ActInmuebles">
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
@@ -3027,8 +3047,29 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Actividades">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Actividades">
+              <MappingFragment StoreEntitySet="Actividades">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Simultaneo" ColumnName="Simultaneo" />
+                <ScalarProperty Name="Actividad_Dependiente" ColumnName="Actividad_Dependiente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActividadxTramite">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.ActividadxTramite">
+              <MappingFragment StoreEntitySet="ActividadxTramite">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_tramite" ColumnName="Id_tramite" />
+                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="acuerdo_fox">
-            <EntityTypeMapping TypeName="Model1.acuerdo_fox">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.acuerdo_fox">
               <MappingFragment StoreEntitySet="acuerdo_fox">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
@@ -3051,7 +3092,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="acuerdo_pago">
-            <EntityTypeMapping TypeName="Model1.acuerdo_pago">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.acuerdo_pago">
               <MappingFragment StoreEntitySet="acuerdo_pago">
                 <ScalarProperty Name="ID_AC_PF" ColumnName="ID_AC_PF" />
                 <ScalarProperty Name="NO_ACUERDO" ColumnName="NO_ACUERDO" />
@@ -3062,7 +3103,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="bancos">
-            <EntityTypeMapping TypeName="Model1.bancos">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.bancos">
               <MappingFragment StoreEntitySet="bancos">
                 <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
                 <ScalarProperty Name="NOMBRE_BANCO" ColumnName="NOMBRE_BANCO" />
@@ -3070,7 +3111,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="bitacora_tareas">
-            <EntityTypeMapping TypeName="Model1.bitacora_tareas">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.bitacora_tareas">
               <MappingFragment StoreEntitySet="bitacora_tareas">
                 <ScalarProperty Name="IDBITACORA" ColumnName="IDBITACORA" />
                 <ScalarProperty Name="TAREA" ColumnName="TAREA" />
@@ -3080,7 +3121,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="bloques">
-            <EntityTypeMapping TypeName="Model1.bloques">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.bloques">
               <MappingFragment StoreEntitySet="bloques">
                 <ScalarProperty Name="ID_BLOQUE" ColumnName="ID_BLOQUE" />
                 <ScalarProperty Name="BLOQUE_OBRA" ColumnName="BLOQUE_OBRA" />
@@ -3090,7 +3131,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="clientes">
-            <EntityTypeMapping TypeName="Model1.clientes">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.clientes">
               <MappingFragment StoreEntitySet="clientes">
                 <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
@@ -3118,8 +3159,17 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="compromisosxcuota">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.compromisosxcuota">
+              <MappingFragment StoreEntitySet="compromisosxcuota">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="configuracion">
-            <EntityTypeMapping TypeName="Model1.configuracion">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.configuracion">
               <MappingFragment StoreEntitySet="configuracion">
                 <ScalarProperty Name="ID_CONT" ColumnName="ID_CONT" />
                 <ScalarProperty Name="CONTADOR_CONF" ColumnName="CONTADOR_CONF" />
@@ -3127,7 +3177,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Configuracion_negocio">
-            <EntityTypeMapping TypeName="Model1.Configuracion_negocio">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Configuracion_negocio">
               <MappingFragment StoreEntitySet="Configuracion_negocio">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -3136,8 +3186,17 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Documento">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Documento">
+              <MappingFragment StoreEntitySet="Documento">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="documentos_negocio">
-            <EntityTypeMapping TypeName="Model1.documentos_negocio">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.documentos_negocio">
               <MappingFragment StoreEntitySet="documentos_negocio">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NEGOCIO" ColumnName="NEGOCIO" />
@@ -3146,7 +3205,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="empresas">
-            <EntityTypeMapping TypeName="Model1.empresas">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.empresas">
               <MappingFragment StoreEntitySet="empresas">
                 <ScalarProperty Name="ID_EMP" ColumnName="ID_EMP" />
                 <ScalarProperty Name="NOMBRE_EMP" ColumnName="NOMBRE_EMP" />
@@ -3155,7 +3214,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="historial_clientes">
-            <EntityTypeMapping TypeName="Model1.historial_clientes">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.historial_clientes">
               <MappingFragment StoreEntitySet="historial_clientes">
                 <ScalarProperty Name="ID_HISTORIAL" ColumnName="ID_HISTORIAL" />
                 <ScalarProperty Name="CLIENTEH" ColumnName="CLIENTEH" />
@@ -3166,7 +3225,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="historial_inmueble">
-            <EntityTypeMapping TypeName="Model1.historial_inmueble">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.historial_inmueble">
               <MappingFragment StoreEntitySet="historial_inmueble">
                 <ScalarProperty Name="ID_HISTORIAL" ColumnName="ID_HISTORIAL" />
                 <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
@@ -3177,7 +3236,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="informacion">
-            <EntityTypeMapping TypeName="Model1.informacion">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.informacion">
               <MappingFragment StoreEntitySet="informacion">
                 <ScalarProperty Name="IDINFO" ColumnName="IDINFO" />
                 <ScalarProperty Name="DETALLE" ColumnName="DETALLE" />
@@ -3186,7 +3245,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="inmueble_separacion">
-            <EntityTypeMapping TypeName="Model1.inmueble_separacion">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.inmueble_separacion">
               <MappingFragment StoreEntitySet="inmueble_separacion">
                 <ScalarProperty Name="ID_SEPARACION" ColumnName="ID_SEPARACION" />
                 <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
@@ -3199,7 +3258,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="inmuebles">
-            <EntityTypeMapping TypeName="Model1.inmuebles">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.inmuebles">
               <MappingFragment StoreEntitySet="inmuebles">
                 <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
                 <ScalarProperty Name="INMUOBRA" ColumnName="INMUOBRA" />
@@ -3215,7 +3274,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="negocio">
-            <EntityTypeMapping TypeName="Model1.negocio">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.negocio">
               <MappingFragment StoreEntitySet="negocio">
                 <ScalarProperty Name="ID_NEGOCIO" ColumnName="ID_NEGOCIO" />
                 <ScalarProperty Name="PROPIETARIO" ColumnName="PROPIETARIO" />
@@ -3262,7 +3321,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="negocio_fox">
-            <EntityTypeMapping TypeName="Model1.negocio_fox">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.negocio_fox">
               <MappingFragment StoreEntitySet="negocio_fox">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="SUCURSAL" ColumnName="SUCURSAL" />
@@ -3309,7 +3368,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pagos_fox">
-            <EntityTypeMapping TypeName="Model1.pagos_fox">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.pagos_fox">
               <MappingFragment StoreEntitySet="pagos_fox">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Referencia1" ColumnName="Referencia1" />
@@ -3334,7 +3393,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="planos_Proyectos">
-            <EntityTypeMapping TypeName="Model1.planos_Proyectos">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.planos_Proyectos">
               <MappingFragment StoreEntitySet="planos_Proyectos">
                 <ScalarProperty Name="ID_PLA" ColumnName="ID_PLA" />
                 <ScalarProperty Name="PROYECT" ColumnName="PROYECT" />
@@ -3344,7 +3403,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="proyectos">
-            <EntityTypeMapping TypeName="Model1.proyectos">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.proyectos">
               <MappingFragment StoreEntitySet="proyectos">
                 <ScalarProperty Name="ID_PROYEC" ColumnName="ID_PROYEC" />
                 <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
@@ -3352,7 +3411,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="proyectos_trabajador">
-            <EntityTypeMapping TypeName="Model1.proyectos_trabajador">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.proyectos_trabajador">
               <MappingFragment StoreEntitySet="proyectos_trabajador">
                 <ScalarProperty Name="ID_PY" ColumnName="ID_PY" />
                 <ScalarProperty Name="TRABAJADOR" ColumnName="TRABAJADOR" />
@@ -3361,7 +3420,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sala_ventas">
-            <EntityTypeMapping TypeName="Model1.sala_ventas">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.sala_ventas">
               <MappingFragment StoreEntitySet="sala_ventas">
                 <ScalarProperty Name="ID_SALA" ColumnName="ID_SALA" />
                 <ScalarProperty Name="NOMBRE_SALA" ColumnName="NOMBRE_SALA" />
@@ -3369,7 +3428,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tareas">
-            <EntityTypeMapping TypeName="Model1.tareas">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.tareas">
               <MappingFragment StoreEntitySet="tareas">
                 <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
                 <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
@@ -3384,7 +3443,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="trabajadores">
-            <EntityTypeMapping TypeName="Model1.trabajadores">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.trabajadores">
               <MappingFragment StoreEntitySet="trabajadores">
                 <ScalarProperty Name="T_CEDULA" ColumnName="T_CEDULA" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
@@ -3393,8 +3452,17 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Tramites">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Tramites">
+              <MappingFragment StoreEntitySet="Tramites">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="historial_acuerdos_pagos">
-            <EntityTypeMapping TypeName="Model1.historial_acuerdos_pagos">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.historial_acuerdos_pagos">
               <MappingFragment StoreEntitySet="historial_acuerdos_pagos">
                 <ScalarProperty Name="ID_HISTORIAL" ColumnName="ID_HISTORIAL" />
                 <ScalarProperty Name="CLIENTEH" ColumnName="CLIENTEH" />
@@ -3405,7 +3473,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NegocioView">
-            <EntityTypeMapping TypeName="Model1.NegocioView">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.NegocioView">
               <MappingFragment StoreEntitySet="NegocioView">
                 <ScalarProperty Name="ID_NEGOCIO" ColumnName="ID_NEGOCIO" />
                 <ScalarProperty Name="PROPIETARIO" ColumnName="PROPIETARIO" />
@@ -3446,11 +3514,13 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
                 <ScalarProperty Name="INGRESO" ColumnName="INGRESO" />
                 <ScalarProperty Name="CODIGO_F" ColumnName="CODIGO_F" />
+                <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
+                <ScalarProperty Name="NOMBRE_BLO" ColumnName="NOMBRE_BLO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VActInmuebles">
-            <EntityTypeMapping TypeName="Model1.VActInmuebles">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VActInmuebles">
               <MappingFragment StoreEntitySet="VActInmuebles">
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
@@ -3460,7 +3530,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VacuerdosFox">
-            <EntityTypeMapping TypeName="Model1.VacuerdosFox">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VacuerdosFox">
               <MappingFragment StoreEntitySet="VacuerdosFox">
                 <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
                 <ScalarProperty Name="CONCEPTO" ColumnName="CONCEPTO" />
@@ -3478,7 +3548,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VAsesoresT">
-            <EntityTypeMapping TypeName="Model1.VAsesoresT">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VAsesoresT">
               <MappingFragment StoreEntitySet="VAsesoresT">
                 <ScalarProperty Name="CONTADOR" ColumnName="CONTADOR" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
@@ -3486,8 +3556,17 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VCantidadcompromisos">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VCantidadcompromisos">
+              <MappingFragment StoreEntitySet="VCantidadcompromisos">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="REFERENCIA1" ColumnName="REFERENCIA1" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="VCLienteinmueble">
-            <EntityTypeMapping TypeName="Model1.VCLienteinmueble">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VCLienteinmueble">
               <MappingFragment StoreEntitySet="VCLienteinmueble">
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
                 <ScalarProperty Name="P_APELLIDO" ColumnName="P_APELLIDO" />
@@ -3515,7 +3594,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vclientes">
-            <EntityTypeMapping TypeName="Model1.Vclientes">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Vclientes">
               <MappingFragment StoreEntitySet="Vclientes">
                 <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
                 <ScalarProperty Name="NOMBRE_EMP" ColumnName="NOMBRE_EMP" />
@@ -3546,7 +3625,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vclienteseparacion">
-            <EntityTypeMapping TypeName="Model1.Vclienteseparacion">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Vclienteseparacion">
               <MappingFragment StoreEntitySet="Vclienteseparacion">
                 <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
                 <ScalarProperty Name="ID_SEPARACION" ColumnName="ID_SEPARACION" />
@@ -3554,7 +3633,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VClientesTareas">
-            <EntityTypeMapping TypeName="Model1.VClientesTareas">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VClientesTareas">
               <MappingFragment StoreEntitySet="VClientesTareas">
                 <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
@@ -3586,7 +3665,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VCod_SP">
-            <EntityTypeMapping TypeName="Model1.VCod_SP">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VCod_SP">
               <MappingFragment StoreEntitySet="VCod_SP">
                 <ScalarProperty Name="COD" ColumnName="COD" />
                 <ScalarProperty Name="INMU" ColumnName="INMU" />
@@ -3595,7 +3674,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vdetallesp">
-            <EntityTypeMapping TypeName="Model1.Vdetallesp">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Vdetallesp">
               <MappingFragment StoreEntitySet="Vdetallesp">
                 <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
@@ -3612,7 +3691,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VFechasProyectos">
-            <EntityTypeMapping TypeName="Model1.VFechasProyectos">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VFechasProyectos">
               <MappingFragment StoreEntitySet="VFechasProyectos">
                 <ScalarProperty Name="CONTADOR" ColumnName="CONTADOR" />
                 <ScalarProperty Name="ID_PROYEC" ColumnName="ID_PROYEC" />
@@ -3623,7 +3702,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vinmuebles">
-            <EntityTypeMapping TypeName="Model1.Vinmuebles">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Vinmuebles">
               <MappingFragment StoreEntitySet="Vinmuebles">
                 <ScalarProperty Name="INMUDECS" ColumnName="INMUDECS" />
                 <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
@@ -3640,7 +3719,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VinteresProyect">
-            <EntityTypeMapping TypeName="Model1.VinteresProyect">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VinteresProyect">
               <MappingFragment StoreEntitySet="VinteresProyect">
                 <ScalarProperty Name="CONTADOR" ColumnName="CONTADOR" />
                 <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
@@ -3650,10 +3729,8 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VnegocioFox">
-            <EntityTypeMapping TypeName="Model1.VnegocioFox">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VnegocioFox">
               <MappingFragment StoreEntitySet="VnegocioFox">
-                <ScalarProperty Name="USER_CREO" ColumnName="USER_CREO" />
-                <ScalarProperty Name="FECHA_ES" ColumnName="FECHA_ES" />
                 <ScalarProperty Name="CodNegocio" ColumnName="CodNegocio" />
                 <ScalarProperty Name="NOMBREBLOQUE" ColumnName="NOMBREBLOQUE" />
                 <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
@@ -3671,11 +3748,13 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="TELEFONO_P" ColumnName="TELEFONO_P" />
                 <ScalarProperty Name="TELFONO_EMP" ColumnName="TELFONO_EMP" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="FECHA_ES" ColumnName="FECHA_ES" />
+                <ScalarProperty Name="USER_CREO" ColumnName="USER_CREO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VNegocioscompromisos">
-            <EntityTypeMapping TypeName="Model1.VNegocioscompromisos">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VNegocioscompromisos">
               <MappingFragment StoreEntitySet="VNegocioscompromisos">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="VLRCUOTA" ColumnName="VLRCUOTA" />
@@ -3696,7 +3775,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vsepracioninmuebles">
-            <EntityTypeMapping TypeName="Model1.Vsepracioninmuebles">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Vsepracioninmuebles">
               <MappingFragment StoreEntitySet="Vsepracioninmuebles">
                 <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
                 <ScalarProperty Name="NOMBRE_BLO" ColumnName="NOMBRE_BLO" />
@@ -3741,7 +3820,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vspt">
-            <EntityTypeMapping TypeName="Model1.Vspt">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Vspt">
               <MappingFragment StoreEntitySet="Vspt">
                 <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
                 <ScalarProperty Name="T_CEDULA" ColumnName="T_CEDULA" />
@@ -3753,7 +3832,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VTareas">
-            <EntityTypeMapping TypeName="Model1.VTareas">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VTareas">
               <MappingFragment StoreEntitySet="VTareas">
                 <ScalarProperty Name="T_CEDULA" ColumnName="T_CEDULA" />
                 <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
@@ -3773,8 +3852,29 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VTareasCompromiso">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VTareasCompromiso">
+              <MappingFragment StoreEntitySet="VTareasCompromiso">
+                <ScalarProperty Name="T_CEDULA" ColumnName="T_CEDULA" />
+                <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="P_APELLIDO" ColumnName="P_APELLIDO" />
+                <ScalarProperty Name="CONCEPTO" ColumnName="CONCEPTO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
+                <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
+                <ScalarProperty Name="FECHAFIN" ColumnName="FECHAFIN" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="TELEFONO2" ColumnName="TELEFONO2" />
+                <ScalarProperty Name="S_APELLIDO" ColumnName="S_APELLIDO" />
+                <ScalarProperty Name="PROYEC_INTERES" ColumnName="PROYEC_INTERES" />
+                <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="VtareasNegocio">
-            <EntityTypeMapping TypeName="Model1.VtareasNegocio">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VtareasNegocio">
               <MappingFragment StoreEntitySet="VtareasNegocio">
                 <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
                 <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
@@ -3789,7 +3889,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VTracliente">
-            <EntityTypeMapping TypeName="Model1.VTracliente">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VTracliente">
               <MappingFragment StoreEntitySet="VTracliente">
                 <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
@@ -3805,85 +3905,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
                 <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
                 <ScalarProperty Name="PROYEC_INTERES" ColumnName="PROYEC_INTERES" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="tareas_actualizar" FunctionName="Model1.Store.tareas_actualizar" />
-          <EntitySetMapping Name="compromisosxcuota">
-            <EntityTypeMapping TypeName="Model1.compromisosxcuota">
-              <MappingFragment StoreEntitySet="compromisosxcuota">
-                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
-                <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VTareasCompromiso">
-            <EntityTypeMapping TypeName="Model1.VTareasCompromiso">
-              <MappingFragment StoreEntitySet="VTareasCompromiso">
-                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-                <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
-                <ScalarProperty Name="PROYEC_INTERES" ColumnName="PROYEC_INTERES" />
-                <ScalarProperty Name="S_APELLIDO" ColumnName="S_APELLIDO" />
-                <ScalarProperty Name="TELEFONO2" ColumnName="TELEFONO2" />
-                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-                <ScalarProperty Name="FECHAFIN" ColumnName="FECHAFIN" />
-                <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
-                <ScalarProperty Name="ID_TAREA" ColumnName="ID_TAREA" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="CONCEPTO" ColumnName="CONCEPTO" />
-                <ScalarProperty Name="P_APELLIDO" ColumnName="P_APELLIDO" />
-                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
-                <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
-                <ScalarProperty Name="T_CEDULA" ColumnName="T_CEDULA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VCantidadcompromisos">
-            <EntityTypeMapping TypeName="Model1.VCantidadcompromisos">
-              <MappingFragment StoreEntitySet="VCantidadcompromisos">
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="REFERENCIA1" ColumnName="REFERENCIA1" />
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Actividades">
-            <EntityTypeMapping TypeName="Model1.Actividades">
-              <MappingFragment StoreEntitySet="Actividades">
-                <ScalarProperty Name="Actividad_Dependiente" ColumnName="Actividad_Dependiente" />
-                <ScalarProperty Name="Simultaneo" ColumnName="Simultaneo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ActividadxTramite">
-            <EntityTypeMapping TypeName="Model1.ActividadxTramite">
-              <MappingFragment StoreEntitySet="ActividadxTramite">
-                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
-                <ScalarProperty Name="Id_tramite" ColumnName="Id_tramite" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Documento">
-            <EntityTypeMapping TypeName="Model1.Documento">
-              <MappingFragment StoreEntitySet="Documento">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tramites">
-            <EntityTypeMapping TypeName="Model1.Tramites">
-              <MappingFragment StoreEntitySet="Tramites">
-                <ScalarProperty Name="Banco" ColumnName="Banco" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

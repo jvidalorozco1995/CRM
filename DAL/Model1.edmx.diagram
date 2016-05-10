@@ -4,82 +4,82 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dfcd6b4549394023a41f00434f44f7d9" Name="Diagram1" ZoomLevel="82">
-        <EntityTypeShape EntityType="Model1.ActInmuebles" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.acuerdo_fox" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.acuerdo_pago" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.bancos" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.bitacora_tareas" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.bloques" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.clientes" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.configuracion" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.Configuracion_negocio" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.documentos_negocio" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.empresas" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.historial_clientes" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.historial_inmueble" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.informacion" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.inmueble_separacion" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.inmuebles" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.negocio" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.negocio_fox" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.pagos_fox" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.planos_Proyectos" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.proyectos" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.proyectos_trabajador" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.sala_ventas" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.tareas" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.trabajadores" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.historial_acuerdos_pagos" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.NegocioView" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VActInmuebles" Width="1.5" PointX="5.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VacuerdosFox" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VAsesoresT" Width="1.5" PointX="16.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VCLienteinmueble" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.Vclientes" Width="1.5" PointX="16.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.Vclienteseparacion" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VClientesTareas" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VCod_SP" Width="1.5" PointX="2.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.Vdetallesp" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VFechasProyectos" Width="1.5" PointX="4.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.Vinmuebles" Width="1.5" PointX="6.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VinteresProyect" Width="1.5" PointX="18.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VnegocioFox" Width="1.5" PointX="18.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VNegocioscompromisos" Width="1.5" PointX="18.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.Vsepracioninmuebles" Width="1.5" PointX="11.75" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.Vspt" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VTareas" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VtareasNegocio" Width="1.5" PointX="20.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model1.VTracliente" Width="1.5" PointX="20.75" PointY="12.75" IsExpanded="true" />
-        <AssociationConnector Association="Model1.FK__bloques__BLOQUE___5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__inmuebles__INMUO__02E7657A" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__clientes__ASESOR__0697FACD" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__clientes__EMPRES__1F98B2C1" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__clientes__EMPRES__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__clientes__PROYEC__32E0915F" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__historial__clien__1F04813B" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__historial__CLIEN__318258D2" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__historial__clien__4F47C5E3" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__historial__CLIEN__6F2063EF" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__inmueble___CLIEN__1FD8A9E3" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__inmueble___CLIEN__33D4B598" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__tareas__CLIENTE__398D8EEE" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__tareas__CLIENTE__47B19113" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__historial__traba__1FF8A574" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__historial__traba__503BEA1C" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__inmueble___INMUE__20CCCE1C" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__planos_Pr__PROYE__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__proyectos__PROYE__1D9B5BB6" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__proyectos__TRABA__1CA7377D" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__tareas__TRABAJAD__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="Model1.FK__tareas__TRABAJAD__571DF1D5" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="Model1.compromisosxcuota" Width="1.5" PointX="19.375" PointY="20.75" />
-        <EntityTypeShape EntityType="Model1.VTareasCompromiso" Width="1.5" PointX="3.375" PointY="21.75" />
-        <EntityTypeShape EntityType="Model1.VCantidadcompromisos" Width="1.5" PointX="21.375" PointY="17.75" />
-        <EntityTypeShape EntityType="Model1.Actividades" Width="1.5" PointX="21.375" PointY="20.75" />
-        <EntityTypeShape EntityType="Model1.ActividadxTramite" Width="1.5" PointX="5.375" PointY="22.75" />
-        <EntityTypeShape EntityType="Model1.Documento" Width="1.5" PointX="7.375" PointY="22.75" />
-        <EntityTypeShape EntityType="Model1.Tramites" Width="1.5" PointX="14.375" PointY="22.75" />
+      <Diagram DiagramId="41c9dc3f936840eab6cabe5bfe2e7640" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.ActInmuebles" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Actividades" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.ActividadxTramite" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.acuerdo_fox" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.acuerdo_pago" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.bancos" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.bitacora_tareas" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.bloques" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.clientes" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.compromisosxcuota" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.configuracion" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Configuracion_negocio" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Documento" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.documentos_negocio" Width="1.5" PointX="11.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.empresas" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.historial_clientes" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.historial_inmueble" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.informacion" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.inmueble_separacion" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.inmuebles" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.negocio" Width="1.5" PointX="13.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.negocio_fox" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.pagos_fox" Width="1.5" PointX="5.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.planos_Proyectos" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.proyectos" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.proyectos_trabajador" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.sala_ventas" Width="1.5" PointX="7.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.tareas" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.trabajadores" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Tramites" Width="1.5" PointX="9.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.historial_acuerdos_pagos" Width="1.5" PointX="15.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.NegocioView" Width="1.5" PointX="15.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VActInmuebles" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VacuerdosFox" Width="1.5" PointX="17.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VAsesoresT" Width="1.5" PointX="17.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VCantidadcompromisos" Width="1.5" PointX="17.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VCLienteinmueble" Width="1.5" PointX="17.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vclientes" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vclienteseparacion" Width="1.5" PointX="2.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VClientesTareas" Width="1.5" PointX="7.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VCod_SP" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vdetallesp" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VFechasProyectos" Width="1.5" PointX="19.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vinmuebles" Width="1.5" PointX="19.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VinteresProyect" Width="1.5" PointX="19.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VnegocioFox" Width="1.5" PointX="19.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VNegocioscompromisos" Width="1.5" PointX="17.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vsepracioninmuebles" Width="1.5" PointX="19.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vspt" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VTareas" Width="1.5" PointX="2.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VTareasCompromiso" Width="1.5" PointX="21.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VtareasNegocio" Width="1.5" PointX="4.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VTracliente" Width="1.5" PointX="21.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__bloques__BLOQUE___5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__inmuebles__INMUO__02E7657A" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__clientes__ASESOR__0697FACD" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__clientes__EMPRES__1F98B2C1" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__clientes__EMPRES__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__clientes__PROYEC__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__historial__clien__1F04813B" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__historial__CLIEN__318258D2" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__historial__clien__4F47C5E3" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__historial__CLIEN__6F2063EF" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__inmueble___CLIEN__1FD8A9E3" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__inmueble___CLIEN__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__tareas__CLIENTE__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__tareas__CLIENTE__47B19113" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__historial__traba__1FF8A574" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__historial__traba__503BEA1C" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__inmueble___INMUE__20CCCE1C" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__planos_Pr__PROYE__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__proyectos__PROYE__1D9B5BB6" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__proyectos__TRABA__1CA7377D" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__tareas__TRABAJAD__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK__tareas__TRABAJAD__571DF1D5" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
