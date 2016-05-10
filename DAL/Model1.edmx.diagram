@@ -76,6 +76,10 @@
         <EntityTypeShape EntityType="Model1.compromisosxcuota" Width="1.5" PointX="19.375" PointY="20.75" />
         <EntityTypeShape EntityType="Model1.VTareasCompromiso" Width="1.5" PointX="3.375" PointY="21.75" />
         <EntityTypeShape EntityType="Model1.VCantidadcompromisos" Width="1.5" PointX="21.375" PointY="17.75" />
+        <EntityTypeShape EntityType="Model1.Actividades" Width="1.5" PointX="21.375" PointY="20.75" />
+        <EntityTypeShape EntityType="Model1.ActividadxTramite" Width="1.5" PointX="5.375" PointY="22.75" />
+        <EntityTypeShape EntityType="Model1.Documento" Width="1.5" PointX="7.375" PointY="22.75" />
+        <EntityTypeShape EntityType="Model1.Tramites" Width="1.5" PointX="14.375" PointY="22.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

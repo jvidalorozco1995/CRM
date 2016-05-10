@@ -12,19 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class empresas
+    public partial class Actividades
     {
-        public empresas()
-        {
-            this.clientes = new HashSet<clientes>();
-            this.clientes1 = new HashSet<clientes>();
-        }
-    
-        public int ID_EMP { get; set; }
-        public string NOMBRE_EMP { get; set; }
-        public string TEL_EMP { get; set; }
-    
-        public virtual ICollection<clientes> clientes { get; set; }
-        public virtual ICollection<clientes> clientes1 { get; set; }
+        public int id { get; set; }
+        public string Nombre { get; set; }
+        public string Usuario { get; set; }
+        public string Descripcion { get; set; }
+        public Nullable<int> Simultaneo { get; set; }
+        public string Actividad_Dependiente { get; set; }
     }
 }

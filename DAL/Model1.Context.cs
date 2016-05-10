@@ -77,6 +77,10 @@ namespace DAL
         public DbSet<compromisosxcuota> compromisosxcuota { get; set; }
         public DbSet<VTareasCompromiso> VTareasCompromiso { get; set; }
         public DbSet<VCantidadcompromisos> VCantidadcompromisos { get; set; }
+        public DbSet<Actividades> Actividades { get; set; }
+        public DbSet<ActividadxTramite> ActividadxTramite { get; set; }
+        public DbSet<Documento> Documento { get; set; }
+        public DbSet<Tramites> Tramites { get; set; }
     
         public virtual int tareas_actualizar()
         {

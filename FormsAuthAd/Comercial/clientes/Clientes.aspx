@@ -27,7 +27,7 @@
                                        </option>
                                     </select>
                                     <select id="CombAsesores" style="height: 22px;width:100px" title="Filtar asesores">
-                                        <option>Seleccione asesor...</option>
+                                       
                                     </select>
                                     <button type="button" id="BtnFiltar" class="btn btn-success btn-xs">Filtar</button>
                                 </div>
@@ -147,7 +147,7 @@
                                         <input type="text" value="" id="Text7" class="form-control" name="" placeholder="" />
                                     </div>
                                     <div class="form-group col-lg-6">
-                                        <label>Correo Elecrtonico</label>
+                                        <label>Correo Electronico</label>
                                         <input type="text" value="" id="Text8" class="form-control" name="" placeholder="">
                                     </div>
                                   <div class="form-group col-lg-6">
