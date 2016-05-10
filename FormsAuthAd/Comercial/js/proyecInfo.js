@@ -131,7 +131,9 @@ var admComercial = (function () {
                 inm.InmuenlesFox(proyec, WsInmueblesFox);
                // inm._Linmuebles(proyec);
                 inm.LisInmuebles(proyec);
-                
+                $(".s").addClass("ClienteS");
+              //  $(".ClienteS").removeAttr('disabled');
+              
             }, 2000);
           
           
@@ -237,7 +239,17 @@ var admComercial = (function () {
 
         $('#BtncDetalle').click(function () { $('#detallesepracion').hide(); $('#SepararInmueble').hide(); $('#Informacion').hide();})
 
-        $('#BtnsepararC').click(function () {$('#SepararInmueble').hide(); })
+        $('#BtnsepararC').click(function () { $('#SepararInmueble').hide(); })
+
+
+        $(document).on('click', '.s', function () {
+           
+                toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>Actualize los inmuebles, en el boton azul, que esta arriba por favor..');
+            
+            
+        });
+
 
         $(document).on('click', '.ClienteS', function () {
             var datos = $(this).attr("id");
@@ -855,7 +867,9 @@ var admComercial = (function () {
 
     return {
         init: function () {
+            
             _Inic();
+            
             _addHandlers();
             _initialize();;
         },

@@ -255,7 +255,7 @@ function BLLComercial() {
                         }
                         else
                         {
-                            tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/agregar.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+                            tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/agregar.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "' class='s'  title='Agregar a separacion'></img></td>";
                         }
                     }
                 }

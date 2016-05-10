@@ -103,6 +103,8 @@ namespace BLLCRM
                        hn.CREDITO = item.CREDITO;
                        hn.USER_NEGOCIO = item.NOMBRES;
                        hn.CODIGO_F = item.CODIGO_F;
+                       hn.INMUEBLE = item.INMUEBLE;
+                        hn.NOMBRE_BLO = item.NOMBRE_BLO;
                        _line.Add(hn);
                    }
                    return _line;

@@ -53,5 +53,7 @@ namespace DAL
         public string NOMBRE_PROYEC { get; set; }
         public Nullable<decimal> INGRESO { get; set; }
         public string CODIGO_F { get; set; }
+        public string INMUEBLE { get; set; }
+        public string NOMBRE_BLO { get; set; }
     }
 }
