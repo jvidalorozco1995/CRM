@@ -2266,10 +2266,13 @@
     <Content Include="ServiciosFox\WNegocios.asmx" />
     <Content Include="Servicios\AcuerdosFox.asmx" />
     <Content Include="Servicios\WAcInmuebles.asmx" />
+    <Content Include="Servicios\WActividades.asmx" />
+    <Content Include="Servicios\WActividadesTramites.asmx" />
     <Content Include="Servicios\WBancos.asmx" />
     <Content Include="Servicios\WClientes.asmx" />
     <Content Include="Servicios\WCompromisoCuota.asmx" />
     <Content Include="Servicios\WConfiguracionNegocios.asmx" />
+    <Content Include="Servicios\WDocumentos.asmx" />
     <Content Include="Servicios\WEmpresas.asmx" />
     <Content Include="ServiciosFox\WFox.asmx" />
     <Content Include="Servicios\Winfocomercial.asmx" />
@@ -2286,6 +2289,7 @@
     <Content Include="Servicios\WServidores.asmx" />
     <Content Include="Servicios\WTareas.asmx" />
     <Content Include="Servicios\WTrabajador.asmx" />
+    <Content Include="Servicios\WTramites.asmx" />
     <Content Include="styles_crm\datepicker.css" />
     <Content Include="styles_crm\Error.css" />
     <Content Include="styles_crm\img\green%402x.png" />
@@ -4773,6 +4777,14 @@
       <DependentUpon>WAcInmuebles.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Servicios\WActividades.asmx.cs">
+      <DependentUpon>WActividades.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WActividadesTramites.asmx.cs">
+      <DependentUpon>WActividadesTramites.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Servicios\WBancos.asmx.cs">
       <DependentUpon>WBancos.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -4787,6 +4799,10 @@
     </Compile>
     <Compile Include="Servicios\WConfiguracionNegocios.asmx.cs">
       <DependentUpon>WConfiguracionNegocios.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WDocumentos.asmx.cs">
+      <DependentUpon>WDocumentos.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WEmpresas.asmx.cs">
@@ -4851,6 +4867,10 @@
     </Compile>
     <Compile Include="Servicios\WTrabajador.asmx.cs">
       <DependentUpon>WTrabajador.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WTramites.asmx.cs">
+      <DependentUpon>WTramites.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Site.Master.cs">

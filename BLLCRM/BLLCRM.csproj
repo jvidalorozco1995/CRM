@@ -51,12 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLActividadTramites.cs" />
     <Compile Include="BLLActInmueble.cs" />
+    <Compile Include="BLLActividades.cs" />
     <Compile Include="BLLAcuerdoFox.cs" />
     <Compile Include="BLLBancos.cs" />
     <Compile Include="BLLBloques.cs" />
     <Compile Include="BLLClientes.cs" />
     <Compile Include="BLLCompromisosCuota.cs" />
+    <Compile Include="BLLDocumentos.cs" />
     <Compile Include="BLLNegociosCompro.cs" />
     <Compile Include="BLLConfiguracionNegocio.cs" />
     <Compile Include="BLLEmpresas.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="BLLseparaciones.cs" />
     <Compile Include="BLLTareas.cs" />
     <Compile Include="BLLTrabajador.cs" />
+    <Compile Include="BLLTramites.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
