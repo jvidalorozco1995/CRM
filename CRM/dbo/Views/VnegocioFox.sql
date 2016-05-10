@@ -1,23 +1,24 @@
 ﻿CREATE VIEW dbo.VnegocioFox
 AS
-SELECT        dbo.negocio_fox.NOMBREBLOQUE, dbo.negocio.CEDULA_P, dbo.negocio_fox.NOMBRECLIENTE, dbo.negocio_fox.CODIGOINMUEBLE, dbo.negocio_fox.CODIGOCRM, 
+SELECT        dbo.negocio_fox.Negocio AS 'CodNegocio', dbo.negocio_fox.NOMBREBLOQUE, dbo.negocio.CEDULA_P, dbo.negocio_fox.NOMBRECLIENTE, dbo.negocio_fox.CODIGOINMUEBLE, dbo.negocio_fox.CODIGOCRM, 
                          dbo.proyectos.NOMBRE_PROYEC AS SUCURSAL, dbo.negocio_fox.SUCURSAL + dbo.negocio_fox.NEGOCIO AS NEGOCIO, dbo.negocio_fox.ID, dbo.negocio_fox.VLRCREDITO, dbo.negocio_fox.VLRINICIALCUOTA, 
-                         dbo.negocio_fox.VLRNEGOCIO, dbo.negocio_fox.FECHANEGOCIO, dbo.negocio.DOCUMENTO, dbo.negocio.TELEFONO_P, dbo.negocio.TELFONO_EMP, 'DESISTIDO' AS Estado
+                         dbo.negocio_fox.VLRNEGOCIO, dbo.negocio_fox.FECHANEGOCIO, dbo.negocio.DOCUMENTO, dbo.negocio.TELEFONO_P, dbo.negocio.TELFONO_EMP, 'DESISTIDO' AS Estado, dbo.negocio.FECHA_ES,dbo.negocio.USER_CREO
 FROM            dbo.negocio_fox INNER JOIN
                          dbo.negocio ON dbo.negocio_fox.CODIGOCRM = dbo.negocio.CODIGO_F INNER JOIN
                          dbo.proyectos ON dbo.negocio_fox.SUCURSAL = dbo.proyectos.ID_PROYEC
 WHERE        DESISTIDO = 'True'
 UNION
-SELECT        dbo.negocio_fox.NOMBREBLOQUE, dbo.negocio.CEDULA_P, dbo.negocio_fox.NOMBRECLIENTE, dbo.negocio_fox.CODIGOINMUEBLE, dbo.negocio_fox.CODIGOCRM, 
+SELECT        dbo.negocio_fox.Negocio AS 'CodNegocio', dbo.negocio_fox.NOMBREBLOQUE, dbo.negocio.CEDULA_P, dbo.negocio_fox.NOMBRECLIENTE, dbo.negocio_fox.CODIGOINMUEBLE, dbo.negocio_fox.CODIGOCRM, 
                          dbo.proyectos.NOMBRE_PROYEC AS SUCURSAL, dbo.negocio_fox.SUCURSAL + dbo.negocio_fox.NEGOCIO AS NEGOCIO, dbo.negocio_fox.ID, dbo.negocio_fox.VLRCREDITO, dbo.negocio_fox.VLRINICIALCUOTA, 
-                         dbo.negocio_fox.VLRNEGOCIO, dbo.negocio_fox.FECHANEGOCIO, dbo.negocio.DOCUMENTO, dbo.negocio.TELEFONO_P, dbo.negocio.TELFONO_EMP, 'FOX' AS Estado
+                         dbo.negocio_fox.VLRNEGOCIO, dbo.negocio_fox.FECHANEGOCIO, dbo.negocio.DOCUMENTO, dbo.negocio.TELEFONO_P, dbo.negocio.TELFONO_EMP, 'FOX' AS Estado, dbo.negocio.FECHA_ES,dbo.negocio.USER_CREO
 FROM            dbo.negocio_fox INNER JOIN
                          dbo.negocio ON dbo.negocio_fox.CODIGOCRM = dbo.negocio.CODIGO_F INNER JOIN
                          dbo.proyectos ON dbo.negocio_fox.SUCURSAL = dbo.proyectos.ID_PROYEC
 WHERE        DESISTIDO = 'False'
 UNION
-SELECT        bloques.NOMBRE_BLO, negocio.CEDULA_P, clientes.NOMBRES + ' ' + clientes.P_APELLIDO + ' ' + clientes.S_APELLIDO AS NOMBRECLIENTE, inmuebles.REFERENCIA, negocio.CODIGO_F, 
-                         proyectos.NOMBRE_PROYEC, negocio.CODIGO_F, negocio.ID_HOJA, negocio.CREDITO, negocio.INICIAL, NULL, NULL, DOCUMENTO, clientes.TELEFONO2, negocio.TELFONO_EMP, 'CRM' AS Estado
+SELECT        dbo.negocio.ID_NEGOCIO AS 'CodNegocio', bloques.NOMBRE_BLO, negocio.CEDULA_P, clientes.NOMBRES + ' ' + clientes.P_APELLIDO + ' ' + clientes.S_APELLIDO AS NOMBRECLIENTE, 
+                         inmuebles.REFERENCIA, negocio.CODIGO_F, proyectos.NOMBRE_PROYEC, negocio.CODIGO_F, negocio.ID_HOJA, negocio.CREDITO, negocio.INICIAL, NULL, NULL, DOCUMENTO, clientes.TELEFONO2, 
+                         negocio.TELFONO_EMP, 'CRM' AS Estado, dbo.negocio.FECHA_ES,dbo.negocio.USER_CREO
 FROM            dbo.negocio INNER JOIN
                          clientes ON CEDULA = negocio.CEDULA_P INNER JOIN
                          inmueble_separacion ON ID_SEPARACION = negocio.SEPARACION INNER JOIN
@@ -34,7 +35,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[42] 4[20] 2[24] 3) )"
+         Configuration = "(H (1[43] 4[20] 2[28] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -96,7 +97,7 @@ Begin DesignProperties =
    End
    Begin DiagramPane = 
       Begin Origin = 
-         Top = 0
+         Top = -672
          Left = 0
       End
       Begin Tables = 
@@ -107,13 +108,16 @@ Begin DesignProperties =
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
-      Begin ColumnWidths = 17
+      Begin ColumnWidths = 20
          Width = 284
          Width = 2445
          Width = 1905
          Width = 3390
          Width = 2340
          Width = 2685
+         Width = 1500
+         Width = 1500
+         Width = 1500
          Width = 1500
          Width = 1500
          Width = 1500
@@ -146,6 +150,8 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VnegocioFox';
+
+
 
 
 GO

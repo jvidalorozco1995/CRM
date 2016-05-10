@@ -5,10 +5,12 @@ SELECT        dbo.negocio.ID_NEGOCIO, dbo.negocio.PROPIETARIO, dbo.negocio.CEDUL
                          dbo.negocio.CORREO, dbo.negocio.NOMBRE_CONY, dbo.negocio.CEDULA_CUY, dbo.negocio.TELE_CONY, dbo.negocio.N_HIJO, dbo.negocio.INTERES_COM, dbo.negocio.VALOR_CASA, dbo.negocio.INICIAL, 
                          dbo.negocio.CREDITO, dbo.negocio.BANCO, dbo.negocio.NO_CREDITO, dbo.negocio.FECHA_ES, dbo.negocio.FECHA_ENT, dbo.negocio.FECHA_SUBRO, dbo.negocio.ASESOR_INFO, dbo.negocio.MEDIO_ENT, 
                          dbo.negocio.ASOCIADO, dbo.negocio.CLASE_INMU, dbo.negocio.ID_HOJA, dbo.negocio.SEPARACION, dbo.trabajadores.NOMBRES, dbo.proyectos.NOMBRE_PROYEC, dbo.negocio.INGRESO, 
-                         dbo.negocio.CODIGO_F
+                         dbo.negocio.CODIGO_F, dbo.inmueble_separacion.INMUEBLE, dbo.bloques.NOMBRE_BLO
 FROM            dbo.trabajadores INNER JOIN
                          dbo.negocio ON dbo.trabajadores.T_CEDULA = dbo.negocio.USER_CREO INNER JOIN
-                         dbo.proyectos ON dbo.negocio.PROYECTO_INT = dbo.proyectos.ID_PROYEC
+                         dbo.proyectos ON dbo.negocio.PROYECTO_INT = dbo.proyectos.ID_PROYEC INNER JOIN
+                         dbo.inmueble_separacion ON dbo.negocio.SEPARACION = dbo.inmueble_separacion.ID_SEPARACION INNER JOIN
+                         dbo.bloques ON dbo.bloques.ID_BLOQUE = SUBSTRING(dbo.inmueble_separacion.INMUEBLE, 0, 7)
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
@@ -86,7 +88,7 @@ Begin DesignProperties =
             Begin Extent = 
                Top = 6
                Left = 38
-               Bottom = 136
+               Bottom = 134
                Right = 208
             End
             DisplayFlags = 280
@@ -106,8 +108,28 @@ Begin DesignProperties =
             Begin Extent = 
                Top = 138
                Left = 38
-               Bottom = 234
+               Bottom = 296
                Right = 225
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "inmueble_separacion"
+            Begin Extent = 
+               Top = 140
+               Left = 947
+               Bottom = 329
+               Right = 1144
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "bloques"
+            Begin Extent = 
+               Top = 6
+               Left = 887
+               Bottom = 136
+               Right = 1057
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -119,7 +141,7 @@ Begin DesignProperties =
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
-      Begin ColumnWidths = 40
+      Begin ColumnWidths = 42
          Width = 284
          Width = 1500
          Width = 1500
@@ -133,31 +155,9 @@ Begin DesignProperties =
          Width = 1500
          Width = 1500
          Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-   ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+         Width = ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
 
 
 
@@ -169,7 +169,33 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @leve
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'      Width = 1500
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
          Width = 1500
          Width = 1500
       End
@@ -193,4 +219,6 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'      Widt
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
 
