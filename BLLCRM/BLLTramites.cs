@@ -98,5 +98,38 @@ namespace BLLCRM
                 }
             }
 
+
+    
+        public List<Tramites> ListTramites()
+        {
+
+            try
+            {
+                List<Tramites> lisb = bd.Tramites.ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Tramites> lisbcrm = new List<Tramites>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Tramites entb = new Tramites();
+                        entb.id = item.id;
+                        entb.Nombre = item.Nombre;
+                        entb.Banco = item.Banco;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -43,11 +43,11 @@ var admComercial = (function () {
     var separacion = {};
 
 
-    var WsCrearCliente = funcionUrlGlobal("/Servicios/WClientes.asmx/InsertCliente");//Inserta Cliente en bd
+    var WsCrearCliente = funcionUrlGlobal("/Servicios/WClientes.asmx/InsertCliente");//Insertar Cliente en bd
     var WsLisala = funcionUrlGlobal("/Servicios/WSala_Ventas.asmx/ListSala");//Listado de salas de ventas
     var WAsociado = funcionUrlGlobal("/Servicios/WClientes.asmx/_InsertClienteAs");
     var WsLisClientes = funcionUrlGlobal("/Servicios/WClientes.asmx/LisClientes");///Listado de clientes
-    var WsGetClientes = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");//trae Inoformacion de cliente
+    var WsGetClientes = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");//trae Información de cliente
     var WsInmueblesFox = funcionUrlGlobal("/ServiciosFox/WFox.asmx/InmueblesFox");//LIstado de Inmuebles Multifox por Proyectos
     var WSCrearTarea = funcionUrlGlobal("/Servicios/WTareas.asmx/InsertTarea");//Crear Treas
     var WsLisImnuE = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/InmuEstados");//Listar Tareas
@@ -131,7 +131,9 @@ var admComercial = (function () {
                 inm.InmuenlesFox(proyec, WsInmueblesFox);
                // inm._Linmuebles(proyec);
                 inm.LisInmuebles(proyec);
+                
                 $(".s").addClass("ClienteS");
+               // $(".ClienteS").removeClass(".s");
               //  $(".ClienteS").removeAttr('disabled');
               
             }, 2000);
@@ -242,13 +244,13 @@ var admComercial = (function () {
         $('#BtnsepararC').click(function () { $('#SepararInmueble').hide(); })
 
 
-        $(document).on('click', '.s', function () {
+      /*  $(document).on('click', '.s', function () {
            
                 toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>Actualize los inmuebles, en el boton azul, que esta arriba por favor..');
             
             
-        });
+        });*/
 
 
         $(document).on('click', '.ClienteS', function () {

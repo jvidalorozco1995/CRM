@@ -1353,6 +1353,7 @@
     <Content Include="BLLscripts\BLLTareas.js" />
     <Content Include="BLLscripts\BLLTrabajadores.js" />
     <Content Include="BLLscripts\BLLProyectos.js" />
+    <Content Include="BLLscripts\BLLTramites.js" />
     <Content Include="BLLscripts\BLLUser.js" />
     <Content Include="BLLscripts\BLLUtilidades.js" />
     <Content Include="Cartera\CrearNegocio\Crearnegocio.aspx" />
@@ -2305,6 +2306,8 @@
     <Content Include="styles_jqw\qunit-git.css" />
     <Content Include="styles_jqw\site.css" />
     <Content Include="styles_jqw\widget_icons.png" />
+    <Content Include="TramitesVenta\ConfigTramites\js\Tramite.js" />
+    <Content Include="TramitesVenta\ConfigTramites\ConfigTramites.aspx" />
     <Content Include="vendor\animate.css\animate.css" />
     <Content Include="vendor\animate.css\animate.min.css" />
     <Content Include="vendor\animate.css\Gruntfile.js" />
@@ -4886,6 +4889,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TramitesVenta\ConfigTramites\ConfigTramites.aspx.cs">
+      <DependentUpon>ConfigTramites.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TramitesVenta\ConfigTramites\ConfigTramites.aspx.designer.cs">
+      <DependentUpon>ConfigTramites.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
