@@ -37,7 +37,7 @@
                     <div class="pull-right">
                               
                                 
-                                  <button class="btn btn-danger btn-btn-circle" type="button" id="BtnSCliente">Agregar</button>
+                                  <button class="btn btn-danger btn-btn-circle" type="button" id="BtnAgregar">Agregar</button>
                                
                             </div>
                     <div class="panel panel-success">
@@ -130,14 +130,38 @@
                         </div>
                     </div>
                 </div>
-        </div>
-    </div>
+               </div>
+           </div>
     
             </div>
            
         </div>
 
       </div>
+
+               <!--Modal Empresas--->
+            <div class="modal fade hmodal-success" id="ModalActividades" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Listado de actividades</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <!--Empresas--->
+                        <div id="TblActividades"  >
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="BtnCActividad">Crear Actividad</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCancelar">Cerrar</button>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
