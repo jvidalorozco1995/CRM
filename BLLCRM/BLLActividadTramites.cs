@@ -50,6 +50,7 @@ namespace BLLCRM
 
                     ctx.Id_Actividad = item.Id_Actividad;
                     ctx.Id_tramite = item.Id_tramite;
+                    ctx.Posicion = item.Posicion;
                     bd.SaveChanges();
                 }
                 return mensaje = "Se actualizaron de manera exitosa";
@@ -87,6 +88,7 @@ namespace BLLCRM
                             entb.Id = item.Id;
                             entb.Id_Actividad = item.Id_Actividad;
                             entb.Id_tramite = item.Id_tramite;
+                            entb.Posicion = item.Posicion;
                             lisbcrm.Add(entb);
                         }
                         return lisbcrm;
@@ -98,5 +100,6 @@ namespace BLLCRM
                     throw;
                 }
             }
+     
     }
 }
