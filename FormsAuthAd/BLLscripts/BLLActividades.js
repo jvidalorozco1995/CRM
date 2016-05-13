@@ -46,7 +46,7 @@
             tabla += " <tr>";
             tabla += "<td style='width:100px'>" + item.id + "</td>";
             tabla += "<td>" + item.Nombre + "</td>";
-            tabla += "<td>" + item.Banco + "</td>";
+            tabla += "<td>" + item.Descripcion + "</td>";
             tabla += "<td style='width:20px;height: 20px'>";
             tabla += "<img src='" + funcionUrlGlobal('/images_crm/Crear.png') + "'class='BtnTarea' type='button' id='" + item.CEDULA + "/" + item.EMAIL + "' title='Agregar'></img>";
             tabla += "</td>";

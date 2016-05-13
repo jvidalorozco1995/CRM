@@ -196,6 +196,7 @@
     <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
   
     <script src="../../BLLscripts/BLLUtilidades.js"></script>
+    <script src="../../BLLscripts/BLLActividades.js"></script>
      <script src="../../BLLscripts/BLLTramites.js"></script>
     <script src="js/Tramite.js"></script>
     <script src="../../scripts_crm/bootstrap-datepicker.js"></script>
