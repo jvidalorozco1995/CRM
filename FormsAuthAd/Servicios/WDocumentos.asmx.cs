@@ -35,11 +35,16 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<Documento> ListDocumentos(int id)
+        public List<Documento> ListDocumentosID(int id)
         {
             return cl.ListDocumentos(id);
         }
-
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<Documento> ListDocumentos()
+        {
+            return cl.ListDocumentos();
+        }
         [WebMethod]
         public string HelloWorld()
         {

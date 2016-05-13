@@ -96,5 +96,36 @@ namespace BLLCRM
                     throw;
                 }
         }
+        public List<Documento> ListDocumentos()
+        {
+
+            try
+            {
+                List<Documento> lisb = bd.Documento.ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Documento> lisbcrm = new List<Documento>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Documento entb = new Documento();
+                        entb.Id = item.Id;
+                        entb.Id_Actividad = item.Id_Actividad;
+                        entb.Nombre = item.Nombre;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

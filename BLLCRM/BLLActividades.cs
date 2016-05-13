@@ -102,7 +102,40 @@ namespace BLLCRM
                     throw;
                 }
             }
+        public List<Actividades> ListActividades()
+        {
 
-        
+            try
+            {
+                List<Actividades> lisb = bd.Actividades.ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Actividades> lisbcrm = new List<Actividades>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Actividades entb = new Actividades();
+                        entb.id = item.id;
+                        entb.Nombre = item.Nombre;
+                        entb.Usuario = item.Usuario;
+                        entb.Descripcion = item.Descripcion;
+                        entb.Simultaneo = item.Simultaneo;
+                        entb.Actividad_Dependiente = item.Actividad_Dependiente;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

@@ -100,6 +100,37 @@ namespace BLLCRM
                     throw;
                 }
             }
-     
+        public List<ActividadxTramite> ListActividadTramite()
+        {
+
+            try
+            {
+                List<ActividadxTramite> lisb = bd.ActividadxTramite.ToList();
+                //bd.compromisosxcuota.ToList();
+                List<ActividadxTramite> lisbcrm = new List<ActividadxTramite>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        ActividadxTramite entb = new ActividadxTramite();
+                        entb.Id = item.Id;
+                        entb.Id_Actividad = item.Id_Actividad;
+                        entb.Id_tramite = item.Id_tramite;
+                        entb.Posicion = item.Posicion;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
