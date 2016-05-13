@@ -9,13 +9,17 @@ var admTramites = (function () {
 
     var _addHandlers = function () {
        
+        $('#BtnAgregar').click(function () {
 
+            $('#ModalAsignar').modal('show');
+
+        });
        
        
     }
     var _Inicio = function () {
         Tra.ListTramites(WsListramite);
-     
+        TblActividades
     }
     return {
         init: function () {

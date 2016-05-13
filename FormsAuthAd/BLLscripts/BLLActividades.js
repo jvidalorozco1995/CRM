@@ -1,7 +1,12 @@
-﻿function BLLTramites() {
+﻿function BLLActividades() {
+
+
+
+
+
 
     //Retorna una lista de tramites
-    BLLTramites.prototype.ListTramites = function (Wsurl) {
+    BLLActividades.prototype.ListActividades = function (Wsurl) {
 
         $.ajax({
             type: "POST",
@@ -12,10 +17,10 @@
             success: function (result) {
                 if (result.d == null) {
 
-                    BLLTramites.prototype.TablaTramites(result.d);
+                    BLLActividades.prototype.TablaActividades(result.d);
                 }
                 else {
-                    BLLTramites.prototype.TablaTramites(result.d);
+                    BLLActividades.prototype.TablaActividades(result.d);
                 }
 
             },
@@ -24,19 +29,19 @@
     }
 
     //Tabla de Bancos Traidos de MultiFox
-    BLLTramites.prototype.TablaTramites = function (tramites) {
-        document.getElementById('Tablatramites').innerHTML = "";
-        var tabla = '<table id="tramites" class="table table-striped table-bordered table-hover">';
+    BLLActividades.prototype.TablaActividades = function (actividades) {
+        document.getElementById('TblActividades').innerHTML = "";
+        var tabla = '<table id="actividades" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr>";
         tabla += "<th>ID</th>";
         tabla += "<th>Nombre</th>";
-        tabla += "<th>Banco</th>";
+        tabla += "<th>Descripcion</th>";
         tabla += "<th></th>"
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
-        $.each(tramites, function (i, item) {
+        $.each(actividades, function (i, item) {
 
             tabla += " <tr>";
             tabla += "<td style='width:100px'>" + item.id + "</td>";
@@ -50,8 +55,8 @@
         });
         tabla += "</tbody>";
         tabla += "</table>";
-        $('#Tablatramites').append(tabla);
-        $('#tramites').dataTable();
+        $('#TblActividades').append(tabla);
+        $('#actividades').dataTable();
     };
 
 }
