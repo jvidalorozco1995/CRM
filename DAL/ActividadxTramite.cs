@@ -17,5 +17,6 @@ namespace DAL
         public int Id { get; set; }
         public Nullable<int> Id_tramite { get; set; }
         public Nullable<int> Id_Actividad { get; set; }
+        public Nullable<int> Posicion { get; set; }
     }
 }

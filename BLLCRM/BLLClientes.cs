@@ -217,18 +217,18 @@ namespace BLLCRM
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public int  _Validarcliente(string c)
+        public string  _Validarcliente(string c)
         {
             try
             {
                 List<Vclientes> LisC = db.Vclientes.Where(t => t.CEDULA == c).ToList();
                 if (LisC.Count.Equals(0))
                 {
-                    return 0;
+                    return "No existe";
                 }
                 else
                 {
-                    return 1;   
+                    return LisC.FirstOrDefault().TRABAJADOR;   
                 }
             }
             catch (Exception)

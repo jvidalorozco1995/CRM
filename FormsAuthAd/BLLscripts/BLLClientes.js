@@ -299,15 +299,18 @@ function BLLClientes() {
             dataType: 'json',
             async: true,
             success: function (result) {
-                if (result.d === 0)
+                if (result.d == "No existe")
                 {
                     toastr.success(' CRM - Notificacion' +
-                        '</br> El cliente no a sido resgistrado en el sistema aun continue con el proceso de registro');
+                        '</br> El cliente no a sido registrado en el sistema aun continue con el proceso de registro');
                 }
                 else
                 {
+                    result
                     toastr.error(' CRM - Notificacion' +
-                        '</br>Ya existe un cliente con el mismo numero de indentificacion al que intenta registrar');
+                        '</br>Ya existe un cliente con el mismo numero de indentificacion al que intenta registrar'
+                        + '</br>Por el usuario '+'<strong>'+result.d+'</strong>'
+                        );
                 }
             },
             error: function (obj, error, objError) { alert(objError); }

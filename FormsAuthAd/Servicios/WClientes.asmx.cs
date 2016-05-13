@@ -74,7 +74,7 @@ namespace FormsAuthAd.Servicios
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
 
-        public int _ValidarClientes(string c)
+        public string _ValidarClientes(string c)
         {
             return cl._Validarcliente(c);
         }
