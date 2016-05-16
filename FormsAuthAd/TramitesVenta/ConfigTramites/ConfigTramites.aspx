@@ -140,7 +140,7 @@
       </div>
 
                <!--Modal Empresas--->
-            <div class="modal fade hmodal-success" id="ModalActividades" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade hmodal-success" id="ModalListActividades" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="color-line"></div>
@@ -150,9 +150,57 @@
                     <div class="modal-body">
                         
                         <!--Empresas--->
-                        <div id="TblActividades"  >
+                        <div id="TblListaActividades"  >
 
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="BtnModalCrearActividad">Nueva</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCerrar">Cerrar</button>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+             <!--Modal crear actividades--->
+            <div class="modal fade hmodal-success" id="ModalCrearActividades" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Crear actividad</h4>
+                    </div>
+                    <div class="modal-body">
+                         <!--Formulario de crear actividades--->
+                            <div class="row">
+                                                <div class="col-lg-3 text-center">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="form-group col-lg-12">
+                                                            <label>Nombre</label>
+                                                            <input type="text" value="" id="TxtNombre" class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-lg-6">
+                                                            <label>Descripción</label>
+                                                            <textarea id="TxtDescripcion" class="form-control" rows="2" cols="3" maxlength="100"></textarea>
+                                                        </div>
+                                                        <div class="form-group col-lg-6">
+                                                            <label>Simultaneo</label>
+                                                            <input id="" type="text" value="" class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <label>Actividad dependiente</label>
+                                                            <input id="TxtFecha" type="text" value="" class="form-control">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                       
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" id="BtnCActividad">Crear Actividad</button>

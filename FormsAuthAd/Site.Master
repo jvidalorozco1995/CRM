@@ -176,6 +176,13 @@
                             <li><a href='<%= ResolveUrl("Cartera/SeguimientoNegocio/GesNegocio.aspx")%>'>Seguimiento de Negocios</a></li>
                         </ul>
                     </li>
+                      <li>
+                        <a href="#"><span class="nav-label">Tramites</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href= '<%= ResolveUrl("TramitesVenta/ConfigTramites/ConfigTramites.aspx")%>'>Configuración de tramites</a></li>
+                            <li><a href='<%= ResolveUrl("Administracion/GestUsuNegocios.aspx")%>'>Usuarios negocio</a></li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="#"><span class="nav-label">Administración</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">

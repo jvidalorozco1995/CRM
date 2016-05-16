@@ -2,8 +2,30 @@
 
 
 
+ //   InserActividades
+    BLLActividades.prototype.CrearActividad = function (actividad, WsUrl) {
+        jsonData = "{ 'b':" + JSON.stringify(actividad) + "}";
 
+        $.ajax({
+            type: "POST", url: WsUrl, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 1) {
+                    toastr.success(' CRM - Mayales notificacion' +
+                     '</br></br>Se registro esta actividad de manera exitosa en el sistema');
+                   
 
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>No se pudo registrar esta actividad');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
 
     //Retorna una lista de tramites
     BLLActividades.prototype.ListActividades = function (Wsurl) {
@@ -30,7 +52,7 @@
 
     //Tabla de Bancos Traidos de MultiFox
     BLLActividades.prototype.TablaActividades = function (actividades) {
-        document.getElementById('TblActividades').innerHTML = "";
+        document.getElementById('TblListaActividades').innerHTML = "";
         var tabla = '<table id="actividades" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr>";
@@ -55,7 +77,7 @@
         });
         tabla += "</tbody>";
         tabla += "</table>";
-        $('#TblActividades').append(tabla);
+        $('#TblListaActividades').append(tabla);
         $('#actividades').dataTable();
     };
 
