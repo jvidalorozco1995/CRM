@@ -42,9 +42,7 @@ namespace FormsAuthAd.ServiciosFox
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<BloquesFox> BloquesFox(string p)
         {
-
             return fx.BloquesFox(p);
-
         }
 
         /// <summary>
@@ -59,10 +57,6 @@ namespace FormsAuthAd.ServiciosFox
         {
            
             return fx.InmueblesFox(b);
-            
-
         }
-        
-        
     }
 }
