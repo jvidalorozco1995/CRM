@@ -1,5 +1,6 @@
 ﻿using BLLCRM;
 using DAL;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace FormsAuthAd.Servicios
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+     [System.Web.Script.Services.ScriptService]
     public class WActividadesTramites : System.Web.Services.WebService
     {
         BLLActividadTramites cl = new BLLActividadTramites();
@@ -40,9 +41,9 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<ActividadxTramite> ListActividadesTramites()
+        public List<VActxtramite> ListActividadesTramites(int tramite)
         {
-            return cl.ListActividadTramite();
+            return cl.ListActividadxTramite(tramite);
         }
 
         [WebMethod]

@@ -1,4 +1,5 @@
 ﻿using DAL;
+
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
@@ -132,5 +133,41 @@ namespace BLLCRM
                 throw;
             }
         }
+        public List<VActxtramite> ListActividadxTramite(int tramite)
+        {
+
+            try
+            {
+                List<VActxtramite> lisb = bd.VActxtramite.Where(t=>t.Id_tramite == tramite).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<VActxtramite> lisbcrm = new List<VActxtramite>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        VActxtramite entb = new VActxtramite();
+                        entb.Id = item.Id;
+                        entb.Id_Actividad = item.Id_Actividad;
+                        entb.Id_tramite = item.Id_tramite;
+                        entb.Nombre = item.Nombre;
+                        entb.Descripcion = item.Descripcion;
+                        entb.Posicion = item.Posicion;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        
+
     }
 }

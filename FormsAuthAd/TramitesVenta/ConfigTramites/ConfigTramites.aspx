@@ -33,7 +33,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5 scroll " style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+                <div class="col-lg-5 scroll " id="Actividadesxtramite" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
                     <div class="pull-right">
                               
                                 
@@ -43,97 +43,10 @@
                     <div class="panel panel-success">
                         <div class="panel-body" id="datos">
 
-                             <div class="v-timeline vertical-container animate-panel"  data-child="vertical-timeline-block" data-delay="1">
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon navy-bg">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <div class="vertical-timeline-content">
-                            <div class="p-sm">
-                                <span class="vertical-date pull-right"> Saturday <br/> <small>12:17:43 PM</small> </span>
-
-                                <h2>The standard chunk of Lorem Ipsum</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                </p>
-                            </div>
-                            <div class="panel-footer">
-                                It is a long established fact that
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon navy-bg">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <div class="vertical-timeline-content">
-                            <div class="p-sm">
-                                <span class="vertical-date pull-right"> Saturday <br/> <small>12:17:43 PM</small> </span>
-
-                                <h2>There are many variations</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                </p>
-                            </div>
-                            <div class="panel-footer">
-                                It is a long established fact that
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon navy-bg">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <div class="vertical-timeline-content">
-                            <div class="p-sm">
-                                <span class="vertical-date pull-right"> Saturday <br/> <small>12:17:43 PM</small> </span>
-
-                                <h2>Contrary to popular belief</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                </p>
-                            </div>
-                            <div class="panel-footer">
-                                It is a long established fact that
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon navy-bg">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <div class="vertical-timeline-content">
-                            <div class="p-sm">
-                                <span class="vertical-date pull-right"> Saturday <br/> <small>12:17:43 PM</small> </span>
-
-                                <h2>The generated Lorem Ipsum</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                </p>
-                            </div>
-                            <div class="panel-footer">
-                                It is a long established fact that
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vertical-timeline-block">
-                        <div class="vertical-timeline-icon navy-bg">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <div class="vertical-timeline-content">
-                            <div class="p-sm">
-                                <span class="vertical-date pull-right"> Saturday <br/> <small>12:17:43 PM</small> </span>
-
-                                <h2>The standard chunk</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                </p>
-                            </div>
-                            <div class="panel-footer">
-                                It is a long established fact that
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               </div>
-           </div>
-    
-            </div>
+                          
+                       </div>
+                 </div>
+              </div>
            
         </div>
 

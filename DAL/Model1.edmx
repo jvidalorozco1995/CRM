@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CRM_PRUEBAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="CRM_PRUEBAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ActInmuebles">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -127,6 +127,12 @@
           <Property Name="ID_TAREA" Type="int" />
           <Property Name="CODIGO" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.concepto_p' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="concepto_p">
+          <Property Name="ID_CON" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
+        </EntityType>-->
         <EntityType Name="configuracion">
           <Key>
             <PropertyRef Name="ID_CONT" />
@@ -475,6 +481,19 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VActInmuebles' does not have a prim
           <Property Name="Usuario" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'CRM_PRUEBA.dbo.VActxtramite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VActxtramite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_tramite" Type="int" />
+          <Property Name="Id_Actividad" Type="int" />
+          <Property Name="Posicion" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VacuerdosFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VacuerdosFox">
           <Key>
@@ -651,6 +670,15 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vdetallesp' does not have a primary
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VfechasAsesor">
+          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
+          <Property Name="MES" Type="int" />
+          <Property Name="YEAR" Type="int" />
+          <Property Name="CONTADOR" Type="int" />
+          <Property Name="T_CEDULA" Type="varchar" MaxLength="30" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
@@ -693,6 +721,12 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VistaTareasPorClientes">
+          <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
+          <Property Name="ID_TAREA" Type="int" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VnegocioFox">
@@ -1268,6 +1302,16 @@ FROM [dbo].[NegocioView] AS [NegocioView]</DefiningQuery>
 [VActInmuebles].[Usuario] AS [Usuario]
 FROM [dbo].[VActInmuebles] AS [VActInmuebles]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VActxtramite" EntityType="Self.VActxtramite" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VActxtramite].[Id] AS [Id], 
+[VActxtramite].[Id_tramite] AS [Id_tramite], 
+[VActxtramite].[Id_Actividad] AS [Id_Actividad], 
+[VActxtramite].[Posicion] AS [Posicion], 
+[VActxtramite].[Nombre] AS [Nombre], 
+[VActxtramite].[Descripcion] AS [Descripcion]
+FROM [dbo].[VActxtramite] AS [VActxtramite]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VacuerdosFox" EntityType="Self.VacuerdosFox" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [VacuerdosFox].[CODIGO] AS [CODIGO], 
@@ -1696,7 +1740,8 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CRM_PRUEBAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1713,7 +1758,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
@@ -1724,7 +1769,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_tramite" Type="Int32" />
           <Property Name="Id_Actividad" Type="Int32" />
           <Property Name="Posicion" Type="Int32" />
@@ -1856,7 +1901,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Id_Actividad" Type="Int32" />
           <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -2137,7 +2182,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -2206,6 +2251,17 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="Fecha" Type="DateTime" Precision="3" />
           <Property Name="Proyecto" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VActxtramite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_tramite" Type="Int32" />
+          <Property Name="Id_Actividad" Type="Int32" />
+          <Property Name="Posicion" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VacuerdosFox">
           <Key>
@@ -2902,6 +2958,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySet Name="historial_acuerdos_pagos" EntityType="Self.historial_acuerdos_pagos" />
           <EntitySet Name="NegocioView" EntityType="Self.NegocioView" />
           <EntitySet Name="VActInmuebles" EntityType="Self.VActInmuebles" />
+          <EntitySet Name="VActxtramite" EntityType="Self.VActxtramite" />
           <EntitySet Name="VacuerdosFox" EntityType="Self.VacuerdosFox" />
           <EntitySet Name="VAsesoresT" EntityType="Self.VAsesoresT" />
           <EntitySet Name="VCantidadcompromisos" EntityType="Self.VCantidadcompromisos" />
@@ -3042,10 +3099,10 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="ActividadxTramite">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.ActividadxTramite">
               <MappingFragment StoreEntitySet="ActividadxTramite">
-                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_tramite" ColumnName="Id_tramite" />
                 <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3507,6 +3564,18 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VActxtramite">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VActxtramite">
+              <MappingFragment StoreEntitySet="VActxtramite">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_tramite" ColumnName="Id_tramite" />
+                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

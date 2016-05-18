@@ -4,12 +4,12 @@ var Acti = new BLLActividades();
 var admTramites = (function () {
 
     var WsListramite = funcionUrlGlobal("/Servicios/WTramites.asmx/ListTramites");//Consulto Proyectos CRM
-    var WsLisActividades = funcionUrlGlobal("/Servicios/WActividades.asmx/ListActividades");//Consulto Proyectos CRM
+    var WsLisActividades = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/ListActividadesTramites");//Consulto Proyectos CRM
     var WsInsertActividad = funcionUrlGlobal("/Servicios/WActividades.asmx/InsertActividades");//Consulto Proyectos CRM
 
     var cliente = null;
     var bandera = 0;
-
+    var codigoEmp;
     var _addHandlers = function () {
        
         //Boton que muestra la lista de actividades
@@ -18,7 +18,16 @@ var admTramites = (function () {
             $('#ModalListActividades').modal('show');
 
         });
+        
 
+        $(document).on('click', '.Infocl', function (event) {
+            tramite = $(this).attr("id");
+            setTimeout(function () {
+                Acti.ListActividades(tramite, WsLisActividades);
+                $('#Actividadesxtramite').show();
+            }, 1000)
+    
+        });
         //Boton para mostrar el modal crear actividad
         $('#BtnModalCrearActividad').click(function () {
 
@@ -32,7 +41,8 @@ var admTramites = (function () {
             if ($('#TxtDescripcion').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
                 '<br/> no ha digitado nada en el campo descripcion');
-            } else if ($('#TxtNombre').val().length < 1) {
+            }
+              else if ($('#TxtNombre').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
                '<br/> no ha digitado nada en el campo nombre');
             }
@@ -44,7 +54,7 @@ var admTramites = (function () {
 
                 //Cargar la lista de actividades
                 setTimeout(function () {
-                    Acti.ListActividades(WsLisActividades);
+                    Acti.ListActividades(WsLisActividades, tramite);
                     $('#ModalCrearActividades').modal('hide');
                 }, 1000)
             }
@@ -65,8 +75,10 @@ var admTramites = (function () {
     }
     var _Inicio = function () {
         //Lista de actividades y de tramites
+        $('#Actividadesxtramite').hide();
+       
         Tra.ListTramites(WsListramite);
-        Acti.ListActividades(WsLisActividades);
+      
     }
     //Retorna la funcion inicial
     return {
