@@ -19,12 +19,14 @@ function BLLEmpresa() {
                     toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>No fue posible llevar a cabo el registro de la empresa ya existe registrada');
                 }
-                else {
+                else
+                {
                     if (result.d == 2) {
                         toastr.error('CRM Mayales - Notificacion' +
                        '</br></br>No fue posible llevar a cabo el registro ya existe una empresa con el mismo nombre registrada.');
                     }
-                    else {
+                    else
+                    {
                         selec = empres.NOMBRE_EMP;
                         document.getElementById('CombEmpresa').innerHTML = "";
                         toastr.success('CRM Mayales - Notificacion' +
@@ -84,9 +86,6 @@ function BLLEmpresa() {
            
             $('#Text9').append(empr);
         });
-
-      
-
     }
 
     //Creacion de componentes
@@ -114,8 +113,6 @@ function BLLEmpresa() {
         $('#TblEmpresas').append(tabla);
         $('#example3').dataTable();
     }
-
-    
 
 
     BLLEmpresa.Ordenar = function (myArr, indexOne, indexTwo) {

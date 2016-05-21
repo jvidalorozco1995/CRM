@@ -77,6 +77,41 @@
         </div>
 
 
+           <!--Modal posiciones--->
+            <div class="modal fade hmodal-success" id="ModalPosicionActividades" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Posicion de actividad</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="row">
+                                                <div class="col-lg-3 text-center">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="form-group col-lg-12">
+                                                            <label>Posicion</label>
+                                                            <input type="number" min="1" value="" id="TxtPosicion" class="form-control">
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="BtnGuardarActividadXtramite">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"  id="">Cerrar</button>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
              <!--Modal crear actividades--->
             <div class="modal fade hmodal-success" id="ModalCrearActividades" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">

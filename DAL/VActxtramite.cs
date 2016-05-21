@@ -14,11 +14,14 @@ namespace DAL
     
     public partial class VActxtramite
     {
-        public int Id { get; set; }
+        public int id { get; set; }
+        public string Nombre { get; set; }
+        public string Usuario { get; set; }
+        public string Descripcion { get; set; }
+        public Nullable<int> Simultaneo { get; set; }
+        public string Actividad_Dependiente { get; set; }
         public Nullable<int> Id_tramite { get; set; }
         public Nullable<int> Id_Actividad { get; set; }
         public Nullable<int> Posicion { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
     }
 }

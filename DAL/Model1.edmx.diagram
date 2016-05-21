@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="cf702390f526444aaf5b3722ca9903cb" Name="Diagram1">
+      <Diagram DiagramId="4daff6027fdf4e36adddf92f0af4e17d" Name="Diagram1">
         <EntityTypeShape EntityType="CRM_PRUEBAModel.ActInmuebles" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.Actividades" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.ActividadxTramite" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
@@ -39,14 +39,14 @@
         <EntityTypeShape EntityType="CRM_PRUEBAModel.NegocioView" Width="1.5" PointX="15.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.VActInmuebles" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.VActxtramite" Width="1.5" PointX="17.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VacuerdosFox" Width="1.5" PointX="17.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VAsesoresT" Width="1.5" PointX="17.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VCantidadcompromisos" Width="1.5" PointX="17.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VCLienteinmueble" Width="1.5" PointX="17.75" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vclientes" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vclienteseparacion" Width="1.5" PointX="2.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VClientesTareas" Width="1.5" PointX="7.75" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VCod_SP" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VacuerdosFox" Width="1.5" PointX="17.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VAsesoresT" Width="1.5" PointX="17.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VCantidadcompromisos" Width="1.5" PointX="17.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VCLienteinmueble" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vclientes" Width="1.5" PointX="2.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vclienteseparacion" Width="1.5" PointX="7.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VClientesTareas" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VCod_SP" Width="1.5" PointX="17.75" PointY="18.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.Vdetallesp" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.VFechasProyectos" Width="1.5" PointX="19.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.Vinmuebles" Width="1.5" PointX="19.75" PointY="7.75" IsExpanded="true" />
@@ -54,11 +54,11 @@
         <EntityTypeShape EntityType="CRM_PRUEBAModel.VnegocioFox" Width="1.5" PointX="19.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.VNegocioscompromisos" Width="1.5" PointX="19.75" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.Vsepracioninmuebles" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vspt" Width="1.5" PointX="2.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VTareas" Width="1.5" PointX="4.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VTareasCompromiso" Width="1.5" PointX="9.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VtareasNegocio" Width="1.5" PointX="21.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.VTracliente" Width="1.5" PointX="21.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.Vspt" Width="1.5" PointX="4.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VTareas" Width="1.5" PointX="6.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VTareasCompromiso" Width="1.5" PointX="21.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VtareasNegocio" Width="1.5" PointX="21.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VTracliente" Width="1.5" PointX="21.75" PointY="19.75" IsExpanded="true" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__bloques__BLOQUE___5AEE82B9" ManuallyRouted="false" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__inmuebles__INMUO__02E7657A" ManuallyRouted="false" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__clientes__ASESOR__0697FACD" ManuallyRouted="false" />

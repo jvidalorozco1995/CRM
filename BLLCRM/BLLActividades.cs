@@ -102,14 +102,14 @@ namespace BLLCRM
                     throw;
                 }
             }
-        public List<Actividades> ListActividades()
+        public List<VActxtramite> ListActividades()
         {
 
             try
             {
-                List<Actividades> lisb = bd.Actividades.ToList();
+                List<VActxtramite> lisb = bd.VActxtramite.ToList();
                 //bd.compromisosxcuota.ToList();
-                List<Actividades> lisbcrm = new List<Actividades>();
+                List<VActxtramite> lisbcrm = new List<VActxtramite>();
                 if (lisb.Count.Equals(0))
                 {
                     return lisbcrm;
@@ -118,14 +118,19 @@ namespace BLLCRM
                 {
                     foreach (var item in lisb)
                     {
-                        Actividades entb = new Actividades();
+                        VActxtramite entb = new VActxtramite();
                         entb.id = item.id;
                         entb.Nombre = item.Nombre;
                         entb.Usuario = item.Usuario;
                         entb.Descripcion = item.Descripcion;
                         entb.Simultaneo = item.Simultaneo;
                         entb.Actividad_Dependiente = item.Actividad_Dependiente;
-                        lisbcrm.Add(entb);
+                        entb.Id_tramite = item.Id_tramite;
+                        entb.Id_Actividad = item.Id_Actividad;
+                        entb.Posicion = item.Posicion;
+                         
+  
+                          lisbcrm.Add(entb);
                     }
                     return lisbcrm;
                 }

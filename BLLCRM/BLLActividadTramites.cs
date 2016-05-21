@@ -150,7 +150,7 @@ namespace BLLCRM
                     foreach (var item in lisb)
                     {
                         VActxtramite entb = new VActxtramite();
-                        entb.Id = item.Id;
+                        entb.id = item.id;
                         entb.Id_Actividad = item.Id_Actividad;
                         entb.Id_tramite = item.Id_tramite;
                         entb.Nombre = item.Nombre;
