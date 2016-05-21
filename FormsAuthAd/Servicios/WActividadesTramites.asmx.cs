@@ -29,6 +29,12 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int DeleteActividadesTramites(int b)
+        {
+            return cl.DeleteActividadTramite(b);
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string UpdateActividadesTramites(List<ActividadxTramite> i)
         {
             return cl.UpdateActividadTramite(i);

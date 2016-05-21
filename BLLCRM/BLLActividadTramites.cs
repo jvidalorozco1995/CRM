@@ -64,6 +64,28 @@ namespace BLLCRM
             }
         }
 
+        public int DeleteActividadTramite(int id)
+        {
+
+            try
+            {
+                var ctx = bd.ActividadxTramite.First(inm => inm.Id == id);
+                bd.ActividadxTramite.Remove(ctx);
+                bd.SaveChanges();
+                return 1;
+    
+            }
+
+            catch (DbUpdateException)
+            {
+                return 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         /// <summary>
         /// rertorna listado de bancos pertenecientes al proyecto
         /// </summary>
