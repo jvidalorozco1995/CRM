@@ -2,6 +2,33 @@
 
 
 
+
+    //   InserActividades
+    BLLActividades.prototype.DeleteActividadxTramite = function (actividad, WsUrl) {
+        jsonData = "{ 'b':" + JSON.stringify(actividad) + "}";
+
+        $.ajax({
+            type: "POST", url: WsUrl,
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 1) {
+                    toastr.success(' CRM - Mayales notificacion' +
+                     '</br></br>Se registro esta actividad de manera exitosa en el sistema');
+
+
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>No se pudo registrar esta actividad');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
+
  //   InserActividades
     BLLActividades.prototype.CrearActividad = function (actividad, WsUrl) {
         jsonData = "{ 'b':" + JSON.stringify(actividad) + "}";
@@ -132,7 +159,7 @@
             }
             else
             {
-                tabla += "<img src='" + funcionUrlGlobal('/images_crm/user_error.png') + "'class='RemoverActi' type='button' id='" + item.id + "' title='Agregar'></img>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/user_error checked_user.png') + "'class='RemoverActi' type='button' id='" + item.id + "' title='Quitar'></img>";
             }
             tabla += "</td>";
             tabla += "</tr>";

@@ -8,7 +8,8 @@ var admTramites = (function () {
     var WsLisActividades = funcionUrlGlobal("/Servicios/WActividades.asmx/ListActividades");//Consulto Proyectos CRM
     var WsInsertActividad = funcionUrlGlobal("/Servicios/WActividades.asmx/InsertActividades");//Consulto Proyectos CRM
     var WsInsertActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/InsertActividadesTramites");//Consulto Proyectos CRM
-
+    var WsDeleteActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/DeleteActividadesTramites");//Consulto Proyectos CRM
+    
     var cliente = null;
     var bandera = 0;
     var codigoEmp;
@@ -55,7 +56,11 @@ var admTramites = (function () {
 
         $(document).on('click', '.RemoverActi', function (event) {
             var id = $(this).attr("id");
-            alert("Remover" + id);
+            Acti.DeleteActividadxTramite(id,WsDeleteActividadXtramite);
+            setTimeout(function () {
+                Acti.ListActividades(WsLisActividades);
+             
+            }, 1000)
 
         });
 
