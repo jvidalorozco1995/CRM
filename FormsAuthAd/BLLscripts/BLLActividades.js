@@ -2,6 +2,17 @@
 
 
 
+ 
+
+    BLLActividades.Actividades = function (actividades) {
+        $.each(actividades, function (i, item) {
+            var empr = '<option value=' + item.Id_Actividad + '>';
+            empr += item.Nombre;
+            empr += '</option>';
+            $('#Text9').append(empr);
+        });
+    }
+
 
     //   InserActividades
     BLLActividades.prototype.DeleteActividadxTramite = function (actividad, WsUrl) {
@@ -94,9 +105,11 @@
                 if (result.d == null) {
 
                     BLLActividades.prototype.TablaActividades(result.d);
+                    BLLActividades.Actividades(result.d);
                 }
                 else {
                     BLLActividades.prototype.TablaActividades(result.d);
+                    BLLActividades.Actividades(result.d);
                 }
 
             },
@@ -137,7 +150,6 @@
         var tabla = '<table id="actividades" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr>";
-        tabla += "<th>ID</th>";
         tabla += "<th>Nombre</th>";
         tabla += "<th>Descripcion</th>";
         tabla += "<th></th>"
@@ -146,20 +158,21 @@
         tabla += "<tbody>";
         $.each(actividades, function (i, item) {
            
-
+           
+            
             tabla += " <tr>";
-            tabla += "<td style='width:100px'>" + item.id + "</td>";
-            tabla += "<td>" + item.Nombre + "</td>";
+            tabla += "<td class='EditarActi' type='button' id='" + item.Id_Actividad +"'>" + item.Nombre + "</td>";
             tabla += "<td>" + item.Descripcion + "</td>";
             tabla += "<td style='width:20px;height: 20px'>";
             if (item.Id_tramite == null)
             {
 
-                tabla += "<img src='" + funcionUrlGlobal('/images_crm/checked_user.png') + "'class='AgregarActi' type='button' id='" + item.id + "' title='Agregar'></img>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/checked_user.png') + "'class='AgregarActi' type='button' id='" + item.Id_Actividad + "' title='Agregar'></img>";
             }
             else
             {
-                tabla += "<img src='" + funcionUrlGlobal('/images_crm/user_error checked_user.png') + "'class='RemoverActi' type='button' id='" + item.id + "' title='Quitar'></img>";
+            
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/user_error.png') + "'class='RemoverActi' type='button' id='" + item.Id + "' title='Quitar'></img>";
             }
             tabla += "</td>";
             tabla += "</tr>";

@@ -5,6 +5,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace BLLCRM
 {
@@ -22,6 +23,7 @@ namespace BLLCRM
             {
                 try
                 {
+                    b.Usuario = Membership.GetUser().ToString();
                     bd.Actividades.Add(b);
                     bd.SaveChanges();
                     return 1;
@@ -119,7 +121,7 @@ namespace BLLCRM
                     foreach (var item in lisb)
                     {
                         VActxtramite entb = new VActxtramite();
-                        entb.id = item.id;
+                        entb.Id = item.Id;
                         entb.Nombre = item.Nombre;
                         entb.Usuario = item.Usuario;
                         entb.Descripcion = item.Descripcion;
@@ -130,7 +132,7 @@ namespace BLLCRM
                         entb.Posicion = item.Posicion;
                          
   
-                          lisbcrm.Add(entb);
+                       lisbcrm.Add(entb);
                     }
                     return lisbcrm;
                 }

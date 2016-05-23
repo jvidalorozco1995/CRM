@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4daff6027fdf4e36adddf92f0af4e17d" Name="Diagram1">
+      <Diagram DiagramId="ead3e1d1a0be459d9e344f0b53dbae54" Name="Diagram1">
         <EntityTypeShape EntityType="CRM_PRUEBAModel.ActInmuebles" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.Actividades" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.ActividadxTramite" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />

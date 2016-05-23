@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace BLLCRM
 {
-  public  class BLLActividadTramites
+    public class BLLActividadTramites
     {
-      
-            CRMEntiti bd = new CRMEntiti();
+
+        CRMEntiti bd = new CRMEntiti();
         string mensaje = null;
         /// <summary>
         /// Meotod para registrar los bancos en base de datos
@@ -21,22 +21,47 @@ namespace BLLCRM
         /// <param name="b"></param>
         /// <returns></returns>
         public int InsertActividadTramite(ActividadxTramite b)
+        {
+            try
             {
-                try
+
+
+                var entidad = bd.ActividadxTramite.Add(b);
+                var a = bd.SaveChanges();
+
+                if (a > 0)
                 {
-                    bd.ActividadxTramite.Add(b);
-                    bd.SaveChanges();
-                    return 1;
+                    var range = bd.ActividadxTramite.Where(t => t.Id_tramite == b.Id_tramite && t.Posicion > b.Posicion).ToList();
+                    if (range.Count > 0)
+                    {
+                        foreach (var item in range)
+                        {
+
+                                item.Posicion = item.Posicion + 1;
+                           
+                        }
+                        bd.SaveChanges();
+                        var range1 = bd.ActividadxTramite.Where(t => t.Id_tramite == b.Id_tramite && t.Posicion == entidad.Posicion).FirstOrDefault();
+                        range1.Posicion = entidad.Posicion + 1;
+                        bd.SaveChanges();
+                    }
+                   
                 }
-                catch (DbUpdateException)
-                {
-                    return 0;
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
+
+
+
+
+                return 1;
             }
+            catch (DbUpdateException)
+            {
+                return 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
 
         public string UpdateActividadTramite(List<ActividadxTramite> i)
@@ -73,7 +98,7 @@ namespace BLLCRM
                 bd.ActividadxTramite.Remove(ctx);
                 bd.SaveChanges();
                 return 1;
-    
+
             }
 
             catch (DbUpdateException)
@@ -92,37 +117,37 @@ namespace BLLCRM
         /// <param name="b"></param>
         /// <returns></returns>
         public List<ActividadxTramite> ListActividadTramite(int id)
+        {
+
+            try
             {
-
-                try
+                List<ActividadxTramite> lisb = bd.ActividadxTramite.Where(t => t.Id == id).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<ActividadxTramite> lisbcrm = new List<ActividadxTramite>();
+                if (lisb.Count.Equals(0))
                 {
-                    List<ActividadxTramite> lisb = bd.ActividadxTramite.Where(t => t.Id == id).ToList();
-                    //bd.compromisosxcuota.ToList();
-                    List<ActividadxTramite> lisbcrm = new List<ActividadxTramite>();
-                    if (lisb.Count.Equals(0))
-                    {
-                        return lisbcrm;
-                    }
-                    else
-                    {
-                        foreach (var item in lisb)
-                        {
-                        ActividadxTramite entb = new ActividadxTramite();
-                            entb.Id = item.Id;
-                            entb.Id_Actividad = item.Id_Actividad;
-                            entb.Id_tramite = item.Id_tramite;
-                            entb.Posicion = item.Posicion;
-                            lisbcrm.Add(entb);
-                        }
-                        return lisbcrm;
-                    }
+                    return lisbcrm;
                 }
-                catch (Exception)
+                else
                 {
-
-                    throw;
+                    foreach (var item in lisb)
+                    {
+                        ActividadxTramite entb = new ActividadxTramite();
+                        entb.Id = item.Id;
+                        entb.Id_Actividad = item.Id_Actividad;
+                        entb.Id_tramite = item.Id_tramite;
+                        entb.Posicion = item.Posicion;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
                 }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public List<ActividadxTramite> ListActividadTramite()
         {
 
@@ -160,7 +185,7 @@ namespace BLLCRM
 
             try
             {
-                List<VActxtramite> lisb = bd.VActxtramite.Where(t=>t.Id_tramite == tramite).ToList();
+                List<VActxtramite> lisb = bd.VActxtramite.Where(t => t.Id_tramite == tramite).ToList();
                 //bd.compromisosxcuota.ToList();
                 List<VActxtramite> lisbcrm = new List<VActxtramite>();
                 if (lisb.Count.Equals(0))
@@ -172,7 +197,7 @@ namespace BLLCRM
                     foreach (var item in lisb)
                     {
                         VActxtramite entb = new VActxtramite();
-                        entb.id = item.id;
+                        entb.Id = item.Id;
                         entb.Id_Actividad = item.Id_Actividad;
                         entb.Id_tramite = item.Id_tramite;
                         entb.Nombre = item.Nombre;
@@ -189,7 +214,7 @@ namespace BLLCRM
                 throw;
             }
         }
-        
+
 
     }
 }

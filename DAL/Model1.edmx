@@ -484,17 +484,17 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VActInmuebles' does not have a prim
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VActxtramite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VActxtramite">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id_Actividad" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" />
+          <Property Name="Id_tramite" Type="int" />
+          <Property Name="Posicion" Type="int" />
+          <Property Name="Id_Actividad" Type="int" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="100" />
           <Property Name="Usuario" Type="varchar" MaxLength="200" />
           <Property Name="Descripcion" Type="varchar" MaxLength="250" />
           <Property Name="Simultaneo" Type="int" />
           <Property Name="Actividad_Dependiente" Type="varchar" MaxLength="50" />
-          <Property Name="Id_tramite" Type="int" />
-          <Property Name="Id_Actividad" Type="int" />
-          <Property Name="Posicion" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VacuerdosFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1307,15 +1307,15 @@ FROM [dbo].[VActInmuebles] AS [VActInmuebles]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VActxtramite" EntityType="Self.VActxtramite" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[VActxtramite].[id] AS [id], 
+[VActxtramite].[Id] AS [Id], 
+[VActxtramite].[Id_tramite] AS [Id_tramite], 
+[VActxtramite].[Posicion] AS [Posicion], 
+[VActxtramite].[Id_Actividad] AS [Id_Actividad], 
 [VActxtramite].[Nombre] AS [Nombre], 
 [VActxtramite].[Usuario] AS [Usuario], 
 [VActxtramite].[Descripcion] AS [Descripcion], 
 [VActxtramite].[Simultaneo] AS [Simultaneo], 
-[VActxtramite].[Actividad_Dependiente] AS [Actividad_Dependiente], 
-[VActxtramite].[Id_tramite] AS [Id_tramite], 
-[VActxtramite].[Id_Actividad] AS [Id_Actividad], 
-[VActxtramite].[Posicion] AS [Posicion]
+[VActxtramite].[Actividad_Dependiente] AS [Actividad_Dependiente]
 FROM [dbo].[VActxtramite] AS [VActxtramite]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VacuerdosFox" EntityType="Self.VacuerdosFox" store:Type="Views" store:Schema="dbo">
@@ -2260,17 +2260,17 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
         </EntityType>
         <EntityType Name="VActxtramite">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id_Actividad" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" />
+          <Property Name="Id_tramite" Type="Int32" />
+          <Property Name="Posicion" Type="Int32" />
+          <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
           <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Simultaneo" Type="Int32" />
           <Property Name="Actividad_Dependiente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Id_tramite" Type="Int32" />
-          <Property Name="Id_Actividad" Type="Int32" />
-          <Property Name="Posicion" Type="Int32" />
         </EntityType>
         <EntityType Name="VacuerdosFox">
           <Key>
@@ -3579,15 +3579,15 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="VActxtramite">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.VActxtramite">
               <MappingFragment StoreEntitySet="VActxtramite">
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_tramite" ColumnName="Id_tramite" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Simultaneo" ColumnName="Simultaneo" />
                 <ScalarProperty Name="Actividad_Dependiente" ColumnName="Actividad_Dependiente" />
-                <ScalarProperty Name="Id_tramite" ColumnName="Id_tramite" />
-                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
-                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

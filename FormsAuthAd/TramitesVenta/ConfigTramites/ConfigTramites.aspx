@@ -58,7 +58,7 @@
                 <div class="modal-content">
                     <div class="color-line"></div>
                     <div class="modal-header">
-                        <h4 class="modal-title">Listado de actividades</h4>
+                        <h4 class="modal-title" >Listado de actividades</h4>
                     </div>
                     <div class="modal-body">
                         
@@ -118,7 +118,7 @@
                 <div class="modal-content">
                     <div class="color-line"></div>
                     <div class="modal-header">
-                        <h4 class="modal-title">Crear actividad</h4>
+                        <h4 class="modal-title" id="titulo"></h4>
                     </div>
                     <div class="modal-body">
                          <!--Formulario de crear actividades--->
@@ -137,11 +137,13 @@
                                                         </div>
                                                         <div class="form-group col-lg-6">
                                                             <label>Simultaneo</label>
-                                                            <input id="" type="text" value="" class="form-control">
+                                                            <input type="radio" name="sex" class="form-control" value="1" >Si</input>
+                                                            <input type="radio" name="sex" class="form-control" value="0" >No</input>
                                                         </div>
                                                         <div class="form-group col-lg-12">
                                                             <label>Actividad dependiente</label>
-                                                            <input id="TxtFecha" type="text" value="" class="form-control">
+                                                           <select id="Text9" class="form-control" >
+                                                             </select>
                                                         </div>
 
                                                     </div>
@@ -151,6 +153,7 @@
                        
                     </div>
                     <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" id="BtnEditarActividad">Editar Actividad</button>
                         <button type="button" class="btn btn-success" id="BtnCActividad">Crear Actividad</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCancelar">Cerrar</button>
                          
