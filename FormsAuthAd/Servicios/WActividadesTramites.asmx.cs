@@ -44,14 +44,7 @@ namespace FormsAuthAd.Servicios
         {
             return cl.ListActividadTramite(id);
         }
-
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<ActividadxTramite> ListActividadesTramites()
-        {
-            return cl.ListActividadTramite();
-        }
-       
+   
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<VActxtramite> ListActividadesTramites(int tramite)
