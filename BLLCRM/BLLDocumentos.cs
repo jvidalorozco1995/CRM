@@ -35,7 +35,27 @@ namespace BLLCRM
                     throw;
                 }
             }
+        //public int DeleteDocumentos(int id)
+        //{
 
+        //    try
+        //    {
+        //        var ctx = bd.Documento.First(inm => inm.Id == id);
+        //        bd.Documento.Remove(ctx);
+        //        bd.SaveChanges();
+        //        return 1;
+
+        //    }
+
+        //    catch (DbUpdateException)
+        //    {
+        //        return 0;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
 
         public string UpdateDocumentos(List<Documento> i)

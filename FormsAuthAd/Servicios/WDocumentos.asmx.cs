@@ -27,6 +27,7 @@ namespace FormsAuthAd.Servicios
         {
             return cl.InsertDocumentos(b);
         }
+       
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string UpdateDocumentos(List<Documento> i)
