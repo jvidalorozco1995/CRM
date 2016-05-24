@@ -29,7 +29,7 @@ namespace BLLCRM
                 var entidad = bd.ActividadxTramite.Add(b);
                 var a = bd.SaveChanges();
 
-                if (a > 0)
+                /*if (a > 0)
                 {
                     var range = bd.ActividadxTramite.Where(t => t.Id_tramite == b.Id_tramite && t.Posicion > b.Posicion).ToList();
                     if (range.Count > 0)
@@ -46,7 +46,7 @@ namespace BLLCRM
                         bd.SaveChanges();
                     }
                    
-                }
+                }*/
 
 
 
@@ -64,27 +64,23 @@ namespace BLLCRM
         }
 
 
-        public string UpdateActividadTramite(List<ActividadxTramite> i)
+        public int UpdateActividadTramite(ActividadxTramite i)
         {
 
             try
             {
-                foreach (var item in i)
-                {
+                
 
-                    var ctx = bd.ActividadxTramite.First(inm => inm.Id == item.Id);
-
-                    ctx.Id_Actividad = item.Id_Actividad;
-                    ctx.Id_tramite = item.Id_tramite;
-                    ctx.Posicion = item.Posicion;
+                    var ctx = bd.ActividadxTramite.First(inm => inm.Id == i.Id);
+                    ctx.Posicion = i.Posicion;
                     bd.SaveChanges();
-                }
-                return mensaje = "Se actualizaron de manera exitosa";
+                
+                return 1;
             }
 
             catch (Exception ex)
             {
-                return mensaje = "No fue posible llevar  a cabo el proceso" + ex;
+                return 0;
                 throw;
             }
         }

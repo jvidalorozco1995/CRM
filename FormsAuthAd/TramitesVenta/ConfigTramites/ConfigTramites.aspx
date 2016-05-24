@@ -103,7 +103,7 @@
                         
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" id="BtnGuardarActividadXtramite">Guardar</button>
+                        <button type="button" class="btn btn-success" id="BtnActualizarActividadXtramite">Guardar</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal"  id="">Cerrar</button>
                          
                     </div>
@@ -154,8 +154,8 @@
                     </div>
                     <div class="modal-footer">
                           <button type="button" class="btn btn-primary" id="BtnEditarActividad">Editar Actividad</button>
-                        <button type="button" class="btn btn-success" id="BtnCActividad">Crear Actividad</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCancelar">Cerrar</button>
+                          <button type="button" class="btn btn-success" id="BtnCActividad">Crear Actividad</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCancelar">Cerrar</button>
                          
                     </div>
                 </div>

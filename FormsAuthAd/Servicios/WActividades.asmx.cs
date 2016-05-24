@@ -18,7 +18,7 @@ namespace FormsAuthAd.Servicios
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     [System.Web.Script.Services.ScriptService]
     public class WActividades : System.Web.Services.WebService
-    {1
+    {
 
         BLLActividades cl = new BLLActividades();
 

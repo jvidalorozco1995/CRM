@@ -27,12 +27,12 @@
             success: function (result) {
                 if (result.d == 1) {
                     toastr.success(' CRM - Mayales notificacion' +
-                     '</br></br>Se registro esta actividad de manera exitosa en el sistema');
+                     '</br></br>Se elimino esta actividad de manera exitosa en el sistema');
 
 
                 } else {
                     toastr.error(' CRM - Notificacion' +
-                        '</br>No se pudo registrar esta actividad');
+                        '</br>No se pudo eliminar esta actividad');
                 }
 
             },
@@ -92,6 +92,34 @@
         });
     }
 
+
+
+    BLLActividades.prototype.UpdateActividadxTramite = function (actividad, WsUrl) {
+
+        alert(JSON.stringify(actividad));
+        jsonData = "{ 'b':" + JSON.stringify(actividad) + "}";
+        alert(JSON.stringify(jsonData));
+        $.ajax({
+            type: "POST", url: WsUrl,
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 1) {
+                    toastr.success(' CRM - Mayales notificacion' +
+                     '</br></br>Se actualizo esta actividad de manera exitosa en el sistema');
+
+
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>No se pudo actualizar esta actividad');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
 
     BLLActividades.prototype.ListActividades = function (Wsurl) {
 
@@ -172,7 +200,7 @@
             else
             {
             
-                tabla += "<img src='" + funcionUrlGlobal('/images_crm/user_error.png') + "'class='RemoverActi' type='button' id='" + item.Id + "' title='Quitar'></img>";
+               // tabla += "<img src='" + funcionUrlGlobal('/images_crm/user_error.png') + "'class='' type='button' id='" + item.Id + "' title='Quitar'></img>";
             }
             tabla += "</td>";
             tabla += "</tr>";
@@ -188,10 +216,10 @@
     //Tabla de Bancos Traidos de MultiFox
     BLLActividades.prototype.TablaActividadesxTramite = function (actividades) {
         document.getElementById('datos').innerHTML = "";
-        var tabla;
+        var tabla = "";
        
         $.each(actividades, function (i, item) {
-
+           
             tabla += '<div class="v-timeline vertical-container animate-panel"  data-child="vertical-timeline-block" data-delay="1">'
             tabla += '<div class="vertical-timeline-block">';
             tabla += '<div class="vertical-timeline-icon navy-bg" style="padding-top:8px">';
@@ -199,7 +227,9 @@
             tabla += '</div>';
             tabla += '<div class="vertical-timeline-content">';
             tabla += '  <div class="p-sm">';
-          //  tabla += '<span class="vertical-date pull-right"> Saturday <br/> <small>12:17:43 PM</small> </span>';
+            tabla += '<button type="button" id="'+item.Id+'"class="btn btn-danger btn-btn-circle vertical-date pull-right RemoverActi">Quitar</button>'
+            tabla += '<button type="button" id="' + item.Id + '" class="btn btn-success vertical-date pull-right Posicion">Posicion</button>'
+           // tabla += '<span class="vertical-date pull-right"> Saturday <br/> <small>12:17:43 PM</small> </span>';
             tabla += '<h2>' + item.Nombre+'</h2>';
             tabla += '<p>'+item.Descripcion+'</p>';
             tabla += '</div>';
