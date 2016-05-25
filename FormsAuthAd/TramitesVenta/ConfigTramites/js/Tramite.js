@@ -8,7 +8,7 @@ var admTramites = (function () {
     var WsLisActividades = funcionUrlGlobal("/Servicios/WActividades.asmx/ListActividades");//Consulto Proyectos CRM
     var WsInsertActividad = funcionUrlGlobal("/Servicios/WActividades.asmx/InsertActividades");//Consulto Proyectos CRM
     var WsInsertActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/InsertActividadesTramites");//Consulto Proyectos CRM
-    var WsUpdateActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/UpdateActividadTramite");//Consulto Proyectos CRM
+    var WsUpdateActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/UpdatePosicionTramite");//Consulto Proyectos CRM
     var WsDeleteActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/DeleteActividadesTramites");//Consulto Proyectos CRM
     
     var cliente = null;
@@ -44,14 +44,17 @@ var admTramites = (function () {
         });
 
 
-      /*  $(document).on('click', '.AgregarActi', function (event) {
+        $(document).on('click', '.AgregarActi', function (event) {
              ActividadN = $(this).attr("id");
-             $('#ModalPosicionActividades').modal('show');
+            
+
+             Acti.InsertActividadxTramite(_ActividadXtramite(), WsInsertActividadXtramite);
+
              setTimeout(function () {
                  Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
                  $('#Actividadesxtramite').show();
              }, 1000)
-        });*/
+        });
 
 
         $(document).on('click', '#BtnActualizarActividadXtramite', function (event) {
@@ -158,7 +161,7 @@ var admTramites = (function () {
         var ActividadxTramite = {};
         ActividadxTramite.Id_tramite = tramite;
         ActividadxTramite.Id_Actividad = ActividadN;
-        ActividadxTramite.Posicion = $('#TxtPosicion').val();
+       
         
         return ActividadxTramite;
     }

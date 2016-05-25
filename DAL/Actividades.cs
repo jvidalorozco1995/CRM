@@ -20,5 +20,6 @@ namespace DAL
         public string Descripcion { get; set; }
         public Nullable<int> Simultaneo { get; set; }
         public string Actividad_Dependiente { get; set; }
+     
     }
 }

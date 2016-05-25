@@ -34,9 +34,9 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int UpdateActividadTramite(ActividadxTramite b)
+        public int UpdatePosicionTramite(ActividadxTramite b)
         {
-            return cl.UpdateActividadTramite(b);
+            return cl.UpdatePosicionTramite(b);
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

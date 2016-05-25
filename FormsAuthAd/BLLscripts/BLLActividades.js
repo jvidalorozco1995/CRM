@@ -189,19 +189,10 @@
            
             
             tabla += " <tr>";
-            tabla += "<td class='EditarActi' type='button' id='" + item.Id_Actividad +"'>" + item.Nombre + "</td>";
+            tabla += "<td class='EditarActi' type='button' id='" + item.id +"'>" + item.Nombre + "</td>";
             tabla += "<td>" + item.Descripcion + "</td>";
             tabla += "<td style='width:20px;height: 20px'>";
-            if (item.Id_tramite == null)
-            {
-
-                tabla += "<img src='" + funcionUrlGlobal('/images_crm/checked_user.png') + "'class='AgregarActi' type='button' id='" + item.Id_Actividad + "' title='Agregar'></img>";
-            }
-            else
-            {
-            
-               // tabla += "<img src='" + funcionUrlGlobal('/images_crm/user_error.png') + "'class='' type='button' id='" + item.Id + "' title='Quitar'></img>";
-            }
+            tabla += "<img src='" + funcionUrlGlobal('/images_crm/checked_user.png') + "'class='AgregarActi' type='button' id='" + item.id + "' title='Agregar'></img>";
             tabla += "</td>";
             tabla += "</tr>";
             ///images/cancel.png
@@ -217,9 +208,8 @@
     BLLActividades.prototype.TablaActividadesxTramite = function (actividades) {
         document.getElementById('datos').innerHTML = "";
         var tabla = "";
-       
         $.each(actividades, function (i, item) {
-           
+          
             tabla += '<div class="v-timeline vertical-container animate-panel"  data-child="vertical-timeline-block" data-delay="1">'
             tabla += '<div class="vertical-timeline-block">';
             tabla += '<div class="vertical-timeline-icon navy-bg" style="padding-top:8px">';

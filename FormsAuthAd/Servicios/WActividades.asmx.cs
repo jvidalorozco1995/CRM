@@ -43,7 +43,7 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<VActxtramite> ListActividades()
+        public List<Actividades> ListActividades()
         {
             return cl.ListActividades();
         }
