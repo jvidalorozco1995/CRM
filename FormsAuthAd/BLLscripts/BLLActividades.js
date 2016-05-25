@@ -191,8 +191,9 @@
             tabla += " <tr>";
             tabla += "<td class='EditarActi' type='button' id='" + item.id +"'>" + item.Nombre + "</td>";
             tabla += "<td>" + item.Descripcion + "</td>";
-            tabla += "<td style='width:20px;height: 20px'>";
-            tabla += "<img src='" + funcionUrlGlobal('/images_crm/checked_user.png') + "'class='AgregarActi' type='button' id='" + item.id + "' title='Agregar'></img>";
+            tabla += "<td style='width:120px;height: 20px'>";
+            tabla += '<button type="button" id="' + item.id + '"class="btn btn-success btn-xs vertical-date pull-right AgregarActi">Agregar</button>'
+            tabla += '<button type="button" id="' + item.id + '"class="btn btn-primary btn-xs vertical-date pull-right">Ver</button>'
             tabla += "</td>";
             tabla += "</tr>";
             ///images/cancel.png

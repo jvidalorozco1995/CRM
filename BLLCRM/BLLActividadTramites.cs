@@ -25,7 +25,7 @@ namespace BLLCRM
             try
             {
 
-                b.Posicion = bd.ActividadxTramite.Max(t=>t.Posicion) + 1;
+                b.Posicion = bd.ActividadxTramite.Where(t=>t.Id_tramite==b.Id_tramite).Max(t=>t.Posicion) + 1;
                 var entidad = bd.ActividadxTramite.Add(b);
                 var a = bd.SaveChanges();
                 return 1;
