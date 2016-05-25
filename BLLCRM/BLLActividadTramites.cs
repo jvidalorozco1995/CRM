@@ -28,29 +28,6 @@ namespace BLLCRM
                 b.Posicion = bd.ActividadxTramite.Max(t=>t.Posicion) + 1;
                 var entidad = bd.ActividadxTramite.Add(b);
                 var a = bd.SaveChanges();
-
-                /*if (a > 0)
-                {
-                    var range = bd.ActividadxTramite.Where(t => t.Id_tramite == b.Id_tramite && t.Posicion > b.Posicion).ToList();
-                    if (range.Count > 0)
-                    {
-                        foreach (var item in range)
-                        {
-
-                                item.Posicion = item.Posicion + 1;
-                           
-                        }
-                        bd.SaveChanges();
-                        var range1 = bd.ActividadxTramite.Where(t => t.Id_tramite == b.Id_tramite && t.Posicion == entidad.Posicion).FirstOrDefault();
-                        range1.Posicion = entidad.Posicion + 1;
-                        bd.SaveChanges();
-                    }
-                   
-                }*/
-
-
-
-
                 return 1;
             }
             catch (DbUpdateException)
@@ -69,18 +46,6 @@ namespace BLLCRM
 
             try
             {
-
-
-                /* var id = bd.ActividadxTramite.Where(t => t.Id == i.Id).FirstOrDefault();
-
-                 if (id != null)
-                 {
-                    int IdPosicion = id.Id;
-                     var range2 = bd.ActividadxTramite
-                      .Where(t => t.Id == IdPosicion).FirstOrDefault();
-                     range2.Posicion = i.Posicion + 1;
-                     bd.SaveChanges();
-                 }*/
 
                 if (i.Posicion == 1) {
 
@@ -111,45 +76,7 @@ namespace BLLCRM
                     range1.Posicion = i.Posicion;
                     bd.SaveChanges();
                 }
-                
-
-
-                /* var range = bd.ActividadxTramite
-                     .Where(t => t.Id_tramite == i.Id_tramite
-                      && t.Posicion > i.Posicion).ToList();
-
-                 foreach (var item in range)
-                 {
-
-
-                 }*/
-
-                /* var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite).ToList();
-
-
-                 if (range.Count > 0)
-                 {
-                     foreach (var item in range)
-                     {
-
-                     if (item.Posicion == 1) {
-
-                     }else if(i.Posicion == (item.Posicion - 1))
-                             item.Posicion = item.Posicion + 1;
-
-                     }
-                     bd.SaveChanges();
-                     var range1 = bd.ActividadxTramite.Where(t => t.Id_tramite == b.Id_tramite && t.Posicion == entidad.Posicion).FirstOrDefault();
-                     range1.Posicion = entidad.Posicion + 1;
-                     bd.SaveChanges();
-                 }*/
-
-
-
-
-                /* var ctx = bd.ActividadxTramite.First(inm => inm.Id == i.Id);
-                     ctx.Posicion = i.Posicion;
-                     bd.SaveChanges();*/
+            
 
                 return 1;
             }
