@@ -7,13 +7,18 @@ var admTramites = (function () {
     var WsLisActividadesxTramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/ListActividadesTramites");//Consulto Proyectos CRM
     var WsLisActividades = funcionUrlGlobal("/Servicios/WActividades.asmx/ListActividades");//Consulto Proyectos CRM
     var WsInsertActividad = funcionUrlGlobal("/Servicios/WActividades.asmx/InsertActividades");//Consulto Proyectos CRM
+    var WsUpdateActividad = funcionUrlGlobal("/Servicios/WActividades.asmx/UpdateActividad");//Consulto Proyectos CRM
+    
     var WsInsertActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/InsertActividadesTramites");//Consulto Proyectos CRM
     var WsUpdateActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/UpdatePosicionTramite");//Consulto Proyectos CRM
     var WsDeleteActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/DeleteActividadesTramites");//Consulto Proyectos CRM
     var WsLisDocumentos = funcionUrlGlobal("/Servicios/WDocumentos.asmx/ListDocumentosActividad");//Consulto Proyectos CRM
     var WsLisActividadesID = funcionUrlGlobal("/Servicios/WActividades.asmx/ListActividadesID");//Consulto Proyectos CRM
 
+    var WsInsertDocumentos = funcionUrlGlobal("/Servicios/WDocumentos.asmx/InsertDocumentos");//Consulto Proyectos CRM
     
+   
+
 
     var cliente = null;
     var bandera = 0;
@@ -26,6 +31,12 @@ var admTramites = (function () {
         $('#BtnAgregar').click(function () {
 
             $('#ModalListActividades').modal('show');
+
+        });
+        //Boton que muestra la lista de actividades
+        $('#BtnAddDocumento').click(function () {
+
+            $('#ModalDocumentosActividades').modal('show');
 
         });
 
@@ -88,7 +99,7 @@ var admTramites = (function () {
 
 
         $(document).on('click', '.RemoverActi', function (event) {
-            var id = $(this).attr("id");
+            ActividadN = $(this).attr("id");
             Acti.DeleteActividadxTramite(id, WsDeleteActividadXtramite);
 
           
@@ -100,46 +111,69 @@ var admTramites = (function () {
         });
 
         $(document).on('click', '.EditarActi', function (event) {
-            var id = $(this).attr("id");
+             ActividadN = $(this).attr("id");
 
             document.getElementById('titulo').innerHTML = "";
             $('#titulo').append("Editar actividad");
             $('#ModalCrearActividades').modal('show');
             $('#BtnCActividad').hide();
             $('#BtnEditarActividad').show();
-
+            $('#PanelDocumentos').show();
           
-           
-           
-
 
             setTimeout(function () {
-                Acti.ListActividadesID(id, WsLisActividadesID);
-                docu.ListDocumentos(id, WsLisDocumentos);
+                Acti.ListActividadesID(ActividadN, WsLisActividadesID);
+                docu.ListDocumentos(ActividadN, WsLisDocumentos);
 
             }, 1000);
 
         });
         
+        
+        
+        //Boton para mostrar el modal crear actividad
+        $('#BtnCrearDocumento').click(function () {
+
+            var Documento = {};
+            Documento.Id_Actividad = ActividadN;
+            Documento.Nombre = $("#TxtDocumento").val();
+
+            docu.InsertDocumento(Documento, WsInsertDocumentos);
+          
+            //Cargar la lista de actividades
+            setTimeout(function () {
+                docu.ListDocumentos(ActividadN, WsLisDocumentos);
+
+            }, 1000);
+            $("#ModalDocumentosActividades").hide();
+        });
+
+
+        //Boton para mostrar el modal crear actividad
+        $('#BtnEditarActividad').click(function () {
+
+            
+            Acti.UpdateActividad(_ActividadUpdate(), WsUpdateActividad);
+         
+            //Cargar la lista de actividades
+            setTimeout(function () {
+                Acti.ListActividades(WsLisActividades);
+                _Limpiar();
+            }, 1000)
+        });
+
 
         //Boton para mostrar el modal crear actividad
         $('#BtnModalCrearActividad').click(function () {
             
             document.getElementById('titulo').innerHTML = "";
-
-           /* setTimeout(function () {
-
-                docu.ListDocumentos(actividad, WsLisDocumentos);
-
-            }, 1000);*/
-           
-
-
             $('#titulo').append("Crear actividad");
             $('#BtnCActividad').show();
             $('#BtnEditarActividad').hide();
             $('#ModalCrearActividades').modal('show');
-
+            $('#PanelDocumentos').hide();
+            
+            _Limpiar();
         });
 
    /*     $(document).on('click', '.EditarActi', function (event) {
@@ -170,26 +204,38 @@ var admTramites = (function () {
 
                 //Crear actividad
                 Acti.CrearActividad( _Actividad(), WsInsertActividad);
-
+               
                 //Cargar la lista de actividades
                 setTimeout(function () {
                     Acti.ListActividades(WsLisActividades);
                     $('#ModalCrearActividades').modal('hide');
+                    _Limpiar();
                 }, 1000)
 
 
-               $('#TxtNombre').val('');
-               $('#TxtDescripcion').val('');
-               $('input:radio[name=sex]:checked').val('');
-               $('#Text9').val('');
+               
             }
            
+
+        });
+        //Boton para crear actividad
+        $('#BtnCancelar').click(function () {
+
 
         });
         
        
     }
  
+    var _Limpiar = function () {
+
+        $('#TxtNombre').val('');
+        $('#TxtDescripcion').val('');
+        document.getElementById("Choose_Yes").checked = false;
+        document.getElementById("Choose_No").checked = false;
+        $('#Text9').val('');
+    }
+
 
     //Crea actividad DTO
     var _ActividadXtramite = function () {
@@ -201,6 +247,16 @@ var admTramites = (function () {
         return ActividadxTramite;
     }
 
+    //Crea actividad DTO
+    var _ActividadUpdate = function () {
+        var actividad = {};
+        actividad.id = ActividadN;
+        actividad.Nombre = $('#TxtNombre').val();
+        actividad.Descripcion = $('#TxtDescripcion').val();
+        actividad.Simultaneo = $('input:radio[name=sex]:checked').val();
+        actividad.Actividad_Dependiente = $('#Text9').val();
+        return actividad;
+    }
     //Crea actividad DTO
     var _Actividad = function () {
         var actividad = {};

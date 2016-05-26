@@ -1,4 +1,6 @@
 ﻿function BLLDocumentosTramite() {
+
+    
     BLLDocumentosTramite.prototype.ListDocumentos = function (actividad, Wsurl) {
 
         jsonData = "{ 'actividad':" + JSON.stringify(actividad) + "}";
@@ -17,6 +19,35 @@
                 }
                 else {
                     BLLDocumentosTramite.prototype.TablaDocumentos(result.d);
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
+
+    BLLDocumentosTramite.prototype.InsertDocumento = function (documento, Wsurl) {
+
+        jsonData = "{ 'b':" + JSON.stringify(documento) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 1) {
+                  
+                    toastr.success('CRM Mayales - Notificacion' +
+                   '</br></br>Se registro satisfactoriamente');
+                }
+                else
+                {
+                    toastr.error('CRM Mayales - Notificacion' +
+                  '</br></br>No fue posible guardar');
 
                 }
 

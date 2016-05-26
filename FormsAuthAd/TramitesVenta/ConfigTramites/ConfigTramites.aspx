@@ -136,9 +136,10 @@
                                                             <textarea id="TxtDescripcion" class="form-control" rows="2" cols="3" maxlength="100"></textarea>
                                                         </div>
                                                         <div class="form-group col-lg-6">
+                                          
                                                             <label>Simultaneo</label>
-                                                            <input type="radio" name="sex" class="form-control" value="1" >Si</input>
-                                                            <input type="radio" name="sex" class="form-control" value="0" >No</input>
+                                                            <input type="radio" name="sex" id="Choose_Yes" class="form-control" value="1" >Si</input>
+                                                            <input type="radio" name="sex" id="Choose_No" class="form-control" value="0" >No</input>
                                                         </div>
                                                         <div class="form-group col-lg-12">
                                                             <label>Actividad dependiente</label>
@@ -150,7 +151,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="row" id="PanelDocumentos">
                                                 <div class="modal-header">
                                                         <h4 class="modal-title">Documentos</h4>
                                                       </div>
@@ -184,6 +185,41 @@
             </div>
         </div>
 
+
+        
+           <!--Modal documentos--->
+            <div class="modal fade hmodal-success" id="ModalDocumentosActividades" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Documento</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="row">
+                                                <div class="col-lg-3 text-center">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="form-group col-lg-12">
+                                                            <label>Nombre del documento</label>
+                                                            <input type="text"  value="" id="TxtDocumento" class="form-control">
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" id="BtnCrearDocumento">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"  id="">Cerrar</button>
+                         
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
  

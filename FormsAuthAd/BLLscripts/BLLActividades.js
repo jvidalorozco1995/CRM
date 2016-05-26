@@ -20,9 +20,23 @@
                 else {
                     $('#TxtNombre').val(result.d[0].Nombre);
                     $('#TxtDescripcion').val(result.d[0].Descripcion);
-                   // $('#sex').val(result.d[0].Simultaneo);
-                   // alert(result.d[0].Actividad_Dependiente);
-                    $("input[name=sex][value=" + result.d[0].Simultaneo + "]").attr('checked', 'checked');
+                    // $('#sex').val(result.d[0].Simultaneo);
+                    $("input[name=sex]").attr('checked', false);
+                   
+
+                    if (result.d[0].Simultaneo == 1)
+                    {
+                        document.getElementById("Choose_Yes").checked = true;
+                        document.getElementById("Choose_No").checked = false;
+                    }
+                    else {
+                        document.getElementById("Choose_Yes").checked = false;
+                        document.getElementById("Choose_No").checked = true;
+                    }
+                   
+                    
+                   
+               
                     $('#Text9').val(result.d[0].Actividad_Dependiente)
                  
                 }
@@ -120,13 +134,68 @@
         });
     }
 
+    //   InserActividades
+    BLLActividades.prototype.InsertActividad = function (actividad, WsUrl) {
+        jsonData = "{ 'b':" + JSON.stringify(actividad) + "}";
 
+        $.ajax({
+            type: "POST", url: WsUrl,
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 1) {
+                    toastr.success(' CRM - Mayales notificacion' +
+                     '</br></br>Se registro esta actividad de manera exitosa en el sistema');
+
+
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>No se pudo registrar esta actividad');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
+
+   
+    BLLActividades.prototype.UpdateActividad = function (actividad, WsUrl) {
+        jsonData = "{ 'i':" + JSON.stringify(actividad) + "}";
+
+        $.ajax({
+            type: "POST", url: WsUrl,
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 1) {
+                    toastr.success(' CRM - Mayales notificacion' +
+                     '</br></br>Se actualizo esta actividad de manera exitosa en el sistema');
+
+
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>No se pudo actualizar esta actividad');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
+
+
+    
+
+  //  BtnEditarActividad
 
     BLLActividades.prototype.UpdateActividadxTramite = function (actividad, WsUrl) {
 
         alert(JSON.stringify(actividad));
         jsonData = "{ 'b':" + JSON.stringify(actividad) + "}";
-        alert(JSON.stringify(jsonData));
+    
         $.ajax({
             type: "POST", url: WsUrl,
             data: jsonData,
