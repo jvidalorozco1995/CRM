@@ -24,8 +24,15 @@ namespace BLLCRM
         {
             try
             {
-
-                b.Posicion = bd.ActividadxTramite.Where(t=>t.Id_tramite==b.Id_tramite).Max(t=>t.Posicion) + 1;
+                int ? n = (bd.ActividadxTramite.Where(t => t.Id_tramite == b.Id_tramite).Max(t => t.Posicion) + 1);
+                if (n == null)
+                {
+                    b.Posicion = 1;
+                } else
+                {
+                    b.Posicion = n;
+                }
+               
                 var entidad = bd.ActividadxTramite.Add(b);
                 var a = bd.SaveChanges();
                 return 1;
@@ -59,7 +66,7 @@ namespace BLLCRM
                 }
                 else
                 {
-                    var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion >= i.Posicion).ToList();
+                    var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion > i.Posicion).ToList();
                     foreach (var item in range)
                     {
 

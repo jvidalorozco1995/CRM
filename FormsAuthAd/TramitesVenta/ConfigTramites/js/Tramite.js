@@ -242,7 +242,7 @@ var admTramites = (function () {
         var ActividadxTramite = {};
         ActividadxTramite.Id_tramite = tramite;
         ActividadxTramite.Id_Actividad = ActividadN;
-       
+        
         
         return ActividadxTramite;
     }
