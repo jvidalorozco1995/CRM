@@ -40,7 +40,7 @@ namespace FormsAuthAd.Servicios
         {
             return cl.UpdateActividad(i);
         }
-
+        //as
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<Actividades> ListActividadesID(int id)
