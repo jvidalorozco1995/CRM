@@ -150,6 +150,28 @@
                                                 </div>
                                             </div>
 
+                                            <div class="row">
+                                                <div class="modal-header">
+                                                        <h4 class="modal-title">Documentos</h4>
+                                                      </div>
+                                    
+                                                 <div class="col-lg-12">
+                                                     <div class="row">
+                                                         <div class="col-lg-12">
+                                                                 <div class="pull-right">
+                              
+                                
+                                  <button class="btn btn-danger btn-btn-circle" type="button" id="BtnAddDocumento">+</button>
+                               
+                            </div>
+                                                             </div>
+                                                         </div>
+                                                    <div id="TblListaDocumentos"  >
+
+                                                   </div>
+                                                </div>
+                                            </div>
+
                        
                     </div>
                     <div class="modal-footer">
@@ -197,6 +219,7 @@
     <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="../../BLLscripts/BLLActividades.js"></script>
      <script src="../../BLLscripts/BLLTramites.js"></script>
+    <script src="../../BLLscripts/BLLDocumentosTramite.js"></script>
     <script src="js/Tramite.js"></script>
     <script src="../../scripts_crm/bootstrap-datepicker.js"></script>
     <script src="../../scripts_crm/accounting.js"></script>

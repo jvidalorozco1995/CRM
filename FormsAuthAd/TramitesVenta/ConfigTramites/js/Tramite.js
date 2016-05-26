@@ -1,6 +1,6 @@
 ﻿var Tra = new BLLTramites();
 var Acti = new BLLActividades();
-
+var docu = new BLLDocumentosTramite();
 var admTramites = (function () {
 
     var WsListramite = funcionUrlGlobal("/Servicios/WTramites.asmx/ListTramites");//Consulto Proyectos CRM
@@ -10,7 +10,11 @@ var admTramites = (function () {
     var WsInsertActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/InsertActividadesTramites");//Consulto Proyectos CRM
     var WsUpdateActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/UpdatePosicionTramite");//Consulto Proyectos CRM
     var WsDeleteActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/DeleteActividadesTramites");//Consulto Proyectos CRM
+    var WsLisDocumentos = funcionUrlGlobal("/Servicios/WDocumentos.asmx/ListDocumentosActividad");//Consulto Proyectos CRM
+    var WsLisActividadesID = funcionUrlGlobal("/Servicios/WActividades.asmx/ListActividadesID");//Consulto Proyectos CRM
+
     
+
     var cliente = null;
     var bandera = 0;
     var codigoEmp;
@@ -95,11 +99,42 @@ var admTramites = (function () {
 
         });
 
+        $(document).on('click', '.EditarActi', function (event) {
+            var id = $(this).attr("id");
+
+            document.getElementById('titulo').innerHTML = "";
+            $('#titulo').append("Editar actividad");
+            $('#ModalCrearActividades').modal('show');
+            $('#BtnCActividad').hide();
+            $('#BtnEditarActividad').show();
+
+          
+           
+           
+
+
+            setTimeout(function () {
+                Acti.ListActividadesID(id, WsLisActividadesID);
+                docu.ListDocumentos(id, WsLisDocumentos);
+
+            }, 1000);
+
+        });
+        
 
         //Boton para mostrar el modal crear actividad
         $('#BtnModalCrearActividad').click(function () {
             
             document.getElementById('titulo').innerHTML = "";
+
+           /* setTimeout(function () {
+
+                docu.ListDocumentos(actividad, WsLisDocumentos);
+
+            }, 1000);*/
+           
+
+
             $('#titulo').append("Crear actividad");
             $('#BtnCActividad').show();
             $('#BtnEditarActividad').hide();
@@ -107,7 +142,7 @@ var admTramites = (function () {
 
         });
 
-        $(document).on('click', '.EditarActi', function (event) {
+   /*     $(document).on('click', '.EditarActi', function (event) {
             var id = $(this).attr("id");
             document.getElementById('titulo').innerHTML = "";
             $('#titulo').append("Editar actividad");
@@ -115,7 +150,7 @@ var admTramites = (function () {
             $('#BtnCActividad').hide();
             $('#BtnEditarActividad').show();
             
-        });
+        });*/
 
         
         //Boton para crear actividad

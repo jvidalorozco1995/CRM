@@ -2,11 +2,39 @@
 
 
 
- 
+    //Retorna una lista de tramites
+    BLLActividades.prototype.ListActividadesID = function (actividad, Wsurl) {
+
+        jsonData = "{ 'id':" + JSON.stringify(actividad) + "}";
+        $.ajax({
+            type: "POST", url: Wsurl,
+            data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                  
+                }
+                else {
+                    $('#TxtNombre').val(result.d[0].Nombre);
+                    $('#TxtDescripcion').val(result.d[0].Descripcion);
+                   // $('#sex').val(result.d[0].Simultaneo);
+                   // alert(result.d[0].Actividad_Dependiente);
+                    $("input[name=sex][value=" + result.d[0].Simultaneo + "]").attr('checked', 'checked');
+                    $('#Text9').val(result.d[0].Actividad_Dependiente)
+                 
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
 
     BLLActividades.Actividades = function (actividades) {
         $.each(actividades, function (i, item) {
-            var empr = '<option value=' + item.Id_Actividad + '>';
+            var empr = '<option value=' + item.id + '>';
             empr += item.Nombre;
             empr += '</option>';
             $('#Text9').append(empr);
@@ -193,7 +221,7 @@
             tabla += "<td>" + item.Descripcion + "</td>";
             tabla += "<td style='width:120px;height: 20px'>";
             tabla += '<button type="button" id="' + item.id + '"class="btn btn-success btn-xs vertical-date pull-right AgregarActi">Agregar</button>'
-            tabla += '<button type="button" id="' + item.id + '"class="btn btn-primary btn-xs vertical-date pull-right">Ver</button>'
+            tabla += '<button type="button" id="' + item.id + '"class="btn btn-primary btn-xs vertical-date pull-right EditarActi">Ver</button>'
             tabla += "</td>";
             tabla += "</tr>";
             ///images/cancel.png

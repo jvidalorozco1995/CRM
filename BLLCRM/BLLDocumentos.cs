@@ -85,12 +85,12 @@ namespace BLLCRM
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public List<Documento> ListDocumentos(int id)
+        public List<Documento> ListDocumentosActi(int id)
             {
 
                 try
                 {
-                    List<Documento> lisb = bd.Documento.Where(t => t.Id == id).ToList();
+                    List<Documento> lisb = bd.Documento.Where(t => t.Id_Actividad == id).ToList();
                     //bd.compromisosxcuota.ToList();
                     List<Documento> lisbcrm = new List<Documento>();
                     if (lisb.Count.Equals(0))

@@ -65,6 +65,34 @@ namespace BLLCRM
             }
         }
 
+
+
+        public int UpdateActividad(Actividades i)
+        {
+
+            try
+            {
+                
+
+                    var ctx = bd.Actividades.First(inm => inm.id == i.id);
+
+                    ctx.Nombre = i.Nombre;
+                 
+                    ctx.Descripcion = i.Descripcion;
+                    ctx.Simultaneo = i.Simultaneo;
+                    ctx.Actividad_Dependiente = i.Actividad_Dependiente;
+                    bd.SaveChanges();
+                
+                return 1;
+            }
+
+            catch (Exception ex)
+            {
+                return 0;
+                throw;
+            }
+        }
+
         /// <summary>
         /// rertorna listado de bancos pertenecientes al proyecto
         /// </summary>

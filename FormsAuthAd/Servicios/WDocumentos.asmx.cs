@@ -16,7 +16,7 @@ namespace FormsAuthAd.Servicios
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+    [System.Web.Script.Services.ScriptService]
     public class WDocumentos : System.Web.Services.WebService
     {
         BLLDocumentos cl = new BLLDocumentos();
@@ -34,22 +34,24 @@ namespace FormsAuthAd.Servicios
         {
             return cl.UpdateDocumentos(i);
         }
-        [WebMethod]
+       /* [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<Documento> ListDocumentosID(int id)
         {
             return cl.ListDocumentos(id);
-        }
+        }*/
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<Documento> ListDocumentos()
+        public List<Documento> ListDocumentosActividad(int actividad)
         {
-            return cl.ListDocumentos();
+            return cl.ListDocumentosActi(actividad);
         }
         [WebMethod]
         public string HelloWorld()
         {
             return "Hello World";
         }
+
+
     }
 }

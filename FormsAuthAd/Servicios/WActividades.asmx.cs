@@ -34,6 +34,12 @@ namespace FormsAuthAd.Servicios
         {
             return cl.UpdateActividades(i);
         }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int UpdateActividad(Actividades i)
+        {
+            return cl.UpdateActividad(i);
+        }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
