@@ -30,16 +30,24 @@ namespace FormsAuthAd.Servicios
        
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string UpdateDocumentos(List<Documento> i)
+        public int UpdateDocumento(Documento i)
         {
             return cl.UpdateDocumentos(i);
         }
-       /* [WebMethod]
+
+        [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<Documento> ListDocumentosID(int id)
+        public int DeleteDocumento(int c)
         {
-            return cl.ListDocumentos(id);
-        }*/
+            return cl.DeleteDocumento(c);
+        }
+
+         [WebMethod]
+         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+         public List<Documento> ListDocumentosID(int id)
+         {
+             return cl.ListDocumentosID(id);
+         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<Documento> ListDocumentosActividad(int actividad)

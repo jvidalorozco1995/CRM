@@ -1,5 +1,32 @@
 ﻿function BLLDocumentosTramite() {
 
+
+    BLLDocumentosTramite.prototype.DeleteDocumentos = function (Documento, Wsurl) {
+
+        jsonData = "{ 'c':" + JSON.stringify(Documento) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 1) {
+
+                    toastr.success('CRM Mayales - Notificacion' +
+                   '</br></br>Se elimino satisfactoriamente');
+                }
+                else {
+                    toastr.error('CRM Mayales - Notificacion' +
+                  '</br></br>No fue posible eliminar');
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
     
     BLLDocumentosTramite.prototype.ListDocumentos = function (actividad, Wsurl) {
 
@@ -26,6 +53,61 @@
             error: function (obj, error, objError) { alert(objError.responseText); }
         });
     }
+
+    BLLDocumentosTramite.prototype.Documento = function (documento, Wsurl) {
+
+        jsonData = "{ 'id':" + JSON.stringify(documento) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                  //  $("#TxtDocumento").val(result.d[0].Nombre);
+                 
+                }
+                else {
+                    $("#TxtDocumento").val(result.d[0].Nombre);
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
+
+    BLLDocumentosTramite.prototype.UpdateDocumento = function (documento, Wsurl) {
+
+        jsonData = "{ 'i':" + JSON.stringify(documento) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 1) {
+
+                    toastr.success('CRM Mayales - Notificacion' +
+                   '</br></br>Se actualizo satisfactoriamente');
+                }
+                else {
+                    toastr.error('CRM Mayales - Notificacion' +
+                  '</br></br>No fue posible actualizar');
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
 
 
     BLLDocumentosTramite.prototype.InsertDocumento = function (documento, Wsurl) {
@@ -68,17 +150,23 @@
         tabla += "<th>Codigo</th>";
        
         tabla += "<th>Nombre</th>";
+      
+        tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(documentos, function (i, item) {
 
             tabla += "<tr>";
-            tabla += "<td>" + item.Id + "</td>";
+            tabla += "<td >" + item.Id + "</td>";
             tabla += "<td>" + item.Nombre + "</td>";
+            tabla += "<td style='width:120px;height: 20px'>";
+            tabla += '<button type="button" onclick = "return confirm("Deseas eliminar esto?");" id="' + item.Id + '"class="btn btn-danger btn-xs vertical-date pull-right QuitarDocu"> Quitar </button>'
+            tabla += '<button type="button" id="' + item.Id + '"class="btn btn-success btn-xs vertical-date pull-right EditarDocu"> Editar </button>'
             tabla += "</td>";
             tabla += "</tr>";
             ///images/cancel.png
+            
         });
         tabla += "</tbody>";
         tabla += "</table>";

@@ -16,15 +16,17 @@ var admTramites = (function () {
     var WsLisActividadesID = funcionUrlGlobal("/Servicios/WActividades.asmx/ListActividadesID");//Consulto Proyectos CRM
 
     var WsInsertDocumentos = funcionUrlGlobal("/Servicios/WDocumentos.asmx/InsertDocumentos");//Consulto Proyectos CRM
+    var WsUpdateDocumento = funcionUrlGlobal("/Servicios/WDocumentos.asmx/UpdateDocumento");//Consulto Proyectos CRM
+    var WsDeleteDocumentos = funcionUrlGlobal("/Servicios/WDocumentos.asmx/DeleteDocumento");//Consulto Proyectos CRM
+    var WsDocumentoID = funcionUrlGlobal("/Servicios/WDocumentos.asmx/ListDocumentosID");//Consulto Proyectos CRM
     
-   
-
 
     var cliente = null;
     var bandera = 0;
     var codigoEmp;
     var tramite;
     var ActividadN;
+    var doc;
     var _addHandlers = function () {
        
         //Boton que muestra la lista de actividades
@@ -33,11 +35,71 @@ var admTramites = (function () {
             $('#ModalListActividades').modal('show');
 
         });
+
+
+        
+
+
+        //Boton que muestra la lista de actividades
+        $('#BtnEditarDocumento').click(function () {
+
+            var document = {};
+            document.Id = doc;
+            document.Nombre = $("#TxtDocumento").val();
+
+            docu.UpdateDocumento(document, WsUpdateDocumento);
+            setTimeout(function () {
+
+                docu.ListDocumentos(ActividadN, WsLisDocumentos);
+
+            }, 1000);
+          
+        });
+
+        $(document).on('click', '.QuitarDocu', function (event) {
+            doc = $(this).attr("id");
+
+            event.stopPropagation();
+            if (confirm("Estas seguro(a) de eliminar esto?")) {
+                this.click;
+
+                docu.DeleteDocumentos(doc, WsDeleteDocumentos);
+
+                setTimeout(function () {
+
+                    docu.ListDocumentos(ActividadN, WsLisDocumentos);
+
+                }, 1000);
+            }
+            else {
+                
+            }
+            event.preventDefault();
+
+        });
+
+        
+        
+        $(document).on('click', '.EditarDocu', function (event) {
+             doc = $(this).attr("id");
+            $('#ModalDocumentosActividades').modal('show');
+            $('#BtnCrearDocumento').hide();
+            $('#BtnEditarDocumento').show();
+            setTimeout(function () {
+
+                docu.Documento(doc, WsDocumentoID);
+
+            }, 1000);
+            
+        });
+        
+
         //Boton que muestra la lista de actividades
         $('#BtnAddDocumento').click(function () {
 
             $('#ModalDocumentosActividades').modal('show');
-
+            $('#BtnCrearDocumento').show();
+            $('#BtnEditarDocumento').hide();
         });
 
         $(document).on('click', '.Infocl', function (event) {
@@ -100,13 +162,23 @@ var admTramites = (function () {
 
         $(document).on('click', '.RemoverActi', function (event) {
             ActividadN = $(this).attr("id");
-            Acti.DeleteActividadxTramite(id, WsDeleteActividadXtramite);
 
-          
-            setTimeout(function () {
-               Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
-             
-            }, 1000)
+            event.stopPropagation();
+            if (confirm("Estas seguro(a) de eliminar esto?")) {
+                this.click;
+
+                Acti.DeleteActividadxTramite(ActividadN, WsDeleteActividadXtramite);
+
+
+                setTimeout(function () {
+                    Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
+
+                }, 1000);
+            }
+            else {
+
+            }
+           
 
         });
 
@@ -145,7 +217,7 @@ var admTramites = (function () {
                 docu.ListDocumentos(ActividadN, WsLisDocumentos);
 
             }, 1000);
-            $("#ModalDocumentosActividades").hide();
+            
         });
 
 

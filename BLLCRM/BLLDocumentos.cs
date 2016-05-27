@@ -57,26 +57,44 @@ namespace BLLCRM
         //    }
         //}
 
+        public int DeleteDocumento(int id)
+        {
+            try
+            {
+                var ctx = bd.Documento.First(inm => inm.Id == id);
+                bd.Documento.Remove(ctx);
+                bd.SaveChanges();
+                return 1;
 
-        public string UpdateDocumentos(List<Documento> i)
+            }
+
+            catch (DbUpdateException)
+            {
+                return 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int UpdateDocumentos(Documento i)
         {
 
             try
             {
-                foreach (var item in i)
-                {
+               
 
-                    var ctx = bd.Documento.First(inm => inm.Id == item.Id);
-                    ctx.Id_Actividad = item.Id_Actividad;
-                    ctx.Nombre = item.Nombre;
+                    var ctx = bd.Documento.First(inm => inm.Id == i.Id);
+                    ctx.Nombre = i.Nombre;
                     bd.SaveChanges();
-                }
-                return mensaje = "Los documentos se actualizaron de manera exitosa";
+                
+                return 1;
             }
 
             catch (Exception ex)
             {
-                return mensaje = "No fue posible llevar  a cabo el proceso" + ex;
+                return 0;
                 throw;
             }
         }
@@ -116,6 +134,39 @@ namespace BLLCRM
                     throw;
                 }
         }
+
+        public List<Documento> ListDocumentosID(int id)
+        {
+
+            try
+            {
+                List<Documento> lisb = bd.Documento.Where(t=>t.Id == id).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Documento> lisbcrm = new List<Documento>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Documento entb = new Documento();
+                        entb.Id = item.Id;
+                        entb.Id_Actividad = item.Id_Actividad;
+                        entb.Nombre = item.Nombre;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public List<Documento> ListDocumentos()
         {
 

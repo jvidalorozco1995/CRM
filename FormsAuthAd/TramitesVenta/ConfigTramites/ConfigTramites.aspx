@@ -138,8 +138,12 @@
                                                         <div class="form-group col-lg-6">
                                           
                                                             <label>Simultaneo</label>
-                                                            <input type="radio" name="sex" id="Choose_Yes" class="form-control" value="1" >Si</input>
-                                                            <input type="radio" name="sex" id="Choose_No" class="form-control" value="0" >No</input>
+                                                            <div class="row">
+                                                                 <input type="radio" name="sex" id="Choose_Yes" class="" value="1" >Si</input>
+                                                            </div>
+                                                            <div class="row">
+                                                                 <input type="radio" name="sex" id="Choose_No" class="" value="0" >No</input>
+                                                            </div>
                                                         </div>
                                                         <div class="form-group col-lg-12">
                                                             <label>Actividad dependiente</label>
@@ -162,7 +166,7 @@
                                                                  <div class="pull-right">
                               
                                 
-                                  <button class="btn btn-danger btn-btn-circle" type="button" id="BtnAddDocumento">+</button>
+                                  <button class="btn btn-success btn-btn-circle" type="button" id="BtnAddDocumento">+</button>
                                
                             </div>
                                                              </div>
@@ -214,6 +218,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" id="BtnCrearDocumento">Guardar</button>
+                         <button type="button" class="btn btn-success" id="BtnEditarDocumento">Actualizar</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal"  id="">Cerrar</button>
                          
                     </div>
