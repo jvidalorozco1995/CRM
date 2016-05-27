@@ -54,40 +54,81 @@ namespace BLLCRM
             try
             {
 
-                if (i.Posicion == 1) {
+                /* if (i.Posicion == 1)
+                 {
 
-                    var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion <= i.Posicion).ToList();
-                    foreach (var item in range)
-                    {
+                     var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion <= i.Posicion).ToList();
+                     foreach (var item in range)
+                     {
 
-                        item.Posicion = i.Posicion + 1;
-                        bd.SaveChanges();
-                    }
-                }
-                else
-                {
-                    var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion > i.Posicion).ToList();
-                    foreach (var item in range)
-                    {
-
-                        item.Posicion = i.Posicion + 1;
-                        bd.SaveChanges();
-                    }
-                }
+                         item.Posicion = i.Posicion + 1;
+                         bd.SaveChanges();
+                     }
+                 }
+                 else
+                  {*/
 
                 var range1 = bd.ActividadxTramite
-                .Where(t => t.Id == i.Id).FirstOrDefault();
+               .Where(t => t.Id == i.Id).FirstOrDefault();
 
                 if (range1 != null)
                 {
                     range1.Posicion = i.Posicion;
                     bd.SaveChanges();
                 }
-            
 
+                var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion >= i.Posicion).ToList();
+                foreach (var item in range)
+                {
+
+                    item.Posicion = item.Posicion + 1;
+                    bd.SaveChanges();
+                }
+
+
+               
+
+
+
+                /*  var range2 = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Id != i.Id && t.Posicion > i.Posicion).ToList();
+                  foreach (var item in range2)
+                  {
+
+                      item.Posicion = item.Posicion + 1;
+                      bd.SaveChanges();
+                  }*/
+
+                /*   var range1 = bd.ActividadxTramite
+                  .Where(t => t.Id == i.Id).FirstOrDefault();
+
+                   if (range1 != null)
+                   {
+                       range1.Posicion = i.Posicion;
+                       bd.SaveChanges();
+                   }*/
+                /* var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion > i.Posicion).ToList();
+                 foreach (var item in range)
+                 {
+
+                     item.Posicion = i.Posicion + 1;
+                     bd.SaveChanges();
+                 }
+             }
+
+             var range1 = bd.ActividadxTramite
+             .Where(t => t.Id == i.Id).FirstOrDefault();
+
+             if (range1 != null)
+             {
+                 range1.Posicion = i.Posicion;
+                 bd.SaveChanges();
+             }
+         */
+
+            
+                
                 return 1;
             }
-
             catch (Exception ex)
             {
                 return 0;
