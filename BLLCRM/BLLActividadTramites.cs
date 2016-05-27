@@ -56,7 +56,7 @@ namespace BLLCRM
 
                 /* if (i.Posicion == 1)
                  {
-
+                 hhhdf
                      var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion <= i.Posicion).ToList();
                      foreach (var item in range)
                      {
