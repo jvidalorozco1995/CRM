@@ -36,24 +36,29 @@ var admTramites = (function () {
 
         });
 
-
-        
-
-
         //Boton que muestra la lista de actividades
         $('#BtnEditarDocumento').click(function () {
+            //Validacion de las cajas de texto
+            if ($('#TxtDocumento').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                '<br/> no ha digitado nada en el campo documento');
+                return false;
+            }
+            else
+            {
+                var document = {};
+                document.Id = doc;
+                document.Nombre = $("#TxtDocumento").val();
 
-            var document = {};
-            document.Id = doc;
-            document.Nombre = $("#TxtDocumento").val();
+                docu.UpdateDocumento(document, WsUpdateDocumento);
+                setTimeout(function () {
 
-            docu.UpdateDocumento(document, WsUpdateDocumento);
-            setTimeout(function () {
+                    docu.ListDocumentos(ActividadN, WsLisDocumentos);
+                    $('#ModalDocumentosActividades').modal('hide');
 
-                docu.ListDocumentos(ActividadN, WsLisDocumentos);
+                }, 1000);
 
-            }, 1000);
-          
+            }
         });
 
         $(document).on('click', '.QuitarDocu', function (event) {
@@ -123,8 +128,6 @@ var admTramites = (function () {
 
         $(document).on('click', '.AgregarActi', function (event) {
              ActividadN = $(this).attr("id");
-            
-
              Acti.InsertActividadxTramite(_ActividadXtramite(), WsInsertActividadXtramite);
 
              setTimeout(function () {
@@ -168,8 +171,6 @@ var admTramites = (function () {
                 this.click;
 
                 Acti.DeleteActividadxTramite(ActividadN, WsDeleteActividadXtramite);
-
-
                 setTimeout(function () {
                     Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
 
@@ -206,33 +207,31 @@ var admTramites = (function () {
         //Boton para mostrar el modal crear actividad
         $('#BtnCrearDocumento').click(function () {
 
-            var Documento = {};
-            Documento.Id_Actividad = ActividadN;
-            Documento.Nombre = $("#TxtDocumento").val();
+            //Validacion de las cajas de texto
+            if ($('#TxtDocumento').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                '<br/> no ha digitado nada en el campo documento');
+                return false;
+            }
+             else
+            {
+                var Documento = {};
+                Documento.Id_Actividad = ActividadN;
+                Documento.Nombre = $("#TxtDocumento").val();
 
-            docu.InsertDocumento(Documento, WsInsertDocumentos);
-          
-            //Cargar la lista de actividades
-            setTimeout(function () {
-                docu.ListDocumentos(ActividadN, WsLisDocumentos);
+                docu.InsertDocumento(Documento, WsInsertDocumentos);
 
-            }, 1000);
+                //Cargar la lista de actividades
+                setTimeout(function () {
+                    docu.ListDocumentos(ActividadN, WsLisDocumentos);
+                    $('#ModalDocumentosActividades').modal('hide');
+                }, 1000);
+            }
             
         });
 
 
-        //Boton para mostrar el modal crear actividad
-        $('#BtnEditarActividad').click(function () {
-
-            
-            Acti.UpdateActividad(_ActividadUpdate(), WsUpdateActividad);
-         
-            //Cargar la lista de actividades
-            setTimeout(function () {
-                Acti.ListActividades(WsLisActividades);
-                _Limpiar();
-            }, 1000)
-        });
+     
 
 
         //Boton para mostrar el modal crear actividad
@@ -247,36 +246,17 @@ var admTramites = (function () {
             
             _Limpiar();
         });
-
-   /*     $(document).on('click', '.EditarActi', function (event) {
-            var id = $(this).attr("id");
-            document.getElementById('titulo').innerHTML = "";
-            $('#titulo').append("Editar actividad");
-            $('#ModalCrearActividades').modal('show');
-            $('#BtnCActividad').hide();
-            $('#BtnEditarActividad').show();
-            
-        });*/
+    
 
         
         //Boton para crear actividad
         $('#BtnCActividad').click(function () {
 
-            //Validacion de las cajas de texto
-            if ($('#TxtDescripcion').val().length < 1) {
-                toastr.error('CRM Mayales - Notificacion' +
-                '<br/> no ha digitado nada en el campo descripcion');
-            }
-              else if ($('#TxtNombre').val().length < 1) {
-                toastr.error('CRM Mayales - Notificacion' +
-               '<br/> no ha digitado nada en el campo nombre');
-            }
-            else
-            {
+            if (_Validar()) {
 
                 //Crear actividad
-                Acti.CrearActividad( _Actividad(), WsInsertActividad);
-               
+                Acti.CrearActividad(_Actividad(), WsInsertActividad);
+
                 //Cargar la lista de actividades
                 setTimeout(function () {
                     Acti.ListActividades(WsLisActividades);
@@ -285,11 +265,27 @@ var admTramites = (function () {
                 }, 1000)
 
 
-               
-            }
-           
-
+            } 
         });
+
+        //Boton para mostrar el modal crear actividad
+        $('#BtnEditarActividad').click(function () {
+
+            if (_Validar()) {
+
+                Acti.UpdateActividad(_ActividadUpdate(), WsUpdateActividad);
+
+                //Cargar la lista de actividades
+                setTimeout(function () {
+                    Acti.ListActividades(WsLisActividades);
+                    $('#ModalCrearActividades').modal('hide');
+                    _Limpiar();
+                }, 1000)
+
+            }
+        });
+
+
         //Boton para crear actividad
         $('#BtnCancelar').click(function () {
 
@@ -299,6 +295,35 @@ var admTramites = (function () {
        
     }
  
+    var _Validar = function () {
+
+        //Validacion de las cajas de texto
+        if ($('#TxtDescripcion').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+            '<br/> no ha digitado nada en el campo descripcion');
+            return false;
+        }
+        else if ($('#TxtNombre').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+           '<br/> no ha digitado nada en el campo nombre');
+            return false;
+        }
+
+        else if ($("input[name='sex']:checked").val() == undefined) {
+            toastr.error('CRM Mayales - Notificacion' +
+           '<br/> Seleccione si es simultaneo');
+            return false;
+        }
+        else if ($('#Text9').val() == null) {
+            toastr.error('CRM Mayales - Notificacion' +
+           '<br/> Seleccione una actividad dependiente');
+            return false;
+        }
+
+         return true;
+        
+
+    }
     var _Limpiar = function () {
 
         $('#TxtNombre').val('');
