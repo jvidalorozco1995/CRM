@@ -95,7 +95,7 @@ var admTramites = (function () {
                 docu.Documento(doc, WsDocumentoID);
 
             }, 1000);
-            
+           
         });
         
 
