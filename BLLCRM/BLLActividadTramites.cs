@@ -54,79 +54,66 @@ namespace BLLCRM
             try
             {
 
-                /* if (i.Posicion == 1)
-                 {
-                 hhhdf
-                     var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion <= i.Posicion).ToList();
-                     foreach (var item in range)
-                     {
-
-                         item.Posicion = i.Posicion + 1;
-                         bd.SaveChanges();
-                     }
-                 }
-                 else
-                  {*/
-
-
-                var range1 = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion > i.Posicion).FirstOrDefault();
-               /* foreach (var item in range)
+                int? posicion = 1;
+                int? actual = 1;
+                
+                var range1 = bd.ActividadxTramite
+               .Where(t => t.Id == i.Id).FirstOrDefault();
+                posicion = i.Posicion;
+                actual = range1.Posicion;
+                //if (range1 != null)
+                //{
+                //    range1.Posicion = i.Posicion;
+                //    bd.SaveChanges();
+                //}
+                if (actual < posicion)
                 {
-                    int cant = 1;
+                    var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion >= actual && t.Posicion <= posicion).ToList();
+                    foreach (var item in range)
+                    {
+                        if (item.Posicion == actual)
+                        {
+                            item.Posicion = posicion;
+                            bd.SaveChanges();
+                        }
+                        else if (item.Posicion == posicion)
+                        {
+                            item.Posicion = posicion - 1;
+                            bd.SaveChanges();
+                        }
+                        else
+                        {
+                            item.Posicion = item.Posicion - 1;
+                            bd.SaveChanges();
+                        }
 
-                    item.Posicion = cant++;
-                    bd.SaveChanges();
-                }*/
 
-                //Recorrer actividades para agregar posicion
+                    }
+                }
+                else {
+                   var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion <= actual && t.Posicion >= posicion).ToList();
+                    foreach (var item in range)
+                    {
+                        if (item.Posicion == actual)
+                        {
+                            item.Posicion = posicion;
+                            bd.SaveChanges();
+                        }
+                        else if (item.Posicion == posicion)
+                        {
+                            item.Posicion = posicion + 1;
+                            bd.SaveChanges();
+                        }
+                        else
+                        {
+                            item.Posicion = item.Posicion + 1;
+                            bd.SaveChanges();
+                        }
 
-                var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion >= i.Posicion && t.Id != i.Id).ToList();
-                foreach (var item in range)
-                {
-                    
-                    item.Posicion = item.Posicion + 1;
-                    bd.SaveChanges();
+
+                    }
                 }
 
-
-              
-               /* var mayor = bd.ActividadxTramite.Where(t => t.Id == i.Posicion).FirstOrDefault();
-
-                if (mayor != null)
-                {
-
-                    mayor.Posicion = mayor.Posicion + 1;
-                    bd.SaveChanges();
-                }*/
-
-                var seleccionado = bd.ActividadxTramite.Where(t => t.Id == i.Id).FirstOrDefault();
-
-                if (seleccionado != null)
-                {
-
-                    seleccionado.Posicion = i.Posicion;
-                    bd.SaveChanges();
-                }
-
-                /*     var range1 = bd.ActividadxTramite
-                    .Where(t => t.Id == i.Id).FirstOrDefault();
-
-                     if (range1 != null)
-                     {
-                         range1.Posicion = i.Posicion;
-                         bd.SaveChanges();
-                     }
-
-                     var range = bd.ActividadxTramite.Where(t => t.Id_tramite == i.Id_tramite && t.Posicion >= i.Posicion).ToList();
-                     foreach (var item in range)
-                     {
-
-                         item.Posicion = item.Posicion + 1;
-                         bd.SaveChanges();
-                     }
-
-
-                    */
 
 
 
@@ -267,7 +254,6 @@ namespace BLLCRM
                 throw;
             }
         }
-
         public List<VActxtramite> ListActividadxTramite(int tramite)
         {
 
