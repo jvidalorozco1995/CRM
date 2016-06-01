@@ -3,12 +3,18 @@ var Acti = new BLLActividades();
 var docu = new BLLDocumentosTramite();
 var admTramites = (function () {
 
+
+    // InsertTramite
+
+    var WsInsertTramite = funcionUrlGlobal("/Servicios/WTramites.asmx/InsertTramites");//Consulto Proyectos CRM
+
+
     var WsListramite = funcionUrlGlobal("/Servicios/WTramites.asmx/ListTramites");//Consulto Proyectos CRM
     var WsLisActividadesxTramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/ListActividadesTramites");//Consulto Proyectos CRM
     var WsLisActividades = funcionUrlGlobal("/Servicios/WActividades.asmx/ListActividades");//Consulto Proyectos CRM
     var WsInsertActividad = funcionUrlGlobal("/Servicios/WActividades.asmx/InsertActividades");//Consulto Proyectos CRM
     var WsUpdateActividad = funcionUrlGlobal("/Servicios/WActividades.asmx/UpdateActividad");//Consulto Proyectos CRM
-    
+
     var WsInsertActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/InsertActividadesTramites");//Consulto Proyectos CRM
     var WsUpdateActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/UpdatePosicionTramite");//Consulto Proyectos CRM
     var WsDeleteActividadXtramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/DeleteActividadesTramites");//Consulto Proyectos CRM
@@ -19,7 +25,10 @@ var admTramites = (function () {
     var WsUpdateDocumento = funcionUrlGlobal("/Servicios/WDocumentos.asmx/UpdateDocumento");//Consulto Proyectos CRM
     var WsDeleteDocumentos = funcionUrlGlobal("/Servicios/WDocumentos.asmx/DeleteDocumento");//Consulto Proyectos CRM
     var WsDocumentoID = funcionUrlGlobal("/Servicios/WDocumentos.asmx/ListDocumentosID");//Consulto Proyectos CRM
-    
+
+
+
+
 
     var cliente = null;
     var bandera = 0;
@@ -28,13 +37,48 @@ var admTramites = (function () {
     var ActividadN;
     var doc;
     var _addHandlers = function () {
-       
+
         //Boton que muestra la lista de actividades
         $('#BtnAgregar').click(function () {
 
             $('#ModalListActividades').modal('show');
 
         });
+
+
+        //Boton que muestra la lista de actividades
+        $('#BtnGuardarTramite').click(function () {
+
+
+            if ($('#TxtTramite').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                '<br/> no ha digitado nada en el campo tramite');
+                return false;
+            } else if ($('#TxtBanco').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                  '<br/> no ha digitado nada en el campo banco');
+            }
+            else {
+
+                var tramite = {};
+
+                tramite.Nombre = $("#TxtTramite").val();
+                tramite.Banco = $("#TxtBanco").val();
+
+                Tra.InsertTramite(tramite, WsInsertTramite);
+                setTimeout(function () {
+
+                    Tra.ListTramites(WsListramite);
+
+                }, 1000);
+
+                $("#TxtTramite").val('');
+                $("#TxtBanco").val('');
+            }
+
+        });
+
+
 
         //Boton que muestra la lista de actividades
         $('#BtnEditarDocumento').click(function () {
@@ -44,8 +88,7 @@ var admTramites = (function () {
                 '<br/> no ha digitado nada en el campo documento');
                 return false;
             }
-            else
-            {
+            else {
                 var document = {};
                 document.Id = doc;
                 document.Nombre = $("#TxtDocumento").val();
@@ -77,16 +120,16 @@ var admTramites = (function () {
                 }, 1000);
             }
             else {
-                
+
             }
             event.preventDefault();
 
         });
 
-        
-        
+
+
         $(document).on('click', '.EditarDocu', function (event) {
-             doc = $(this).attr("id");
+            doc = $(this).attr("id");
             $('#ModalDocumentosActividades').modal('show');
             $('#BtnCrearDocumento').hide();
             $('#BtnEditarDocumento').show();
@@ -95,9 +138,20 @@ var admTramites = (function () {
                 docu.Documento(doc, WsDocumentoID);
 
             }, 1000);
-           
+
         });
-        
+
+
+
+
+
+        //Boton que muestra la lista de actividades
+        $('#BtnSCliente').click(function () {
+
+            $('#Actividadesxtramite').show();
+            $('#PanelActividades').hide();
+            $('#PanelTramites').show();
+        });
 
         //Boton que muestra la lista de actividades
         $('#BtnAddDocumento').click(function () {
@@ -112,8 +166,11 @@ var admTramites = (function () {
             setTimeout(function () {
                 Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
                 $('#Actividadesxtramite').show();
+                $('#PanelActividades').show();
+                $('#PanelTramites').hide();
+
             }, 1000)
-    
+
         });
 
         $(document).on('click', '.Posicion', function (event) {
@@ -121,25 +178,26 @@ var admTramites = (function () {
             $('#ModalPosicionActividades').modal('show');
             setTimeout(function () {
                 Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
+
                 $('#Actividadesxtramite').show();
             }, 1000)
         });
 
 
         $(document).on('click', '.AgregarActi', function (event) {
-             ActividadN = $(this).attr("id");
-             Acti.InsertActividadxTramite(_ActividadXtramite(), WsInsertActividadXtramite);
+            ActividadN = $(this).attr("id");
+            Acti.InsertActividadxTramite(_ActividadXtramite(), WsInsertActividadXtramite);
 
-             setTimeout(function () {
-                 Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
-                 $('#Actividadesxtramite').show();
-             }, 1000)
+            setTimeout(function () {
+                Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
+                $('#Actividadesxtramite').show();
+            }, 1000)
         });
 
 
         $(document).on('click', '#BtnActualizarActividadXtramite', function (event) {
-            
-        
+
+
             if ($('#TxtPosicion').val() === "") {
                 toastr.error('CRM Mayales - Notificacion' +
                 '</br> El campo posicion se encuentra vacio');
@@ -160,7 +218,7 @@ var admTramites = (function () {
                 $('#TxtPosicion').val('');
             }
         });
-        
+
 
 
         $(document).on('click', '.RemoverActi', function (event) {
@@ -179,12 +237,12 @@ var admTramites = (function () {
             else {
 
             }
-           
+
 
         });
 
         $(document).on('click', '.EditarActi', function (event) {
-             ActividadN = $(this).attr("id");
+            ActividadN = $(this).attr("id");
 
             document.getElementById('titulo').innerHTML = "";
             $('#titulo').append("Editar actividad");
@@ -192,7 +250,7 @@ var admTramites = (function () {
             $('#BtnCActividad').hide();
             $('#BtnEditarActividad').show();
             $('#PanelDocumentos').show();
-          
+
 
             setTimeout(function () {
                 Acti.ListActividadesID(ActividadN, WsLisActividadesID);
@@ -201,9 +259,9 @@ var admTramites = (function () {
             }, 1000);
 
         });
-        
-        
-        
+
+
+
         //Boton para mostrar el modal crear actividad
         $('#BtnCrearDocumento').click(function () {
 
@@ -213,8 +271,7 @@ var admTramites = (function () {
                 '<br/> no ha digitado nada en el campo documento');
                 return false;
             }
-             else
-            {
+            else {
                 var Documento = {};
                 Documento.Id_Actividad = ActividadN;
                 Documento.Nombre = $("#TxtDocumento").val();
@@ -227,28 +284,28 @@ var admTramites = (function () {
                     $('#ModalDocumentosActividades').modal('hide');
                 }, 1000);
             }
-            
+
         });
 
 
-     
+
 
 
         //Boton para mostrar el modal crear actividad
         $('#BtnModalCrearActividad').click(function () {
-            
+
             document.getElementById('titulo').innerHTML = "";
             $('#titulo').append("Crear actividad");
             $('#BtnCActividad').show();
             $('#BtnEditarActividad').hide();
             $('#ModalCrearActividades').modal('show');
             $('#PanelDocumentos').hide();
-            
+
             _Limpiar();
         });
-    
 
-        
+
+
         //Boton para crear actividad
         $('#BtnCActividad').click(function () {
 
@@ -265,7 +322,7 @@ var admTramites = (function () {
                 }, 1000)
 
 
-            } 
+            }
         });
 
         //Boton para mostrar el modal crear actividad
@@ -291,10 +348,10 @@ var admTramites = (function () {
 
 
         });
-        
-       
+
+
     }
- 
+
     var _Validar = function () {
 
         //Validacion de las cajas de texto
@@ -320,8 +377,8 @@ var admTramites = (function () {
             return false;
         }
 
-         return true;
-        
+        return true;
+
 
     }
     var _Limpiar = function () {
@@ -339,8 +396,8 @@ var admTramites = (function () {
         var ActividadxTramite = {};
         ActividadxTramite.Id_tramite = tramite;
         ActividadxTramite.Id_Actividad = ActividadN;
-        
-        
+
+
         return ActividadxTramite;
     }
 
@@ -368,7 +425,7 @@ var admTramites = (function () {
         $('#Actividadesxtramite').hide();
         Acti.ListActividades(WsLisActividades);
         Tra.ListTramites(WsListramite);
-      
+
     }
     //Retorna la funcion inicial
     return {
@@ -380,6 +437,6 @@ var admTramites = (function () {
 }());
 
 $(document).ready(function () {
-   //Inicial del tramite
+    //Inicial del tramite
     admTramites.init();
 });
