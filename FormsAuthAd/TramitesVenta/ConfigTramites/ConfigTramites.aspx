@@ -34,18 +34,79 @@
                 </div>
 
                 <div class="col-lg-5 scroll " id="Actividadesxtramite" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+
+
+                     <div class="panel panel-success">
+                        <div class="panel-body">
+                     <!---Panel de las tareas generadas por cada pago--->
+                           <div class="hpanel" id="PanelTramites">
+                               <div class="panel-heading hbuilt">
+                                    <div class="panel-tools">
+                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                                         <a class="Pcreartarea"><i class="fa fa-times"></i></a>
+                                    </div>Crear tramite
+                               </div>
+                                  
+
+                                <div class="Border no-padding">
+                                    <div class="tab-content">
+                                        <div  class="p-m tab-pane active">
+
+                                            <div class="row">
+                                                <div class="col-lg-3 text-center">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="form-group col-lg-6">
+                                                            <label>Nombre</label>
+                                                            <input type="text" value="" id="TxtTramite" class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-lg-6">
+                                                            <label>Banco</label>
+                                                            <textarea id="TxtBanco" class="form-control" rows="2" cols="3" maxlength="100"></textarea>
+                                                        </div>
+                                                        
+                                       <div class="form-group col-lg-12">            
+                        <button type="button" class="btn btn-success" id="BtnGuardarTramite">Guardar</button>
+                     </div>
+                         
+                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                              </div>
+
                     <div class="pull-right">
                               
-                                
-                                  <button class="btn btn-danger btn-btn-circle" type="button" id="BtnAgregar">Agregar</button>
+               
                                
                             </div>
-                    <div class="panel panel-success">
-                        <div class="panel-body" id="datos">
 
-                          
-                       </div>
-                 </div>
+                    <div class="hpanel" id="PanelActividades">
+                               <div class="panel-heading hbuilt">
+                                    <div class="panel-tools">
+                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                                         <a class="Pcreartarea" id="BtnAgregar"><i class="fa fa-book"></i></a>
+                                    </div>Actividades
+                               </div>
+                                  
+
+                                <div class="Border no-padding">
+                                    <div class="tab-content">
+                                        <div id="datos" class="p-m tab-pane active">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                         </div>
+                   
               </div>
            
         </div>
