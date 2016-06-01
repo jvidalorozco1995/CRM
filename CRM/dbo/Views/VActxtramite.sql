@@ -1,8 +1,10 @@
 ﻿CREATE VIEW dbo.VActxtramite
 AS
-SELECT        dbo.ActividadxTramite.Id, dbo.ActividadxTramite.Id_tramite, dbo.ActividadxTramite.Id_Actividad, dbo.ActividadxTramite.Posicion, dbo.Actividades.Nombre, dbo.Actividades.Descripcion
+SELECT        TOP (100) PERCENT dbo.ActividadxTramite.Id, dbo.ActividadxTramite.Id_tramite, dbo.ActividadxTramite.Posicion, dbo.Actividades.id AS Id_Actividad, dbo.Actividades.Nombre, dbo.Actividades.Usuario, 
+                         dbo.Actividades.Descripcion, dbo.Actividades.Simultaneo, dbo.Actividades.Actividad_Dependiente
 FROM            dbo.ActividadxTramite INNER JOIN
-                         dbo.Actividades ON dbo.ActividadxTramite.Id = dbo.Actividades.id
+                         dbo.Actividades ON dbo.ActividadxTramite.Id_Actividad = dbo.Actividades.id
+ORDER BY dbo.ActividadxTramite.Posicion
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VActxtramite';
 
@@ -13,7 +15,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+         Configuration = "(H (1[41] 4[20] 2[14] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -93,7 +95,7 @@ Begin DesignProperties =
             Begin Extent = 
                Top = 6
                Left = 246
-               Bottom = 136
+               Bottom = 246
                Right = 457
             End
             DisplayFlags = 280
@@ -139,4 +141,6 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VActxtramite';
+
+
 

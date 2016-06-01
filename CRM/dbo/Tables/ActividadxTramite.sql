@@ -10,3 +10,26 @@
 
 
 
+
+
+
+GO
+CREATE TRIGGER [dbo].[triggerAcxTramiteInsert] ON [dbo].[ActividadxTramite]
+
+
+AFTER INSERT
+	AS
+
+	(SELECT Posicion  FROM INSERTED)
+
+
+
+   
+  BEGIN
+    UPDATE  ActividadxTramite set posicion = (SELECT Posicion  FROM INSERTED) + 1
+   where Id = (select MIN(Id) from ActividadxTramite where Posicion = (SELECT Posicion  FROM INSERTED))
+	END
+GO
+DISABLE TRIGGER [dbo].[triggerAcxTramiteInsert]
+    ON [dbo].[ActividadxTramite];
+
