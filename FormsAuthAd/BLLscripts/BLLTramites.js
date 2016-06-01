@@ -1,33 +1,5 @@
 ﻿function BLLTramites() {
 
-
-
-    //Retorna una lista de tramites
-    BLLTramites.prototype.InsertTramite = function (tramite,Wsurl) {
-        jsonData = "{'b':" + JSON.stringify(tramite) + "}";
-        $.ajax({
-            type: "POST",
-            data: jsonData,
-            url: Wsurl,
-            contentType: "application/json; charset=utf-8",
-            dataType: 'json',
-            async: true,
-            success: function (result) {
-                if (result.d == 1) {
-
-                    toastr.success(' CRM - Mayales notificacion' +
-                      '</br></br>Se agrego este tramite de manera exitosa en el sistema');
-                }
-                else {
-                    toastr.success(' CRM - Mayales notificacion' +
-                      '</br></br>No se pudo agregar en el sistema');
-                }
-
-            },
-            error: function (obj, error, objError) { alert(objError.responseText); }
-        });
-    }
-
     //Retorna una lista de tramites
     BLLTramites.prototype.ListTramites = function (Wsurl) {
 

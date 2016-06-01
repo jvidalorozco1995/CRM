@@ -3,12 +3,6 @@ var Acti = new BLLActividades();
 var docu = new BLLDocumentosTramite();
 var admTramites = (function () {
 
-
-   // InsertTramite
-
-    var WsInsertTramite = funcionUrlGlobal("/Servicios/WTramites.asmx/InsertTramites");//Consulto Proyectos CRM
-
-
     var WsListramite = funcionUrlGlobal("/Servicios/WTramites.asmx/ListTramites");//Consulto Proyectos CRM
     var WsLisActividadesxTramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/ListActividadesTramites");//Consulto Proyectos CRM
     var WsLisActividades = funcionUrlGlobal("/Servicios/WActividades.asmx/ListActividades");//Consulto Proyectos CRM
@@ -27,9 +21,6 @@ var admTramites = (function () {
     var WsDocumentoID = funcionUrlGlobal("/Servicios/WDocumentos.asmx/ListDocumentosID");//Consulto Proyectos CRM
     
 
-
-
-
     var cliente = null;
     var bandera = 0;
     var codigoEmp;
@@ -44,41 +35,6 @@ var admTramites = (function () {
             $('#ModalListActividades').modal('show');
 
         });
-
-
-        //Boton que muestra la lista de actividades
-        $('#BtnGuardarTramite').click(function () {
-
-
-            if ($('#TxtTramite').val().length < 1) {
-                toastr.error('CRM Mayales - Notificacion' +
-                '<br/> no ha digitado nada en el campo tramite');
-                return false;
-            } else if ($('#TxtBanco').val().length < 1) {
-                toastr.error('CRM Mayales - Notificacion' +
-                  '<br/> no ha digitado nada en el campo banco');
-            }
-            else {
-
-                var tramite = {};
-         
-                tramite.Nombre = $("#TxtTramite").val();
-                tramite.Banco = $("#TxtBanco").val();
-
-                Tra.InsertTramite(tramite, WsInsertTramite);
-                setTimeout(function () {
-
-                    Tra.ListTramites(WsListramite);
-
-                }, 1000);
-
-                $("#TxtTramite").val('');
-                $("#TxtBanco").val('');
-            }
-
-        });
-
-        
 
         //Boton que muestra la lista de actividades
         $('#BtnEditarDocumento').click(function () {
@@ -143,17 +99,6 @@ var admTramites = (function () {
         });
         
 
-        
-
-
-        //Boton que muestra la lista de actividades
-        $('#BtnSCliente').click(function () {
-
-            $('#Actividadesxtramite').show();
-            $('#PanelActividades').hide();
-            $('#PanelTramites').show();
-        });
-
         //Boton que muestra la lista de actividades
         $('#BtnAddDocumento').click(function () {
 
@@ -167,9 +112,6 @@ var admTramites = (function () {
             setTimeout(function () {
                 Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
                 $('#Actividadesxtramite').show();
-                $('#PanelActividades').show();
-                $('#PanelTramites').hide();
-                
             }, 1000)
     
         });
@@ -179,7 +121,6 @@ var admTramites = (function () {
             $('#ModalPosicionActividades').modal('show');
             setTimeout(function () {
                 Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
-
                 $('#Actividadesxtramite').show();
             }, 1000)
         });

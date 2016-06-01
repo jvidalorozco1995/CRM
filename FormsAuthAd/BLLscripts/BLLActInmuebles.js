@@ -8,9 +8,7 @@ var utl = new BLLUtilidades();
 BLLActInmuebles.prototype.InsertActInmueble = function (proyecto,wsUrl) {
     jsonData = "{'p':" + JSON.stringify(proyecto) + "}";
     $.ajax({
-        type: "POST",
-        url: wsUrl,
-        data: jsonData,
+        type: "POST", url: wsUrl, data: jsonData,
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
         async: true,
