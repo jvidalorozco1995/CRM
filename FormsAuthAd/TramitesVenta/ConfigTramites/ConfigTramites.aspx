@@ -88,10 +88,9 @@
 
                     <div class="hpanel" id="PanelActividades">
                                <div class="panel-heading hbuilt">
-                                    <div class="panel-tools">
-                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
-                                         <a class="Pcreartarea" id="BtnAgregar"><i class="fa fa-book"></i></a>
-                                    </div>Actividades
+                                    
+                                        <a class="Pcreartarea" id="BtnAgregar"><i class=" fa fa-plus-circle fa-7x btn-sm btn-success pull-right"></i></a>
+                                 <h5> Actividades</h5>
                                </div>
                                   
 
@@ -202,7 +201,7 @@
                                                             <textarea id="TxtDescripcion" class="form-control" rows="2" cols="3" maxlength="100"></textarea>
                                                         </div>
                                                           <div class="form-group col-lg-6">
-                                                            <label>Duración</label>
+                                                            <label>Duración (Días)</label>
                                                             <input type="number" min="1" value="" id="TxtDuracion" class="form-control">
                                                         </div>
                                                         <div class="form-group col-lg-6">
