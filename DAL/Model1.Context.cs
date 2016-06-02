@@ -12,12 +12,34 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using System.Data.EntityClient;
+    using System.Data.SqlClient;
+
     public partial class CRMEntiti : DbContext
     {
+
         public CRMEntiti()
-            : base("name=CRMEntiti")
+            : base(ConnectionString())
         {
+
+        }
+        public static string ConnectionString() {
+          
+            SqlConnectionStringBuilder sqlStringBuilder = new SqlConnectionStringBuilder();
+
+            sqlStringBuilder.DataSource = "servidor2sp";
+            sqlStringBuilder.InitialCatalog = "CRM_PRUEBA";
+            sqlStringBuilder.Password = "Qwer1234";
+            sqlStringBuilder.UserID = "sa";
+        
+
+            EntityConnectionStringBuilder entityStringBuilder = new EntityConnectionStringBuilder();
+            entityStringBuilder.ProviderConnectionString = sqlStringBuilder.ConnectionString;
+            entityStringBuilder.Provider = "System.Data.SqlClient";
+            entityStringBuilder.Metadata = "res://*/";
+
+         
+            return entityStringBuilder.ConnectionString;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

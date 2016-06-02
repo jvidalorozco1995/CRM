@@ -11,7 +11,7 @@ namespace BLLCRM
 {
   public  class BLLActividades
     {
-             CRMEntiti bd = new CRMEntiti();
+         CRMEntiti bd = new CRMEntiti();
         string mensaje = null;
         /// <summary>
         /// Meotod para registrar los bancos en base de datos
