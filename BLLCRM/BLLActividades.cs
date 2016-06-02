@@ -51,6 +51,7 @@ namespace BLLCRM
                     ctx.Nombre = item.Nombre;
                     ctx.Usuario = item.Usuario;
                     ctx.Descripcion = item.Descripcion;
+                    ctx.Duracion = item.Duracion;
                     ctx.Simultaneo = item.Simultaneo;
                     ctx.Actividad_Dependiente = item.Actividad_Dependiente;
                     bd.SaveChanges();
@@ -77,7 +78,7 @@ namespace BLLCRM
                     var ctx = bd.Actividades.First(inm => inm.id == i.id);
 
                     ctx.Nombre = i.Nombre;
-                 
+                    ctx.Duracion = i.Duracion;
                     ctx.Descripcion = i.Descripcion;
                     ctx.Simultaneo = i.Simultaneo;
                     ctx.Actividad_Dependiente = i.Actividad_Dependiente;
@@ -117,6 +118,7 @@ namespace BLLCRM
                             Actividades entb = new Actividades();
                             entb.id = item.id;
                             entb.Nombre = item.Nombre;
+                            entb.Duracion = item.Duracion;
                             entb.Usuario = item.Usuario;
                             entb.Descripcion = item.Descripcion;
                             entb.Simultaneo = item.Simultaneo;
@@ -160,6 +162,7 @@ namespace BLLCRM
                         Actividades entb = new Actividades();
                         entb.id = item.id;
                         entb.Nombre = item.Nombre;
+                        entb.Duracion = item.Duracion;
                         entb.Usuario = item.Usuario;
                         entb.Descripcion = item.Descripcion;
                         entb.Simultaneo = item.Simultaneo;

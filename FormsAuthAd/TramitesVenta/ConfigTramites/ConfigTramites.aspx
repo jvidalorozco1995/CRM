@@ -201,6 +201,10 @@
                                                             <label>Descripción</label>
                                                             <textarea id="TxtDescripcion" class="form-control" rows="2" cols="3" maxlength="100"></textarea>
                                                         </div>
+                                                          <div class="form-group col-lg-6">
+                                                            <label>Duración</label>
+                                                            <input type="number" min="1" value="" id="TxtDuracion" class="form-control">
+                                                        </div>
                                                         <div class="form-group col-lg-6">
                                           
                                                             <label>Simultaneo</label>
@@ -213,10 +217,10 @@
                                                         </div>
                                                         <div class="form-group col-lg-12">
                                                             <label>Actividad dependiente</label>
-                                                           <select id="Text9" class="form-control" >
-                                                             </select>
+                                                             <select id="Text9" class="form-control" >
+                                                              </select>
                                                         </div>
-
+                                                       
                                                     </div>
                                                 </div>
                                             </div>

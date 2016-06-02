@@ -201,6 +201,12 @@ var admTramites = (function () {
             if ($('#TxtPosicion').val() === "") {
                 toastr.error('CRM Mayales - Notificacion' +
                 '</br> El campo posicion se encuentra vacio');
+            } else if ($('#TxtPosicion').val() < 1) {
+
+                toastr.error('CRM Mayales - Notificacion' +
+                '</br> la poscision es negativa');
+            
+            
             } else {
                 var ActividadxTramite = {};
 
@@ -377,6 +383,12 @@ var admTramites = (function () {
             return false;
         }
 
+        else if ($('#TxtDuracion').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+           '<br/> no ha digitado nada en el campo duracion');
+            return false;
+        }
+
         return true;
 
 
@@ -409,6 +421,8 @@ var admTramites = (function () {
         actividad.Descripcion = $('#TxtDescripcion').val();
         actividad.Simultaneo = $('input:radio[name=sex]:checked').val();
         actividad.Actividad_Dependiente = $('#Text9').val();
+        actividad.Duracion = $('#TxtDuracion').val();
+
         return actividad;
     }
     //Crea actividad DTO
@@ -418,6 +432,8 @@ var admTramites = (function () {
         actividad.Descripcion = $('#TxtDescripcion').val();
         actividad.Simultaneo = $('input:radio[name=sex]:checked').val();
         actividad.Actividad_Dependiente = $('#Text9').val();
+        actividad.Duracion = $('#TxtDuracion').val();
+        
         return actividad;
     }
     var _Inicio = function () {

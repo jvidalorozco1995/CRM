@@ -21,6 +21,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="100" />
           <Property Name="Usuario" Type="varchar" MaxLength="200" />
+          <Property Name="Duracion" Type="int" />
           <Property Name="Descripcion" Type="varchar" MaxLength="250" />
           <Property Name="Simultaneo" Type="int" />
           <Property Name="Actividad_Dependiente" Type="varchar" MaxLength="50" />
@@ -479,6 +480,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VActxtramite' does not have a prima
         <EntityType Name="VActxtramite">
           <Key>
             <PropertyRef Name="Id" />
+            
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Id_tramite" Type="int" />
@@ -1748,6 +1750,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Simultaneo" Type="Int32" />
           <Property Name="Actividad_Dependiente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Duracion" Type="Int32" />
         </EntityType>
         <EntityType Name="ActividadxTramite">
           <Key>
@@ -3074,6 +3077,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySetMapping Name="Actividades">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.Actividades">
               <MappingFragment StoreEntitySet="Actividades">
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
