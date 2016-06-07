@@ -328,6 +328,18 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="SALDOPORPAGARDELACUOTAINICIAL" Type="text" />
           <Property Name="CODIGOINMUEBLE" Type="varchar" MaxLength="15" />
         </EntityType>
+        <EntityType Name="Notificaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Estado" Type="int" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Enviado" Type="int" />
+          <Property Name="TipoFecha" Type="int" />
+        </EntityType>
         <EntityType Name="pagos_fox">
           <Key>
             <PropertyRef Name="ID" />
@@ -414,6 +426,15 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
           <Property Name="Banco" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tramites_Inmueble">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Porcentaje" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Id_Inmueble" Type="int" />
+          <Property Name="Id_Tramite" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.NegocioView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1216,6 +1237,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTracliente' does not have a primar
           <EntitySet Name="inmuebles" EntityType="Self.inmuebles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="negocio" EntityType="Self.negocio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="negocio_fox" EntityType="Self.negocio_fox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notificaciones" EntityType="Self.Notificaciones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="pagos_fox" EntityType="Self.pagos_fox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="planos_Proyectos" EntityType="Self.planos_Proyectos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="proyectos" EntityType="Self.proyectos" Schema="dbo" store:Type="Tables" />
@@ -1224,6 +1246,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTracliente' does not have a primar
           <EntitySet Name="tareas" EntityType="Self.tareas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="trabajadores" EntityType="Self.trabajadores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tramites" EntityType="Self.Tramites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tramites_Inmueble" EntityType="Self.Tramites_Inmueble" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="historial_acuerdos_pagos" EntityType="Self.historial_acuerdos_pagos" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [historial_acuerdos_pagos].[ID_HISTORIAL] AS [ID_HISTORIAL], 
@@ -3043,6 +3066,8 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
           <EntitySet Name="VActxtramite" EntityType="CRM_PRUEBAModel.VActxtramite" />
+          <EntitySet Name="Notificaciones" EntityType="CRM_PRUEBAModel.Notificaciones" />
+          <EntitySet Name="Tramites_Inmueble" EntityType="CRM_PRUEBAModel.Tramites_Inmueble" />
         </EntityContainer>
         <EntityType Name="VActxtramite">
           <Key>
@@ -3057,6 +3082,27 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Simultaneo" Type="Int32" />
           <Property Name="Actividad_Dependiente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Notificaciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Estado" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Enviado" Type="Int32" />
+          <Property Name="TipoFecha" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Tramites_Inmueble">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Porcentaje" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Id_Inmueble" Type="Int32" />
+          <Property Name="Id_Tramite" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3949,6 +3995,29 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="Posicion" ColumnName="Posicion" />
                 <ScalarProperty Name="Id_tramite" ColumnName="Id_tramite" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notificaciones">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Notificaciones">
+              <MappingFragment StoreEntitySet="Notificaciones">
+                <ScalarProperty Name="TipoFecha" ColumnName="TipoFecha" />
+                <ScalarProperty Name="Enviado" ColumnName="Enviado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tramites_Inmueble">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Tramites_Inmueble">
+              <MappingFragment StoreEntitySet="Tramites_Inmueble">
+                <ScalarProperty Name="Id_Tramite" ColumnName="Id_Tramite" />
+                <ScalarProperty Name="Id_Inmueble" ColumnName="Id_Inmueble" />
+                <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -12,16 +12,14 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Vspt
+    public partial class Notificaciones
     {
-        public string NOMBRE_PROYEC { get; set; }
-        public string T_CEDULA { get; set; }
-        public string ID_PROYEC { get; set; }
-        public int ID_PY { get; set; }
-        public string NOMBRES { get; set; }
-        public string TRABAJADOR { get; set; }
-
-        public int CONTADOR { get; set; }
-        public string ESTADO { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> Estado { get; set; }
+        public Nullable<System.DateTime> Fecha { get; set; }
+        public string Usuario { get; set; }
+        public string Descripcion { get; set; }
+        public Nullable<int> Enviado { get; set; }
+        public Nullable<int> TipoFecha { get; set; }
     }
 }

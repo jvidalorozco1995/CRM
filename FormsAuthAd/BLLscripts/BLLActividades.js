@@ -193,22 +193,24 @@
 
     BLLActividades.prototype.UpdateActividadxTramite = function (actividad, WsUrl) {
 
-        alert(JSON.stringify(actividad));
+       // alert(JSON.stringify(actividad));
         jsonData = "{ 'b':" + JSON.stringify(actividad) + "}";
     
         $.ajax({
+
             type: "POST", url: WsUrl,
             data: jsonData,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             async: true,
             success: function (result) {
-                if (result.d == 1) {
+                if (result.d == 1)
+                {
                     toastr.success(' CRM - Mayales notificacion' +
                      '</br></br>Se actualizo esta actividad de manera exitosa en el sistema');
 
-
-                } else {
+                } else
+                {
                     toastr.error(' CRM - Notificacion' +
                         '</br>No se pudo actualizar esta actividad');
                 }
@@ -220,19 +222,20 @@
 
     BLLActividades.prototype.ListActividades = function (Wsurl) {
 
-     
         $.ajax({
             type: "POST", url: Wsurl,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             async: true,
             success: function (result) {
-                if (result.d == null) {
+                if (result.d == null)
+                {
 
                     BLLActividades.prototype.TablaActividades(result.d);
                     BLLActividades.Actividades(result.d);
                 }
-                else {
+                else
+                {
                     BLLActividades.prototype.TablaActividades(result.d);
                     BLLActividades.Actividades(result.d);
                 }
@@ -246,6 +249,7 @@
     BLLActividades.prototype.ListActividadesxTramite = function (tramite, Wsurl) {
 
         jsonData = "{ 'tramite':" + JSON.stringify(tramite) + "}";
+
         $.ajax({
             type: "POST", url: Wsurl,
             data: jsonData,
@@ -253,11 +257,13 @@
             dataType: 'json',
             async: true,
             success: function (result) {
-                if (result.d == null) {
+                if (result.d == null)
+                {
 
                     BLLActividades.prototype.TablaActividadesxTramite(result.d);
                 }
-                else {
+                else
+                {
                     BLLActividades.prototype.TablaActividadesxTramite(result.d);
                 }
 
@@ -329,7 +335,6 @@
             tabla += '</div>';
         });
         $("#datos").append(tabla);
-       
      
     };
 

@@ -12,34 +12,12 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.EntityClient;
-    using System.Data.SqlClient;
-
+    
     public partial class CRMEntiti : DbContext
     {
-
         public CRMEntiti()
-            : base(ConnectionString())
+            : base("name=CRMEntiti")
         {
-
-        }
-        public static string ConnectionString() {
-          
-            SqlConnectionStringBuilder sqlStringBuilder = new SqlConnectionStringBuilder();
-
-            sqlStringBuilder.DataSource = "servidor2sp";
-            sqlStringBuilder.InitialCatalog = "CRM_PRUEBA";
-            sqlStringBuilder.Password = "Qwer1234";
-            sqlStringBuilder.UserID = "sa";
-        
-
-            EntityConnectionStringBuilder entityStringBuilder = new EntityConnectionStringBuilder();
-            entityStringBuilder.ProviderConnectionString = sqlStringBuilder.ConnectionString;
-            entityStringBuilder.Provider = "System.Data.SqlClient";
-            entityStringBuilder.Metadata = "res://*/";
-
-         
-            return entityStringBuilder.ConnectionString;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -101,5 +79,7 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VActxtramite> VActxtramite { get; set; }
+        public DbSet<Notificaciones> Notificaciones { get; set; }
+        public DbSet<Tramites_Inmueble> Tramites_Inmueble { get; set; }
     }
 }
