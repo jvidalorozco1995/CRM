@@ -12,13 +12,15 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class bloques
+    public partial class Actividades_Inmueble
     {
-        public string ID_BLOQUE { get; set; }
-        public string BLOQUE_OBRA { get; set; }
-        public string BLOQUE_CODI { get; set; }
-        public string NOMBRE_BLO { get; set; }
-    
-        public virtual proyectos proyectos { get; set; }
+        public int id { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public string Duracion { get; set; }
+        public string Simultaneo { get; set; }
+        public Nullable<System.DateTime> FechaInicio { get; set; }
+        public Nullable<System.DateTime> FechaFin { get; set; }
+        public Nullable<int> Posicion { get; set; }
     }
 }

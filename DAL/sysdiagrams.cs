@@ -12,13 +12,12 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class bloques
+    public partial class sysdiagrams
     {
-        public string ID_BLOQUE { get; set; }
-        public string BLOQUE_OBRA { get; set; }
-        public string BLOQUE_CODI { get; set; }
-        public string NOMBRE_BLO { get; set; }
-    
-        public virtual proyectos proyectos { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

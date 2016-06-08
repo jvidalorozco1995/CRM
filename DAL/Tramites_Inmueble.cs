@@ -15,8 +15,10 @@ namespace DAL
     public partial class Tramites_Inmueble
     {
         public int id { get; set; }
-        public Nullable<decimal> Porcentaje { get; set; }
+        public Nullable<int> id_Tramite { get; set; }
         public Nullable<int> Id_Inmueble { get; set; }
-        public Nullable<int> Id_Tramite { get; set; }
+        public Nullable<decimal> Porcentaje { get; set; }
+    
+        public virtual Tramites Tramites { get; set; }
     }
 }

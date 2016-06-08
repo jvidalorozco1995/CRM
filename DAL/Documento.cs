@@ -17,5 +17,7 @@ namespace DAL
         public int Id { get; set; }
         public Nullable<int> Id_Actividad { get; set; }
         public string Nombre { get; set; }
+    
+        public virtual Actividades Actividades { get; set; }
     }
 }

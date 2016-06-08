@@ -14,12 +14,23 @@ namespace DAL
     
     public partial class Actividades
     {
+        public Actividades()
+        {
+            this.ActividadxTramite = new HashSet<ActividadxTramite>();
+            this.Documento = new HashSet<Documento>();
+            this.Notificaciones = new HashSet<Notificaciones>();
+        }
+    
         public int id { get; set; }
         public string Nombre { get; set; }
         public string Usuario { get; set; }
+        public Nullable<int> Duracion { get; set; }
         public string Descripcion { get; set; }
         public Nullable<int> Simultaneo { get; set; }
         public string Actividad_Dependiente { get; set; }
-        public Nullable<int> Duracion { get; set; }
+    
+        public virtual ICollection<ActividadxTramite> ActividadxTramite { get; set; }
+        public virtual ICollection<Documento> Documento { get; set; }
+        public virtual ICollection<Notificaciones> Notificaciones { get; set; }
     }
 }

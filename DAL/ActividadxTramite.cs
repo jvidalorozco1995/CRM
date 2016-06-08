@@ -18,5 +18,8 @@ namespace DAL
         public Nullable<int> Id_tramite { get; set; }
         public Nullable<int> Id_Actividad { get; set; }
         public Nullable<int> Posicion { get; set; }
+    
+        public virtual Actividades Actividades { get; set; }
+        public virtual Tramites Tramites { get; set; }
     }
 }

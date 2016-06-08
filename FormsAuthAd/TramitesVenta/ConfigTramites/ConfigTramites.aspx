@@ -66,12 +66,11 @@
                                                             <textarea id="TxtBanco" class="form-control" rows="2" cols="3" maxlength="100"></textarea>
                                                         </div>
                                                         
-                                       <div class="form-group col-lg-12">            
-                        <button type="button" class="btn btn-success" id="BtnGuardarTramite">Guardar</button>
-                     </div>
+                                                   <div class="form-group col-lg-12">            
+                                                       <button type="button" class="btn btn-success" id="BtnGuardarTramite">Guardar</button>
+                                                   </div>
                          
-                    </div>
-                                                    
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

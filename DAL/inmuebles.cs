@@ -30,7 +30,6 @@ namespace DAL
         public Nullable<decimal> VAL_INMUEBLE { get; set; }
         public string INMUESTADO { get; set; }
     
-        public virtual bloques bloques { get; set; }
         public virtual ICollection<inmueble_separacion> inmueble_separacion { get; set; }
     }
 }

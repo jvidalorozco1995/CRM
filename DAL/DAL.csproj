@@ -57,6 +57,9 @@
     <Compile Include="Actividades.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Actividades_Inmueble.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ActividadxTramite.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -92,6 +95,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="documentos_negocio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Documento_ActInmueble.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="empresas.cs">
@@ -156,6 +162,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="sala_ventas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="tareas.cs">

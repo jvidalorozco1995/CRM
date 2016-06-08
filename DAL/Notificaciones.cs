@@ -15,11 +15,14 @@ namespace DAL
     public partial class Notificaciones
     {
         public int Id { get; set; }
+        public Nullable<int> Id_Actividad { get; set; }
         public Nullable<int> Estado { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
         public string Usuario { get; set; }
         public string Descripcion { get; set; }
         public Nullable<int> Enviado { get; set; }
         public Nullable<int> TipoFecha { get; set; }
+    
+        public virtual Actividades Actividades { get; set; }
     }
 }

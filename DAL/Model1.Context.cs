@@ -27,6 +27,7 @@ namespace DAL
     
         public DbSet<ActInmuebles> ActInmuebles { get; set; }
         public DbSet<Actividades> Actividades { get; set; }
+        public DbSet<Actividades_Inmueble> Actividades_Inmueble { get; set; }
         public DbSet<ActividadxTramite> ActividadxTramite { get; set; }
         public DbSet<acuerdo_fox> acuerdo_fox { get; set; }
         public DbSet<acuerdo_pago> acuerdo_pago { get; set; }
@@ -38,6 +39,7 @@ namespace DAL
         public DbSet<configuracion> configuracion { get; set; }
         public DbSet<Configuracion_negocio> Configuracion_negocio { get; set; }
         public DbSet<Documento> Documento { get; set; }
+        public DbSet<Documento_ActInmueble> Documento_ActInmueble { get; set; }
         public DbSet<documentos_negocio> documentos_negocio { get; set; }
         public DbSet<empresas> empresas { get; set; }
         public DbSet<historial_clientes> historial_clientes { get; set; }
@@ -47,17 +49,21 @@ namespace DAL
         public DbSet<inmuebles> inmuebles { get; set; }
         public DbSet<negocio> negocio { get; set; }
         public DbSet<negocio_fox> negocio_fox { get; set; }
+        public DbSet<Notificaciones> Notificaciones { get; set; }
         public DbSet<pagos_fox> pagos_fox { get; set; }
         public DbSet<planos_Proyectos> planos_Proyectos { get; set; }
         public DbSet<proyectos> proyectos { get; set; }
         public DbSet<proyectos_trabajador> proyectos_trabajador { get; set; }
         public DbSet<sala_ventas> sala_ventas { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<tareas> tareas { get; set; }
         public DbSet<trabajadores> trabajadores { get; set; }
         public DbSet<Tramites> Tramites { get; set; }
+        public DbSet<Tramites_Inmueble> Tramites_Inmueble { get; set; }
         public DbSet<historial_acuerdos_pagos> historial_acuerdos_pagos { get; set; }
         public DbSet<NegocioView> NegocioView { get; set; }
         public DbSet<VActInmuebles> VActInmuebles { get; set; }
+        public DbSet<VActxtramite> VActxtramite { get; set; }
         public DbSet<VacuerdosFox> VacuerdosFox { get; set; }
         public DbSet<VAsesoresT> VAsesoresT { get; set; }
         public DbSet<VCantidadcompromisos> VCantidadcompromisos { get; set; }
@@ -78,8 +84,5 @@ namespace DAL
         public DbSet<VTareasCompromiso> VTareasCompromiso { get; set; }
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
-        public DbSet<VActxtramite> VActxtramite { get; set; }
-        public DbSet<Notificaciones> Notificaciones { get; set; }
-        public DbSet<Tramites_Inmueble> Tramites_Inmueble { get; set; }
     }
 }
