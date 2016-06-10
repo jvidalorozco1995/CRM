@@ -172,10 +172,10 @@ var _admnegocio = (function () {
                 fecha = año + "/" + mes + "/" + dia;
                 if (i === 0) {
                     nomc = "Separación";
-                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': parseFloat(separacion) });
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(separacion)) });
                 } else {
                     nomc = "Cuota No." + i;
-                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(amorizar.toFixed(0)) });
                 }
 
 
@@ -186,7 +186,7 @@ var _admnegocio = (function () {
             if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
             fecha = año + "/" + mes + "/" + dia;
             fechaf = año + "-" + mes + "-" + dia;
-            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(cred)) });
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
             tabla(dataSet);
@@ -231,10 +231,10 @@ var _admnegocio = (function () {
                 fecha = año + "/" + mes + "/" + dia;
                 if (i === 0) {
                     nomc = "Separación";
-                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(separacion) });
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(separacion)) });
                 } else {
                     nomc = "Cuota No." + i;
-                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(amorizar.toFixed(0)) });
                 }
                
                
@@ -245,7 +245,7 @@ var _admnegocio = (function () {
             if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
             fecha = año + "/" + mes + "/" + dia;
             fechaf = año + "-" + mes + "-" + dia;
-            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(cred)) });
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
             tabla(dataSet);
@@ -284,16 +284,17 @@ var _admnegocio = (function () {
             $("#valcredito").val(credito);
             var nomc;
             amorizar = parseFloat(credito) / cuotas;
+           
             for (var i = 0; i <= cuotas; i++) {
                 if (mes < 10) { mes = '0' + mes };
                 if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
                 fecha = año + "/" + mes + "/" + dia;
                 if (i === 0) {
                     nomc = "Separación";
-                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': parseFloat(separacion) });
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(separacion)) });
                 } else {
                     nomc = "Cuota No." + i;
-                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(amorizar.toFixed(0)) });
                 }
 
 
@@ -304,7 +305,7 @@ var _admnegocio = (function () {
             if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
             fecha = año + "/" + mes + "/" + dia;
             fechaf = año + "-" + mes + "-" + dia;
-            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred)});
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(cred))});
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
             tabla(dataSet);
@@ -349,10 +350,10 @@ var _admnegocio = (function () {
                 fecha = año + "/" + mes + "/" + dia;
                 if (i === 0) {
                     nomc = "Separación";
-                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': parseFloat(separacion) });
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(separacion)) });
                 } else {
                     nomc = "Cuota No." + i;
-                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
+                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(amorizar.toFixed(0)) });
                 }
 
 
@@ -363,7 +364,7 @@ var _admnegocio = (function () {
             if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
             fecha = año + "/" + mes + "/" + dia;
             fechaf = año + "-" + mes + "-" + dia;
-            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(parseFloat(cred)) });
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
             tabla(dataSet);
@@ -425,7 +426,7 @@ var _admnegocio = (function () {
             var mes = fecha.getMonth() + 1;
             if (mes < 10) { mes = '0' + mes }
             fecha = año + "/" + mes + "/" + dia;
-            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
+             dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
             
             //_FechaEscitura(fecha)
             tabla(dataSet);
@@ -454,11 +455,12 @@ var _admnegocio = (function () {
                      [
                          { name: 'CUOTA', type: 'string' },
                          { name: 'FECHA_PAGO', type: 'string' },
-                         { name: 'VALOR_CUOTA', type: 'string' }
+                         { name: 'VALOR_CUOTA', type: 'number' }
                      ]
                  };
         
         var dataAdapter = new $.jqx.dataAdapter(source);
+
 
         // initialize jqxDataTable
         $("#dataTable").jqxGrid(
@@ -479,6 +481,7 @@ var _admnegocio = (function () {
               },
               {
 
+
                   text: 'FECHA PAGO',
                   datafield: 'FECHA_PAGO',
                   columntype: 'string',
@@ -490,11 +493,15 @@ var _admnegocio = (function () {
              {
                  text: 'VALOR CUOTA',
                  editable: true,
-                 columntype: 'VALOR_CUOTA',
+                 columntype: 'decimal',
                  datafield: 'VALOR_CUOTA',
+                 cellsFormat: 'c2'
+                 
              }
             ]
         });
+
+
         //console.log(dataAdapter)
         acuerdoP = dataAdapter.cachedrecords;
         console.log(acuerdoP)

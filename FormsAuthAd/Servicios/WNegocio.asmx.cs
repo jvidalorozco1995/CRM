@@ -3,6 +3,7 @@ using DAL;
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
@@ -20,11 +21,37 @@ namespace FormsAuthAd.Servicios
     [System.Web.Script.Services.ScriptService]
     public class WNegocio : System.Web.Services.WebService
     {
-        [WebMethod]
+
+      
+           
+    [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string DatoNegocio(negocio n,string inm , List<acuerdo_pago> ac)
         {
             BLLnegocio hn = new BLLnegocio();
+
+
+            foreach (var item in ac) {
+
+
+              
+                item.NO_ACUERDO = n.ID_NEGOCIO;
+                item.FECHA_PAGO = item.FECHA_PAGO;
+                item.CUOTA = item.CUOTA;
+
+                decimal a;
+                if (decimal.TryParse(item.VALOR_CUOTA.ToString(), NumberStyles.Number, CultureInfo.InvariantCulture, out a))
+                {
+                    // NumberStyles.Number: AllowLeadingWhite, AllowTrailingWhite, AllowLeadingSign,
+                    //                      AllowTrailingSign, AllowDecimalPoint, AllowThousands
+                    item.VALOR_CUOTA = a;
+                }
+               
+                   
+                
+            }
+
+          
             return hn.Hojanegocio(n,inm,ac);
         }
         [WebMethod]
