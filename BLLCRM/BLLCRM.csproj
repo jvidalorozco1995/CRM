@@ -59,6 +59,7 @@
     <Compile Include="BLLBloques.cs" />
     <Compile Include="BLLClientes.cs" />
     <Compile Include="BLLCompromisosCuota.cs" />
+    <Compile Include="BLLDocumentoActiInmu.cs" />
     <Compile Include="BLLDocumentos.cs" />
     <Compile Include="BLLNegociosCompro.cs" />
     <Compile Include="BLLConfiguracionNegocio.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="BLLInmuebles.cs" />
     <Compile Include="BLLnegocio.cs" />
     <Compile Include="BLLNegocioFox.cs" />
+    <Compile Include="BLLNotificaciones.cs" />
     <Compile Include="BLLPagosFox.cs" />
     <Compile Include="BLLPlanos.cs" />
     <Compile Include="BLLProyectos.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="BLLTareas.cs" />
     <Compile Include="BLLTrabajador.cs" />
     <Compile Include="BLLTramites.cs" />
+    <Compile Include="BLLTramitesInmueble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

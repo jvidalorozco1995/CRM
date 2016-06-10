@@ -2275,6 +2275,7 @@
     <Content Include="Servicios\WClientes.asmx" />
     <Content Include="Servicios\WCompromisoCuota.asmx" />
     <Content Include="Servicios\WConfiguracionNegocios.asmx" />
+    <Content Include="Servicios\WDocumentoActiInmu.asmx" />
     <Content Include="Servicios\WDocumentos.asmx" />
     <Content Include="Servicios\WEmpresas.asmx" />
     <Content Include="ServiciosFox\WFox.asmx" />
@@ -2286,6 +2287,7 @@
     <Content Include="Servicios\WNegocio.asmx" />
     <Content Include="ServiciosFox\WProyectos.asmx" />
     <Content Include="Servicios\WNegocioFox.asmx" />
+    <Content Include="Servicios\WNotificaciones.asmx" />
     <Content Include="Servicios\WPagosFox.asmx" />
     <Content Include="Servicios\WSala_Ventas.asmx" />
     <Content Include="Servicios\WSeparaciones.asmx" />
@@ -2293,6 +2295,7 @@
     <Content Include="Servicios\WTareas.asmx" />
     <Content Include="Servicios\WTrabajador.asmx" />
     <Content Include="Servicios\WTramites.asmx" />
+    <Content Include="Servicios\WTramitesInmuebles.asmx" />
     <Content Include="styles_crm\datepicker.css" />
     <Content Include="styles_crm\Error.css" />
     <Content Include="styles_crm\img\green%402x.png" />
@@ -4806,6 +4809,10 @@
       <DependentUpon>WConfiguracionNegocios.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Servicios\WDocumentoActiInmu.asmx.cs">
+      <DependentUpon>WDocumentoActiInmu.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Servicios\WDocumentos.asmx.cs">
       <DependentUpon>WDocumentos.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -4850,6 +4857,10 @@
       <DependentUpon>WNegocioFox.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Servicios\WNotificaciones.asmx.cs">
+      <DependentUpon>WNotificaciones.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Servicios\WPagosFox.asmx.cs">
       <DependentUpon>WPagosFox.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -4876,6 +4887,10 @@
     </Compile>
     <Compile Include="Servicios\WTramites.asmx.cs">
       <DependentUpon>WTramites.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WTramitesInmuebles.asmx.cs">
+      <DependentUpon>WTramitesInmuebles.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Site.Master.cs">

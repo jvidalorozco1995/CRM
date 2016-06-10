@@ -60,7 +60,6 @@ namespace BLLCRM
             }
         }
 
-
         /// <summary>
         /// rertorna listado de bancos pertenecientes al proyecto
         /// </summary>
@@ -97,9 +96,7 @@ namespace BLLCRM
                     throw;
                 }
             }
-
-
-    
+ 
         public List<Tramites> ListTramites()
         {
 
