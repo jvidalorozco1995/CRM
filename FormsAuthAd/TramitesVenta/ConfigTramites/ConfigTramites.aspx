@@ -61,11 +61,12 @@
                                                             <label>Nombre</label>
                                                             <input type="text" value="" id="TxtTramite" class="form-control">
                                                         </div>
-                                                        <div class="form-group col-lg-6">
-                                                            <label>Banco</label>
-                                                            <textarea id="TxtBanco" class="form-control" rows="2" cols="3" maxlength="100"></textarea>
-                                                        </div>
                                                         
+                                                         <div class="form-group col-lg-12">
+                                                            <label>Banco</label>
+                                                             <select id="TxtBanco" class="form-control" >
+                                                             </select>
+                                                        </div>
                                                    <div class="form-group col-lg-12">            
                                                        <button type="button" class="btn btn-success" id="BtnGuardarTramite">Guardar</button>
                                                    </div>
@@ -216,7 +217,7 @@
                                                         <div class="form-group col-lg-12">
                                                             <label>Actividad dependiente</label>
                                                              <select id="Text9" class="form-control" >
-                                                              </select>
+                                                             </select>
                                                         </div>
                                                        
                                                     </div>
@@ -329,6 +330,7 @@
     <script src="../../BLLscripts/BLLActividades.js"></script>
      <script src="../../BLLscripts/BLLTramites.js"></script>
     <script src="../../BLLscripts/BLLDocumentosTramite.js"></script>
+    <script src="../../BLLscripts/BLLBancos.js"></script>
     <script src="js/Tramite.js"></script>
     <script src="../../scripts_crm/bootstrap-datepicker.js"></script>
     <script src="../../scripts_crm/accounting.js"></script>

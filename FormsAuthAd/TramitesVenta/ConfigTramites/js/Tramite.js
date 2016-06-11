@@ -1,6 +1,7 @@
 ﻿var Tra = new BLLTramites();
 var Acti = new BLLActividades();
 var docu = new BLLDocumentosTramite();
+var Ban = new BLLBancos();
 var admTramites = (function () {
 
 
@@ -26,9 +27,9 @@ var admTramites = (function () {
     var WsDeleteDocumentos = funcionUrlGlobal("/Servicios/WDocumentos.asmx/DeleteDocumento");//Consulto Proyectos CRM
     var WsDocumentoID = funcionUrlGlobal("/Servicios/WDocumentos.asmx/ListDocumentosID");//Consulto Proyectos CRM
 
+    var WsBancos = funcionUrlGlobal("/Servicios/WBancos.asmx/LisBancos");
 
-
-
+    
 
     var cliente = null;
     var bandera = 0;
@@ -441,7 +442,7 @@ var admTramites = (function () {
         $('#Actividadesxtramite').hide();
         Acti.ListActividades(WsLisActividades);
         Tra.ListTramites(WsListramite);
-
+        Ban.ListBancosCombo(WsBancos);
     }
     //Retorna la funcion inicial
     return {

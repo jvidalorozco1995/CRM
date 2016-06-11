@@ -58,7 +58,7 @@
         tabla += "<tr>";
         tabla += "<th>ID</th>";
         tabla += "<th>Nombre</th>";
-        tabla += "<th>Banco</th>";
+      //  tabla += "<th>Banco</th>";
         tabla += "<th></th>"
         tabla += "</tr>";
         tabla += "</thead>";
@@ -68,7 +68,7 @@
             tabla += " <tr>";
             tabla += "<td style='width:100px'>" + item.id + "</td>";
             tabla += "<td>" + item.Nombre + "</td>";
-            tabla += "<td>" + item.Banco + "</td>";
+           // tabla += "<td>" + item.Banco + "</td>";
             tabla += "<td style='width:20px;height: 20px'>";
             tabla += "<img src='" + funcionUrlGlobal('/images_crm/Crear.png')+"'" + "id=" + item.id + " class='Infocl' title='Agregar'></img>";
             tabla += "</td>";

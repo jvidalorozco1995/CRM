@@ -58,7 +58,6 @@ namespace DAL
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<tareas> tareas { get; set; }
         public DbSet<trabajadores> trabajadores { get; set; }
-        public DbSet<Tramites> Tramites { get; set; }
         public DbSet<Tramites_Inmueble> Tramites_Inmueble { get; set; }
         public DbSet<historial_acuerdos_pagos> historial_acuerdos_pagos { get; set; }
         public DbSet<NegocioView> NegocioView { get; set; }
@@ -84,5 +83,6 @@ namespace DAL
         public DbSet<VTareasCompromiso> VTareasCompromiso { get; set; }
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
+        public DbSet<Tramites> Tramites { get; set; }
     }
 }

@@ -26,14 +26,14 @@ namespace BLLCRM
                     bd.SaveChanges();
                     return 1;
                 }
-                catch (DbUpdateException)
+                catch (DbUpdateException ex)
                 {
-                    return 0;
+                  throw ex;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
-                }
+                throw ex;
+            }
             }
 
         public string UpdateTramites(List<Tramites> i)

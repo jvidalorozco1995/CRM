@@ -141,12 +141,6 @@
           <Property Name="ID_TAREA" Type="int" />
           <Property Name="CODIGO" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.concepto_p' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="concepto_p">
-          <Property Name="ID_CON" Type="varchar" MaxLength="50" />
-          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="configuracion">
           <Key>
             <PropertyRef Name="ID_CONT" />
@@ -463,9 +457,9 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
-          <Property Name="Banco" Type="varchar" MaxLength="50" />
+          <Property Name="Banco" Type="int" />
         </EntityType>
         <EntityType Name="Tramites_Inmueble">
           <Key>
@@ -473,7 +467,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_Tramite" Type="int" />
-          <Property Name="Id_Inmueble" Type="int" />
+          <Property Name="Id_Inmueble" Type="varchar" MaxLength="16" />
           <Property Name="Porcentaje" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -730,15 +724,6 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vdetallesp' does not have a primary
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VfechasAsesor">
-          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
-          <Property Name="MES" Type="int" />
-          <Property Name="YEAR" Type="int" />
-          <Property Name="CONTADOR" Type="int" />
-          <Property Name="T_CEDULA" Type="varchar" MaxLength="30" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
@@ -781,12 +766,6 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VistaTareasPorClientes">
-          <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
-          <Property Name="ID_TAREA" Type="int" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VnegocioFox">
@@ -1276,6 +1255,18 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTracliente' does not have a primar
             </Principal>
             <Dependent Role="Notificaciones">
               <PropertyRef Name="Id_Actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tramites_bancos">
+          <End Role="bancos" Type="Self.bancos" Multiplicity="0..1" />
+          <End Role="Tramites" Type="Self.Tramites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bancos">
+              <PropertyRef Name="ID_BANCO" />
+            </Principal>
+            <Dependent Role="Tramites">
+              <PropertyRef Name="Banco" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1833,6 +1824,10 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <End Role="Actividades" EntitySet="Actividades" />
             <End Role="Notificaciones" EntitySet="Notificaciones" />
           </AssociationSet>
+          <AssociationSet Name="FK_Tramites_bancos" Association="Self.FK_Tramites_bancos">
+            <End Role="bancos" EntitySet="bancos" />
+            <End Role="Tramites" EntitySet="Tramites" />
+          </AssociationSet>
           <AssociationSet Name="FK_Tramites_Inmueble_Tramites" Association="Self.FK_Tramites_Inmueble_Tramites">
             <End Role="Tramites" EntitySet="Tramites" />
             <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
@@ -1876,7 +1871,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <EntitySet Name="sysdiagrams" EntityType="CRM_PRUEBAModel.sysdiagrams" />
           <EntitySet Name="tareas" EntityType="CRM_PRUEBAModel.tareas" />
           <EntitySet Name="trabajadores" EntityType="CRM_PRUEBAModel.trabajadores" />
-          <EntitySet Name="Tramites" EntityType="CRM_PRUEBAModel.Tramites" />
           <EntitySet Name="Tramites_Inmueble" EntityType="CRM_PRUEBAModel.Tramites_Inmueble" />
           <EntitySet Name="historial_acuerdos_pagos" EntityType="CRM_PRUEBAModel.historial_acuerdos_pagos" />
           <EntitySet Name="NegocioView" EntityType="CRM_PRUEBAModel.NegocioView" />
@@ -1913,10 +1907,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <AssociationSet Name="FK_Notificaciones_Actividades" Association="CRM_PRUEBAModel.FK_Notificaciones_Actividades">
             <End Role="Actividades" EntitySet="Actividades" />
             <End Role="Notificaciones" EntitySet="Notificaciones" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ActividadxTramite_Tramites" Association="CRM_PRUEBAModel.FK_ActividadxTramite_Tramites">
-            <End Role="Tramites" EntitySet="Tramites" />
-            <End Role="ActividadxTramite" EntitySet="ActividadxTramite" />
           </AssociationSet>
           <AssociationSet Name="FK__bloques__BLOQUE___5AEE82B9" Association="CRM_PRUEBAModel.FK__bloques__BLOQUE___5AEE82B9">
             <End Role="proyectos" EntitySet="proyectos" />
@@ -1994,11 +1984,20 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             <End Role="trabajadores" EntitySet="trabajadores" />
             <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
+          <EntitySet Name="Tramites" EntityType="CRM_PRUEBAModel.Tramites" />
+          <AssociationSet Name="FK_ActividadxTramite_Tramites" Association="CRM_PRUEBAModel.FK_ActividadxTramite_Tramites">
+            <End Role="Tramites" EntitySet="Tramites" />
+            <End Role="ActividadxTramite" EntitySet="ActividadxTramite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tramites_bancos" Association="CRM_PRUEBAModel.FK_Tramites_bancos">
+            <End Role="bancos" EntitySet="bancos" />
+            <End Role="Tramites" EntitySet="Tramites" />
+          </AssociationSet>
           <AssociationSet Name="FK_Tramites_Inmueble_Tramites" Association="CRM_PRUEBAModel.FK_Tramites_Inmueble_Tramites">
             <End Role="Tramites" EntitySet="Tramites" />
             <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="ActInmuebles">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -2085,6 +2084,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           </Key>
           <Property Name="ID_BANCO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE_BANCO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tramites" Relationship="CRM_PRUEBAModel.FK_Tramites_bancos" FromRole="bancos" ToRole="Tramites" />
         </EntityType>
         <EntityType Name="bitacora_tareas">
           <Key>
@@ -2480,23 +2480,13 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
           <NavigationProperty Name="tareas" Relationship="CRM_PRUEBAModel.FK__tareas__TRABAJAD__3A81B327" FromRole="trabajadores" ToRole="tareas" />
           <NavigationProperty Name="tareas1" Relationship="CRM_PRUEBAModel.FK__tareas__TRABAJAD__571DF1D5" FromRole="trabajadores" ToRole="tareas" />
         </EntityType>
-        <EntityType Name="Tramites">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ActividadxTramite" Relationship="CRM_PRUEBAModel.FK_ActividadxTramite_Tramites" FromRole="Tramites" ToRole="ActividadxTramite" />
-          <NavigationProperty Name="Tramites_Inmueble" Relationship="CRM_PRUEBAModel.FK_Tramites_Inmueble_Tramites" FromRole="Tramites" ToRole="Tramites_Inmueble" />
-        </EntityType>
         <EntityType Name="Tramites_Inmueble">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_Tramite" Type="Int32" />
-          <Property Name="Id_Inmueble" Type="Int32" />
+          <Property Name="Id_Inmueble" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="Porcentaje" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="Tramites" Relationship="CRM_PRUEBAModel.FK_Tramites_Inmueble_Tramites" FromRole="Tramites_Inmueble" ToRole="Tramites" />
         </EntityType>
@@ -3000,18 +2990,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ActividadxTramite_Tramites">
-          <End Type="CRM_PRUEBAModel.Tramites" Role="Tramites" Multiplicity="0..1" />
-          <End Type="CRM_PRUEBAModel.ActividadxTramite" Role="ActividadxTramite" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tramites">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="ActividadxTramite">
-              <PropertyRef Name="Id_tramite" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__bloques__BLOQUE___5AEE82B9">
           <End Type="CRM_PRUEBAModel.proyectos" Role="proyectos" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -3252,6 +3230,41 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Tramites">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Banco" Type="Int32" />
+          <NavigationProperty Name="ActividadxTramite" Relationship="CRM_PRUEBAModel.FK_ActividadxTramite_Tramites" FromRole="Tramites" ToRole="ActividadxTramite" />
+          <NavigationProperty Name="bancos" Relationship="CRM_PRUEBAModel.FK_Tramites_bancos" FromRole="Tramites" ToRole="bancos" />
+          <NavigationProperty Name="Tramites_Inmueble" Relationship="CRM_PRUEBAModel.FK_Tramites_Inmueble_Tramites" FromRole="Tramites" ToRole="Tramites_Inmueble" />
+        </EntityType>
+        <Association Name="FK_ActividadxTramite_Tramites">
+          <End Type="CRM_PRUEBAModel.Tramites" Role="Tramites" Multiplicity="0..1" />
+          <End Type="CRM_PRUEBAModel.ActividadxTramite" Role="ActividadxTramite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tramites">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ActividadxTramite">
+              <PropertyRef Name="Id_tramite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tramites_bancos">
+          <End Type="CRM_PRUEBAModel.bancos" Role="bancos" Multiplicity="0..1" />
+          <End Type="CRM_PRUEBAModel.Tramites" Role="Tramites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bancos">
+              <PropertyRef Name="ID_BANCO" />
+            </Principal>
+            <Dependent Role="Tramites">
+              <PropertyRef Name="Banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Tramites_Inmueble_Tramites">
           <End Type="CRM_PRUEBAModel.Tramites" Role="Tramites" Multiplicity="0..1" />
           <End Type="CRM_PRUEBAModel.Tramites_Inmueble" Role="Tramites_Inmueble" Multiplicity="*" />
@@ -3264,7 +3277,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -3737,15 +3750,6 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tramites">
-            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Tramites">
-              <MappingFragment StoreEntitySet="Tramites">
-                <ScalarProperty Name="Banco" ColumnName="Banco" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Tramites_Inmueble">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.Tramites_Inmueble">
               <MappingFragment StoreEntitySet="Tramites_Inmueble">
@@ -4215,6 +4219,15 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
                 <ScalarProperty Name="P_APELLIDO" ColumnName="P_APELLIDO" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
                 <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tramites">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Tramites">
+              <MappingFragment StoreEntitySet="Tramites">
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
