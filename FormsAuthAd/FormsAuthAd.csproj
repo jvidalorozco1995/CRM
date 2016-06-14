@@ -2297,6 +2297,7 @@
     <Content Include="Servicios\WTrabajador.asmx" />
     <Content Include="Servicios\WTramites.asmx" />
     <Content Include="Servicios\WTramitesInmuebles.asmx" />
+    <Content Include="Servicios\WVistaInmuebleTramites.asmx" />
     <Content Include="styles_crm\datepicker.css" />
     <Content Include="styles_crm\Error.css" />
     <Content Include="styles_crm\img\green%402x.png" />
@@ -4895,6 +4896,10 @@
     </Compile>
     <Compile Include="Servicios\WTramitesInmuebles.asmx.cs">
       <DependentUpon>WTramitesInmuebles.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WVistaInmuebleTramites.asmx.cs">
+      <DependentUpon>WVistaInmuebleTramites.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Site.Master.cs">

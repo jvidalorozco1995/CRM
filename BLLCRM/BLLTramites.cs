@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+
 using System.Text;
 using System.Threading.Tasks;
 
@@ -121,6 +122,44 @@ namespace BLLCRM
                     }
                     return lisbcrm;
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public List<VInmueblesConTramites> LisNegociosTramites()
+        {
+            try
+            {
+                List<VInmueblesConTramites> vimp = bd.VInmueblesConTramites.ToList();
+                List<VInmueblesConTramites> Evimp = new List<VInmueblesConTramites>();
+                if (vimp.Count().Equals(0))
+                {
+
+                    return Evimp;
+                }
+                else
+                {
+                    foreach (var item in vimp)
+                    {
+                        VInmueblesConTramites Vim = new VInmueblesConTramites();
+                        Vim.REFERENCIA = item.REFERENCIA;
+                        Vim.INMUOBRA = item.INMUOBRA;
+                        Vim.INMUEBLE = item.INMUEBLE;
+                        Vim.ID_NEGOCIO = item.ID_NEGOCIO;
+                        Vim.PROPIETARIO = item.PROPIETARIO;
+                        Vim.CEDULA_P = item.CEDULA_P;
+                        Vim.BANCO = item.BANCO;
+                        Vim.Tramite = item.Tramite;
+                        Vim.Id_Tramite = item.Id_Tramite;
+                        Vim.Id_Banco = item.Id_Banco;
+                        Evimp.Add(Vim);
+                }
+                    return Evimp;
+                }
+
             }
             catch (Exception)
             {
