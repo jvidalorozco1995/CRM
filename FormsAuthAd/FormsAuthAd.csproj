@@ -2316,8 +2316,9 @@
     <Content Include="TramitesVenta\ConfigTramites\js\ConfigTramite.js" />
     <Content Include="TramitesVenta\ConfigTramites\ConfigTramites.aspx" />
     <Content Include="TramitesVenta\GestionTramites\GesTramites.aspx" />
-    <Content Include="TramitesVenta\GestionTramites\Tramites.aspx" />
     <Content Include="TramitesVenta\GestionTramites\js\Tramites.js" />
+    <Content Include="TramitesVenta\GestionTramites\Tramites.aspx" />
+    <Content Include="TramitesVenta\GestionTramites\js\TramitesProy.js" />
     <Content Include="vendor\animate.css\animate.css" />
     <Content Include="vendor\animate.css\animate.min.css" />
     <Content Include="vendor\animate.css\Gruntfile.js" />

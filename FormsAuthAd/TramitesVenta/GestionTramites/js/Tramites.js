@@ -1,24 +1,46 @@
-﻿var Wproyect = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyecTrabajador");
-_negocio = new BLLnegocio();
-proyect = new BLLProyectos();
+﻿var Tra = new BLLTramites();
 
-var _admCartera = (function () {
-
-    var _addHandlers = function () { }
+var admTramites = (function () {
 
 
-    var _Inicio = function () { proyect.ProyectosTramites(Wproyect); }
 
+
+    var WsListramite = funcionUrlGlobal("/Servicios/WVistaInmuebleTramites.asmx/GetInmuebles");//Consulto Proyectos CRM
+
+
+
+
+    var cliente = null;
+    var bandera = 0;
+    var codigoEmp;
+    var tramite;
+    var ActividadN;
+    var doc;
+    var _addHandlers = function () {
+
+   
+
+
+    }
+
+   
+    var _Inicio = function () {
+        //Lista de actividades y de tramites
+      
+      
+        Tra.ListTramites(WsListramite);
+
+    }
+    //Retorna la funcion inicial
     return {
         init: function () {
             _Inicio();
             _addHandlers();
         },
     }
-
 }());
 
 $(document).ready(function () {
-
-    _admCartera.init();
+    //Inicial del tramite
+    admTramites.init();
 });

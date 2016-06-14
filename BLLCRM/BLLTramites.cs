@@ -153,8 +153,8 @@ namespace BLLCRM
                         Vim.CEDULA_P = item.CEDULA_P;
                         Vim.BANCO = item.BANCO;
                         Vim.Tramite = item.Tramite;
-                        Vim.Id_Tramite = item.Id_Tramite;
-                        Vim.Id_Banco = item.Id_Banco;
+                        Vim.IdTramite = item.IdTramite;
+                        Vim.IdBanco = item.IdBanco;
                         Evimp.Add(Vim);
                 }
                     return Evimp;
