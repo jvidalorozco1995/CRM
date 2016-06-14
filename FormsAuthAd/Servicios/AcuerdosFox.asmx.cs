@@ -29,6 +29,7 @@ namespace FormsAuthAd.Servicios
 
 
 
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<VacuerdosFox> AcuerdosNegocio(string n)
