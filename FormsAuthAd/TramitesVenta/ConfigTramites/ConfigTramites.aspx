@@ -289,7 +289,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 
  
             
@@ -324,10 +324,10 @@
 
     <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="../../BLLscripts/BLLActividades.js"></script>
-    <script src="../../BLLscripts/BLLTramites.js"></script>
+    <script src="../../BLLscripts/BLLConfigTramites.js"></script>
     <script src="../../BLLscripts/BLLDocumentosTramite.js"></script>
     <script src="../../BLLscripts/BLLBancos.js"></script>
-    <script src="js/Tramite.js"></script>
+    <script src="js/ConfigTramite.js"></script>
     <script src="../../scripts_crm/bootstrap-datepicker.js"></script>
     <script src="../../scripts_crm/accounting.js"></script>
 </asp:Content>

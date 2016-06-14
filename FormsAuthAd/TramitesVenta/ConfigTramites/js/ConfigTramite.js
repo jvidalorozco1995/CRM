@@ -1,4 +1,4 @@
-﻿var Tra = new BLLTramites();
+﻿var Tra = new BLLConfigTramites();
 var Acti = new BLLActividades();
 var docu = new BLLDocumentosTramite();
 var Ban = new BLLBancos();

@@ -1355,6 +1355,7 @@
     <Content Include="BLLscripts\BLLTareas.js" />
     <Content Include="BLLscripts\BLLTrabajadores.js" />
     <Content Include="BLLscripts\BLLProyectos.js" />
+    <Content Include="BLLscripts\BLLConfigTramites.js" />
     <Content Include="BLLscripts\BLLTramites.js" />
     <Content Include="BLLscripts\BLLUser.js" />
     <Content Include="BLLscripts\BLLUtilidades.js" />
@@ -2311,7 +2312,7 @@
     <Content Include="styles_jqw\qunit-git.css" />
     <Content Include="styles_jqw\site.css" />
     <Content Include="styles_jqw\widget_icons.png" />
-    <Content Include="TramitesVenta\ConfigTramites\js\Tramite.js" />
+    <Content Include="TramitesVenta\ConfigTramites\js\ConfigTramite.js" />
     <Content Include="TramitesVenta\ConfigTramites\ConfigTramites.aspx" />
     <Content Include="TramitesVenta\GestionTramites\GesTramites.aspx" />
     <Content Include="TramitesVenta\GestionTramites\Tramites.aspx" />
