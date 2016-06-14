@@ -14,7 +14,14 @@ namespace DAL
     
     public partial class bancos
     {
+        public bancos()
+        {
+            this.Tramites = new HashSet<Tramites>();
+        }
+    
         public int ID_BANCO { get; set; }
         public string NOMBRE_BANCO { get; set; }
+    
+        public virtual ICollection<Tramites> Tramites { get; set; }
     }
 }

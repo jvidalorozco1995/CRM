@@ -147,7 +147,7 @@
                             <li><a href='<%= ResolveUrl("Configuracion/GestBloques.aspx") %>'>Bloques</a></li>
                             <li><a href='<%= ResolveUrl("Configuracion/GetInmuebles.aspx")%>'>Inmuebles</a></li>
                             <li><a href='<%= ResolveUrl("Configuracion/SalasVentas.aspx")%>'>Sala de ventas</a></li>
-                             <li><a href='<%= ResolveUrl("Configuracion/Bancos.aspx") %>'>Bancos</a></li>
+                            <li><a href='<%= ResolveUrl("Configuracion/Bancos.aspx") %>'>Bancos</a></li>
                             <li><a href='<%= ResolveUrl("Configuracion/GestNotaAclaratoria.aspx")%>'>Configuración Nota Aclaratoria</a></li>
                         </ul>
                     </li>
@@ -180,7 +180,7 @@
                         <a href="#"><span class="nav-label">Tramites</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href= '<%= ResolveUrl("TramitesVenta/ConfigTramites/ConfigTramites.aspx")%>'>Configuración de tramites</a></li>
-                            <li><a href='<%= ResolveUrl("Administracion/GestUsuNegocios.aspx")%>'>Usuarios negocio</a></li>
+                             <li><a href= '<%= ResolveUrl("TramitesVenta/GestionTramites/GesTramites.aspx")%>'>Tramites</a></li>
                         </ul>
                     </li>
                     <li>

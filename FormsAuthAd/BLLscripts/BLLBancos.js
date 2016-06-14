@@ -31,6 +31,43 @@
         });
     }
 
+    
+
+    //Retorna una lista de bancos de MultiFox
+    BLLBancos.prototype.ListBancosCombo = function (Wsurl) {
+
+        $.ajax({
+            type: "POST",
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                    BLLBancos.prototype.ComboxBanco(Wsurl, result.d);
+                }
+                else {
+                    BLLBancos.prototype.ComboxBanco(Wsurl, result.d);
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
+
+    //Retorna una lista de bancos de MultiFox
+    BLLBancos.prototype.ComboxBanco = function (Wsurl,bancos) {
+
+        $.each(bancos, function (i, item) {
+            var empr = '<option value=' + item.ID_BANCO + '>';
+            empr += item.NOMBRE_BANCO;
+            empr += '</option>';
+            $('#TxtBanco').append(empr);
+        });
+    }
+
     //Retorna una lista de bancos de MultiFox
     BLLBancos.prototype.ListBancos = function (Wsurl) {
         

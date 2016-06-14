@@ -504,6 +504,56 @@ function BLLProyectos() {
             error: function (obj, error, objError) { alert(error.responseText); }
         });
     }
+
+    //Listado de Proyectos asignados al Trabajador
+    BLLProyectos.prototype.ProyectosTramites = function (Wsurl) {
+        ///jsonData = "{ 'c':" + JSON.stringify(persona) + " }";
+        $.ajax({
+            type: "POST", url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                    BLLProyectos.ListaProyectosTramites(result.d);
+                }
+                else {
+                    BLLProyectos.ListaProyectosTramites(result.d);
+                }
+            },
+            error: function (obj, error, objError) { alert(error.responseText); }
+        });
+    }
+
+    //Crearmos componentes de Proyectos
+    BLLProyectos.ListaProyectosTramites= function (Lista, op) {
+
+        var respuesta = null;
+        var cont = Lista.length;
+        var comp = "";
+        respuesta = BLLProyectos.CLass(cont);
+        $.each(Lista, function (i, item) {
+
+            comp = '<div class="' + respuesta + '">';
+            comp += '<div class="hpanel hred contact-panel">';
+            comp += '<div class="panel-body">';
+            comp += '<h3 class="Inmueble"><a href="Tramites.aspx?proyec=' + item.ID_PROYEC + '">' + item.NOMBRE_PROYEC + '</a></h3>';
+            comp += '<div class="text-muted font-bold m-b-xs">Valledupar - Cesar</div>';
+            comp += '</div>';
+            comp += '<div class="panel-footer contact-footer">';
+            comp += '<div class="row">';
+            comp += '<div class="col-md-12 border-right"> <div class="contact-stat"><span>Inmuebles </span> <strong></strong></div> </div>';
+            comp += '</div>';
+            comp += '</div';
+            comp += '</div>';
+            comp += '</div>';
+            $('#result').append(comp);
+        });
+
+    }
+
+
     //Mensaje de Alrta cuando no Tienen Proyectos Asignados aun
     BLLProyectos.AlertProyec = function () {
         var comp = '<divclass="col-lg-12">';

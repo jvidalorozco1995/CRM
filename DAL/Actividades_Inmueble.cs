@@ -22,5 +22,6 @@ namespace DAL
         public Nullable<System.DateTime> FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaFin { get; set; }
         public Nullable<int> Posicion { get; set; }
+        public Nullable<int> Estado { get; set; }
     }
 }

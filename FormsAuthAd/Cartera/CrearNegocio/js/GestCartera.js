@@ -356,7 +356,6 @@ var _admnegocio = (function () {
                     dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': utl.FormatNumero(amorizar.toFixed(0)) });
                 }
 
-
                 mes = parseInt(mes) + 1;
             }
             nomc = "Subrogación";

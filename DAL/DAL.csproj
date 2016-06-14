@@ -218,6 +218,9 @@
     <Compile Include="Vinmuebles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="VInmueblesConTramites.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="VinteresProyect.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
