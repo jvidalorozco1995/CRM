@@ -34,5 +34,8 @@ namespace FormsAuthAd.Servicios
             return inm.LisNegociosTramites(b);
 
         }
+
+
+
     }
 }

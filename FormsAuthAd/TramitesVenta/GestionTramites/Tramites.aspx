@@ -16,10 +16,10 @@
                             <div class="pull-right">
 
 
-                                <button class="btn btn-danger btn-btn-circle" type="button" id="BtnSCliente">Nuevo</button>
+                                <button class="btn btn-danger btn-btn-circle" type="button" id="BtnSCliente">Actualizar</button>
 
                             </div>
-                            <li class="active"><a data-toggle="tab" href="#tab-1">Parametrización</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab-1">Gestión de tramites</a></li>
 
 
                         </ul>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5 scroll " id="Actividadesxtramite" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+                <div class="col-lg-5 scroll " style="display:none" id="Actividadesxtramite" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
 
                     <div class="panel panel-success">
                         <div class="panel-body">

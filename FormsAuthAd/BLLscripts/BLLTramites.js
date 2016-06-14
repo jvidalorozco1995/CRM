@@ -71,9 +71,20 @@
             tabla += "<td style='width:100px'>" + item.CEDULA_P + "</td>";
             tabla += "<td>" + item.PROPIETARIO + "</td>";
             tabla += "<td>" + item.INMUEBLE + "</td>";
-            tabla += "<td style='width:20px;height: 20px'>";
-            tabla += "<img src='" + funcionUrlGlobal('/images_crm/Crear.png') + "'" + "id=" + item.id + " class='Infocl' title='Agregar'></img>";
-            tabla += "</td>";
+           
+            if (item.IdTramite == null)
+            {
+                tabla += "<td style='width:20px;height: 20px'>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'" + "id=" + item.id + " class='Infocl' title='No tiene tramite'></img>";
+                tabla += "</td>";
+            }
+            else
+            {
+                tabla += "<td style='width:20px;height: 20px'>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'" + "id=" + item.id + " class='Infocl' ></img>";
+                tabla += "</td>";
+
+            }
             tabla += "</tr>";
            
         });

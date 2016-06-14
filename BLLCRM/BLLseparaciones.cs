@@ -302,7 +302,7 @@ public class negocioR {
     private string user = null;
 
     public List<EntiClientes> GetCliente(string c) {
-        List<Vsepracioninmuebles> LisC = bd.Vsepracioninmuebles.Where(t => t.CLIENTE == c).ToList();
+        List<Vsepracioninmuebles> LisC = bd.Vsepracioninmuebles.Where(t => t.CLIENTE == c && t.ESTADO == "L").ToList();
         List<EntiClientes> Encl = new List<EntiClientes>();
         if (LisC.Count.Equals(0))
         {

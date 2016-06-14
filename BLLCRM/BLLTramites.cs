@@ -20,7 +20,7 @@ namespace BLLCRM
         /// <param name="b"></param>
         /// <returns></returns>
         public int InsertTramites(Tramites b)
-            {
+        {
                 try
                 {
                     bd.Tramites.Add(b);
@@ -35,7 +35,47 @@ namespace BLLCRM
                 {
                 throw ex;
             }
+         }
+
+        public string Actualizar(string b)
+        {
+
+            try
+            {
+                List<VInmueblesConTramites> vimp = bd.VInmueblesConTramites.OrderBy(l => l.INMUEBLE).Where(t => t.PROYECTO_INT == b && t.IdTramite == null).ToList();
+                List<VInmueblesConTramites> Evimp = new List<VInmueblesConTramites>();
+                if (vimp.Count().Equals(0))
+                {
+
+                    return "";
+                }
+                else
+                {
+                    foreach (var item in vimp)
+                    {
+                        VInmueblesConTramites Vim = new VInmueblesConTramites();
+                        Vim.REFERENCIA = item.REFERENCIA;
+                        Vim.INMUOBRA = item.INMUOBRA;
+                        Vim.INMUEBLE = item.INMUEBLE;
+                        Vim.ID_NEGOCIO = item.ID_NEGOCIO;
+                        Vim.PROPIETARIO = item.PROPIETARIO;
+                        Vim.CEDULA_P = item.CEDULA_P;
+                        Vim.BANCO = item.BANCO;
+                        Vim.Tramite = item.Tramite;
+                        Vim.IdTramite = item.IdTramite;
+                        Vim.IdBanco = item.IdBanco;
+                        Evimp.Add(Vim);
+                    }
+                    return "Se han actualizado";
+                }
             }
+
+            catch (Exception ex)
+            {
+                return mensaje = "No fue posible llevar  a cabo el proceso" + ex;
+                throw;
+            }
+        }
 
         public string UpdateTramites(List<Tramites> i)
         {
