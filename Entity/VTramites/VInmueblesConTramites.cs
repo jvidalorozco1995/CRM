@@ -15,6 +15,7 @@ namespace Entity.VTramites
         public string PROPIETARIO { get; set; }
         public string CEDULA_P { get; set; }
         public string BANCO { get; set; }
+        public string PROYECTO_INT { get; set; }
         public string Tramite { get; set; }
         public int IdTramite { get; set; }
         public int IdBanco { get; set; }

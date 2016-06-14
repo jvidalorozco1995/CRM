@@ -129,11 +129,11 @@ namespace BLLCRM
                 throw;
             }
         }
-        public List<VInmueblesConTramites> LisNegociosTramites()
+        public List<VInmueblesConTramites> LisNegociosTramites( string b)
         {
             try
             {
-                List<VInmueblesConTramites> vimp = bd.VInmueblesConTramites.ToList();
+                List<VInmueblesConTramites> vimp = bd.VInmueblesConTramites.OrderBy(l => l.INMUEBLE).Where(t =>  t.PROYECTO_INT == b).ToList();
                 List<VInmueblesConTramites> Evimp = new List<VInmueblesConTramites>();
                 if (vimp.Count().Equals(0))
                 {

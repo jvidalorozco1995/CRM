@@ -29,9 +29,9 @@ namespace FormsAuthAd.Servicios
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<VInmueblesConTramites> GetInmuebles()
+        public List<VInmueblesConTramites> GetInmuebles(string b)
         {
-            return inm.LisNegociosTramites();
+            return inm.LisNegociosTramites(b);
 
         }
     }
