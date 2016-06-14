@@ -1,8 +1,10 @@
-﻿var Tra = new BLLTramites();
+﻿var utl = new BLLUtilidades();
+var Tra = new BLLTramites();
+
 
 var admTramites = (function () {
 
-
+    var proyec = utl.getUrl('proyec');
 
 
     var WsListramite = funcionUrlGlobal("/Servicios/WVistaInmuebleTramites.asmx/GetInmuebles");//Consulto Proyectos CRM
@@ -28,7 +30,7 @@ var admTramites = (function () {
         //Lista de actividades y de tramites
       
       
-        Tra.ListTramites(WsListramite);
+        Tra.ListTramites(proyec, WsListramite);
 
     }
     //Retorna la funcion inicial

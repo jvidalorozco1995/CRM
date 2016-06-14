@@ -28,10 +28,11 @@
     //}
 
     //Retorna una lista de tramites
-    BLLTramites.prototype.ListTramites = function (Wsurl) {
-
+    BLLTramites.prototype.ListTramites = function (proyec, Wsurl) {
+        jsonData = "{'b':" + JSON.stringify(proyec) + "}";
         $.ajax({
             type: "POST",
+            data: jsonData,
             url: Wsurl,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
