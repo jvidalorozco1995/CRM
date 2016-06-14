@@ -22,7 +22,8 @@ namespace DAL
         public string CEDULA_P { get; set; }
         public string BANCO { get; set; }
         public string Tramite { get; set; }
-        public Nullable<int> Id_Tramite { get; set; }
-        public Nullable<int> Id_Banco { get; set; }
+        public Nullable<int> IdTramite { get; set; }
+        public Nullable<int> IdBanco { get; set; }
+        public string PROYECTO_INT { get; set; }
     }
 }

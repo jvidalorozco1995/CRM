@@ -20,8 +20,5 @@ namespace DAL
         public int ID_PY { get; set; }
         public string NOMBRES { get; set; }
         public string TRABAJADOR { get; set; }
-
-        public int CONTADOR { get; set; }
-        public string ESTADO { get; set; }
     }
 }
