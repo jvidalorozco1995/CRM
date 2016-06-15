@@ -54,10 +54,46 @@ namespace BLLCRM
                 {
                     foreach (var item in vimp)
                     {
-                        var tramite = bd.Tramites.Where(t => t.Banco == item.BANCO);
+                        var tramite = bd.Tramites.Where(t => t.Banco == item.BANCO).First();
 
-                        Tramites_Inmueble tra = new Tramites_Inmueble();
-                         
+                        if (tramite != null)
+                        {
+                            Tramites_Inmueble tra = new Tramites_Inmueble();
+                            tra.id_Tramite = tramite.id;
+                            tra.Porcentaje = 0;
+                            tra.Id_Inmueble = item.REFERENCIA;
+                            var a =  bd.Tramites_Inmueble.Add(tra);
+                            int estado = bd.SaveChanges();
+
+                            if (estado > 0 ){
+
+                                var actividadesxtramite = bd.VActxtramite.Where(t=>t.Id_tramite == tramite.id).ToList();
+
+                                foreach (var actividad in actividadesxtramite) {
+
+                                    Actividades_Inmueble actinmueble = new Actividades_Inmueble();
+                                    actinmueble.Nombre = actividad.Actividad;
+                                    actinmueble.Descripcion = actividad.Descripcion;
+                                    actinmueble.Duracion = actividad.Duracion;
+                                    actinmueble.Simultaneo = actividad.Simultaneo;
+                                    actinmueble.FechaInicio = DateTime.Now;
+                                    if (actividad.Duracion != null)
+                                    {
+                                       actinmueble.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(actividad.Duracion));
+                                    }
+                                    actinmueble.Posicion = actividad.Posicion;
+                                    //ESTADO 3 = PENDIENTE;
+                                    actinmueble.Estado = 3;
+
+
+                                }
+                            }
+                        }
+                        else
+                        {
+                            return "Este banco no tiene tramites";
+                        }
+                        
 
                        /*VInmueblesConTramites Vim = new VInmueblesConTramites();
                         Vim.REFERENCIA = item.REFERENCIA;
@@ -74,6 +110,7 @@ namespace BLLCRM
                     }
                     return "Se han actualizado";
                 }
+                
             }
 
             catch (Exception ex)

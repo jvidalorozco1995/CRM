@@ -18,10 +18,13 @@ namespace DAL
         public Nullable<int> Id_tramite { get; set; }
         public Nullable<int> Posicion { get; set; }
         public int Id_Actividad { get; set; }
-        public string Nombre { get; set; }
+        public string Actividad { get; set; }
         public string Usuario { get; set; }
         public string Descripcion { get; set; }
         public Nullable<int> Simultaneo { get; set; }
         public string Actividad_Dependiente { get; set; }
+        public string Tramite { get; set; }
+        public Nullable<int> Banco { get; set; }
+        public Nullable<int> Duracion { get; set; }
     }
 }
