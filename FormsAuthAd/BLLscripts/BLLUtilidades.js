@@ -184,7 +184,7 @@ function BLLUtilidades() {
             precision: 0,
             thousand: ',',
             format: {
-                pos: '%s %v',
+                pos: '%s%v',
                 zero: '%s  0',
             }
         });
