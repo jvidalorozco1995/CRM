@@ -209,7 +209,7 @@ var _admnegocio = (function () {
             var mes = fecha.getMonth() + 1;
             var cuotas = $('#Textcuota').val();
             var cred = $('#Textcredito').val();
-            var cre = +cred.replace(/[^\d\.-]/g, '');
+            var cre = +cred.replace(/[^\d\.-]/g,'');
             cred = cre;
             var inicial = $('#Textinicial').val();
             var ini = +inicial.replace(/[^\d\.-]/g, '');
@@ -492,7 +492,7 @@ var _admnegocio = (function () {
              {
                  text: 'VALOR CUOTA',
                  editable: true,
-                 columntype: 'decimal',
+                 columntype: 'string',
                  datafield: 'VALOR_CUOTA',
                  cellsFormat: 'c2'
                  
@@ -501,7 +501,7 @@ var _admnegocio = (function () {
         });
 
 
-        //console.log(dataAdapter)
+        console.log(dataAdapter)
         acuerdoP = dataAdapter.cachedrecords;
         console.log(acuerdoP)
         ///setdata = null;
@@ -810,10 +810,10 @@ var _admnegocio = (function () {
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
             $('#Textcredito').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
-
+                
         }
 
-        else if ($('#ComBancos').val().length < 1 || !letras.test($('#ComBancos').val())) {
+        else if ($('#ComBancos').val().length < 1 ) {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Bancos' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
