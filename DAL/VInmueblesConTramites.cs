@@ -17,13 +17,13 @@ namespace DAL
         public string REFERENCIA { get; set; }
         public string INMUOBRA { get; set; }
         public string INMUEBLE { get; set; }
+        public string PROYECTO_INT { get; set; }
         public string ID_NEGOCIO { get; set; }
         public string PROPIETARIO { get; set; }
         public string CEDULA_P { get; set; }
-        public string BANCO { get; set; }
+        public Nullable<int> BANCO { get; set; }
         public string Tramite { get; set; }
         public Nullable<int> IdTramite { get; set; }
         public Nullable<int> IdBanco { get; set; }
-        public string PROYECTO_INT { get; set; }
     }
 }

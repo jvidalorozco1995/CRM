@@ -38,7 +38,7 @@ namespace DAL
         public string VALOR_CASA { get; set; }
         public string INICIAL { get; set; }
         public string CREDITO { get; set; }
-        public string BANCO { get; set; }
+        public Nullable<int> BANCO { get; set; }
         public string NO_CREDITO { get; set; }
         public Nullable<System.DateTime> FECHA_ES { get; set; }
         public Nullable<System.DateTime> FECHA_ENT { get; set; }

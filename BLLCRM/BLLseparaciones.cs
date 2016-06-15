@@ -181,7 +181,7 @@ namespace BLLCRM
                         separacion.CASA = item.NOMBRE_BLO.Trim() + " - " + item.CASA.Trim();
                         separacion.DIAS = DIAS_TR;
                         separacion.ESTADO = item.ESTADO;
-                        _Lseparacion.Add(separacion);
+                       _Lseparacion.Add(separacion);
                     }
                     return _Lseparacion;
                 }
@@ -230,7 +230,7 @@ namespace BLLCRM
                         separacion.CASA = item.NOMBRE_BLO.Trim() + " - " + item.CASA.Trim();
                         separacion.DIAS = DIAS_TR;
                         separacion.ESTADO = item.ESTADO;
-                        _Lseparacion.Add(separacion);
+                       _Lseparacion.Add(separacion);
                     }
                     return _Lseparacion;
                 }
@@ -272,7 +272,7 @@ namespace BLLCRM
                         separacion.CASA = item.NOMBRE_BLO.Trim() + " - " + item.CASA.Trim();
                         separacion.DIAS = DIAS_TR;
                         separacion.ESTADO = item.ESTADO;
-                        _Lseparacion.Add(separacion);
+                       _Lseparacion.Add(separacion);
                     }
                     return _Lseparacion;
                 }
@@ -381,7 +381,7 @@ public class negocioR {
                     separacion.ESTADO = item.ESTADO;
                     separacion.CODIGO_F = item.CODIGO_F;
                     separacion.ID_NEGOCIO = item.ID_NEGOCIO;
-                    _Lseparacion.Add(separacion);
+                   _Lseparacion.Add(separacion);
                 }
                 return _Lseparacion;
             }

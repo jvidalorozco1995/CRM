@@ -16,7 +16,7 @@
                             <div class="pull-right">
 
 
-                                <button class="btn btn-danger btn-btn-circle" type="button" id="BtnSCliente">Actualizar</button>
+                                <button class="btn btn-danger btn-btn-circle" type="button" id="BtnSCliente">Gen. tramites</button>
 
                             </div>
                             <li class="active"><a data-toggle="tab" href="#tab-1">Gestión de tramites</a></li>

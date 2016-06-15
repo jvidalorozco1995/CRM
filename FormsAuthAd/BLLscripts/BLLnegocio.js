@@ -65,7 +65,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
         {
 
             tabla += "<td style='width:20px;'>";
-            tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
+            tabla += "<a class='btn btn-primary btn-xs' href='/Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
             tabla += "</td>";
             tabla += "<td>"
             tabla += "<a title='Este negocio no se ha cargado a multifox'><img src= '" + funcionUrlGlobal("/images_crm/Espera.png") + "' disabled/></a<";
@@ -85,7 +85,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
 
         if (item.DOCUMENTO != undefined && item.Estado == 'FOX') {
             tabla += "<td style='width:20px;'>";
-            tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
+            tabla += "<a class='btn btn-primary btn-xs' href='/Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
             tabla += "</td>";
             tabla += "<td>"
             tabla += "<a title='Este negocio se encuentra en multifox'><img src='" + funcionUrlGlobal("/images_crm/fox.png") + "' style='width:22px; height:22px;'/></a<";
@@ -104,7 +104,7 @@ BLLnegocio.CrearTabl = function (proyectos) {
         if (item.DOCUMENTO != undefined && item.Estado == 'DESISTIDO') {
 
             tabla += "<td style='width:20px;'>";
-            tabla += "<a class='btn btn-primary btn-xs' href='../Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
+            tabla += "<a class='btn btn-primary btn-xs' href='/Upload/" + item.DOCUMENTO + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
             tabla += "</td>";
             tabla += "<td>"
             tabla += "<a title='Este negocio esta desistido'><img src='" + funcionUrlGlobal("/images_crm/PV.png") + "' disabled/></a<";

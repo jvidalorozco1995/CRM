@@ -1,4 +1,7 @@
-﻿var Wbancos = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_Bancos");
+﻿//var Wbancos = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_Bancos");
+
+var WsBancos = funcionUrlGlobal("/Servicios/WBancos.asmx/LisBancos");
+
 var Wgetcliente = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");
 var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores");
 
@@ -72,7 +75,7 @@ function BLLUtilidades() {
 
     BLLUtilidades.prototype.Bancos = function () {
         $.ajax({
-            type: "POST", url: Wbancos,
+            type: "POST", url: WsBancos,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             async: true,
@@ -152,14 +155,14 @@ function BLLUtilidades() {
         $('#asociadosC').dataTable();
     }
   
-    _ComboBancos= function (banco) {
+    _ComboBancos = function (bancos) {
         
-        $.each(banco, function (i, item) {
-            var combo = '<option>';
-            combo += item.NOMBRE_BAN;
-            combo += '</option>';
-            $('#ComBancos').append(combo);
-        })
+        $.each(bancos, function (i, item) {
+            var empr = '<option value=' + item.ID_BANCO + '>';
+            empr += item.NOMBRE_BANCO;
+            empr += '</option>';
+            $('#ComBancos').append(empr);
+        });
          
     }
 

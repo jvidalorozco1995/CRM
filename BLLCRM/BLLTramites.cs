@@ -42,7 +42,8 @@ namespace BLLCRM
 
             try
             {
-                List<VInmueblesConTramites> vimp = bd.VInmueblesConTramites.OrderBy(l => l.INMUEBLE).Where(t => t.PROYECTO_INT == b && t.IdTramite == null).ToList();
+                List<VInmueblesConTramites> vimp = bd.VInmueblesConTramites.OrderBy(l => l.INMUEBLE)
+                    .Where(t => t.PROYECTO_INT == b && t.IdTramite == null).ToList();
                 List<VInmueblesConTramites> Evimp = new List<VInmueblesConTramites>();
                 if (vimp.Count().Equals(0))
                 {
@@ -53,7 +54,12 @@ namespace BLLCRM
                 {
                     foreach (var item in vimp)
                     {
-                        VInmueblesConTramites Vim = new VInmueblesConTramites();
+                        var tramite = bd.Tramites.Where(t => t.Banco == item.BANCO);
+
+                        Tramites_Inmueble tra = new Tramites_Inmueble();
+                         
+
+                       /*VInmueblesConTramites Vim = new VInmueblesConTramites();
                         Vim.REFERENCIA = item.REFERENCIA;
                         Vim.INMUOBRA = item.INMUOBRA;
                         Vim.INMUEBLE = item.INMUEBLE;
@@ -64,7 +70,7 @@ namespace BLLCRM
                         Vim.Tramite = item.Tramite;
                         Vim.IdTramite = item.IdTramite;
                         Vim.IdBanco = item.IdBanco;
-                        Evimp.Add(Vim);
+                        Evimp.Add(Vim);*/
                     }
                     return "Se han actualizado";
                 }

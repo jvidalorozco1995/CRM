@@ -61,7 +61,6 @@ namespace DAL
         public DbSet<Tramites> Tramites { get; set; }
         public DbSet<Tramites_Inmueble> Tramites_Inmueble { get; set; }
         public DbSet<historial_acuerdos_pagos> historial_acuerdos_pagos { get; set; }
-        public DbSet<NegocioView> NegocioView { get; set; }
         public DbSet<VActInmuebles> VActInmuebles { get; set; }
         public DbSet<VActxtramite> VActxtramite { get; set; }
         public DbSet<VacuerdosFox> VacuerdosFox { get; set; }
@@ -75,7 +74,6 @@ namespace DAL
         public DbSet<Vdetallesp> Vdetallesp { get; set; }
         public DbSet<VFechasProyectos> VFechasProyectos { get; set; }
         public DbSet<Vinmuebles> Vinmuebles { get; set; }
-        public DbSet<VInmueblesConTramites> VInmueblesConTramites { get; set; }
         public DbSet<VinteresProyect> VinteresProyect { get; set; }
         public DbSet<VnegocioFox> VnegocioFox { get; set; }
         public DbSet<VNegocioscompromisos> VNegocioscompromisos { get; set; }
@@ -85,5 +83,7 @@ namespace DAL
         public DbSet<VTareasCompromiso> VTareasCompromiso { get; set; }
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
+        public DbSet<NegocioView> NegocioView { get; set; }
+        public DbSet<VInmueblesConTramites> VInmueblesConTramites { get; set; }
     }
 }
