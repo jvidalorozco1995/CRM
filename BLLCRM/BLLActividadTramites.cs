@@ -236,7 +236,7 @@ namespace BLLCRM
                         entb.Id = item.Id;
                         entb.Id_Actividad = item.Id_Actividad;
                         entb.Id_tramite = item.Id_tramite;
-                        entb.Nombre = item.Nombre;
+                        entb.Actividad = item.Actividad;
                         entb.Descripcion = item.Descripcion;
                         entb.Posicion = item.Posicion;
                         lisbcrm.Add(entb);

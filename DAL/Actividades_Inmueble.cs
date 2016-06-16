@@ -17,8 +17,10 @@ namespace DAL
         public int id { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public string Duracion { get; set; }
-        public string Simultaneo { get; set; }
+        public Nullable<int> IdTraInmueble { get; set; }
+        public Nullable<int> ActividadDependiente { get; set; }
+        public Nullable<int> Duracion { get; set; }
+        public Nullable<int> Simultaneo { get; set; }
         public Nullable<System.DateTime> FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaFin { get; set; }
         public Nullable<int> Posicion { get; set; }
