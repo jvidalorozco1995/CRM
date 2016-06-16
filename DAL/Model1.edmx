@@ -24,7 +24,7 @@
           <Property Name="Duracion" Type="int" />
           <Property Name="Descripcion" Type="varchar" MaxLength="250" />
           <Property Name="Simultaneo" Type="int" />
-          <Property Name="Actividad_Dependiente" Type="varchar" MaxLength="50" />
+          <Property Name="Actividad_Dependiente" Type="int" />
         </EntityType>
         <EntityType Name="Actividades_Inmueble">
           <Key>
@@ -33,6 +33,8 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="150" />
           <Property Name="Descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="IdTraInmueble" Type="int" />
+          <Property Name="ActividadDependiente" Type="int" />
           <Property Name="Duracion" Type="int" />
           <Property Name="Simultaneo" Type="int" />
           <Property Name="FechaInicio" Type="datetime" />
@@ -142,6 +144,12 @@
           <Property Name="ID_TAREA" Type="int" />
           <Property Name="CODIGO" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.concepto_p' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="concepto_p">
+          <Property Name="ID_CON" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
+        </EntityType>-->
         <EntityType Name="configuracion">
           <Key>
             <PropertyRef Name="ID_CONT" />
@@ -546,7 +554,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VActxtramite' does not have a prima
           <Property Name="Usuario" Type="varchar" MaxLength="200" />
           <Property Name="Descripcion" Type="varchar" MaxLength="250" />
           <Property Name="Simultaneo" Type="int" />
-          <Property Name="Actividad_Dependiente" Type="varchar" MaxLength="50" />
+          <Property Name="Actividad_Dependiente" Type="int" />
           <Property Name="Tramite" Type="varchar" MaxLength="50" />
           <Property Name="Banco" Type="int" />
           <Property Name="Duracion" Type="int" />
@@ -728,6 +736,15 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vdetallesp' does not have a primary
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VfechasAsesor">
+          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
+          <Property Name="MES" Type="int" />
+          <Property Name="YEAR" Type="int" />
+          <Property Name="CONTADOR" Type="int" />
+          <Property Name="T_CEDULA" Type="varchar" MaxLength="30" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
@@ -789,6 +806,12 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VistaTareasPorClientes">
+          <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
+          <Property Name="ID_TAREA" Type="int" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VnegocioFox">
@@ -1908,6 +1931,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
         <EntityContainer Name="CRMEntiti" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ActInmuebles" EntityType="CRM_PRUEBAModel.ActInmuebles" />
           <EntitySet Name="Actividades" EntityType="CRM_PRUEBAModel.Actividades" />
+          <EntitySet Name="Actividades_Inmueble" EntityType="CRM_PRUEBAModel.Actividades_Inmueble" />
           <EntitySet Name="ActividadxTramite" EntityType="CRM_PRUEBAModel.ActividadxTramite" />
           <EntitySet Name="acuerdo_fox" EntityType="CRM_PRUEBAModel.acuerdo_fox" />
           <EntitySet Name="acuerdo_pago" EntityType="CRM_PRUEBAModel.acuerdo_pago" />
@@ -1943,6 +1967,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="historial_acuerdos_pagos" EntityType="CRM_PRUEBAModel.historial_acuerdos_pagos" />
           <EntitySet Name="NegocioView" EntityType="CRM_PRUEBAModel.NegocioView" />
           <EntitySet Name="VActInmuebles" EntityType="CRM_PRUEBAModel.VActInmuebles" />
+          <EntitySet Name="VActxtramite" EntityType="CRM_PRUEBAModel.VActxtramite" />
           <EntitySet Name="VacuerdosFox" EntityType="CRM_PRUEBAModel.VacuerdosFox" />
           <EntitySet Name="VAsesoresT" EntityType="CRM_PRUEBAModel.VAsesoresT" />
           <EntitySet Name="VCantidadcompromisos" EntityType="CRM_PRUEBAModel.VCantidadcompromisos" />
@@ -2064,8 +2089,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="Tramites" EntitySet="Tramites" />
             <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
           </AssociationSet>
-          <EntitySet Name="VActxtramite" EntityType="CRM_PRUEBAModel.VActxtramite" />
-          <EntitySet Name="Actividades_Inmueble" EntityType="CRM_PRUEBAModel.Actividades_Inmueble" />
         </EntityContainer>
         <EntityType Name="ActInmuebles">
           <Key>
@@ -2086,10 +2109,26 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="Duracion" Type="Int32" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Simultaneo" Type="Int32" />
-          <Property Name="Actividad_Dependiente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Actividad_Dependiente" Type="Int32" />
           <NavigationProperty Name="ActividadxTramite" Relationship="CRM_PRUEBAModel.FK_ActividadxTramite_Actividades" FromRole="Actividades" ToRole="ActividadxTramite" />
           <NavigationProperty Name="Documento" Relationship="CRM_PRUEBAModel.FK_Documento_Actividades" FromRole="Actividades" ToRole="Documento" />
           <NavigationProperty Name="Notificaciones" Relationship="CRM_PRUEBAModel.FK_Notificaciones_Actividades" FromRole="Actividades" ToRole="Notificaciones" />
+        </EntityType>
+        <EntityType Name="Actividades_Inmueble">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IdTraInmueble" Type="Int32" />
+          <Property Name="ActividadDependiente" Type="Int32" />
+          <Property Name="Duracion" Type="Int32" />
+          <Property Name="Simultaneo" Type="Int32" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="FechaFin" Type="DateTime" Precision="3" />
+          <Property Name="Posicion" Type="Int32" />
+          <Property Name="Estado" Type="Int32" />
         </EntityType>
         <EntityType Name="ActividadxTramite">
           <Key>
@@ -2622,6 +2661,24 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="Fecha" Type="DateTime" Precision="3" />
           <Property Name="Proyecto" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="Usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VActxtramite">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Id_Actividad" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_tramite" Type="Int32" />
+          <Property Name="Posicion" Type="Int32" />
+          <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
+          <Property Name="Actividad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Simultaneo" Type="Int32" />
+          <Property Name="Actividad_Dependiente" Type="Int32" />
+          <Property Name="Tramite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Banco" Type="Int32" />
+          <Property Name="Duracion" Type="Int32" />
         </EntityType>
         <EntityType Name="VacuerdosFox">
           <Key>
@@ -3335,39 +3392,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="VActxtramite">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="Id_Actividad" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Id_tramite" Type="Int32" />
-          <Property Name="Posicion" Type="Int32" />
-          <Property Name="Id_Actividad" Type="Int32" Nullable="false" />
-          <Property Name="Actividad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="Simultaneo" Type="Int32" />
-          <Property Name="Actividad_Dependiente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Tramite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Banco" Type="Int32" />
-          <Property Name="Duracion" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Actividades_Inmueble">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Duracion" Type="Int32" />
-          <Property Name="Simultaneo" Type="Int32" />
-          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
-          <Property Name="FechaFin" Type="DateTime" Precision="3" />
-          <Property Name="Posicion" Type="Int32" />
-          <Property Name="Estado" Type="Int32" />
-        </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -3391,6 +3416,23 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Duracion" ColumnName="Duracion" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Actividades_Inmueble">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Actividades_Inmueble">
+              <MappingFragment StoreEntitySet="Actividades_Inmueble">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="Simultaneo" ColumnName="Simultaneo" />
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="ActividadDependiente" ColumnName="ActividadDependiente" />
+                <ScalarProperty Name="IdTraInmueble" ColumnName="IdTraInmueble" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
@@ -3913,6 +3955,24 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="VActxtramite">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VActxtramite">
+              <MappingFragment StoreEntitySet="VActxtramite">
+                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="Tramite" ColumnName="Tramite" />
+                <ScalarProperty Name="Actividad_Dependiente" ColumnName="Actividad_Dependiente" />
+                <ScalarProperty Name="Simultaneo" ColumnName="Simultaneo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="Id_tramite" ColumnName="Id_tramite" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="VacuerdosFox">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.VacuerdosFox">
               <MappingFragment StoreEntitySet="VacuerdosFox">
@@ -4306,39 +4366,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="P_APELLIDO" ColumnName="P_APELLIDO" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
                 <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VActxtramite">
-            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VActxtramite">
-              <MappingFragment StoreEntitySet="VActxtramite">
-                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
-                <ScalarProperty Name="Banco" ColumnName="Banco" />
-                <ScalarProperty Name="Tramite" ColumnName="Tramite" />
-                <ScalarProperty Name="Actividad_Dependiente" ColumnName="Actividad_Dependiente" />
-                <ScalarProperty Name="Simultaneo" ColumnName="Simultaneo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-                <ScalarProperty Name="Actividad" ColumnName="Actividad" />
-                <ScalarProperty Name="Id_Actividad" ColumnName="Id_Actividad" />
-                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
-                <ScalarProperty Name="Id_tramite" ColumnName="Id_tramite" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Actividades_Inmueble">
-            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Actividades_Inmueble">
-              <MappingFragment StoreEntitySet="Actividades_Inmueble">
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
-                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
-                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-                <ScalarProperty Name="Simultaneo" ColumnName="Simultaneo" />
-                <ScalarProperty Name="Duracion" ColumnName="Duracion" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -62,21 +62,31 @@ namespace BLLCRM
                             tra.id_Tramite = tramite.id;
                             tra.Porcentaje = 0;
                             tra.Id_Inmueble = item.REFERENCIA;
-                            var a =  bd.Tramites_Inmueble.Add(tra);
+                            var a = bd.Tramites_Inmueble.Add(tra);
                             int estado = bd.SaveChanges();
 
-                            if (estado > 0 ){
+                            if (estado > 0 )
+                            {
 
-                                var actividadesxtramite = bd.VActxtramite.Where(t=>t.Id_tramite == tramite.id).ToList();
+                               
+                                var actividadesxtramite = bd.VActxtramite
+                                    .Where(t=>t.Id_tramite == tramite.id)
+                                    .OrderBy(t=>t.Posicion).ToList();
 
-                                foreach (var actividad in actividadesxtramite) {
+                                foreach (var actividad in actividadesxtramite)
+                                {
+
+                                   // if(bd.Actividades_Inmueble.Where(t=>t.))
+                                    //if (bd.Actividades_Inmueble.Where(t => t.))
 
                                     Actividades_Inmueble actinmueble = new Actividades_Inmueble();
+                                    actinmueble.IdTraInmueble = a.id;
                                     actinmueble.Nombre = actividad.Actividad;
                                     actinmueble.Descripcion = actividad.Descripcion;
                                     actinmueble.Duracion = actividad.Duracion;
                                     actinmueble.Simultaneo = actividad.Simultaneo;
                                     actinmueble.FechaInicio = DateTime.Now;
+                                    
                                     if (actividad.Duracion != null)
                                     {
                                        actinmueble.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(actividad.Duracion));
@@ -84,8 +94,11 @@ namespace BLLCRM
                                     actinmueble.Posicion = actividad.Posicion;
                                     //ESTADO 3 = PENDIENTE;
                                     actinmueble.Estado = 3;
+                                    actinmueble.ActividadDependiente = actividad.Actividad_Dependiente;
 
-
+                                    //Insertamos
+                                    bd.Actividades_Inmueble.Add(actinmueble);
+                                    bd.SaveChanges();
                                 }
                             }
                         }

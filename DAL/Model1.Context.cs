@@ -27,6 +27,7 @@ namespace DAL
     
         public DbSet<ActInmuebles> ActInmuebles { get; set; }
         public DbSet<Actividades> Actividades { get; set; }
+        public DbSet<Actividades_Inmueble> Actividades_Inmueble { get; set; }
         public DbSet<ActividadxTramite> ActividadxTramite { get; set; }
         public DbSet<acuerdo_fox> acuerdo_fox { get; set; }
         public DbSet<acuerdo_pago> acuerdo_pago { get; set; }
@@ -62,6 +63,7 @@ namespace DAL
         public DbSet<historial_acuerdos_pagos> historial_acuerdos_pagos { get; set; }
         public DbSet<NegocioView> NegocioView { get; set; }
         public DbSet<VActInmuebles> VActInmuebles { get; set; }
+        public DbSet<VActxtramite> VActxtramite { get; set; }
         public DbSet<VacuerdosFox> VacuerdosFox { get; set; }
         public DbSet<VAsesoresT> VAsesoresT { get; set; }
         public DbSet<VCantidadcompromisos> VCantidadcompromisos { get; set; }
@@ -83,7 +85,5 @@ namespace DAL
         public DbSet<VTareasCompromiso> VTareasCompromiso { get; set; }
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
-        public DbSet<VActxtramite> VActxtramite { get; set; }
-        public DbSet<Actividades_Inmueble> Actividades_Inmueble { get; set; }
     }
 }
