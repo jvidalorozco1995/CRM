@@ -78,7 +78,7 @@ namespace BLLCRM
 
                                    // if(bd.Actividades_Inmueble.Where(t=>t.))
                                     //if (bd.Actividades_Inmueble.Where(t => t.))
-
+                                    //sds
                                     Actividades_Inmueble actinmueble = new Actividades_Inmueble();
                                     actinmueble.IdTraInmueble = a.id;
                                     actinmueble.Nombre = actividad.Actividad;
