@@ -35,7 +35,13 @@ namespace FormsAuthAd.Servicios
 
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string Actualizar(string b)
+        {
+            return inm.Actualizar(b);
 
-
+        }
+        
     }
 }

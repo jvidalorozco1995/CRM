@@ -48,7 +48,7 @@ namespace BLLCRM
                 if (vimp.Count().Equals(0))
                 {
 
-                    return "";
+                    return "Todos los inmuebles ya tienen tramite";
                 }
                 else
                 {
@@ -242,6 +242,7 @@ namespace BLLCRM
                     {
                         VInmueblesConTramites Vim = new VInmueblesConTramites();
                         Vim.REFERENCIA = item.REFERENCIA;
+                        Vim.PROYECTO_INT = item.PROYECTO_INT;
                         Vim.INMUOBRA = item.INMUOBRA;
                         Vim.INMUEBLE = item.INMUEBLE;
                         Vim.ID_NEGOCIO = item.ID_NEGOCIO;

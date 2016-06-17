@@ -8,7 +8,7 @@ var admTramites = (function () {
 
 
     var WsListramite = funcionUrlGlobal("/Servicios/WVistaInmuebleTramites.asmx/GetInmuebles");//Consulto Proyectos CRM
-
+    var WsGenTramite = funcionUrlGlobal("/Servicios/WVistaInmuebleTramites.asmx/Actualizar");//Consulto Proyectos CRM
 
 
 
@@ -20,7 +20,14 @@ var admTramites = (function () {
     var doc;
     var _addHandlers = function () {
 
-   
+
+        //Boton que muestra la lista de actividades
+        $('#BtnGenTramite').click(function () {
+
+            Tra.GenerarTramites(proyec, WsGenTramite);
+            setTimeout(function () { Tra.ListTramites(proyec, WsListramite); }, 1000);
+        });
+
 
 
     }
