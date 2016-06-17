@@ -324,7 +324,7 @@
             tabla += '<button type="button" id="'+item.Id+'"class="btn-xs btn-danger btn-btn-circle vertical-date pull-right RemoverActi">Quitar</button>'
             tabla += '<button type="button" id="' + item.Id + '" class="btn-xs btn-success vertical-date pull-right Posicion">Posicion</button>'
            // tabla += '<span class="vertical-date pull-right"> Saturday <br/> <small>12:17:43 PM</small> </span>';
-            tabla += '<h2>' + item.Nombre+'</h2>';
+            tabla += '<h2>' + item.Actividad+'</h2>';
             tabla += '<p>'+item.Descripcion+'</p>';
             tabla += '</div>';
             tabla += ' <div class="panel-footer">';
