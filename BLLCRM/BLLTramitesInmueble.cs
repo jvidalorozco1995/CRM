@@ -56,7 +56,7 @@ namespace BLLCRM
 
             catch (Exception ex)
             {
-                return mensaje = "No fue posible llevar  a cabo el proceso" + ex;
+                return mensaje = "No fue posible llevar  a cabo el proceso " + ex;
                 throw;
             }
         }
