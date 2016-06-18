@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLActividadesInmueble.cs" />
     <Compile Include="BLLActividadTramites.cs" />
     <Compile Include="BLLActInmueble.cs" />
     <Compile Include="BLLActividades.cs" />
