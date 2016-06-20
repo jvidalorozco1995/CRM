@@ -62,6 +62,7 @@
         tabla += "<th>PROPIETARIO</th>";
         tabla += "<th>INMUEBLE</th>";
         tabla += "<th></th>"
+        tabla += "<th></th>"
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -71,11 +72,13 @@
             tabla += "<td style='width:100px'>" + item.CEDULA_P + "</td>";
             tabla += "<td>" + item.PROPIETARIO + "</td>";
             tabla += "<td>" + item.INMUEBLE + "</td>";
-           
+            alert(JSON.stringify(item));
             if (item.IdTramite == null)
             {
                 tabla += "<td style='width:20px;height: 20px'>";
                 tabla += "<img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'" + "id=" + item.id + " class='Infocl' title='No tiene tramite'></img>";
+                tabla += "</td>";
+                tabla += "<td style='width:20px;height: 20px'>";
                 tabla += "</td>";
             }
             else
@@ -83,8 +86,13 @@
                 tabla += "<td style='width:20px;height: 20px'>";
                 tabla += "<img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'" + "id=" + item.id + " class='Infocl' ></img>";
                 tabla += "</td>";
+             
+                tabla += "<td style='width:20px;height: 20px'>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Crear.png') + "'" + "id=" + item.id + " class='Infocl' ></img>";
+                tabla += "</td>";
 
             }
+
             tabla += "</tr>";
            
         });
