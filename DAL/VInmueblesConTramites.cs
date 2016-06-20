@@ -14,8 +14,10 @@ namespace DAL
     
     public partial class VInmueblesConTramites
     {
+        public Nullable<int> IdTraInmueble { get; set; }
         public string REFERENCIA { get; set; }
         public string INMUOBRA { get; set; }
+        public string NOMBRE_BLO { get; set; }
         public string INMUEBLE { get; set; }
         public string PROYECTO_INT { get; set; }
         public string ID_NEGOCIO { get; set; }
@@ -25,5 +27,7 @@ namespace DAL
         public string Tramite { get; set; }
         public Nullable<int> IdTramite { get; set; }
         public Nullable<int> IdBanco { get; set; }
+        public string CODIGO_F { get; set; }
+        public string USER_CARTERA { get; set; }
     }
 }

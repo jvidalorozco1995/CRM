@@ -783,8 +783,10 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VInmueblesConTramites' does not hav
             <PropertyRef Name="REFERENCIA" />
             <PropertyRef Name="ID_NEGOCIO" />
           </Key>
+          <Property Name="IdTraInmueble" Type="int" />
           <Property Name="REFERENCIA" Type="varchar" MaxLength="16" Nullable="false" />
           <Property Name="INMUOBRA" Type="varchar" MaxLength="10" />
+          <Property Name="NOMBRE_BLO" Type="varchar" MaxLength="50" />
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
           <Property Name="PROYECTO_INT" Type="varchar" MaxLength="10" />
           <Property Name="ID_NEGOCIO" Type="varchar" MaxLength="50" Nullable="false" />
@@ -794,6 +796,8 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VInmueblesConTramites' does not hav
           <Property Name="Tramite" Type="varchar" MaxLength="50" />
           <Property Name="IdTramite" Type="int" />
           <Property Name="IdBanco" Type="int" />
+          <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
+          <Property Name="USER_CARTERA" Type="varchar" MaxLength="60" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1626,8 +1630,10 @@ FROM [dbo].[Vinmuebles] AS [Vinmuebles]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VInmueblesConTramites" EntityType="Self.VInmueblesConTramites" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+[VInmueblesConTramites].[IdTraInmueble] AS [IdTraInmueble], 
 [VInmueblesConTramites].[REFERENCIA] AS [REFERENCIA], 
 [VInmueblesConTramites].[INMUOBRA] AS [INMUOBRA], 
+[VInmueblesConTramites].[NOMBRE_BLO] AS [NOMBRE_BLO], 
 [VInmueblesConTramites].[INMUEBLE] AS [INMUEBLE], 
 [VInmueblesConTramites].[PROYECTO_INT] AS [PROYECTO_INT], 
 [VInmueblesConTramites].[ID_NEGOCIO] AS [ID_NEGOCIO], 
@@ -1636,7 +1642,9 @@ FROM [dbo].[Vinmuebles] AS [Vinmuebles]</DefiningQuery>
 [VInmueblesConTramites].[BANCO] AS [BANCO], 
 [VInmueblesConTramites].[Tramite] AS [Tramite], 
 [VInmueblesConTramites].[IdTramite] AS [IdTramite], 
-[VInmueblesConTramites].[IdBanco] AS [IdBanco]
+[VInmueblesConTramites].[IdBanco] AS [IdBanco], 
+[VInmueblesConTramites].[CODIGO_F] AS [CODIGO_F], 
+[VInmueblesConTramites].[USER_CARTERA] AS [USER_CARTERA]
 FROM [dbo].[VInmueblesConTramites] AS [VInmueblesConTramites]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VinteresProyect" EntityType="Self.VinteresProyect" store:Type="Views" store:Schema="dbo">
@@ -2871,8 +2879,10 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <PropertyRef Name="REFERENCIA" />
             <PropertyRef Name="ID_NEGOCIO" />
           </Key>
+          <Property Name="IdTraInmueble" Type="Int32" />
           <Property Name="REFERENCIA" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="INMUOBRA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="INMUEBLE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="PROYECTO_INT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ID_NEGOCIO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -2882,6 +2892,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="Tramite" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdTramite" Type="Int32" />
           <Property Name="IdBanco" Type="Int32" />
+          <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER_CARTERA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VinteresProyect">
           <Key>
@@ -4165,6 +4177,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="VInmueblesConTramites">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.VInmueblesConTramites">
               <MappingFragment StoreEntitySet="VInmueblesConTramites">
+                <ScalarProperty Name="USER_CARTERA" ColumnName="USER_CARTERA" />
+                <ScalarProperty Name="CODIGO_F" ColumnName="CODIGO_F" />
                 <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
                 <ScalarProperty Name="IdTramite" ColumnName="IdTramite" />
                 <ScalarProperty Name="Tramite" ColumnName="Tramite" />
@@ -4174,8 +4188,10 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="ID_NEGOCIO" ColumnName="ID_NEGOCIO" />
                 <ScalarProperty Name="PROYECTO_INT" ColumnName="PROYECTO_INT" />
                 <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
+                <ScalarProperty Name="NOMBRE_BLO" ColumnName="NOMBRE_BLO" />
                 <ScalarProperty Name="INMUOBRA" ColumnName="INMUOBRA" />
                 <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
+                <ScalarProperty Name="IdTraInmueble" ColumnName="IdTraInmueble" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

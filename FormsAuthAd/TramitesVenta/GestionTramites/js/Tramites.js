@@ -10,7 +10,7 @@ var admTramites = (function () {
     var WsListramite = funcionUrlGlobal("/Servicios/WVistaInmuebleTramites.asmx/GetInmuebles");//Consulto Proyectos CRM
     var WsGenTramite = funcionUrlGlobal("/Servicios/WVistaInmuebleTramites.asmx/Actualizar");//Consulto Proyectos CRM
 
-
+    var WsActividadesTramiteInmueble = funcionUrlGlobal("/Servicios/WActividadesInmueble.asmx/ListActiInmuebles");//Consulto Proyectos CRM
 
     var cliente = null;
     var bandera = 0;
@@ -28,6 +28,16 @@ var admTramites = (function () {
             setTimeout(function () { Tra.ListTramites(proyec, WsListramite); }, 1000);
         });
 
+
+      
+        
+        $(document).on('click', '.Infocl', function () {
+            tra = $(this).attr("id");
+            
+            $('#Actividadesxtramite').show();
+            setTimeout(function () { Tra.ListActividadesInmuebles(tra, WsActividadesTramiteInmueble); }, 1000);
+
+        });
 
 
     }

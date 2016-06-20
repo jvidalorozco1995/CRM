@@ -251,6 +251,7 @@ namespace BLLCRM
                     foreach (var item in vimp)
                     {
                         VInmueblesConTramites Vim = new VInmueblesConTramites();
+                        Vim.IdTraInmueble = item.IdTraInmueble;
                         Vim.REFERENCIA = item.REFERENCIA;
                         Vim.PROYECTO_INT = item.PROYECTO_INT;
                         Vim.INMUOBRA = item.INMUOBRA;
