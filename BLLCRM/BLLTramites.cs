@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 
 namespace BLLCRM
 {
-  public  class BLLTramites
+  
+    public  class BLLTramites
+       
     {
         CRMEntiti bd = new CRMEntiti();
         string mensaje = null;
@@ -39,7 +41,7 @@ namespace BLLCRM
 
         public string Actualizar(string b)
         {
-
+            var bandera = 0;
             try
             {
                 List<VInmueblesConTramites> vimp = bd.VInmueblesConTramites.OrderBy(l => l.INMUEBLE)
@@ -55,7 +57,7 @@ namespace BLLCRM
                     foreach (var item in vimp)
                     {
                         var tramite = bd.Tramites.Where(t => t.Banco == item.BANCO).First();
-
+                        bandera = 0;
                         if (tramite != null)
                         {
                             Tramites_Inmueble tra = new Tramites_Inmueble();
@@ -72,7 +74,7 @@ namespace BLLCRM
                                 var actividadesxtramite = bd.VActxtramite
                                     .Where(t=>t.Id_tramite == tramite.id)
                                     .OrderBy(t=>t.Posicion).ToList();
-
+                                
                                 foreach (var actividad in actividadesxtramite)
                                 {
 
@@ -93,12 +95,20 @@ namespace BLLCRM
                                     }
                                     actinmueble.Posicion = actividad.Posicion;
                                     //ESTADO 3 = PENDIENTE;
-                                    actinmueble.Estado = 3;
+                                    if (bandera == 1)
+                                    {
+                                        actinmueble.Estado = 3;
+                                    }
+                                    else {
+                                        actinmueble.Estado = 1;
+                                    }
+                                    
                                     actinmueble.ActividadDependiente = actividad.Actividad_Dependiente;
 
                                     //Insertamos
                                     bd.Actividades_Inmueble.Add(actinmueble);
                                     bd.SaveChanges();
+                                    bandera = 1;
                                 }
                             }
                         }

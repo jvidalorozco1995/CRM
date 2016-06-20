@@ -2271,6 +2271,7 @@
     <Content Include="Servicios\AcuerdosFox.asmx" />
     <Content Include="Servicios\WAcInmuebles.asmx" />
     <Content Include="Servicios\WActividades.asmx" />
+    <Content Include="Servicios\WActividadesInmueble.asmx" />
     <Content Include="Servicios\WActividadesTramites.asmx" />
     <Content Include="Servicios\WBancos.asmx" />
     <Content Include="Servicios\WClientes.asmx" />
@@ -4793,6 +4794,10 @@
     </Compile>
     <Compile Include="Servicios\WActividades.asmx.cs">
       <DependentUpon>WActividades.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WActividadesInmueble.asmx.cs">
+      <DependentUpon>WActividadesInmueble.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WActividadesTramites.asmx.cs">
