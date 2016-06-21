@@ -88,7 +88,6 @@
         tabla += "<th>PROPIETARIO</th>";
         tabla += "<th>INMUEBLE</th>";
         tabla += "<th></th>"
-        tabla += "<th></th>"
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -102,21 +101,15 @@
             if (item.IdTraInmueble == null)
             {
                 tabla += "<td style='width:20px;height: 20px'>";
-                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'" + "id=" + item.id + " class='Infocl' title='No tiene tramite'></img>";
-                tabla += "</td>";
-                tabla += "<td style='width:20px;height: 20px'>";
-                tabla += "</td>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'" + "id=" + item.id + " class='' title='No tiene tramite'></img>";
+                
             }
             else
             {
                 tabla += "<td style='width:20px;height: 20px'>";
-                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'" + "id=" + item.id + " class='Infocl' ></img>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'" + "id=" + item.IdTraInmueble + " class='Infocl' ></img>";
                 tabla += "</td>";
              
-                tabla += "<td style='width:20px;height: 20px'>";
-                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Crear.png') + "'" + "id=" + item.IdTraInmueble + " class='Infocl' ></img>";
-                tabla += "</td>";
-
             }
 
             tabla += "</tr>";
@@ -134,7 +127,7 @@
         document.getElementById('datos').innerHTML = "";
         var tabla = "";
         $.each(actividades, function (i, item) {
-
+            alert(JSON.stringify(item));
             tabla += '<div class="v-timeline vertical-container animate-panel"  data-child="vertical-timeline-block" data-delay="1">'
             tabla += '<div class="vertical-timeline-block">';
             tabla += '<div class="vertical-timeline-icon navy-bg" style="padding-top:8px">';
@@ -142,17 +135,22 @@
             tabla += '</div>';
             tabla += '<div class="vertical-timeline-content">';
             tabla += '  <div class="p-sm">';
-            tabla += '<button type="button" id="' + item.Id + '" class="btn-xs btn-success vertical-date pull-right Posicion">Ver</button>'
-            // tabla += '<span class="vertical-date pull-right"> Saturday <br/> <small>12:17:43 PM</small> </span>';
+
+            if (item.Estado == 3) {
+                tabla += '<button type="button" id="' + item.Id + '" class="btn-xs btn-success vertical-date pull-right Posicion">Ver</button>'
+            } else {
+                
+
+            }
             tabla += '<h2>' + item.Nombre + '</h2>';
             tabla += '<p>' + item.Descripcion + '</p>';
             tabla += '</div>';
             tabla += ' <div class="panel-footer">';
-            //  tabla += '   It is a long established fact that';
             tabla += '</div>';
             tabla += '</div>';
             tabla += '</div>';
             tabla += '</div>';
+
         });
         $("#datos").append(tabla);
 

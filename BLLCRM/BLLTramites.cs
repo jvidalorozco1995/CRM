@@ -78,8 +78,6 @@ namespace BLLCRM
                                 foreach (var actividad in actividadesxtramite)
                                 {
 
-                                   // if(bd.Actividades_Inmueble.Where(t=>t.))
-                                    //if (bd.Actividades_Inmueble.Where(t => t.))
                                     //sds
                                     Actividades_Inmueble actinmueble = new Actividades_Inmueble();
                                     actinmueble.IdTraInmueble = a.id;
@@ -94,18 +92,18 @@ namespace BLLCRM
                                        actinmueble.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(actividad.Duracion));
                                     }
                                     actinmueble.Posicion = actividad.Posicion;
-                                    //ESTADO 3 = PENDIENTE;
+
                                     if (bandera == 1)
                                     {
-                                        actinmueble.Estado = 3;
-                                    }
-                                    else {
                                         actinmueble.Estado = 1;
+                                    }
+                                    else
+                                    {
+                                        actinmueble.Estado = 3;
                                     }
                                     
                                     actinmueble.ActividadDependiente = actividad.Actividad_Dependiente;
 
-                                    //Insertamos
                                     bd.Actividades_Inmueble.Add(actinmueble);
                                     bd.SaveChanges();
                                     bandera = 1;
@@ -117,19 +115,6 @@ namespace BLLCRM
                             return "Este banco no tiene tramites";
                         }
                         
-
-                       /*VInmueblesConTramites Vim = new VInmueblesConTramites();
-                        Vim.REFERENCIA = item.REFERENCIA;
-                        Vim.INMUOBRA = item.INMUOBRA;
-                        Vim.INMUEBLE = item.INMUEBLE;
-                        Vim.ID_NEGOCIO = item.ID_NEGOCIO;
-                        Vim.PROPIETARIO = item.PROPIETARIO;
-                        Vim.CEDULA_P = item.CEDULA_P;
-                        Vim.BANCO = item.BANCO;
-                        Vim.Tramite = item.Tramite;
-                        Vim.IdTramite = item.IdTramite;
-                        Vim.IdBanco = item.IdBanco;
-                        Evimp.Add(Vim);*/
                     }
                     return "Se han actualizado";
                 }
