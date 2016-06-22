@@ -85,21 +85,25 @@ namespace BLLCRM
                                     actinmueble.Descripcion = actividad.Descripcion;
                                     actinmueble.Duracion = actividad.Duracion;
                                     actinmueble.Simultaneo = actividad.Simultaneo;
-                                    actinmueble.FechaInicio = DateTime.Now;
-                                    
-                                    if (actividad.Duracion != null)
-                                    {
-                                       actinmueble.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(actividad.Duracion));
-                                    }
                                     actinmueble.Posicion = actividad.Posicion;
+                                    
 
                                     if (bandera == 1)
                                     {
                                         actinmueble.Estado = 1;
+                                        actinmueble.FechaInicio = null;
+                                        actinmueble.FechaFin = null;
                                     }
                                     else
                                     {
                                         actinmueble.Estado = 3;
+                                        actinmueble.FechaInicio = DateTime.Now;
+
+                                        if (actividad.Duracion != null)
+                                        {
+                                            actinmueble.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(actividad.Duracion));
+                                        }
+                                        
                                     }
                                     
                                     actinmueble.ActividadDependiente = actividad.Actividad_Dependiente;
