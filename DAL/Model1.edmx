@@ -41,6 +41,7 @@
           <Property Name="FechaFin" Type="datetime" />
           <Property Name="Posicion" Type="int" />
           <Property Name="Estado" Type="int" />
+          <Property Name="IdActividad" Type="int" />
         </EntityType>
         <EntityType Name="ActividadxTramite">
           <Key>
@@ -2137,6 +2138,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="FechaFin" Type="DateTime" Precision="3" />
           <Property Name="Posicion" Type="Int32" />
           <Property Name="Estado" Type="Int32" />
+          <Property Name="IdActividad" Type="Int32" />
         </EntityType>
         <EntityType Name="ActividadxTramite">
           <Key>
@@ -3436,6 +3438,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="Actividades_Inmueble">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.Actividades_Inmueble">
               <MappingFragment StoreEntitySet="Actividades_Inmueble">
+                <ScalarProperty Name="IdActividad" ColumnName="IdActividad" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Posicion" ColumnName="Posicion" />
                 <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />

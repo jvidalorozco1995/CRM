@@ -173,7 +173,7 @@ namespace BLLCRM
                     {
                         foreach (var item in lisb)
                         {
-                        Tramites entb = new Tramites();
+                            Tramites entb = new Tramites();
                             entb.id = item.id;
                             entb.Nombre = item.Nombre;
                             entb.Banco = item.Banco;
