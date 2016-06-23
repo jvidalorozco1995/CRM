@@ -12,6 +12,7 @@ namespace BLLCRM
  public   class BLLActividadesInmueble
     {
         CRMEntiti bd = new CRMEntiti();
+        string mensaje = null;
         public List<Actividades_Inmueble> ListActInmueble(int id)
         {
 
@@ -51,5 +52,27 @@ namespace BLLCRM
                 throw;
             }
         }
+
+        public string UpdateActInmueble(int i, int id)
+        {
+
+            try
+            {
+               
+                    var ctx = bd.Actividades_Inmueble.First(inm => inm.id == id);
+
+                    ctx.Estado = i;
+                    bd.SaveChanges();
+              
+                return mensaje = "Se actualizo el estado de manera exitosa";
+            }
+
+            catch (Exception ex)
+            {
+                return mensaje = "No fue posible llevar  a cabo el proceso" + ex;
+                throw;
+            }
+        }
+
     }
 }

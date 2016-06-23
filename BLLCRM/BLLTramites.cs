@@ -42,6 +42,7 @@ namespace BLLCRM
         public string Actualizar(string b)
         {
             var bandera = 0;
+            var bandera2 = 0;
             try
             {
                 List<VInmueblesConTramites> vimp = bd.VInmueblesConTramites.OrderBy(l => l.INMUEBLE)
@@ -85,14 +86,36 @@ namespace BLLCRM
                                     actinmueble.Descripcion = actividad.Descripcion;
                                     actinmueble.Duracion = actividad.Duracion;
                                     actinmueble.Simultaneo = actividad.Simultaneo;
+                                    if(actinmueble.Simultaneo == 1)
+                                    {
+                                        if(bandera2 == 2)
+                                        { 
+                                        bandera2 = 1;
+                                        }
+                                    }
                                     actinmueble.Posicion = actividad.Posicion;
-                                    
+                                    actinmueble.IdActividad = actividad.Id_Actividad;
 
                                     if (bandera == 1)
                                     {
                                         actinmueble.Estado = 1;
                                         actinmueble.FechaInicio = null;
                                         actinmueble.FechaFin = null;
+                                        if (bandera2 == 1)
+                                        {
+                                            actinmueble.FechaInicio = DateTime.Now;
+                                            actinmueble.Estado = 3;
+                                            if (actividad.Duracion != null)
+                                            {
+                                                actinmueble.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(actividad.Duracion));
+                                            }
+                                            bandera2 = 2;
+                                        }
+                                        else
+                                        {
+                                            bandera2 = 0;
+                                        }
+                                       
                                     }
                                     else
                                     {
@@ -103,7 +126,7 @@ namespace BLLCRM
                                         {
                                             actinmueble.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(actividad.Duracion));
                                         }
-                                        
+                                        bandera2 = 2;
                                     }
                                     
                                     actinmueble.ActividadDependiente = actividad.Actividad_Dependiente;
