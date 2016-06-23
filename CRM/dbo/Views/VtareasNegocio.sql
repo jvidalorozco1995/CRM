@@ -1,22 +1,17 @@
 ﻿CREATE VIEW dbo.VtareasNegocio
 AS
-
-
-
 SELECT        NEGOCIO.ID_TAREA, NEGOCIO.CLIENTE, NEGOCIO.TRABAJADOR, NEGOCIO.CONCEPTO, NEGOCIO.NEGOCIO, NEGOCIO.FECHAFIN, 'T' AS ESTADO, NEGOCIO.FECHAINICIO, 
-                         { fn CONCAT({ fn CONCAT(dbo.clientes.NOMBRES, ' ' + dbo.clientes.P_APELLIDO) }, ' ' + dbo.clientes.P_APELLIDO) } AS NOMBRES
+                         { fn CONCAT({ fn CONCAT(dbo.clientes.NOMBRES, ' ' + dbo.clientes.P_APELLIDO) }, ' ' + dbo.clientes.S_APELLIDO) } AS NOMBRES
 FROM            dbo.tareas AS NEGOCIO INNER JOIN
-                         dbo.clientes ON NEGOCIO.CLIENTE = dbo.clientes.CEDULA
-						 INNER JOIN acuerdo_fox  on NEGOCIO.ID_TAREA = acuerdo_fox.codigotarea
+                         dbo.clientes ON NEGOCIO.CLIENTE = dbo.clientes.CEDULA INNER JOIN
+                         acuerdo_fox ON NEGOCIO.ID_TAREA = acuerdo_fox.codigotarea
 WHERE        (NEGOCIO.NEGOCIO IS NOT NULL) AND acuerdo_fox.SALDOXCOBRAR = 0
-
 UNION
-
 SELECT        NEGOCIO.ID_TAREA, NEGOCIO.CLIENTE, NEGOCIO.TRABAJADOR, NEGOCIO.CONCEPTO, NEGOCIO.NEGOCIO, NEGOCIO.FECHAFIN, NEGOCIO.ESTADO, NEGOCIO.FECHAINICIO, 
-                         { fn CONCAT({ fn CONCAT(dbo.clientes.NOMBRES, ' ' + dbo.clientes.P_APELLIDO) }, ' ' + dbo.clientes.P_APELLIDO) } AS NOMBRES
+                         { fn CONCAT({ fn CONCAT(dbo.clientes.NOMBRES, ' ' + dbo.clientes.P_APELLIDO) }, ' ' + dbo.clientes.S_APELLIDO) } AS NOMBRES
 FROM            dbo.tareas AS NEGOCIO INNER JOIN
-                         dbo.clientes ON NEGOCIO.CLIENTE = dbo.clientes.CEDULA
-						 INNER JOIN acuerdo_fox  on NEGOCIO.ID_TAREA = acuerdo_fox.codigotarea
+                         dbo.clientes ON NEGOCIO.CLIENTE = dbo.clientes.CEDULA INNER JOIN
+                         acuerdo_fox ON NEGOCIO.ID_TAREA = acuerdo_fox.codigotarea
 WHERE        (NEGOCIO.NEGOCIO IS NOT NULL) AND acuerdo_fox.SALDOXCOBRAR > 0
 
 GO
@@ -91,26 +86,6 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "NEGOCIO"
-            Begin Extent = 
-               Top = 6
-               Left = 38
-               Bottom = 263
-               Right = 405
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "clientes"
-            Begin Extent = 
-               Top = 6
-               Left = 443
-               Bottom = 136
-               Right = 627
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
       End
    End
    Begin SQLPane = 
@@ -152,6 +127,8 @@ Begin DesignProperties =
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VtareasNegocio';
+
+
 
 
 GO

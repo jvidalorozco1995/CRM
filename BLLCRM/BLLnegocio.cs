@@ -2,6 +2,7 @@
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,35 +23,47 @@ namespace BLLCRM
        /// <param name="ac"></param>
        /// <returns></returns>
        public string Hojanegocio(negocio n,string inm, List<acuerdo_pago> ac) {
-           try
-           {
+            try
+            {
                 var _CodS = bd.VCod_SP.Where(sp => sp.COD == n.SEPARACION).ToList();
-                       string Cod_Sp = "";
+                string Cod_Sp = "";
 
-                       foreach (var item2 in _CodS)
-                       {
-                           Cod_Sp = item2.COD + item2.INMU;
-                       }
+                foreach (var item2 in _CodS)
+                {
+                    Cod_Sp = item2.COD + item2.INMU;
+                }
 
-               user = Membership.GetUser().ToString();
-               n.ID_NEGOCIO = Convert.ToString(n.FECHA_NACI.Value.Day) + Convert.ToString(n.FECHA_NACI.Value.Month) + Convert.ToString(DateTime.Now.Year) + Convert.ToString(DateTime.Now.Second) + n.CEDULA_P;
-               n.USER_CREO = user;
-               n.CODIGO_F = Cod_Sp;
-               bd.negocio.Add(n);
-               Acuerdopago(ac, n.ID_NEGOCIO);
-               ProcesoCompra(inm);
-               UpdateSepracion(inm);
-               HistorialCliente(n.CEDULA_P,inm);
-               HistorialInmu(n.CEDULA_P, inm);
-               bd.SaveChanges();
-               return Cod_Sp +"-"+n.ID_NEGOCIO;
-           }
-           catch (Exception)
-           {
-               return "ER";
-               throw;
-           }
-       }
+                user = Membership.GetUser().ToString();
+                n.ID_NEGOCIO = Convert.ToString(n.FECHA_NACI.Value.Day) + Convert.ToString(n.FECHA_NACI.Value.Month) + Convert.ToString(DateTime.Now.Year) + Convert.ToString(DateTime.Now.Second) + n.CEDULA_P;
+                n.USER_CREO = user;
+                n.CODIGO_F = Cod_Sp;
+                bd.negocio.Add(n);
+                Acuerdopago(ac, n.ID_NEGOCIO);
+                ProcesoCompra(inm);
+                UpdateSepracion(inm);
+                HistorialCliente(n.CEDULA_P, inm);
+                HistorialInmu(n.CEDULA_P, inm);
+                bd.SaveChanges();
+                return Cod_Sp + "-" + n.ID_NEGOCIO;
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var eve in ex.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+                return "ER";
+            }
+           
+
+        }
 
 
        public List<Entinegocio> lisHoja(string idhoja) {

@@ -922,12 +922,12 @@ $(document).ready(function () {
         format: 'yyyy/mm/dd',
     });
 
-    //$('#Textsubrogracion').datepicker({
-    //    format: 'yyyy/mm/dd',
-    //});
-    //$('#TextFecinicial').datepicker({
-    //    format: 'yyyy/mm/dd',
-    //});
+    $('#Textsubrogracion').datepicker({
+        format: 'yyyy/mm/dd',
+    });
+    $('#TextFecinicial').datepicker({
+        format: 'yyyy/mm/dd',
+    });
     $('#nuevafc').datepicker({
         format: 'yyyy/mm/dd',
     });

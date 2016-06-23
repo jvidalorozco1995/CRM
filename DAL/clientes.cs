@@ -20,6 +20,8 @@ namespace DAL
             this.historial_inmueble = new HashSet<historial_inmueble>();
             this.historial_clientes1 = new HashSet<historial_clientes>();
             this.historial_inmueble1 = new HashSet<historial_inmueble>();
+            this.inmueble_separacion = new HashSet<inmueble_separacion>();
+            this.inmueble_separacion1 = new HashSet<inmueble_separacion>();
             this.tareas = new HashSet<tareas>();
             this.tareas1 = new HashSet<tareas>();
         }
@@ -56,6 +58,8 @@ namespace DAL
         public virtual ICollection<historial_inmueble> historial_inmueble { get; set; }
         public virtual ICollection<historial_clientes> historial_clientes1 { get; set; }
         public virtual ICollection<historial_inmueble> historial_inmueble1 { get; set; }
+        public virtual ICollection<inmueble_separacion> inmueble_separacion { get; set; }
+        public virtual ICollection<inmueble_separacion> inmueble_separacion1 { get; set; }
         public virtual ICollection<tareas> tareas { get; set; }
         public virtual ICollection<tareas> tareas1 { get; set; }
     }

@@ -24,13 +24,13 @@
     [VALOR_CASA]     VARCHAR (20)    NULL,
     [INICIAL]        VARCHAR (20)    NULL,
     [CREDITO]        VARCHAR (20)    NULL,
-    [BANCO]          VARCHAR (45)    NULL,
+    [BANCO]          INT             NULL,
     [NO_CREDITO]     VARCHAR (10)    NULL,
     [FECHA_ES]       DATE            NULL,
     [FECHA_ENT]      DATE            NULL,
     [FECHA_SUBRO]    DATE            NULL,
     [ASESOR_INFO]    VARCHAR (60)    NULL,
-    [MEDIO_ENT]      VARCHAR (20)    NULL,
+    [MEDIO_ENT]      VARCHAR (250)   NULL,
     [ASOCIADO]       VARCHAR (13)    NULL,
     [CLASE_INMU]     VARCHAR (45)    NULL,
     [ID_HOJA]        INT             IDENTITY (1, 1) NOT NULL,
@@ -42,4 +42,6 @@
     [DOCUMENTO]      VARCHAR (400)   NULL,
     CONSTRAINT [PK_negocio] PRIMARY KEY CLUSTERED ([ID_NEGOCIO] ASC, [ID_HOJA] ASC)
 );
+
+
 

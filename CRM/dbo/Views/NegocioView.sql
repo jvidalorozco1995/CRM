@@ -88,7 +88,7 @@ Begin DesignProperties =
             Begin Extent = 
                Top = 6
                Left = 38
-               Bottom = 134
+               Bottom = 136
                Right = 208
             End
             DisplayFlags = 280
@@ -98,28 +98,28 @@ Begin DesignProperties =
             Begin Extent = 
                Top = 6
                Left = 246
-               Bottom = 326
-               Right = 849
+               Bottom = 136
+               Right = 432
             End
             DisplayFlags = 280
-            TopColumn = 26
+            TopColumn = 0
          End
          Begin Table = "proyectos"
             Begin Extent = 
-               Top = 138
-               Left = 38
-               Bottom = 296
-               Right = 225
+               Top = 6
+               Left = 470
+               Bottom = 102
+               Right = 657
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "inmueble_separacion"
             Begin Extent = 
-               Top = 140
-               Left = 947
-               Bottom = 329
-               Right = 1144
+               Top = 6
+               Left = 695
+               Bottom = 136
+               Right = 892
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -127,9 +127,9 @@ Begin DesignProperties =
          Begin Table = "bloques"
             Begin Extent = 
                Top = 6
-               Left = 887
+               Left = 930
                Bottom = 136
-               Right = 1057
+               Right = 1100
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -140,64 +140,6 @@ Begin DesignProperties =
    End
    Begin DataPane = 
       Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 42
-         Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
-
-
-
-
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
-
-
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
       End
    End
    Begin CriteriaPane = 
@@ -214,11 +156,29 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'1500
          Filter = 1350
          Or = 1350
          Or = 1350
-         Or = 1350
+  ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
+
+
+
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'       Or = 1350
       End
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
 
 
 

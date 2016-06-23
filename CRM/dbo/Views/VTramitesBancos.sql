@@ -1,15 +1,33 @@
-﻿
-CREATE VIEW [dbo].[VActxtramite]
+﻿CREATE VIEW dbo.VTramitesBancos
 AS
-SELECT        TOP (100) PERCENT dbo.ActividadxTramite.Id, dbo.ActividadxTramite.Id_tramite, dbo.ActividadxTramite.Posicion, dbo.Actividades.id AS Id_Actividad, dbo.Actividades.Nombre AS Actividad, 
-                         dbo.Actividades.Usuario, dbo.Actividades.Descripcion, dbo.Actividades.Simultaneo, dbo.Actividades.Actividad_Dependiente, dbo.Tramites.Nombre AS Tramite, dbo.Tramites.Banco, 
-                         dbo.Actividades.Duracion
-FROM            dbo.ActividadxTramite INNER JOIN
-                         dbo.Actividades ON dbo.ActividadxTramite.Id_Actividad = dbo.Actividades.id INNER JOIN
-                         dbo.Tramites ON dbo.ActividadxTramite.Id_tramite = dbo.Tramites.id
-ORDER BY dbo.ActividadxTramite.Posicion
+SELECT        dbo.bancos.ID_BANCO AS 'IdBanco', dbo.bancos.NOMBRE_BANCO AS 'NombreBanco', dbo.Tramites.id AS 'IdTramite', dbo.Tramites.Nombre AS 'NombreTramite', dbo.Actividades.id AS 'IdActividad', 
+                         dbo.Actividades.Nombre AS 'NombreActividad', dbo.Documento.Id AS 'IdDocumento', dbo.Documento.Nombre AS 'NombreDocumento'
+FROM            dbo.Tramites LEFT OUTER JOIN
+                         dbo.ActividadxTramite ON dbo.ActividadxTramite.Id_tramite = dbo.Tramites.id LEFT OUTER JOIN
+                         dbo.Actividades ON dbo.ActividadxTramite.Id_Actividad = dbo.Actividades.id LEFT OUTER JOIN
+                         dbo.Documento ON dbo.Documento.Id_Actividad = dbo.Actividades.id LEFT OUTER JOIN
+                         dbo.bancos ON dbo.bancos.ID_BANCO = dbo.Tramites.Banco
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VActxtramite';
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VTramitesBancos';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'00
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VTramitesBancos';
 
 
 GO
@@ -18,7 +36,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[41] 4[20] 2[14] 3) )"
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -84,12 +102,22 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "ActividadxTramite"
+         Begin Table = "Tramites"
             Begin Extent = 
                Top = 6
                Left = 38
-               Bottom = 179
+               Bottom = 119
                Right = 208
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "ActividadxTramite"
+            Begin Extent = 
+               Top = 6
+               Left = 246
+               Bottom = 136
+               Right = 416
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -97,19 +125,29 @@ Begin DesignProperties =
          Begin Table = "Actividades"
             Begin Extent = 
                Top = 6
-               Left = 246
-               Bottom = 246
-               Right = 457
+               Left = 454
+               Bottom = 136
+               Right = 665
             End
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "Tramites"
+         Begin Table = "Documento"
             Begin Extent = 
                Top = 6
-               Left = 495
+               Left = 703
                Bottom = 119
-               Right = 665
+               Right = 873
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "bancos"
+            Begin Extent = 
+               Top = 6
+               Left = 911
+               Bottom = 102
+               Right = 1095
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -121,12 +159,8 @@ Begin DesignProperties =
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
-      Begin ColumnWidths = 13
+      Begin ColumnWidths = 9
          Width = 284
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
          Width = 1500
          Width = 1500
          Width = 1500
@@ -140,24 +174,5 @@ Begin DesignProperties =
    Begin CriteriaPane = 
       Begin ColumnWidths = 11
          Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VActxtramite';
-
-
-
-
+         Alias = 9', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VTramitesBancos';
 

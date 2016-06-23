@@ -3,8 +3,12 @@
     [Id_tramite]   INT NULL,
     [Id_Actividad] INT NULL,
     [Posicion]     INT NULL,
-    CONSTRAINT [PK_ActividadxTramite] PRIMARY KEY CLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_ActividadxTramite] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_ActividadxTramite_Actividades] FOREIGN KEY ([Id_Actividad]) REFERENCES [dbo].[Actividades] ([id]),
+    CONSTRAINT [FK_ActividadxTramite_Tramites] FOREIGN KEY ([Id_tramite]) REFERENCES [dbo].[Tramites] ([id])
 );
+
+
 
 
 

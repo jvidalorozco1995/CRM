@@ -5,9 +5,11 @@
     [Duracion]              INT           NULL,
     [Descripcion]           VARCHAR (250) NULL,
     [Simultaneo]            INT           NULL,
-    [Actividad_Dependiente] VARCHAR (50)  NULL,
+    [Actividad_Dependiente] INT           NULL,
     CONSTRAINT [PK_Actividades] PRIMARY KEY CLUSTERED ([id] ASC)
 );
+
+
 
 
 

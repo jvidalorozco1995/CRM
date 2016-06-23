@@ -136,7 +136,8 @@
             tabla += '<div class="vertical-timeline-content">';
             tabla += '  <div class="p-sm">';
 
-            if (item.Estado == 3) {
+            if (item.Estado == 3)
+            {
                 tabla += '<button type="button" id="' + item.Id + '" class="btn-xs btn-success vertical-date pull-right Posicion">Ver</button>'
             } else {
                 

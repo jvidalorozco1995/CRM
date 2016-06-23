@@ -2164,6 +2164,7 @@
     <Content Include="assets\less\skins\yellow.less" />
     <Content Include="Cartera\ListaNegocioFox\Web.config" />
     <Content Include="Cartera\SeguimientoNegocio\Web.config" />
+    <Content Include="Cartera\CrearNegocio\Web.config" />
     <None Include="Properties\PublishProfiles\Webmayales.pubxml" />
     <Content Include="prueb.aspx" />
     <Content Include="sampledata\data.php" />
