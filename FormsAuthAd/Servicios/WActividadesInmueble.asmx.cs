@@ -27,11 +27,18 @@ namespace FormsAuthAd.Servicios
             return "Hello World";
         }
         [WebMethod]
-        
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<Actividades_Inmueble> ListActiInmuebles(int id)
         {
             return cl.ListActInmueble(id);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string UpdateActiInmuebles(int i ,int id)
+        {
+            return cl.UpdateActInmueble(i,id);
+
         }
     }
 }
