@@ -98,7 +98,7 @@ namespace BLLCRM
 
                                     if (bandera == 1)
                                     {
-                                        actinmueble.Estado = 3;
+                                        actinmueble.Estado = 1;
                                         actinmueble.FechaInicio = null;
                                         actinmueble.FechaFin = null;
                                         if (bandera2 == 1)
