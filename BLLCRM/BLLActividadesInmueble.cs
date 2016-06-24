@@ -13,6 +13,7 @@ namespace BLLCRM
     {
         CRMEntiti bd = new CRMEntiti();
         string mensaje = null;
+        
         public List<Actividades_Inmueble> ListActInmueble(int id)
         {
 
@@ -53,17 +54,76 @@ namespace BLLCRM
             }
         }
 
-        public string UpdateActInmueble(int i, int id)
+        public string UpdateActInmueble(int i, int id,int idtramite)
         {
-
+            var bandera = 0;
+            int? posicion = 0;
             try
             {
-               
-                    var ctx = bd.Actividades_Inmueble.First(inm => inm.id == id);
-
+                //cambiamos el estado de la activadad completada
+                var ctx = bd.Actividades_Inmueble.First(inm => inm.id == id);
                     ctx.Estado = i;
                     bd.SaveChanges();
-              
+
+                //recorro toda la tabla actividad_inmueble para inicar la siguiente actividad
+                List<Actividades_Inmueble> lisb = bd.Actividades_Inmueble.Where(t => t.IdTraInmueble == idtramite).ToList();
+                foreach (var item in lisb)
+                {
+                    Actividades_Inmueble entb = new Actividades_Inmueble();
+                    if (bandera == 1) // esto es si es la activiad siguiente a la completada
+                    {
+                        // si es simultaneo se sigue recorriendo hasta queno sea simultaneo
+                        if (item.Simultaneo == 1)
+                        {
+                            bandera = 1;
+                            var ctx2 = bd.Actividades_Inmueble.First(inm => inm.id == item.id);
+                            ctx2.FechaInicio = DateTime.Now;
+                            if (item.Duracion != null)
+                            {
+                                ctx2.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(item.Duracion));
+                            }
+                            ctx2.Estado = 3;
+                            bd.SaveChanges();// inicio la nueva actividad cambiando el estado a pendiente
+                        }
+                        else {
+                            bandera = 2;
+                        }
+                        
+                       
+                    }
+                    else {
+                            if (item.id == id)
+                            {
+                                bandera = 1;
+                            posicion = item.Posicion;
+                            }
+                       
+                        }
+                    // validamos que la actividad sea dependiente de la actividad completada
+                    if(bandera == 2)
+                    {
+                        if (item.ActividadDependiente == posicion)
+                        {
+                            var ctx3 = bd.Actividades_Inmueble.First(inm => inm.id == item.id);
+                            ctx3.FechaInicio = DateTime.Now;
+                            if (item.Duracion != null)
+                            {
+                                ctx3.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(item.Duracion));
+                            }
+                            ctx3.Estado = 3;
+                            bd.SaveChanges();
+                            bandera = 1;
+                        }
+                        else
+                        {
+                            bandera = 2;
+                        }
+                    }
+                }
+
+                // recorrer para ver si 
+               
+
                 return mensaje = "Se actualizo el estado de manera exitosa";
             }
 
