@@ -53,6 +53,45 @@ namespace BLLCRM
                 throw;
             }
         }
+        public List<Actividades_Inmueble> ListActInmuebleId(int id, int idtramite)
+        {
+
+            try
+            {
+                List<Actividades_Inmueble> lisb = bd.Actividades_Inmueble.Where(t => t.IdTraInmueble == idtramite && t.id== id).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Actividades_Inmueble> lisbcrm = new List<Actividades_Inmueble>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Actividades_Inmueble entb = new Actividades_Inmueble();
+                        entb.id = item.id;
+                        entb.Nombre = item.Nombre;
+                        entb.Descripcion = item.Descripcion;
+                        entb.IdTraInmueble = item.IdTraInmueble;
+                        entb.ActividadDependiente = item.ActividadDependiente;
+                        entb.Duracion = item.Duracion;
+                        entb.Simultaneo = item.Simultaneo;
+                        entb.FechaInicio = item.FechaInicio;
+                        entb.FechaFin = item.FechaFin;
+                        entb.Posicion = item.Posicion;
+                        entb.Estado = item.Estado;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public string UpdateActInmueble(int i, int id,int idtramite)
         {
