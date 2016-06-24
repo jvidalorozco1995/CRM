@@ -27,6 +27,44 @@
         });
     }
 
+    
+
+    ////Retorna una lista de tramites
+    BLLTramites.prototype.ActividadInmueblesID = function (id, Wsurl) {
+        jsonData = "{'b':" + JSON.stringify(id) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d != null) {
+
+                    var nego = result.d;
+
+                    $('#TxtId').val(nego[0].id);
+                    $('#TxtNombre').val(nego[0].Nombre);
+                    $('#fechainicio').val(  moment(nego[0].FechaInicio).format("YYYY/DD/MM"));
+                    $('#fechafinal').val(  moment(nego[0].FechaFin).format("YYYY/DD/MM"));
+                    
+                  
+                    
+                }
+                else {
+                    toastr.error(' CRM - Mayales notificacion' +
+                      '</br></br>No se pudo agregar en el sistema');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
+   
+
+
     //Retorna una lista de tramites
     BLLTramites.prototype.ListTramites = function (proyec, Wsurl) {
         jsonData = "{'b':" + JSON.stringify(proyec) + "}";
@@ -138,10 +176,11 @@
 
             if (item.Estado == 3)
             {
-                tabla += '<button type="button" id="' + item.Id + '" class="btn-xs btn-success vertical-date pull-right Completar">Ver</button>'
+                tabla += '<button type="button" id="' + item.id + '" class="btn-xs btn-success vertical-date pull-right Completar">Ver</button>'
             }
-            else if (item.Estado == 4) {
-                tabla += '<button type="button" id="' + item.Id + '" class="btn-xs btn-warning vertical-date pull-right Posicion">Ver</button>'
+            else if (item.Estado == 4)
+            {
+                tabla += '<button type="button" id="' + item.id + '" class="btn-xs btn-warning vertical-date pull-right Posicion">Ver</button>'
             }
             else {
                 

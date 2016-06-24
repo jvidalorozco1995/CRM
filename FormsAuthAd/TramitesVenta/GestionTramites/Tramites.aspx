@@ -34,7 +34,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5 scroll " style="display:none" id="Actividadesxtramite" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+                <div class="col-lg-5 scroll" style="display:none" id="Actividadesxtramite" >
 
                     <div class="panel panel-success">
                         <div class="panel-body">
@@ -64,6 +64,56 @@
 
                 </div>
 
+          <div class="modal fade hmodal-danger" id="infoActividadInmueble" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Detalles de actividad</h5>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <label>Id
+                                </label>
+                                <input type="text" value="" id="TxtId" class="form-control" readonly="">
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="form-group col-lg-12">
+                                        <label>Descripcion</label>
+                                        <textarea id="TxtNombre" class="form-control" rows="2" cols="3" readonly=""></textarea>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Fecha de inicio tarea</label>
+                                        <input id="fechainicio" type="text" value="" class="form-control" readonly="">
+                                    </div>
+                                     <div class="form-group col-lg-6">
+                                        <label id="labelfin">Fecha de Finalizacion</label>
+                                        <input id="fechafinal" type="text" value="" class="form-control" readonly="">
+                                    </div>
+                                    <div class="form-group col-lg-12">
+                                        <label id="labelmotivo">descripcion</label>
+                                        <textarea id="TxtMotivo" class="form-control" rows="2" cols="3"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                      </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success " type="button" id="BtnEditar">Editar</button>
+                        <button class="btn btn-success " type="button" id="BtnPost">Posponer</button>
+                        <button class="btn btn-primary " type="button" id="BtnTerminada">Completado</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
             </div>
 
         </div>

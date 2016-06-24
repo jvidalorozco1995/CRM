@@ -53,12 +53,12 @@ namespace BLLCRM
                 throw;
             }
         }
-        public List<Actividades_Inmueble> ListActInmuebleId(int id, int idtramite)
+        public List<Actividades_Inmueble> ListActInmuebleId(int id)
         {
 
             try
             {
-                List<Actividades_Inmueble> lisb = bd.Actividades_Inmueble.Where(t => t.IdTraInmueble == idtramite && t.id== id).ToList();
+                List<Actividades_Inmueble> lisb = bd.Actividades_Inmueble.Where(t =>  t.id== id).ToList();
                 //bd.compromisosxcuota.ToList();
                 List<Actividades_Inmueble> lisbcrm = new List<Actividades_Inmueble>();
                 if (lisb.Count.Equals(0))
