@@ -70,14 +70,17 @@ namespace BLLCRM
                 foreach (var item in lisb)
                 {
                     Actividades_Inmueble entb = new Actividades_Inmueble();
-                    if (bandera == 1) // esto es si es la activiad siguiente a la completada
+                    if (bandera == 1) // esto es si es la actividad siguiente a la completada
                     {
                         // si es simultaneo se sigue recorriendo hasta queno sea simultaneo
                         if (item.Simultaneo == 1)
                         {
                             bandera = 1;
+
                             var ctx2 = bd.Actividades_Inmueble.First(inm => inm.id == item.id);
+
                             ctx2.FechaInicio = DateTime.Now;
+
                             if (item.Duracion != null)
                             {
                                 ctx2.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(item.Duracion));
