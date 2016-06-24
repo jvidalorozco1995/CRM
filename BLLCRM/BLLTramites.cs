@@ -98,7 +98,7 @@ namespace BLLCRM
 
                                     if (bandera == 1)
                                     {
-                                        actinmueble.Estado = 3;
+                                        actinmueble.Estado = 1;
                                         actinmueble.FechaInicio = null;
                                         actinmueble.FechaFin = null;
                                         if (bandera2 == 1)
@@ -119,7 +119,7 @@ namespace BLLCRM
                                     }
                                     else
                                     {
-                                        actinmueble.Estado = 1;
+                                        actinmueble.Estado = 3;
                                         actinmueble.FechaInicio = DateTime.Now;
 
                                         if (actividad.Duracion != null)
