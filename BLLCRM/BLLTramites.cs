@@ -119,7 +119,7 @@ namespace BLLCRM
                                     }
                                     else
                                     {
-                                        actinmueble.Estado = 1;
+                                        actinmueble.Estado = 3;
                                         actinmueble.FechaInicio = DateTime.Now;
 
                                         if (actividad.Duracion != null)
