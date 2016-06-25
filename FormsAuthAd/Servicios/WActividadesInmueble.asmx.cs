@@ -41,9 +41,9 @@ namespace FormsAuthAd.Servicios
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string UpdateActiInmuebles(int i ,int id, int idtramite)
+        public string UpdateActiInmuebles(int estado ,int id, int idtramiteinmueble)
         {
-            return cl.UpdateActInmueble(i,id,idtramite);
+            return cl.UpdateActInmueble(estado, id, idtramiteinmueble);
 
         }
     }

@@ -78,6 +78,7 @@
                                 <label>Id
                                 </label>
                                 <input type="text" value="" id="TxtId" class="form-control" readonly="">
+                                 <input type="text" value="" id="TxtIdTramiteinmueble" style="display:none" class="form-control" readonly="">
                             </div>
                             <div class="col-lg-12">
                                 <div class="row">

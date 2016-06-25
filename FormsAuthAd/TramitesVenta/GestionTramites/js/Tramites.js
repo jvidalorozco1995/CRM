@@ -14,7 +14,7 @@ var admTramites = (function () {
 
 
     var WsActividadesActividadesnmuebleID = funcionUrlGlobal("/Servicios/WActividadesInmueble.asmx/ListActiInmueblesId");//Consulto Proyectos CRM
-    
+    var WsActividadesCompletarTramite = funcionUrlGlobal("/Servicios/WActividadesInmueble.asmx/UpdateActiInmuebles");//Consulto Proyectos CRM
     
     var cliente = null;
     var bandera = 0;
@@ -22,6 +22,10 @@ var admTramites = (function () {
     var tramite;
     var ActividadN;
     var doc;
+
+    var Id;
+    var tramit;
+
     var _addHandlers = function () {
 
 
@@ -33,10 +37,10 @@ var admTramites = (function () {
         });
   
         $(document).on('click', '.Infocl', function () {
-            tra = $(this).attr("id");
+            tramit = $(this).attr("id");
             
             $('#Actividadesxtramite').show();
-            setTimeout(function () { Tra.ListActividadesInmuebles(tra, WsActividadesTramiteInmueble); }, 1000);
+            setTimeout(function () { Tra.ListActividadesInmuebles(tramit, WsActividadesTramiteInmueble); }, 1000);
 
         });
 
@@ -48,6 +52,17 @@ var admTramites = (function () {
 
         });
 
+      
+
+        //Boton que muestra la lista de actividades
+        $('#BtnTerminada').click(function () {
+
+           
+
+            Tra.CompletarTramites(2, Id, $('#TxtIdTramiteinmueble').val(), WsActividadesCompletarTramite);
+
+            setTimeout(function () { Tra.ListActividadesInmuebles(tramit, WsActividadesTramiteInmueble); }, 1000);
+        });
         
         
     }

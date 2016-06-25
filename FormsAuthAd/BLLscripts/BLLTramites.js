@@ -28,6 +28,35 @@
     }
 
     
+      ////Retorna una lista de tramites
+    BLLTramites.prototype.CompletarTramites = function (estado, id, idtramiteinmueble, Wsurl) {
+       
+
+        jsonData = "{'estado':" + JSON.stringify(estado) + ",'id':" + JSON.stringify(id)+ ",'idtramiteinmueble':" + JSON.stringify(idtramiteinmueble)+"}";
+
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d != null) {
+
+                    toastr.success(' CRM - Mayales notificacion' +
+                      '</br></br>Se ha actualizado');
+                }
+                else {
+                    toastr.error(' CRM - Mayales notificacion' +
+                      '</br></br>No se pudo agregar en el sistema');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
 
     ////Retorna una lista de tramites
     BLLTramites.prototype.ActividadInmueblesID = function (id, Wsurl) {
@@ -46,15 +75,15 @@
 
                     $('#TxtId').val(nego[0].id);
                     $('#TxtNombre').val(nego[0].Nombre);
-                    $('#fechainicio').val(  moment(nego[0].FechaInicio).format("YYYY/DD/MM"));
-                    $('#fechafinal').val(  moment(nego[0].FechaFin).format("YYYY/DD/MM"));
+                    $('#fechainicio').val(moment(nego[0].FechaInicio).format("YYYY/DD/MM"));
+                    $('#fechafinal').val(moment(nego[0].FechaFin).format("YYYY/DD/MM"));
+                    $('#TxtIdTramiteinmueble').val(nego[0].IdTraInmueble);
                     
-                  
                     
                 }
                 else {
                     toastr.error(' CRM - Mayales notificacion' +
-                      '</br></br>No se pudo agregar en el sistema');
+                      '</br></br>No se pudo traer los datos del sistema');
                 }
 
             },
@@ -165,7 +194,7 @@
         document.getElementById('datos').innerHTML = "";
         var tabla = "";
         $.each(actividades, function (i, item) {
-            alert(JSON.stringify(item));
+            
             tabla += '<div class="v-timeline vertical-container animate-panel"  data-child="vertical-timeline-block" data-delay="1">'
             tabla += '<div class="vertical-timeline-block">';
             tabla += '<div class="vertical-timeline-icon navy-bg" style="padding-top:8px">';

@@ -93,7 +93,7 @@ namespace BLLCRM
             }
         }
 
-        public string UpdateActInmueble(int i, int id,int idtramite)
+        public string UpdateActInmueble(int i, int id,int idtramiteinmueble)
         {
             var bandera = 0;
             int? posicion = 0;
@@ -105,7 +105,7 @@ namespace BLLCRM
                     bd.SaveChanges();
 
                 //recorro toda la tabla actividad_inmueble para inicar la siguiente actividad
-                List<Actividades_Inmueble> lisb = bd.Actividades_Inmueble.Where(t => t.IdTraInmueble == idtramite).ToList();
+                List<Actividades_Inmueble> lisb = bd.Actividades_Inmueble.Where(t => t.IdTraInmueble == idtramiteinmueble).ToList();
                 foreach (var item in lisb)
                 {
                     Actividades_Inmueble entb = new Actividades_Inmueble();
