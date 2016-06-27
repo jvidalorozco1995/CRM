@@ -118,7 +118,7 @@ namespace BLLCRM
                             if (item.Simultaneo == 1)
                             {
                                 bandera = 1;
-
+                                bandera2 = 2;
                                 var ctx2 = bd.Actividades_Inmueble.First(inm => inm.id == item.id);
 
                                 ctx2.FechaInicio = DateTime.Now;
