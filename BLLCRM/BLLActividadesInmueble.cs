@@ -96,6 +96,7 @@ namespace BLLCRM
         public string UpdateActInmueble(int i, int id,int idtramiteinmueble)
         {
             var bandera = 0;
+            var bandera2 = 0;
             int? posicion = 0;
             try
             {
@@ -111,33 +112,50 @@ namespace BLLCRM
                     Actividades_Inmueble entb = new Actividades_Inmueble();
                     if (bandera == 1) // esto es si es la actividad siguiente a la completada
                     {
-                        // si es simultaneo se sigue recorriendo hasta queno sea simultaneo
-                        if (item.Simultaneo == 1)
+                        if (item.Estado != 2)
                         {
-                            bandera = 1;
-
-                            var ctx2 = bd.Actividades_Inmueble.First(inm => inm.id == item.id);
-
-                            ctx2.FechaInicio = DateTime.Now;
-
-                            if (item.Duracion != null)
+                            // si es simultaneo se sigue recorriendo hasta queno sea simultaneo
+                            if (item.Simultaneo == 1)
                             {
-                                ctx2.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(item.Duracion));
+                                bandera = 1;
+
+                                var ctx2 = bd.Actividades_Inmueble.First(inm => inm.id == item.id);
+
+                                ctx2.FechaInicio = DateTime.Now;
+
+                                if (item.Duracion != null)
+                                {
+                                    ctx2.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(item.Duracion));
+                                }
+                                ctx2.Estado = 3;
+                                bd.SaveChanges();// inicio la nueva actividad cambiando el estado a pendiente
                             }
-                            ctx2.Estado = 3;
-                            bd.SaveChanges();// inicio la nueva actividad cambiando el estado a pendiente
+                            else {
+                                if (bandera2 == 1)
+                                {
+                                    var ctx2 = bd.Actividades_Inmueble.First(inm => inm.id == item.id);
+
+                                    ctx2.FechaInicio = DateTime.Now;
+
+                                    if (item.Duracion != null)
+                                    {
+                                        ctx2.FechaFin = DateTime.Now.AddDays(Convert.ToDouble(item.Duracion));
+                                    }
+                                    ctx2.Estado = 3;
+                                    bd.SaveChanges();// inicio la nueva actividad cambiando el estado a pendiente
+                                    bandera2 = 2;
+                                }
+                                bandera = 2;
+                            }
                         }
-                        else {
-                            bandera = 2;
-                        }
-                        
                        
                     }
                     else {
                             if (item.id == id)
                             {
                                 bandera = 1;
-                            posicion = item.Posicion;
+                                bandera2 = 1;
+                                posicion = item.Posicion;
                             }
                        
                         }
