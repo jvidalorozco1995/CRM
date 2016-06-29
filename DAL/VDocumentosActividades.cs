@@ -12,13 +12,9 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Vspt
+    public partial class VDocumentosActividades
     {
-        public string NOMBRE_PROYEC { get; set; }
-        public string T_CEDULA { get; set; }
-        public string ID_PROYEC { get; set; }
-        public int ID_PY { get; set; }
-        public string NOMBRES { get; set; }
-        public string TRABAJADOR { get; set; }
+        public int id { get; set; }
+        public string Nombre { get; set; }
     }
 }

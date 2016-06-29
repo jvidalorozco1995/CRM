@@ -22,8 +22,6 @@ namespace DAL
         public string ESTADO { get; set; }
         public string ASESOR_T { get; set; }
     
-        public virtual clientes clientes { get; set; }
-        public virtual clientes clientes1 { get; set; }
         public virtual inmuebles inmuebles { get; set; }
     }
 }

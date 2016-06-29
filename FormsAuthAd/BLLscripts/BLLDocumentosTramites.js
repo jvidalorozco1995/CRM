@@ -20,7 +20,38 @@
                     BLLDocumentosTramites.prototype.TablaDocumentos(result.d);
                 }
                 else {
+
                     BLLDocumentosTramites.prototype.TablaDocumentos(result.d);
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
+
+    BLLDocumentosTramites.prototype.EliminarDocumento = function (id, Wsurl) {
+
+        jsonData = "{ 'b':" + JSON.stringify(id) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                    toastr.error('CRM - Mayales - ' +
+                        '</br>El documento no pudo ser eliminado');
+                    
+                }
+                else {
+                    toastr.sucess('CRM - Mayales - ' +
+                       '</br>Documento eliminado de manera exitosa');
+                   
 
                 }
 
@@ -70,12 +101,12 @@
                 tabla += "<td>" + item.Documento + "</td>";
                 tabla += "<td style='width:120px;height: 20px'>";
                 tabla += '<button type="button" onclick = "return confirm("Deseas eliminar esto?");" id="' + item.Id + '"class="btn btn-danger btn-xs vertical-date pull-right QuitarDocu"> Quitar </button>'
-                tabla += '<button type="button" id="' + item.Id + '"class="btn btn-success btn-xs vertical-date pull-right EditarDocu"> Ver </button>'
+    
+                tabla += "<a class='btn btn-primary btn-xs vertical-date pull-right ' href='/Upload/" + item.Documento + "'target='_blank'><span class='glyphicon glyphicon-cloud-download'></span> Ver</a>";
                 tabla += "</td>";
             }
            
-        
-            tabla += "</tr>";
+          
             ///images/cancel.png
 
         });

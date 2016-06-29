@@ -60,9 +60,9 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int DeleteDocumento_ActInmueble( int id)
+        public int DeleteDocumento_ActInmueble( int b)
         {
-            return cl.DeleteDocumento_ActInmueble(id);
+            return cl.DeleteDocumento_ActInmueble(b);
         }
     }
 }

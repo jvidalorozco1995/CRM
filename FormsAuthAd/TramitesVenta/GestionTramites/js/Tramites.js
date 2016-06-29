@@ -18,6 +18,8 @@ var admTramites = (function () {
 
     var WsDocumentosTramites = funcionUrlGlobal("/Servicios/WDocumentoActiInmu.asmx/ListDocumentoTramite");//Consulto Proyectos CRM
     
+    var WsEliminarDocu = funcionUrlGlobal("/Servicios/WDocumentoActiInmu.asmx/DeleteDocumento_ActInmueble");//Consulto Proyectos CRM
+        
     
     var cliente = null;
     var bandera = 0;
@@ -58,7 +60,15 @@ var admTramites = (function () {
 
         });
 
-      
+        $(document).on('click', '.QuitarDocu', function () {
+            Id = $(this).attr("id");
+            
+            Tradocu.EliminarDocumento(Id, WsEliminarDocu);
+            setTimeout(function () { Tradocu.ListDocumentos($('#TxtActividad').val(), WsDocumentosTramites); }, 1000);
+
+
+        });
+
 
         //Boton que muestra la lista de actividades
         $('#BtnTerminada').click(function () {
@@ -69,6 +79,7 @@ var admTramites = (function () {
 
             setTimeout(function () { Tra.ListActividadesInmuebles(tramit, WsActividadesTramiteInmueble); }, 1000);
         });
+        
         
         
     }
