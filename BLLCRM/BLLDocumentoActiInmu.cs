@@ -171,5 +171,27 @@ namespace BLLCRM
                 throw;
             }
         }
+
+        public int DeleteDocumento_ActInmueble(int id)
+        {
+
+            try
+            {
+                var ctx = bd.Documento_ActInmueble.First(inm => inm.Id == id);
+                bd.Documento_ActInmueble.Remove(ctx);
+                bd.SaveChanges();
+                return 1;
+
+            }
+
+            catch (DbUpdateException)
+            {
+                return 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

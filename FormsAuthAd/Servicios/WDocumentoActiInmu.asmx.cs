@@ -53,10 +53,16 @@ namespace FormsAuthAd.Servicios
             return cl.ListDocumento_ActInmueble();
         }
 
-        [WebMethod]
+            [WebMethod]
         public string HelloWorld()
         {
             return "Hello World";
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int DeleteDocumento_ActInmueble( int id)
+        {
+            return cl.DeleteDocumento_ActInmueble(id);
         }
     }
 }
