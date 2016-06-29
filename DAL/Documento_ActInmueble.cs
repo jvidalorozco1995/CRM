@@ -15,6 +15,7 @@ namespace DAL
     public partial class Documento_ActInmueble
     {
         public int Id { get; set; }
+        public Nullable<int> IdActividad { get; set; }
         public string Documento { get; set; }
         public string Nombre { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }

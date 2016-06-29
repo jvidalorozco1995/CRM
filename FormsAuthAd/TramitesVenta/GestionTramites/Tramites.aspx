@@ -78,7 +78,8 @@
                                 <label>Id
                                 </label>
                                 <input type="text" value="" id="TxtId" class="form-control" readonly="">
-                                 <input type="text" value="" id="TxtIdTramiteinmueble" style="display:none" class="form-control" readonly="">
+                                <input type="text" value="" id="TxtIdTramiteinmueble" style="display:none" class="form-control" readonly="">
+                                 <input type="text" value="" id="TxtActividad" style="display:none" class="form-control" readonly="">
                             </div>
                             <div class="col-lg-12">
                                 <div class="row">
@@ -100,11 +101,12 @@
                             </div>
 
                         </div>
-                        
+                        <div style="border-top:solid;color:#E50000"><h4>Documentos</h4></div>
+                        <div id="Tabladocumentos">
+                        </div>
                       </div>
                     <div class="modal-footer">
-                        <button class="btn btn-success " type="button" id="BtnEditar">Editar</button>
-                        <button class="btn btn-success " type="button" id="BtnPost">Posponer</button>
+                       
                         <button class="btn btn-primary " type="button" id="BtnTerminada">Completado</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 
@@ -153,6 +155,7 @@
 
      <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="../../BLLscripts/BLLTramites.js"></script>
+    <script src="../../BLLscripts/BLLDocumentosTramites.js"></script>
     <script src="js/Tramites.js"></script>
 
     <script src="../../scripts_crm/bootstrap-datepicker.js"></script>

@@ -1,6 +1,6 @@
 ﻿var Tra = new BLLConfigTramites();
 var Acti = new BLLActividades();
-var docu = new BLLDocumentosTramite();
+var docu = new BLLDocumentosConfigTramite();
 var Ban = new BLLBancos();
 var admTramites = (function () {
 

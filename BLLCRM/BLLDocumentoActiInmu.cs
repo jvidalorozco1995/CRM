@@ -89,6 +89,7 @@ namespace BLLCRM
                         entb.Nombre = item.Nombre;
                         entb.Fecha = item.Fecha;
                         entb.Usuario = item.Usuario;
+                        entb.IdActividad = item.IdActividad;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;
@@ -123,6 +124,7 @@ namespace BLLCRM
                         entb.Nombre = item.Nombre;
                         entb.Fecha = item.Fecha;
                         entb.Usuario = item.Usuario;
+                        entb.IdActividad = item.IdActividad;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;
@@ -135,12 +137,12 @@ namespace BLLCRM
             }
         }
 
-        public List<Documento_ActInmueble> ListDocumentoTramite()
+        public List<Documento_ActInmueble> ListDocumentoTramite(int id)
         {
 
             try
             {
-                List<Documento_ActInmueble> lisb = bd.Documento_ActInmueble.ToList();
+                List<Documento_ActInmueble> lisb = bd.Documento_ActInmueble.Where(t=>t.IdActividad == id).ToList();
                 //bd.compromisosxcuota.ToList();
                 List<Documento_ActInmueble> lisbcrm = new List<Documento_ActInmueble>();
                 if (lisb.Count.Equals(0))
@@ -157,6 +159,7 @@ namespace BLLCRM
                         entb.Nombre = item.Nombre;
                         entb.Fecha = item.Fecha;
                         entb.Usuario = item.Usuario;
+                        entb.IdActividad = item.IdActividad;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;

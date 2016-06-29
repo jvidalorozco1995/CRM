@@ -1,7 +1,7 @@
-﻿function BLLDocumentosTramite() {
+﻿function BLLDocumentosConfigTramite() {
 
 
-    BLLDocumentosTramite.prototype.DeleteDocumentos = function (Documento, Wsurl) {
+    BLLDocumentosConfigTramite.prototype.DeleteDocumentos = function (Documento, Wsurl) {
 
         jsonData = "{ 'c':" + JSON.stringify(Documento) + "}";
         $.ajax({
@@ -28,7 +28,7 @@
         });
     }
     
-    BLLDocumentosTramite.prototype.ListDocumentos = function (actividad, Wsurl) {
+    BLLDocumentosConfigTramite.prototype.ListDocumentos = function (actividad, Wsurl) {
 
         jsonData = "{ 'actividad':" + JSON.stringify(actividad) + "}";
         $.ajax({
@@ -42,10 +42,10 @@
                 if (result.d == null) {
 
 
-                    BLLDocumentosTramite.prototype.TablaDocumentos(result.d);
+                    BLLDocumentosConfigTramite.prototype.TablaDocumentos(result.d);
                 }
                 else {
-                    BLLDocumentosTramite.prototype.TablaDocumentos(result.d);
+                    BLLDocumentosConfigTramite.prototype.TablaDocumentos(result.d);
 
                 }
 
@@ -54,7 +54,7 @@
         });
     }
 
-    BLLDocumentosTramite.prototype.Documento = function (documento, Wsurl) {
+    BLLDocumentosConfigTramite.prototype.Documento = function (documento, Wsurl) {
 
         jsonData = "{ 'id':" + JSON.stringify(documento) + "}";
         $.ajax({
@@ -81,7 +81,7 @@
     }
 
 
-    BLLDocumentosTramite.prototype.UpdateDocumento = function (documento, Wsurl) {
+    BLLDocumentosConfigTramite.prototype.UpdateDocumento = function (documento, Wsurl) {
 
         jsonData = "{ 'i':" + JSON.stringify(documento) + "}";
         $.ajax({
@@ -110,7 +110,7 @@
 
 
 
-    BLLDocumentosTramite.prototype.InsertDocumento = function (documento, Wsurl) {
+    BLLDocumentosConfigTramite.prototype.InsertDocumento = function (documento, Wsurl) {
 
         jsonData = "{ 'b':" + JSON.stringify(documento) + "}";
         $.ajax({
@@ -139,7 +139,7 @@
     }
 
     //Tabla de Bancos Traidos de MultiFox
-    BLLDocumentosTramite.prototype.TablaDocumentos = function (documentos) {
+    BLLDocumentosConfigTramite.prototype.TablaDocumentos = function (documentos) {
 
 
 

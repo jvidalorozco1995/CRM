@@ -39,7 +39,6 @@ namespace DAL
         public DbSet<configuracion> configuracion { get; set; }
         public DbSet<Configuracion_negocio> Configuracion_negocio { get; set; }
         public DbSet<Documento> Documento { get; set; }
-        public DbSet<Documento_ActInmueble> Documento_ActInmueble { get; set; }
         public DbSet<documentos_negocio> documentos_negocio { get; set; }
         public DbSet<empresas> empresas { get; set; }
         public DbSet<historial_clientes> historial_clientes { get; set; }
@@ -86,5 +85,6 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
+        public DbSet<Documento_ActInmueble> Documento_ActInmueble { get; set; }
     }
 }

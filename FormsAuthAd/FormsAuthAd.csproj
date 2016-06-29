@@ -1341,7 +1341,8 @@
     <Content Include="BLLscripts\BLLComercial.js" />
     <Content Include="BLLscripts\BLLCompromisoCuenta.js" />
     <Content Include="BLLscripts\BLLConfiguracion_Negocio.js" />
-    <Content Include="BLLscripts\BLLDocumentosTramite.js" />
+    <Content Include="BLLscripts\BLLDocumentosConfigTramite.js" />
+    <Content Include="BLLscripts\BLLDocumentosTramites.js" />
     <Content Include="BLLscripts\BLLEmpresa.js" />
     <Content Include="BLLscripts\BLLIndex.js" />
     <Content Include="BLLscripts\BLLInfocomercial.js" />

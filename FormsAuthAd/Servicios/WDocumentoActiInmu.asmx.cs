@@ -42,9 +42,9 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<Documento_ActInmueble> ListDocumentoTramite()
+        public List<Documento_ActInmueble> ListDocumentoTramite(int b)
         {
-            return cl.ListDocumento_ActInmueble();
+            return cl.ListDocumentoTramite(b);
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

@@ -78,6 +78,7 @@
                     $('#fechainicio').val(moment(nego[0].FechaInicio).format("YYYY/DD/MM"));
                     $('#fechafinal').val(moment(nego[0].FechaFin).format("YYYY/DD/MM"));
                     $('#TxtIdTramiteinmueble').val(nego[0].IdTraInmueble);
+                    $('#TxtActividad').val(nego[0].IdActividad);
                     
                     
                 }

@@ -1,6 +1,6 @@
 ﻿var utl = new BLLUtilidades();
 var Tra = new BLLTramites();
-
+var Tradocu = new BLLDocumentosTramites();
 
 var admTramites = (function () {
 
@@ -15,6 +15,9 @@ var admTramites = (function () {
 
     var WsActividadesActividadesnmuebleID = funcionUrlGlobal("/Servicios/WActividadesInmueble.asmx/ListActiInmueblesId");//Consulto Proyectos CRM
     var WsActividadesCompletarTramite = funcionUrlGlobal("/Servicios/WActividadesInmueble.asmx/UpdateActiInmuebles");//Consulto Proyectos CRM
+
+    var WsDocumentosTramites = funcionUrlGlobal("/Servicios/WDocumentoActiInmu.asmx/ListDocumentoTramite");//Consulto Proyectos CRM
+    
     
     var cliente = null;
     var bandera = 0;
@@ -42,13 +45,16 @@ var admTramites = (function () {
             $('#Actividadesxtramite').show();
             setTimeout(function () { Tra.ListActividadesInmuebles(tramit, WsActividadesTramiteInmueble); }, 1000);
 
+
         });
 
 
         $(document).on('click', '.Completar', function () {
             Id = $(this).attr("id");
             $('#infoActividadInmueble').modal('show');
-            setTimeout(function () { Tra.ActividadInmueblesID(Id, WsActividadesActividadesnmuebleID); }, 1000);
+             Tra.ActividadInmueblesID(Id, WsActividadesActividadesnmuebleID);
+            setTimeout(function () { Tradocu.ListDocumentos($('#TxtActividad').val(), WsDocumentosTramites); }, 1000);
+            
 
         });
 

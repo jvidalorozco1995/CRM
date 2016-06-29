@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4dec9e49fd88445b875e1d1f4dc68ec4" Name="Diagram1">
+      <Diagram DiagramId="4dec9e49fd88445b875e1d1f4dc68ec4" Name="Diagram1" ZoomLevel="47">
         <EntityTypeShape EntityType="CRM_TESTModel.ActInmuebles" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_TESTModel.Actividades" Width="1.5" PointX="13" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_TESTModel.Actividades_Inmueble" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
@@ -19,7 +19,6 @@
         <EntityTypeShape EntityType="CRM_TESTModel.configuracion" Width="1.5" PointX="13.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_TESTModel.Configuracion_negocio" Width="1.5" PointX="15.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_TESTModel.Documento" Width="1.5" PointX="15.25" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Documento_ActInmueble" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_TESTModel.documentos_negocio" Width="1.5" PointX="17.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_TESTModel.empresas" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM_TESTModel.historial_clientes" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
@@ -93,6 +92,7 @@
         <AssociationConnector Association="CRM_TESTModel.FK__tareas__TRABAJAD__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="CRM_TESTModel.FK__tareas__TRABAJAD__571DF1D5" ManuallyRouted="false" />
         <AssociationConnector Association="CRM_TESTModel.FK_Tramites_Inmueble_Tramites" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Documento_ActInmueble" Width="1.5" PointX="16.375" PointY="25.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

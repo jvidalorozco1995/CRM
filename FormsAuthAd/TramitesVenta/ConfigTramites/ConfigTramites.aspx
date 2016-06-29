@@ -325,7 +325,7 @@
     <script src="../../BLLscripts/BLLUtilidades.js"></script>
     <script src="../../BLLscripts/BLLActividades.js"></script>
     <script src="../../BLLscripts/BLLConfigTramites.js"></script>
-    <script src="../../BLLscripts/BLLDocumentosTramite.js"></script>
+    <script src="../../BLLscripts/BLLDocumentosConfigTramite.js"></script>
     <script src="../../BLLscripts/BLLBancos.js"></script>
     <script src="js/ConfigTramite.js"></script>
     <script src="../../scripts_crm/bootstrap-datepicker.js"></script>

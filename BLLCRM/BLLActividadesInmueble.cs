@@ -36,6 +36,7 @@ namespace BLLCRM
                         entb.Descripcion = item.Descripcion;
                         entb.IdTraInmueble = item.IdTraInmueble;
                         entb.ActividadDependiente = item.ActividadDependiente;
+                        entb.IdActividad = item.IdActividad;
                         entb.Duracion = item.Duracion;
                         entb.Simultaneo = item.Simultaneo;
                         entb.FechaInicio = item.FechaInicio;
@@ -75,6 +76,7 @@ namespace BLLCRM
                         entb.Descripcion = item.Descripcion;
                         entb.IdTraInmueble = item.IdTraInmueble;
                         entb.ActividadDependiente = item.ActividadDependiente;
+                        entb.IdActividad = item.IdActividad;
                         entb.Duracion = item.Duracion;
                         entb.Simultaneo = item.Simultaneo;
                         entb.FechaInicio = item.FechaInicio;
