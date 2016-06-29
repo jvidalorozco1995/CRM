@@ -94,10 +94,7 @@
                                         <label id="labelfin">Fecha de Finalizacion</label>
                                         <input id="fechafinal" type="text" value="" class="form-control" readonly="">
                                     </div>
-                                    <div class="form-group col-lg-12">
-                                        <label id="labelmotivo">descripcion</label>
-                                        <textarea id="TxtMotivo" class="form-control" rows="2" cols="3"></textarea>
-                                    </div>
+                                  
 
                                 </div>
                             </div>

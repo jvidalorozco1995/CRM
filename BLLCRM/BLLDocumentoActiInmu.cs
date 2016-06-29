@@ -134,5 +134,39 @@ namespace BLLCRM
                 throw;
             }
         }
+
+        public List<Documento_ActInmueble> ListDocumentoTramite()
+        {
+
+            try
+            {
+                List<Documento_ActInmueble> lisb = bd.Documento_ActInmueble.ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Documento_ActInmueble> lisbcrm = new List<Documento_ActInmueble>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Documento_ActInmueble entb = new Documento_ActInmueble();
+                        entb.Id = item.Id;
+                        entb.Documento = item.Documento;
+                        entb.Nombre = item.Nombre;
+                        entb.Fecha = item.Fecha;
+                        entb.Usuario = item.Usuario;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
