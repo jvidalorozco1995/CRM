@@ -20,7 +20,9 @@ var admTramites = (function () {
     
     var WsEliminarDocu = funcionUrlGlobal("/Servicios/WDocumentoActiInmu.asmx/DeleteDocumento_ActInmueble");//Consulto Proyectos CRM
         
-    
+    var WsInsertDocumento = funcionUrlGlobal("/Servicios/WDocumentoActiInmu.asmx/InsertDocumento_ActInmueble");//Consulto Proyectos CRM
+
+
     var cliente = null;
     var bandera = 0;
     var codigoEmp;
@@ -55,16 +57,56 @@ var admTramites = (function () {
             Id = $(this).attr("id");
             $('#infoActividadInmueble').modal('show');
              Tra.ActividadInmueblesID(Id, WsActividadesActividadesnmuebleID);
-            setTimeout(function () { Tradocu.ListDocumentos($('#TxtActividad').val(), WsDocumentosTramites); }, 1000);
+             setTimeout(function () { Tradocu.ListDocumentos(Id, WsDocumentosTramites); }, 1000);
             
 
         });
 
-        $(document).on('click', '.QuitarDocu', function () {
-            Id = $(this).attr("id");
+        $(document).on('click', '.SubirDocu', function () {
+           var iddocu = $(this).attr("id");
             
-            Tradocu.EliminarDocumento(Id, WsEliminarDocu);
-            setTimeout(function () { Tradocu.ListDocumentos($('#TxtActividad').val(), WsDocumentosTramites); }, 1000);
+        
+           var c = $("#" + iddocu + "").get(0);
+
+
+            
+            var files = c.files;
+           
+            if (files[0] != undefined) {
+
+                var test = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    test.append(files[i].name, files[i]);
+                }
+                $.ajax({
+                    url: "../../handler/SubirArchivoHandler.ashx",
+                    type: "POST",
+                    contentType: false,
+                    processData: false,
+                    data: test,
+                    // dataType: "json",
+                    success: function (result) {
+                        Tradocu.InsertarDocumento(iddocu, files[0].name, WsInsertDocumento);
+                  
+                        setTimeout(function () { Tradocu.ListDocumentos(Id, WsDocumentosTramites); }, 1000);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                toastr.error('CRM - Mayales - ' +
+                        '</br>Seleccione un archivo por favor');
+            }
+
+
+        });
+        
+        $(document).on('click', '.QuitarDocu', function () {
+           
+            var iddocu = $(this).attr("id");
+            Tradocu.EliminarDocumento(iddocu, WsEliminarDocu);
+            setTimeout(function () { Tradocu.ListDocumentos(Id, WsDocumentosTramites); }, 1000);
 
 
         });

@@ -19,13 +19,14 @@ namespace BLLCRM
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public int InsertDocumento_ActInmueble(Documento_ActInmueble b)
+        public int InsertDocumento_ActInmueble(int id, string b)
         {
             try
             {
-                b.Fecha = DateTime.Now;
-                b.Usuario = Membership.GetUser().ToString();
-                bd.Documento_ActInmueble.Add(b);
+                var ctx = bd.Documento_ActInmueble.First(inm => inm.Id == id);
+                ctx.Fecha = DateTime.Now;
+                ctx.Usuario = Membership.GetUser().ToString();
+                ctx.Documento = b;
                 bd.SaveChanges();
                 return 1;
             }

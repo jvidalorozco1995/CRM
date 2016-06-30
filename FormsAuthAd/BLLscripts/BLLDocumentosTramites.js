@@ -1,7 +1,32 @@
 ﻿function BLLDocumentosTramites() {
 
 
+    BLLDocumentosTramites.prototype.InsertarDocumento = function (id,docu, Wsurl) {
 
+        jsonData = "{'id':" + JSON.stringify(id) + ",'b':" + JSON.stringify(docu) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+
+                    BLLDocumentosTramites.prototype.TablaDocumentos(result.d);
+                }
+                else {
+
+                    BLLDocumentosTramites.prototype.TablaDocumentos(result.d);
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
 
     BLLDocumentosTramites.prototype.ListDocumentos = function (actividad, Wsurl) {
 
@@ -91,7 +116,7 @@
                          + "<input type='file' name='UploadFile' accept='.pdf,.docx'  id=" + item.Id + " class='subirfile' title='Detalle de separacion'/>"
                      + "</div>"
                      + "<div class='col-sm-3'>"
-                        + "<button id='" + item.Id + "' class='btn btn-success btn-xs RemoverP' type='button'>Subir</button>"
+                        + "<button id='" + item.Id + "' class='btn btn-success btn-xs SubirDocu' type='button'>Subir</button>"
                      + "</div>"
                  + "</div>"
                  + "</td>";

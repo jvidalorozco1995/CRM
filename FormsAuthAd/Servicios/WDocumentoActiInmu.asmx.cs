@@ -24,9 +24,9 @@ namespace FormsAuthAd.Servicios
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int InsertDocumento_ActInmueble(Documento_ActInmueble b)
+        public int InsertDocumento_ActInmueble(int id,string b)
         {
-            return cl.InsertDocumento_ActInmueble(b);
+            return cl.InsertDocumento_ActInmueble(id,b);
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
