@@ -14,7 +14,8 @@ namespace DAL
     
     public partial class VDocumentosActividades
     {
-        public int id { get; set; }
+        public int idactividad { get; set; }
         public string Nombre { get; set; }
+        public int id { get; set; }
     }
 }

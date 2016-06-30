@@ -10,19 +10,13 @@
 namespace DAL
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Vspt
+    public partial class sp_helpdiagrams_Result
     {
-        public string NOMBRE_PROYEC { get; set; }
-        public string T_CEDULA { get; set; }
-        public string ID_PROYEC { get; set; }
-
-        public int ID_PY { get; set; }
-        public string NOMBRES { get; set; }
-        public string TRABAJADOR { get; set; }
-
-        public string ESTADO { get; set; }
-        public int CONTADOR { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

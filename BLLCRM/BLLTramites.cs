@@ -135,25 +135,11 @@ namespace BLLCRM
                                     bd.SaveChanges();
                                     bandera = 1;
 
-                                    // aca se registran los documentos
-                                    var documentosxactividad = bd.VDocumentosActividades
-                                .Where(t => t.id == actinmueble.IdTraInmueble)
-                                .ToList();
-                                    foreach (var documento in documentosxactividad)
-                                    {
-                                        Documento_ActInmueble docuinmueble = new Documento_ActInmueble();
-                                        docuinmueble.IdActividad = documento.id;
-                                        docuinmueble.Documento = null;
-                                        docuinmueble.Nombre = documento.Nombre;
-                                        docuinmueble.Fecha = null;
-                                        docuinmueble.Usuario = null;
-                                        bd.Documento_ActInmueble.Add(docuinmueble);
-                                        bd.SaveChanges();
-                                       
-                                    }
+                                    
                                     
                                 }
-                                
+                               
+
                             }
                             else
                             {
@@ -161,7 +147,24 @@ namespace BLLCRM
                             }
                            
                         }
-                        return "Se han actualizado";
+                       
+                        
+                    }
+                    // aca se registran los documentos
+                    var documentosxactividad = bd.VDocumentosActividades
+                    .ToList();
+
+                    foreach (var documento in documentosxactividad)
+                    {
+                        Documento_ActInmueble docuinmueble = new Documento_ActInmueble();
+                        docuinmueble.IdActividad = documento.idactividad;
+                        docuinmueble.Documento = null;
+                        docuinmueble.Nombre = documento.Nombre;
+                        docuinmueble.Fecha = null;
+                        docuinmueble.Usuario = null;
+                        bd.Documento_ActInmueble.Add(docuinmueble);
+                        bd.SaveChanges();
+
                     }
                     return "Se han actualizado";
                 }
