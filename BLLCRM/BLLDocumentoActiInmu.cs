@@ -5,6 +5,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace BLLCRM
 {
@@ -22,6 +23,8 @@ namespace BLLCRM
         {
             try
             {
+                b.Fecha = DateTime.Now;
+                b.Usuario = Membership.GetUser().ToString();
                 bd.Documento_ActInmueble.Add(b);
                 bd.SaveChanges();
                 return 1;
