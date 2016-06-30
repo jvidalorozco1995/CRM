@@ -68,14 +68,14 @@ namespace BLLCRM
                             var a = bd.Tramites_Inmueble.Add(tra);
                             int estado = bd.SaveChanges();
 
-                            if (estado > 0 )
+                            if (estado > 0)
                             {
 
-                               
+
                                 var actividadesxtramite = bd.VActxtramite
-                                    .Where(t=>t.Id_tramite == tramite.id)
-                                    .OrderBy(t=>t.Posicion).ToList();
-                                
+                                    .Where(t => t.Id_tramite == tramite.id)
+                                    .OrderBy(t => t.Posicion).ToList();
+
                                 foreach (var actividad in actividadesxtramite)
                                 {
 
@@ -86,11 +86,11 @@ namespace BLLCRM
                                     actinmueble.Descripcion = actividad.Descripcion;
                                     actinmueble.Duracion = actividad.Duracion;
                                     actinmueble.Simultaneo = actividad.Simultaneo;
-                                    if(actinmueble.Simultaneo == 1)
+                                    if (actinmueble.Simultaneo == 1)
                                     {
-                                        if(bandera2 == 2)
-                                        { 
-                                        bandera2 = 1;
+                                        if (bandera2 == 2)
+                                        {
+                                            bandera2 = 1;
                                         }
                                     }
                                     actinmueble.Posicion = actividad.Posicion;
@@ -115,7 +115,7 @@ namespace BLLCRM
                                         {
                                             bandera2 = 0;
                                         }
-                                       
+
                                     }
                                     else
                                     {
@@ -128,24 +128,43 @@ namespace BLLCRM
                                         }
                                         bandera2 = 2;
                                     }
-                                    
+
                                     actinmueble.ActividadDependiente = actividad.Actividad_Dependiente;
 
                                     bd.Actividades_Inmueble.Add(actinmueble);
                                     bd.SaveChanges();
                                     bandera = 1;
+
+                                    // aca se registran los documentos
+                                    var documentosxactividad = bd.VDocumentosActividades
+                                .Where(t => t.id == actinmueble.IdTraInmueble)
+                                .ToList();
+                                    foreach (var documento in documentosxactividad)
+                                    {
+                                        Documento_ActInmueble docuinmueble = new Documento_ActInmueble();
+                                        docuinmueble.IdActividad = documento.id;
+                                        docuinmueble.Documento = null;
+                                        docuinmueble.Nombre = documento.Nombre;
+                                        docuinmueble.Fecha = null;
+                                        docuinmueble.Usuario = null;
+                                        bd.Documento_ActInmueble.Add(docuinmueble);
+                                        bd.SaveChanges();
+                                       
+                                    }
+                                    
                                 }
+                                
                             }
+                            else
+                            {
+                                return "Este banco no tiene tramites";
+                            }
+                           
                         }
-                        else
-                        {
-                            return "Este banco no tiene tramites";
-                        }
-                        
+                        return "Se han actualizado";
                     }
                     return "Se han actualizado";
                 }
-                
             }
 
             catch (Exception ex)
