@@ -169,7 +169,18 @@ var _admnegocio = (function () {
             for (var i = 0; i <= cuotas; i++) {
                 if (mes < 10) { mes = '0' + mes };
                 if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
-                fecha = año + "/" + mes + "/" + dia;
+                if (mes == 02 && dia > 28) {
+                    dia2 = 28;
+                    fecha = año + "/" + mes + "/" + dia2;
+                }
+                else {
+                    if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                        dia2 = 30 
+                        fecha = año + "/" + mes + "/" + dia2;
+                    } else {
+                        fecha = año + "/" + mes + "/" + dia;
+                    }
+                     }
                 if (i === 0) {
                     nomc = "Separación";
                     dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': parseFloat(separacion)});
@@ -184,8 +195,22 @@ var _admnegocio = (function () {
             nomc = "Subrogación";
             if (mes < 10) { mes = '0' + mes };
             if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
-            fecha = año + "/" + mes + "/" + dia;
-            fechaf = año + "-" + mes + "-" + dia;
+            if (mes == 02 && dia > 28) {
+                dia2 = 28;
+                fecha = año + "/" + mes + "/" + dia2;
+                fechaf = año + "-" + mes + "-" + dia2;
+            }
+            else {
+                if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                    dia2 = 30
+                    fecha = año + "/" + mes + "/" + dia2;
+                    fechaf = año + "-" + mes + "-" + dia2;
+                } else {
+                    fecha = año + "/" + mes + "/" + dia;
+                    fechaf = año + "-" + mes + "-" + dia;
+                }
+            }
+            
             dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
@@ -228,7 +253,18 @@ var _admnegocio = (function () {
             for (var i = 0; i <= cuotas; i++) {
                 if (mes < 10) { mes = '0' + mes };
                 if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
-                fecha = año + "/" + mes + "/" + dia;
+                if (mes == 02 && dia > 28) {
+                    dia2 = 28;
+                    fecha = año + "/" + mes + "/" + dia2;
+                }
+                else {
+                    if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                        dia2 = 30
+                        fecha = año + "/" + mes + "/" + dia2;
+                    } else {
+                        fecha = año + "/" + mes + "/" + dia;
+                    }
+                }
                 if (i === 0) {
                     nomc = "Separación";
                     dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(separacion) });
@@ -243,8 +279,21 @@ var _admnegocio = (function () {
             nomc = "Subrogación";
             if (mes < 10) { mes = '0' + mes };
             if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
-            fecha = año + "/" + mes + "/" + dia;
-            fechaf = año + "-" + mes + "-" + dia;
+            if (mes == 02 && dia > 28) {
+                dia2 = 28;
+                fecha = año + "/" + mes + "/" + dia2;
+                fechaf = año + "-" + mes + "-" + dia2;
+            }
+            else {
+                if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                    dia2 = 30
+                    fecha = año + "/" + mes + "/" + dia2;
+                    fechaf = año + "-" + mes + "-" + dia2;
+                } else {
+                    fecha = año + "/" + mes + "/" + dia;
+                    fechaf = año + "-" + mes + "-" + dia;
+                }
+            }
             dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
@@ -288,7 +337,18 @@ var _admnegocio = (function () {
             for (var i = 0; i <= cuotas; i++) {
                 if (mes < 10) { mes = '0' + mes };
                 if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
-                fecha = año + "/" + mes + "/" + dia;
+                if (mes == 02 && dia > 28) {
+                    dia2 = 28;
+                    fecha = año + "/" + mes + "/" + dia2;
+                }
+                else {
+                    if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                        dia2 = 30
+                        fecha = año + "/" + mes + "/" + dia2;
+                    } else {
+                        fecha = año + "/" + mes + "/" + dia;
+                    }
+                }
                 if (i === 0) {
                     nomc = "Separación";
                     dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': parseFloat(separacion)});
@@ -303,8 +363,21 @@ var _admnegocio = (function () {
             nomc = "Subrogación";
             if (mes < 10) { mes = '0' + mes };
             if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
-            fecha = año + "/" + mes + "/" + dia;
-            fechaf = año + "-" + mes + "-" + dia;
+            if (mes == 02 && dia > 28) {
+                dia2 = 28;
+                fecha = año + "/" + mes + "/" + dia2;
+                fechaf = año + "-" + mes + "-" + dia2;
+            }
+            else {
+                if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                    dia2 = 30
+                    fecha = año + "/" + mes + "/" + dia2;
+                    fechaf = año + "-" + mes + "-" + dia2;
+                } else {
+                    fecha = año + "/" + mes + "/" + dia;
+                    fechaf = año + "-" + mes + "-" + dia;
+                }
+            }
             dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred)});
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
@@ -347,7 +420,18 @@ var _admnegocio = (function () {
             for (var i = 0; i <= cuotas; i++) {
                 if (mes < 10) { mes = '0' + mes };
                 if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
-                fecha = año + "/" + mes + "/" + dia;
+                if (mes == 02 && dia > 28) {
+                    dia2 = 28;
+                    fecha = año + "/" + mes + "/" + dia2;
+                }
+                else {
+                    if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                        dia2 = 30
+                        fecha = año + "/" + mes + "/" + dia2;
+                    } else {
+                        fecha = año + "/" + mes + "/" + dia;
+                    }
+                }
                 if (i === 0) {
                     nomc = "Separación";
                     dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': parseFloat(separacion) });
@@ -361,8 +445,21 @@ var _admnegocio = (function () {
             nomc = "Subrogación";
             if (mes < 10) { mes = '0' + mes };
             if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
-            fecha = año + "/" + mes + "/" + dia;
-            fechaf = año + "-" + mes + "-" + dia;
+            if (mes == 02 && dia > 28) {
+                dia2 = 28;
+                fecha = año + "/" + mes + "/" + dia2;
+                fechaf = año + "-" + mes + "-" + dia2;
+            }
+            else {
+                if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                    dia2 = 30
+                    fecha = año + "/" + mes + "/" + dia2;
+                    fechaf = año + "-" + mes + "-" + dia2;
+                } else {
+                    fecha = año + "/" + mes + "/" + dia;
+                    fechaf = año + "-" + mes + "-" + dia;
+                }
+            }
             dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred)});
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
@@ -405,7 +502,18 @@ var _admnegocio = (function () {
             for (var i = 0; i <= cuotas; i++) {
                 if (mes < 10) { mes = '0' + mes };
                 if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
-                fecha = año + "/" + mes + "/" + dia;
+                if (mes == 02 && dia > 28) {
+                    dia2 = 28;
+                    fecha = año + "/" + mes + "/" + dia2;
+                }
+                else {
+                    if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                        dia2 = 30
+                        fecha = año + "/" + mes + "/" + dia2;
+                    } else {
+                        fecha = año + "/" + mes + "/" + dia;
+                    }
+                }
                 if (i === 0) {
                     nomc = "Separación";
                     dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': parseFloat(separacion) });
@@ -424,7 +532,21 @@ var _admnegocio = (function () {
             var año = fecha.getFullYear();
             var mes = fecha.getMonth() + 1;
             if (mes < 10) { mes = '0' + mes }
-            fecha = año + "/" + mes + "/" + dia;
+            if (mes == 02 && dia > 28) {
+                dia2 = 28;
+                fecha = año + "/" + mes + "/" + dia2;
+                fechaf = año + "-" + mes + "-" + dia2;
+            }
+            else {
+                if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
+                    dia2 = 30
+                    fecha = año + "/" + mes + "/" + dia2;
+                    fechaf = año + "-" + mes + "-" + dia2;
+                } else {
+                    fecha = año + "/" + mes + "/" + dia;
+                    fechaf = año + "-" + mes + "-" + dia;
+                }
+            }
              dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
             
             //_FechaEscitura(fecha)
@@ -592,9 +714,7 @@ var _admnegocio = (function () {
     }
 
     var Validar = function () {
-
-
-
+      
         if ($('#TxtNombres').val().length < 1 || !letras.test($('#TxtNombres').val())) {
             toastr.error('CRM Mayales - Notificacion' +
                 '</br></br>1 - No a digitado nada en el campo nombre' +
@@ -616,8 +736,9 @@ var _admnegocio = (function () {
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
             $('#TextExpedicion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
-
+           
         }
+       
         else if ($('#Textcivil').val().length < 1 || !letras.test($('#Textcivil').val())) {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo estado civil' +

@@ -107,7 +107,7 @@
                                                 </div>
                                                 <div class="form-group col-lg-6">
                                                     <label>Expedicion</label>
-                                                    <input type="text" value="" id="TextExpedicion" class="form-control" name="">
+                                                    <input type="text" value="" id="TextExpedicion" class="form-control" name="" readonly="" >
                                                 </div>
                                                 <div class="form-group col-lg-3">
                                                     <label>Fecha de nacimiento</label>
