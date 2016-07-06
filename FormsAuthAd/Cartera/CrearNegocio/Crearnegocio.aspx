@@ -140,7 +140,7 @@
                                                 </div>
                                                 <div class="form-group col-lg-6">
                                                     <label>Ingresos</label>
-                                                    <input type="number" value="" id="TextIngresos" class="form-control">
+                                                    <input type="text" value="" id="TextIngresos" class="form-control">
                                                 </div>
 
 

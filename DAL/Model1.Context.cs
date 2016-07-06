@@ -22,10 +22,9 @@ namespace DAL
             : base("name=CRMEntiti")
         {
         }
-       
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
             throw new UnintentionalCodeFirstException();
         }
     
@@ -52,7 +51,6 @@ namespace DAL
         public DbSet<inmueble_separacion> inmueble_separacion { get; set; }
         public DbSet<inmuebles> inmuebles { get; set; }
         public DbSet<negocio> negocio { get; set; }
-        public DbSet<negocio_fox> negocio_fox { get; set; }
         public DbSet<Notificaciones> Notificaciones { get; set; }
         public DbSet<pagos_fox> pagos_fox { get; set; }
         public DbSet<planos_Proyectos> planos_Proyectos { get; set; }
@@ -65,7 +63,6 @@ namespace DAL
         public DbSet<Tramites> Tramites { get; set; }
         public DbSet<Tramites_Inmueble> Tramites_Inmueble { get; set; }
         public DbSet<historial_acuerdos_pagos> historial_acuerdos_pagos { get; set; }
-        public DbSet<NegocioView> NegocioView { get; set; }
         public DbSet<VActInmuebles> VActInmuebles { get; set; }
         public DbSet<VActxtramite> VActxtramite { get; set; }
         public DbSet<VacuerdosFox> VacuerdosFox { get; set; }
@@ -91,6 +88,8 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
+        public DbSet<NegocioView> NegocioView { get; set; }
+        public DbSet<negocio_fox> negocio_fox { get; set; }
     
         [EdmFunction("CRMEntiti", "oasi")]
         public virtual IQueryable<oasi_Result> oasi()

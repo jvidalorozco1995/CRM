@@ -56,5 +56,6 @@ namespace DAL
         public string NOMBRE_BLO { get; set; }
         public int ID_HOJA { get; set; }
         public string USER_CARTERA { get; set; }
+        public Nullable<System.DateTime> FECHA_NEGOCIO { get; set; }
     }
 }

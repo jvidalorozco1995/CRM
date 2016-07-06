@@ -15,6 +15,7 @@ namespace DAL
     public partial class negocio
     {
         public string ID_NEGOCIO { get; set; }
+        public Nullable<System.DateTime> FECHA_NEGOCIO { get; set; }
         public string PROPIETARIO { get; set; }
         public string CEDULA_P { get; set; }
         public Nullable<System.DateTime> EXPEDICION { get; set; }
