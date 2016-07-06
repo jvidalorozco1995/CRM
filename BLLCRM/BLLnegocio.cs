@@ -37,6 +37,7 @@ namespace BLLCRM
                 n.ID_NEGOCIO = Convert.ToString(n.FECHA_NACI.Value.Day) + Convert.ToString(n.FECHA_NACI.Value.Month) + Convert.ToString(DateTime.Now.Year) + Convert.ToString(DateTime.Now.Second) + n.CEDULA_P;
                 n.USER_CREO = user;
                 n.CODIGO_F = Cod_Sp;
+                n.FECHA_NEGOCIO = DateTime.Now;
                 bd.negocio.Add(n);
                 Acuerdopago(ac, n.ID_NEGOCIO);
                 ProcesoCompra(inm);
@@ -130,6 +131,7 @@ namespace BLLCRM
                     hn.USER_CARTERA = item.USER_CARTERA;
                     hn.CODIGO_F = item.CODIGO_F;
                     hn.PROYECTO_INT = item.NOMBRE_PROYEC;
+                    hn.FECHA_NEGOCIO = item.FECHA_NEGOCIO;
                     return hn;
                 }
                 else {

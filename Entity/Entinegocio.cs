@@ -53,6 +53,8 @@ namespace Entity
         public string NOMBRES { get; set; }
         public string NOMBRE_PROYEC { get; set; }
         public int ID_HOJA { get; set; }
-   
+        public Nullable<System.DateTime> FECHA_NEGOCIO { get; set; }
+        
+
     }
 }

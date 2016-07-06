@@ -31,7 +31,7 @@ var _admhoja = (function () {
                 else {
                     
                     var eval = result.d;
-                    alert(JSON.stringify(eval.PROPIETARIO));
+                    alert(JSON.stringify(eval.LUGAR));
                     $("#Pinteres").append(eval.PROYECTO_INT);
                     $("#Lpropietario").append(eval.PROPIETARIO)
                     $("#Lcedula").append(eval.CEDULA_P);
@@ -69,7 +69,7 @@ var _admhoja = (function () {
                     $("#LasesorC").append(eval.USER_NEGOCIO);
                     $("#codifox").append(eval.CODIGO_F);
                     $("#LIngresos").append(utl.FormatNumero(eval.INGRESO));
-                    
+                    $("#lfechanegocio").append(moment(eval.FECHA_NEGOCIO).format("YYYY/DD/MM"));
                     
                     //$("#Lpropietario").append(eval[0].CLASE_INMU);
                 }

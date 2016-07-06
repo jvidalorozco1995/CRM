@@ -131,6 +131,12 @@ var _admnegocio = (function () {
             $('#Textseparacion').val((utl.FormatNumero(sep)))
         });
 
+        $("#TextIngresos").change(function () {
+            var ingresos = $('#TextIngresos').val();
+            var ingres = +ingresos.replace(/[^\d\.-]/g, '');
+            $('#TextIngresos').val((utl.FormatNumero(ingres)))
+        });
+
         $("#Textinicial").change(function () {
             var c_inicial = $('#Textinicial').val()
             _negocio._RecalcularCredito();
@@ -705,7 +711,9 @@ var _admnegocio = (function () {
         negocio.FECHA_SUBRO = $("#Textsubrogracion").val();
         negocio.ASESOR_INFO = $("#Textasesorinf").val();
         negocio.MEDIO_ENT = $("#TextmedioInf").val();
-        negocio.INGRESO = $("#TextIngresos").val();
+        var ingresos = $('#TextIngresos').val();
+        var ingres = +ingresos.replace(/[^\d\.-]/g, '');
+        negocio.INGRESO = ingresos;
         negocio.USER_CARTERA = $("#CmbAsesorCart").val();
         negocio.ASOCIADO = cactual;
         negocio.SEPARACION = separacion;
