@@ -56,7 +56,7 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<Entinegocio> lisHoja(string idhoja) 
+        public Entinegocio lisHoja(string idhoja) 
         {
             BLLnegocio hn = new BLLnegocio();
             return hn.lisHoja(idhoja);

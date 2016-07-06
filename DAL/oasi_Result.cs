@@ -10,9 +10,8 @@
 namespace DAL
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class NegocioView
+    public partial class oasi_Result
     {
         public string ID_NEGOCIO { get; set; }
         public string PROPIETARIO { get; set; }
@@ -54,7 +53,5 @@ namespace DAL
         public string CODIGO_F { get; set; }
         public string INMUEBLE { get; set; }
         public string NOMBRE_BLO { get; set; }
-        public int ID_HOJA { get; set; }
-        public string USER_CARTERA { get; set; }
     }
 }

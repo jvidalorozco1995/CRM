@@ -17,8 +17,8 @@ var _admhoja = (function () {
 
     }
 
-    var getHoha = function (hoja) {
-        jsondata = "{'idhoja':" + JSON.stringify(hoja) + "}"
+    var getHoha = function (idhoja) {
+        jsondata = "{'idhoja':" + JSON.stringify(idhoja) + "}"
         $.ajax({
             type: "POST", url: Wdtohoja, data: jsondata,
             contentType: "application/json; charset=utf-8",
@@ -29,44 +29,46 @@ var _admhoja = (function () {
                     
                 }
                 else {
+                    
                     var eval = result.d;
-                    $("#Pinteres").append(eval[0].PROYECTO_INT);
-                    $("#Lpropietario").append(eval[0].PROPIETARIO)
-                    $("#Lcedula").append(eval[0].CEDULA_P);
-                    $("#Lcivil").append(eval[0].ESTADO_C);
-                    $("#Lfnaci").append(moment(eval[0].FECHA_NACI).format("YYYY/DD/MM"));
-                    $("#Lalugar").append(eval[0].LUGAR);
-                    $("#LdireccionCr").append(eval[0].DIRECCION_R);
-                    $("#Lfijo").append(eval[0].TELEFONO_P);
-                    $("#Lempresa").append(eval[0].EMPRESA);
-                    $("#Lcargo").append(eval[0].CARGO);
-                    $("#Lprofesion").append(eval[0].PROFESION);
-                    $("#LadireEmp").append(eval[0].DIRECCION_EMPR);
-                    $("#Lanti").append(eval[0].ANTIGUEDAD);
-                    $("#LCorreo").append(eval[0].CORREO);
-                    $("#Lconyugue").append(eval[0].NOMBRE_CONY);
-                    $("#LCyugue").append(eval[0].CEDULA_CUY);
-                    $("#Lteconyugue").append(eval[0].TELE_CONY);
-                    $("#LNhijos").append(eval[0].N_HIJO);
-                    $("#Linteres").append(eval[0].INTERES_COM);
-                    $("#Lvalapto").append(eval[0].VALOR_CASA);
-                    $("#Linicial").append(utl.FormatNumero(eval[0].INICIAL));
-                    $("#lacre").append(utl.FormatNumero(eval[0].CREDITO));
-                    $("#lbanco").append(eval[0].BANCO);
+                    alert(JSON.stringify(eval.PROPIETARIO));
+                    $("#Pinteres").append(eval.PROYECTO_INT);
+                    $("#Lpropietario").append(eval.PROPIETARIO)
+                    $("#Lcedula").append(eval.CEDULA_P);
+                    $("#Lcivil").append(eval.ESTADO_C);
+                    $("#Lfnaci").append(moment(eval.FECHA_NACI).format("YYYY/DD/MM"));
+                    $("#Lalugar").append(eval.LUGAR);
+                    $("#LdireccionCr").append(eval.DIRECCION_R);
+                    $("#Lfijo").append(eval.TELEFONO_P);
+                    $("#Lempresa").append(eval.EMPRESA);
+                    $("#Lcargo").append(eval.CARGO);
+                    $("#Lprofesion").append(eval.PROFESION);
+                    $("#LadireEmp").append(eval.DIRECCION_EMPR);
+                    $("#Lanti").append(eval.ANTIGUEDAD);
+                    $("#LCorreo").append(eval.CORREO);
+                    $("#Lconyugue").append(eval.NOMBRE_CONY);
+                    $("#LCyugue").append(eval.CEDULA_CUY);
+                    $("#Lteconyugue").append(eval.TELE_CONY);
+                    $("#LNhijos").append(eval.N_HIJO);
+                    $("#Linteres").append(eval.INTERES_COM);
+                    $("#Lvalapto").append(utl.FormatNumero(eval.VALOR_CASA));
+                    $("#Linicial").append(utl.FormatNumero(eval.INICIAL));
+                    $("#lacre").append(utl.FormatNumero(eval.CREDITO));
+                    $("#lbanco").append(eval.BANCO);
 
-                    $("#linmueble").append(eval[0].NOMBRE_BLO);
+                    $("#linmueble").append(eval.NOMBRE_BLO);
                     
 
-                    $("#Lfexpedicion").append(moment(eval[0].EXPEDICION).format("YYYY/DD/MM"));
-                    //$("#Lpropietario").append(eval[0].NO_CREDITO);
-                    $("#Fescritura").append(moment(eval[0].FECHA_ES).format("YYYY/DD/MM"));
-                    $("#Fentrega").append(moment(eval[0].FECHA_ENT).format("YYYY/DD/MM"));
-                    $("#fechasubro").append(moment(eval[0].FECHA_SUBRO).format("YYYY/DD/MM"));
-                    $("#Lasesor").append(eval[0].ASESOR_INFO);
-                    $("#Lentero").append(eval[0].MEDIO_ENT);
-                    $("#LasesorC").append(eval[0].USER_NEGOCIO);
-                    $("#codifox").append(eval[0].CODIGO_F);
-                    $("#LIngresos").append(eval[0].INGRESO);
+                    $("#Lfexpedicion").append(moment(eval.EXPEDICION).format("YYYY/DD/MM"));
+                    //$("#Lpropietario").append(eval.NO_CREDITO);
+                    $("#Fescritura").append(moment(eval.FECHA_ES).format("YYYY/DD/MM"));
+                    $("#Fentrega").append(moment(eval.FECHA_ENT).format("YYYY/DD/MM"));
+                    $("#fechasubro").append(moment(eval.FECHA_SUBRO).format("YYYY/DD/MM"));
+                    $("#Lasesor").append(eval.ASESOR_INFO);
+                    $("#Lentero").append(eval.MEDIO_ENT);
+                    $("#LasesorC").append(eval.USER_NEGOCIO);
+                    $("#codifox").append(eval.CODIGO_F);
+                    $("#LIngresos").append(utl.FormatNumero(eval.INGRESO));
                     
                     
                     //$("#Lpropietario").append(eval[0].CLASE_INMU);

@@ -43,7 +43,6 @@ namespace Entity
         public string MEDIO_ENT { get; set; }
         public string ASOCIADO { get; set; }
         public string CLASE_INMU { get; set; }
-        public int ID_HOJA { get; set; }
         public Nullable<int> SEPARACION { get; set; }
         public string USER_NEGOCIO { get; set; }
         public string CODIGO_F { get; set; }
@@ -51,5 +50,9 @@ namespace Entity
         public Nullable<decimal> INGRESO { get; set; }
         public string INMUEBLE { get; set; }
         public string NOMBRE_BLO { get; set; }
+        public string NOMBRES { get; set; }
+        public string NOMBRE_PROYEC { get; set; }
+        public int ID_HOJA { get; set; }
+   
     }
 }

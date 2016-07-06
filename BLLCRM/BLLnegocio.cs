@@ -64,76 +64,104 @@ namespace BLLCRM
            
 
         }
+        public void RefreshAll()
+        {
+            foreach (var entity in bd.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+        }
 
-
-       public List<Entinegocio> lisHoja(string idhoja) {
-           try
+        public Entinegocio lisHoja(string idhoja) {
+           
+            try
            {
-               List<NegocioView> line = bd.NegocioView.Where(i => i.ID_NEGOCIO == idhoja).ToList();
-               List<Entinegocio> _line = new List<Entinegocio>();
+                RefreshAll();
+               NegocioView item = bd.NegocioView.Where(i => i.ID_NEGOCIO == idhoja).FirstOrDefault();
+         
+                if (item != null)
+                {
 
-               if (line!=null)
-               {
-                   foreach (var item in line)
-                   {
-                       Entinegocio hn = new Entinegocio();
+                    Entinegocio hn = new Entinegocio();
 
 
-                       hn.ID_NEGOCIO = item.ID_NEGOCIO;
-                       hn.ID_HOJA = item.ID_HOJA;
-                       hn.PROPIETARIO = item.PROPIETARIO;
-                       hn.CEDULA_P = item.CEDULA_P;
-                       hn.CEDULA_CUY = item.CEDULA_CUY;
-                       hn.EXPEDICION = item.EXPEDICION;
-                       hn.ESTADO_C = item.ESTADO_C;
-                       hn.FECHA_NACI = item.FECHA_NACI;
-                       hn.LUGAR = item.LUGAR;
-                       hn.DIRECCION_R = item.DIRECCION_R;
-                       hn.TELEFONO_P = item.TELEFONO_P;
-                       hn.EMPRESA = item.EMPRESA;
-                       hn.CARGO = item.CARGO;
-                       hn.DIRECCION_EMPR = item.DIRECCION_EMPR;
-                       hn.INGRESO = item.INGRESO;
-                       hn.ANTIGUEDAD = item.ANTIGUEDAD;
-                       hn.CORREO = item.CORREO;
-                       hn.NOMBRE_CONY = item.NOMBRE_CONY;
-                       hn.CEDULA_CUY = item.CEDULA_CUY;
-                       hn.TELE_CONY = item.TELE_CONY;
-                       hn.N_HIJO = item.N_HIJO;
-                       hn.INTERES_COM = item.INTERES_COM;
-                       hn.PROYECTO_INT = item.NOMBRE_PROYEC.Trim();
-                       hn.FECHA_ENT = item.FECHA_ENT;
-                       hn.FECHA_ES = item.FECHA_ES;
-                       hn.FECHA_SUBRO = item.FECHA_SUBRO;
-                       hn.PROFESION = item.PROFESION;
-                       hn.ASESOR_INFO = item.ASESOR_INFO;
-                       hn.CLASE_INMU = item.CLASE_INMU;
-                       hn.BANCO = item.BANCO;
-                       hn.NO_CREDITO = item.NO_CREDITO;
-                       hn.MEDIO_ENT = item.MEDIO_ENT;
-                       hn.VALOR_CASA = item.VALOR_CASA;
-                       hn.INICIAL = item.INICIAL;
-                       hn.CREDITO = item.CREDITO;
-                       hn.USER_NEGOCIO = item.NOMBRES;
-                       hn.CODIGO_F = item.CODIGO_F;
-                       hn.INMUEBLE = item.INMUEBLE;
-                       hn.NOMBRE_BLO = item.NOMBRE_BLO;
-                      _line.Add(hn);
-                   }
-                   return _line;
-               }
+                    hn.ID_NEGOCIO = item.ID_NEGOCIO;
+                    hn.ID_HOJA = item.ID_HOJA;
+                    hn.PROPIETARIO = item.PROPIETARIO;
+                    hn.CEDULA_P = item.CEDULA_P;
+                    hn.ESTADO_C = item.ESTADO_C;
+                    hn.EXPEDICION = item.EXPEDICION;
+                    hn.FECHA_NACI = item.FECHA_NACI;
+                    hn.LUGAR = item.LUGAR;
+                    hn.DIRECCION_R = item.DIRECCION_R;
+                    hn.TELEFONO_P = item.TELEFONO_P;
+                    hn.EMPRESA = item.EMPRESA;
+                    hn.TELFONO_EMP = item.TELFONO_EMP;
+                    hn.CARGO = item.CARGO;
+                    hn.PROFESION = item.PROFESION;
+                    hn.DIRECCION_EMPR = item.DIRECCION_EMPR;
+                    hn.ANTIGUEDAD = item.ANTIGUEDAD;
+                    hn.CORREO = item.CORREO;
+                    hn.NOMBRE_CONY = item.NOMBRE_CONY;
+                    hn.CEDULA_CUY = item.CEDULA_CUY;
+                    hn.TELE_CONY = item.TELE_CONY;
+                    hn.N_HIJO = item.N_HIJO;
+                    hn.INTERES_COM = item.INTERES_COM;
+                    hn.VALOR_CASA = item.VALOR_CASA;
+                    hn.INICIAL = item.INICIAL;
+                    hn.CREDITO = item.CREDITO;
+                    hn.BANCO = item.BANCO;
+                    hn.NO_CREDITO = item.NO_CREDITO;
+                    hn.FECHA_ES = item.FECHA_ES;
+                    hn.FECHA_ENT = item.FECHA_ENT;
+                    hn.FECHA_SUBRO = item.FECHA_SUBRO;
+                    hn.ASESOR_INFO = item.ASESOR_INFO;
+                    hn.MEDIO_ENT = item.MEDIO_ENT;
+                    hn.ASOCIADO = item.ASOCIADO;
+                    hn.CLASE_INMU = item.CLASE_INMU;
+                    hn.SEPARACION = item.SEPARACION;
+                    hn.NOMBRES = item.NOMBRES;
+                    hn.NOMBRE_PROYEC = item.NOMBRE_PROYEC;
+                    hn.INGRESO = item.INGRESO;
+                    hn.CODIGO_F = item.CODIGO_F;
+                    hn.INMUEBLE = item.INMUEBLE;
+                    hn.NOMBRE_BLO = item.NOMBRE_BLO;
+                    hn.USER_NEGOCIO = item.PROPIETARIO;
+                    hn.USER_CARTERA = item.USER_CARTERA;
+                    hn.CODIGO_F = item.CODIGO_F;
+                    hn.PROYECTO_INT = item.NOMBRE_PROYEC;
+                    return hn;
+                }
+                else {
+                    return null;
 
-               return null;
-           }
-           catch (Exception)
-           {
+                }
+                  
                
-               throw;
+
+             
            }
+           catch (DbEntityValidationException ex)
+           {
+
+                foreach (var eve in ex.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
        }
 
 
-       public List<Entinegocio> lisAllHoja()
+    
+
+        public List<Entinegocio> lisAllHoja()
        {
            try
            {

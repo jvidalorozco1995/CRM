@@ -17,7 +17,6 @@ namespace DAL
         public string NOMBRE_PROYEC { get; set; }
         public string T_CEDULA { get; set; }
         public string ID_PROYEC { get; set; }
-
         public int ID_PY { get; set; }
         public string NOMBRES { get; set; }
         public string TRABAJADOR { get; set; }

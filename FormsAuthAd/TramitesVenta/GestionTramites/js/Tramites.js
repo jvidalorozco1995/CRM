@@ -84,7 +84,6 @@ var admTramites = (function () {
                     contentType: false,
                     processData: false,
                     data: test,
-                    // dataType: "json",
                     success: function (result) {
                         Tradocu.InsertarDocumento(iddocu, files[0].name, WsInsertDocumento);
                   
@@ -115,10 +114,7 @@ var admTramites = (function () {
         //Boton que muestra la lista de actividades
         $('#BtnTerminada').click(function () {
 
-           
-
             Tra.CompletarTramites(2, Id, $('#TxtIdTramiteinmueble').val(), WsActividadesCompletarTramite);
-
             setTimeout(function () { Tra.ListActividadesInmuebles(tramit, WsActividadesTramiteInmueble); }, 1000);
         });
         

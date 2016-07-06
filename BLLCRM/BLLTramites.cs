@@ -151,8 +151,7 @@ namespace BLLCRM
                         
                     }
                     // aca se registran los documentos
-                    var documentosxactividad = bd.VDocumentosActividades
-                    .ToList();
+                    var documentosxactividad = bd.VDocumentosActividades.ToList();
 
                     foreach (var documento in documentosxactividad)
                     {
