@@ -590,6 +590,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
              }
             else
             {
+                $('#ButnCerrarG').show();
                 $('#Txtdetalle').val(tareasinf[i]["CONCEPTO"]);
                 var fecha = moment(tareasinf[i]["FECHAINICIO"]).format("YYYY/MM/DD");
                 $('#fechainfo').val(fecha);

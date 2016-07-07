@@ -389,6 +389,8 @@ var admComercial = (function () {
             $('#BtnEditar').hide();
             $('#BtnPost').show();
             $('#BtnTerminada').hide();
+            $('#ButnCerrarG').hide();
+            
             $('#Txtdetalle').attr('readonly', false);
             $('#fechainfo').attr('readonly', false);
         })
