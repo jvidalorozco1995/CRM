@@ -476,7 +476,7 @@ var admComercial = (function () {
         $(document).on('click', '#Btntareas', function () {
             $('#Tareas').show();
             $('#Bitatareas').hide();
-            $('#Btntareas').hide();
+           // $('#Btntareas').hide();
         });
 
         $(document).on('click', '.BtnHistorial', function (event) {
@@ -518,11 +518,13 @@ var admComercial = (function () {
         });
 
         $(document).on('click', '.BitaCerrar', function (event) {
-            $('#Bitatareas').hide();
+           // $('#Bitatareas').hide();
+
         });
 
         $(document).on('click', '.ptCerrar', function (event) {
             $('#Tareas').hide();
+            $('#Bitatareas').show();
         });
 
         $(document).on('click', '.Pcreartarea', function (event) {
