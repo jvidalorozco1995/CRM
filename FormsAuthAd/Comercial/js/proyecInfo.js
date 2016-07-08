@@ -94,7 +94,17 @@ var admComercial = (function () {
             ce_asociado = $('#TxtIdentidad').val();
         })
 
-        $(document).on('click', '#ButnCerrarG', function () { $('#Cancelargestion').modal("show"); $('#ButnCerrarG').hide(); })
+        $(document).on('click', '#ButnCerrarG', function () {
+
+            if ($('#TxtMotivo').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>No se a digitado una descripción');
+            } else
+            {
+
+                $('#Cancelargestion').modal("show"); $('#ButnCerrarG').hide();
+            }
+        })
 
         $(document).on('change', '#gestcancelar', function () {
             var tipo = $('#gestcancelar').val();

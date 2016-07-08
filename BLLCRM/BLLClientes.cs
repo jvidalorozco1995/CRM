@@ -153,6 +153,7 @@ namespace BLLCRM
                         Ec.P_APELLIDO = item.P_APELLIDO;
                         Ec.S_APELLIDO = item.S_APELLIDO;
                         Ec.DIRECCION = item.DIRECCION;
+                        Ec.TELEFONO2 = item.TELEFONO2;
                         Ec.EMAIL = item.EMAIL;
                         Ec.REFERENCIA = item.REFERENCIA;
                         Ec.ESTADO_I = item.ESTADO;
