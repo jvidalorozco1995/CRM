@@ -33,18 +33,27 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
                     case 1:
                         toastr.success('CRM  Mayales Notificacion' +
                             '</br> La tarea se registrado de manera exitosa para el cliente con documento de identidad' +
-                            '</br>' + tarea.cliente + 
-                            '</br>' + 'Por el Asesor'
-                            + tarea.asesor + '');
+                            '</br>' + tarea.cliente  
+                            );
+                        //'</br>' + 'Por el Asesor'
+                        //+tarea.asesor + ''
                         $('#Tareas').hide();
                         $('#TxtClientes').val("");
                         $('#TxtDescripcion').val("");
                         $('#TxtFecha').val("");
+                        $('#Bitatareas').show();
                         break
 
                     case 2:
                         toastr.warning('CRM  Mayales Notificación' +
-                            '</br> El cliente actualmente no a culminado la tarea que tiene en curso');
+                            '</br> El cliente actualmente no ha culminado la tarea que tiene en curso');
+                        $('#TxtClientes').val("");
+                        $('#TxtDescripcion').val("");
+                        $('#TxtFecha').val("");
+                        $('#Tareas').hide();
+                        $('#Bitatareas').show();
+                      
+                        
                         break
                     case 3:
                         toastr.error('CRM  Mayales Notificación' +
@@ -420,6 +429,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
             dataType: 'json',
             async: true,
             success: function (result) {
+                alert(JSON.stringify(result.d));
                 if (result.d == null) {
                     document.getElementById('List').innerHTML = "";
                 } else {

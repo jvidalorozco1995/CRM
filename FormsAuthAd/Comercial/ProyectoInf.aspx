@@ -426,8 +426,8 @@
                             </div>
                              <!---Panel Historial CLiente---->
                              <div class="hpanel" id="hisorialcliente">
-                                <div class="panel-heading">
-                                    <div class="panel-danger">
+                                <div class="panel-heading hbuilt">
+                                    <div class="panel-tools">
                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                                         <a class="Pcreartarea"><i class="fa fa-times"></i></a>
                                     </div>

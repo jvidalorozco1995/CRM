@@ -475,6 +475,7 @@ var admComercial = (function () {
       
         $(document).on('click', '#Btntareas', function () {
             $('#Tareas').show();
+            $('#Bitatareas').hide();
             $('#Btntareas').hide();
         });
 
@@ -510,7 +511,7 @@ var admComercial = (function () {
                         setTimeout(function () { Tr.LisTareas(cedula, 0); }, 2000);
                         setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
                         setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
-
+                        $('#Btntareas').show();
                       }
                    }
                }
