@@ -38,10 +38,47 @@ var admIndex= (function () {
         $('#BtnEditarI').hide();
         $('#BtnPostI').show();
         $('#BtnTerminadaI').hide();
+
+        $('#ButnCerrarG').hide();
+
         $('#Txtdetalle').attr('readonly', false);
         $('#fechainfo').attr('readonly', false);
 
     })
+
+
+    $(document).on('click', '#ButnCerrarG', function () {
+
+        if ($('#TxtMotivo').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+               '</br></br>No se a digitado una descripción');
+        } else {
+
+            $('#Cancelargestion').modal("show"); $('#ButnCerrarG').hide();
+        }
+    })
+
+
+
+    $(document).on('change', '#gestcancelar', function () {
+        var tipo = $('#gestcancelar').val();
+
+        switch (tipo) {
+            case "N":
+                //gestion terminada porq el cliente decice comprar
+                i._Cancelargestion(_BitacorasDTO(), cedula, "N");
+                i.Etareas(_DtoTareas(), _BitacorasDTO());
+                setTimeout(function () { i.getTareas(); }, 1000);
+            
+                break;
+            case "C":
+                i._Cancelargestion(_BitacorasDTO(), cedula, "C");
+                i.Etareas(_DtoTareas(), _BitacorasDTO());
+                setTimeout(function () { i.getTareas(); }, 1000);
+              
+                break;
+        }
+    });
 
     $('#BtnTerminadaI').click(function () {
         t = $('#TxtIdTarea').val();

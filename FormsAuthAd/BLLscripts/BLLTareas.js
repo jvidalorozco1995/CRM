@@ -429,7 +429,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
             dataType: 'json',
             async: true,
             success: function (result) {
-                alert(JSON.stringify(result.d));
+               
                 if (result.d == null) {
                     document.getElementById('List').innerHTML = "";
                 } else {
@@ -453,7 +453,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
             dataType: 'json',
             async: true,
             success: function (result) {
-                alert(JSON.stringify(result.d));
+               
                 if (result.d == null) {
                     toastr.error('CRM Mayales' +
                         '</br>No fue posible cargar la información detallada de la tarea');
