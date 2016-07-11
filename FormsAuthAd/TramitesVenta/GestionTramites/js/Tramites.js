@@ -45,6 +45,10 @@ var admTramites = (function () {
   
         $(document).on('click', '.Infocl', function () {
             tramit = $(this).attr("id");
+            var tag = $(this).attr("tag");
+
+            $('#Nombretramite').text(tag);
+            
             $('#Actividadesxtramite').show();
             setTimeout(function () { Tra.ListActividadesInmuebles(tramit, WsActividadesTramiteInmueble); }, 1000);
 
@@ -54,8 +58,8 @@ var admTramites = (function () {
         $(document).on('click', '.Completar', function () {
             Id = $(this).attr("id");
             $('#infoActividadInmueble').modal('show');
-             Tra.ActividadInmueblesID(Id, WsActividadesActividadesnmuebleID);
-             setTimeout(function () { Tradocu.ListDocumentos(Id, WsDocumentosTramites); }, 1000);
+            Tra.ActividadInmueblesID(Id, WsActividadesActividadesnmuebleID);
+            setTimeout(function () { Tradocu.ListDocumentos(Id, WsDocumentosTramites); }, 1000);
             
 
         });

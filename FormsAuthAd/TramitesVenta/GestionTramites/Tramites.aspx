@@ -106,11 +106,9 @@
                         </div>
                       </div>
                     <div class="modal-footer">
-                       
                         <button class="btn btn-primary " type="button" id="BtnTerminada">Completado</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-
-                    </div>
+                   </div>
                 </div>
             </div>
         </div>

@@ -175,7 +175,7 @@
             else
             {
                 tabla += "<td style='width:20px;height: 20px'>";
-                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'" + "id=" + item.IdTraInmueble + " class='Infocl' ></img>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'" + "tag='"+ item.INMUEBLE + "'" + "id=" + item.IdTraInmueble + " class='Infocl'  ></img>";
                 tabla += "</td>";
              
             }
