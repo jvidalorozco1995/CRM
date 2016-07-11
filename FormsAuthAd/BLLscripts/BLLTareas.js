@@ -42,6 +42,11 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
                         $('#TxtDescripcion').val("");
                         $('#TxtFecha').val("");
                         $('#Bitatareas').show();
+
+                        setTimeout(function () { Tr.LisTareas(tarea.cliente, 0); }, 2000);
+                        setTimeout(function () { Cli.ClienteHistorial(tarea.cliente); }, 2000);
+                        setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
+                        $('#Btntareas').show();
                         break
 
                     case 2:
@@ -60,6 +65,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
                             '</br> no fue posbile llevar a cabo el proceso..');
                         break
 
+                       
                 }
             },
             error: function (error) { alert(error.responseText); }
@@ -357,7 +363,11 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
                 } else {
                     toastr.success('CRM Mayales' +
                         '</br>Se ha culminado la tarea programa de manera Exitosa');
+                    setTimeout(function () { Tr.LisTareas(t.cliente, 0); }, 1000);
+                    setTimeout(function () { Cli.ClienteHistorial(t.cliente); }, 2000);
+                    setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
                     $('#infoTareas').modal('hide');
+
                 }
 
             },
@@ -431,6 +441,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
             success: function (result) {
                
                 if (result.d == null) {
+
                     document.getElementById('List').innerHTML = "";
                 } else {
                     ///listar tatreas del cliente
@@ -512,8 +523,10 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
     BLLTareas.CearComponente = function (tareas,op) {
         switch (op) {
             case 0:
+                console.log("Entro");
                 document.getElementById('List').innerHTML = "";
                 $.each(tareas, function (i, item) {
+                    console.log(JSON.stringify(item));
                     var clorresult = BLLTareas.Colortarea(item.ESTADO);
                     var lis = '<li class="list-group-item infotarea" id=' + item.ID_TAREA + '>';
                     lis += '<span class="badge" style="background:transparent">' + color + '</span>';

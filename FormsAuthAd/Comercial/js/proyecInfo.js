@@ -389,9 +389,7 @@ var admComercial = (function () {
             else
             {
                 Tr.Etareas(_DtoTareas(), _BitacorasDTO());
-                setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
-                setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
-                setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
+               
              }
         })
 
@@ -518,10 +516,7 @@ var admComercial = (function () {
                     else
                     {
                         Tr.CrearTarea(_DtoTareas(), WSCrearTarea);
-                        setTimeout(function () { Tr.LisTareas(cedula, 0); }, 2000);
-                        setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
-                        setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
-                        $('#Btntareas').show();
+                      
                       }
                    }
                }
@@ -546,7 +541,8 @@ var admComercial = (function () {
         });
 
         $(document).on('click', '.infotarea', function (event) {
-             t = $(this).attr("id");
+            t = $(this).attr("id");
+            cedula = cedula;
             $('#infoTareas').modal('show');
             $('#BtnEditar').show();
             $('#BtnTerminada').show();
