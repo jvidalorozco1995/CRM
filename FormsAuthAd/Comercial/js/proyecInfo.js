@@ -94,7 +94,17 @@ var admComercial = (function () {
             ce_asociado = $('#TxtIdentidad').val();
         })
 
-        $(document).on('click', '#ButnCerrarG', function () { $('#Cancelargestion').modal("show"); $('#ButnCerrarG').hide(); })
+        $(document).on('click', '#ButnCerrarG', function () {
+
+            if ($('#TxtMotivo').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>No se a digitado una descripción');
+            } else
+            {
+
+                $('#Cancelargestion').modal("show"); $('#ButnCerrarG').hide();
+            }
+        })
 
         $(document).on('change', '#gestcancelar', function () {
             var tipo = $('#gestcancelar').val();
@@ -379,9 +389,7 @@ var admComercial = (function () {
             else
             {
                 Tr.Etareas(_DtoTareas(), _BitacorasDTO());
-                setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
-                setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
-                setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
+               
              }
         })
 
@@ -389,6 +397,8 @@ var admComercial = (function () {
             $('#BtnEditar').hide();
             $('#BtnPost').show();
             $('#BtnTerminada').hide();
+            $('#ButnCerrarG').hide();
+            
             $('#Txtdetalle').attr('readonly', false);
             $('#fechainfo').attr('readonly', false);
         })
@@ -473,7 +483,8 @@ var admComercial = (function () {
       
         $(document).on('click', '#Btntareas', function () {
             $('#Tareas').show();
-            $('#Btntareas').hide();
+            $('#Bitatareas').hide();
+           // $('#Btntareas').hide();
         });
 
         $(document).on('click', '.BtnHistorial', function (event) {
@@ -505,21 +516,20 @@ var admComercial = (function () {
                     else
                     {
                         Tr.CrearTarea(_DtoTareas(), WSCrearTarea);
-                        setTimeout(function () { Tr.LisTareas(cedula, 0); }, 2000);
-                        setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
-                        setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
-
+                      
                       }
                    }
                }
         });
 
         $(document).on('click', '.BitaCerrar', function (event) {
-            $('#Bitatareas').hide();
+           // $('#Bitatareas').hide();
+
         });
 
         $(document).on('click', '.ptCerrar', function (event) {
             $('#Tareas').hide();
+            $('#Bitatareas').show();
         });
 
         $(document).on('click', '.Pcreartarea', function (event) {
@@ -531,7 +541,8 @@ var admComercial = (function () {
         });
 
         $(document).on('click', '.infotarea', function (event) {
-             t = $(this).attr("id");
+            t = $(this).attr("id");
+            cedula = cedula;
             $('#infoTareas').modal('show');
             $('#BtnEditar').show();
             $('#BtnTerminada').show();

@@ -162,11 +162,45 @@
                         <button class="btn btn-success " type="button" id="BtnEditarI">Editar</button>
                         <button class="btn btn-success " type="button" id="BtnPostI">Posponer</button>
                         <button class="btn btn-primary " type="button" id="BtnTerminadaI">Completado</button>
+                        <button class="btn btn-warning " type="button" id="ButnCerrarG">Cancelar gestion</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                    </div>
                 </div>
             </div>
         </div>
+
+         <div class="modal fade hmodal-danger" id="Cancelargestion" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cancelacion de gestion</h5>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="form-group col-lg-12">
+                                        <label class="label-control">MotiVo de cancelacion</label>
+                                        <select class="form-control" id="gestcancelar">
+                                            <option></option>
+                                            <option value="C">Realizara Comprar</option>
+                                            <option value="N">Desiste proceso de compra</option>
+                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                      </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div> 
 </div>
 </div>
 </asp:Content>

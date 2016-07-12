@@ -213,6 +213,7 @@ function BLLComercial() {
         tabla += "<th>Cedula</th>";
         tabla += "<th>Nombre</th>";
         tabla += "<th>Direccion</th>";
+        tabla += "<th>Teléfono</th>";
         tabla += "<th></th>";
         tabla += "<th></th>";
         tabla += "<th></th>";
@@ -224,6 +225,7 @@ function BLLComercial() {
             tabla += "<td><a class='infDetalle' id='" + item.CEDULA + "'>"+item.CEDULA+"</a></td>";
             tabla += "<td>" + item.NOMBRES + '  ' + item.P_APELLIDO + '  ' + item.S_APELLIDO + "</td>";
             tabla += "<td>" + item.DIRECCION + "</td>";
+            tabla += "<td>" + item.TELEFONO2 + "</td>";
             tabla += "<td style='width:20px;height: 20px'>";
             tabla += "<img src='"+funcionUrlGlobal('/images_crm/Crear.png')+"'class='BtnTarea' type='button' id='" + item.CEDULA + "/" + item.EMAIL + "' title='Crear Tareas'></img>";
             tabla += "</td>";

@@ -19,9 +19,9 @@
                                 <button class="btn btn-danger btn-btn-circle" type="button" id="BtnGenTramite">Gen. tramites</button>
 
                             </div>
-                            <li class="active"><a data-toggle="tab" href="#tab-1">Gestión de tramites</a></li>
+                            <li class="active"> <a data-toggle="tab" href="#tab-1">Gestión de tramites -  <label id="NombreProyecto"></label>  </a></li>
 
-
+                           
                         </ul>
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">
@@ -47,7 +47,7 @@
                                 <div class="panel-heading hbuilt">
 
                                  
-                                    <h5>Actividades</h5>
+                                    <h5 id="lblproyecto">Actividades - <label id="Nombretramite"></label></h5>
                                 </div>
 
 
@@ -106,11 +106,9 @@
                         </div>
                       </div>
                     <div class="modal-footer">
-                       
                         <button class="btn btn-primary " type="button" id="BtnTerminada">Completado</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-
-                    </div>
+                   </div>
                 </div>
             </div>
         </div>

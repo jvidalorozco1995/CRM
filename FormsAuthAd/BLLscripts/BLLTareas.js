@@ -33,24 +33,39 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
                     case 1:
                         toastr.success('CRM  Mayales Notificacion' +
                             '</br> La tarea se registrado de manera exitosa para el cliente con documento de identidad' +
-                            '</br>' + tarea.cliente + 
-                            '</br>' + 'Por el Asesor'
-                            + tarea.asesor + '');
+                            '</br>' + tarea.cliente  
+                            );
+                        //'</br>' + 'Por el Asesor'
+                        //+tarea.asesor + ''
                         $('#Tareas').hide();
                         $('#TxtClientes').val("");
                         $('#TxtDescripcion').val("");
                         $('#TxtFecha').val("");
+                        $('#Bitatareas').show();
+
+                        setTimeout(function () { Tr.LisTareas(tarea.cliente, 0); }, 2000);
+                        setTimeout(function () { Cli.ClienteHistorial(tarea.cliente); }, 2000);
+                        setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
+                        $('#Btntareas').show();
                         break
 
                     case 2:
                         toastr.warning('CRM  Mayales Notificación' +
-                            '</br> El cliente actualmente no a culminado la tarea que tiene en curso');
+                            '</br> El cliente actualmente no ha culminado la tarea que tiene en curso');
+                        $('#TxtClientes').val("");
+                        $('#TxtDescripcion').val("");
+                        $('#TxtFecha').val("");
+                        $('#Tareas').hide();
+                        $('#Bitatareas').show();
+                      
+                        
                         break
                     case 3:
                         toastr.error('CRM  Mayales Notificación' +
                             '</br> no fue posbile llevar a cabo el proceso..');
                         break
 
+                       
                 }
             },
             error: function (error) { alert(error.responseText); }
@@ -348,7 +363,11 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
                 } else {
                     toastr.success('CRM Mayales' +
                         '</br>Se ha culminado la tarea programa de manera Exitosa');
+                    setTimeout(function () { Tr.LisTareas(t.cliente, 0); }, 1000);
+                    setTimeout(function () { Cli.ClienteHistorial(t.cliente); }, 2000);
+                    setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
                     $('#infoTareas').modal('hide');
+
                 }
 
             },
@@ -420,7 +439,9 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
             dataType: 'json',
             async: true,
             success: function (result) {
+               
                 if (result.d == null) {
+
                     document.getElementById('List').innerHTML = "";
                 } else {
                     ///listar tatreas del cliente
@@ -443,7 +464,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
             dataType: 'json',
             async: true,
             success: function (result) {
-                alert(JSON.stringify(result.d));
+               
                 if (result.d == null) {
                     toastr.error('CRM Mayales' +
                         '</br>No fue posible cargar la información detallada de la tarea');
@@ -502,8 +523,10 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
     BLLTareas.CearComponente = function (tareas,op) {
         switch (op) {
             case 0:
+                console.log("Entro");
                 document.getElementById('List').innerHTML = "";
                 $.each(tareas, function (i, item) {
+                    console.log(JSON.stringify(item));
                     var clorresult = BLLTareas.Colortarea(item.ESTADO);
                     var lis = '<li class="list-group-item infotarea" id=' + item.ID_TAREA + '>';
                     lis += '<span class="badge" style="background:transparent">' + color + '</span>';
@@ -590,6 +613,7 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
              }
             else
             {
+                $('#ButnCerrarG').show();
                 $('#Txtdetalle').val(tareasinf[i]["CONCEPTO"]);
                 var fecha = moment(tareasinf[i]["FECHAINICIO"]).format("YYYY/MM/DD");
                 $('#fechainfo').val(fecha);

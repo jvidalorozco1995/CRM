@@ -359,7 +359,6 @@
                                             </div>
 
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -408,11 +407,14 @@
                             </div>
                            
                             <!---Panel BitacorasTareas-->
-                            <div class="hpanel" id="Bitatareas">
+                            <div class="hpanel scroll" style="height:400px;" id="Bitatareas">
+                               <%-- <div class="text-right m-t-xs">
+                                    <button class="btn btn-success " type="button" id="Btntareas"><i class="fa fa-check"></i>Crear Tareas</button>
+                                </div>--%>
                                 <div class="panel-heading hbuilt">
                                     <div class="panel-tools">
-                                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
-                                        <a class="BitaCerrar"><i class="fa fa-times"></i></a>
+                                       <%-- <a class="BitaCerrar"><i class="fa fa-times"></i></a>--%>
+                                        <a id="Btntareas" class="Btntareas"><i class="fa fa-plus-circle"></i></a>
                                     </div>
                                     Bitacora de Tareas
                                 </div>
@@ -420,14 +422,12 @@
                                     <ul class="list-group" id="List">
                                     </ul>
                                 </div>
-                                <div class="text-right m-t-xs">
-                                    <button class="btn btn-success " type="button" id="Btntareas"><i class="fa fa-check"></i>Crear Tareas</button>
-                                </div>
+                                
                             </div>
                              <!---Panel Historial CLiente---->
                              <div class="hpanel" id="hisorialcliente">
-                                <div class="panel-heading">
-                                    <div class="panel-danger">
+                                <div class="panel-heading hbuilt">
+                                    <div class="panel-tools">
                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                                         <a class="Pcreartarea"><i class="fa fa-times"></i></a>
                                     </div>
