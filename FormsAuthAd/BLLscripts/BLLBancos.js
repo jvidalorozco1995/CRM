@@ -65,6 +65,7 @@
             empr += item.NOMBRE_BANCO;
             empr += '</option>';
             $('#TxtBanco').append(empr);
+            $('#TxtBanco2').append(empr);
         });
     }
 

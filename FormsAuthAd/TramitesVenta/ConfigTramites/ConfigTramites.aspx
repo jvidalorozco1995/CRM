@@ -86,9 +86,10 @@
 
                             <div class="hpanel" id="PanelActividades">
                                 <div class="panel-heading hbuilt">
-
+                                    
+                                     <label id="male"></label>
                                     <a class="Pcreartarea" id="BtnAgregar"><i class=" fa fa-plus-circle fa-7x btn-sm btn-success pull-right"></i></a>
-                                    <h5>Actividades</h5>
+                                   
                                 </div>
 
 
@@ -104,7 +105,63 @@
                     </div>
 
                 </div>
+                   <div class="col-lg-5 scroll " id="Actividadesxtramite2" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
 
+                    <div class="panel panel-success">
+                        <div class="panel-body">
+                            <!---Panel de las tareas generadas por cada pago--->
+                            <div class="hpanel" id="PanelTramites2">
+                                <div class="panel-heading hbuilt">
+                                    <div class="panel-tools">
+                                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                                        <a class="Pcreartarea"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    Editar tramite
+                                </div>
+
+
+                                <div class="Border no-padding">
+                                    <div class="tab-content">
+                                        <div class="p-m tab-pane active">
+
+                                            <div class="row">
+                                                <div class="col-lg-3 text-center">
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="form-group col-lg-6">
+                                                            <label>Nombre</label>
+                                                            <input type="text" value="" id="TxtTramite2" class="form-control">
+                                                        </div>
+
+                                                        <div class="form-group col-lg-12">
+                                                            <label>Banco</label>
+                                                            <select id="TxtBanco2" class="form-control">
+                                                            </select>
+                                                            <input type="hidden" value="" id="Txtid" class="form-control">
+                                                            
+                                                         </div>
+                                                        <div class="form-group col-lg-12">
+                                                            <button type="button" class="btn btn-success" id="BtnGuardarTramite2">Modificar</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pull-right">
+                            </div>
+
+                           
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
         </div>

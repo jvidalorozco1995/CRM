@@ -1521,6 +1521,7 @@
     <Content Include="images_crm\Completa.png" />
     <Content Include="images_crm\Crear.png" />
     <Content Include="images_crm\Drawing.png" />
+    <Content Include="images_crm\Edit.png" />
     <Content Include="images_crm\Encabezado.png" />
     <Content Include="images_crm\Espera.png" />
     <Content Include="images_crm\excel.png" />

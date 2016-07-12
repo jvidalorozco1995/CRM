@@ -3,9 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-
+using Entity;
 using System.Text;
 using System.Threading.Tasks;
+using Entity.VistaTramite;
 
 namespace BLLCRM
 {
@@ -176,20 +177,16 @@ namespace BLLCRM
             }
         }
 
-        public string UpdateTramites(List<Tramites> i)
+        public string UpdateTramites(Tramites i)
         {
 
             try
             {
-                foreach (var item in i)
-                {
-
-                    var ctx = bd.Tramites.First(inm => inm.id == item.id);
-
-                    ctx.Nombre = item.Nombre;
-                    ctx.Banco = item.Banco;
+                    var ctx = bd.Tramites.First(inm => inm.id == i.id);
+                    ctx.Nombre = i.Nombre;
+                    ctx.Banco = i.Banco;
                     bd.SaveChanges();
-                }
+                
                 return mensaje = "Los tramites se actualizaron de manera exitosa";
             }
 
@@ -237,30 +234,38 @@ namespace BLLCRM
                 }
             }
  
-        public List<Tramites> ListTramites()
+        public List<VTramiteBanco> ListTramites()
         {
 
             try
             {
-                List<Tramites> lisb = bd.Tramites.ToList();
+                var query = from Tramites in bd.Tramites
+                            join bancos in bd.bancos on Tramites.Banco equals bancos.ID_BANCO
+                            select new { id = Tramites.id, Ntramite = Tramites.Nombre, nbanco = bancos.NOMBRE_BANCO, idbanco = bancos.ID_BANCO };
+                //List<Tramites> lisb = bd.Tramites.ToList();
+
+                
+
+
                 //bd.compromisosxcuota.ToList();
-                List<Tramites> lisbcrm = new List<Tramites>();
-                if (lisb.Count.Equals(0))
-                {
-                    return lisbcrm;
-                }
-                else
-                {
-                    foreach (var item in lisb)
+                List<VTramiteBanco> lisbcrm = new List<VTramiteBanco>();
+                //if (query.Count.Equals(0))
+                //{
+                //    return lisbcrm;
+                //}
+                //else
+                //{
+                    foreach (var item in query)
                     {
-                        Tramites entb = new Tramites();
+                        VTramiteBanco entb = new VTramiteBanco();
                         entb.id = item.id;
-                        entb.Nombre = item.Nombre;
-                        entb.Banco = item.Banco;
+                        entb.Nombre = item.Ntramite;
+                        entb.Banco = item.nbanco;
+                        entb.idbanco = item.idbanco;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;
-                }
+               // }
             }
             catch (Exception)
             {
