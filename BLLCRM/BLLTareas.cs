@@ -421,6 +421,7 @@ namespace BLLCRM
                         vt.CONCEPTO = item.CONCEPTO;
                         vt.FECHAINICIO = item.FECHAINICIO;
                         vt.ESTADO = item.ESTADO;
+                        vt.TELEFONO2 = item.TELEFONO2;
                         Vltra.Add(vt);
                     }
                     return Vltra;

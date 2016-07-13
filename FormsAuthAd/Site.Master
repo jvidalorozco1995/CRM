@@ -47,7 +47,7 @@
     <div class="color-line">
     </div>
     <div id="logo" class="light-version">
-          <a href="/"><span class="text-primary">CRM Mayales</span></a>
+          <a href="/CRM"><span class="text-primary">CRM Mayales</span></a>
     </div>
     <nav role="navigation">
         <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>

@@ -87,6 +87,7 @@ function BLLIndex() {
         tabla += "<th>Nombre</th>";
         tabla += "<th>Concepto</th>";
         tabla += "<th>Fecha</th>";
+        tabla += "<th>Teléfono</th>";
         tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
@@ -96,6 +97,7 @@ function BLLIndex() {
             tabla += "<td>" + item.NOMBRES + '  ' + item.P_APELLIDO + '  ' + item.S_APELLIDO + "</td>";
             tabla += "<td>" + item.CONCEPTO + "</td>";
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/DD/MM"); + "</td>";
+            tabla += "<td>" + item.TELEFONO2 + "</td>";
             switch (item.ESTADO) {
                 case "E":
                     tabla += "<td><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'' class='historial2' id=" + item.ID_TAREA + "/" + item.CEDULA + " href='' /></td>";
@@ -108,6 +110,7 @@ function BLLIndex() {
                     break
 
             }
+           
             tabla += "</tr>";
         });
         tabla += "</tbody>";

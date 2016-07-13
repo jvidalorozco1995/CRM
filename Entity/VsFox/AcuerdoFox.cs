@@ -23,7 +23,6 @@ namespace Entity.VsFox
         public decimal SALDOXCOBRAR { get; set; }
         public string FECHACARTERA { get; set; }
         public string CODCRM { get; set; }
-
-
+        
     }
 }

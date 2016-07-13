@@ -524,16 +524,29 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
         switch (op) {
             case 0:
                 console.log("Entro");
+                console.log(JSON.stringify(tareas.length));
                 document.getElementById('List').innerHTML = "";
-                $.each(tareas, function (i, item) {
-                    console.log(JSON.stringify(item));
-                    var clorresult = BLLTareas.Colortarea(item.ESTADO);
-                    var lis = '<li class="list-group-item infotarea" id=' + item.ID_TAREA + '>';
-                    lis += '<span class="badge" style="background:transparent">' + color + '</span>';
-                    lis += '' + item.CONCEPTO + '';
+
+                if (tareas.length == 0)
+                {
+                    var lis = '<li>';
+                    lis += '<h4>No se han creado tareas a este cliente</h4>';
                     lis += '</li>';
                     $('#List').append(lis);
-                });
+                } 
+                else {
+
+                    $.each(tareas, function (i, item) {
+
+                        
+                        var clorresult = BLLTareas.Colortarea(item.ESTADO);
+                        var lis = '<li class="list-group-item infotarea" id=' + item.ID_TAREA + '>';
+                        lis += '<span class="badge" style="background:transparent">' + color + '</span>';
+                        lis += '' + item.CONCEPTO + '';
+                        lis += '</li>';
+                        $('#List').append(lis);
+                    });
+                }
                 break
             case 1:
                 
