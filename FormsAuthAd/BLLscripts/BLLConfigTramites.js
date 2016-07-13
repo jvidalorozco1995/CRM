@@ -27,6 +27,32 @@
         });
     }
 
+    // update tramite
+    BLLConfigTramites.prototype.UpdateTramite = function (tramite, Wsurl) {
+        jsonData = "{'i':" + JSON.stringify(tramite) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 1) {
+
+                    toastr.success(' CRM - Mayales notificacion' +
+                      '</br></br>Se agrego este tramite de manera exitosa en el sistema');
+                }
+                else {
+                    toastr.success(' CRM - Mayales notificacion' +
+                      '</br></br>No se pudo agregar en el sistema');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
     //Retorna una lista de tramites
     BLLConfigTramites.prototype.ListTramites = function (Wsurl) {
 
@@ -61,7 +87,7 @@
         tabla += "<tr>";
         tabla += "<th>ID</th>";
         tabla += "<th>Nombre</th>";
-      //  tabla += "<th>Banco</th>";
+        tabla += "<th>Banco</th>";
         tabla += "<th></th>"
         tabla += "</tr>";
         tabla += "</thead>";
@@ -71,9 +97,13 @@
             tabla += " <tr>";
             tabla += "<td style='width:100px'>" + item.id + "</td>";
             tabla += "<td>" + item.Nombre + "</td>";
-            //tabla += "<td>" + item.Banco + "</td>";
+            tabla += "<td>" + item.Banco + "</td>";
             tabla += "<td style='width:20px;height: 20px'>";
-            tabla += "<img src='" + funcionUrlGlobal('/images_crm/Crear.png')+"'" + "id=" + item.id + " class='Infocl' title='Agregar'></img>";
+            tabla += "<img src='" + funcionUrlGlobal('/images_crm/Crear.png') + "' tag=" + item.Nombre + " class='Infocl' id=" + item.id + "  title='Actividades'></img>";
+            tabla += "</td>";
+            tabla += "<td style='width:20px;height: 20px'>";
+            tabla += "<img src='" + funcionUrlGlobal('/images_crm/Edit.png') + "' tag=" + item.Nombre + " class='Infoedit' id=" + item.id +  ","+item.idbanco + " title='Editar Tramite'></img>";
+            
             tabla += "</td>";
             tabla += "</tr>";
             ///images/cancel.png
@@ -82,6 +112,7 @@
         tabla += "</table>";
         $('#Tablatramites').append(tabla);
         $('#tramites').dataTable();
+      
     };
 
 }

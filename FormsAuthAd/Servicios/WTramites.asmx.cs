@@ -1,5 +1,6 @@
 ﻿using BLLCRM;
 using DAL;
+using Entity.VistaTramite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace FormsAuthAd.Servicios
     {
         BLLTramites cl = new BLLTramites();
 
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int InsertTramites(Tramites b)
@@ -29,7 +31,7 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string UpdateTramites(List<Tramites> i)
+        public string UpdateTramites(Tramites i)
         {
             return cl.UpdateTramites(i);
         }
@@ -41,7 +43,7 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<Tramites> ListTramites()
+        public List<VTramiteBanco> ListTramites()
         {
             return cl.ListTramites();
         }

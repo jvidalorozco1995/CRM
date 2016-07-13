@@ -8,7 +8,7 @@ var admTramites = (function () {
     // InsertTramite
 
     var WsInsertTramite = funcionUrlGlobal("/Servicios/WTramites.asmx/InsertTramites");//Consulto Proyectos CRM
-
+    var WsUpdateTramite = funcionUrlGlobal("/Servicios/WTramites.asmx/UpdateTramites");//Consulto Proyectos CRM
 
     var WsListramite = funcionUrlGlobal("/Servicios/WTramites.asmx/ListTramites");//Consulto Proyectos CRM
     var WsLisActividadesxTramite = funcionUrlGlobal("/Servicios/WActividadesTramites.asmx/ListActividadesTramites");//Consulto Proyectos CRM
@@ -43,6 +43,7 @@ var admTramites = (function () {
         $('#BtnAgregar').click(function () {
 
             $('#ModalListActividades').modal('show');
+          
 
         });
 
@@ -78,8 +79,37 @@ var admTramites = (function () {
             }
 
         });
+        //Boton que modifica los tramites
+        $('#BtnGuardarTramite2').click(function () {
 
 
+            if ($('#TxtTramite2').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                '<br/> no ha digitado nada en el campo tramite');
+                return false;
+            } else if ($('#TxtBanco2').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                  '<br/> no ha digitado nada en el campo banco');
+            }
+            else {
+
+                var tramite = {};
+
+                tramite.Nombre = $("#TxtTramite2").val();
+                tramite.Banco = $("#TxtBanco2").val();
+                tramite.id = $("#Txtid").val();
+
+                Tra.UpdateTramite(tramite, WsUpdateTramite);
+                setTimeout(function () {
+
+                    Tra.ListTramites(WsListramite);
+
+                }, 1000);
+
+               
+            }
+
+        });
 
         //Boton que muestra la lista de actividades
         $('#BtnEditarDocumento').click(function () {
@@ -152,6 +182,7 @@ var admTramites = (function () {
             $('#Actividadesxtramite').show();
             $('#PanelActividades').hide();
             $('#PanelTramites').show();
+            $('#Actividadesxtramite2').hide();
         });
 
         //Boton que muestra la lista de actividades
@@ -164,15 +195,65 @@ var admTramites = (function () {
 
         $(document).on('click', '.Infocl', function (event) {
             tramite = $(this).attr("id");
+            tramite2 = $(this).attr("tag");
+            tramite2 = 'Tramite :' + tramite2;
+            $('#male').text(tramite2);
             setTimeout(function () {
                 Acti.ListActividadesxTramite(tramite, WsLisActividadesxTramite);
                 $('#Actividadesxtramite').show();
+                $('#Actividadesxtramite2').hide();
                 $('#PanelActividades').show();
                 $('#PanelTramites').hide();
-
+              
             }, 1000)
 
         });
+
+        $(document).on('click', '.Infoedit', function (event) {
+            $('#Actividadesxtramite2').show();
+            $('#Actividadesxtramite').hide();
+            $('#PanelActividades').hide();
+            $('#PanelTramites2').show();
+            tramite = $(this).attr("id");
+            tramite2 = $(this).attr("tag");
+            $('#TxtTramite2').val(tramite2);
+           
+            $('#Titulo').val(tramite2);
+            var bande = 0;
+            var x1 = null;
+            var x2 = null;
+
+            for (var i = 0; i < tramite.length; i++) {
+                var caracter = tramite.charAt(i);
+                if (bande == 0 && caracter != ",") {
+                    if (x1 == null) {
+                         x1 =  caracter;
+                    } else
+                    {
+                     x1 = x1 + caracter;
+                }
+                } else {
+                    if (bande == 0)
+                    {
+                        bande = 1;
+                    } else
+
+                        if (bande == 1) {
+                            if (x2 == null) {
+                                 x2 = caracter;
+                            } else {
+                                 x2 = x2 + caracter;
+                            }
+                       
+                    }
+                }
+            }
+            $('#Txtid').val(x1);
+            $('#TxtBanco2').val(x2); 
+           
+        });
+
+
 
         $(document).on('click', '.Posicion', function (event) {
             ActividadN = $(this).attr("id");
@@ -440,6 +521,7 @@ var admTramites = (function () {
     var _Inicio = function () {
         //Lista de actividades y de tramites
         $('#Actividadesxtramite').hide();
+        $('#Actividadesxtramite2').hide();
         Acti.ListActividades(WsLisActividades);
         Tra.ListTramites(WsListramite);
         Ban.ListBancosCombo(WsBancos);

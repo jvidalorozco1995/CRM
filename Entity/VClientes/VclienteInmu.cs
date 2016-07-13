@@ -24,6 +24,5 @@ namespace Entity.VClientes
         public string REFERENCIA { get; set; }
         public string ESTADO_I { get; set; }
         public string ESTADO_C { get; set; }
-        public string TELEFONO2 { get; set; }
     }
 }
