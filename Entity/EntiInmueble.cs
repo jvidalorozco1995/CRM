@@ -16,6 +16,7 @@ namespace Entity
         public string MZA { get; set; }
         public string INMUEBLE { get; set; }
         public string AREA { get; set; }
+        //}{}
         public Nullable<decimal> VAL_INMUEBLE { get; set; }
     }
 }

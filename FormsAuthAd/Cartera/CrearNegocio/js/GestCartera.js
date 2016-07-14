@@ -173,7 +173,7 @@ var _admnegocio = (function () {
             var nomc;
             amorizar = parseFloat(credito) / cuotas;
             for (var i = 0; i <= cuotas; i++) {
-                if (mes < 10) { mes = '0' + mes }
+                if (mes < 10) { mes = '0' + mes };
                 if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
                 if (mes == 02 && dia > 28) {
                     dia2 = 28;
@@ -348,7 +348,7 @@ var _admnegocio = (function () {
                     fecha = año + "/" + mes + "/" + dia2;
                 }
                 else {
-                    if ( (mes == 04 || mes == 06 || mes == 09 || mes == 11) && dia == 31) {
+                    if (mes == 04 || mes == 06 || mes == 09 || mes == 11 && dia == 31) {
                         dia2 = 30
                         fecha = año + "/" + mes + "/" + dia2;
                     } else {
@@ -713,7 +713,7 @@ var _admnegocio = (function () {
         negocio.MEDIO_ENT = $("#TextmedioInf").val();
         var ingresos = $('#TextIngresos').val();
         var ingres = +ingresos.replace(/[^\d\.-]/g, '');
-        negocio.INGRESO = ingres;
+        negocio.INGRESO = ingresos;
         negocio.USER_CARTERA = $("#CmbAsesorCart").val();
         negocio.ASOCIADO = cactual;
         negocio.SEPARACION = separacion;
