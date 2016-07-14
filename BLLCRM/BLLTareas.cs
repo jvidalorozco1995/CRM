@@ -422,6 +422,7 @@ namespace BLLCRM
                         vt.FECHAINICIO = item.FECHAINICIO;
                         vt.ESTADO = item.ESTADO;
                         vt.TELEFONO2 = item.TELEFONO2;
+                        vt.PROYEC_INTERES = item.PROYEC_INTERES;
                         Vltra.Add(vt);
                     }
                     return Vltra;
