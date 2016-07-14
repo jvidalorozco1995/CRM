@@ -299,16 +299,8 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-12">
-                                                <div class="row">
-                                                    <div id="jqxWidget" style="margin: 0 auto;">
-                                                        <%-- <button type="button" id="datos">aaaa</button>--%>
-                                                        <div id="dataTable"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                            <div class="col-lg-12">
+                                             <div class="col-lg-12">
                                                 <div class="row" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
 
                                                     <div class="form-group col-lg-4">
@@ -332,6 +324,17 @@
 
                                                 </div>
                                             </div>
+
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div id="jqxWidget" style="margin: 0 auto;">
+                                                        <%-- <button type="button" id="datos">aaaa</button>--%>
+                                                        <div id="dataTable"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                           
                                         </div>
 
                                         <div class="panel-footer" id="button">
