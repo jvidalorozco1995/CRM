@@ -284,10 +284,7 @@
                                                             <option></option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group col-lg-3">
-                                                        <label class="control-label">No cuotas</label>
-                                                        <input type="number" value="" id="Textcuota" class="form-control" name="" >
-                                                    </div>
+                                                    
                                                     <div class="form-group col-lg-3">
                                                         <label class="control-label">Separación</label>
                                                         <input type="text" value="" id="Textseparacion" class="form-control" name="" >
@@ -319,7 +316,10 @@
                                                         <label class="control-label">Asesor que dio la información</label>
                                                         <input type="text" value="" id="Textasesorinf" class="form-control" name="" readonly="">
                                                     </div>
-                                                    
+                                                    <div class="form-group col-lg-3">
+                                                        <label class="control-label">No cuotas</label>
+                                                        <input type="number" value="" id="Textcuota" class="form-control" name="" >
+                                                    </div>
                                                     
 
                                                 </div>
