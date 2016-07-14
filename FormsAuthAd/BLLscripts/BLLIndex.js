@@ -88,6 +88,7 @@ function BLLIndex() {
         tabla += "<th>Concepto</th>";
         tabla += "<th>Fecha</th>";
         tabla += "<th>Teléfono</th>";
+        tabla += "<th>Proyecto</th>";
         tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
@@ -98,6 +99,8 @@ function BLLIndex() {
             tabla += "<td>" + item.CONCEPTO + "</td>";
             tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/DD/MM"); + "</td>";
             tabla += "<td>" + item.TELEFONO2 + "</td>";
+            tabla += "<td>" + item.PROYEC_INTERES + "</td>";
+            
             switch (item.ESTADO) {
                 case "E":
                     tabla += "<td><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'' class='historial2' id=" + item.ID_TAREA + "/" + item.CEDULA + " href='' /></td>";
