@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Entity.VistaTramite
 {
-  public  class VTramiteBanco
+    public class VTramiteBanco
     {
         public int id { get; set; }
         public string Nombre { get; set; }
         public string Banco { get; set; }
         public int idbanco { get; set; }
 
-        
+
     }
 }
