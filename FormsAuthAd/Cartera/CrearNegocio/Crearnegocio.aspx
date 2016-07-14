@@ -289,9 +289,14 @@
                                                         <label class="control-label">Separación</label>
                                                         <input type="text" value="" id="Textseparacion" class="form-control" name="" >
                                                     </div>
+                                                   
                                                     <div class="form-group col-lg-4">
-                                                        <label class="control-label">Fecha primera cuota</label>
+                                                        <label class="control-label">Fecha de separacion</label>
                                                         <input value="" id="TextFecinicial" class="form-control" name="">
+                                                    </div>
+                                                     <div class="form-group col-lg-4">
+                                                        <label class="control-label"> Fecha primera cuota</label>
+                                                        <input value="" id="TextFecinicial2" class="form-control" name="">
                                                     </div>
                                                 </div>
                                             </div>
