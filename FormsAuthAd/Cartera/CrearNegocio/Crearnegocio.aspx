@@ -240,11 +240,11 @@
                                                             <option></option>
                                                     </select>
                                              </div>
-                                              <div class="form-group col-lg-3">
+                                              <div class="form-group col-lg-6">
                                                     <label>Interes de compra</label>
                                                     <input type="text" value="" id="TextInt" class="form-control">
                                                 </div>
-                                                <div class="form-group col-lg-3">
+                                                <div class="form-group col-lg-6">
                                                     <label>Proyecto de interes</label>
                                                     <input type="text" value="" id="TextPinteres" class="form-control">
                                                 </div>
