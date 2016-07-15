@@ -54,7 +54,6 @@ namespace DAL
         public virtual empresas empresas { get; set; }
         public virtual empresas empresas1 { get; set; }
         public virtual proyectos proyectos { get; set; }
-
         [XmlIgnore]
         public virtual ICollection<historial_clientes> historial_clientes { get; set; }
         [XmlIgnore]

@@ -54,7 +54,7 @@ namespace Entity
         public string NOMBRE_PROYEC { get; set; }
         public int ID_HOJA { get; set; }
         public Nullable<System.DateTime> FECHA_NEGOCIO { get; set; }
-        
+        public string NOMBRE_BANCO { get; set; }
 
     }
 }

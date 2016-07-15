@@ -31,7 +31,7 @@ var _admhoja = (function () {
                 else {
                     
                     var eval = result.d;
-                    alert(JSON.stringify(eval.LUGAR));
+                   
                     $("#Pinteres").append(eval.PROYECTO_INT);
                     $("#Lpropietario").append(eval.PROPIETARIO)
                     $("#Lcedula").append(eval.CEDULA_P);
@@ -54,7 +54,7 @@ var _admhoja = (function () {
                     $("#Lvalapto").append(utl.FormatNumero(eval.VALOR_CASA));
                     $("#Linicial").append(utl.FormatNumero(eval.INICIAL));
                     $("#lacre").append(utl.FormatNumero(eval.CREDITO));
-                    $("#lbanco").append(eval.BANCO);
+                    $("#lbanco").append(eval.NOMBRE_BANCO);
 
                     $("#linmueble").append(eval.NOMBRE_BLO);
                     

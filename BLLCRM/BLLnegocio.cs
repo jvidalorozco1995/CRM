@@ -112,6 +112,7 @@ namespace BLLCRM
                     hn.INICIAL = item.INICIAL;
                     hn.CREDITO = item.CREDITO;
                     hn.BANCO = item.BANCO;
+                    hn.NOMBRE_BANCO = item.NOMBRE_BANCO;
                     hn.NO_CREDITO = item.NO_CREDITO;
                     hn.FECHA_ES = item.FECHA_ES;
                     hn.FECHA_ENT = item.FECHA_ENT;
