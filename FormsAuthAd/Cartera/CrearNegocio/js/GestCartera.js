@@ -55,8 +55,15 @@ var _admnegocio = (function () {
             
        });
        $(document).on('click', '#BtnSiguiente', function () {
-           $('.nav-tabs a:last').tab('show')
+         //  $('.nav-tabs a:last').tab('show');
+           $('#myTab li:eq(1) a').tab('show');
        });
+       $(document).on('click', '#BtnSiguiente2', function () {
+           //  $('.nav-tabs a:last').tab('show');
+           $('#myTab li:eq(2) a').tab('show');
+       });
+
+
 
         $(document).on('click', '#BtnDisponibilidad', function () {
             switch (bandera) {
@@ -701,9 +708,9 @@ var _admnegocio = (function () {
             source: dataAdapter,
             pageable: true,
             editable: true,
-            autoheight: true,
-            columnsresize: true,
-            autoRowHeight: true,
+         //   autoheight: true,
+          //  columnsresize: true,
+         //   autoRowHeight: true,
             columns: [
               {
                   text: 'CUOTA',
@@ -725,7 +732,7 @@ var _admnegocio = (function () {
              {
                  text: 'VALOR CUOTA',
                  editable: true,
-                 columntype: 'decimal',
+                // columntype: 'decimal',
                  datafield: 'VALOR_CUOTA',
                  cellsFormat: 'c2'
                  

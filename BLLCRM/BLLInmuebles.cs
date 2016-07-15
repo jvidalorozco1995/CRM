@@ -132,6 +132,7 @@ namespace BLLCRM
                                 {
                                     item2.VAL_INMUEBLE = item.VAL_INMUEBLE;
                                     item2.INMUESTADO = item.INMUESTADO;
+                                    item2.AREA = item.AREA;
                                   
 
                                 }
@@ -157,6 +158,7 @@ namespace BLLCRM
                             {
                                 ctx.VAL_INMUEBLE = item.VAL_INMUEBLE;
                                 ctx.INMUESTADO = item.INMUESTADO;
+                                ctx.AREA = item.AREA;
                                 db.SaveChanges();
 
                             }

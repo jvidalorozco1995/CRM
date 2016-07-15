@@ -39,7 +39,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div id="wrapper">
 
-            <div class="content animate-panel" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+            <div class="content animate-panel">
             <div class="row">
                 <!---Panel Informacion General--->
                 <div class="col-lg-7" id="Principal">
@@ -62,15 +62,16 @@
                 </div>
 
                 <!--Modal del los crear negocios-->
-                <div class="col-lg-5 scroll " style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+                <div class="col-lg-5 scroll " >
                     <div class="panel panel-success">
                         <div class="panel-body" id="datos">
 
                             <!--Informacion cliente--->
                             <div class="hpanel">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a data-toggle="tab" href="#tab-1">Informacion de cliente</a></li>
-                                    <li class=""><a data-toggle="tab" href="#tab-2">Acuerdo de pago</a></li>
+                                <ul class="nav nav-tabs" id="myTab">
+                                    <li class="active"><a data-toggle="tab" data-target="#tab-1">Informacion de cliente</a></li>
+                                    <li class=""><a data-toggle="tab" data-target="#tab-2">Fechas</a></li>
+                                    <li class=""><a data-toggle="tab"data-target="#tab-3"">Acuerdos de pago</a></li>
                                 </ul>
                                 <div class="tab-content">
                                      <!---------Tab 1---------->
@@ -85,7 +86,7 @@
                                                         <h4>Datos del Propietario</h4>
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-lg-4">
+                                                <div class="form-group col-lg-8">
                                                     <label>Cedula</label>
                                                     <input type="text" value="" id="TxtIdentidad" class="form-control" maxlength="10" style="float: left">
                                                 </div>
@@ -109,11 +110,11 @@
                                                     <label>Expedicion</label>
                                                     <input type="text" value="" id="TextExpedicion" class="form-control" name="" readonly="" >
                                                 </div>
-                                                <div class="form-group col-lg-3">
+                                                <div class="form-group col-lg-6">
                                                     <label>Fecha de nacimiento</label>
                                                     <input type="text" value="" id="Textnacimiento" class="form-control" name="">
                                                 </div>
-                                                <div class="form-group col-lg-3">
+                                                <div class="form-group col-lg-6">
                                                     <label>Lugar</label>
                                                     <input type="text" value="" id="Textlugar" class="form-control" name="">
                                                 </div>
@@ -261,45 +262,85 @@
 
 
                                     <!--tab2-->
-                                    <div id="tab-2" class="tab-pane" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
-                                        <div class="panel-body" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+                                    <div id="tab-2" class="tab-pane" >
+                                        <div class="panel-body">
                                             <div class="col-lg-12">
-                                                <div class="row" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+                                                <div class="row">
                                                     <div class="form-group col-lg-12">
                                                         <h3 id="Tvalor"></h3>
                                                         <input class="control-label" id="Lvalor" type="text" />
 
                                                     </div>
-                                                    <div class="form-group col-lg-3">
+                                                    <div class="form-group col-lg-6">
                                                         <label class="control-label">Inicial</label>
                                                         <input type="text" value="" id="Textinicial" class="form-control" name="">
                                                     </div>
-                                                    <div class="form-group col-lg-3">
+                                                    <div class="form-group col-lg-6">
                                                         <label class="control-label">Creditó</label>
                                                         <input type="text" value="" id="Textcredito" class="form-control" name=""  readonly>
                                                     </div>
-                                                    <div class="form-group col-lg-4">
+                                                    <div class="form-group col-lg-6">
                                                         <label class="control-label">Banco</label>
                                                         <select id="ComBancos" class="form-control">
                                                             <option></option>
                                                         </select>
                                                     </div>
                                                     
-                                                    <div class="form-group col-lg-3">
+                                                    <div class="form-group col-lg-6">
                                                         <label class="control-label">Separación</label>
                                                         <input type="text" value="" id="Textseparacion" class="form-control" name="" >
                                                     </div>
                                                    
-                                                    <div class="form-group col-lg-4">
+                                                    <div class="form-group col-lg-6">
                                                         <label class="control-label">Fecha de separacion</label>
                                                         <input value="" id="TextFecinicial" class="form-control" name="">
                                                     </div>
-                                                     <div class="form-group col-lg-4">
+                                                     <div class="form-group col-lg-6">
                                                         <label class="control-label"> Fecha primera cuota</label>
                                                         <input value="" id="TextFecinicial2" class="form-control" name="">
                                                     </div>
                                                 </div>
                                             </div>
+
+                                        
+
+                                            <div class="col-lg-12">
+                                                <div class="row">
+
+                                                    <div class="form-group col-lg-6">
+                                                        <label class="control-label">Fecha de Escritura</label>
+                                                        <input type="text" value="" id="Textescritura" class="form-control" name="">
+                                                    </div>
+                                                    <div class="form-group col-lg-6">
+                                                        <label class="control-label">Fecha de Entrega</label>
+                                                        <input type="text" value="" id="Textentrega" class="form-control" name="">
+                                                    </div>
+                                                    <div class="form-group col-lg-6">
+                                                        <label class="control-label">Fecha de Subrogracion</label>
+                                                        <input value="" id="Textsubrogracion" class="form-control" name="">
+                                                    </div>
+                                                    <div class="form-group col-lg-6">
+                                                        <label class="control-label">Asesor que dio la información</label>
+                                                        <input type="text" value="" id="Textasesorinf" class="form-control" name="" readonly="">
+                                                    </div>
+                                                    <div class="form-group col-lg-6">
+                                                        <label class="control-label">No cuotas</label>
+                                                        <input type="number" value="" id="Textcuota" class="form-control" name="" >
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel-footer" id="divsiguiente2">
+                                            <button class="btn btn-danger btn-btn-circle"  type="button" id="BtnSiguiente2">Siguiente</button>
+                                        </div>
+                                    </div>
+
+                                    <!--tab3-->
+                                    <div id="tab-3" class="tab-pane">
+                                        <div class="panel-body">
+                                            
 
                                             <div class="col-lg-12">
                                                 <div class="row">
@@ -310,33 +351,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-lg-12">
-                                                <div class="row" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
-
-                                                    <div class="form-group col-lg-4">
-                                                        <label class="control-label">Fecha de Escritura</label>
-                                                        <input type="text" value="" id="Textescritura" class="form-control" name="">
-                                                    </div>
-                                                    <div class="form-group col-lg-4">
-                                                        <label class="control-label">Fecha de Entrega</label>
-                                                        <input type="text" value="" id="Textentrega" class="form-control" name="">
-                                                    </div>
-                                                    <div class="form-group col-lg-4">
-                                                        <label class="control-label">Fecha de Subrogracion</label>
-                                                        <input value="" id="Textsubrogracion" class="form-control" name="">
-                                                    </div>
-                                                    <div class="form-group col-lg-6">
-                                                        <label class="control-label">Asesor que dio la información</label>
-                                                        <input type="text" value="" id="Textasesorinf" class="form-control" name="" readonly="">
-                                                    </div>
-                                                    <div class="form-group col-lg-3">
-                                                        <label class="control-label">No cuotas</label>
-                                                        <input type="number" value="" id="Textcuota" class="form-control" name="" >
-                                                    </div>
-                                                    
-
-                                                </div>
-                                            </div>
+                                            
                                         </div>
 
                                         <div class="panel-footer" id="button">
