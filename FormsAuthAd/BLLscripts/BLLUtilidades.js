@@ -23,13 +23,16 @@ function BLLUtilidades() {
         results = regex.exec(location.search);
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-    BLLUtilidades.prototype.getUrlpro = function (name) {
+    BLLUtilidades.prototype.getUrlpro = function (name)
+    {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
        var j = fRight(location.search, 3);
         results = j;
         return results;
     }
-    BLLUtilidades.prototype.getUrlnom = function (name) {
+    BLLUtilidades.prototype.getUrlnom = function (name)
+    {
+
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var j = location.search;
         var h = j.length;
@@ -84,7 +87,7 @@ function BLLUtilidades() {
                 if (result.d == null)
                 {  
                     document.getElementById("#ComBancos").innerHTML = ""
-                    _ComboBancos(result.d)
+                   _ComboBancos(result.d)
                 }
                 else
                 {    

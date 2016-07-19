@@ -739,7 +739,7 @@ var _admnegocio = (function () {
              }
             ]
         });
-
+        $(".jqx-disableselect").removeClass("jqx-disableselect");
         
         console.log(dataAdapter)
         acuerdoP = dataAdapter.cachedrecords;

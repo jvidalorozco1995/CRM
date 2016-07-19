@@ -126,7 +126,8 @@ namespace BLLCRM
                             {
                                 if (item2.INMUESTADO.Equals("3"))
                                 {
-
+                                    item2.VAL_INMUEBLE = item.VAL_INMUEBLE;
+                                    item2.AREA = item.AREA;
                                 }
                                 else
                                 {
@@ -152,7 +153,9 @@ namespace BLLCRM
                         {
                             if (ctx.INMUESTADO.Equals("3"))
                             {
-
+                                ctx.VAL_INMUEBLE = item.VAL_INMUEBLE;
+                                ctx.AREA = item.AREA;
+                                db.SaveChanges();
                             }
                             else
                             {

@@ -49,7 +49,6 @@
                             <a class="Pcreartarea" style="background: #E50000"><i class="fa fa-times"></i></a>
                         </div>
                         <ul class="nav nav-tabs">
-
                             <li class="active"><a data-toggle="tab" href="#tab-100">Separaciónes</a></li>
                         </ul>
                         <div class="tab-content">
@@ -167,7 +166,6 @@
                                                     <label>Antiguedad</label>
                                                     <input type="text" value="" id="Textantiguedad" class="form-control">
                                                 </div>
-
 
                                                 <!---------DATOS DEL CONYUGUE---------->
                                                 <div class="form-group col-lg-12">
@@ -325,9 +323,8 @@
                                                     </div>
                                                     <div class="form-group col-lg-6">
                                                         <label class="control-label">No cuotas</label>
-                                                        <input type="number" value="" id="Textcuota" class="form-control" name="" >
+                                                        <input type="number" min="1" value="" id="Textcuota" class="form-control" name="" >
                                                     </div>
-                                                    
                                                 </div>
                                             </div>
                                         </div>
