@@ -120,64 +120,82 @@
                                 <div class="row">
                                     <div class="form-group col-lg-12">
                                         <label>Documento de Identidad</label>
-                                        <input type="text" value="" id="Text1" class="form-control" maxlength="10" autofocus=""/>
+                                        <input type="text" value="" id="Text1" class="form-control" maxlength="10" autofocus="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>Nombre</label>
-                                        <input type="text" value="" id="Text2" class="form-control" name="" placeholder=""/>
+                                        <input type="text" value="" id="Text2" class="form-control" name="" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>Primer Apelido</label>
-                                        <input type="text" value="" id="Text3" class="form-control" placeholder=""/>
+                                        <input type="text" value="" id="Text3" class="form-control" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label id="label2">Segundo Apellido</label>
-                                        <input type="text" value="" id="Text4" class="form-control" placeholder=""/>
+                                        <input type="text" value="" id="Text4" class="form-control" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label id="label3">Estado Civil</label>
-                                        <input type="text" value="" id="Text5" class="form-control" placeholder=""/>
+                                        <input type="text" value="" id="Text5" class="form-control" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>Direccion de resicencia</label>
-                                        <input type="text" value="" id="Text6" class="form-control" placeholder=""/>
+                                        <input type="text" value="" id="Text6" class="form-control" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>Telefono Celular</label>
-                                        <input type="text" value="" id="Text7" class="form-control" name="" placeholder="" />
+                                        <input type="text" value="" id="Text7" class="form-control" name="" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>Correo Electronico</label>
-                                        <input type="text" value="" id="Text8" class="form-control" name="" placeholder="">
+                                        <input type="text" value="" id="Text8" class="form-control" name="" placeholder="" readonly>
                                     </div>
                                   <div class="form-group col-lg-6">
                                         <label>Empresa donde labora</label>
-                                        <input type="text" value="" id="Text9" class="form-control" name="" placeholder=""/>
+                                        <input type="text" value="" id="Text9" class="form-control" name="" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>Sueldo</label>
-                                       <input type="text" value="" id="Text10" class="form-control" placeholder=""/>
+                                       <input type="text" value="" id="Text10" class="form-control" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>Presupuesto de Compra</label>
-                                     <input type="text" value="" id="Text11" class="form-control" placeholder=""/>
+                                     <input type="text" value="" id="Text11" class="form-control" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>Que esta buscando</label>
-                                       <input type="text" value="" id="Text12" class="form-control" placeholder=""/>
+                                       <input type="text" value="" id="Text12" class="form-control" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>Le gustaria vivir:</label>
-                                     <input type="text" value="" id="Text13" class="form-control" placeholder=""/>
+                                     <input type="text" value="" id="Text13" class="form-control" placeholder="" readonly/>
                                     </div>
                                      <div class="form-group col-lg-6">
                                         <label>Motivo de compra:</label>
-                                       <input type="text" value="" id="Text14" class="form-control" placeholder=""/>
+                                       <input type="text" value="" id="Text14" class="form-control" placeholder="" readonly/>
                                     </div>
+                                     <div class="form-group col-lg-6">
+                                        <label>Asesor:</label>
+                                    <select id="CombAsesores2" title="Filtar asesores" class="form-control">
+                                       <option>
+                                            Seleccione asesor...
+                                       </option>
+                                    </select>
+                                    </div>
+                                     <div class="form-group col-lg-12">
+                                        <label>Proyecto de interes:</label>
+                                    <select id="ComProyect2" title="Filtar proyectos" class="form-control">
+                                       <option>
+                                            Seleccione proyecto...
+                                       </option>
+                                    </select>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
+                             <button type="button" id="BtnActualizarCliente" class="btn btn-primary">Actualizar</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>

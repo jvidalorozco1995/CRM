@@ -64,7 +64,8 @@ function BLLProyectos() {
                             BLLProyectos.AlertCrm();
                             break
                         case 2:
-                            document.getElementById('ComProyect').innerHTML = ""; 
+                            document.getElementById('ComProyect').innerHTML = "";
+                            document.getElementById('ComProyect2').innerHTML = "";
                             break
                     }
                 }
@@ -96,6 +97,7 @@ function BLLProyectos() {
             comb += proyec[i]["NOMBRE_PROYEC"];
             comb += '</option>';
             $('#ComProyect').append(comb);
+            $('#ComProyect2').append(comb);
             $('#Txt15').append(comb);
         }
     }

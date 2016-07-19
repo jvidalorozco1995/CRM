@@ -42,11 +42,13 @@
                 if (result.d === null)
                 {
                     $('#CombAsesores').append('<option></option>');
+                    $('#CombAsesores2').append('<option></option>');
                     BLLTrabajadores.ComAsesor(result.d);
                 }
                 else
                 {
                     $('#CombAsesores').append('<option></option>');
+                    $('#CombAsesores2').append('<option></option>');
                     BLLTrabajadores.ComAsesor(result.d);
                 }
              },
@@ -191,7 +193,8 @@
 
     BLLTrabajadores.ComAsesor = function (asesores) {
         $.each(asesores, function (i,item) {
-            $('#CombAsesores').append('<option value='+item.T_CEDULA+'>'+item.NOMBRES+'</option>')
+            $('#CombAsesores').append('<option value=' + item.T_CEDULA + '>' + item.NOMBRES + '</option>')
+            $('#CombAsesores2').append('<option value=' + item.T_CEDULA + '>' + item.NOMBRES + '</option>')
         });
     }
 

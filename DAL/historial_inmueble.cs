@@ -19,8 +19,5 @@ namespace DAL
         public string INMUEBLE { get; set; }
         public Nullable<System.DateTime> FECHA { get; set; }
         public string DESCRIPCION_S { get; set; }
-    
-        public virtual clientes clientes { get; set; }
-        public virtual clientes clientes1 { get; set; }
     }
 }

@@ -26,6 +26,7 @@ namespace DAL
 
         [XmlIgnore]
         public virtual ICollection<ActividadxTramite> ActividadxTramite { get; set; }
+        [XmlIgnore]
         public virtual bancos bancos { get; set; }
         [XmlIgnore]
         public virtual ICollection<Tramites_Inmueble> Tramites_Inmueble { get; set; }

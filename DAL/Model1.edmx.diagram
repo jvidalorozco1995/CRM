@@ -4,69 +4,69 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b23b4e1583cf44f5b4b9e3bb0bdd75f6" Name="Diagram1" ZoomLevel="13">
+      <Diagram DiagramId="b23b4e1583cf44f5b4b9e3bb0bdd75f6" Name="Diagram1" ZoomLevel="16">
         <EntityTypeShape EntityType="CRM_TESTModel.ActInmuebles" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Actividades" Width="1.5" PointX="13" PointY="13" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Actividades_Inmueble" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.ActividadxTramite" Width="1.5" PointX="15.25" PointY="2.375" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Actividades" Width="1.5" PointX="11" PointY="7" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Actividades_Inmueble" Width="1.5" PointX="8.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.ActividadxTramite" Width="1.5" PointX="13.25" PointY="2.375" />
         <EntityTypeShape EntityType="CRM_TESTModel.acuerdo_fox" Width="1.5" PointX="0.75" PointY="12.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.acuerdo_pago" Width="1.5" PointX="10.75" PointY="5.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.bancos" Width="1.5" PointX="10.75" PointY="2.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.bitacora_tareas" Width="1.5" PointX="0.75" PointY="5.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.bloques" Width="1.5" PointX="6" PointY="18" />
-        <EntityTypeShape EntityType="CRM_TESTModel.clientes" Width="1.5" PointX="6" PointY="6" />
-        <EntityTypeShape EntityType="CRM_TESTModel.compromisosxcuota" Width="1.5" PointX="8.75" PointY="12.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.configuracion" Width="1.5" PointX="13.75" PointY="8.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Configuracion_negocio" Width="1.5" PointX="2.75" PointY="15.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Documento" Width="1.5" PointX="15.25" PointY="11.875" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Documento_ActInmueble" Width="1.5" PointX="15.75" PointY="8.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.documentos_negocio" Width="1.5" PointX="8.75" PointY="15.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.empresas" Width="1.5" PointX="3.75" PointY="12.375" />
-        <EntityTypeShape EntityType="CRM_TESTModel.historial_clientes" Width="1.5" PointX="11.25" PointY="8.5" />
-        <EntityTypeShape EntityType="CRM_TESTModel.historial_inmueble" Width="1.5" PointX="8.25" PointY="20.25" />
-        <EntityTypeShape EntityType="CRM_TESTModel.informacion" Width="1.5" PointX="10.75" PointY="16.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.inmueble_separacion" Width="1.5" PointX="8.25" PointY="8.5" />
-        <EntityTypeShape EntityType="CRM_TESTModel.inmuebles" Width="1.5" PointX="6" PointY="1.375" />
-        <EntityTypeShape EntityType="CRM_TESTModel.negocio" Width="1.5" PointX="17.75" PointY="0.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.negocio_fox" Width="1.5" PointX="17.75" PointY="10.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Notificaciones" Width="1.5" PointX="15.25" PointY="14.375" />
-        <EntityTypeShape EntityType="CRM_TESTModel.pagos_fox" Width="1.5" PointX="0.75" PointY="18.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.planos_Proyectos" Width="1.5" PointX="6" PointY="15.25" />
-        <EntityTypeShape EntityType="CRM_TESTModel.proyectos" Width="1.5" PointX="3.75" PointY="5.5" />
-        <EntityTypeShape EntityType="CRM_TESTModel.proyectos_trabajador" Width="1.5" PointX="3" PointY="9" />
-        <EntityTypeShape EntityType="CRM_TESTModel.sala_ventas" Width="1.5" PointX="2.75" PointY="18.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="18.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.tareas" Width="1.5" PointX="8.25" PointY="4.125" />
-        <EntityTypeShape EntityType="CRM_TESTModel.trabajadores" Width="1.5" PointX="0.75" PointY="8.5" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Tramites" Width="1.5" PointX="13" PointY="2.375" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Tramites_Inmueble" Width="1.5" PointX="15.25" PointY="5.5" />
-        <EntityTypeShape EntityType="CRM_TESTModel.historial_acuerdos_pagos" Width="1.5" PointX="14.75" PointY="18.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.NegocioView" Width="1.5" PointX="19.75" PointY="0.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VActInmuebles" Width="1.5" PointX="19.75" PointY="11.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VActxtramite" Width="1.5" PointX="19.75" PointY="14.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VacuerdosFox" Width="1.5" PointX="19.75" PointY="19.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VAsesoresT" Width="1.5" PointX="4.75" PointY="20.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VCantidadcompromisos" Width="1.5" PointX="16.75" PointY="20.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VCLienteinmueble" Width="1.5" PointX="21.75" PointY="0.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Vclientes" Width="1.5" PointX="21.75" PointY="6.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Vclienteseparacion" Width="1.5" PointX="10.75" PointY="21.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VClientesTareas" Width="1.5" PointX="12.75" PointY="21.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VCod_SP" Width="1.5" PointX="21.75" PointY="13.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Vdetallesp" Width="1.5" PointX="21.75" PointY="16.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VDocumentosActividades" Width="1.5" PointX="21.75" PointY="20.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VFechasProyectos" Width="1.5" PointX="23.75" PointY="0.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Vinmuebles" Width="1.5" PointX="2.75" PointY="23.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VInmueblesConTramites" Width="1.5" PointX="23.75" PointY="3.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VinteresProyect" Width="1.5" PointX="4.75" PointY="23.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VnegocioFox" Width="1.5" PointX="6.75" PointY="23.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VNegocioscompromisos" Width="1.5" PointX="23.75" PointY="8.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Vsepracioninmuebles" Width="1.5" PointX="23.75" PointY="13.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.Vspt" Width="1.5" PointX="14.75" PointY="23.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VTareas" Width="1.5" PointX="16.75" PointY="23.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VTareasCompromiso" Width="1.5" PointX="21.75" PointY="23.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VtareasNegocio" Width="1.5" PointX="23.75" PointY="23.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VTracliente" Width="1.5" PointX="8.75" PointY="24.75" />
-        <EntityTypeShape EntityType="CRM_TESTModel.VTramitesBancos" Width="1.5" PointX="18.75" PointY="24.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.acuerdo_pago" Width="1.5" PointX="15.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.bancos" Width="1.5" PointX="8.75" PointY="2.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.bitacora_tareas" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.bloques" Width="1.5" PointX="6" PointY="13.625" />
+        <EntityTypeShape EntityType="CRM_TESTModel.clientes" Width="1.5" PointX="6" PointY="6.5" />
+        <EntityTypeShape EntityType="CRM_TESTModel.compromisosxcuota" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.configuracion" Width="1.5" PointX="15.75" PointY="8.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Configuracion_negocio" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Documento" Width="1.5" PointX="13.25" PointY="8.875" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Documento_ActInmueble" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.documentos_negocio" Width="1.5" PointX="15.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.empresas" Width="1.5" PointX="3.75" PointY="13.125" />
+        <EntityTypeShape EntityType="CRM_TESTModel.historial_clientes" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="CRM_TESTModel.historial_inmueble" Width="1.5" PointX="12.75" PointY="15.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.informacion" Width="1.5" PointX="15.75" PointY="14.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.inmueble_separacion" Width="1.5" PointX="18" PointY="1.25" />
+        <EntityTypeShape EntityType="CRM_TESTModel.inmuebles" Width="1.5" PointX="15.75" PointY="1" />
+        <EntityTypeShape EntityType="CRM_TESTModel.negocio" Width="1.5" PointX="5.75" PointY="16.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.negocio_fox" Width="1.5" PointX="17.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Notificaciones" Width="1.5" PointX="13.25" PointY="11.375" />
+        <EntityTypeShape EntityType="CRM_TESTModel.pagos_fox" Width="1.5" PointX="17.75" PointY="14.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.planos_Proyectos" Width="1.5" PointX="6" PointY="1.875" />
+        <EntityTypeShape EntityType="CRM_TESTModel.proyectos" Width="1.5" PointX="3.75" PointY="3.125" />
+        <EntityTypeShape EntityType="CRM_TESTModel.proyectos_trabajador" Width="1.5" PointX="3" PointY="9.625" />
+        <EntityTypeShape EntityType="CRM_TESTModel.sala_ventas" Width="1.5" PointX="2.75" PointY="16.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.sysdiagrams" Width="1.5" PointX="14.75" PointY="17.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.tareas" Width="1.5" PointX="3" PointY="19.25" />
+        <EntityTypeShape EntityType="CRM_TESTModel.trabajadores" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Tramites" Width="1.5" PointX="11" PointY="2.375" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Tramites_Inmueble" Width="1.5" PointX="13.25" PointY="5.5" />
+        <EntityTypeShape EntityType="CRM_TESTModel.historial_acuerdos_pagos" Width="1.5" PointX="7.75" PointY="18.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.NegocioView" Width="1.5" PointX="9.75" PointY="18.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VActInmuebles" Width="1.5" PointX="11.75" PointY="18.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VActxtramite" Width="1.5" PointX="19.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VacuerdosFox" Width="1.5" PointX="19.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VAsesoresT" Width="1.5" PointX="19.75" PointY="14.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VCantidadcompromisos" Width="1.5" PointX="19.75" PointY="17.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VCLienteinmueble" Width="1.5" PointX="13.75" PointY="20.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Vclientes" Width="1.5" PointX="15.75" PointY="20.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Vclienteseparacion" Width="1.5" PointX="20.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VClientesTareas" Width="1.5" PointX="17.75" PointY="20.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VCod_SP" Width="1.5" PointX="19.75" PointY="20.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Vdetallesp" Width="1.5" PointX="21.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VDocumentosActividades" Width="1.5" PointX="21.75" PointY="7.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VFechasProyectos" Width="1.5" PointX="21.75" PointY="10.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Vinmuebles" Width="1.5" PointX="21.75" PointY="13.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VInmueblesConTramites" Width="1.5" PointX="21.75" PointY="17.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VinteresProyect" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VnegocioFox" Width="1.5" PointX="21.75" PointY="22.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VNegocioscompromisos" Width="1.5" PointX="0.75" PointY="23.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Vsepracioninmuebles" Width="1.5" PointX="2.75" PointY="23.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.Vspt" Width="1.5" PointX="23.75" PointY="3.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VTareas" Width="1.5" PointX="23.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VTareasCompromiso" Width="1.5" PointX="23.75" PointY="11.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VtareasNegocio" Width="1.5" PointX="23.75" PointY="16.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VTracliente" Width="1.5" PointX="23.75" PointY="20.75" />
+        <EntityTypeShape EntityType="CRM_TESTModel.VTramitesBancos" Width="1.5" PointX="25.75" PointY="0.75" />
         <AssociationConnector Association="CRM_TESTModel.FK_ActividadxTramite_Actividades" />
         <AssociationConnector Association="CRM_TESTModel.FK_Documento_Actividades" />
         <AssociationConnector Association="CRM_TESTModel.FK_Notificaciones_Actividades" />
@@ -77,14 +77,6 @@
         <AssociationConnector Association="CRM_TESTModel.FK__clientes__EMPRES__2180FB33" />
         <AssociationConnector Association="CRM_TESTModel.FK__clientes__EMPRES__75A278F5" />
         <AssociationConnector Association="CRM_TESTModel.FK__clientes__PROYEC__32E0915F" />
-        <AssociationConnector Association="CRM_TESTModel.FK__historial__clien__1F04813B" />
-        <AssociationConnector Association="CRM_TESTModel.FK__historial__CLIEN__318258D2" />
-        <AssociationConnector Association="CRM_TESTModel.FK__historial__clien__4F47C5E3" />
-        <AssociationConnector Association="CRM_TESTModel.FK__historial__CLIEN__6F2063EF" />
-        <AssociationConnector Association="CRM_TESTModel.FK__inmueble___CLIEN__1FD8A9E3" />
-        <AssociationConnector Association="CRM_TESTModel.FK__inmueble___CLIEN__33D4B598" />
-        <AssociationConnector Association="CRM_TESTModel.FK__tareas__CLIENTE__398D8EEE" />
-        <AssociationConnector Association="CRM_TESTModel.FK__tareas__CLIENTE__47B19113" />
         <AssociationConnector Association="CRM_TESTModel.FK__historial__traba__1FF8A574" />
         <AssociationConnector Association="CRM_TESTModel.FK__historial__traba__503BEA1C" />
         <AssociationConnector Association="CRM_TESTModel.FK__inmueble___INMUE__20CCCE1C" />

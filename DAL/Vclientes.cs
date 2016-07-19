@@ -39,5 +39,6 @@ namespace DAL
         public string TEL_EMP { get; set; }
         public string NOMBRE_SALA { get; set; }
         public string ASOCIADO { get; set; }
+        public string ASESOR { get; set; }
     }
 }

@@ -207,6 +207,8 @@ namespace BLLCRM
                     Ec.MOT_COMPRA = item.MOT_COMPRA;
                     Ec.EMPRESA = item.NOMBRE_EMP;
                     Ec.TEL_EMPRESA = item.TEL_EMP;
+                    Ec.PROYEC_INTERES = item.PROYEC_INTERES;
+                    Ec.ASESOR = item.ASESOR;
                     Encl.Add(Ec);
                 }
                 return Encl;

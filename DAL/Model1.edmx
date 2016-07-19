@@ -662,10 +662,11 @@ warning 6002: The table/view 'CRM_TEST.dbo.Vclientes' does not have a primary ke
           <Property Name="FECHAMOD" Type="date" />
           <Property Name="INFORMACION" Type="varchar" MaxLength="80" />
           <Property Name="ID_EMP" Type="int" />
-          <Property Name="TRABAJADOR" Type="varchar" MaxLength="25" />
+          <Property Name="TRABAJADOR" Type="varchar" MaxLength="60" />
           <Property Name="TEL_EMP" Type="varchar" MaxLength="12" />
           <Property Name="NOMBRE_SALA" Type="varchar" MaxLength="50" />
           <Property Name="ASOCIADO" Type="varchar" MaxLength="15" />
+          <Property Name="ASESOR" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_TEST.dbo.Vclienteseparacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1114,54 +1115,6 @@ warning 6002: The table/view 'CRM_TEST.dbo.VTramitesBancos' does not have a prim
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__historial__clien__1F04813B">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
-          <End Role="historial_clientes" Type="Self.historial_clientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="historial_clientes">
-              <PropertyRef Name="CLIENTEH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__historial__CLIEN__318258D2">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
-          <End Role="historial_inmueble" Type="Self.historial_inmueble" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="historial_inmueble">
-              <PropertyRef Name="CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__historial__clien__4F47C5E3">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
-          <End Role="historial_clientes" Type="Self.historial_clientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="historial_clientes">
-              <PropertyRef Name="CLIENTEH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__historial__CLIEN__6F2063EF">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
-          <End Role="historial_inmueble" Type="Self.historial_inmueble" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="historial_inmueble">
-              <PropertyRef Name="CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__historial__traba__1FF8A574">
           <End Role="trabajadores" Type="Self.trabajadores" Multiplicity="0..1" />
           <End Role="historial_clientes" Type="Self.historial_clientes" Multiplicity="*" />
@@ -1183,30 +1136,6 @@ warning 6002: The table/view 'CRM_TEST.dbo.VTramitesBancos' does not have a prim
             </Principal>
             <Dependent Role="historial_clientes">
               <PropertyRef Name="TRABAJADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__inmueble___CLIEN__1FD8A9E3">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
-          <End Role="inmueble_separacion" Type="Self.inmueble_separacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="inmueble_separacion">
-              <PropertyRef Name="CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__inmueble___CLIEN__33D4B598">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
-          <End Role="inmueble_separacion" Type="Self.inmueble_separacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="inmueble_separacion">
-              <PropertyRef Name="CLIENTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1263,30 +1192,6 @@ warning 6002: The table/view 'CRM_TEST.dbo.VTramitesBancos' does not have a prim
             </Principal>
             <Dependent Role="proyectos_trabajador">
               <PropertyRef Name="TRABAJADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tareas__CLIENTE__398D8EEE">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
-          <End Role="tareas" Type="Self.tareas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="tareas">
-              <PropertyRef Name="CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tareas__CLIENTE__47B19113">
-          <End Role="clientes" Type="Self.clientes" Multiplicity="0..1" />
-          <End Role="tareas" Type="Self.tareas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="tareas">
-              <PropertyRef Name="CLIENTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1587,7 +1492,8 @@ FROM [dbo].[VCLienteinmueble] AS [VCLienteinmueble]</DefiningQuery>
 [Vclientes].[TRABAJADOR] AS [TRABAJADOR], 
 [Vclientes].[TEL_EMP] AS [TEL_EMP], 
 [Vclientes].[NOMBRE_SALA] AS [NOMBRE_SALA], 
-[Vclientes].[ASOCIADO] AS [ASOCIADO]
+[Vclientes].[ASOCIADO] AS [ASOCIADO], 
+[Vclientes].[ASESOR] AS [ASESOR]
 FROM [dbo].[Vclientes] AS [Vclientes]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Vclienteseparacion" EntityType="Self.Vclienteseparacion" store:Type="Views" store:Schema="dbo">
@@ -1902,22 +1808,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="clientes" EntitySet="clientes" />
           </AssociationSet>
-          <AssociationSet Name="FK__historial__clien__1F04813B" Association="Self.FK__historial__clien__1F04813B">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="historial_clientes" EntitySet="historial_clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__historial__CLIEN__318258D2" Association="Self.FK__historial__CLIEN__318258D2">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="historial_inmueble" EntitySet="historial_inmueble" />
-          </AssociationSet>
-          <AssociationSet Name="FK__historial__clien__4F47C5E3" Association="Self.FK__historial__clien__4F47C5E3">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="historial_clientes" EntitySet="historial_clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__historial__CLIEN__6F2063EF" Association="Self.FK__historial__CLIEN__6F2063EF">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="historial_inmueble" EntitySet="historial_inmueble" />
-          </AssociationSet>
           <AssociationSet Name="FK__historial__traba__1FF8A574" Association="Self.FK__historial__traba__1FF8A574">
             <End Role="trabajadores" EntitySet="trabajadores" />
             <End Role="historial_clientes" EntitySet="historial_clientes" />
@@ -1925,14 +1815,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <AssociationSet Name="FK__historial__traba__503BEA1C" Association="Self.FK__historial__traba__503BEA1C">
             <End Role="trabajadores" EntitySet="trabajadores" />
             <End Role="historial_clientes" EntitySet="historial_clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__inmueble___CLIEN__1FD8A9E3" Association="Self.FK__inmueble___CLIEN__1FD8A9E3">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="inmueble_separacion" EntitySet="inmueble_separacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__inmueble___CLIEN__33D4B598" Association="Self.FK__inmueble___CLIEN__33D4B598">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="inmueble_separacion" EntitySet="inmueble_separacion" />
           </AssociationSet>
           <AssociationSet Name="FK__inmueble___INMUE__20CCCE1C" Association="Self.FK__inmueble___INMUE__20CCCE1C">
             <End Role="inmuebles" EntitySet="inmuebles" />
@@ -1949,14 +1831,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <AssociationSet Name="FK__proyectos__TRABA__1CA7377D" Association="Self.FK__proyectos__TRABA__1CA7377D">
             <End Role="trabajadores" EntitySet="trabajadores" />
             <End Role="proyectos_trabajador" EntitySet="proyectos_trabajador" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tareas__CLIENTE__398D8EEE" Association="Self.FK__tareas__CLIENTE__398D8EEE">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="tareas" EntitySet="tareas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tareas__CLIENTE__47B19113" Association="Self.FK__tareas__CLIENTE__47B19113">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
           <AssociationSet Name="FK__tareas__TRABAJAD__3A81B327" Association="Self.FK__tareas__TRABAJAD__3A81B327">
             <End Role="trabajadores" EntitySet="trabajadores" />
@@ -2098,38 +1972,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <AssociationSet Name="FK__clientes__PROYEC__32E0915F" Association="CRM_TESTModel.FK__clientes__PROYEC__32E0915F">
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="clientes" EntitySet="clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__historial__clien__1F04813B" Association="CRM_TESTModel.FK__historial__clien__1F04813B">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="historial_clientes" EntitySet="historial_clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__historial__CLIEN__318258D2" Association="CRM_TESTModel.FK__historial__CLIEN__318258D2">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="historial_inmueble" EntitySet="historial_inmueble" />
-          </AssociationSet>
-          <AssociationSet Name="FK__historial__clien__4F47C5E3" Association="CRM_TESTModel.FK__historial__clien__4F47C5E3">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="historial_clientes" EntitySet="historial_clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__historial__CLIEN__6F2063EF" Association="CRM_TESTModel.FK__historial__CLIEN__6F2063EF">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="historial_inmueble" EntitySet="historial_inmueble" />
-          </AssociationSet>
-          <AssociationSet Name="FK__inmueble___CLIEN__1FD8A9E3" Association="CRM_TESTModel.FK__inmueble___CLIEN__1FD8A9E3">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="inmueble_separacion" EntitySet="inmueble_separacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__inmueble___CLIEN__33D4B598" Association="CRM_TESTModel.FK__inmueble___CLIEN__33D4B598">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="inmueble_separacion" EntitySet="inmueble_separacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tareas__CLIENTE__398D8EEE" Association="CRM_TESTModel.FK__tareas__CLIENTE__398D8EEE">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="tareas" EntitySet="tareas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tareas__CLIENTE__47B19113" Association="CRM_TESTModel.FK__tareas__CLIENTE__47B19113">
-            <End Role="clientes" EntitySet="clientes" />
-            <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
           <AssociationSet Name="FK__historial__traba__1FF8A574" Association="CRM_TESTModel.FK__historial__traba__1FF8A574">
             <End Role="trabajadores" EntitySet="trabajadores" />
@@ -2352,14 +2194,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <NavigationProperty Name="empresas" Relationship="CRM_TESTModel.FK__clientes__EMPRES__2180FB33" FromRole="clientes" ToRole="empresas" />
           <NavigationProperty Name="empresas1" Relationship="CRM_TESTModel.FK__clientes__EMPRES__75A278F5" FromRole="clientes" ToRole="empresas" />
           <NavigationProperty Name="proyectos" Relationship="CRM_TESTModel.FK__clientes__PROYEC__32E0915F" FromRole="clientes" ToRole="proyectos" />
-          <NavigationProperty Name="historial_clientes" Relationship="CRM_TESTModel.FK__historial__clien__1F04813B" FromRole="clientes" ToRole="historial_clientes" />
-          <NavigationProperty Name="historial_inmueble" Relationship="CRM_TESTModel.FK__historial__CLIEN__318258D2" FromRole="clientes" ToRole="historial_inmueble" />
-          <NavigationProperty Name="historial_clientes1" Relationship="CRM_TESTModel.FK__historial__clien__4F47C5E3" FromRole="clientes" ToRole="historial_clientes" />
-          <NavigationProperty Name="historial_inmueble1" Relationship="CRM_TESTModel.FK__historial__CLIEN__6F2063EF" FromRole="clientes" ToRole="historial_inmueble" />
-          <NavigationProperty Name="inmueble_separacion" Relationship="CRM_TESTModel.FK__inmueble___CLIEN__1FD8A9E3" FromRole="clientes" ToRole="inmueble_separacion" />
-          <NavigationProperty Name="inmueble_separacion1" Relationship="CRM_TESTModel.FK__inmueble___CLIEN__33D4B598" FromRole="clientes" ToRole="inmueble_separacion" />
-          <NavigationProperty Name="tareas" Relationship="CRM_TESTModel.FK__tareas__CLIENTE__398D8EEE" FromRole="clientes" ToRole="tareas" />
-          <NavigationProperty Name="tareas1" Relationship="CRM_TESTModel.FK__tareas__CLIENTE__47B19113" FromRole="clientes" ToRole="tareas" />
         </EntityType>
         <EntityType Name="compromisosxcuota">
           <Key>
@@ -2432,8 +2266,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="TRABAJADOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPCIONH" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__historial__clien__1F04813B" FromRole="historial_clientes" ToRole="clientes" />
-          <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__historial__clien__4F47C5E3" FromRole="historial_clientes" ToRole="clientes" />
           <NavigationProperty Name="trabajadores" Relationship="CRM_TESTModel.FK__historial__traba__1FF8A574" FromRole="historial_clientes" ToRole="trabajadores" />
           <NavigationProperty Name="trabajadores1" Relationship="CRM_TESTModel.FK__historial__traba__503BEA1C" FromRole="historial_clientes" ToRole="trabajadores" />
         </EntityType>
@@ -2446,8 +2278,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="INMUEBLE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
           <Property Name="DESCRIPCION_S" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__historial__CLIEN__318258D2" FromRole="historial_inmueble" ToRole="clientes" />
-          <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__historial__CLIEN__6F2063EF" FromRole="historial_inmueble" ToRole="clientes" />
         </EntityType>
         <EntityType Name="informacion">
           <Key>
@@ -2468,8 +2298,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="FECHAFINAL" Type="DateTime" Precision="0" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ASESOR_T" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__inmueble___CLIEN__1FD8A9E3" FromRole="inmueble_separacion" ToRole="clientes" />
-          <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__inmueble___CLIEN__33D4B598" FromRole="inmueble_separacion" ToRole="clientes" />
           <NavigationProperty Name="inmuebles" Relationship="CRM_TESTModel.FK__inmueble___INMUE__20CCCE1C" FromRole="inmueble_separacion" ToRole="inmuebles" />
         </EntityType>
         <EntityType Name="inmuebles">
@@ -2682,8 +2510,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="FECHAFIN" Type="DateTime" Precision="0" />
           <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="TIPO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__tareas__CLIENTE__398D8EEE" FromRole="tareas" ToRole="clientes" />
-          <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__tareas__CLIENTE__47B19113" FromRole="tareas" ToRole="clientes" />
           <NavigationProperty Name="trabajadores" Relationship="CRM_TESTModel.FK__tareas__TRABAJAD__3A81B327" FromRole="tareas" ToRole="trabajadores" />
           <NavigationProperty Name="trabajadores1" Relationship="CRM_TESTModel.FK__tareas__TRABAJAD__571DF1D5" FromRole="tareas" ToRole="trabajadores" />
         </EntityType>
@@ -2897,10 +2723,11 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="FECHAMOD" Type="DateTime" Precision="0" />
           <Property Name="INFORMACION" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="ID_EMP" Type="Int32" />
-          <Property Name="TRABAJADOR" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="TRABAJADOR" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="TEL_EMP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_SALA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ASOCIADO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ASESOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Vclienteseparacion">
           <Key>
@@ -3355,102 +3182,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Principal>
             <Dependent Role="clientes">
               <PropertyRef Name="PROYEC_INTERES" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__historial__clien__1F04813B">
-          <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.historial_clientes" Role="historial_clientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="historial_clientes">
-              <PropertyRef Name="CLIENTEH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__historial__CLIEN__318258D2">
-          <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.historial_inmueble" Role="historial_inmueble" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="historial_inmueble">
-              <PropertyRef Name="CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__historial__clien__4F47C5E3">
-          <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.historial_clientes" Role="historial_clientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="historial_clientes">
-              <PropertyRef Name="CLIENTEH" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__historial__CLIEN__6F2063EF">
-          <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.historial_inmueble" Role="historial_inmueble" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="historial_inmueble">
-              <PropertyRef Name="CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__inmueble___CLIEN__1FD8A9E3">
-          <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="1" />
-          <End Type="CRM_TESTModel.inmueble_separacion" Role="inmueble_separacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="inmueble_separacion">
-              <PropertyRef Name="CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__inmueble___CLIEN__33D4B598">
-          <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="1" />
-          <End Type="CRM_TESTModel.inmueble_separacion" Role="inmueble_separacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="inmueble_separacion">
-              <PropertyRef Name="CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tareas__CLIENTE__398D8EEE">
-          <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.tareas" Role="tareas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="tareas">
-              <PropertyRef Name="CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tareas__CLIENTE__47B19113">
-          <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.tareas" Role="tareas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="clientes">
-              <PropertyRef Name="CEDULA" />
-            </Principal>
-            <Dependent Role="tareas">
-              <PropertyRef Name="CLIENTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4226,6 +3957,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="Vclientes">
             <EntityTypeMapping TypeName="CRM_TESTModel.Vclientes">
               <MappingFragment StoreEntitySet="Vclientes">
+                <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
                 <ScalarProperty Name="ASOCIADO" ColumnName="ASOCIADO" />
                 <ScalarProperty Name="NOMBRE_SALA" ColumnName="NOMBRE_SALA" />
                 <ScalarProperty Name="TEL_EMP" ColumnName="TEL_EMP" />

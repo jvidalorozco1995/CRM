@@ -338,6 +338,10 @@ function BLLClientes() {
             $('#Text16').val(item.BARRIO);
             $('#Text17').val(item.INTERES_VI);
             $('#Text18').val(item.MOT_COMPRA);
+
+
+            $('#CombAsesores2').val(item.ASESOR);
+            $('#ComProyect2').val(item.PROYEC_INTERES);
         });
     }
 
