@@ -11,12 +11,57 @@ var admclientes = (function () {
     var bandera = 0;
 
     var _addHandlers = function () {
+
+        
+
+        $(document).on('click', '#BtnActualizarCliente', function (event) {
+            cl.UpdateClientes2(_DatosUpdate());
+
+            setTimeout(function () {
+                cl.LisClientesTareas();
+                pry.ListProyec(2, WsListProyec);
+                tra.getrabajadores();
+            }, 1000);
+           
+        });
+
+
+        var _DatosUpdate = function () {
+            item = {};
+           
+            /*
+            item.CEDULA = $('#Text1').val();
+            item.NOMBRES =  $('#Text2').val();
+            item.P_APELLIDO = $('#Text3').val();
+            item.S_APELLIDO =  $('#Text4').val();
+            item.ESTADO_CIVIL = $('#Text5').val();
+            item.DIRECCION = $('#Text6').val();
+            item.TELEFONO2 = $('#Text7').val();
+            item.EMAIL = $('#Text8').val();
+            item.EMPRESA_N = $('#Text9').val();
+            item.SUELDO = $('#Text10').val();
+            item.PRESU_COMPRA = $('#Text11').val();
+            item.INMU_INTERES = $('#Text12').val();
+            item.INTERES_VI = $('#Text13').val();
+            item.MOT_COMPRA = $('#Text14').val();
+            item.BARRIO =$('#Text16').val();
+           */
+         
+            item.CEDULA = $('#Text1').val();
+            item.ASESOR = $('#CombAsesores2').val();
+            item.PROYEC_INTERES =  $('#ComProyect2').val();
+            return item;
+        }
+
+
         $(document).on('click', '#Btnvencido', function (event) {
             Tr.EstadoTareasClientes("V")
         });
+
         $(document).on('click', '#Btnterminada', function (event) {
             Tr.EstadoTareasClientes("T")
         });
+
         $(document).on('click', '#Btnespera', function (event) {
             Tr.EstadoTareasClientes("E")
         });
@@ -50,6 +95,7 @@ var admclientes = (function () {
             $('#Txtfin').val("");
 
         });
+
         $(document).on('click', '#BtnFiltar', function () {
             var asesor=$('#ComProyect').val().length;
             var proyectR = $('#CombAsesores').val().length;

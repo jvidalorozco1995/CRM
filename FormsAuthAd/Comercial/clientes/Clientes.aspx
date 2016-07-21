@@ -17,7 +17,6 @@
                         <div class="pull-right">
 
                             <div class="form-group">
-                               
                                 <div class="col-sm-12">
                                     <input id="Txtinico" style="height: 22px;width:90px" type="text" placeholder="Fecha inicio" title="Filtar proyectos">
                                     <input id="Txtfin" style="height: 22px;width:90px" type="text" placeholder="Fecha fin" title="Filtar proyectos">

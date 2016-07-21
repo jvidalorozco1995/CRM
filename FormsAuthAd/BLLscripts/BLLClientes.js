@@ -4,6 +4,8 @@ var jsonObj;
 function BLLClientes() {
 
     WSUpdateCliente = funcionUrlGlobal("/Servicios/WClientes.asmx/UpdateCLiente");
+    WSUpdateCliente2 = funcionUrlGlobal("/Servicios/WClientes.asmx/UpdateCLienteAsesor");
+
     WLisclientes = funcionUrlGlobal("/Servicios/WClientes.asmx/LClientes");
     Wgetcliente = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");
     WClienteTareas = funcionUrlGlobal("/Servicios/WClientes.asmx/ClienteTareas");
@@ -199,12 +201,12 @@ function BLLClientes() {
     }
 
     //Meotodo para actualizar Clientes
-    BLLClientes.prototype.UpdateClientes = function (cliente) {
+    BLLClientes.prototype.UpdateClientes2 = function (cliente) {
       
 
         jsonData = "{ 'c':" + JSON.stringify(cliente) + " }";
         $.ajax({
-            type: "POST", url: WSUpdateCliente,data: jsonData,
+            type: "POST", url: WSUpdateCliente2, data: jsonData,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             async: true,
@@ -221,6 +223,32 @@ function BLLClientes() {
                     '</br> No fue posible realizar la modificacion del cliente');
                 }
               },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
+
+
+    //Meotodo para actualizar Clientes
+    BLLClientes.prototype.UpdateClientes = function (cliente) {
+
+
+        jsonData = "{ 'c':" + JSON.stringify(cliente) + " }";
+        $.ajax({
+            type: "POST", url: WSUpdateCliente, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d === 1) {
+                    toastr.success(' CRM - Mayales notificacion' +
+                    '</br>Se han Actualizados los datos del cliente de manera exitosa');
+                    $('#infoCLiente').modal('hide');
+                }
+                else {
+                    toastr.error(' CRM - Mayales notificacion' +
+                    '</br> No fue posible realizar la modificacion del cliente');
+                }
+            },
             error: function (obj, error, objError) { alert(objError); }
         });
     }
@@ -373,6 +401,7 @@ function BLLClientes() {
         var tabla = '<table id="clientes" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr>";
+        tabla += "<th>Cedula</th>";
         tabla += "<th>Nombre</th>";
         tabla += "<th>Proyecto interes</th>";
         tabla += "<th>Asesor</th>";
@@ -382,6 +411,7 @@ function BLLClientes() {
         tabla += "<tbody>";
         $.each(clientes, function (i, item) {
             tabla += " <tr>";
+            tabla += "<td>" + item.CEDULA + "</td>";
             tabla += "<td id=" + item.CEDULA + " class='Infocl'>" + item.NOMBRES + "  " + item.P_APELLIDO + "</td>";
             tabla += "<td>" + item.PROYECTO_INT + "</td>";
             tabla += "<td>" + item.ASESOR + "</td>";

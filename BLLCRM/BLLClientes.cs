@@ -241,7 +241,41 @@ namespace BLLCRM
             }
             
         }
-        
+
+
+
+        /// <summary>
+        /// Meotdo para actualizar cliente
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="cedula"></param>
+        /// <returns></returns>
+        public int UpdateCliente2(clientes c)
+        {
+            try
+            {
+                var ctx = db.clientes.First(d => d.CEDULA == c.CEDULA);
+                if (ctx != null)
+                {
+                    ctx.ASESOR = c.ASESOR;
+                    ctx.PROYEC_INTERES = c.PROYEC_INTERES;
+
+
+                    db.SaveChanges();
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         /// <summary>
         /// Meotdo para actualizar cliente
         /// </summary>

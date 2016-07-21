@@ -93,6 +93,19 @@ namespace FormsAuthAd.Servicios
         }
 
         /// <summary>
+        /// Metodo para actualizar clientes
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
+        public int UpdateCLienteAsesor(clientes c)
+        {
+            return cl.UpdateCliente2(c);
+        }
+
+        /// <summary>
         /// Metodo Retorna listado total de clientes
         /// </summary>
         /// <returns></returns>
