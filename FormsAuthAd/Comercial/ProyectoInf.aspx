@@ -695,7 +695,7 @@
                                         <input id="TxtInmueD" type="text" class="form-control">
                                     </div>
                                     <div class="form-group col-lg-6">
-                                        <label>Dias faltantes</label>
+                                        <label id="lbldiasfaltantes">Dias faltantes</label>
                                         <input id="Txtdias" type="text" class="form-control">
                                     </div>
                                 </div>

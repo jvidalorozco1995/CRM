@@ -326,7 +326,7 @@ function BLLInmuebles() {
             async: true,
             success: function (result) {
 
-                toastr.error('CRM Mayales - Notificacion' +
+                toastr.success('CRM Mayales - Notificacion' +
                 '<br/>' + result.d);
 
 
@@ -422,7 +422,7 @@ function BLLInmuebles() {
         tabla += "<th>Inmueble</th>";
         tabla += "<th>Proyecto</th>";
         tabla += "<th>Fecha de sepracion</th>";
-        tabla += "<th>Nro dias</th>";
+        tabla += "<th>Estado</th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -432,7 +432,7 @@ function BLLInmuebles() {
                 tabla += " <tr>";
                 tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO + "</td>";
                 tabla += "<td>" + item.TELEFONO2 + "</td>";
-                tabla += "<td>" + $.trim(item.CASA) + "</td>";
+                tabla += "<td>" + item.INMUEBLE + "</td>";
                 tabla += "<td>" + $.trim(item.NOMBRE_PROYEC) + "</td>";
                 if (item.FECHASEPARACION == null) {
                     tabla += "<td></td>";
@@ -443,12 +443,14 @@ function BLLInmuebles() {
                     tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "><img src='"+funcionUrlGlobal( '/images_crm/libre.png')+"'> Dias " + item.DIAS + "</td>";
                 }
                 else {
+
+                    
                     if (item.ESTADO == "D") {
                         tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'></td>";
                     }
                     else {
                         if (item.ESTADO == "L") {
-                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
+                            tabla += "<td class='Info'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
                         }
                         else {
                             if (item.ESTADO == null) {

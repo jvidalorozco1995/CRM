@@ -110,6 +110,7 @@ namespace FormsAuthAd.ServiciosFox
             ConecFox fx = new ConecFox();
             return fx.ConsulAcuerdoPago().ToList();
         }
+
         ConecFox fx = new ConecFox();
 
         [WebMethod]

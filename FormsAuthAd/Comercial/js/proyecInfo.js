@@ -197,7 +197,10 @@ var admComercial = (function () {
             Tr.EstadoTareas("P")
         });
 
-        $(document).on('click', '.desistir', function () {
+
+        
+
+        $(document).on('click', '.Info', function () {
             var datos = $(this).attr("id");
             var result = datos.split("/")
             cl = result[0];
@@ -209,6 +212,34 @@ var admComercial = (function () {
             $('#TxtclienteD').val(cl); $('#TxtclienteD').attr('readonly', true);
             $('#TxtInmueD').val(inmu); $('#TxtInmueD').attr('readonly', true);
             $('#Txtdias').val(diasC); $('#Txtdias').attr('readonly', true);
+
+            
+            $('#lbldiasfaltantes').hide();
+            $('#Btnconfitse').hide();
+            $('#Txtdias').hide();
+        });
+
+        $(document).on('click', '.desistir', function () {
+
+            
+            $('#lbldiasfaltantes').show();
+            $('#Btnconfitse').show();
+            $('#Txtdias').show();
+
+            var datos = $(this).attr("id");
+            var result = datos.split("/")
+            cl = result[0];
+            inmu = result[1];
+            var diasC = result[2];
+            id_sp = result[3];
+            separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu };
+            $('#Desistirseparacion').modal('show');
+            $('#TxtclienteD').val(cl); $('#TxtclienteD').attr('readonly', true);
+            $('#TxtInmueD').val(inmu); $('#TxtInmueD').attr('readonly', true);
+            $('#Txtdias').val(diasC); $('#Txtdias').attr('readonly', true);
+
+
+
         });
 
         $(document).on('click', "#Btnconfitse", function () {
@@ -217,6 +248,8 @@ var admComercial = (function () {
             setTimeout(function () { inm._Linmuebles(proyec); }, 2000)
             setTimeout(function () { inm.LisInmuebles(proyec); }, 2000)
             setTimeout(function () { listc.ListClientes(proyec, WsLisClientes); }, 2000)
+            $('#Desistirseparacion').modal('hide');
+
         });
 
         $('#BtnLiberar').click(function () {
@@ -224,6 +257,7 @@ var admComercial = (function () {
             setTimeout(function () { inm._Linmuebles(proyec); }, 2000)
             setTimeout(function () { inm.LisInmuebles(proyec); }, 2000)
             setTimeout(function () { listc.ListClientes(proyec, WsLisClientes); }, 2000)
+            $('#Desistirseparacion').modal('hide');
         });
 
 

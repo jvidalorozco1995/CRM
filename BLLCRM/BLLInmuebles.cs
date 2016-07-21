@@ -694,8 +694,11 @@ namespace BLLCRM
         /// <returns></returns>
         public List<Vdetalleseparacion.SepracionInmueble> Lisepracion(string p) {
                 try
-                {   user = Membership.GetUser().ToString();
-                    List<Vsepracioninmuebles> lis = db.Vsepracioninmuebles.Where(l => l.ASESOR == user && l.ID_PROYEC==p && l.ESTADO !="D" && l.ESTADO!="L").ToList();
+
+            //&& l.ESTADO!="L"
+            {
+                user = Membership.GetUser().ToString();
+                    List<Vsepracioninmuebles> lis = db.Vsepracioninmuebles.Where(l => l.ASESOR == user && l.ID_PROYEC==p && l.ESTADO !="D" ).ToList();
                     List<Vdetalleseparacion.SepracionInmueble> Lseparados = new List<Vdetalleseparacion.SepracionInmueble>();
                     if (lis.Count.Equals(0))
                     {
