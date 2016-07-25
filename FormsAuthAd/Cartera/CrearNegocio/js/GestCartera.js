@@ -690,6 +690,7 @@ var _admnegocio = (function () {
                  {
                     localData: setdata,
                     datatype: "array",
+                    destroy: true,
                     dataFields:
                      [
                          { name: 'CUOTA', type: 'string' },
