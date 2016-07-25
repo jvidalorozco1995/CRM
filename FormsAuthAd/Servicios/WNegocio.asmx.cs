@@ -22,15 +22,11 @@ namespace FormsAuthAd.Servicios
     public class WNegocio : System.Web.Services.WebService
     {
 
-      
-           
-    [WebMethod]
+        [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public string DatoNegocio(negocio n,string inm , List<acuerdo_pago> ac)
         {
             BLLnegocio hn = new BLLnegocio();
-
-
             foreach (var item in ac) {
 
 
@@ -43,11 +39,9 @@ namespace FormsAuthAd.Servicios
                 if (decimal.TryParse(item.VALOR_CUOTA.ToString(), NumberStyles.Number, CultureInfo.InvariantCulture, out a))
                 {
                     // NumberStyles.Number: AllowLeadingWhite, AllowTrailingWhite, AllowLeadingSign,
-                    //                      AllowTrailingSign, AllowDecimalPoint, AllowThousands
+                    // AllowTrailingSign, AllowDecimalPoint, AllowThousands
                     item.VALOR_CUOTA = a;
                 }
-               
-                   
                 
             }
 
@@ -80,7 +74,6 @@ namespace FormsAuthAd.Servicios
         {
             BLLnegocio hn = new BLLnegocio();
             return hn.UpdateUsuarioCartera(id,USER_CARTERA);
-
         }
         
     }

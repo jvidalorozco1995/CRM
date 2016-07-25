@@ -48,11 +48,9 @@ function BLLUtilidades() {
         // stop the browser from going to the href
         e = e || window.event; // for IE
         e.preventDefault(); 
-
-        // lanzar una nueva ventana en una nueva ventana
+      // lanzar una nueva ventana en una nueva ventana
         window.open(path, 'somename'/* options */);
-
-        // redirecta a una nueva pagina
+      // redirecta a una nueva pagina
         window.location = redirect;
     }
 
@@ -69,6 +67,7 @@ function BLLUtilidades() {
                     _ComboAsesor(result.d)
                 }
                 else {
+
                     _ComboAsesor(result.d)
                 }
             },

@@ -137,7 +137,7 @@ namespace BLLCRM
             try
             {
                 user = Membership.GetUser().ToString();
-                List<VCLienteinmueble> LisC = db.VCLienteinmueble.Where(l => l.PROYEC_INTERES == p && l.ASESOR == user).ToList();
+                List<VCLienteinmueble> LisC = db.VCLienteinmueble.Where(l => l.PROYEC_INTERES == p && l.ASESOR == user && l.ESTADO!="P" && l.ESTADO != "D" && l.ESTADO != "C").ToList();
                 List<VclienteInmu> EntiC = new List<VclienteInmu>();
                 if (LisC.Count.Equals(0))
                 {
