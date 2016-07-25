@@ -246,13 +246,13 @@ function BLLComercial() {
                     if (item.ESTADO_I == "L")
                     {
                         //tabla += "<td style='width:20px;height: 20px'><img src='..images_crm/agregar.png'  id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
-                        tabla += "<td style='width:20px;height: 20px' ><img src= '" + funcionUrlGlobal('/images_crm/Home2.png') + "' id='" + item.REFERENCIA + " class='inmsdetalles' title='Detalle de separacion'></img></td>";
+                        tabla += "<td style='width:20px;height: 20px' ><img src= '" + funcionUrlGlobal('/images_crm/Home2.png') + "' id='" + item.REFERENCIA + "' class='inmsdetalles' title='Detalle de separacion'></img></td>";
                     }
                     else
                     {
                         if (item.ESTADO_I == "P")
                         {
-                            tabla += "<td style='width:20px;height: 20px' ><img src= '" + funcionUrlGlobal('/images_crm/Home2.png') + "' id='" + item.REFERENCIA + " class='inmsdetalles' title='Detalle de separacion'></img></td>";
+                            tabla += "<td style='width:20px;height: 20px' ><img src= '" + funcionUrlGlobal('/images_crm/Home2.png') + "' id='" + item.REFERENCIA + "' class='inmsdetalles' title='Detalle de separacion'></img></td>";
                             
                         }
                         else

@@ -394,6 +394,7 @@ var admComercial = (function () {
 
 
         $(document).on('click', '.inmsdetalles', function () {
+            alert("Hola");
             $('#Clientes').hide();
             $('#Tareas').hide();
             $('#Bitatareas').hide();
