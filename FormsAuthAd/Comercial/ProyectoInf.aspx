@@ -341,8 +341,9 @@
                                                                     Inversion
                                                                 </div>
                                                             </div>
+                                                           
                                                         </div>
-                                                        <div class="form-group col-lg-12">
+                                                          <div class="form-group col-sm-12">
                                                             <label id="LabelSala">Sala de Venta</label>
                                                             <select id="CombSala" class="form-control">
                                                                 <option></option>
