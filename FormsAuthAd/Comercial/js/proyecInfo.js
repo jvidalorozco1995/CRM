@@ -394,7 +394,6 @@ var admComercial = (function () {
 
 
         $(document).on('click', '.inmsdetalles', function () {
-            alert("Hola");
             $('#Clientes').hide();
             $('#Tareas').hide();
             $('#Bitatareas').hide();
@@ -500,6 +499,7 @@ var admComercial = (function () {
             var datos = $(this).attr("id");
             var resul = datos.split("/");
             $('#detallesepracion').hide();
+            $('#SepararInmueble').hide();
             cedula = resul[0];
             $('#TxtCedula').attr('readonly', true);
             $('#TxtClientes').val(cedula);

@@ -103,6 +103,9 @@
     <Compile Include="empresas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="historialIngreso.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="historial_acuerdos_pagos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

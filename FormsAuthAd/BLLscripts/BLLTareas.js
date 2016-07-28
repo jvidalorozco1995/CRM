@@ -527,26 +527,34 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
                 console.log(JSON.stringify(tareas.length));
                 document.getElementById('List').innerHTML = "";
 
-                if (tareas.length == 0)
-                {
-                    var lis = '<li>';
-                    lis += '<h4>No se han creado tareas a este cliente</h4>';
-                    lis += '</li>';
-                    $('#List').append(lis);
-                } 
-                else {
+                var tabla = '<table id="bitareas" class="table table-striped table-bordered table-hover">';
+                tabla += "<thead>";
+                tabla += "<tr>";
+                tabla += "<th>Motivo</th>";
+                tabla += "<th>Fecha inicio</th>";
+                tabla += "<th>Fecha final</th>";
+                tabla += "<th style='80px'>Estado</th>";
+                tabla += "</tr>";
+                tabla += "</thead>";
+                tabla += "<tbody>";
+                $.each(tareas, function (i, item) {
+                    var clorresult = BLLTareas.Colortarea(item.ESTADO);
+                    tabla += " <tr class='infotarea' id=" + item.ID_TAREA + ">";
+                    tabla += "<td>" + item.CONCEPTO + "</td>";
+                    tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
+                   tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
+                    tabla += "<td style='width:20px;height: 20px'>";
+                    tabla += '<span class="badge" style="background:transparent">' + color + '</span>';
+                    tabla += "</td>";
+                    tabla += "</tr>";
 
-                    $.each(tareas, function (i, item) {
+                });
+                tabla += "</tbody>";
+                tabla += '</table>';
+                $('#List').append(tabla);
+                $('#bitareas').dataTable();
 
-                        
-                        var clorresult = BLLTareas.Colortarea(item.ESTADO);
-                        var lis = '<li class="list-group-item infotarea" id=' + item.ID_TAREA + '>';
-                        lis += '<span class="badge" style="background:transparent">' + color + '</span>';
-                        lis += '' + item.CONCEPTO + '';
-                        lis += '</li>';
-                        $('#List').append(lis);
-                    });
-                }
+
                 break
             case 1:
                 

@@ -408,7 +408,7 @@
                             </div>
                            
                             <!---Panel BitacorasTareas-->
-                            <div class="hpanel scroll" style="height:400px;" id="Bitatareas">
+                            <div class="hpanel" id="Bitatareas">
                                <%-- <div class="text-right m-t-xs">
                                     <button class="btn btn-success " type="button" id="Btntareas"><i class="fa fa-check"></i>Crear Tareas</button>
                                 </div>--%>
@@ -420,8 +420,12 @@
                                     Bitacora de Tareas
                                 </div>
                                 <div class="Border no-padding">
-                                    <ul class="list-group" id="List">
-                                    </ul>
+                                     <div class="tab-content">
+                                        <div id="List" class="p-m tab-pane active">
+
+                                        </div>
+
+                                    </div>
                                 </div>
                                 
                             </div>

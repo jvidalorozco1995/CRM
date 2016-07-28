@@ -50,7 +50,8 @@ namespace FormsAuthAd
 
                         //añade la cookie a la coleccion
                         Response.Cookies.Add(authCookie);
-
+                        BLLHistorialIngreso his = new BLLHistorialIngreso();
+                        his.InsertHistorial(txtUsername.Text);
                         //redireccion
                         Response.Redirect(FormsAuthentication.GetRedirectUrl(txtUsername.Text, false));
                     }

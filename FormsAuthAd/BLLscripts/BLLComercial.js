@@ -285,7 +285,7 @@ function BLLComercial() {
                     }
                 }
             }
-             tabla += "</tr>";
+            tabla += "</tr>";
         });
         tabla += "</tbody>";
         tabla += '</table>';

@@ -90,6 +90,7 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
+        public DbSet<historialIngreso> historialIngreso { get; set; }
     
         [EdmFunction("CRMEntiti", "oasi")]
         public virtual IQueryable<oasi_Result> oasi()
