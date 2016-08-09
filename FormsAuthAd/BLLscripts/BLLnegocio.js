@@ -21,6 +21,7 @@ var BLLnegocio = function () {
 
 };
 var Waddnegocio = funcionUrlGlobal("/Servicios/WNegocio.asmx/DatoNegocio");
+var Waddnegocio2 = funcionUrlGlobal("/Servicios/WNegocio.asmx/DatoNegocioupdate");
 var _banco;
 
 
@@ -346,6 +347,46 @@ BLLnegocio.prototype = {
           },
            error: function (msg) { alert(msg.responseText); }
       });
+
+   },
+   _upddteHoja: function (dto, inm, ac) {
+       var re;
+
+
+       var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + "}";
+       $.ajax({
+           type: "POST", url: Waddnegocio2, data: datos,
+           contentType: "application/json; charset=utf-8",
+           dataType: 'json',
+           async: true,
+           success: function (result) {
+               if (result.d == "") {
+                   toastr.error(' CRM - Mayales no se pudo guardar la hoja');
+               }
+               else {
+                   var k = result.d;
+                   var x = k.split('-');
+                   toastr.options.timeOut = 120000;
+                   toastr.success(' CRM - Mayales'
+                        + '<br/>Hoja de negocio actualizada correctamente,'
+                       
+                        + '<br/>CODIGO MULTIFOX:' + x[0]
+                        + '<br/>CLIENTE:' + dto.PROPIETARIO);
+
+                   //document.getElementById("button").innerHTML = "";
+                   //$("#button").append('<button class="btn btn-default btn-btn-circle Btimprimir" type="button" id=' + x[1] + ' >Imprimir hoja de negocio</button>');
+
+                   setTimeout(function () {
+                       $('#datos').hide();
+                       var proyec = utl.getUrl('proyec');
+                       inmuebles._lisnegociosepracionUpdate(proyec);
+                   }, 2000);
+
+
+               }
+           },
+           error: function (msg) { alert(msg.responseText); }
+       });
 
    },
 

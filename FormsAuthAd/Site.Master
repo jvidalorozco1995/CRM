@@ -172,6 +172,7 @@
                         <a href="#"><span class="nav-label">Gest Cartera</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href='<%= ResolveUrl("Cartera/Crearnegocio/GesCartera.aspx")%>'>Crear negocio</a></li>
+                             <li><a href='<%= ResolveUrl("Cartera/Updatenegocio/GesCarteraU.aspx")%>'>Actualizar negocio</a></li>
                             <li><a href='<%= ResolveUrl("Cartera/ListaNegocioFox/Negocios.aspx")%>'>Lista de negocios FOX</a></li>
                             <li><a href='<%= ResolveUrl("Cartera/SeguimientoNegocio/GesNegocio.aspx")%>'>Seguimiento de Negocios</a></li>
                         </ul>

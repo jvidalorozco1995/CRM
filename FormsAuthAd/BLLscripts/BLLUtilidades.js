@@ -10,7 +10,7 @@ var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores");
 function funcionUrlGlobal(url) {
     var opcion = '';
     var UrlGlobal= "";
-    if (opcion == 'PU') { UrlGlobal = '/CRM' + url; } else if (opcion == '') { UrlGlobal = url; } else if (opcion == 'PR') { UrlGlobal = '/CRM_TEST' + url; }
+    if (opcion == 'PU') { UrlGlobal = '/CRM_PRUEBA' + url; } else if (opcion == '') { UrlGlobal = url; } else if (opcion == 'PR') { UrlGlobal = '/CRM_PRUEBA' + url; }
     return UrlGlobal;
 }
 

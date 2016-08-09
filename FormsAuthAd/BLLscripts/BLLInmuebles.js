@@ -64,6 +64,20 @@ function BLLInmuebles() {
             error: function (msg) { alert(msg.responseText); }
         });
     }
+    BLLInmuebles.prototype._lisnegociosepracionUpdate = function (p) {
+        var datos = "{ 'p':" + JSON.stringify(p) + " }";
+        $.ajax({
+            type: "POST", url: Wseparaciones, data: datos,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) { BLLInmuebles.TablasepracionNegocioUpdate(result.d) }
+                else { BLLInmuebles.TablasepracionNegocioUpdate(result.d) }
+            },
+            error: function (msg) { alert(msg.responseText); }
+        });
+    }
 
     BLLInmuebles.prototype._Separaciondetalles= function (c) {
         data = "{'c':" + JSON.stringify(c) + "}";
@@ -512,6 +526,47 @@ function BLLInmuebles() {
 
             }
               tabla += "</tr>";
+        });
+        tabla += "</tbody>";
+        tabla += "</table>";
+        $('#sepraciones').append(tabla);
+        $('#sepracion').dataTable();
+    }
+    //listado de inmuebles separados por actualizar
+    BLLInmuebles.TablasepracionNegocioUpdate = function (inmuebles) {
+        document.getElementById('sepraciones').innerHTML = "";
+        var tabla = '<table id="sepracion" class="table table-striped table-bordered table-hover">';
+        tabla += "<thead>";
+        tabla += "<tr>";
+        tabla += "<th>Codigo CRM</th>"
+        tabla += "<th>Cliente</th>";
+        tabla += "<th>Telefono</th>";
+        tabla += "<th>Inmueble</th>";
+        tabla += "<th>Proyecto</th>";
+        tabla += "<th></th>";
+        tabla += "</tr>";
+        tabla += "</thead>";
+        tabla += "<tbody>";
+        $.each(inmuebles, function (i, item) {
+
+            tabla += " <tr>";
+            if (item.CODIGO_F != null) {
+                tabla += "<td>" + item.CODIGO_F + "</td>";
+
+            } else {
+
+                tabla += "<td>" + "No tiene negocio" + "</td>";
+            }
+            if (item.ESTADO == 'C') {
+                tabla += "<td id=" + item.CLIENTE + " class='Infocl'>" + item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO + "</td>";
+               
+                tabla += "<td>" + item.TELEFONO2 + "</td>";
+                tabla += "<td>" + $.trim(item.CASA) + "</td>";
+                tabla += "<td>" + $.trim(item.NOMBRE_PROYEC) + "</td>";
+                tabla += "<td class='Btimprimir'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td><td class='CargarN'id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "/" + item.ID_NEGOCIO + " style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Actualizar</button></td>";
+            }          
+           
+            tabla += "</tr>";
         });
         tabla += "</tbody>";
         tabla += "</table>";

@@ -133,6 +133,7 @@ namespace BLLCRM
                     hn.CODIGO_F = item.CODIGO_F;
                     hn.PROYECTO_INT = item.NOMBRE_PROYEC;
                     hn.FECHA_NEGOCIO = item.FECHA_NEGOCIO;
+                    
                     return hn;
                 }
                 else {
@@ -415,6 +416,102 @@ namespace BLLCRM
                throw;
            }
        }
-     }
+
+        public string Updatenegocio(negocio n, string inm, List<acuerdo_pago> ac)
+        {
+            try
+            {
+                var ctx = bd.negocio.First(t => t.ID_NEGOCIO == n.ID_NEGOCIO);
+              
+                //ctx.FECHA_NEGOCIO = n.FECHA_NEGOCIO;
+                ctx.PROPIETARIO = n.PROPIETARIO;
+                ctx.CEDULA_P = n.CEDULA_P;
+                ctx.EXPEDICION = n.EXPEDICION;
+                ctx.ESTADO_C = n.ESTADO_C;
+                ctx.FECHA_NACI = n.FECHA_NACI;
+                ctx.LUGAR = n.LUGAR;
+                ctx.DIRECCION_R = n.DIRECCION_R;
+                ctx.TELEFONO_P = n.TELEFONO_P;
+                ctx.EMPRESA = n.EMPRESA;
+                ctx.TELFONO_EMP = n.TELFONO_EMP;
+                ctx.CARGO = n.CARGO;
+                ctx.PROFESION = n.PROFESION;
+                ctx.DIRECCION_EMPR = n.DIRECCION_EMPR;
+                ctx.ANTIGUEDAD = n.ANTIGUEDAD;
+                ctx.CORREO = n.CORREO;
+                ctx.NOMBRE_CONY = n.NOMBRE_CONY;
+                ctx.CEDULA_CUY = n.CEDULA_CUY;
+                ctx.TELE_CONY = n.TELE_CONY;
+                ctx.N_HIJO = n.N_HIJO;
+                ctx.INTERES_COM = n.INTERES_COM;
+                ctx.VALOR_CASA = n.VALOR_CASA;
+                ctx.INICIAL = n.INICIAL;
+                ctx.CREDITO = n.CREDITO;
+                ctx.BANCO = n.BANCO;
+                ctx.NO_CREDITO = n.NO_CREDITO;
+                ctx.FECHA_ES = n.FECHA_ES;
+                ctx.FECHA_ENT = n.FECHA_ENT;
+                ctx.FECHA_SUBRO = n.FECHA_SUBRO;
+                ctx.ASESOR_INFO = n.ASESOR_INFO;
+                ctx.MEDIO_ENT = n.MEDIO_ENT;
+                ctx.ASOCIADO = n.ASOCIADO;
+                ctx.CLASE_INMU = n.CLASE_INMU;
+                ctx.SEPARACION = n.SEPARACION;
+                ctx.USER_CARTERA = n.USER_CARTERA;
+                ctx.INGRESO = n.INGRESO;
+                bd.SaveChanges();
+                AcuerdopagoUpdate(ac, n.ID_NEGOCIO);
+                return "1";
+
+               
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        protected void AcuerdopagoUpdate(List<acuerdo_pago> a, string negocio)
+        {
+            try
+            {
+                DeleteAcuerdopago(negocio);
+                foreach (var item in a)
+                {
+                    
+                    acuerdo_pago pago = new acuerdo_pago();
+                    pago.NO_ACUERDO = negocio;
+                    pago.FECHA_PAGO = item.FECHA_PAGO;
+                    pago.CUOTA = item.CUOTA;
+                    pago.VALOR_CUOTA = item.VALOR_CUOTA;
+                    bd.acuerdo_pago.Add(pago);
+                }
+                bd.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public int DeleteAcuerdopago(string negocio)
+        {
+
+            try
+            {
+                var ctx = bd.acuerdo_pago.Where(inm => inm.NO_ACUERDO == negocio);
+                    
+                bd.acuerdo_pago.RemoveRange(ctx);
+                bd.SaveChanges();
+                return 1;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+    }
      
 }

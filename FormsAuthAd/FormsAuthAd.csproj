@@ -1380,6 +1380,11 @@
     <Content Include="Cartera\SeguimientoNegocio\js\Estacuenta.js" />
     <Content Include="Cartera\SeguimientoNegocio\ReporteCompromisos.html" />
     <Content Include="Cartera\SeguimientoNegocio\SeguiNegocios.aspx" />
+    <Content Include="Cartera\UpdateNegocio\GesCarteraU.aspx" />
+    <Content Include="Cartera\UpdateNegocio\js\Cartera.js" />
+    <Content Include="Cartera\UpdateNegocio\js\GestCartera.js" />
+    <Content Include="Cartera\UpdateNegocio\js\Hoja.js" />
+    <Content Include="Cartera\UpdateNegocio\Updatenegocio.aspx" />
     <Content Include="Comercial\clientes\Clientes.aspx" />
     <Content Include="Comercial\clientes\ClientesXusuario.aspx" />
     <Content Include="Comercial\clientes\js\clientes.js" />
@@ -1394,6 +1399,7 @@
     <Content Include="Comercial\js\comerialPryect.js" />
     <Content Include="Comercial\js\proyecInfo.js" />
     <Content Include="Comercial\ProyectoInf.aspx" />
+    <Content Include="Comercial\ProyectoInfUpdate.aspx" />
     <Content Include="Comercial\Separaciones\Separaciones.aspx" />
     <Content Include="Comercial\Separaciones\js\sepracion.js" />
     <Content Include="Configuracion\Bancos.aspx" />
@@ -2167,6 +2173,7 @@
     <Content Include="Cartera\ListaNegocioFox\Web.config" />
     <Content Include="Cartera\SeguimientoNegocio\Web.config" />
     <Content Include="Cartera\CrearNegocio\Web.config" />
+    <Content Include="Cartera\UpdateNegocio\Web.config" />
     <None Include="Properties\PublishProfiles\Webmayales.pubxml" />
     <Content Include="prueb.aspx" />
     <Content Include="sampledata\data.php" />
@@ -4627,6 +4634,20 @@
     <Compile Include="Cartera\SeguimientoNegocio\SeguiNegocios.aspx.designer.cs">
       <DependentUpon>SeguiNegocios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cartera\UpdateNegocio\GesCarteraU.aspx.cs">
+      <DependentUpon>GesCarteraU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cartera\UpdateNegocio\GesCarteraU.aspx.designer.cs">
+      <DependentUpon>GesCarteraU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cartera\UpdateNegocio\Updatenegocio.aspx.cs">
+      <DependentUpon>Updatenegocio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cartera\UpdateNegocio\Updatenegocio.aspx.designer.cs">
+      <DependentUpon>Updatenegocio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Comercial\clientes\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4675,6 +4696,13 @@
     </Compile>
     <Compile Include="Comercial\ProyectoInf.aspx.designer.cs">
       <DependentUpon>ProyectoInf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comercial\ProyectoInfUpdate.aspx.cs">
+      <DependentUpon>ProyectoInfUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comercial\ProyectoInfUpdate.aspx.designer.cs">
+      <DependentUpon>ProyectoInfUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comercial\Separaciones\Separaciones.aspx.cs">
       <DependentUpon>Separaciones.aspx</DependentUpon>
