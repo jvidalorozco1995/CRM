@@ -538,11 +538,12 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
                 tabla += "</thead>";
                 tabla += "<tbody>";
                 $.each(tareas, function (i, item) {
+
                     var clorresult = BLLTareas.Colortarea(item.ESTADO);
                     tabla += " <tr class='infotarea' id=" + item.ID_TAREA + ">";
                     tabla += "<td>" + item.CONCEPTO + "</td>";
                     tabla += "<td>" + moment(item.FECHAINICIO).format("YYYY/MM/DD"); + "</td>";
-                   tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
+                    tabla += "<td>" + moment(item.FECHAFIN).format("YYYY/MM/DD"); + "</td>";
                     tabla += "<td style='width:20px;height: 20px'>";
                     tabla += '<span class="badge" style="background:transparent">' + color + '</span>';
                     tabla += "</td>";
@@ -599,7 +600,6 @@ var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/Infotareas
                             break
                     }
                     tabla += "</tr>";
-
                 });
                 tabla += "</tbody>";
                 tabla += '</table>';

@@ -11,7 +11,7 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Xml.Serialization;
     public partial class Tramites
     {
         public Tramites()
@@ -24,8 +24,8 @@ namespace DAL
         public string Nombre { get; set; }
         public Nullable<int> Banco { get; set; }
     
-        public virtual ICollection<ActividadxTramite> ActividadxTramite { get; set; }
+        [XmlIgnore] public virtual ICollection<ActividadxTramite> ActividadxTramite { get; set; }
         public virtual bancos bancos { get; set; }
-        public virtual ICollection<Tramites_Inmueble> Tramites_Inmueble { get; set; }
+        [XmlIgnore] public virtual ICollection<Tramites_Inmueble> Tramites_Inmueble { get; set; }
     }
 }
