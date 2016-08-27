@@ -12,19 +12,12 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class empresas
+    public partial class acuerdo_pago_banco
     {
-        public empresas()
-        {
-            this.clientes = new HashSet<clientes>();
-            this.clientes1 = new HashSet<clientes>();
-        }
-    
-        public int ID_EMP { get; set; }
-        public string NOMBRE_EMP { get; set; }
-        public string TEL_EMP { get; set; }
-    
-        public virtual ICollection<clientes> clientes { get; set; }
-        public virtual ICollection<clientes> clientes1 { get; set; }
+        public int ID_AC_PF { get; set; }
+        public string NO_ACUERDO { get; set; }
+        public string CUOTA { get; set; }
+        public Nullable<System.DateTime> FECHA_PAGO { get; set; }
+        public Nullable<decimal> VALOR_CUOTA { get; set; }
     }
 }

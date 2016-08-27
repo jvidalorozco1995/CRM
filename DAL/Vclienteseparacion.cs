@@ -16,5 +16,9 @@ namespace DAL
     {
         public string CLIENTE { get; set; }
         public int ID_SEPARACION { get; set; }
+        public Nullable<System.DateTime> FECHASEPARACION { get; set; }
+        public Nullable<System.DateTime> FECHAFINAL { get; set; }
+        public string ESTADO { get; set; }
+        public string INMUEBLE { get; set; }
     }
 }

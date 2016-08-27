@@ -22,7 +22,7 @@ namespace BLLCRM
        /// <param name="inm"></param>
        /// <param name="ac"></param>
        /// <returns></returns>
-       public string Hojanegocio(negocio n,string inm, List<acuerdo_pago> ac) {
+       public string Hojanegocio(negocio n,string inm, List<acuerdo_pago> ac, List<acuerdo_pago_banco> acg) {
             try
             {
                 var _CodS = bd.VCod_SP.Where(sp => sp.COD == n.SEPARACION).ToList();
@@ -40,6 +40,7 @@ namespace BLLCRM
                 n.FECHA_NEGOCIO = DateTime.Now;
                 bd.negocio.Add(n);
                 Acuerdopago(ac, n.ID_NEGOCIO);
+                Acuerdopagogas(acg, n.ID_NEGOCIO);
                 ProcesoCompra(inm);
                 UpdateSepracion(inm);
                 HistorialCliente(n.CEDULA_P, inm);
@@ -254,8 +255,29 @@ namespace BLLCRM
                throw;
            }
        }
+        protected void Acuerdopagogas(List<acuerdo_pago_banco> a, string negocio)
+        {
+            try
+            {
+                foreach (var item in a)
+                {
+                    acuerdo_pago_banco pago = new acuerdo_pago_banco();
+                    pago.NO_ACUERDO = negocio;
+                    pago.FECHA_PAGO = item.FECHA_PAGO;
+                    pago.CUOTA = item.CUOTA;
+                    pago.VALOR_CUOTA = item.VALOR_CUOTA;
+                    bd.acuerdo_pago_banco.Add(pago);
+                }
+                bd.SaveChanges();
+            }
+            catch (Exception)
+            {
 
-       protected void ProcesoCompra(string inmu)
+                throw;
+            }
+        }
+
+        protected void ProcesoCompra(string inmu)
        {
            try
            {
@@ -384,7 +406,7 @@ namespace BLLCRM
                hc.CLIENTEH = c;
                hc.TRABAJADOR = user;
                hc.FECHA = DateTime.Now;
-               hc.DESCRIPCIONH="El cliente a inicado el proceso de compra del in inmueble "+inmu;
+               hc.DESCRIPCIONH="El cliente a inicado el proceso de compra del inmueble "+inmu;
                bd.historial_clientes.Add(hc);
                bd.SaveChanges();
            }
@@ -417,7 +439,7 @@ namespace BLLCRM
            }
        }
 
-        public string Updatenegocio(negocio n, string inm, List<acuerdo_pago> ac)
+        public string Updatenegocio(negocio n, string inm, List<acuerdo_pago> ac, List<acuerdo_pago_banco> acg)
         {
             try
             {
@@ -461,6 +483,7 @@ namespace BLLCRM
                 ctx.INGRESO = n.INGRESO;
                 bd.SaveChanges();
                 AcuerdopagoUpdate(ac, n.ID_NEGOCIO);
+                AcuerdopagoUpdateGas(acg, n.ID_NEGOCIO);
                 return "1";
 
                
@@ -503,6 +526,47 @@ namespace BLLCRM
                 var ctx = bd.acuerdo_pago.Where(inm => inm.NO_ACUERDO == negocio);
                     
                 bd.acuerdo_pago.RemoveRange(ctx);
+                bd.SaveChanges();
+                return 1;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        protected void AcuerdopagoUpdateGas(List<acuerdo_pago_banco> a, string negocio)
+        {
+            try
+            {
+                DeleteAcuerdopagoGas(negocio);
+                foreach (var item in a)
+                {
+
+                    acuerdo_pago_banco pago = new acuerdo_pago_banco();
+                    pago.NO_ACUERDO = negocio;
+                    pago.FECHA_PAGO = item.FECHA_PAGO;
+                    pago.CUOTA = item.CUOTA;
+                    pago.VALOR_CUOTA = item.VALOR_CUOTA;
+                    bd.acuerdo_pago_banco.Add(pago);
+                }
+                bd.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public int DeleteAcuerdopagoGas(string negocio)
+        {
+
+            try
+            {
+                var ctx = bd.acuerdo_pago_banco.Where(inm => inm.NO_ACUERDO == negocio);
+
+                bd.acuerdo_pago_banco.RemoveRange(ctx);
                 bd.SaveChanges();
                 return 1;
 

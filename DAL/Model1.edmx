@@ -84,6 +84,16 @@
           <Property Name="FECHA_PAGO" Type="date" />
           <Property Name="VALOR_CUOTA" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
+        <EntityType Name="acuerdo_pago_banco">
+          <Key>
+            <PropertyRef Name="ID_AC_PF" />
+          </Key>
+          <Property Name="ID_AC_PF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NO_ACUERDO" Type="varchar" MaxLength="50" />
+          <Property Name="CUOTA" Type="varchar" MaxLength="50" />
+          <Property Name="FECHA_PAGO" Type="date" />
+          <Property Name="VALOR_CUOTA" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
         <EntityType Name="bancos">
           <Key>
             <PropertyRef Name="ID_BANCO" />
@@ -679,6 +689,10 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vclienteseparacion' does not have a
           </Key>
           <Property Name="CLIENTE" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="ID_SEPARACION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FECHASEPARACION" Type="date" />
+          <Property Name="FECHAFINAL" Type="date" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="1" />
+          <Property Name="INMUEBLE" Type="varchar" MaxLength="16" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VClientesTareas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1383,6 +1397,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a pr
           <EntitySet Name="ActividadxTramite" EntityType="Self.ActividadxTramite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="acuerdo_fox" EntityType="Self.acuerdo_fox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="acuerdo_pago" EntityType="Self.acuerdo_pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="acuerdo_pago_banco" EntityType="Self.acuerdo_pago_banco" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bancos" EntityType="Self.bancos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bitacora_tareas" EntityType="Self.bitacora_tareas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bloques" EntityType="Self.bloques" Schema="dbo" store:Type="Tables" />
@@ -1583,7 +1598,11 @@ FROM [dbo].[Vclientes] AS [Vclientes]</DefiningQuery>
           <EntitySet Name="Vclienteseparacion" EntityType="Self.Vclienteseparacion" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [Vclienteseparacion].[CLIENTE] AS [CLIENTE], 
-[Vclienteseparacion].[ID_SEPARACION] AS [ID_SEPARACION]
+[Vclienteseparacion].[ID_SEPARACION] AS [ID_SEPARACION], 
+[Vclienteseparacion].[FECHASEPARACION] AS [FECHASEPARACION], 
+[Vclienteseparacion].[FECHAFINAL] AS [FECHAFINAL], 
+[Vclienteseparacion].[ESTADO] AS [ESTADO], 
+[Vclienteseparacion].[INMUEBLE] AS [INMUEBLE]
 FROM [dbo].[Vclienteseparacion] AS [Vclienteseparacion]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VClientesTareas" EntityType="Self.VClientesTareas" store:Type="Views" store:Schema="dbo">
@@ -2158,6 +2177,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
           <EntitySet Name="historialIngresoSet" EntityType="CRM_TESTModel.historialIngreso" />
+          <EntitySet Name="acuerdo_pago_banco" EntityType="CRM_TESTModel.acuerdo_pago_banco" />
           </EntityContainer>
         <ComplexType Name="oasi_Result">
           <Property Type="String" Name="ID_NEGOCIO" Nullable="false" MaxLength="50" />
@@ -2901,6 +2921,10 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           </Key>
           <Property Name="CLIENTE" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="ID_SEPARACION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECHASEPARACION" Type="DateTime" Precision="0" />
+          <Property Name="FECHAFINAL" Type="DateTime" Precision="0" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="INMUEBLE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VClientesTareas">
           <Key>
@@ -3571,6 +3595,16 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ASESOR" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="acuerdo_pago_banco">
+          <Key>
+            <PropertyRef Name="ID_AC_PF" />
+          </Key>
+          <Property Name="ID_AC_PF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NO_ACUERDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUOTA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_PAGO" Type="DateTime" Precision="0" />
+          <Property Name="VALOR_CUOTA" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -4258,6 +4292,10 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="Vclienteseparacion">
             <EntityTypeMapping TypeName="CRM_TESTModel.Vclienteseparacion">
               <MappingFragment StoreEntitySet="Vclienteseparacion">
+                <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="FECHAFINAL" ColumnName="FECHAFINAL" />
+                <ScalarProperty Name="FECHASEPARACION" ColumnName="FECHASEPARACION" />
                 <ScalarProperty Name="ID_SEPARACION" ColumnName="ID_SEPARACION" />
                 <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
               </MappingFragment>
@@ -4589,6 +4627,17 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="FECHA" ColumnName="FECHA" />
                 <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
                 <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="acuerdo_pago_banco">
+            <EntityTypeMapping TypeName="CRM_TESTModel.acuerdo_pago_banco">
+              <MappingFragment StoreEntitySet="acuerdo_pago_banco">
+                <ScalarProperty Name="VALOR_CUOTA" ColumnName="VALOR_CUOTA" />
+                <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
+                <ScalarProperty Name="CUOTA" ColumnName="CUOTA" />
+                <ScalarProperty Name="NO_ACUERDO" ColumnName="NO_ACUERDO" />
+                <ScalarProperty Name="ID_AC_PF" ColumnName="ID_AC_PF" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
