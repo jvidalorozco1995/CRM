@@ -139,17 +139,27 @@ var admComercial = (function () {
             setTimeout(function () {
                 act.ListActInmueble(proyec, WAcActualizado);
                 inm.InmuenlesFox(proyec, WsInmueblesFox);
-               // inm._Linmuebles(proyec);
+                // inm._Linmuebles(proyec);
                 inm.LisInmuebles(proyec);
-                
+
                 $(".s").addClass("ClienteS");
-               // $(".ClienteS").removeClass(".s");
-              //  $(".ClienteS").removeAttr('disabled');
+                $(".ClienteS").removeClass("s");
+              //  $(".s").prop("disabled", true);
               
+                //  $(".ClienteS").removeAttr('disabled');
+
             }, 2000);
-          
-          
-        })
+
+
+        });
+
+        $(document).on('click', '.s', function () {
+
+            toastr.error('CRM Mayales - Notificacion' +
+                  '</br></br>Actualice los inmuebles por favor.');
+
+        });
+
 
         $(document).on('click', '#Btnactivos', function () { listc._Lgescancelar(proyec, "A"); })
 
@@ -315,7 +325,7 @@ var admComercial = (function () {
 
         $('#Btnseparar').click(function () {
             var fechafin = $('#Fechafinal').val();
-
+        
             if (fechafin < fecha)
             {
                 toastr.error('CRM Mayales - Notificación'+
@@ -914,6 +924,7 @@ var admComercial = (function () {
     }
 
     return {
+
         init: function () {
             
             _Inic();
