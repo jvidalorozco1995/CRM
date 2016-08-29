@@ -24,7 +24,7 @@ namespace FormsAuthAd.Servicios
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string DatoNegocio(negocio n,string inm , List<acuerdo_pago> ac)
+        public string DatoNegocio(negocio n,string inm , List<acuerdo_pago> ac, List<acuerdo_pago_banco> acg)
         {
             BLLnegocio hn = new BLLnegocio();
             foreach (var item in ac) {
@@ -44,14 +44,32 @@ namespace FormsAuthAd.Servicios
                 }
                 
             }
+            foreach (var item in acg)
+            {
 
-          
-            return hn.Hojanegocio(n,inm,ac);
+
+
+                item.NO_ACUERDO = n.ID_NEGOCIO;
+                item.FECHA_PAGO = item.FECHA_PAGO;
+                item.CUOTA = item.CUOTA;
+
+                decimal a;
+                if (decimal.TryParse(item.VALOR_CUOTA.ToString(), NumberStyles.Number, CultureInfo.InvariantCulture, out a))
+                {
+                    // NumberStyles.Number: AllowLeadingWhite, AllowTrailingWhite, AllowLeadingSign,
+                    // AllowTrailingSign, AllowDecimalPoint, AllowThousands
+                    item.VALOR_CUOTA = a;
+                }
+
+            }
+
+
+            return hn.Hojanegocio(n,inm,ac,acg);
         }
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string DatoNegocioupdate(negocio n, string inm, List<acuerdo_pago> ac)
+        public string DatoNegocioupdate(negocio n, string inm, List<acuerdo_pago> ac, List<acuerdo_pago_banco> acg)
         {
             BLLnegocio hn = new BLLnegocio();
             foreach (var item in ac)
@@ -72,9 +90,26 @@ namespace FormsAuthAd.Servicios
                 }
 
             }
+            foreach (var item in acg)
+            {
 
 
-            return hn.Updatenegocio(n, inm, ac);
+
+                item.NO_ACUERDO = n.ID_NEGOCIO;
+                item.FECHA_PAGO = item.FECHA_PAGO;
+                item.CUOTA = item.CUOTA;
+
+                decimal a;
+                if (decimal.TryParse(item.VALOR_CUOTA.ToString(), NumberStyles.Number, CultureInfo.InvariantCulture, out a))
+                {
+                    // NumberStyles.Number: AllowLeadingWhite, AllowTrailingWhite, AllowLeadingSign,
+                    // AllowTrailingSign, AllowDecimalPoint, AllowThousands
+                    item.VALOR_CUOTA = a;
+                }
+
+            }
+
+            return hn.Updatenegocio(n, inm, ac,acg);
         }
 
         

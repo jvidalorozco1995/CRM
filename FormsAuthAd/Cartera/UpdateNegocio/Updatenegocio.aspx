@@ -70,8 +70,10 @@
                             <div class="hpanel">
                                 <ul class="nav nav-tabs" id="myTab">
                                     <li class="active"><a data-toggle="tab" data-target="#tab-1">Informacion de cliente</a></li>
-                                    <li class=""><a data-toggle="tab" data-target="#tab-2">Fechas</a></li>
-                                    <li class=""><a data-toggle="tab"data-target="#tab-3"">Acuerdos de pago</a></li>
+                                    <li class=""><a data-toggle="tab"data-target="#tab-2"">Acuerdos de gas</a></li>
+                                    <li class=""><a data-toggle="tab" data-target="#tab-3">Fechas de pago</a></li>
+                                    <li class=""><a data-toggle="tab"data-target="#tab-4"">Acuerdos de pago</a></li>
+                                    
                                 </ul>
                                 <div class="tab-content">
                                      <!---------Tab 1---------->
@@ -261,7 +263,7 @@
 
 
                                     <!--tab2-->
-                                    <div id="tab-2" class="tab-pane" >
+                                    <div id="tab-3" class="tab-pane" >
                                         <div class="panel-body">
                                             <div class="col-lg-12">
                                                 <div class="row">
@@ -338,7 +340,7 @@
                                     </div>
 
                                     <!--tab3-->
-                                    <div id="tab-3" class="tab-pane">
+                                    <div id="tab-4" class="tab-pane">
                                         <div class="panel-body">
                                             
 
@@ -356,6 +358,47 @@
 
                                         <div class="panel-footer" id="button">
                                             <button class="btn btn-danger btn-btn-circle" type="button" id="BtnCrearHU">Actualizar negocio</button>
+                                        </div>
+                                    </div>
+                                      <div id="tab-2" class="tab-pane" >
+                                        <div class="panel-body">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    
+                                                    <div class="form-group col-lg-6">
+                                                        <label class="control-label">Fecha Inicial</label>
+                                                        <input type="text" value="" id="Textinicialg" class="form-control" name="">
+                                                    </div>
+                                                    <div class="form-group col-lg-6">
+                                                        <label class="control-label">Creditó</label>
+                                                        <input type="text" value="" id="Textcreditog" class="form-control" name=""  >
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-lg-6">
+                                                        <label class="control-label">No cuotas</label>
+                                                        <input type="number" min="1" value="" id="Textcuotag" class="form-control" name="" >
+                                                    </div>
+
+                                                    <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div id="jqxWidget2" style="margin: 0 auto;">
+                                                        <%-- <button type="button" id="datos">aaaa</button>--%>
+                                                        <div id="dataTable2"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                                </div>
+                                            </div>
+
+                                        
+
+                                            
+                                        </div>
+
+                                        <div class="panel-footer" id="divsiguiente2g">
+                                            <button class="btn btn-danger btn-btn-circle"  type="button" id="BtnSiguiente2g">Siguiente</button>
                                         </div>
                                     </div>
                                 </div>

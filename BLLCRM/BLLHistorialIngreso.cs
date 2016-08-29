@@ -27,7 +27,7 @@ namespace BLLCRM
                 his.ASESOR = ASESOR;
                 his.FECHA = DateTime.Now;
                 
-                db.historialIngreso.Add(his);
+                db.historialIngresoSet.Add(his);
                 db.SaveChanges();
                 return 1;
             }

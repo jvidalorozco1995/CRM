@@ -308,11 +308,11 @@ BLLnegocio.prototype = {
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
      },
-   _addHoja: function (dto, inm, ac) {
+   _addHoja: function (dto, inm, ac,acg) {
         var re;
 
 
-      var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + "}";
+        var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + ",'acg':" + JSON.stringify(ac) + "}";
       $.ajax({
           type: "POST", url: Waddnegocio, data: datos,
           contentType: "application/json; charset=utf-8",
@@ -349,11 +349,12 @@ BLLnegocio.prototype = {
       });
 
    },
-   _upddteHoja: function (dto, inm, ac) {
+   _upddteHoja: function (dto, inm, ac,acg) {
        var re;
 
 
-       var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + "}";
+
+       var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + ",'acg':" + JSON.stringify(ac) + "}";
        $.ajax({
            type: "POST", url: Waddnegocio2, data: datos,
            contentType: "application/json; charset=utf-8",
@@ -361,7 +362,7 @@ BLLnegocio.prototype = {
            async: true,
            success: function (result) {
                if (result.d == "") {
-                   toastr.error(' CRM - Mayales no se pudo guardar la hoja');
+                   toastr.error(' CRM - Mayales no se pudo Actualizar la hoja');
                }
                else {
                    var k = result.d;
