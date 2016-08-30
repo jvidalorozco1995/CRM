@@ -10,6 +10,8 @@ namespace Entity
     {
 
         public string CEDULA { get; set; }
+        public int? TIPO_PERSONA { get; set; }
+        public int? TIPO_DOCUMENTO { get; set; }
         public string NOMBRES { get; set; }
         public string P_APELLIDO { get; set; }
         public string S_APELLIDO { get; set; }

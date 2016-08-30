@@ -334,7 +334,7 @@ function BLLClientes() {
                 }
                 else
                 {
-                    result
+                    
                     toastr.error(' CRM - Notificacion' +
                         '</br>Ya existe un cliente con el mismo numero de indentificacion al que intenta registrar'
                         + '</br>Por el usuario '+'<strong>'+result.d+'</strong>'
@@ -347,7 +347,10 @@ function BLLClientes() {
 
     BLLClientes.infoClientes = function (cliente) {
         $.each(cliente, function (i, item) {
-            
+            alert(JSON.stringify(item.TIPO_DOCUMENTO));
+            $('#ComTipoDocumento1').val(item.TIPO_DOCUMENTO);
+            $('#ComTipoPersona1').val(item.TIPO_PERSONA);
+
             $('#Text1').val(item.CEDULA);
             $('#Text2').val(item.NOMBRES);
             $('#Text3').val(item.P_APELLIDO);

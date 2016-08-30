@@ -124,6 +124,8 @@
             <PropertyRef Name="CEDULA" />
           </Key>
           <Property Name="CEDULA" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="TIPO_PERSONA" Type="int" />
+          <Property Name="TIPO_DOCUMENTO" Type="int" />
           <Property Name="NOMBRES" Type="varchar" MaxLength="50" />
           <Property Name="P_APELLIDO" Type="varchar" MaxLength="40" />
           <Property Name="S_APELLIDO" Type="varchar" MaxLength="40" />
@@ -155,6 +157,12 @@
           <Property Name="ID_TAREA" Type="int" />
           <Property Name="CODIGO" Type="varchar" MaxLength="50" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.concepto_p' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="concepto_p">
+          <Property Name="ID_CON" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
+        </EntityType>-->
         <EntityType Name="configuracion">
           <Key>
             <PropertyRef Name="ID_CONT" />
@@ -291,9 +299,13 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="PROPIETARIO" Type="varchar" MaxLength="40" />
           <Property Name="CEDULA_P" Type="varchar" MaxLength="13" />
           <Property Name="EXPEDICION" Type="date" />
+          <Property Name="AREA_PRIVADA" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="AREA_CONSTRUIDA" Type="decimal" Precision="20" Scale="2" />
           <Property Name="ESTADO_C" Type="varchar" MaxLength="30" />
           <Property Name="FECHA_NACI" Type="date" />
           <Property Name="LUGAR" Type="varchar" MaxLength="250" />
+          <Property Name="PARQUEADERO" Type="varchar" MaxLength="250" />
+          <Property Name="AREAS_COMUNES" Type="varchar" MaxLength="250" />
           <Property Name="DIRECCION_R" Type="varchar" MaxLength="250" />
           <Property Name="TELEFONO_P" Type="varchar" MaxLength="13" />
           <Property Name="EMPRESA" Type="varchar" MaxLength="100" />
@@ -304,6 +316,9 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="ANTIGUEDAD" Type="varchar" MaxLength="60" />
           <Property Name="CORREO" Type="varchar" MaxLength="250" />
           <Property Name="NOMBRE_CONY" Type="varchar" MaxLength="150" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="int" />
+          <Property Name="LUGAR_EXPEDICION" Type="varchar" MaxLength="250" />
+          <Property Name="FECHA_EXPEDICION_CUY" Type="datetime" />
           <Property Name="CEDULA_CUY" Type="varchar" MaxLength="13" />
           <Property Name="TELE_CONY" Type="varchar" MaxLength="12" />
           <Property Name="N_HIJO" Type="int" />
@@ -311,6 +326,13 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="PROYECTO_INT" Type="varchar" MaxLength="20" />
           <Property Name="VALOR_CASA" Type="varchar" MaxLength="20" />
           <Property Name="INICIAL" Type="varchar" MaxLength="20" />
+          <Property Name="ADICIONES_EXCLUSIONES" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="SUBSIDIO" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="GARAJE" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="SALDO_FINANCIAR" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="DESCUENTO" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="VALOR_SERVICIOGAS" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="INTERESES_SUBROGACION" Type="decimal" Precision="20" Scale="2" />
           <Property Name="CREDITO" Type="varchar" MaxLength="20" />
           <Property Name="BANCO" Type="int" />
           <Property Name="NO_CREDITO" Type="varchar" MaxLength="30" />
@@ -321,6 +343,8 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="MEDIO_ENT" Type="varchar" MaxLength="250" />
           <Property Name="ASOCIADO" Type="varchar" MaxLength="13" />
           <Property Name="CLASE_INMU" Type="varchar" MaxLength="45" />
+          <Property Name="AUT_MENSAJE" Type="int" />
+          <Property Name="AUT_CORREO" Type="int" />
           <Property Name="ID_HOJA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SEPARACION" Type="int" />
           <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
@@ -468,6 +492,20 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="ESTADO" Type="varchar" MaxLength="2" />
           <Property Name="TIPO" Type="varchar" MaxLength="2" />
         </EntityType>
+        <EntityType Name="tipo_documentos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tipo_personas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="trabajadores">
           <Key>
             <PropertyRef Name="T_CEDULA" />
@@ -545,6 +583,21 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.NegocioView' does not have a primar
           <Property Name="USER_CARTERA" Type="varchar" MaxLength="60" />
           <Property Name="FECHA_NEGOCIO" Type="datetime" />
           <Property Name="NOMBRE_BANCO" Type="varchar" MaxLength="80" />
+          <Property Name="PARQUEADERO" Type="varchar" MaxLength="250" />
+          <Property Name="AREAS_COMUNES" Type="varchar" MaxLength="250" />
+          <Property Name="AREA_PRIVADA" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="AREA_CONSTRUIDA" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="int" />
+          <Property Name="LUGAR_EXPEDICION" Type="varchar" MaxLength="250" />
+          <Property Name="FECHA_EXPEDICION_CUY" Type="datetime" />
+          <Property Name="ADICIONES_EXCLUSIONES" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="SUBSIDIO" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="GARAJE" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="SALDO_FINANCIAR" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="VALOR_SERVICIOGAS" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="INTERESES_SUBROGACION" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="AUT_MENSAJE" Type="int" />
+          <Property Name="AUT_CORREO" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VActInmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -679,6 +732,8 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vclientes' does not have a primary 
           <Property Name="NOMBRE_SALA" Type="varchar" MaxLength="50" />
           <Property Name="ASOCIADO" Type="varchar" MaxLength="15" />
           <Property Name="ASESOR" Type="varchar" MaxLength="30" />
+          <Property Name="TIPO_PERSONA" Type="int" />
+          <Property Name="TIPO_DOCUMENTO" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.Vclienteseparacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -770,6 +825,15 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VDocumentosActividades' does not ha
           <Property Name="id" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VfechasAsesor">
+          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
+          <Property Name="MES" Type="int" />
+          <Property Name="YEAR" Type="int" />
+          <Property Name="CONTADOR" Type="int" />
+          <Property Name="T_CEDULA" Type="varchar" MaxLength="30" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
@@ -835,6 +899,12 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VistaTareasPorClientes">
+          <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
+          <Property Name="ID_TAREA" Type="int" />
+        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VnegocioFox">
@@ -1425,6 +1495,8 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a pr
           <EntitySet Name="sala_ventas" EntityType="Self.sala_ventas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tareas" EntityType="Self.tareas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_documentos" EntityType="Self.tipo_documentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipo_personas" EntityType="Self.tipo_personas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="trabajadores" EntityType="Self.trabajadores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tramites" EntityType="Self.Tramites" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tramites_Inmueble" EntityType="Self.Tramites_Inmueble" Schema="dbo" store:Type="Tables" />
@@ -1482,7 +1554,22 @@ FROM [dbo].[historial_acuerdos_pagos] AS [historial_acuerdos_pagos]</DefiningQue
 [NegocioView].[ID_HOJA] AS [ID_HOJA], 
 [NegocioView].[USER_CARTERA] AS [USER_CARTERA], 
 [NegocioView].[FECHA_NEGOCIO] AS [FECHA_NEGOCIO], 
-[NegocioView].[NOMBRE_BANCO] AS [NOMBRE_BANCO]
+[NegocioView].[NOMBRE_BANCO] AS [NOMBRE_BANCO], 
+[NegocioView].[PARQUEADERO] AS [PARQUEADERO], 
+[NegocioView].[AREAS_COMUNES] AS [AREAS_COMUNES], 
+[NegocioView].[AREA_PRIVADA] AS [AREA_PRIVADA], 
+[NegocioView].[AREA_CONSTRUIDA] AS [AREA_CONSTRUIDA], 
+[NegocioView].[TIPO_DOCUMENTO_CONY] AS [TIPO_DOCUMENTO_CONY], 
+[NegocioView].[LUGAR_EXPEDICION] AS [LUGAR_EXPEDICION], 
+[NegocioView].[FECHA_EXPEDICION_CUY] AS [FECHA_EXPEDICION_CUY], 
+[NegocioView].[ADICIONES_EXCLUSIONES] AS [ADICIONES_EXCLUSIONES], 
+[NegocioView].[SUBSIDIO] AS [SUBSIDIO], 
+[NegocioView].[GARAJE] AS [GARAJE], 
+[NegocioView].[SALDO_FINANCIAR] AS [SALDO_FINANCIAR], 
+[NegocioView].[VALOR_SERVICIOGAS] AS [VALOR_SERVICIOGAS], 
+[NegocioView].[INTERESES_SUBROGACION] AS [INTERESES_SUBROGACION], 
+[NegocioView].[AUT_MENSAJE] AS [AUT_MENSAJE], 
+[NegocioView].[AUT_CORREO] AS [AUT_CORREO]
 FROM [dbo].[NegocioView] AS [NegocioView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VActInmuebles" EntityType="Self.VActInmuebles" store:Type="Views" store:Schema="dbo">
@@ -1592,7 +1679,9 @@ FROM [dbo].[VCLienteinmueble] AS [VCLienteinmueble]</DefiningQuery>
 [Vclientes].[TEL_EMP] AS [TEL_EMP], 
 [Vclientes].[NOMBRE_SALA] AS [NOMBRE_SALA], 
 [Vclientes].[ASOCIADO] AS [ASOCIADO], 
-[Vclientes].[ASESOR] AS [ASESOR]
+[Vclientes].[ASESOR] AS [ASESOR], 
+[Vclientes].[TIPO_PERSONA] AS [TIPO_PERSONA], 
+[Vclientes].[TIPO_DOCUMENTO] AS [TIPO_DOCUMENTO]
 FROM [dbo].[Vclientes] AS [Vclientes]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Vclienteseparacion" EntityType="Self.Vclienteseparacion" store:Type="Views" store:Schema="dbo">
@@ -2012,6 +2101,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="ActividadxTramite" EntityType="CRM_TESTModel.ActividadxTramite" />
           <EntitySet Name="acuerdo_fox" EntityType="CRM_TESTModel.acuerdo_fox" />
           <EntitySet Name="acuerdo_pago" EntityType="CRM_TESTModel.acuerdo_pago" />
+          <EntitySet Name="acuerdo_pago_banco" EntityType="CRM_TESTModel.acuerdo_pago_banco" />
           <EntitySet Name="bancos" EntityType="CRM_TESTModel.bancos" />
           <EntitySet Name="bitacora_tareas" EntityType="CRM_TESTModel.bitacora_tareas" />
           <EntitySet Name="bloques" EntityType="CRM_TESTModel.bloques" />
@@ -2025,6 +2115,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="empresas" EntityType="CRM_TESTModel.empresas" />
           <EntitySet Name="historial_clientes" EntityType="CRM_TESTModel.historial_clientes" />
           <EntitySet Name="historial_inmueble" EntityType="CRM_TESTModel.historial_inmueble" />
+          <EntitySet Name="historialIngreso" EntityType="CRM_TESTModel.historialIngreso" />
           <EntitySet Name="informacion" EntityType="CRM_TESTModel.informacion" />
           <EntitySet Name="inmueble_separacion" EntityType="CRM_TESTModel.inmueble_separacion" />
           <EntitySet Name="inmuebles" EntityType="CRM_TESTModel.inmuebles" />
@@ -2038,6 +2129,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="sala_ventas" EntityType="CRM_TESTModel.sala_ventas" />
           <EntitySet Name="sysdiagrams" EntityType="CRM_TESTModel.sysdiagrams" />
           <EntitySet Name="tareas" EntityType="CRM_TESTModel.tareas" />
+          <EntitySet Name="tipo_documentos" EntityType="CRM_TESTModel.tipo_documentos" />
+          <EntitySet Name="tipo_personas" EntityType="CRM_TESTModel.tipo_personas" />
           <EntitySet Name="trabajadores" EntityType="CRM_TESTModel.trabajadores" />
           <EntitySet Name="Tramites" EntityType="CRM_TESTModel.Tramites" />
           <EntitySet Name="Tramites_Inmueble" EntityType="CRM_TESTModel.Tramites_Inmueble" />
@@ -2088,7 +2181,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="bancos" EntitySet="bancos" />
             <End Role="Tramites" EntitySet="Tramites" />
           </AssociationSet>
-          <AssociationSet Name="FK__bloques__BLOQUE___59FA5E80" Association="CRM_TESTModel.FK__bloques__BLOQUE___59FA5E80">
+          <AssociationSet Name="FK__bloques__BLOQUE___5AEE82B9" Association="CRM_TESTModel.FK__bloques__BLOQUE___5AEE82B9">
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="bloques" EntitySet="bloques" />
           </AssociationSet>
@@ -2096,53 +2189,17 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="trabajadores" EntitySet="trabajadores" />
             <End Role="clientes" EntitySet="clientes" />
           </AssociationSet>
-          <AssociationSet Name="FK__clientes__EMPRES__2180FB33" Association="CRM_TESTModel.FK__clientes__EMPRES__2180FB33">
+          <AssociationSet Name="FK__clientes__EMPRES__1F98B2C1" Association="CRM_TESTModel.FK__clientes__EMPRES__1F98B2C1">
             <End Role="empresas" EntitySet="empresas" />
             <End Role="clientes" EntitySet="clientes" />
           </AssociationSet>
-          <AssociationSet Name="FK__clientes__EMPRES__75A278F5" Association="CRM_TESTModel.FK__clientes__EMPRES__75A278F5">
+          <AssociationSet Name="FK__clientes__EMPRES__5CD6CB2B" Association="CRM_TESTModel.FK__clientes__EMPRES__5CD6CB2B">
             <End Role="empresas" EntitySet="empresas" />
             <End Role="clientes" EntitySet="clientes" />
           </AssociationSet>
           <AssociationSet Name="FK__clientes__PROYEC__32E0915F" Association="CRM_TESTModel.FK__clientes__PROYEC__32E0915F">
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="clientes" EntitySet="clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__historial__traba__1FF8A574" Association="CRM_TESTModel.FK__historial__traba__1FF8A574">
-            <End Role="trabajadores" EntitySet="trabajadores" />
-            <End Role="historial_clientes" EntitySet="historial_clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__historial__traba__503BEA1C" Association="CRM_TESTModel.FK__historial__traba__503BEA1C">
-            <End Role="trabajadores" EntitySet="trabajadores" />
-            <End Role="historial_clientes" EntitySet="historial_clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__inmueble___INMUE__20CCCE1C" Association="CRM_TESTModel.FK__inmueble___INMUE__20CCCE1C">
-            <End Role="inmuebles" EntitySet="inmuebles" />
-            <End Role="inmueble_separacion" EntitySet="inmueble_separacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK__planos_Pr__PROYE__60A75C0F" Association="CRM_TESTModel.FK__planos_Pr__PROYE__60A75C0F">
-            <End Role="proyectos" EntitySet="proyectos" />
-            <End Role="planos_Proyectos" EntitySet="planos_Proyectos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__proyectos__PROYE__1D9B5BB6" Association="CRM_TESTModel.FK__proyectos__PROYE__1D9B5BB6">
-            <End Role="proyectos" EntitySet="proyectos" />
-            <End Role="proyectos_trabajador" EntitySet="proyectos_trabajador" />
-          </AssociationSet>
-          <AssociationSet Name="FK__proyectos__TRABA__1CA7377D" Association="CRM_TESTModel.FK__proyectos__TRABA__1CA7377D">
-            <End Role="trabajadores" EntitySet="trabajadores" />
-            <End Role="proyectos_trabajador" EntitySet="proyectos_trabajador" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tareas__TRABAJAD__3A81B327" Association="CRM_TESTModel.FK__tareas__TRABAJAD__3A81B327">
-            <End Role="trabajadores" EntitySet="trabajadores" />
-            <End Role="tareas" EntitySet="tareas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__tareas__TRABAJAD__571DF1D5" Association="CRM_TESTModel.FK__tareas__TRABAJAD__571DF1D5">
-            <End Role="trabajadores" EntitySet="trabajadores" />
-            <End Role="tareas" EntitySet="tareas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Tramites_Inmueble_Tramites" Association="CRM_TESTModel.FK_Tramites_Inmueble_Tramites">
-            <End Role="Tramites" EntitySet="Tramites" />
-            <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
           </AssociationSet>
           <AssociationSet Name="FK__historial__clien__1F04813B" Association="CRM_TESTModel.FK__historial__clien__1F04813B">
             <End Role="clientes" EntitySet="clientes" />
@@ -2176,8 +2233,42 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="clientes" EntitySet="clientes" />
             <End Role="tareas" EntitySet="tareas" />
           </AssociationSet>
-          <EntitySet Name="historialIngresoSet" EntityType="CRM_TESTModel.historialIngreso" />
-          <EntitySet Name="acuerdo_pago_banco" EntityType="CRM_TESTModel.acuerdo_pago_banco" />
+          <AssociationSet Name="FK__historial__traba__1FF8A574" Association="CRM_TESTModel.FK__historial__traba__1FF8A574">
+            <End Role="trabajadores" EntitySet="trabajadores" />
+            <End Role="historial_clientes" EntitySet="historial_clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__historial__traba__503BEA1C" Association="CRM_TESTModel.FK__historial__traba__503BEA1C">
+            <End Role="trabajadores" EntitySet="trabajadores" />
+            <End Role="historial_clientes" EntitySet="historial_clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__inmueble___INMUE__20CCCE1C" Association="CRM_TESTModel.FK__inmueble___INMUE__20CCCE1C">
+            <End Role="inmuebles" EntitySet="inmuebles" />
+            <End Role="inmueble_separacion" EntitySet="inmueble_separacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__planos_Pr__PROYE__68487DD7" Association="CRM_TESTModel.FK__planos_Pr__PROYE__68487DD7">
+            <End Role="proyectos" EntitySet="proyectos" />
+            <End Role="planos_Proyectos" EntitySet="planos_Proyectos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__proyectos__PROYE__1D9B5BB6" Association="CRM_TESTModel.FK__proyectos__PROYE__1D9B5BB6">
+            <End Role="proyectos" EntitySet="proyectos" />
+            <End Role="proyectos_trabajador" EntitySet="proyectos_trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK__proyectos__TRABA__1CA7377D" Association="CRM_TESTModel.FK__proyectos__TRABA__1CA7377D">
+            <End Role="trabajadores" EntitySet="trabajadores" />
+            <End Role="proyectos_trabajador" EntitySet="proyectos_trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tareas__TRABAJAD__3A81B327" Association="CRM_TESTModel.FK__tareas__TRABAJAD__3A81B327">
+            <End Role="trabajadores" EntitySet="trabajadores" />
+            <End Role="tareas" EntitySet="tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tareas__TRABAJAD__571DF1D5" Association="CRM_TESTModel.FK__tareas__TRABAJAD__571DF1D5">
+            <End Role="trabajadores" EntitySet="trabajadores" />
+            <End Role="tareas" EntitySet="tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tramites_Inmueble_Tramites" Association="CRM_TESTModel.FK_Tramites_Inmueble_Tramites">
+            <End Role="Tramites" EntitySet="Tramites" />
+            <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="oasi_Result">
           <Property Type="String" Name="ID_NEGOCIO" Nullable="false" MaxLength="50" />
@@ -2305,6 +2396,16 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="FECHA_PAGO" Type="DateTime" Precision="0" />
           <Property Name="VALOR_CUOTA" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
+        <EntityType Name="acuerdo_pago_banco">
+          <Key>
+            <PropertyRef Name="ID_AC_PF" />
+          </Key>
+          <Property Name="ID_AC_PF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NO_ACUERDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUOTA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_PAGO" Type="DateTime" Precision="0" />
+          <Property Name="VALOR_CUOTA" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
         <EntityType Name="bancos">
           <Key>
             <PropertyRef Name="ID_BANCO" />
@@ -2330,13 +2431,15 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="BLOQUE_OBRA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="BLOQUE_CODI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="proyectos" Relationship="CRM_TESTModel.FK__bloques__BLOQUE___59FA5E80" FromRole="bloques" ToRole="proyectos" />
+          <NavigationProperty Name="proyectos" Relationship="CRM_TESTModel.FK__bloques__BLOQUE___5AEE82B9" FromRole="bloques" ToRole="proyectos" />
         </EntityType>
         <EntityType Name="clientes">
           <Key>
             <PropertyRef Name="CEDULA" />
           </Key>
           <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO_PERSONA" Type="Int32" />
+          <Property Name="TIPO_DOCUMENTO" Type="Int32" />
           <Property Name="NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="P_APELLIDO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="S_APELLIDO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -2360,8 +2463,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ASOCIADO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="trabajadores" Relationship="CRM_TESTModel.FK__clientes__ASESOR__0697FACD" FromRole="clientes" ToRole="trabajadores" />
-          <NavigationProperty Name="empresas" Relationship="CRM_TESTModel.FK__clientes__EMPRES__2180FB33" FromRole="clientes" ToRole="empresas" />
-          <NavigationProperty Name="empresas1" Relationship="CRM_TESTModel.FK__clientes__EMPRES__75A278F5" FromRole="clientes" ToRole="empresas" />
+          <NavigationProperty Name="empresas" Relationship="CRM_TESTModel.FK__clientes__EMPRES__1F98B2C1" FromRole="clientes" ToRole="empresas" />
+          <NavigationProperty Name="empresas1" Relationship="CRM_TESTModel.FK__clientes__EMPRES__5CD6CB2B" FromRole="clientes" ToRole="empresas" />
           <NavigationProperty Name="proyectos" Relationship="CRM_TESTModel.FK__clientes__PROYEC__32E0915F" FromRole="clientes" ToRole="proyectos" />
           <NavigationProperty Name="historial_clientes" Relationship="CRM_TESTModel.FK__historial__clien__1F04813B" FromRole="clientes" ToRole="historial_clientes" />
           <NavigationProperty Name="historial_inmueble" Relationship="CRM_TESTModel.FK__historial__CLIEN__318258D2" FromRole="clientes" ToRole="historial_inmueble" />
@@ -2431,8 +2534,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="ID_EMP" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE_EMP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TEL_EMP" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__clientes__EMPRES__2180FB33" FromRole="empresas" ToRole="clientes" />
-          <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__clientes__EMPRES__75A278F5" FromRole="empresas" ToRole="clientes" />
+          <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__clientes__EMPRES__1F98B2C1" FromRole="empresas" ToRole="clientes" />
+          <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__clientes__EMPRES__5CD6CB2B" FromRole="empresas" ToRole="clientes" />
         </EntityType>
         <EntityType Name="historial_clientes">
           <Key>
@@ -2443,10 +2546,10 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="TRABAJADOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPCIONH" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
           <Property Name="FECHA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="trabajadores" Relationship="CRM_TESTModel.FK__historial__traba__1FF8A574" FromRole="historial_clientes" ToRole="trabajadores" />
-          <NavigationProperty Name="trabajadores1" Relationship="CRM_TESTModel.FK__historial__traba__503BEA1C" FromRole="historial_clientes" ToRole="trabajadores" />
           <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__historial__clien__1F04813B" FromRole="historial_clientes" ToRole="clientes" />
           <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__historial__clien__4F47C5E3" FromRole="historial_clientes" ToRole="clientes" />
+          <NavigationProperty Name="trabajadores" Relationship="CRM_TESTModel.FK__historial__traba__1FF8A574" FromRole="historial_clientes" ToRole="trabajadores" />
+          <NavigationProperty Name="trabajadores1" Relationship="CRM_TESTModel.FK__historial__traba__503BEA1C" FromRole="historial_clientes" ToRole="trabajadores" />
         </EntityType>
         <EntityType Name="historial_inmueble">
           <Key>
@@ -2459,6 +2562,14 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="DESCRIPCION_S" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__historial__CLIEN__318258D2" FromRole="historial_inmueble" ToRole="clientes" />
           <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__historial__CLIEN__6F2063EF" FromRole="historial_inmueble" ToRole="clientes" />
+        </EntityType>
+        <EntityType Name="historialIngreso">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ASESOR" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="informacion">
           <Key>
@@ -2479,9 +2590,9 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="FECHAFINAL" Type="DateTime" Precision="0" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ASESOR_T" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="inmuebles" Relationship="CRM_TESTModel.FK__inmueble___INMUE__20CCCE1C" FromRole="inmueble_separacion" ToRole="inmuebles" />
           <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__inmueble___CLIEN__1FD8A9E3" FromRole="inmueble_separacion" ToRole="clientes" />
           <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__inmueble___CLIEN__33D4B598" FromRole="inmueble_separacion" ToRole="clientes" />
+          <NavigationProperty Name="inmuebles" Relationship="CRM_TESTModel.FK__inmueble___INMUE__20CCCE1C" FromRole="inmueble_separacion" ToRole="inmuebles" />
         </EntityType>
         <EntityType Name="inmuebles">
           <Key>
@@ -2509,9 +2620,13 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="PROPIETARIO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="EXPEDICION" Type="DateTime" Precision="0" />
+          <Property Name="AREA_PRIVADA" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="AREA_CONSTRUIDA" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="ESTADO_C" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="FECHA_NACI" Type="DateTime" Precision="0" />
           <Property Name="LUGAR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PARQUEADERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AREAS_COMUNES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="DIRECCION_R" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="EMPRESA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -2522,6 +2637,9 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="ANTIGUEDAD" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="CORREO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_CONY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="Int32" />
+          <Property Name="LUGAR_EXPEDICION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_EXPEDICION_CUY" Type="DateTime" Precision="3" />
           <Property Name="CEDULA_CUY" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="TELE_CONY" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="N_HIJO" Type="Int32" />
@@ -2529,6 +2647,13 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="PROYECTO_INT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="VALOR_CASA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="INICIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ADICIONES_EXCLUSIONES" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="SUBSIDIO" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="GARAJE" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="SALDO_FINANCIAR" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="DESCUENTO" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="VALOR_SERVICIOGAS" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="INTERESES_SUBROGACION" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="CREDITO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="BANCO" Type="Int32" />
           <Property Name="NO_CREDITO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -2539,6 +2664,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="MEDIO_ENT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ASOCIADO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="CLASE_INMU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="AUT_MENSAJE" Type="Int32" />
+          <Property Name="AUT_CORREO" Type="Int32" />
           <Property Name="ID_HOJA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SEPARACION" Type="Int32" />
           <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -2639,7 +2766,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="PROYECT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="IMAGEN" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="TIPO_IMG" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="proyectos" Relationship="CRM_TESTModel.FK__planos_Pr__PROYE__60A75C0F" FromRole="planos_Proyectos" ToRole="proyectos" />
+          <NavigationProperty Name="proyectos" Relationship="CRM_TESTModel.FK__planos_Pr__PROYE__68487DD7" FromRole="planos_Proyectos" ToRole="proyectos" />
         </EntityType>
         <EntityType Name="proyectos">
           <Key>
@@ -2647,9 +2774,9 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           </Key>
           <Property Name="ID_PROYEC" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="bloques" Relationship="CRM_TESTModel.FK__bloques__BLOQUE___59FA5E80" FromRole="proyectos" ToRole="bloques" />
+          <NavigationProperty Name="bloques" Relationship="CRM_TESTModel.FK__bloques__BLOQUE___5AEE82B9" FromRole="proyectos" ToRole="bloques" />
           <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__clientes__PROYEC__32E0915F" FromRole="proyectos" ToRole="clientes" />
-          <NavigationProperty Name="planos_Proyectos" Relationship="CRM_TESTModel.FK__planos_Pr__PROYE__60A75C0F" FromRole="proyectos" ToRole="planos_Proyectos" />
+          <NavigationProperty Name="planos_Proyectos" Relationship="CRM_TESTModel.FK__planos_Pr__PROYE__68487DD7" FromRole="proyectos" ToRole="planos_Proyectos" />
           <NavigationProperty Name="proyectos_trabajador" Relationship="CRM_TESTModel.FK__proyectos__PROYE__1D9B5BB6" FromRole="proyectos" ToRole="proyectos_trabajador" />
         </EntityType>
         <EntityType Name="proyectos_trabajador">
@@ -2693,10 +2820,24 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="FECHAFIN" Type="DateTime" Precision="0" />
           <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="TIPO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="trabajadores" Relationship="CRM_TESTModel.FK__tareas__TRABAJAD__3A81B327" FromRole="tareas" ToRole="trabajadores" />
-          <NavigationProperty Name="trabajadores1" Relationship="CRM_TESTModel.FK__tareas__TRABAJAD__571DF1D5" FromRole="tareas" ToRole="trabajadores" />
           <NavigationProperty Name="clientes" Relationship="CRM_TESTModel.FK__tareas__CLIENTE__398D8EEE" FromRole="tareas" ToRole="clientes" />
           <NavigationProperty Name="clientes1" Relationship="CRM_TESTModel.FK__tareas__CLIENTE__47B19113" FromRole="tareas" ToRole="clientes" />
+          <NavigationProperty Name="trabajadores" Relationship="CRM_TESTModel.FK__tareas__TRABAJAD__3A81B327" FromRole="tareas" ToRole="trabajadores" />
+          <NavigationProperty Name="trabajadores1" Relationship="CRM_TESTModel.FK__tareas__TRABAJAD__571DF1D5" FromRole="tareas" ToRole="trabajadores" />
+        </EntityType>
+        <EntityType Name="tipo_documentos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tipo_personas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="trabajadores">
           <Key>
@@ -2793,6 +2934,21 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="USER_CARTERA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="FECHA_NEGOCIO" Type="DateTime" Precision="3" />
           <Property Name="NOMBRE_BANCO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="PARQUEADERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AREAS_COMUNES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AREA_PRIVADA" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="AREA_CONSTRUIDA" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="Int32" />
+          <Property Name="LUGAR_EXPEDICION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_EXPEDICION_CUY" Type="DateTime" Precision="3" />
+          <Property Name="ADICIONES_EXCLUSIONES" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="SUBSIDIO" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="GARAJE" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="SALDO_FINANCIAR" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="VALOR_SERVICIOGAS" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="INTERESES_SUBROGACION" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="AUT_MENSAJE" Type="Int32" />
+          <Property Name="AUT_CORREO" Type="Int32" />
         </EntityType>
         <EntityType Name="VActInmuebles">
           <Key>
@@ -2913,6 +3069,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="NOMBRE_SALA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ASOCIADO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="ASESOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO_PERSONA" Type="Int32" />
+          <Property Name="TIPO_DOCUMENTO" Type="Int32" />
         </EntityType>
         <EntityType Name="Vclienteseparacion">
           <Key>
@@ -3312,7 +3470,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__bloques__BLOQUE___59FA5E80">
+        <Association Name="FK__bloques__BLOQUE___5AEE82B9">
           <End Type="CRM_TESTModel.proyectos" Role="proyectos" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -3338,7 +3496,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__clientes__EMPRES__2180FB33">
+        <Association Name="FK__clientes__EMPRES__1F98B2C1">
           <End Type="CRM_TESTModel.empresas" Role="empresas" Multiplicity="0..1" />
           <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3350,7 +3508,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__clientes__EMPRES__75A278F5">
+        <Association Name="FK__clientes__EMPRES__5CD6CB2B">
           <End Type="CRM_TESTModel.empresas" Role="empresas" Multiplicity="0..1" />
           <End Type="CRM_TESTModel.clientes" Role="clientes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -3371,124 +3529,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Principal>
             <Dependent Role="clientes">
               <PropertyRef Name="PROYEC_INTERES" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__historial__traba__1FF8A574">
-          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.historial_clientes" Role="historial_clientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="trabajadores">
-              <PropertyRef Name="T_CEDULA" />
-            </Principal>
-            <Dependent Role="historial_clientes">
-              <PropertyRef Name="TRABAJADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__historial__traba__503BEA1C">
-          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.historial_clientes" Role="historial_clientes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="trabajadores">
-              <PropertyRef Name="T_CEDULA" />
-            </Principal>
-            <Dependent Role="historial_clientes">
-              <PropertyRef Name="TRABAJADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__inmueble___INMUE__20CCCE1C">
-          <End Type="CRM_TESTModel.inmuebles" Role="inmuebles" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CRM_TESTModel.inmueble_separacion" Role="inmueble_separacion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inmuebles">
-              <PropertyRef Name="REFERENCIA" />
-            </Principal>
-            <Dependent Role="inmueble_separacion">
-              <PropertyRef Name="INMUEBLE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__planos_Pr__PROYE__60A75C0F">
-          <End Type="CRM_TESTModel.proyectos" Role="proyectos" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CRM_TESTModel.planos_Proyectos" Role="planos_Proyectos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="proyectos">
-              <PropertyRef Name="ID_PROYEC" />
-            </Principal>
-            <Dependent Role="planos_Proyectos">
-              <PropertyRef Name="PROYECT" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__proyectos__PROYE__1D9B5BB6">
-          <End Type="CRM_TESTModel.proyectos" Role="proyectos" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CRM_TESTModel.proyectos_trabajador" Role="proyectos_trabajador" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="proyectos">
-              <PropertyRef Name="ID_PROYEC" />
-            </Principal>
-            <Dependent Role="proyectos_trabajador">
-              <PropertyRef Name="PROYECTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__proyectos__TRABA__1CA7377D">
-          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CRM_TESTModel.proyectos_trabajador" Role="proyectos_trabajador" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="trabajadores">
-              <PropertyRef Name="T_CEDULA" />
-            </Principal>
-            <Dependent Role="proyectos_trabajador">
-              <PropertyRef Name="TRABAJADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tareas__TRABAJAD__3A81B327">
-          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.tareas" Role="tareas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="trabajadores">
-              <PropertyRef Name="T_CEDULA" />
-            </Principal>
-            <Dependent Role="tareas">
-              <PropertyRef Name="TRABAJADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__tareas__TRABAJAD__571DF1D5">
-          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="CRM_TESTModel.tareas" Role="tareas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="trabajadores">
-              <PropertyRef Name="T_CEDULA" />
-            </Principal>
-            <Dependent Role="tareas">
-              <PropertyRef Name="TRABAJADOR" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Tramites_Inmueble_Tramites">
-          <End Type="CRM_TESTModel.Tramites" Role="Tramites" Multiplicity="0..1" />
-          <End Type="CRM_TESTModel.Tramites_Inmueble" Role="Tramites_Inmueble" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tramites">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Tramites_Inmueble">
-              <PropertyRef Name="id_Tramite" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3588,24 +3628,124 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="historialIngreso">
-          <Key>
-            <PropertyRef Name="CODIGO" />
-          </Key>
-          <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ASESOR" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="FECHA" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="acuerdo_pago_banco">
-          <Key>
-            <PropertyRef Name="ID_AC_PF" />
-          </Key>
-          <Property Name="ID_AC_PF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NO_ACUERDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CUOTA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FECHA_PAGO" Type="DateTime" Precision="0" />
-          <Property Name="VALOR_CUOTA" Type="Decimal" Precision="18" Scale="0" />
-        </EntityType>
+        <Association Name="FK__historial__traba__1FF8A574">
+          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1" />
+          <End Type="CRM_TESTModel.historial_clientes" Role="historial_clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trabajadores">
+              <PropertyRef Name="T_CEDULA" />
+            </Principal>
+            <Dependent Role="historial_clientes">
+              <PropertyRef Name="TRABAJADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__historial__traba__503BEA1C">
+          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1" />
+          <End Type="CRM_TESTModel.historial_clientes" Role="historial_clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trabajadores">
+              <PropertyRef Name="T_CEDULA" />
+            </Principal>
+            <Dependent Role="historial_clientes">
+              <PropertyRef Name="TRABAJADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__inmueble___INMUE__20CCCE1C">
+          <End Type="CRM_TESTModel.inmuebles" Role="inmuebles" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CRM_TESTModel.inmueble_separacion" Role="inmueble_separacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inmuebles">
+              <PropertyRef Name="REFERENCIA" />
+            </Principal>
+            <Dependent Role="inmueble_separacion">
+              <PropertyRef Name="INMUEBLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__planos_Pr__PROYE__68487DD7">
+          <End Type="CRM_TESTModel.proyectos" Role="proyectos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CRM_TESTModel.planos_Proyectos" Role="planos_Proyectos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyectos">
+              <PropertyRef Name="ID_PROYEC" />
+            </Principal>
+            <Dependent Role="planos_Proyectos">
+              <PropertyRef Name="PROYECT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__proyectos__PROYE__1D9B5BB6">
+          <End Type="CRM_TESTModel.proyectos" Role="proyectos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CRM_TESTModel.proyectos_trabajador" Role="proyectos_trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyectos">
+              <PropertyRef Name="ID_PROYEC" />
+            </Principal>
+            <Dependent Role="proyectos_trabajador">
+              <PropertyRef Name="PROYECTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__proyectos__TRABA__1CA7377D">
+          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CRM_TESTModel.proyectos_trabajador" Role="proyectos_trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trabajadores">
+              <PropertyRef Name="T_CEDULA" />
+            </Principal>
+            <Dependent Role="proyectos_trabajador">
+              <PropertyRef Name="TRABAJADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tareas__TRABAJAD__3A81B327">
+          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1" />
+          <End Type="CRM_TESTModel.tareas" Role="tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trabajadores">
+              <PropertyRef Name="T_CEDULA" />
+            </Principal>
+            <Dependent Role="tareas">
+              <PropertyRef Name="TRABAJADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tareas__TRABAJAD__571DF1D5">
+          <End Type="CRM_TESTModel.trabajadores" Role="trabajadores" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CRM_TESTModel.tareas" Role="tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trabajadores">
+              <PropertyRef Name="T_CEDULA" />
+            </Principal>
+            <Dependent Role="tareas">
+              <PropertyRef Name="TRABAJADOR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tramites_Inmueble_Tramites">
+          <End Type="CRM_TESTModel.Tramites" Role="Tramites" Multiplicity="0..1" />
+          <End Type="CRM_TESTModel.Tramites_Inmueble" Role="Tramites_Inmueble" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tramites">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tramites_Inmueble">
+              <PropertyRef Name="id_Tramite" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3697,6 +3837,17 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="acuerdo_pago_banco">
+            <EntityTypeMapping TypeName="CRM_TESTModel.acuerdo_pago_banco">
+              <MappingFragment StoreEntitySet="acuerdo_pago_banco">
+                <ScalarProperty Name="VALOR_CUOTA" ColumnName="VALOR_CUOTA" />
+                <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
+                <ScalarProperty Name="CUOTA" ColumnName="CUOTA" />
+                <ScalarProperty Name="NO_ACUERDO" ColumnName="NO_ACUERDO" />
+                <ScalarProperty Name="ID_AC_PF" ColumnName="ID_AC_PF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="bancos">
             <EntityTypeMapping TypeName="CRM_TESTModel.bancos">
               <MappingFragment StoreEntitySet="bancos">
@@ -3750,6 +3901,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="S_APELLIDO" ColumnName="S_APELLIDO" />
                 <ScalarProperty Name="P_APELLIDO" ColumnName="P_APELLIDO" />
                 <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="TIPO_DOCUMENTO" ColumnName="TIPO_DOCUMENTO" />
+                <ScalarProperty Name="TIPO_PERSONA" ColumnName="TIPO_PERSONA" />
                 <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3842,6 +3995,15 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="historialIngreso">
+            <EntityTypeMapping TypeName="CRM_TESTModel.historialIngreso">
+              <MappingFragment StoreEntitySet="historialIngreso">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="informacion">
             <EntityTypeMapping TypeName="CRM_TESTModel.informacion">
               <MappingFragment StoreEntitySet="informacion">
@@ -3890,6 +4052,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="CODIGO_F" ColumnName="CODIGO_F" />
                 <ScalarProperty Name="SEPARACION" ColumnName="SEPARACION" />
                 <ScalarProperty Name="ID_HOJA" ColumnName="ID_HOJA" />
+                <ScalarProperty Name="AUT_CORREO" ColumnName="AUT_CORREO" />
+                <ScalarProperty Name="AUT_MENSAJE" ColumnName="AUT_MENSAJE" />
                 <ScalarProperty Name="CLASE_INMU" ColumnName="CLASE_INMU" />
                 <ScalarProperty Name="ASOCIADO" ColumnName="ASOCIADO" />
                 <ScalarProperty Name="MEDIO_ENT" ColumnName="MEDIO_ENT" />
@@ -3900,6 +4064,13 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="NO_CREDITO" ColumnName="NO_CREDITO" />
                 <ScalarProperty Name="BANCO" ColumnName="BANCO" />
                 <ScalarProperty Name="CREDITO" ColumnName="CREDITO" />
+                <ScalarProperty Name="INTERESES_SUBROGACION" ColumnName="INTERESES_SUBROGACION" />
+                <ScalarProperty Name="VALOR_SERVICIOGAS" ColumnName="VALOR_SERVICIOGAS" />
+                <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+                <ScalarProperty Name="SALDO_FINANCIAR" ColumnName="SALDO_FINANCIAR" />
+                <ScalarProperty Name="GARAJE" ColumnName="GARAJE" />
+                <ScalarProperty Name="SUBSIDIO" ColumnName="SUBSIDIO" />
+                <ScalarProperty Name="ADICIONES_EXCLUSIONES" ColumnName="ADICIONES_EXCLUSIONES" />
                 <ScalarProperty Name="INICIAL" ColumnName="INICIAL" />
                 <ScalarProperty Name="VALOR_CASA" ColumnName="VALOR_CASA" />
                 <ScalarProperty Name="PROYECTO_INT" ColumnName="PROYECTO_INT" />
@@ -3907,6 +4078,9 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="N_HIJO" ColumnName="N_HIJO" />
                 <ScalarProperty Name="TELE_CONY" ColumnName="TELE_CONY" />
                 <ScalarProperty Name="CEDULA_CUY" ColumnName="CEDULA_CUY" />
+                <ScalarProperty Name="FECHA_EXPEDICION_CUY" ColumnName="FECHA_EXPEDICION_CUY" />
+                <ScalarProperty Name="LUGAR_EXPEDICION" ColumnName="LUGAR_EXPEDICION" />
+                <ScalarProperty Name="TIPO_DOCUMENTO_CONY" ColumnName="TIPO_DOCUMENTO_CONY" />
                 <ScalarProperty Name="NOMBRE_CONY" ColumnName="NOMBRE_CONY" />
                 <ScalarProperty Name="CORREO" ColumnName="CORREO" />
                 <ScalarProperty Name="ANTIGUEDAD" ColumnName="ANTIGUEDAD" />
@@ -3917,9 +4091,13 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="EMPRESA" ColumnName="EMPRESA" />
                 <ScalarProperty Name="TELEFONO_P" ColumnName="TELEFONO_P" />
                 <ScalarProperty Name="DIRECCION_R" ColumnName="DIRECCION_R" />
+                <ScalarProperty Name="AREAS_COMUNES" ColumnName="AREAS_COMUNES" />
+                <ScalarProperty Name="PARQUEADERO" ColumnName="PARQUEADERO" />
                 <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
                 <ScalarProperty Name="FECHA_NACI" ColumnName="FECHA_NACI" />
                 <ScalarProperty Name="ESTADO_C" ColumnName="ESTADO_C" />
+                <ScalarProperty Name="AREA_CONSTRUIDA" ColumnName="AREA_CONSTRUIDA" />
+                <ScalarProperty Name="AREA_PRIVADA" ColumnName="AREA_PRIVADA" />
                 <ScalarProperty Name="EXPEDICION" ColumnName="EXPEDICION" />
                 <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
                 <ScalarProperty Name="PROPIETARIO" ColumnName="PROPIETARIO" />
@@ -4075,6 +4253,22 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tipo_documentos">
+            <EntityTypeMapping TypeName="CRM_TESTModel.tipo_documentos">
+              <MappingFragment StoreEntitySet="tipo_documentos">
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipo_personas">
+            <EntityTypeMapping TypeName="CRM_TESTModel.tipo_personas">
+              <MappingFragment StoreEntitySet="tipo_personas">
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="trabajadores">
             <EntityTypeMapping TypeName="CRM_TESTModel.trabajadores">
               <MappingFragment StoreEntitySet="trabajadores">
@@ -4118,6 +4312,21 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="NegocioView">
             <EntityTypeMapping TypeName="CRM_TESTModel.NegocioView">
               <MappingFragment StoreEntitySet="NegocioView">
+                <ScalarProperty Name="AUT_CORREO" ColumnName="AUT_CORREO" />
+                <ScalarProperty Name="AUT_MENSAJE" ColumnName="AUT_MENSAJE" />
+                <ScalarProperty Name="INTERESES_SUBROGACION" ColumnName="INTERESES_SUBROGACION" />
+                <ScalarProperty Name="VALOR_SERVICIOGAS" ColumnName="VALOR_SERVICIOGAS" />
+                <ScalarProperty Name="SALDO_FINANCIAR" ColumnName="SALDO_FINANCIAR" />
+                <ScalarProperty Name="GARAJE" ColumnName="GARAJE" />
+                <ScalarProperty Name="SUBSIDIO" ColumnName="SUBSIDIO" />
+                <ScalarProperty Name="ADICIONES_EXCLUSIONES" ColumnName="ADICIONES_EXCLUSIONES" />
+                <ScalarProperty Name="FECHA_EXPEDICION_CUY" ColumnName="FECHA_EXPEDICION_CUY" />
+                <ScalarProperty Name="LUGAR_EXPEDICION" ColumnName="LUGAR_EXPEDICION" />
+                <ScalarProperty Name="TIPO_DOCUMENTO_CONY" ColumnName="TIPO_DOCUMENTO_CONY" />
+                <ScalarProperty Name="AREA_CONSTRUIDA" ColumnName="AREA_CONSTRUIDA" />
+                <ScalarProperty Name="AREA_PRIVADA" ColumnName="AREA_PRIVADA" />
+                <ScalarProperty Name="AREAS_COMUNES" ColumnName="AREAS_COMUNES" />
+                <ScalarProperty Name="PARQUEADERO" ColumnName="PARQUEADERO" />
                 <ScalarProperty Name="NOMBRE_BANCO" ColumnName="NOMBRE_BANCO" />
                 <ScalarProperty Name="FECHA_NEGOCIO" ColumnName="FECHA_NEGOCIO" />
                 <ScalarProperty Name="USER_CARTERA" ColumnName="USER_CARTERA" />
@@ -4260,6 +4469,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="Vclientes">
             <EntityTypeMapping TypeName="CRM_TESTModel.Vclientes">
               <MappingFragment StoreEntitySet="Vclientes">
+                <ScalarProperty Name="TIPO_DOCUMENTO" ColumnName="TIPO_DOCUMENTO" />
+                <ScalarProperty Name="TIPO_PERSONA" ColumnName="TIPO_PERSONA" />
                 <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
                 <ScalarProperty Name="ASOCIADO" ColumnName="ASOCIADO" />
                 <ScalarProperty Name="NOMBRE_SALA" ColumnName="NOMBRE_SALA" />
@@ -4618,26 +4829,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="IdTramite" ColumnName="IdTramite" />
                 <ScalarProperty Name="NombreBanco" ColumnName="NombreBanco" />
                 <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="historialIngresoSet">
-            <EntityTypeMapping TypeName="CRM_TESTModel.historialIngreso">
-              <MappingFragment StoreEntitySet="historialIngreso">
-                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
-                <ScalarProperty Name="ASESOR" ColumnName="ASESOR" />
-                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="acuerdo_pago_banco">
-            <EntityTypeMapping TypeName="CRM_TESTModel.acuerdo_pago_banco">
-              <MappingFragment StoreEntitySet="acuerdo_pago_banco">
-                <ScalarProperty Name="VALOR_CUOTA" ColumnName="VALOR_CUOTA" />
-                <ScalarProperty Name="FECHA_PAGO" ColumnName="FECHA_PAGO" />
-                <ScalarProperty Name="CUOTA" ColumnName="CUOTA" />
-                <ScalarProperty Name="NO_ACUERDO" ColumnName="NO_ACUERDO" />
-                <ScalarProperty Name="ID_AC_PF" ColumnName="ID_AC_PF" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

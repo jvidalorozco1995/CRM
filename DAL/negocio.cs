@@ -19,9 +19,13 @@ namespace DAL
         public string PROPIETARIO { get; set; }
         public string CEDULA_P { get; set; }
         public Nullable<System.DateTime> EXPEDICION { get; set; }
+        public Nullable<decimal> AREA_PRIVADA { get; set; }
+        public Nullable<decimal> AREA_CONSTRUIDA { get; set; }
         public string ESTADO_C { get; set; }
         public Nullable<System.DateTime> FECHA_NACI { get; set; }
         public string LUGAR { get; set; }
+        public string PARQUEADERO { get; set; }
+        public string AREAS_COMUNES { get; set; }
         public string DIRECCION_R { get; set; }
         public string TELEFONO_P { get; set; }
         public string EMPRESA { get; set; }
@@ -32,6 +36,9 @@ namespace DAL
         public string ANTIGUEDAD { get; set; }
         public string CORREO { get; set; }
         public string NOMBRE_CONY { get; set; }
+        public Nullable<int> TIPO_DOCUMENTO_CONY { get; set; }
+        public string LUGAR_EXPEDICION { get; set; }
+        public Nullable<System.DateTime> FECHA_EXPEDICION_CUY { get; set; }
         public string CEDULA_CUY { get; set; }
         public string TELE_CONY { get; set; }
         public Nullable<int> N_HIJO { get; set; }
@@ -39,6 +46,13 @@ namespace DAL
         public string PROYECTO_INT { get; set; }
         public string VALOR_CASA { get; set; }
         public string INICIAL { get; set; }
+        public Nullable<decimal> ADICIONES_EXCLUSIONES { get; set; }
+        public Nullable<decimal> SUBSIDIO { get; set; }
+        public Nullable<decimal> GARAJE { get; set; }
+        public Nullable<decimal> SALDO_FINANCIAR { get; set; }
+        public Nullable<decimal> DESCUENTO { get; set; }
+        public Nullable<decimal> VALOR_SERVICIOGAS { get; set; }
+        public Nullable<decimal> INTERESES_SUBROGACION { get; set; }
         public string CREDITO { get; set; }
         public Nullable<int> BANCO { get; set; }
         public string NO_CREDITO { get; set; }
@@ -49,6 +63,8 @@ namespace DAL
         public string MEDIO_ENT { get; set; }
         public string ASOCIADO { get; set; }
         public string CLASE_INMU { get; set; }
+        public Nullable<int> AUT_MENSAJE { get; set; }
+        public Nullable<int> AUT_CORREO { get; set; }
         public int ID_HOJA { get; set; }
         public Nullable<int> SEPARACION { get; set; }
         public string CODIGO_F { get; set; }

@@ -34,6 +34,7 @@ namespace DAL
         public DbSet<ActividadxTramite> ActividadxTramite { get; set; }
         public DbSet<acuerdo_fox> acuerdo_fox { get; set; }
         public DbSet<acuerdo_pago> acuerdo_pago { get; set; }
+        public DbSet<acuerdo_pago_banco> acuerdo_pago_banco { get; set; }
         public DbSet<bancos> bancos { get; set; }
         public DbSet<bitacora_tareas> bitacora_tareas { get; set; }
         public DbSet<bloques> bloques { get; set; }
@@ -47,6 +48,7 @@ namespace DAL
         public DbSet<empresas> empresas { get; set; }
         public DbSet<historial_clientes> historial_clientes { get; set; }
         public DbSet<historial_inmueble> historial_inmueble { get; set; }
+        public DbSet<historialIngreso> historialIngreso { get; set; }
         public DbSet<informacion> informacion { get; set; }
         public DbSet<inmueble_separacion> inmueble_separacion { get; set; }
         public DbSet<inmuebles> inmuebles { get; set; }
@@ -60,6 +62,8 @@ namespace DAL
         public DbSet<sala_ventas> sala_ventas { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<tareas> tareas { get; set; }
+        public DbSet<tipo_documentos> tipo_documentos { get; set; }
+        public DbSet<tipo_personas> tipo_personas { get; set; }
         public DbSet<trabajadores> trabajadores { get; set; }
         public DbSet<Tramites> Tramites { get; set; }
         public DbSet<Tramites_Inmueble> Tramites_Inmueble { get; set; }
@@ -90,8 +94,6 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
-        public DbSet<historialIngreso> historialIngresoSet { get; set; }
-        public DbSet<acuerdo_pago_banco> acuerdo_pago_banco { get; set; }
     
         [EdmFunction("CRMEntiti", "oasi")]
         public virtual IQueryable<oasi_Result> oasi()

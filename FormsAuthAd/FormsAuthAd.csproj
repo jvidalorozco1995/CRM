@@ -1355,6 +1355,8 @@
     <Content Include="BLLscripts\BLLSala_Ventas.js" />
     <Content Include="BLLscripts\BLLSeguiNegocios.js" />
     <Content Include="BLLscripts\BLLTareas.js" />
+    <Content Include="BLLscripts\BLLTipoDocumentos.js" />
+    <Content Include="BLLscripts\BLLTipoPersonas.js" />
     <Content Include="BLLscripts\BLLTrabajadores.js" />
     <Content Include="BLLscripts\BLLProyectos.js" />
     <Content Include="BLLscripts\BLLConfigTramites.js" />
@@ -2297,6 +2299,7 @@
     <Content Include="Servicios\WInfocomercialProyec.asmx" />
     <Content Include="Servicios\WInformacion.asmx" />
     <Content Include="ServiciosFox\WInmuebles.asmx" />
+    <Content Include="Servicios\WListaPersonas.asmx" />
     <Content Include="Servicios\WNegocio.asmx" />
     <Content Include="ServiciosFox\WProyectos.asmx" />
     <Content Include="Servicios\WNegocioFox.asmx" />
@@ -2306,6 +2309,7 @@
     <Content Include="Servicios\WSeparaciones.asmx" />
     <Content Include="Servicios\WServidores.asmx" />
     <Content Include="Servicios\WTareas.asmx" />
+    <Content Include="Servicios\WTipoDocumentos.asmx" />
     <Content Include="Servicios\WTrabajador.asmx" />
     <Content Include="Servicios\WTramites.asmx" />
     <Content Include="Servicios\WTramitesInmuebles.asmx" />
@@ -4888,6 +4892,10 @@
       <DependentUpon>WInmuebles.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Servicios\WListaPersonas.asmx.cs">
+      <DependentUpon>WListaPersonas.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Servicios\WNegocio.asmx.cs">
       <DependentUpon>WNegocio.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -4922,6 +4930,10 @@
     </Compile>
     <Compile Include="Servicios\WTareas.asmx.cs">
       <DependentUpon>WTareas.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WTipoDocumentos.asmx.cs">
+      <DependentUpon>WTipoDocumentos.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WTrabajador.asmx.cs">

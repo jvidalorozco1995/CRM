@@ -40,5 +40,7 @@ namespace DAL
         public string NOMBRE_SALA { get; set; }
         public string ASOCIADO { get; set; }
         public string ASESOR { get; set; }
+        public Nullable<int> TIPO_PERSONA { get; set; }
+        public Nullable<int> TIPO_DOCUMENTO { get; set; }
     }
 }

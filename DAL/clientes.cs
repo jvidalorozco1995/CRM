@@ -27,6 +27,8 @@ namespace DAL
         }
     
         public string CEDULA { get; set; }
+        public Nullable<int> TIPO_PERSONA { get; set; }
+        public Nullable<int> TIPO_DOCUMENTO { get; set; }
         public string NOMBRES { get; set; }
         public string P_APELLIDO { get; set; }
         public string S_APELLIDO { get; set; }

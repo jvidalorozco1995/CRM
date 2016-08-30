@@ -6,6 +6,10 @@ var utl = new BLLUtilidades();
 var inm = new BLLInmuebles();
 var emp = new BLLEmpresa();
 var act = new BLLActInmuebles();
+
+var TipPer = new BLLTipoPersonas();
+var TipDoc = new BLLTipoDocumentos();
+
 var admComercial = (function () {
     var map;
     var proyec = utl.getUrl('proyec');
@@ -738,6 +742,8 @@ var admComercial = (function () {
 
     var _Datos = function () {
         persona = {};
+        persona.Tipo_documento= $('#ComTipoDocumento').val();
+        persona.Tipo_persona = $('#ComTipoPersona').val();
         persona.Cedula = $('#TxtIdentidad').val();
         persona.Nombres = $('#TxtNombres').val().toUpperCase();
         persona.P_apellido = $('#TxtP_apellido').val().toUpperCase();
@@ -806,6 +812,8 @@ var admComercial = (function () {
 
     var _DatosUpdate = function () {
         actualizar = {};
+        actualizar.Tipo_documento = $('#ComTipoDocumento2').val();
+        actualizar.Tipo_persona = $('#ComTipoPersona2').val();
         actualizar.Cedula = $('#Text1').val();
         actualizar.Nombres = $('#Text2').val(); 
         actualizar.P_apellido = $('#Text3').val(); 
@@ -928,7 +936,8 @@ var admComercial = (function () {
         init: function () {
             
             _Inic();
-            
+            TipPer.ListaTipoPersonas();
+            TipDoc.ListaTipoDocumentos();
             _addHandlers();
             _initialize();;
         },

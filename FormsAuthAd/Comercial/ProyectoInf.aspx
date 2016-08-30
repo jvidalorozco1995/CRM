@@ -201,6 +201,22 @@
                                             <div class="row">
                                                 <div class="col-lg-12">
                                                     <div class="row">
+                                                          <div class="form-group col-lg-12">
+                                        <label>Tipo de documento:</label>
+                                    <select id="ComTipoDocumento" title="Filtar tipo de documento" class="form-control">
+                                       <option>
+                                            Seleccione tipo de documento...
+                                       </option>
+                                    </select>
+                                    </div>
+                                     <div class="form-group col-lg-12">
+                                        <label>Tipo de persona:</label>
+                                    <select id="ComTipoPersona" title="Filtar tipo de persona" class="form-control">
+                                       <option>
+                                            Seleccione tipo de persona...
+                                       </option>
+                                    </select>
+                                    </div>
                                                         <div class="form-group col-lg-11">
                                                             <label>Documento de Identidad *</label>
                                                           <input type="text" value="" id="TxtIdentidad" class="form-control" maxlength="10" autofocus="" style="float:left">
@@ -788,7 +804,24 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="row">
+                                <div class="form-group col-lg-12">
+                           
+                                         <label>Tipo de documento:</label>
+                                    <select id="ComTipoDocumento1" title="Filtar tipo de documento" class="form-control" readonly="">
+                                       <option>
+                                            Seleccione tipo de documento...
+                                       </option>
+                                    </select>
+                                  
+                                    </div>
+                                     <div class="form-group col-lg-12">
+                                        <label>Tipo de persona:</label>
+                                    <select id="ComTipoPersona1" title="Filtar tipo de persona" class="form-control" readonly="">
+                                       <option>
+                                            Seleccione tipo de persona...
+                                       </option>
+                                    </select>
+                                    </div>
                                     <div class="form-group col-lg-12">
                                         <label>Documento de Identidad</label>
                                         <input type="text" value="" id="Text1" class="form-control" maxlength="10" autofocus="" readonly=""/>
@@ -900,7 +933,7 @@
             </div>
         </div>
 
-    </div>
+  
 
  
             
@@ -940,6 +973,8 @@
     <script src="../BLLscripts/BLLSala_Ventas.js"></script>
     <script src="../BLLscripts/BLLClientes.js"></script>
     <script src="../BLLscripts/BLLComercial.js"></script>
+    <script src="../BLLscripts/BLLTipoDocumentos.js"></script>
+    <script src="../BLLscripts/BLLTipoPersonas.js"></script>
     <script src="js/proyecInfo.js"></script>
     <script src="../scripts_crm/bootstrap-datepicker.js"></script>
     <script src="../scripts_crm/accounting.js"></script>

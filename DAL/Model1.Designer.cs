@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'F:\Usuarios\aangarita\Documents\Visual Studio 2015\Projects\DAL\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\Usuarios\jvidal\Documents\Visual Studio 2013\Projects\FormsAuthAd21-08-2015\FormsAuthAd\DAL\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

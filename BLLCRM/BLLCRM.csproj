@@ -81,6 +81,8 @@
     <Compile Include="BLLSala_Ventas.cs" />
     <Compile Include="BLLseparaciones.cs" />
     <Compile Include="BLLTareas.cs" />
+    <Compile Include="BLLTipoDocumentos.cs" />
+    <Compile Include="BLLTipoPersonas.cs" />
     <Compile Include="BLLTrabajador.cs" />
     <Compile Include="BLLTramites.cs" />
     <Compile Include="BLLTramitesInmueble.cs" />

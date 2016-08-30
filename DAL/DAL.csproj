@@ -179,6 +179,12 @@
     <Compile Include="tareas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="tipo_documentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tipo_personas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="trabajadores.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

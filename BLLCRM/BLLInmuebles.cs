@@ -15,7 +15,7 @@ using System.Web.Security;
 namespace BLLCRM
 {    public class BLLInmuebles
     {
-      CRMEntiti db = new CRMEntiti();
+        CRMEntiti db = new CRMEntiti();
         private string user = null;
         string mensaje = null;
         private int DIAS_TR=0;

@@ -118,6 +118,22 @@
                             <div class="col-lg-12">
                                 <div class="row">
                                     <div class="form-group col-lg-12">
+                                        <label>Tipo de documento:</label>
+                                    <select id="ComTipoDocumento" title="Filtar tipo de documento" class="form-control">
+                                       <option>
+                                            Seleccione tipo de documento...
+                                       </option>
+                                    </select>
+                                    </div>
+                                     <div class="form-group col-lg-12">
+                                        <label>Tipo de persona:</label>
+                                    <select id="ComTipoPersona" title="Filtar tipo de persona" class="form-control">
+                                       <option>
+                                            Seleccione tipo de persona...
+                                       </option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group col-lg-12">
                                         <label>Documento de Identidad</label>
                                         <input type="text" value="" id="Text1" class="form-control" maxlength="10" autofocus="" readonly/>
                                     </div>

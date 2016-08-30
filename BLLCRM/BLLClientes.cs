@@ -189,6 +189,9 @@ namespace BLLCRM
                 foreach (var item in LisC)
                 {
                     EntiClientes Ec = new EntiClientes();
+
+                    Ec.TIPO_DOCUMENTO = item.TIPO_DOCUMENTO;
+                    Ec.TIPO_PERSONA = item.TIPO_PERSONA;
                     Ec.CEDULA = item.CEDULA;
                     Ec.NOMBRES = item.NOMBRES;
                     Ec.P_APELLIDO = item.P_APELLIDO;

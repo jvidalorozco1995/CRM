@@ -50,6 +50,8 @@
     <Compile Include="EntiInmueble.cs" />
     <Compile Include="Entinegocio.cs" />
     <Compile Include="EntitiCompromisos.cs" />
+    <Compile Include="EntitiTipoDocumentos.cs" />
+    <Compile Include="EntitiTipoPersonas.cs" />
     <Compile Include="VistaTramite\VTramiteBanco.cs" />
     <Compile Include="VsFox\AcuerdoFox.cs" />
     <Compile Include="VsFox\Inmuebles2Fox.cs" />
