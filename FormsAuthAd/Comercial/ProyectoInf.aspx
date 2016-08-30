@@ -205,7 +205,7 @@
                                         <label>Tipo de documento:</label>
                                     <select id="ComTipoDocumento" title="Filtar tipo de documento" class="form-control">
                                        <option>
-                                            Seleccione tipo de documento...
+                                           
                                        </option>
                                     </select>
                                     </div>
@@ -213,7 +213,7 @@
                                         <label>Tipo de persona:</label>
                                     <select id="ComTipoPersona" title="Filtar tipo de persona" class="form-control">
                                        <option>
-                                            Seleccione tipo de persona...
+
                                        </option>
                                     </select>
                                     </div>
@@ -807,18 +807,18 @@
                                 <div class="form-group col-lg-12">
                            
                                          <label>Tipo de documento:</label>
-                                    <select id="ComTipoDocumento1" title="Filtar tipo de documento" class="form-control" readonly="">
+                                    <select id="ComTipoDocumento1" title="Filtar tipo de documento" class="form-control" readonly="" >
                                        <option>
-                                            Seleccione tipo de documento...
+                                          
                                        </option>
                                     </select>
                                   
                                     </div>
                                      <div class="form-group col-lg-12">
                                         <label>Tipo de persona:</label>
-                                    <select id="ComTipoPersona1" title="Filtar tipo de persona" class="form-control" readonly="">
+                                    <select id="ComTipoPersona1" title="Filtar tipo de persona" class="form-control  " readonly="" >
                                        <option>
-                                            Seleccione tipo de persona...
+                                           
                                        </option>
                                     </select>
                                     </div>
