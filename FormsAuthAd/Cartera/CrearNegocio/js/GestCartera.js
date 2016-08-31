@@ -847,14 +847,14 @@ var _admnegocio = (function () {
                       ]
                  };
 
-        var dataAdapter = new $.jqx.dataAdapter(source);
+        var dataAdapter2 = new $.jqx.dataAdapter(source);
 
 
         // initialize jqxDataTable
         $("#dataTable2").jqxGrid(
         {
             width: "100%",
-            source: dataAdapter,
+            source: dataAdapter2,
             pageable: true,
             editable: true,
             //   autoheight: true,
@@ -890,8 +890,8 @@ var _admnegocio = (function () {
         });
         $(".jqx-disableselect").removeClass("jqx-disableselect");
 
-        console.log(dataAdapter)
-        acuerdoPG = dataAdapter.cachedrecords;
+        console.log(dataAdapter2)
+        acuerdoPG = dataAdapter2.cachedrecords;
         console.log(acuerdoPG)
         ///setdata = null;
     };

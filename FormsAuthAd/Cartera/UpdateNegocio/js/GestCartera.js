@@ -914,7 +914,7 @@ var _admnegocio = (function () {
                      [
                          { name: 'CUOTA', type: 'string' },
                          { name: 'FECHA_PAGO', type: 'string' },
-                         { name: 'VALOR_CUOTA', type: 'int' }
+                         { name: 'VALOR_CUOTA', type: 'string' }
                      ]
                  };
         
@@ -952,7 +952,7 @@ var _admnegocio = (function () {
              {
                  text: 'VALOR CUOTA',
                  editable: true,
-                // columntype: 'decimal',
+                 columntype: 'string',
                  datafield: 'VALOR_CUOTA',
                  cellsFormat: 'c2'
                  
@@ -977,7 +977,7 @@ var _admnegocio = (function () {
                       [
                           { name: 'CUOTA', type: 'string' },
                           { name: 'FECHA_PAGO', type: 'string' },
-                          { name: 'VALOR_CUOTA', type: 'int' }
+                          { name: 'VALOR_CUOTA', type: 'string' }
                       ]
                  };
 
@@ -1016,7 +1016,7 @@ var _admnegocio = (function () {
              {
                  text: 'VALOR CUOTA',
                  editable: true,
-                 // columntype: 'decimal',
+                 columntype: 'string',
                  datafield: 'VALOR_CUOTA',
                  cellsFormat: 'c2'
 
