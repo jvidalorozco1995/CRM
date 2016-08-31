@@ -1364,6 +1364,7 @@
     <Content Include="BLLscripts\BLLUser.js" />
     <Content Include="BLLscripts\BLLUtilidades.js" />
     <Content Include="Cartera\CrearNegocio\Crearnegocio.aspx" />
+    <Content Include="Cartera\CrearNegocio\ListadoSeparaciones.aspx" />
     <Content Include="Cartera\ListaNegocioFox\Estacuenta.html" />
     <Content Include="Cartera\SeguimientoNegocio\Estacuenta.html" />
     <Content Include="Cartera\SeguimientoNegocio\GesNegocio.aspx" />
@@ -4617,6 +4618,13 @@
     </Compile>
     <Compile Include="Cartera\CrearNegocio\GesCartera.aspx.designer.cs">
       <DependentUpon>GesCartera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cartera\CrearNegocio\ListadoSeparaciones.aspx.cs">
+      <DependentUpon>ListadoSeparaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cartera\CrearNegocio\ListadoSeparaciones.aspx.designer.cs">
+      <DependentUpon>ListadoSeparaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cartera\SeguimientoNegocio\GesNegocio.aspx.cs">
       <DependentUpon>GesNegocio.aspx</DependentUpon>

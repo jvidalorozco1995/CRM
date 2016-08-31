@@ -347,7 +347,7 @@ function BLLClientes() {
 
     BLLClientes.infoClientes = function (cliente) {
         $.each(cliente, function (i, item) {
-            alert(JSON.stringify(item.TIPO_DOCUMENTO));
+          
             $('#ComTipoDocumento1').val(item.TIPO_DOCUMENTO);
             $('#ComTipoPersona1').val(item.TIPO_PERSONA);
 

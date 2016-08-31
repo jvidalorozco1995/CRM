@@ -66,7 +66,7 @@ var _admnegocio = (function () {
        });
 
 
-
+        //ESTA PARTE SE INHABILITO 
         $(document).on('click', '#BtnDisponibilidad', function () {
             switch (bandera) {
                 case 0:
@@ -86,7 +86,8 @@ var _admnegocio = (function () {
             }
                 
         });
-     
+        /*|111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111   ARIBBBA BOTON DISPONIBILIDAD*/
+     /*-------------------------------------------------------------------------------------------------------------------------------------------------REVISAR ESTO */
 
         $(document).on('click', '#BtnAsociadoc', function () {
             cedula = $('#TxtIdentidad').val();
@@ -106,7 +107,7 @@ var _admnegocio = (function () {
         });
 
         $(document).on('click', '.CargarN', function () {
-            var datos = $(this).attr("id");
+           /* var datos = $(this).attr("id");
             var result = datos.split("/")
             var persona = result[0];
             separacion = result[1];
@@ -114,7 +115,9 @@ var _admnegocio = (function () {
             $('#TxtIdentidad').val(persona);
             $('#datos').show();
             $('#BtnDisponibilidad').click();
-            $('#clientesnegocio').hide();
+            $('#clientesnegocio').hide();*/
+
+            window.location.replace("Crearnegocio.aspx");
         });
 
         $("#Btnfecha").click(function () {

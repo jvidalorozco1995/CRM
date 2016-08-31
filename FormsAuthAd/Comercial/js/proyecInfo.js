@@ -812,8 +812,8 @@ var admComercial = (function () {
 
     var _DatosUpdate = function () {
         actualizar = {};
-        actualizar.Tipo_documento = $('#ComTipoDocumento2').val();
-        actualizar.Tipo_persona = $('#ComTipoPersona2').val();
+        actualizar.Tipo_documento = $('#ComTipoDocumento1').val();
+        actualizar.Tipo_persona = $('#ComTipoPersona1').val();
         actualizar.Cedula = $('#Text1').val();
         actualizar.Nombres = $('#Text2').val(); 
         actualizar.P_apellido = $('#Text3').val(); 
@@ -963,6 +963,7 @@ var admComercial = (function () {
         },
 
         Validar: function () {
+
             if ($('#TxtIdentidad').val().length < 1 || !Numeros.test($('#TxtIdentidad').val())) {
                 toastr.error('CRM Mayales - Notificacion' +
                     '</br></br>1 - No a digitado nada en el campo documento de identidad' +
@@ -985,44 +986,59 @@ var admComercial = (function () {
                         $('#TxtNombres').css("border", "1px solid #3366FF");
                         return false;
                     } else {
-                            if ($('#TxtTel1').val().length < 1 || !Numeros.test($('#TxtTel1').val())) {
+                        if ($('#TxtTel1').val().length < 1 || !Numeros.test($('#TxtTel1').val())) {
+                            toastr.error('CRM Mayales-Notificacion' +
+                             '</br></br> 1 - No ha digitado nada en el campo Telefono celular' +
+                             '<br/>2 - Verifique que no haya ingresado letras en el campo telefono celular');
+                            $('#TxtTel1').css("border", "1px solid #3366FF");
+                            return false;
+                        } else {
+                            if (!letras.test($('#TxtDireccion').val())) {
                                 toastr.error('CRM Mayales-Notificacion' +
-                                 '</br></br> 1 - No ha digitado nada en el campo Telefono celular' +
-                                 '<br/>2 - Verifique que no haya ingresado letras en el campo telefono celular');
-                                $('#TxtTel1').css("border", "1px solid #3366FF");
+                                 '<br/>1 - Verifique que no haya ingresado valores numericos en el campo direccion' +
+                                 '<br/>2 - Verifique no se encuentre vacio en campo direccion');
+                                $('#TxtDireccion').css("border", "1px solid #3366FF");
                                 return false;
                             } else {
-                                if (!letras.test($('#TxtDireccion').val())) {
-                                    toastr.error('CRM Mayales-Notificacion' +
-                                     '<br/>1 - Verifique que no haya ingresado valores numericos en el campo direccion'+
-                                     '<br/>2 - Verifique no se encuentre vacio en campo direccion');
-                                    $('#TxtDireccion').css("border", "1px solid #3366FF");
-                                    return false;
+                                if ($('#ComProyect').val().length < 1) {
+                                    toastr.error('CRM Mayales - Notificacion' +
+                                         '<br/>Debe Seleccionar un proyecto de interes');
                                 } else {
-                                    if ($('#ComProyect').val().length < 1) {
+                                    if ($('#TxtEmail').val().length < 1 || !emailreg.test($('#TxtEmail').val())) {
                                         toastr.error('CRM Mayales - Notificacion' +
-                                             '<br/>Debe Seleccionar un proyecto de interes');
-                                    } else {
-                                        if ($('#TxtEmail').val().length < 1 || !emailreg.test($('#TxtEmail').val())) {
-                                            toastr.error('CRM Mayales - Notificacion' +
-                                             '<br/>1 - Verifique que no haya ingresado un email valido'+
-                                             '<br/>2 - Verifique que no se encuentre vacio el campo direccion');
-                                            $('#TxtEmail').css("border", "1px solid #3366FF");
-                                            return false;
+                                         '<br/>1 - Verifique que no haya ingresado un email valido' +
+                                         '<br/>2 - Verifique que no se encuentre vacio el campo direccion');
+                                        $('#TxtEmail').css("border", "1px solid #3366FF");
+                                        return false;
 
-                                        } else {
-                                            if ($('#CombSala').val() == "") {
-                                                toastr.error('CRM Mayales - Notificacion' +
-                                                 '</br></br> Debe Escoger una Sala de Ventas para continuar con el Proceso');
-                                                $('#CombSala').css("border", "1px solid #3366FF");
-                                                return false;
-                                            } else {
-                                                return true;
-                                            }
+                                    } else {
+                                        if ($('#CombSala').val() == "") {
+                                            toastr.error('CRM Mayales - Notificacion' +
+                                             '</br></br> Debe Escoger una Sala de Ventas para continuar con el Proceso');
+                                            $('#CombSala').css("border", "1px solid #3366FF");
+                                            return false;
                                         }
+
+                                        else if ($('#ComTipoDocumento').val() == "") {
+                                            toastr.error('CRM Mayales - Notificacion' +
+                                             '</br></br> Debe Escoger el tipo de documento para continuar con el Proceso');
+                                            $('#ComTipoDocumento').css("border", "1px solid #3366FF");
+                                            return false;
+                                        }
+                                        else if ($('#ComTipoPersona').val() == "") {
+                                            toastr.error('CRM Mayales - Notificacion' +
+                                             '</br></br> Debe Escoger el tipo de persona para continuar con el Proceso');
+                                            $('#ComTipoPersona').css("border", "1px solid #3366FF");
+                                            return false;
+                                        } else {
+                                            return true;
+                                        }
+
+
                                     }
                                 }
                             }
+                        }
                         }
                     }
                 }

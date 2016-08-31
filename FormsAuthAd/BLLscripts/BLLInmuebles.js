@@ -522,7 +522,10 @@ function BLLInmuebles() {
             else if (item.ESTADO == 'L')
             {
 
-                tabla += "<td class='CargarN'id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "  style='width:22px'><button class='btn btn-success btn-xs' type='button'>Crear Hoja de negocio</button></td>";
+               // tabla += "<td class='CargarN'id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "  style='width:22px'><button class='btn btn-success btn-xs' type='button'>Crear Hoja de negocio</button></td>";
+
+                //id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "
+                tabla += "<td class='CargarN' id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + " href=''   style='width:22px'><button class='btn btn-success btn-xs' type='button'>Crear Hoja de negocio</button></td>";
 
             }
               tabla += "</tr>";
