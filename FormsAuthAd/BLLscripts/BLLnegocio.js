@@ -392,7 +392,8 @@ BLLnegocio.prototype = {
    },
 
 
-    _Getcliente: function (cedula) {
+   _Getcliente: function (cedula) {
+      
          var datos = "{ 'c':" + JSON.stringify(cedula) + " }";
          $.ajax({
              type:"POST", url: Wcliente, data:datos,
@@ -400,11 +401,15 @@ BLLnegocio.prototype = {
              dataType: 'json',
              async: true,
              success: function (result) {
-                 if (result.d == "") { _Dto = result.d } else {
+                
+                 if (result.d == "") { alert("entro");  _Dto = result.d } else {
                      
+                     alert(JSON.stringify(result.d[0].INFORMACION));
                      document.getElementById("Tvalor").innerHTML = "";
                    
                      item = result.d[0];
+                   
+
 
                          $('#TxtNombres').val(item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO);
                          $('#Textcivil').val(item.ESTADO_CIVIL);
@@ -418,7 +423,7 @@ BLLnegocio.prototype = {
                          $('#TextPinteres').val(item.PROYEC_INTERES);
                          $('#Lvalor').val(utl.FormatNumero(item.VALOR_INM));
                          $("#Tvalor").append(utl.FormatNumero(item.VALOR_INM));
-
+                        
                      val_casa = item.VALOR_INM;
                      inicial = parseFloat(val_casa) * (30) / 100;
                      credito = parseFloat(val_casa) - (inicial);
@@ -462,6 +467,7 @@ BLLnegocio.prototype = {
              $('#Lvalor').val(utl.FormatNumero(item.VALOR_INM));
              $("#Tvalor").append(utl.FormatNumero(item.VALOR_INM));
              val_casa = item.VALOR_INM;
+            
          });
          inicial = parseFloat(val_casa) * (30) / 100;
          credito = parseFloat(val_casa) - (inicial);

@@ -1,6 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Crearnegocio.aspx.cs" Inherits="FormsAuthAd.Cartera.Crearnegocio" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+     <script src='<%= ResolveUrl("../../vendor/jquery/dist/jquery.min.js") %>'></script>
+    <script src='<%= ResolveUrl("../../scripts/jquery-1.11.1.min.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxcore.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxdatatable.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxdata.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxgrid.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxgrid.pager.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxscrollbar.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxbuttons.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxlistbox.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxgrid.edit.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxinput.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxcalendar.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxdatetimeinput.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxgrid.selection.js") %>'></script>
+    <script src='<%= ResolveUrl("../../jqwidgets/jqxdropdownlist.js") %>'></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
@@ -13,7 +29,7 @@
               
 
                 <!--Modal del los crear negocios-->
-                <div class="col-lg-12  center" style=" padding-left:300px; padding-right:300px">
+                <div class="col-lg-12  center" style=" padding-left:200px; padding-right:200px">
                     <div class="panel panel-success">
                         <div class="panel-body" id="datos">
 
@@ -31,13 +47,94 @@
                                         <div class="panel-body">
                                             <div class="row">
 
+                                                  <!---------PANEL DATOS DEL INMUEBLE---------->
+                                                <div class="form-group col-lg-12">
+                                                    <div class="stats-title pull-center">
+                                                        <h4>Datos del Inmueble</h4>
+                                                    </div>
+                                                </div>
+
+
+                                              <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="form-group col-lg-4">
+                                                        <label class="control-label">Tipo de inmueble</label>
+                                                    </div>
+                                                    <div class="form-group col-lg-2" style="display: none;">
+                                                        <label class="control-label">
+                                                            <input type="checkbox" value="Manzana" id="checkmanzada" class="form-group-lg">
+                                                            Manzana
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group col-lg-2" style="display: none;">
+                                                        <label class="control-label">
+                                                            <input type="checkbox" value="Torre" id="checktorre" class="form-group-lg">
+                                                            Torre
+                                                        </label>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-lg-4">
+                                                            <div class="col-lg-12">
+                                                                <label class="control-label">
+                                                                    <input type="checkbox" value="Casa" id="checkcasa" class="form-group-lg">
+                                                                    Casa
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <label class="control-label">
+                                                                    <input type="checkbox" value="Apartamento" id="checkapartamento" class="form-group-lg">
+                                                                    Apartamento
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-12">
+                                                    
+                                                        <label>Ubicación del inmueble</label>
+                                                   
+                                                </div>
+                                                 <div class="form-group col-lg-4">
+                                                    <label>Area privada</label>
+                                                    <input type="text" value="" id="TxtAreaprivada" class="form-control" name="" placeholder="Area privada">
+                                                </div>
+                                                <div class="form-group col-lg-4">
+                                                    <label>Area construida</label>
+                                                    <input type="text" value="" id="TxtAreaConstruida" class="form-control" name="" placeholder="Area construida" >
+                                                </div>
+                                                <div class="form-group col-lg-4">
+                                                    <label>Parqueadero</label>
+                                                    <input type="text" value="" id="TxtParqueadero" class="form-control" name="" placeholder="Ej : privado o comunal" >
+                                                </div>
+                                                 <div class="form-group col-lg-12">
+                                                     <label>Areas comunes de uso exclusivo</label>
+                                                     <input type="text" value="" id="TxtAreasComunes" class="form-control" name="" placeholder="Ej : terraza balcon o patio" >
+                                                </div>
+
+                                        <!--######################################################################################################-->
+
+
+
+
+
+
+
                                                 <!---------PANEL DATOS DEL PROPIETARIO---------->
                                                 <div class="form-group col-lg-12">
                                                     <div class="stats-title pull-center">
-                                                        <h4>Datos del Propietario</h4>
+                                                        <h4>Datos del Cliente</h4>
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-lg-8">
+                                                 <div class="form-group col-lg-2">
+                                                    <label>Tipo de persona</label>
+                                                    <input type="text" value="" id="TxtTipoPersona" class="form-control" maxlength="10" style="float: left" readonly="">
+                                                </div>
+                                                <div class="form-group col-lg-3">
+                                                    <label>Tipo de identificacion</label>
+                                                    <input type="text" value="" id="TxtTipoIdentidad" class="form-control" maxlength="10" style="float: left" readonly="">
+                                                </div>
+                                                <div class="form-group col-lg-3">
                                                     <label>Cedula</label>
                                                     <input type="text" value="" id="TxtIdentidad" class="form-control" maxlength="10" style="float: left">
                                                 </div>
@@ -54,21 +151,22 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-lg-6">
-                                                    <label>Propietario</label>
+                                                    <label>Comprador</label>
                                                     <input type="text" value="" id="TxtNombres" class="form-control" name="" placeholder="Propietario" readonly="">
                                                 </div>
                                                 <div class="form-group col-lg-6">
-                                                    <label>Expedicion</label>
+                                                    <label>Fecha expedicion</label>
                                                     <input type="text" value="" id="TextExpedicion" class="form-control" name="" readonly="" >
+                                                </div>
+                                                  <div class="form-group col-lg-6">
+                                                    <label>Lugar</label>
+                                                    <input type="text" value="" id="Textlugar" class="form-control" name="">
                                                 </div>
                                                 <div class="form-group col-lg-6">
                                                     <label>Fecha de nacimiento</label>
                                                     <input type="text" value="" id="Textnacimiento" class="form-control" name="">
                                                 </div>
-                                                <div class="form-group col-lg-6">
-                                                    <label>Lugar</label>
-                                                    <input type="text" value="" id="Textlugar" class="form-control" name="">
-                                                </div>
+                                              
                                                 <div class="form-group col-lg-6">
                                                     <label>Direccion de correspondencia</label>
                                                     <input type="text" value="" id="Textdireccion" class="form-control">
@@ -149,41 +247,7 @@
                                                         <h4>Otros datos</h4>
                                                     </div>
                                                 </div>
-                                              <div class="col-lg-12">
-                                                <div class="row">
-                                                    <div class="form-group col-lg-4">
-                                                        <label class="control-label">Clase de inmueble comprado seleccione</label>
-                                                    </div>
-                                                    <div class="form-group col-lg-2" style="display: none;">
-                                                        <label class="control-label">
-                                                            <input type="checkbox" value="Manzana" id="checkmanzada" class="form-group-lg">
-                                                            Manzana
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-group col-lg-2" style="display: none;">
-                                                        <label class="control-label">
-                                                            <input type="checkbox" value="Torre" id="checktorre" class="form-group-lg">
-                                                            Torre
-                                                        </label>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="form-group col-lg-4">
-                                                            <div class="col-lg-12">
-                                                                <label class="control-label">
-                                                                    <input type="checkbox" value="Casa" id="checkcasa" class="form-group-lg">
-                                                                    Casa
-                                                                </label>
-                                                            </div>
-                                                            <div class="col-lg-12">
-                                                                <label class="control-label">
-                                                                    <input type="checkbox" value="Apartamento" id="checkapartamento" class="form-group-lg">
-                                                                    Apartamento
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    
                                             <div class="form-group col-lg-6">
                                                  <label class="control-label">Asesor de cartera</label>
                                                     <select id="CmbAsesorCart" class="form-control">
@@ -419,5 +483,14 @@
             position: relative;
         }
     </style>
+    <script src="../../vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../../vendor/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../../scripts_crm/HttpBll.js"></script>
+        <script src="../../scripts_crm/accounting.js"></script>
+        <script src="../../BLLscripts/BLLUtilidades.js"></script>
+ 
 
+
+    <script src="../../BLLscripts/BLLnegocio.js"></script>
+      <script src="js/CrearNegocio.js"></script>
 </asp:Content>

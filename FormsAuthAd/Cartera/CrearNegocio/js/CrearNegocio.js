@@ -1,13 +1,12 @@
 ﻿var _negocio = new BLLnegocio();
 var utl = new BLLUtilidades();
-var inmuebles = new BLLInmuebles();
 var emailreg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 var Numeros = /[0-9]/;
 var letras = /[a-zA-Z]/;
 var _admnegocio = (function () {
     var cedula = "";
     var bandera = 0;
-    var proyec = utl.getUrl('proyec');
+    var ced = utl.getUrl('cedula');
     var cactual = "";
     var dataSet = [];
     var acuerdoP = [];
@@ -17,61 +16,16 @@ var _admnegocio = (function () {
     var inmueble;
     var fechaEscr;
     var _addHandlers = function () {
-  
-        var item;
-        var valor = 0;
 
-        $("#checkmanzada").click(function () {
-            tipoint = "Manzana";
-            $("#checktorre").attr('checked', false);
-            $("#checkcasa").attr('checked', false);
-            $("#chekcapartamento").attr('checked', false);
-        });
+       
 
-        $("#checktorre").click(function () {
-            tipoint = "Torre";
-            $("#checkmanzada").attr('checked', false);
-            $("#checkcasa").attr('checked', false);
-            $("#chekcapartamento").attr('checked', false);
-        });
-
-        $("#checkcasa").click(function () {
-            tipoint = "Casa";
-            $("#checkmanzada").attr('checked', false);
-            $("#checktorre").attr('checked', false);
-            $("#chekcapartamento").attr('checked', false);
-        });
-
-        $("#chekcapartamento").click(function () {
-            tipoint = "Apartamento";
-            $("#checkmanzada").attr('checked', false);
-            $("#checktorre").attr('checked', false);
-            $("#checkcasa").attr('checked', false);
-        });
-
-       $(document).on('click', '#BtnCrearH', function () {
-            console.log(Dtohoja())
-            console.log(acuerdoP)
-            console.log(acuerdoPG)
-            Validar();
-            
-       });
-       $(document).on('click', '#BtnSiguiente', function () {
-         //  $('.nav-tabs a:last').tab('show');
-           $('#myTab li:eq(1) a').tab('show');
-       });
-       $(document).on('click', '#BtnSiguiente2', function () {
-           //  $('.nav-tabs a:last').tab('show');
-           $('#myTab li:eq(2) a').tab('show');
-       });
-
-
-        //ESTA PARTE SE INHABILITO 
+   
         $(document).on('click', '#BtnDisponibilidad', function () {
             switch (bandera) {
                 case 0:
                     document.getElementById("Lvalor").innerHTML = "";
-                    cedula = $("#TxtIdentidad").val();
+                    $("#TxtIdentidad").val(ced)
+                    cedula = ced;
                     _negocio._Getcliente(cedula);
                     cactual = cedula;
                     break;
@@ -84,46 +38,22 @@ var _admnegocio = (function () {
                     break;
 
             }
-                
-        });
-        /*|111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111   ARIBBBA BOTON DISPONIBILIDAD*/
-     /*-------------------------------------------------------------------------------------------------------------------------------------------------REVISAR ESTO */
 
+        });
+        
         $(document).on('click', '#BtnAsociadoc', function () {
             cedula = $('#TxtIdentidad').val();
             var val = localStorage.getItem("CedulaAct");
             localStorage["CedulaAct"] = $('#TxtIdentidad').val();
-            if (val == cedula)
-            {
+            if (val == cedula) {
                 utl._GetclienteAsociado(cedula);
                 $("#asociadoModal").modal("show");
             }
         });
-        
-        $(document).on('click', '.agregarAs', function () {
-            $("#TxtIdentidad").val($(this).attr("id"));
-            $('#asociadoModal').modal("hide");
-            bandera = 1;
-        });
 
-        $(document).on('click', '.CargarN', function () {
-           /* var datos = $(this).attr("id");
-            var result = datos.split("/")
-            var persona = result[0];
-            separacion = result[1];
-            inmueble = result[2];
-            $('#TxtIdentidad').val(persona);
-            $('#datos').show();
-            $('#BtnDisponibilidad').click();
-            $('#clientesnegocio').hide();*/
-            var datos = $(this).attr("id");
-            var result = datos.split("/")
-            var persona = result[0];
-            window.location.replace("Crearnegocio.aspx?cedula="+persona);
-        });
-
-        $("#Btnfecha").click(function () {
-             _negocio.Modificarfecha(item, $("#nuevafc").val(),valor)
+    
+        /*$("#Btnfecha").click(function () {
+            _negocio.Modificarfecha(item, $("#nuevafc").val(), valor)
         });
 
         $(document).on('click', '.BtFecha', function () {
@@ -134,11 +64,8 @@ var _admnegocio = (function () {
             valor = dato[2];
             $("#FechasPagos").modal("show")
         });
-
-        $('#Btncerrar').click(function () {
-            $('#Principal').hide();
-            $('#clientesnegocio').show();
-        });
+        */
+     
         $("#Textseparacion").change(function () {
             var separacion = $('#Textseparacion').val();
             var sep = +separacion.replace(/[^\d\.-]/g, '');
@@ -213,13 +140,13 @@ var _admnegocio = (function () {
                     fecha = año + "/" + mes + "/" + dia2;
                 }
                 else {
-                        if ((mes == 04 || mes == 06 || mes == 09 || mes == 11) && dia == 31) {
-                            dia2 = 30 
-                            fecha = año + "/" + mes + "/" + dia2;
-                        } else {
-                            fecha = año + "/" + mes + "/" + dia;
-                        }
-                     }
+                    if ((mes == 04 || mes == 06 || mes == 09 || mes == 11) && dia == 31) {
+                        dia2 = 30
+                        fecha = año + "/" + mes + "/" + dia2;
+                    } else {
+                        fecha = año + "/" + mes + "/" + dia;
+                    }
+                }
                 if (i === 0) {
                     nomc = "Separación";
                     dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha2, 'VALOR_CUOTA': parseFloat(separacion) });
@@ -231,7 +158,7 @@ var _admnegocio = (function () {
                 }
 
 
-               
+
             }
             nomc = "Subrogación";
             if (mes < 10) { mes = '0' + mes };
@@ -251,7 +178,7 @@ var _admnegocio = (function () {
                     fechaf = año + "-" + mes + "-" + dia;
                 }
             }
-            
+
             dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
@@ -330,9 +257,9 @@ var _admnegocio = (function () {
                         fecha = año + "/" + mes + "/" + dia;
                     }
                 }
-                    nomc = "Cuota No." + (i+1);
-                    dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
-                    mes = parseInt(mes) + 1;
+                nomc = "Cuota No." + (i + 1);
+                dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
+                mes = parseInt(mes) + 1;
 
             }
             //_FechaEscitura(fecha)
@@ -360,7 +287,7 @@ var _admnegocio = (function () {
             var fechas = new Date(ms2);
             var dias = fechas.getDate();
             var años = fechas.getFullYear();
-            var mess = fechas.getMonth() +1 ;
+            var mess = fechas.getMonth() + 1;
             if (mess < 10) { mess = '0' + mess };
             if (mess > 12) { años = parseInt(años) + 1; mess = '0' + 1; }
             if (mess == 02 && dias > 28) {
@@ -377,7 +304,7 @@ var _admnegocio = (function () {
             }
             var cuotas = $('#Textcuota').val();
             var cred = $('#Textcredito').val();
-            var cre = +cred.replace(/[^\d\.-]/g,'');
+            var cre = +cred.replace(/[^\d\.-]/g, '');
             cred = cre;
             var inicial = $('#Textinicial').val();
             var ini = +inicial.replace(/[^\d\.-]/g, '');
@@ -388,8 +315,8 @@ var _admnegocio = (function () {
             var val_casa = valor;
             var amorizar = 0.0;
             separacion = sep;
-            inicial= ini;
-            var credito = parseFloat(inicial-separacion);
+            inicial = ini;
+            var credito = parseFloat(inicial - separacion);
             $("#valcredito").val(credito);
             var nomc;
             amorizar = parseFloat(credito) / cuotas;
@@ -417,9 +344,9 @@ var _admnegocio = (function () {
                     dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
                     mes = parseInt(mes) + 1;
                 }
-               
-               
-               
+
+
+
             }
             nomc = "Subrogación";
             if (mes < 10) { mes = '0' + mes };
@@ -430,7 +357,7 @@ var _admnegocio = (function () {
                 fechaf = año + "-" + mes + "-" + dia2;
             }
             else {
-                if ((mes == 04 || mes == 06 || mes == 09 || mes == 11 )&& dia == 31) {
+                if ((mes == 04 || mes == 06 || mes == 09 || mes == 11) && dia == 31) {
                     dia2 = 30
                     fecha = año + "/" + mes + "/" + dia2;
                     fechaf = año + "-" + mes + "-" + dia2;
@@ -445,7 +372,7 @@ var _admnegocio = (function () {
             tabla(dataSet);
             $('#dataTable').jqxGrid('refresh');
             $('#dataTable').jqxGrid('refreshdata');
-            
+
         });
         $('#TextFecinicial').change(function () {
             dataSet = [];
@@ -497,7 +424,7 @@ var _admnegocio = (function () {
             $("#valcredito").val(credito);
             var nomc;
             amorizar = parseFloat(credito) / cuotas;
-           
+
             for (var i = 0; i <= cuotas; i++) {
                 if (mes < 10) { mes = '0' + mes };
                 if (mes > 12) { año = parseInt(año) + 1; mes = '0' + 1; }
@@ -524,7 +451,7 @@ var _admnegocio = (function () {
                 }
 
 
-              
+
             }
             nomc = "Subrogación";
             if (mes < 10) { mes = '0' + mes };
@@ -544,7 +471,7 @@ var _admnegocio = (function () {
                     fechaf = año + "-" + mes + "-" + dia;
                 }
             }
-            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred)});
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
             tabla(dataSet);
@@ -557,7 +484,7 @@ var _admnegocio = (function () {
             var date = new Date();
             var dia1 = date.getDate();
             var año1 = date.getFullYear();
-            var mes1 = date.getMonth() ;
+            var mes1 = date.getMonth();
             if (mes1 < 10) { mes1 = '0' + mes1 }
             var fecha2 = año1 + "/" + mes1 + "/" + dia1;
             ms = Date.parse($('#TextFecinicial2').val());
@@ -627,7 +554,7 @@ var _admnegocio = (function () {
                     mes = parseInt(mes) + 1;
                 }
 
-                
+
             }
             nomc = "Subrogación";
             if (mes < 10) { mes = '0' + mes };
@@ -647,7 +574,7 @@ var _admnegocio = (function () {
                     fechaf = año + "-" + mes + "-" + dia;
                 }
             }
-            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred)});
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
             $("#Textsubrogracion").val(fechaf)
             //_FechaEscitura(fecha)
             tabla(dataSet);
@@ -731,7 +658,7 @@ var _admnegocio = (function () {
                 }
 
 
-               
+
             }
             nomc = "Subrogación";
             ms = Date.parse($('#Textsubrogracion').val());
@@ -755,8 +682,8 @@ var _admnegocio = (function () {
                     fechaf = año + "-" + mes + "-" + dia;
                 }
             }
-             dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
-            
+            dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': parseFloat(cred) });
+
             //_FechaEscitura(fecha)
             tabla(dataSet);
             $('#dataTable').jqxGrid('refresh');
@@ -764,12 +691,12 @@ var _admnegocio = (function () {
 
         });
 
-        
+
 
         $(document).on('click', '.Btimprimir', function () {
-            var idhoja = $(this).attr("id");
-            window.open("Hoja_Negocio2.html?idhoja=" + idhoja + '&proyec=' + proyec, 'Graph', 'height=900px,width=650px;resizable=false');
-           
+           // var idhoja = $(this).attr("id");
+           // window.open("Hoja_Negocio2.html?idhoja=" + idhoja + '&proyec=' + proyec, 'Graph', 'height=900px,width=650px;resizable=false');
+
         });
 
     }
@@ -778,17 +705,17 @@ var _admnegocio = (function () {
 
         var source =
                  {
-                    localData: setdata,
-                    datatype: "array",
-                    destroy: true,
-                    dataFields:
-                     [
-                         { name: 'CUOTA', type: 'string' },
-                         { name: 'FECHA_PAGO', type: 'string' },
-                         { name: 'VALOR_CUOTA', type: 'int' }
-                     ]
+                     localData: setdata,
+                     datatype: "array",
+                     destroy: true,
+                     dataFields:
+                      [
+                          { name: 'CUOTA', type: 'string' },
+                          { name: 'FECHA_PAGO', type: 'string' },
+                          { name: 'VALOR_CUOTA', type: 'int' }
+                      ]
                  };
-        
+
         var dataAdapter = new $.jqx.dataAdapter(source);
 
 
@@ -799,9 +726,9 @@ var _admnegocio = (function () {
             source: dataAdapter,
             pageable: true,
             editable: true,
-         //   autoheight: true,
-          //  columnsresize: true,
-         //   autoRowHeight: true,
+            //   autoheight: true,
+            //  columnsresize: true,
+            //   autoRowHeight: true,
             columns: [
               {
                   text: 'CUOTA',
@@ -823,15 +750,15 @@ var _admnegocio = (function () {
              {
                  text: 'VALOR CUOTA',
                  editable: true,
-                // columntype: 'decimal',
+                 // columntype: 'decimal',
                  datafield: 'VALOR_CUOTA',
                  cellsFormat: 'c2'
-                 
+
              }
             ]
         });
         $(".jqx-disableselect").removeClass("jqx-disableselect");
-        
+
         console.log(dataAdapter)
         acuerdoP = dataAdapter.cachedrecords;
         console.log(acuerdoP)
@@ -914,7 +841,7 @@ var _admnegocio = (function () {
         _Fechaentrega(fechescri);
     }
 
-    var _Fechaentrega= function (fechaentr) {
+    var _Fechaentrega = function (fechaentr) {
         var fechent = fechaentr.split("/");
         var ent = fechent[0];
         var mesent = parseInt(fechent[1]) + 1;
@@ -926,7 +853,7 @@ var _admnegocio = (function () {
         _Fechasubrogracion(fechasent);
     }
 
-    var _Fechasubrogracion=function (fechasub) {
+    var _Fechasubrogracion = function (fechasub) {
         var fechasubr = fechasub.split("/");
         var entsb = fechasubr[0];
         var mesentsb = parseInt(fechasubr[1]) + 1;
@@ -984,11 +911,11 @@ var _admnegocio = (function () {
         negocio.ASOCIADO = cactual;
         negocio.SEPARACION = separacion;
         return negocio;
-      
+
     }
 
     var Validar = function () {
-      
+
         if ($('#TxtNombres').val().length < 1 || !letras.test($('#TxtNombres').val())) {
             toastr.error('CRM Mayales - Notificacion' +
                 '</br></br>1 - No a digitado nada en el campo nombre' +
@@ -1010,14 +937,14 @@ var _admnegocio = (function () {
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
             $('#TextExpedicion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
-           
+
         }
-       
+
         else if ($('#Textcivil').val().length < 1 || !letras.test($('#Textcivil').val())) {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo estado civil' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-           $('#Textcivil').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            $('#Textcivil').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
         }
@@ -1071,7 +998,7 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Cargo' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-             $('#Textcargo').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            $('#Textcargo').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
         }
@@ -1080,7 +1007,7 @@ var _admnegocio = (function () {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Profesión' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-          
+
             $('#Textprofesion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
 
@@ -1112,46 +1039,46 @@ var _admnegocio = (function () {
 
         }
 
-       /* else if (!letras.test($('#Textconyugue').val())) {
-            toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - digite un nombre valido el campo Conyugue' +
-                   '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
-            $('#Textconyugue').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
-            return false;
-
-        }
-
-        else if (!Numeros.test($('#TextidentificacionC').val())) {
-            toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - No a digitado nada en el campo Identificación del conyugue' +
-                   '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
-            $('#TextidentificacionC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
-            return false;
-
-        }*
-
-        else if (!Numeros.test($('#TexttelC').val())) {
-            toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - digite un numero valido en el campo celular' +
-                   '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
-            $('#TexttelC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
-            return false;
-
-        }
-        
-         else if (!Numeros.test($('#TextNh').val())) {
-            toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - digite un numero valido en el campo Nro de hijos' +
-                   '</br>2 - Verifique que no haya ingresado letras en el campo');
-            //$("#TxtIdentidad").css("background-color", "yellow");
-            $('#TextNh').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
-            return false;
-
-        }
-        */
+            /* else if (!letras.test($('#Textconyugue').val())) {
+                 toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - digite un nombre valido el campo Conyugue' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                 //$("#TxtIdentidad").css("background-color", "yellow");
+                 $('#Textconyugue').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+                 return false;
+     
+             }
+     
+             else if (!Numeros.test($('#TextidentificacionC').val())) {
+                 toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - No a digitado nada en el campo Identificación del conyugue' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                 //$("#TxtIdentidad").css("background-color", "yellow");
+                 $('#TextidentificacionC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+                 return false;
+     
+             }*
+     
+             else if (!Numeros.test($('#TexttelC').val())) {
+                 toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - digite un numero valido en el campo celular' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                 //$("#TxtIdentidad").css("background-color", "yellow");
+                 $('#TexttelC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+                 return false;
+     
+             }
+             
+              else if (!Numeros.test($('#TextNh').val())) {
+                 toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - digite un numero valido en el campo Nro de hijos' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                 //$("#TxtIdentidad").css("background-color", "yellow");
+                 $('#TextNh').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+                 return false;
+     
+             }
+             */
         else if ($('#TextIngresos').val().length < 1 || !Numeros.test($('#TextIngresos').val())) {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo ingresos' +
@@ -1161,9 +1088,9 @@ var _admnegocio = (function () {
 
         }
 
-       
 
-        else if ($('#TextInt').val().length < 1 ) {
+
+        else if ($('#TextInt').val().length < 1) {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Interes de compra' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
@@ -1205,10 +1132,10 @@ var _admnegocio = (function () {
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
             $('#Textcredito').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
             return false;
-                
+
         }
 
-        else if ($('#ComBancos').val().length < 1 ) {
+        else if ($('#ComBancos').val().length < 1) {
             toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo Bancos' +
                    '</br>2 - Verifique que no haya ingresado letras en el campo');
@@ -1282,33 +1209,29 @@ var _admnegocio = (function () {
     }
     var _Inicio = function () {
         $("#Lvalor").hide();
-        $("#Butimprimir").hide();
-        inmuebles._lisnegociosepracion(proyec);
-        $('#datos').hide();
-        utl.Bancos();
-        utl.AsesorCartera();
     }
 
     return {
         init: function () {
             _Inicio();
             _addHandlers();
+            $('#BtnDisponibilidad').click();
         },
     }
 
 }());
 
 $(document).ready(function () {
-  
 
-    
-   $('#TextExpedicion').datepicker({
+
+
+    $('#TextExpedicion').datepicker({
         format: 'yyyy/mm/dd',
-   });
-   $('#Textinicialg').datepicker({
-       format: 'yyyy/mm/dd',
-   });
-   
+    });
+    $('#Textinicialg').datepicker({
+        format: 'yyyy/mm/dd',
+    });
+
     $('#Textnacimiento').datepicker({
         format: 'yyyy/mm/dd',
     });

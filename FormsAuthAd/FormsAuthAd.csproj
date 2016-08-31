@@ -1364,6 +1364,7 @@
     <Content Include="BLLscripts\BLLUser.js" />
     <Content Include="BLLscripts\BLLUtilidades.js" />
     <Content Include="Cartera\CrearNegocio\Crearnegocio.aspx" />
+    <Content Include="Cartera\CrearNegocio\js\CrearNegocio.js" />
     <Content Include="Cartera\CrearNegocio\ListadoSeparaciones.aspx" />
     <Content Include="Cartera\ListaNegocioFox\Estacuenta.html" />
     <Content Include="Cartera\SeguimientoNegocio\Estacuenta.html" />
