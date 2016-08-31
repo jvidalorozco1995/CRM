@@ -134,6 +134,21 @@ namespace BLLCRM
                     hn.CODIGO_F = item.CODIGO_F;
                     hn.PROYECTO_INT = item.NOMBRE_PROYEC;
                     hn.FECHA_NEGOCIO = item.FECHA_NEGOCIO;
+                    hn.PARQUEADERO = item.PARQUEADERO;
+                    hn.AREAS_COMUNES = item.AREAS_COMUNES;
+                    hn.AREA_PRIVADA = item.AREA_PRIVADA;
+                    hn.AREA_CONSTRUIDA = item.AREA_CONSTRUIDA;
+                    hn.TIPO_DOCUMENTO_CONY = item.TIPO_DOCUMENTO_CONY;
+                    hn.LUGAR_EXPEDICION = item.LUGAR_EXPEDICION;
+                    hn.FECHA_EXPEDICION_CUY = item.FECHA_EXPEDICION_CUY;
+                    hn.ADICIONES_EXCLUSIONES = item.ADICIONES_EXCLUSIONES;
+                    hn.SUBSIDIO = item.SUBSIDIO;
+                    hn.GARAJE = item.GARAJE;
+                    hn.SALDO_FINANCIAR = item.SALDO_FINANCIAR;
+                    hn.VALOR_SERVICIOGAS = item.VALOR_SERVICIOGAS;
+                    hn.INTERESES_SUBROGACION = item.INTERESES_SUBROGACION;
+                    hn.AUT_MENSAJE = item.AUT_MENSAJE;
+                    hn.AUT_CORREO = item.AUT_CORREO;
                     
                     return hn;
                 }
@@ -221,7 +236,22 @@ namespace BLLCRM
                        hn.USER_NEGOCIO = item.PROPIETARIO;
                        hn.USER_CARTERA = item.USER_CARTERA;
                        hn.CODIGO_F = item.CODIGO_F;
-                       linE.Add(hn);
+                        hn.PARQUEADERO = item.PARQUEADERO;
+                        hn.AREAS_COMUNES = item.AREAS_COMUNES;
+                        hn.AREA_PRIVADA = item.AREA_PRIVADA;
+                        hn.AREA_CONSTRUIDA = item.AREA_CONSTRUIDA;
+                        hn.TIPO_DOCUMENTO_CONY = item.TIPO_DOCUMENTO_CONY;
+                        hn.LUGAR_EXPEDICION = item.LUGAR_EXPEDICION;
+                        hn.FECHA_EXPEDICION_CUY = item.FECHA_EXPEDICION_CUY;
+                        hn.ADICIONES_EXCLUSIONES = item.ADICIONES_EXCLUSIONES;
+                        hn.SUBSIDIO = item.SUBSIDIO;
+                        hn.GARAJE = item.GARAJE;
+                        hn.SALDO_FINANCIAR = item.SALDO_FINANCIAR;
+                        hn.VALOR_SERVICIOGAS = item.VALOR_SERVICIOGAS;
+                        hn.INTERESES_SUBROGACION = item.INTERESES_SUBROGACION;
+                        hn.AUT_MENSAJE = item.AUT_MENSAJE;
+                        hn.AUT_CORREO = item.AUT_CORREO;
+                        linE.Add(hn);
                    }
                    return linE;
                }
@@ -481,6 +511,21 @@ namespace BLLCRM
                 ctx.SEPARACION = n.SEPARACION;
                 ctx.USER_CARTERA = n.USER_CARTERA;
                 ctx.INGRESO = n.INGRESO;
+                ctx.PARQUEADERO = n.PARQUEADERO;
+                ctx.AREAS_COMUNES = n.AREAS_COMUNES;
+                ctx.AREA_PRIVADA = n.AREA_PRIVADA;
+                ctx.AREA_CONSTRUIDA = n.AREA_CONSTRUIDA;
+                ctx.TIPO_DOCUMENTO_CONY = n.TIPO_DOCUMENTO_CONY;
+                ctx.LUGAR_EXPEDICION = n.LUGAR_EXPEDICION;
+                ctx.FECHA_EXPEDICION_CUY = n.FECHA_EXPEDICION_CUY;
+                ctx.ADICIONES_EXCLUSIONES = n.ADICIONES_EXCLUSIONES;
+                ctx.SUBSIDIO = n.SUBSIDIO;
+                ctx.GARAJE = n.GARAJE;
+                ctx.SALDO_FINANCIAR = n.SALDO_FINANCIAR;
+                ctx.VALOR_SERVICIOGAS = n.VALOR_SERVICIOGAS;
+                ctx.INTERESES_SUBROGACION = n.INTERESES_SUBROGACION;
+                ctx.AUT_MENSAJE = n.AUT_MENSAJE;
+                ctx.AUT_CORREO = n.AUT_CORREO;
                 bd.SaveChanges();
                 AcuerdopagoUpdate(ac, n.ID_NEGOCIO);
                 AcuerdopagoUpdateGas(acg, n.ID_NEGOCIO);

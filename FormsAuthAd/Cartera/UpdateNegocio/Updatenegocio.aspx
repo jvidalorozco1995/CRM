@@ -332,6 +332,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                             <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div id="jqxWidget" style="margin: 0 auto;">
+                                                        <%-- <button type="button" id="datos">aaaa</button>--%>
+                                                        <div id="dataTable"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="panel-footer" id="divsiguiente2">
@@ -344,14 +352,7 @@
                                         <div class="panel-body">
                                             
 
-                                            <div class="col-lg-12">
-                                                <div class="row">
-                                                    <div id="jqxWidget" style="margin: 0 auto;">
-                                                        <%-- <button type="button" id="datos">aaaa</button>--%>
-                                                        <div id="dataTable"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                           
 
                                             
                                         </div>
