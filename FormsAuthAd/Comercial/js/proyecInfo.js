@@ -742,6 +742,7 @@ var admComercial = (function () {
 
     var _Datos = function () {
         persona = {};
+
         persona.Tipo_documento= $('#ComTipoDocumento').val();
         persona.Tipo_persona = $('#ComTipoPersona').val();
         persona.Cedula = $('#TxtIdentidad').val();

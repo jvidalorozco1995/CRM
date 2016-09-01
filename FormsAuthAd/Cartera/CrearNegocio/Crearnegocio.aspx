@@ -38,7 +38,7 @@
                                 <ul class="nav nav-tabs" id="myTab">
                                      <li class="active"><a data-toggle="tab" data-target="#tab-1">Informacion de cliente</a></li>
                                     <li class=""><a data-toggle="tab"data-target="#tab-2"">Acuerdos de gas</a></li>
-                                    <li class=""><a data-toggle="tab" data-target="#tab-3">Fechas de pago</a></li>
+                                    <li class=""><a data-toggle="tab" data-target="#tab-3">Acuerdos de pagos</a></li>
                                     
                                 </ul>
                                 <div class="tab-content">
