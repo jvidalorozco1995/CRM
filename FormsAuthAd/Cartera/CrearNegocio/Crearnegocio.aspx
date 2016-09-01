@@ -39,7 +39,7 @@
                                      <li class="active"><a data-toggle="tab" data-target="#tab-1">Informacion de cliente</a></li>
                                     <li class=""><a data-toggle="tab"data-target="#tab-2"">Acuerdos de gas</a></li>
                                     <li class=""><a data-toggle="tab" data-target="#tab-3">Fechas de pago</a></li>
-                                    <li class=""><a data-toggle="tab"data-target="#tab-4"">Acuerdos de pago</a></li>
+                                    
                                 </ul>
                                 <div class="tab-content">
                                      <!---------Tab 1---------->
@@ -457,25 +457,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="panel-footer" id="divsiguiente2">
-                                            <button class="btn btn-danger btn-btn-circle"  type="button" id="BtnSiguiente2">Siguiente</button>
-                                        </div>
-                                    </div>
-
-                                    <!--tab3-->
-                                    <div id="tab-4" class="tab-pane">
-                                        <div class="panel-body">
-                                            
-
-                                         
-
-                                            
-                                        </div>
-
                                         <div class="panel-footer" id="button">
                                             <button class="btn btn-danger btn-btn-circle" type="button" id="BtnCrearH">Crear negocio</button>
                                         </div>
                                     </div>
+
                                      <!--tab2-->
                                     <div id="tab-2" class="tab-pane" >
                                         <div class="panel-body">

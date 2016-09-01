@@ -1209,6 +1209,7 @@ var _admnegocio = (function () {
     }
     var _Inicio = function () {
         $("#Lvalor").hide();
+        utl.Bancos();
     }
 
     return {
