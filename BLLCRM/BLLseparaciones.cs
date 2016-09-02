@@ -313,8 +313,11 @@ public class negocioR {
             foreach (var item in LisC)
             {
                 EntiClientes Ec = new EntiClientes();
+      
                 Ec.CEDULA = item.CLIENTE;
                 Ec.NOMBRES = item.NOMBRES;
+                Ec.TIPODOCUMENTO = item.TIPODOCUMENTO;
+                Ec.TIPO = item.TIPO;
                 Ec.P_APELLIDO = item.P_APELLIDO;
                 Ec.S_APELLIDO = item.S_APELLIDO;
                 Ec.ESTADO_CIVIL = item.ESTADO_CIVIL;

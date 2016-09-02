@@ -42,5 +42,7 @@ namespace DAL
         public string ASESOR { get; set; }
         public Nullable<int> TIPO_PERSONA { get; set; }
         public Nullable<int> TIPO_DOCUMENTO { get; set; }
+        public string DIRECCION_CORRESPON { get; set; }
+        public string CELULAR { get; set; }
     }
 }

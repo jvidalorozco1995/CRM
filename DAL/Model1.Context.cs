@@ -12,9 +12,6 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Objects;
-    using System.Data.Objects.DataClasses;
-    using System.Linq;
     
     public partial class CRMEntiti : DbContext
     {
@@ -94,11 +91,5 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
-    
-        [EdmFunction("CRMEntiti", "oasi")]
-        public virtual IQueryable<oasi_Result> oasi()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<oasi_Result>("[CRMEntiti].[oasi]()");
-        }
     }
 }

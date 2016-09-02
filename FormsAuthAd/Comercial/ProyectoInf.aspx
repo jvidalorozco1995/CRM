@@ -244,6 +244,14 @@
                                                                 <option>Divorciado</option>
                                                             </select>
                                                         </div>
+                                                          <div class="form-group col-lg-6">
+                                        <label>Direccion de correspondencia</label>
+                                        <input type="text" value="" id="TxtDireccionCorrespondenicia" class="form-control" name="" placeholder="" />
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Celular</label>
+                                        <input type="text" value="" id="TxtCelular" class="form-control" name="" placeholder="" />
+                                    </div>
                                                         <div class="form-group col-lg-6">
                                                             <label>Direccion de resicencia</label>
                                                             <input type="text" value="" id="TxtDireccion" class="form-control" placeholder="Direccion">
@@ -259,8 +267,8 @@
                                                             </select>
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <label>Telefono Celular</label>
-                                                            <input type="tel" value="" id="TxtTel1" class="form-control" name="" placeholder="Celular" maxlength="10">
+                                                            <label>Telefóno</label>
+                                                            <input type="tel" value="" id="TxtTel1" class="form-control" name="" placeholder="Telefono" maxlength="10">
                                                         </div>
                                                         <div class="form-group col-lg-6">
                                                             <label>Correo</label>
@@ -847,6 +855,14 @@
                                             <option>DIVORCIADO</option>
                                         </select>
                                     </div>
+                                               <div class="form-group col-lg-6">
+                                        <label>Direccion de correspondencia</label>
+                                        <input type="text" value="" id="TxtDireccionCorrespondenicia1" class="form-control" name="" placeholder="" readonly/>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Celular</label>
+                                        <input type="text" value="" id="TxtCelular1" class="form-control" name="" placeholder="" readonly/>
+                                    </div>
                                     <div class="form-group col-lg-6">
                                         <label>Direccion de residencia</label>
                                         <input type="text" value="" id="Text6" class="form-control" placeholder="" readonly=""/>
@@ -861,7 +877,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-6">
-                                        <label>Telefono Celular</label>
+                                        <label>Telefono </label>
                                         <input type="text" value="" id="Text7" class="form-control" name="" placeholder="" readonly=""/>
                                     </div>
                                     <div class="form-group col-lg-6">

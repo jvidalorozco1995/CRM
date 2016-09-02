@@ -192,6 +192,8 @@ namespace BLLCRM
 
                     Ec.TIPO_DOCUMENTO = item.TIPO_DOCUMENTO;
                     Ec.TIPO_PERSONA = item.TIPO_PERSONA;
+                    Ec.DIRECCION_CORRESPON = item.DIRECCION_CORRESPON;
+                    Ec.CELULAR = item.CELULAR;
                     Ec.CEDULA = item.CEDULA;
                     Ec.NOMBRES = item.NOMBRES;
                     Ec.P_APELLIDO = item.P_APELLIDO;

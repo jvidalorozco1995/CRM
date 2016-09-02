@@ -12,6 +12,9 @@ namespace Entity
         public string CEDULA { get; set; }
         public int? TIPO_PERSONA { get; set; }
         public int? TIPO_DOCUMENTO { get; set; }
+        public string TIPODOCUMENTO { get; set; }
+        public string TIPO { get; set; }
+        public string DIRECCION_CORRESPON { get; set; }
         public string NOMBRES { get; set; }
         public string P_APELLIDO { get; set; }
         public string S_APELLIDO { get; set; }
@@ -20,6 +23,7 @@ namespace Entity
         public string TRABAJADOR { get; set; }
         public string TEL_EMPRESA { get; set; }
         public string DIRECCION { get; set; }
+        public string CELULAR { get; set; }
         public string TELEFONO2 { get; set; }
         public string PROYEC_INTERES { get; set; }
         public string BARRIO { get; set; }

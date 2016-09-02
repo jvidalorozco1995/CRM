@@ -157,8 +157,16 @@
                                         <label>Direccion de resicencia</label>
                                         <input type="text" value="" id="Text6" class="form-control" placeholder="" readonly/>
                                     </div>
+                                     <div class="form-group col-lg-6">
+                                        <label>Direccion de correspondencia</label>
+                                        <input type="text" value="" id="TxtDireccionCorrespondenicia" class="form-control" name="" placeholder="" readonly/>
+                                    </div>
                                     <div class="form-group col-lg-6">
-                                        <label>Telefono Celular</label>
+                                        <label>Celular</label>
+                                        <input type="text" value="" id="TxtCelular" class="form-control" name="" placeholder="" readonly/>
+                                    </div>
+                                    <div class="form-group col-lg-6">
+                                        <label>Telefono</label>
                                         <input type="text" value="" id="Text7" class="form-control" name="" placeholder="" readonly/>
                                     </div>
                                     <div class="form-group col-lg-6">

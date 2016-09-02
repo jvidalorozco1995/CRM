@@ -154,6 +154,10 @@
                                                         </a>
                                                     </div>
                                                 </div>
+                                                 <div class="form-group col-lg-6">
+                                                    <label>Lugar de expedición</label>
+                                                    <input type="text" value="" id="TextLugarExp" class="form-control">
+                                                </div>
                                                 <div class="form-group col-lg-6">
                                                     <label>Estado civil</label>
                                                     <input type="text" value="" id="Textcivil" class="form-control">
@@ -161,11 +165,7 @@
                                                 <div class="form-group col-lg-6">
                                                     <label>Comprador</label>
                                                     <input type="text" value="" id="TxtNombres" class="form-control" name="" placeholder="Propietario" readonly="">
-                                                </div>
-                                                  <div class="form-group col-lg-6">
-                                                    <label>Lugar de expedicion</label>
-                                                    <input type="text" value="" id="Textlugar" class="form-control" name="">
-                                                </div>
+                                               </div>
 
                                                 <div class="form-group col-lg-6">
                                                     <label>Fecha expedicion</label>
@@ -176,9 +176,10 @@
                                                     <label>Fecha de nacimiento</label>
                                                     <input type="text" value="" id="Textnacimiento" class="form-control" name="">
                                                 </div>
-                                                 <div class="form-group col-lg-6">
-                                                    <label>Lugar</label>
-                                                    <input type="text" value="" id="TextlugarNacimiento" class="form-control" name="">
+                                                   
+                                                  <div class="form-group col-lg-6">
+                                                    <label>Lugar de nacimiento</label>
+                                                    <input type="text" value="" id="Textlugar" class="form-control" name="">
                                                 </div>
                                                  <div class="form-group col-lg-6">
                                                     <label>No De hijos</label>
