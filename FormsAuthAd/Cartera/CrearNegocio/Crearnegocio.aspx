@@ -258,21 +258,35 @@
                                                     <label>Nombre de conyugue</label>
                                                     <input type="text" value="" id="Textconyugue" class="form-control">
                                                 </div>
-                                                 <div class="form-group col-lg-3">
-                                                    <label>Tipo de identificacion</label>
-                                                    <input type="text" value="" id="TxtTipoIdentificacionConyu" class="form-control" maxlength="10" style="float: left" readonly="">
-                                                </div>
+                                                
+                                                 <div class="form-group col-lg-6">
+                                        <label>Tipo de documento:</label>
+                                    <select id="TxtTipoIdentificacionConyu" title="Filtar tipo de documento" class="form-control">
+                                       <option value="0">
+                                            Seleccione tipo de documento...
+                                       </option>
+                                        <option value="2">
+                                            Cedula Ciudadania
+                                       </option>
+                                        <option value="1">
+                                              Cedula Extranjeria
+                                       </option>
+                                        <option value="3">
+                                              Nit
+                                       </option>
+                                    </select>
+                                                     </div>
                                                  <div class="form-group col-lg-6">
                                                     <label>Cedula</label>
                                                     <input type="number" value="" id="TextidentificacionC" class="form-control">
                                                 </div>
                                                 <div class="form-group col-lg-3">
                                                     <label>Lugar de expedición</label>
-                                                    <input type="text" value="" id="TxtLugarExpConyu" class="form-control" maxlength="10" style="float: left" readonly="">
+                                                    <input type="text" value="" id="TxtLugarExpConyu" class="form-control" maxlength="10" style="float: left">
                                                 </div>
                                                 <div class="form-group col-lg-3">
                                                     <label>Fecha de expedición</label>
-                                                    <input type="text" value="" id="TxtFechaExpConyu" class="form-control" maxlength="10" style="float: left" readonly="">
+                                                    <input type="text" value="" id="TxtFechaExpConyu" class="form-control" maxlength="10" style="float: left">
                                                 </div>
                                                   <div class="form-group col-lg-6">
                                                     <label>Telefono</label>
@@ -317,15 +331,15 @@
                                                  <div class="form-group col-lg-6">
                                                  <label class="control-label">Autorizo recibir información por mensaje a mi celular</label>
                                                     <select id="CmbAuto" class="form-control">
-                                                            <option>Si</option>
-                                                           <option>No</option>
+                                                            <option value="1">Si</option>
+                                                           <option value="0">No</option>
                                                     </select>
                                              </div>
                                                    <div class="form-group col-lg-6">
                                                  <label class="control-label">Autorizo recibir información por mensaje a mi correo electronico</label>
                                                     <select id="CmbAutoElectro" class="form-control">
-                                                            <option>Si</option>
-                                                           <option>No</option>
+                                                            <option value="1">Si</option>
+                                                           <option value="0">No</option>
                                                     </select>
                                               </div>
                                                  <div class="form-group col-lg-6">
@@ -404,7 +418,9 @@
                                                     </div>
                                                       <div class="form-group col-lg-6">
                                                         <label class="control-label">Valor total de venta</label>
-                                                        <input type="text" value="" id="TextValorventa" class="form-control" name="" >
+                                                       <input type="text" value="" id="TextValorventa" class="form-control" name="" style="
+    color: GREEN;font-weight: bold;
+">
                                                     </div>
                                                    
                                                     <div class="form-group col-lg-6">

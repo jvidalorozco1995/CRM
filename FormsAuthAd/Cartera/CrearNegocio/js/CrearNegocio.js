@@ -7,6 +7,8 @@ var _admnegocio = (function () {
     var cedula = "";
     var bandera = 0;
     var ced = utl.getUrl('cedula');
+    var inmu = utl.getUrl('inmueble');
+    var separaciones = utl.getUrl('separacion');
     var cactual = "";
     var dataSet = [];
     var acuerdoP = [];
@@ -17,7 +19,42 @@ var _admnegocio = (function () {
     var fechaEscr;
     var _addHandlers = function () {
 
-       
+        $("#checkmanzada").click(function () {
+            tipoint = "Manzana";
+            $("#checktorre").attr('checked', false);
+            $("#checkcasa").attr('checked', false);
+            $("#chekcapartamento").attr('checked', false);
+        });
+
+        $("#checktorre").click(function () {
+            tipoint = "Torre";
+            $("#checkmanzada").attr('checked', false);
+            $("#checkcasa").attr('checked', false);
+            $("#chekcapartamento").attr('checked', false);
+        });
+
+        $("#checkcasa").click(function () {
+            tipoint = "Casa";
+            $("#checkmanzada").attr('checked', false);
+            $("#checktorre").attr('checked', false);
+            $("#chekcapartamento").attr('checked', false);
+        });
+
+        $("#chekcapartamento").click(function () {
+            tipoint = "Apartamento";
+            $("#checkmanzada").attr('checked', false);
+            $("#checktorre").attr('checked', false);
+            $("#checkcasa").attr('checked', false);
+        });
+
+
+        $(document).on('click', '#BtnCrearH', function () {
+            console.log(Dtohoja())
+            console.log(acuerdoP)
+            console.log(acuerdoPG)
+            Validar();
+
+        });
 
    
         $(document).on('click', '#BtnDisponibilidad', function () {
@@ -191,6 +228,7 @@ var _admnegocio = (function () {
             //$('#dataTable').jqxGrid('refreshdata');
             funcalculos();
         });
+
         $('#Textcuota').change(function () {
             var c_inicial = $('#Textinicial').val()
             _negocio._RecalcularCredito();
@@ -1039,6 +1077,7 @@ var _admnegocio = (function () {
     }
 
     var Dtohoja = function () {
+
         var negocio = {};
 
         /*Datos del inmueble*/
@@ -1057,7 +1096,7 @@ var _admnegocio = (function () {
         negocio.EXPEDICION = $("#TextExpedicion").val();
         negocio.FECHA_NACI = $("#Textnacimiento").val();
         negocio.LUGAR = $("#Textlugar").val();
-        negocio.N_HIJO = $("#TextNh").val();
+        negocio.N_HIJO = $("#TextNh").val(); 
         negocio.DOMICILIO = $("Textdomicilio").val();
         negocio.DIRECCION_R = $("#Textdireccion").val();
         negocio.TELEFONO_P = $("#Textphone").val();
@@ -1070,6 +1109,8 @@ var _admnegocio = (function () {
         negocio.PROFESION = $("#Textprofesion").val();
         negocio.DIRECCION_EMPR = $("#TextdireccionE").val();
         negocio.TELFONO_EMP = $("#TexttelC").val();
+        var ingresos = $('#TextIngresos').val();
+        var ingres = +ingresos.replace(/[^\d\.-]/g, '');
         negocio.INGRESO = ingres;
         negocio.ANTIGUEDAD = $("#Textantiguedad").val();
 
@@ -1086,15 +1127,28 @@ var _admnegocio = (function () {
 
 
         /*Costo del inmueble*/
-        negocio.ADICIONES_EXCLUSIONES = $("#Textadiciones").val();
+        var ad = $("#Textadiciones").val();
+        var adi = +ad.replace(/[^\d\.-]/g, '');
+        negocio.ADICIONES_EXCLUSIONES = adi;
         negocio.SUBSIDIO = $("#Textsubsidio").val();
-        negocio.GARAJE = $("#TextGaraje").val();
-        negocio.DESCUENTO = $("#TextDescuento").val();
-        negocio.VALOR_SERVICIOGAS = $("#Textcreditog").val();
-        negocio.INTERESES_SUBROGACION = $("#TextIntereses").val();
+        var gara = $("#TextGaraje").val();
+        var garej = +gara.replace(/[^\d\.-]/g, '');
+        negocio.GARAJE = garej;
+        var de = $("#TextDescuento").val();
+        var desc = +de.replace(/[^\d\.-]/g, '');
+        negocio.DESCUENTO = desc;
+        var gas = $('#Textcreditog').val();
+        var gasito = +gas.replace(/[^\d\.-]/g, '');
+        negocio.VALOR_SERVICIOGAS = gasito;
+        negocio.INTERESES_SUBROGACION = 
         
         
         
+        negocio.AUT_MENSAJE = $("#CmbAutoElectro").val();
+        negocio.AUT_CORREO = $("#CmbAuto").val();
+        negocio.OBSERVACIONES = $("#TextObservaciones").val();
+      //  negocio.
+
         var Vcasa = $('#Lvalor').val();
         var Vcasas = +Vcasa.replace(/[^\d\.-]/g, '');
         negocio.VALOR_CASA = Vcasas;
@@ -1111,12 +1165,14 @@ var _admnegocio = (function () {
         negocio.FECHA_SUBRO = $("#Textsubrogracion").val();
         negocio.ASESOR_INFO = $("#Textasesorinf").val();
         negocio.MEDIO_ENT = $("#TextmedioInf").val();
-        var ingresos = $('#TextIngresos').val();
-        var ingres = +ingresos.replace(/[^\d\.-]/g, '');
+       
         
         negocio.USER_CARTERA = $("#CmbAsesorCart").val();
         negocio.ASOCIADO = cactual;
-        negocio.SEPARACION = separacion;
+        //var separacion1 = $('#Textseparacion').val();
+       // var sep1 = +separacion1.replace(/[^\d\.-]/g, '');
+
+        negocio.SEPARACION = separaciones;
         return negocio;
 
     }
@@ -1410,7 +1466,7 @@ var _admnegocio = (function () {
 
         } else {
 
-            _negocio._addHoja(Dtohoja(), inmueble, acuerdoP, acuerdoPG);
+            _negocio._addHoja(Dtohoja(), inmu, acuerdoP, acuerdoPG);
         }
 
     }

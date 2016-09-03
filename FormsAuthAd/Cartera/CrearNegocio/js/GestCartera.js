@@ -110,7 +110,7 @@ var _admnegocio = (function () {
            /* var datos = $(this).attr("id");
             var result = datos.split("/")
             var persona = result[0];
-            separacion = result[1];
+           
             inmueble = result[2];
             $('#TxtIdentidad').val(persona);
             $('#datos').show();
@@ -119,7 +119,9 @@ var _admnegocio = (function () {
             var datos = $(this).attr("id");
             var result = datos.split("/")
             var persona = result[0];
-            window.location.replace("Crearnegocio.aspx?cedula="+persona);
+            separacion = result[1];
+            inmueble = result[2];
+            window.location.replace("Crearnegocio.aspx?cedula=" + persona + "&inmueble=" + inmueble + "&separacion="+separacion);
         });
 
         $("#Btnfecha").click(function () {
