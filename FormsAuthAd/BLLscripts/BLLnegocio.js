@@ -422,6 +422,7 @@ BLLnegocio.prototype = {
                          $('#TextmedioInf').val(item.INFORMACION);
                          $('#TextPinteres').val(item.PROYEC_INTERES);
                          $('#Lvalor').val(utl.FormatNumero(item.VALOR_INM));
+                         $('#Lvalor2').val(utl.FormatNumero(item.VALOR_INM));
                          $("#Tvalor").append(utl.FormatNumero(item.VALOR_INM));
                         
                      val_casa = item.VALOR_INM;
@@ -465,6 +466,7 @@ BLLnegocio.prototype = {
              $('#TextmedioInf').val(item.INFORMACION);
              $('#TextPinteres').val(item.PROYEC_INTERES);
              $('#Lvalor').val(utl.FormatNumero(item.VALOR_INM));
+             $('#Lvalor2').val(utl.FormatNumero(item.VALOR_INM));
              $("#Tvalor").append(utl.FormatNumero(item.VALOR_INM));
              val_casa = item.VALOR_INM;
             

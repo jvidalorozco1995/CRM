@@ -359,6 +359,7 @@
                                                     <div class="form-group col-lg-12">
                                                         <h3 id="Tvalor"></h3>
                                                         <input class="control-label" id="Lvalor" type="text" />
+                                                         <input class="control-label" id="Lvalor2" type="text" />
 
                                                     </div>
                                                     <div class="form-group col-lg-6">
@@ -445,14 +446,14 @@
                                                         <label class="control-label">Asesor que dio la información</label>
                                                         <input type="text" value="" id="Textasesorinf" class="form-control" name="" readonly="">
                                                     </div>
-                                                      <div class="col-lg-12">
-                                                <div class="row">
-                                                    <div id="jqxWidget" style="margin: 0 auto;">
-                                                        <%-- <button type="button" id="datos">aaaa</button>--%>
-                                                        <div id="dataTable"></div>
+                                                      < <div class="col-lg-12">
+                                                    <div class="row">
+                                                         <div id="jqxWidget" style="margin: 0 auto;">
+                                                         
+                                                            <div id="dataTable"></div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                 </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -482,14 +483,14 @@
                                                         <input type="number" min="1" value="" id="Textcuotag" class="form-control" name="" >
                                                     </div>
 
-                                                    <div class="col-lg-12">
-                                                <div class="row">
-                                                    <div id="jqxWidget2" style="margin: 0 auto;">
-                                                        <%-- <button type="button" id="datos">aaaa</button>--%>
-                                                        <div id="dataTable2"></div>
+                                                 <div class="col-lg-12">
+                                                    <div class="row">
+                                                         <div id="jqxWidget2" style="margin: 0 auto;">
+                                                            <%-- <button type="button" id="datos">aaaa</button>--%>
+                                                            <div id="dataTable2"></div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                 </div>
 
 
                                                 </div>
