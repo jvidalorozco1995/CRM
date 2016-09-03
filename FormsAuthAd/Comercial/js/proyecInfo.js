@@ -742,8 +742,11 @@ var admComercial = (function () {
 
     var _Datos = function () {
         persona = {};
+
         persona.Tipo_documento= $('#ComTipoDocumento').val();
         persona.Tipo_persona = $('#ComTipoPersona').val();
+        persona.DIRECCION_CORRESPON = $('#TxtDireccionCorrespondenicia').val();
+        persona.CELULAR = $('#TxtCelular').val();
         persona.Cedula = $('#TxtIdentidad').val();
         persona.Nombres = $('#TxtNombres').val().toUpperCase();
         persona.P_apellido = $('#TxtP_apellido').val().toUpperCase();
@@ -784,13 +787,15 @@ var admComercial = (function () {
         $('#ComboBuscando').val('');
         $('#CombSala').val('');
         $('#ComboEntero').val('');
-        
+        $('#TxtDireccionCorrespondenicia').val('');
+        $('#TxtCelular').val('');
     }
 
     var _DatosAsociado = function () {
       asociado = {};
       asociado.Cedula = ce_asociado;
       asociado.Nombres = $('#nomasocioado').val().toUpperCase();
+     
       asociado.P_apellido = $('#Txtapeasociado').val().toUpperCase();
       asociado.S_Apellido = $('#Txtapeasociado2').val().toUpperCase();
       asociado.Telefono2 = tel_asoc;
@@ -814,6 +819,8 @@ var admComercial = (function () {
         actualizar = {};
         actualizar.Tipo_documento = $('#ComTipoDocumento1').val();
         actualizar.Tipo_persona = $('#ComTipoPersona1').val();
+        actualizar.DIRECCION_CORRESPON = $('#TxtDireccionCorrespondenicia1').val();
+        actualizar.CELULAR = $('#TxtCelular1').val();
         actualizar.Cedula = $('#Text1').val();
         actualizar.Nombres = $('#Text2').val(); 
         actualizar.P_apellido = $('#Text3').val(); 
@@ -830,6 +837,7 @@ var admComercial = (function () {
         actualizar.Barrio = $('#Text16').val();
         actualizar.interes_vi = $('#Text17').val();
         actualizar.mot_compra = $('#Text18').val();
+
         return actualizar;
     }
 

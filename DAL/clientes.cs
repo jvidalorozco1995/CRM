@@ -11,7 +11,7 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.Xml.Serialization;
+    
     public partial class clientes
     {
         public clientes()
@@ -29,12 +29,14 @@ namespace DAL
         public string CEDULA { get; set; }
         public Nullable<int> TIPO_PERSONA { get; set; }
         public Nullable<int> TIPO_DOCUMENTO { get; set; }
+        public string DIRECCION_CORRESPON { get; set; }
         public string NOMBRES { get; set; }
         public string P_APELLIDO { get; set; }
         public string S_APELLIDO { get; set; }
         public string ESTADO_CIVIL { get; set; }
         public string DIRECCION { get; set; }
         public string BARRIO { get; set; }
+        public string CELULAR { get; set; }
         public string TELEFONO2 { get; set; }
         public string PROYEC_INTERES { get; set; }
         public string EMAIL { get; set; }
@@ -56,21 +58,13 @@ namespace DAL
         public virtual empresas empresas { get; set; }
         public virtual empresas empresas1 { get; set; }
         public virtual proyectos proyectos { get; set; }
-        [XmlIgnore]
         public virtual ICollection<historial_clientes> historial_clientes { get; set; }
-        [XmlIgnore]
         public virtual ICollection<historial_inmueble> historial_inmueble { get; set; }
-        [XmlIgnore]
         public virtual ICollection<historial_clientes> historial_clientes1 { get; set; }
-        [XmlIgnore]
         public virtual ICollection<historial_inmueble> historial_inmueble1 { get; set; }
-        [XmlIgnore]
         public virtual ICollection<inmueble_separacion> inmueble_separacion { get; set; }
-        [XmlIgnore]
         public virtual ICollection<inmueble_separacion> inmueble_separacion1 { get; set; }
-        [XmlIgnore]
         public virtual ICollection<tareas> tareas { get; set; }
-        [XmlIgnore]
         public virtual ICollection<tareas> tareas1 { get; set; }
     }
 }

@@ -1040,28 +1040,61 @@ var _admnegocio = (function () {
 
     var Dtohoja = function () {
         var negocio = {};
+
+        /*Datos del inmueble*/
         negocio.CLASE_INMU = tipoint;
+        negocio.AREA_PRIVADA = $("#TxtAreaprivada").val();
+        negocio.AREA_CONSTRUIDA = $("#TxtAreaConstruida").val();
+        negocio.PARQUEADERO = $("#TxtParqueadero").val();
+        negocio.AREAS_COMUNES = $("#TxtAreasComunes").val();
+
+
+        /*Datos del cliente*/
         negocio.PROPIETARIO = $("#TxtNombres").val();
-        negocio.CEDULA_P = cedula;
-        negocio.EXPEDICION = $("#TextExpedicion").val();
         negocio.ESTADO_C = $("#Textcivil").val();
+        negocio.CEDULA_P = cedula;
+        negocio.LUGAR_EXPE = $("#TextLugarExp").val();
+        negocio.EXPEDICION = $("#TextExpedicion").val();
         negocio.FECHA_NACI = $("#Textnacimiento").val();
         negocio.LUGAR = $("#Textlugar").val();
+        negocio.N_HIJO = $("#TextNh").val();
+        negocio.DOMICILIO = $("Textdomicilio").val();
         negocio.DIRECCION_R = $("#Textdireccion").val();
         negocio.TELEFONO_P = $("#Textphone").val();
+        negocio.CORREO = $("#Textcorreo").val();
+
+
+        /*Datos de la empresa*/
         negocio.EMPRESA = $("#TextEmp").val();
-        negocio.TELFONO_EMP = $("#TexttelC").val();
         negocio.CARGO = $("#Textcargo").val();
         negocio.PROFESION = $("#Textprofesion").val();
         negocio.DIRECCION_EMPR = $("#TextdireccionE").val();
+        negocio.TELFONO_EMP = $("#TexttelC").val();
+        negocio.INGRESO = ingres;
         negocio.ANTIGUEDAD = $("#Textantiguedad").val();
-        negocio.CORREO = $("#Textcorreo").val();
+
+
+        /*Datos de el conyugue*/
         negocio.NOMBRE_CONY = $("#Textconyugue").val();
+        negocio.TIPO_DOCUMENTO_CONY = $("#TxtTipoIdentificacionConyu").val();
         negocio.CEDULA_CUY = $("#TextidentificacionC").val();
+        negocio.LUGAR_EXPEDICION = $("#TxtLugarExpConyu").val();
+        negocio.FECHA_EXPEDICION_CUY = $("#TxtFechaExpConyu").val();
         negocio.TELE_CONY = $("#TexttelC").val();
-        negocio.N_HIJO = $("#TextNh").val();
         negocio.INTERES_COM = $("#TextInt").val();
         negocio.PROYECTO_INT = $("#TextPinteres").val();
+
+
+        /*Costo del inmueble*/
+        negocio.ADICIONES_EXCLUSIONES = $("#Textadiciones").val();
+        negocio.SUBSIDIO = $("#Textsubsidio").val();
+        negocio.GARAJE = $("#TextGaraje").val();
+        negocio.DESCUENTO = $("#TextDescuento").val();
+        negocio.VALOR_SERVICIOGAS = $("#Textcreditog").val();
+        negocio.INTERESES_SUBROGACION = $("#TextIntereses").val();
+        
+        
+        
         var Vcasa = $('#Lvalor').val();
         var Vcasas = +Vcasa.replace(/[^\d\.-]/g, '');
         negocio.VALOR_CASA = Vcasas;
@@ -1080,7 +1113,7 @@ var _admnegocio = (function () {
         negocio.MEDIO_ENT = $("#TextmedioInf").val();
         var ingresos = $('#TextIngresos').val();
         var ingres = +ingresos.replace(/[^\d\.-]/g, '');
-        negocio.INGRESO = ingres;
+        
         negocio.USER_CARTERA = $("#CmbAsesorCart").val();
         negocio.ASOCIADO = cactual;
         negocio.SEPARACION = separacion;
@@ -1385,6 +1418,7 @@ var _admnegocio = (function () {
         $("#Lvalor").hide();
         $("#Lvalor2").hide();
         utl.Bancos();
+        utl.AsesorCartera();
     }
 
     return {

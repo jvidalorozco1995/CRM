@@ -370,6 +370,10 @@ function BLLClientes() {
             $('#Text17').val(item.INTERES_VI);
             $('#Text18').val(item.MOT_COMPRA);
 
+            
+            
+            $('#TxtDireccionCorrespondenicia').val(item.DIRECCION_CORRESPON);
+            $('#TxtCelular').val(item.CELULAR);
 
             $('#CombAsesores2').val(item.ASESOR);
             $('#ComProyect2').val(item.PROYEC_INTERES);

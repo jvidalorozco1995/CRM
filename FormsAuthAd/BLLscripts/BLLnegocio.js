@@ -402,9 +402,9 @@ BLLnegocio.prototype = {
              async: true,
              success: function (result) {
                 
-                 if (result.d == "") { alert("entro");  _Dto = result.d } else {
+                 if (result.d == "") {  _Dto = result.d } else {
                      
-                     alert(JSON.stringify(result.d[0].INFORMACION));
+                    
                      document.getElementById("Tvalor").innerHTML = "";
                    
                      item = result.d[0];
@@ -424,6 +424,10 @@ BLLnegocio.prototype = {
                          $('#Lvalor').val(utl.FormatNumero(item.VALOR_INM));
                          $('#Lvalor2').val(utl.FormatNumero(item.VALOR_INM));
                          $("#Tvalor").append(utl.FormatNumero(item.VALOR_INM));
+
+                         $("#TxtTipoIdentificacion").val(item.TIPODOCUMENTO);
+                         $("#TxtTipoPersona").val(item.TIPO);
+                         
                         
                      val_casa = item.VALOR_INM;
                      inicial = parseFloat(val_casa) * (30) / 100;

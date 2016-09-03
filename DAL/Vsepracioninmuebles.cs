@@ -53,5 +53,7 @@ namespace DAL
         public int ID_SEPARACION { get; set; }
         public string CODIGO_F { get; set; }
         public string ID_NEGOCIO { get; set; }
+        public string TIPO { get; set; }
+        public string TIPODOCUMENTO { get; set; }
     }
 }
