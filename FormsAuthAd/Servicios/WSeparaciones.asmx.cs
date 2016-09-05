@@ -62,7 +62,14 @@ namespace FormsAuthAd.Servicios
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<EntiClientes> cliente(string c) {
             negocioR ng = new negocioR();
-            return ng.GetCliente(c);
+            return ng.GetCliente(c); 
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<EntiClientes> Clienteactualiza(string c)
+        {
+            negocioR ng = new negocioR();
+            return ng.GetClienteactualiza(c); 
         }
 
         [WebMethod]

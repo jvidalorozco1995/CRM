@@ -5,13 +5,16 @@ var Numeros = /[0-9]/;
 var letras = /[a-zA-Z]/;
 var _admnegocio = (function () {
     var cedula = "";
+    var contador1 = 0;
     var bandera = 0;
+    var bandera1 = 0;
     var ced = utl.getUrl('cedula');
     var inmu = utl.getUrl('inmueble');
     var separaciones = utl.getUrl('separacion');
-    var negocio = utl.getUrl('negocio');
+    var negocios = utl.getUrl('negocio');
     var cactual = "";
     var dataSet = [];
+    var dataSetg = [];
     var acuerdoP = [];
     var acuerdoPG = [];
     var tipoint;
@@ -20,6 +23,7 @@ var _admnegocio = (function () {
     var fechaEscr;
     var Wdtohoja = funcionUrlGlobal("/Servicios/WNegocio.asmx/lisHoja");
     var Wacuerdo = funcionUrlGlobal("/Servicios/WNegocio.asmx/_Acuerdopago");
+    var Wacuerdog = funcionUrlGlobal("/Servicios/WNegocio.asmx/_Acuerdopagogas");
     var _addHandlers = function () {
 
         $("#checkmanzada").click(function () {
@@ -58,27 +62,42 @@ var _admnegocio = (function () {
             Validar();
 
         });
+        $(document).on('click', '#BtnCrearHU', function () {
+            console.log(Dtohoja())
+            console.log(acuerdoP)
+            console.log(acuerdoPG)
+            Validar2();
+
+        });
+        $(document).on('click', '#BtnSiguiente', function () {
+            //  $('.nav-tabs a:last').tab('show');
+            $('#myTab li:eq(1) a').tab('show');
+        });
+        $(document).on('click', '#BtnSiguiente2', function () {
+            //  $('.nav-tabs a:last').tab('show');
+            $('#myTab li:eq(2) a').tab('show');
+        });
 
 
         $(document).on('click', '#BtnDisponibilidad', function () {
-            switch (bandera) {
-                case 0:
+            //switch (bandera) {
+            //    case 0:
                     document.getElementById("Lvalor").innerHTML = "";
                     $("#TxtIdentidad").val(ced)
                     cedula = ced;
-                    _negocio._Getcliente(cedula);
+                    _negocio._GetclienteActualiza(cedula);
                     cactual = cedula;
-                    break;
-                case 1:
-                    document.getElementById("Lvalor").innerHTML = "";
-                    cedula = $("#TxtIdentidad").val();
-                    utl._DtoAsociado(cedula);
-                    cactual = localStorage.getItem("CedulaAct");
-                    _negocio._Getcliente(cactual);
-                    break;
+                //    break;
+                //case 1:
+                //    document.getElementById("Lvalor").innerHTML = "";
+                //    cedula = $("#TxtIdentidad").val();
+                //    utl._DtoAsociado(cedula);
+                //    cactual = localStorage.getItem("CedulaAct");
+                //    _negocio._Getcliente(cactual);
+                //    break;
 
-            }
-            jsondata = "{'idhoja':" + JSON.stringify(negocio) + "}"
+            //}
+            jsondata = "{'idhoja':" + JSON.stringify(negocios) + "}"
             $.ajax({
                 type: "POST", url: Wdtohoja, data: jsondata,
                 contentType: "application/json; charset=utf-8",
@@ -146,7 +165,8 @@ var _admnegocio = (function () {
                             $("#chekcapartamento").attr('checked', true);
                         }
                         $("#Lvalor").val(eval.VALOR_CASA);
-                        $("#Lvalor2").val(eval.VALOR_CASA);
+                        $("#Tvalor").val(eval.VALOR_CASA);
+                        $("#Lvalor2").val(eval.VALOR_CASA); 
                         $("#TxtAreaprivada").val(eval.AREA_PRIVADA);
                         $("#TxtAreaConstruida").val(eval.AREA_CONSTRUIDA);
                         $("#TxtParqueadero").val(eval.PARQUEADERO);
@@ -155,23 +175,27 @@ var _admnegocio = (function () {
                         $("#Textdomicilio").val(eval.DOMICILIO);
                         $("#TxtLugarExpConyu").val(eval.LUGAR_EXPEDICION);
                         $("#TxtFechaExpConyu").val(moment(eval.FECHA_EXPEDICION_CUY).format("YYYY/MM/DD"));
-                       // $("#TextObservaciones").val(eval.OBSERVACIONES);
+                        $("#TextObservaciones").val(eval.OBSERVACIONES);
                         $("#Textadiciones").val(eval.ADICIONES_EXCLUSIONES);
                         $("#TextGaraje").val(eval.GARAJE);
                         $("#TextDescuento").val(eval.DESCUENTO);
                         $("#Textsubsidio").val(eval.SUBSIDIO);
-                        var vtv = (eval.VALOR_CASA+eval.GARAJE+eval.ADICIONES_EXCLUSIONES)- eval.DESCUENTO
+                        var g = parseFloat(eval.GARAJE);
+                        var a = parseFloat(eval.ADICIONES_EXCLUSIONES);
+                        var v = parseFloat(eval.VALOR_CASA);
+                        var d = 0;// parseFloat(eval.DESCUENTO);
+                        var vtv = (v + g + a)- d
                         $("#TextValorventa").val(vtv);
                         $("#Textcreditog").val(eval.VALOR_SERVICIOGAS);
-                       // $("#TextDescuento").val(eval.DESCUENTO);
-                       // $("#TextDescuento").val(eval.DESCUENTO);
+                        $("#TextDescuento").val(eval.DESCUENTO);
+                         $("#TextIntereses").val(eval.INTERESES_SUBROGACION);
                         //$("#Lpropietario").append(eval[0].CLASE_INMU);Textdomicili
                     } 
                 },
                 error: function (obj, error, objError) { alert(obj.responseText); }
             });
             // tabla
-            jsondata = "{'ac':" + JSON.stringify(negocio) + "}"
+            jsondata = "{'ac':" + JSON.stringify(negocios) + "}"
             $.ajax({
                 type: "POST", url: Wacuerdo, data: jsondata,
                 contentType: "application/json; charset=utf-8",
@@ -196,6 +220,7 @@ var _admnegocio = (function () {
                     if (item.DETALLE == 'Separación') {
                         dataSet.push({ 'CUOTA': item.DETALLE, 'FECHA_PAGO': moment(item.FECHA_PAGO).format("YYYY/MM/DD"), 'VALOR_CUOTA': (item.VALOR_CUOTA) });
                         $("#Textseparacion").val(utl.FormatNumero(item.VALOR_CUOTA));
+                       // alert(moment(item.FECHA_PAGO).format("YYYY/MM/DD"));
                         $("#TextFecinicial").val(moment(item.FECHA_PAGO).format("YYYY/MM/DD"));
                     }
                     else {
@@ -211,6 +236,48 @@ var _admnegocio = (function () {
                 tabla(dataSet);
                 $('#dataTable').jqxGrid('refresh');
                 $('#dataTable').jqxGrid('refreshdata');
+                //$('#tablapagos').append(tabla);
+            }
+            // tabla gas
+            jsondata = "{'ac':" + JSON.stringify(negocios) + "}"
+            $.ajax({
+                type: "POST", url: Wacuerdog, data: jsondata,
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                async: true,
+                success: function (result) {
+
+                    if (result.d == null) {
+
+                    }
+                    else {
+                        bandera1 = 1;
+                        LLenarTabla2(result.d);
+                        //alert(JSON.stringify(result.d))
+                    }
+                },
+                error: function (obj, error, objError) { alert(obj.responseText); }
+            });
+            var LLenarTabla2 = function (datos) {
+
+                $.each(datos, function (i, item) {
+                    contador1 = contador1 + 1;
+                    dataSetg.push({ 'CUOTA': item.DETALLE, 'FECHA_PAGO': moment(item.FECHA_PAGO).format("YYYY/MM/DD"), 'VALOR_CUOTA': (item.VALOR_CUOTA) });
+                    //$("#Textcuotag").val(datos.d);
+                    // alert(moment(item.FECHA_PAGO).format("YYYY/MM/DD"));
+                    if (bandera1 == 1) {
+                        $("#Textinicialg").val(moment(item.FECHA_PAGO).format("YYYY/MM/DD"));
+                        bandera1 = 0;
+                    }
+
+
+                });
+                    $("#Textcuotag").val(contador1);
+
+                
+                tabla2(dataSetg);
+                $('#dataTable2').jqxGrid('refresh');
+                $('#dataTable2').jqxGrid('refreshdata');
                 //$('#tablapagos').append(tabla);
             }
 
@@ -839,10 +906,10 @@ var _admnegocio = (function () {
         });
         $("#Textcuotag").change(function () {
             var c_inicial = $('#Textcreditog').val()
-            _negocio._RecalcularCredito();
+            
             $('#Textcreditog').val(utl.FormatNumero(c_inicial))
 
-            dataSet = [];
+            dataSetg = [];
             var date = new Date();
             var dia1 = date.getDate();
             var año1 = date.getFullYear();
@@ -907,12 +974,12 @@ var _admnegocio = (function () {
                     }
                 }
                 nomc = "Cuota No." + (i + 1);
-                dataSet.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
+                dataSetg.push({ 'CUOTA': nomc, 'FECHA_PAGO': fecha, 'VALOR_CUOTA': amorizar.toFixed(0) });
                 mes = parseInt(mes) + 1;
 
             }
             //_FechaEscitura(fecha)
-            tabla2(dataSet);
+            tabla2(dataSetg);
             $('#dataTable2').jqxGrid('refresh');
             $('#dataTable2').jqxGrid('refreshdata');
 
@@ -1316,7 +1383,107 @@ var _admnegocio = (function () {
         return negocio;
 
     }
+    var Dtohoja2 = function () {
 
+        var negocio = {};
+
+        /*Datos del inmueble*/
+        negocio.ID_NEGOCIO = negocios;
+        negocio.CLASE_INMU = tipoint;
+        negocio.AREA_PRIVADA = $("#TxtAreaprivada").val();
+        negocio.AREA_CONSTRUIDA = $("#TxtAreaConstruida").val();
+        negocio.PARQUEADERO = $("#TxtParqueadero").val();
+        negocio.AREAS_COMUNES = $("#TxtAreasComunes").val();
+
+
+        /*Datos del cliente*/
+        negocio.PROPIETARIO = $("#TxtNombres").val();
+        negocio.ESTADO_C = $("#Textcivil").val();
+        negocio.CEDULA_P = cedula;
+        negocio.LUGAR_EXPE = $("#TextLugarExp").val();
+        negocio.EXPEDICION = $("#TextExpedicion").val();
+        negocio.FECHA_NACI = $("#Textnacimiento").val();
+        negocio.LUGAR = $("#Textlugar").val();
+        negocio.N_HIJO = $("#TextNh").val();
+        negocio.DOMICILIO = $("Textdomicilio").val();
+        negocio.DIRECCION_R = $("#Textdireccion").val();
+        negocio.TELEFONO_P = $("#Textphone").val();
+        negocio.CORREO = $("#Textcorreo").val();
+
+
+        /*Datos de la empresa*/
+        negocio.EMPRESA = $("#TextEmp").val();
+        negocio.CARGO = $("#Textcargo").val();
+        negocio.PROFESION = $("#Textprofesion").val();
+        negocio.DIRECCION_EMPR = $("#TextdireccionE").val();
+        negocio.TELFONO_EMP = $("#TexttelC").val();
+        var ingresos = $('#TextIngresos').val();
+        var ingres = +ingresos.replace(/[^\d\.-]/g, '');
+        negocio.INGRESO = ingres;
+        negocio.ANTIGUEDAD = $("#Textantiguedad").val();
+
+
+        /*Datos de el conyugue*/
+        negocio.NOMBRE_CONY = $("#Textconyugue").val();
+        negocio.TIPO_DOCUMENTO_CONY = $("#TxtTipoIdentificacionConyu").val();
+        negocio.CEDULA_CUY = $("#TextidentificacionC").val();
+        negocio.LUGAR_EXPEDICION = $("#TxtLugarExpConyu").val();
+        negocio.FECHA_EXPEDICION_CUY = $("#TxtFechaExpConyu").val();
+        negocio.TELE_CONY = $("#TexttelC").val();
+        negocio.INTERES_COM = $("#TextInt").val();
+        negocio.PROYECTO_INT = $("#TextPinteres").val();
+
+
+        /*Costo del inmueble*/
+        var ad = $("#Textadiciones").val();
+        var adi = +ad.replace(/[^\d\.-]/g, '');
+        negocio.ADICIONES_EXCLUSIONES = adi;
+        negocio.SUBSIDIO = $("#Textsubsidio").val();
+        var gara = $("#TextGaraje").val();
+        var garej = +gara.replace(/[^\d\.-]/g, '');
+        negocio.GARAJE = garej;
+        var de = $("#TextDescuento").val();
+        var desc = +de.replace(/[^\d\.-]/g, '');
+        negocio.DESCUENTO = desc;
+        var gas = $('#Textcreditog').val();
+        var gasito = +gas.replace(/[^\d\.-]/g, '');
+        negocio.VALOR_SERVICIOGAS = gasito;
+        negocio.INTERESES_SUBROGACION =
+
+
+
+        negocio.AUT_MENSAJE = $("#CmbAutoElectro").val();
+        negocio.AUT_CORREO = $("#CmbAuto").val();
+        negocio.OBSERVACIONES = $("#TextObservaciones").val();
+        //  negocio.
+
+        var Vcasa = $('#Lvalor').val();
+        var Vcasas = +Vcasa.replace(/[^\d\.-]/g, '');
+        negocio.VALOR_CASA = Vcasas;
+        var inicial = $('#Textinicial').val();
+        var ini = +inicial.replace(/[^\d\.-]/g, '');
+        negocio.INICIAL = ini;
+        var credito = $('#Textcredito').val();
+        var cre = +credito.replace(/[^\d\.-]/g, '');
+        negocio.CREDITO = cre;
+        negocio.BANCO = $("#ComBancos").val();
+        negocio.NO_CREDITO = $("#Textcuota").val();
+        negocio.FECHA_ES = $("#Textescritura").val();
+        negocio.FECHA_ENT = $("#Textentrega").val();
+        negocio.FECHA_SUBRO = $("#Textsubrogracion").val();
+        negocio.ASESOR_INFO = $("#Textasesorinf").val();
+        negocio.MEDIO_ENT = $("#TextmedioInf").val();
+
+
+        negocio.USER_CARTERA = $("#CmbAsesorCart").val();
+        negocio.ASOCIADO = cactual;
+        //var separacion1 = $('#Textseparacion').val();
+        // var sep1 = +separacion1.replace(/[^\d\.-]/g, '');
+
+        negocio.SEPARACION = separaciones;
+        return negocio;
+
+    }
     var Validar = function () {
 
         if ($('#TxtNombres').val().length < 1 || !letras.test($('#TxtNombres').val())) {
@@ -1607,6 +1774,299 @@ var _admnegocio = (function () {
         } else {
 
             _negocio._addHoja(Dtohoja(), inmu, acuerdoP, acuerdoPG);
+        }
+
+    }
+    var Validar2 = function () {
+
+        if ($('#TxtNombres').val().length < 1 || !letras.test($('#TxtNombres').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                '</br></br>1 - No a digitado nada en el campo nombre' +
+                '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#TxtNombres').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        } else if ($('#TxtIdentidad').val().length < 1 || !Numeros.test($('#TxtIdentidad').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo identificacion' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#TxtIdentidad').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#TextExpedicion').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo fecha de expedición' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#TextExpedicion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textcivil').val().length < 1 || !letras.test($('#Textcivil').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo estado civil' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textcivil').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textnacimiento').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo fecha de nacimiento' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textnacimiento').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textlugar').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo lugar' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textlugar').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textdireccion').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo dirección' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textdireccion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textphone').val().length < 1 || !Numeros.test($('#Textphone').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Telefóno' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textphone').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextEmp').val().length < 1 || !letras.test($('#TextEmp').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Empresa' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#TextEmp').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textcargo').val().length < 1 || !letras.test($('#Textcargo').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Cargo' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textcargo').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textprofesion').val().length < 1 || !letras.test($('#Textprofesion').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Profesión' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+
+            $('#Textprofesion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextdireccionE').val().length < 1 || !letras.test($('#TextdireccionE').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Dirección' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#TextdireccionE').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#Textantiguedad').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Antiguedad' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textantiguedad').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textcorreo').val().length < 1 || !emailreg.test($('#Textcorreo').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Correo' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textcorreo').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+            /* else if (!letras.test($('#Textconyugue').val())) {
+                 toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - digite un nombre valido el campo Conyugue' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                 //$("#TxtIdentidad").css("background-color", "yellow");
+                 $('#Textconyugue').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+                 return false;
+     
+             }
+     
+             else if (!Numeros.test($('#TextidentificacionC').val())) {
+                 toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - No a digitado nada en el campo Identificación del conyugue' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                 //$("#TxtIdentidad").css("background-color", "yellow");
+                 $('#TextidentificacionC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+                 return false;
+     
+             }*
+     
+             else if (!Numeros.test($('#TexttelC').val())) {
+                 toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - digite un numero valido en el campo celular' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                 //$("#TxtIdentidad").css("background-color", "yellow");
+                 $('#TexttelC').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+                 return false;
+     
+             }
+             
+              else if (!Numeros.test($('#TextNh').val())) {
+                 toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - digite un numero valido en el campo Nro de hijos' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                 //$("#TxtIdentidad").css("background-color", "yellow");
+                 $('#TextNh').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+                 return false;
+     
+             }
+             */
+        else if ($('#TextIngresos').val().length < 1 || !Numeros.test($('#TextIngresos').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo ingresos' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#TextIngresos').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+
+
+        else if ($('#TextInt').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Interes de compra' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#TextInt').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#TextPinteres').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo proyecto de interes' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#TextPinteres').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Lvalor').val().length < 1 || !Numeros.test($('#Lvalor').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Valor' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Lvalor').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textinicial').val().length < 1 || !Numeros.test($('#Textinicial').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Cuota inicial' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textinicial').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textcredito').val().length < 1 || !Numeros.test($('#Textcredito').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Credito' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textcredito').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#ComBancos').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Bancos' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#ComBancos').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textcuota').val().length < 1 || !Numeros.test($('#Textcuota').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Nro de cuotas' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textcuota').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#Textescritura').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Fecha de escritura' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textescritura').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#Textentrega').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Fecha de entrega' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textentrega').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#Textsubrogracion').val().length < 1) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo Fecha de sugrogación' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textsubrogracion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#Textasesorinf').val().length < 1 || !letras.test($('#Textasesorinf').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo asesor' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#Textasesorinf').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+        else if ($('#TextmedioInf').val().length < 1 || !letras.test($('#TextmedioInf').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo medio por el cual se entero' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#TextmedioInf').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        }
+
+        else if ($('#CmbAsesorCart').val().length < 1 || !letras.test($('#CmbAsesorCart').val())) {
+            toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo asesor de cartera' +
+                   '</br>2 - Verifique que no haya ingresado letras en el campo');
+            $('#CmbAsesorCart').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            return false;
+
+        } else {
+
+            _negocio._upddteHoja(Dtohoja2(), inmu, acuerdoP, acuerdoPG);
         }
 
     }

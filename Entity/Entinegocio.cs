@@ -71,6 +71,8 @@ namespace Entity
         public int? AUT_MENSAJE { get; set; }
         public int? AUT_CORREO { get; set; }
         public string OBSERVACIONES { get; set; }
+        public Nullable<decimal> DESCUENTO { get; set; }
+
 
     }
 }

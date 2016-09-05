@@ -149,7 +149,9 @@ namespace BLLCRM
                     hn.INTERESES_SUBROGACION = item.INTERESES_SUBROGACION;
                     hn.AUT_MENSAJE = item.AUT_MENSAJE;
                     hn.AUT_CORREO = item.AUT_CORREO;
-                    
+                    // hn.DESCUENTO = item.DESCUENTO;
+                    //hn.OBSERVACIONES = item.OBSERVACIONES;
+                    //hn.DOMICILIO = item.DOMICILIO;
                     
                     return hn;
                 }
@@ -469,6 +471,28 @@ namespace BLLCRM
                throw;
            }
        }
+        public List<Entiacuerdo_pagosg> Lisacuerdopg(string acp)
+        {
+            try
+            {
+                List<acuerdo_pago_banco> lacp = bd.acuerdo_pago_banco.Where(p => p.NO_ACUERDO == acp).ToList();
+                List<Entiacuerdo_pagosg> acuerdo = new List<Entiacuerdo_pagosg>();
+                foreach (var item in lacp)
+                {
+                    Entiacuerdo_pagosg ac = new Entiacuerdo_pagosg();
+                    ac.DETALLE = item.CUOTA;
+                    ac.FECHA_PAGO = item.FECHA_PAGO;
+                    ac.VALOR_CUOTA = item.VALOR_CUOTA;
+                    acuerdo.Add(ac);
+                }
+                return acuerdo;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public string Updatenegocio(negocio n, string inm, List<acuerdo_pago> ac, List<acuerdo_pago_banco> acg)
         {
@@ -477,7 +501,7 @@ namespace BLLCRM
                 var ctx = bd.negocio.First(t => t.ID_NEGOCIO == n.ID_NEGOCIO);
               
                 //ctx.FECHA_NEGOCIO = n.FECHA_NEGOCIO;
-                ctx.PROPIETARIO = n.PROPIETARIO;
+                ctx.PROPIETARIO = n.PROPIETARIO; 
                 ctx.CEDULA_P = n.CEDULA_P;
                 ctx.EXPEDICION = n.EXPEDICION;
                 ctx.ESTADO_C = n.ESTADO_C;
@@ -512,22 +536,38 @@ namespace BLLCRM
                 ctx.SEPARACION = n.SEPARACION;
                 ctx.USER_CARTERA = n.USER_CARTERA;
                 ctx.INGRESO = n.INGRESO;
+                bd.SaveChanges();
                 ctx.PARQUEADERO = n.PARQUEADERO;
+                bd.SaveChanges();
                 ctx.AREAS_COMUNES = n.AREAS_COMUNES;
+                bd.SaveChanges();
                 ctx.AREA_PRIVADA = n.AREA_PRIVADA;
+                bd.SaveChanges();
                 ctx.AREA_CONSTRUIDA = n.AREA_CONSTRUIDA;
+                bd.SaveChanges();
                 ctx.TIPO_DOCUMENTO_CONY = n.TIPO_DOCUMENTO_CONY;
+                bd.SaveChanges();
                 ctx.LUGAR_EXPEDICION = n.LUGAR_EXPEDICION;
+                bd.SaveChanges();
                 ctx.FECHA_EXPEDICION_CUY = n.FECHA_EXPEDICION_CUY;
+                bd.SaveChanges();
                 ctx.ADICIONES_EXCLUSIONES = n.ADICIONES_EXCLUSIONES;
+                bd.SaveChanges();
                 ctx.SUBSIDIO = n.SUBSIDIO;
+                bd.SaveChanges();
                 ctx.GARAJE = n.GARAJE;
+                bd.SaveChanges();
                 ctx.SALDO_FINANCIAR = n.SALDO_FINANCIAR;
+                bd.SaveChanges();
                 ctx.VALOR_SERVICIOGAS = n.VALOR_SERVICIOGAS;
+                bd.SaveChanges();
                 ctx.INTERESES_SUBROGACION = n.INTERESES_SUBROGACION;
+                bd.SaveChanges();
                 ctx.AUT_MENSAJE = n.AUT_MENSAJE;
+                bd.SaveChanges();
                 ctx.AUT_CORREO = n.AUT_CORREO;
                 bd.SaveChanges();
+                
                 AcuerdopagoUpdate(ac, n.ID_NEGOCIO);
                 AcuerdopagoUpdateGas(acg, n.ID_NEGOCIO);
                 return "1";

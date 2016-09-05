@@ -418,9 +418,7 @@
                                                     </div>
                                                       <div class="form-group col-lg-6">
                                                         <label class="control-label">Valor total de venta</label>
-                                                       <input type="text" value="" id="TextValorventa" class="form-control" name="" style="
-    color: GREEN;font-weight: bold;
-">
+                                                       <input type="text" value="" id="TextValorventa" class="form-control" name="" style="color: GREEN;font-weight: bold;">
                                                     </div>
                                                    
                                                     <div class="form-group col-lg-6">
@@ -463,7 +461,7 @@
                                                         <label class="control-label">Asesor que dio la información</label>
                                                         <input type="text" value="" id="Textasesorinf" class="form-control" name="" readonly="">
                                                     </div>
-                                                      < <div class="col-lg-12">
+                                                       <div class="col-lg-12">
                                                     <div class="row">
                                                          <div id="jqxWidget" style="margin: 0 auto;">
                                                          
@@ -476,7 +474,7 @@
                                         </div>
 
                                         <div class="panel-footer" id="button">
-                                            <button class="btn btn-danger btn-btn-circle" type="button" id="BtnCrearH">Crear negocio</button>
+                                            <button class="btn btn-danger btn-btn-circle" type="button" id="BtnCrearHU">Actualizar negocio</button>
                                         </div>
                                     </div>
 
@@ -519,7 +517,7 @@
                                         </div>
 
                                         <div class="panel-footer" id="divsiguiente2g">
-                                            <button class="btn btn-danger btn-btn-circle"  type="button" id="BtnSiguiente2g">Siguiente</button>
+                                            <button class="btn btn-danger btn-btn-circle"  type="button" id="BtnSiguiente2">Siguiente</button>
                                         </div>
                                     </div>
 

@@ -134,6 +134,12 @@ namespace FormsAuthAd.Servicios
             return hn.Lisacuerdop(ac);
         }
         [WebMethod]
+        public List<Entiacuerdo_pagosg> _Acuerdopagogas(string ac)
+        {
+            BLLnegocio hn = new BLLnegocio();
+            return hn.Lisacuerdopg(ac);
+        }
+        [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int UpdateUsuarioCartera(int id, string USER_CARTERA)
         {

@@ -343,6 +343,49 @@ public class negocioR {
             return Encl;
         }
     }
+    public List<EntiClientes> GetClienteactualiza(string c)
+    {
+        List<Vsepracioninmuebles> LisC = bd.Vsepracioninmuebles.Where(t => t.CLIENTE == c).ToList();
+        List<EntiClientes> Encl = new List<EntiClientes>();
+        if (LisC.Count.Equals(0))
+        {
+            return Encl;
+        }
+        else
+        {
+            foreach (var item in LisC)
+            {
+                EntiClientes Ec = new EntiClientes();
+
+                Ec.CEDULA = item.CLIENTE;
+                Ec.NOMBRES = item.NOMBRES;
+                Ec.TIPODOCUMENTO = item.TIPODOCUMENTO;
+                Ec.TIPO = item.TIPO;
+                Ec.P_APELLIDO = item.P_APELLIDO;
+                Ec.S_APELLIDO = item.S_APELLIDO;
+                Ec.ESTADO_CIVIL = item.ESTADO_CIVIL;
+                Ec.DIRECCION = item.DIRECCION;
+                Ec.BARRIO = item.BARRIO;
+                Ec.EMPRESA_N = item.ID_EMP;
+                Ec.TELEFONO2 = item.TELEFONO2;
+                Ec.PROYEC_INTERES = item.PROYEC_INTERES;
+                Ec.EMAIL = item.EMAIL;
+                Ec.SUELDO = item.SUELDO;
+                Ec.PRESU_COMPRA = item.PRESU_COMPRA;
+                Ec.INMU_INTERES = item.INMU_INTERES;
+                Ec.INTERES_VI = item.INTERES_VI;
+                Ec.MOT_COMPRA = item.MOT_COMPRA;
+                Ec.EMPRESA = item.NOMBRE_EMP;
+                Ec.TEL_EMPRESA = item.TEL_EMP;
+                Ec.ASESOR = item.TRABAJADOR;
+                Ec.SALA_V = item.NOMBRE_SALA;
+                Ec.INFORMACION = item.INFORMACION;
+                Ec.VALOR_INM = Convert.ToDecimal(item.VAL_INMUEBLE);
+                Encl.Add(Ec);
+            }
+            return Encl;
+        }
+    }
 
     /// <summary>
     /// Metodo para realizar bsuqueda de las separaciones confirmadas listas

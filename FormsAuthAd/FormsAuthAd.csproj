@@ -1387,6 +1387,7 @@
     <Content Include="Cartera\SeguimientoNegocio\SeguiNegocios.aspx" />
     <Content Include="Cartera\UpdateNegocio\Actualizarnegocio.aspx" />
     <Content Include="Cartera\UpdateNegocio\GesCarteraU.aspx" />
+    <Content Include="Cartera\UpdateNegocio\Hoja_Negocio2.html" />
     <Content Include="Cartera\UpdateNegocio\js\ActualizaNegocio.js" />
     <Content Include="Cartera\UpdateNegocio\js\Cartera.js" />
     <Content Include="Cartera\UpdateNegocio\js\GestCartera.js" />
