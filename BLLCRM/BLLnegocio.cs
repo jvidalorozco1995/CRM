@@ -476,6 +476,28 @@ namespace BLLCRM
                throw;
            }
        }
+      /*  public List<Entiacuerdo_pagosg> Lisacuerdopg(string acp)
+        {
+            try
+            {
+                List<acuerdo_pago_banco> lacp = bd.acuerdo_pago_banco.Where(p => p.NO_ACUERDO == acp).ToList();
+                List<Entiacuerdo_pagosg> acuerdo = new List<Entiacuerdo_pagosg>();
+                foreach (var item in lacp)
+                {
+                    Entiacuerdo_pagosg ac = new Entiacuerdo_pagosg();
+                    ac.DETALLE = item.CUOTA;
+                    ac.FECHA_PAGO = item.FECHA_PAGO;
+                    ac.VALOR_CUOTA = item.VALOR_CUOTA;
+                    acuerdo.Add(ac);
+                }
+                return acuerdo;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }*/
 
         public List<Entiacuerdo_pago> Lisacuerdopgas(string acp)
         {
