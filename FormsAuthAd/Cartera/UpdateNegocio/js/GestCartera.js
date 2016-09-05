@@ -121,133 +121,13 @@ var _admnegocio = (function () {
             separacion = result[1];
             inmueble = result[2];
             negocio = result[3];
-            
-            $('#TxtIdentidad').val(persona);
-             $('#datos').show();
-            $('#BtnDisponibilidad').click();
-            $('#clientesnegocio').hide();
+            window.location.replace("Actualizarnegocio.aspx?cedula=" + persona + "&inmueble=" + inmueble + "&separacion=" + separacion + "&negocio=" + negocio);
+            //$('#TxtIdentidad').val(persona);
+            // $('#datos').show();
+            //$('#BtnDisponibilidad').click();
+            //$('#clientesnegocio').hide();
 
-                jsondata = "{'idhoja':" + JSON.stringify(negocio) + "}"
-                $.ajax({
-                    type: "POST", url: Wdtohoja, data: jsondata,
-                    contentType: "application/json; charset=utf-8",
-                    dataType: 'json',
-                    async: true,
-                    success: function (result) {
-                        if (result.d == null) {
-                           // alert("holamundo");
-                        }
-                        else {
-                           // alert("holamundo2");
-                            var eval = result.d;
-                           
-                            $("#TxtNombres").val(eval.PROPIETARIO)
-                            $("#Pinteres").val(eval.PROYECTO_INT);
-                            $("#Lcedula").val(eval.CEDULA_P);
-                            $("#Textcivil").val(eval.ESTADO_C);
-                            $("#Textnacimiento").val(moment(eval.FECHA_NACI).format("YYYY/MM/DD"));
-                            $("#Textlugar").val(eval.LUGAR);
-                            $("#Textdireccion").val(eval.DIRECCION_R);
-                            $("#Textphone").val(eval.TELEFONO_P);
-                            $("#TextEmp").val(eval.EMPRESA);
-                            $("#Textcargo").val(eval.CARGO);
-                            $("#Textprofesion").val(eval.PROFESION);
-                            $("#TextdireccionE").val(eval.DIRECCION_EMPR);
-                            $("#TextmedioInf").val(eval.MEDIO_ENT);
-                            $("#Textantiguedad").val(eval.ANTIGUEDAD);
-                            $("#Textcorreo").val(eval.CORREO);
-                            $("#Textconyugue").val(eval.NOMBRE_CONY);
-                            $("#TextidentificacionC").val(eval.CEDULA_CUY);
-                            $("#TexttelC").val(eval.TELE_CONY);
-                            $("#TextNh").val(eval.N_HIJO);
-                            $("#Linteres").val(eval.INTERES_COM);
-                            $("#Lvalapto").val(utl.FormatNumero(eval.VALOR_CASA));
-                            $("#Textinicial").val(utl.FormatNumero(eval.INICIAL));
-                            $("#Textcredito").val(utl.FormatNumero(eval.CREDITO));
-                            $("#ComBancos").val(eval.BANCO);
-                            $("#TextPinteres").val(eval.PROYECTO_INT);
-                            $("#linmueble").val(eval.NOMBRE_BLO);
-                            $("#TextInt").val(eval.INTERES_COM);
-                            $("#CmbAsesorCart").val(eval.USER_CARTERA);
-                            $("#TextExpedicion").val(moment(eval.EXPEDICION).format("YYYY/MM/DD"));
-                            $("#Textcuota").val(eval.NO_CREDITO);
-                            $("#Textescritura").val(moment(eval.FECHA_ES).format("YYYY/MM/DD"));
-                            $("#Textentrega").val(moment(eval.FECHA_ENT).format("YYYY/MM/DD"));
-                            $("#Textsubrogracion").val(moment(eval.FECHA_SUBRO).format("YYYY/MM/DD"));
-                            $("#Textasesorinf").val(eval.ASESOR_INFO);
-                            $("#Lentero").val(eval.MEDIO_ENT);
-                            $("#LasesorC").val(eval.USER_NEGOCIO);
-                            $("#codifox").val(eval.CODIGO_F); 
-                            $("#TextIngresos").val(utl.FormatNumero(eval.INGRESO));
-                            $("#lfechanegocio").val(moment(eval.FECHA_NEGOCIO).format("YYYY/MM/DD"));
-                            $("#idnegocio").val(eval.ID_NEGOCIO);
-                            tipoint = eval.CLASE_INMU;
-                            if (tipoint == 'Casa') {
-                                $("#checkmanzada").attr('checked', false);
-                                $("#checktorre").attr('checked', false);
-                                $("#chekcapartamento").attr('checked', false);
-                                $("#checkcasa").attr('checked', true);
-                            }
-                            else {
-                                $("#checkmanzada").attr('checked', false);
-                                $("#checktorre").attr('checked', false);
-                                $("#checkcasa").attr('checked', false);
-                                $("#chekcapartamento").attr('checked', true);
-                            }
-                            $("#Lvalor").val(eval.VALOR_CASA);
-                            //$("#Lpropietario").append(eval[0].CLASE_INMU);
-                        }
-                    },
-                    error: function (obj, error, objError) { alert(obj.responseText); }
-                });
-            
-            // tabla
-                jsondata = "{'ac':" + JSON.stringify(negocio) + "}"
-                $.ajax({
-                    type: "POST", url: Wacuerdo, data: jsondata,
-                    contentType: "application/json; charset=utf-8",
-                    dataType: 'json',
-                    async: true,
-                    success: function (result) {
-
-                        if (result.d == null) {
-                           
-                        }
-                        else {
-                            
-                            LLenarTabla(result.d);
-                            //alert(JSON.stringify(result.d))
-                        }
-                    },
-                    error: function (obj, error, objError) { alert(obj.responseText); }
-                });
-
-
-
-                var LLenarTabla = function (datos) {
-
-                    $.each(datos, function (i, item) {
-                        if (item.DETALLE == 'Separación') {
-                            dataSet.push({ 'CUOTA': item.DETALLE, 'FECHA_PAGO': moment(item.FECHA_PAGO).format("YYYY/MM/DD"), 'VALOR_CUOTA': (item.VALOR_CUOTA) });
-                            $("#Textseparacion").val(utl.FormatNumero(item.VALOR_CUOTA));
-                            $("#TextFecinicial").val(moment(item.FECHA_PAGO).format("YYYY/MM/DD"));
-                        }
-                        else {
-                            dataSet.push({ 'CUOTA': item.DETALLE, 'FECHA_PAGO': moment(item.FECHA_PAGO).format("YYYY/MM/DD"), 'VALOR_CUOTA': (item.VALOR_CUOTA) });
-                            if (bandera1 == 0)
-                            {
-                                $("#TextFecinicial2").val(moment(item.FECHA_PAGO).format("YYYY/MM/DD"));
-                                bandera1 == 1
-                            }
-                        }
-                        
-
-                    });
-                    tabla(dataSet);
-                    $('#dataTable').jqxGrid('refresh');
-                    $('#dataTable').jqxGrid('refreshdata');
-                    //$('#tablapagos').append(tabla);
-                }
+               
 
 
         });

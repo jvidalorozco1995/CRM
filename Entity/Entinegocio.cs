@@ -70,6 +70,7 @@ namespace Entity
         public Nullable<decimal> INTERESES_SUBROGACION { get; set; }
         public int? AUT_MENSAJE { get; set; }
         public int? AUT_CORREO { get; set; }
+        public string OBSERVACIONES { get; set; }
 
     }
 }

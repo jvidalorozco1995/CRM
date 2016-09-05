@@ -150,6 +150,7 @@ namespace BLLCRM
                     hn.AUT_MENSAJE = item.AUT_MENSAJE;
                     hn.AUT_CORREO = item.AUT_CORREO;
                     
+                    
                     return hn;
                 }
                 else {

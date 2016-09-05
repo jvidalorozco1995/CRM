@@ -567,7 +567,9 @@ function BLLInmuebles() {
                 tabla += "<td>" + item.TELEFONO2 + "</td>";
                 tabla += "<td>" + $.trim(item.CASA) + "</td>";
                 tabla += "<td>" + $.trim(item.NOMBRE_PROYEC) + "</td>";
-                tabla += "<td class='Btimprimir'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td><td class='CargarN'id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "/" + item.ID_NEGOCIO + " style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Actualizar</button></td>";
+                tabla += "<td class='CargarN' id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "/" + item.ID_NEGOCIO + " href=Actualizarnegocio.aspx?proyec=" + item.CLIENTE + " style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Actualizar Hoja de negocio</button></td>";
+                tabla += "<td class='Btimprimir'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td>";
+                    //<td class='CargarN'id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "/" + item.ID_NEGOCIO + " style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Actualizar</button></td>";
             }          
            
             tabla += "</tr>";

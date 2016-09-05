@@ -9,6 +9,7 @@ var _admnegocio = (function () {
     var ced = utl.getUrl('cedula');
     var inmu = utl.getUrl('inmueble');
     var separaciones = utl.getUrl('separacion');
+    var negocio = utl.getUrl('negocio');
     var cactual = "";
     var dataSet = [];
     var acuerdoP = [];
@@ -17,6 +18,8 @@ var _admnegocio = (function () {
     var separacion;
     var inmueble;
     var fechaEscr;
+    var Wdtohoja = funcionUrlGlobal("/Servicios/WNegocio.asmx/lisHoja");
+    var Wacuerdo = funcionUrlGlobal("/Servicios/WNegocio.asmx/_Acuerdopago");
     var _addHandlers = function () {
 
         $("#checkmanzada").click(function () {
@@ -56,7 +59,6 @@ var _admnegocio = (function () {
 
         });
 
-   
 
         $(document).on('click', '#BtnDisponibilidad', function () {
             switch (bandera) {
@@ -76,9 +78,144 @@ var _admnegocio = (function () {
                     break;
 
             }
+            jsondata = "{'idhoja':" + JSON.stringify(negocio) + "}"
+            $.ajax({
+                type: "POST", url: Wdtohoja, data: jsondata,
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                async: true,
+                success: function (result) {
+                    if (result.d == null) {
+                        // alert("holamundo");
+                    }
+                    else {
+                        // alert("holamundo2");
+                        var eval = result.d;
+
+                        $("#TxtNombres").val(eval.PROPIETARIO)
+                        $("#Pinteres").val(eval.PROYECTO_INT);
+                        $("#Lcedula").val(eval.CEDULA_P);
+                        $("#Textcivil").val(eval.ESTADO_C);
+                        $("#Textnacimiento").val(moment(eval.FECHA_NACI).format("YYYY/MM/DD"));
+                        $("#Textlugar").val(eval.LUGAR);
+                        $("#Textdireccion").val(eval.DIRECCION_R);
+                        $("#Textphone").val(eval.TELEFONO_P);
+                        $("#TextEmp").val(eval.EMPRESA);
+                        $("#Textcargo").val(eval.CARGO);
+                        $("#Textprofesion").val(eval.PROFESION);
+                        $("#TextdireccionE").val(eval.DIRECCION_EMPR);
+                        $("#TextmedioInf").val(eval.MEDIO_ENT);
+                        $("#Textantiguedad").val(eval.ANTIGUEDAD);
+                        $("#Textcorreo").val(eval.CORREO);
+                        $("#Textconyugue").val(eval.NOMBRE_CONY);
+                        $("#TextidentificacionC").val(eval.CEDULA_CUY);
+                        $("#TexttelC").val(eval.TELE_CONY);
+                        $("#TextNh").val(eval.N_HIJO);
+                        $("#Linteres").val(eval.INTERES_COM);
+                        $("#Lvalapto").val(utl.FormatNumero(eval.VALOR_CASA));
+                        $("#Textinicial").val(utl.FormatNumero(eval.INICIAL));
+                        $("#Textcredito").val(utl.FormatNumero(eval.CREDITO));
+                        $("#ComBancos").val(eval.BANCO);
+                        $("#TextPinteres").val(eval.PROYECTO_INT);
+                        $("#linmueble").val(eval.NOMBRE_BLO);
+                        $("#TextInt").val(eval.INTERES_COM);
+                        $("#CmbAsesorCart").val(eval.USER_CARTERA);
+                        $("#TextExpedicion").val(moment(eval.EXPEDICION).format("YYYY/MM/DD"));
+                        $("#Textcuota").val(eval.NO_CREDITO);
+                        $("#Textescritura").val(moment(eval.FECHA_ES).format("YYYY/MM/DD"));
+                        $("#Textentrega").val(moment(eval.FECHA_ENT).format("YYYY/MM/DD"));
+                        $("#Textsubrogracion").val(moment(eval.FECHA_SUBRO).format("YYYY/MM/DD"));
+                        $("#Textasesorinf").val(eval.ASESOR_INFO);
+                        $("#Lentero").val(eval.MEDIO_ENT);
+                        $("#LasesorC").val(eval.USER_NEGOCIO);
+                        $("#codifox").val(eval.CODIGO_F);
+                        $("#TextIngresos").val(utl.FormatNumero(eval.INGRESO));
+                        $("#lfechanegocio").val(moment(eval.FECHA_NEGOCIO).format("YYYY/MM/DD"));
+                        $("#idnegocio").val(eval.ID_NEGOCIO);
+                        tipoint = eval.CLASE_INMU;
+                        if (tipoint == 'Casa') {
+                            $("#checkmanzada").attr('checked', false);
+                            $("#checktorre").attr('checked', false);
+                            $("#chekcapartamento").attr('checked', false);
+                            $("#checkcasa").attr('checked', true);
+                        }
+                        else {
+                            $("#checkmanzada").attr('checked', false);
+                            $("#checktorre").attr('checked', false);
+                            $("#checkcasa").attr('checked', false);
+                            $("#chekcapartamento").attr('checked', true);
+                        }
+                        $("#Lvalor").val(eval.VALOR_CASA);
+                        $("#Lvalor2").val(eval.VALOR_CASA);
+                        $("#TxtAreaprivada").val(eval.AREA_PRIVADA);
+                        $("#TxtAreaConstruida").val(eval.AREA_CONSTRUIDA);
+                        $("#TxtParqueadero").val(eval.PARQUEADERO);
+                        $("#TxtAreasComunes").val(eval.AREAS_COMUNES);
+                        $("#TextLugarExp").val(eval.LUGAR);
+                        $("#Textdomicilio").val(eval.DOMICILIO);
+                        $("#TxtLugarExpConyu").val(eval.LUGAR_EXPEDICION);
+                        $("#TxtFechaExpConyu").val(moment(eval.FECHA_EXPEDICION_CUY).format("YYYY/MM/DD"));
+                       // $("#TextObservaciones").val(eval.OBSERVACIONES);
+                        $("#Textadiciones").val(eval.ADICIONES_EXCLUSIONES);
+                        $("#TextGaraje").val(eval.GARAJE);
+                        $("#TextDescuento").val(eval.DESCUENTO);
+                        $("#Textsubsidio").val(eval.SUBSIDIO);
+                        var vtv = (eval.VALOR_CASA+eval.GARAJE+eval.ADICIONES_EXCLUSIONES)- eval.DESCUENTO
+                        $("#TextValorventa").val(vtv);
+                        $("#Textcreditog").val(eval.VALOR_SERVICIOGAS);
+                       // $("#TextDescuento").val(eval.DESCUENTO);
+                       // $("#TextDescuento").val(eval.DESCUENTO);
+                        //$("#Lpropietario").append(eval[0].CLASE_INMU);Textdomicili
+                    } 
+                },
+                error: function (obj, error, objError) { alert(obj.responseText); }
+            });
+            // tabla
+            jsondata = "{'ac':" + JSON.stringify(negocio) + "}"
+            $.ajax({
+                type: "POST", url: Wacuerdo, data: jsondata,
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                async: true,
+                success: function (result) {
+
+                    if (result.d == null) {
+
+                    }
+                    else {
+
+                        LLenarTabla(result.d);
+                        //alert(JSON.stringify(result.d))
+                    }
+                },
+                error: function (obj, error, objError) { alert(obj.responseText); }
+            });
+            var LLenarTabla = function (datos) {
+
+                $.each(datos, function (i, item) {
+                    if (item.DETALLE == 'Separación') {
+                        dataSet.push({ 'CUOTA': item.DETALLE, 'FECHA_PAGO': moment(item.FECHA_PAGO).format("YYYY/MM/DD"), 'VALOR_CUOTA': (item.VALOR_CUOTA) });
+                        $("#Textseparacion").val(utl.FormatNumero(item.VALOR_CUOTA));
+                        $("#TextFecinicial").val(moment(item.FECHA_PAGO).format("YYYY/MM/DD"));
+                    }
+                    else {
+                        dataSet.push({ 'CUOTA': item.DETALLE, 'FECHA_PAGO': moment(item.FECHA_PAGO).format("YYYY/MM/DD"), 'VALOR_CUOTA': (item.VALOR_CUOTA) });
+                        if (bandera1 == 0) {
+                            $("#TextFecinicial2").val(moment(item.FECHA_PAGO).format("YYYY/MM/DD"));
+                            bandera1 == 1
+                        }
+                    }
+
+
+                });
+                tabla(dataSet);
+                $('#dataTable').jqxGrid('refresh');
+                $('#dataTable').jqxGrid('refreshdata');
+                //$('#tablapagos').append(tabla);
+            }
 
         });
-        
+
         $(document).on('click', '#BtnAsociadoc', function () {
             cedula = $('#TxtIdentidad').val();
             var val = localStorage.getItem("CedulaAct");
@@ -89,7 +226,7 @@ var _admnegocio = (function () {
             }
         });
 
-    
+
         /*$("#Btnfecha").click(function () {
             _negocio.Modificarfecha(item, $("#nuevafc").val(), valor)
         });
@@ -103,7 +240,7 @@ var _admnegocio = (function () {
             $("#FechasPagos").modal("show")
         });
         */
-     
+
         $("#Textseparacion").change(function () {
             var separacion = $('#Textseparacion').val();
             var sep = +separacion.replace(/[^\d\.-]/g, '');
@@ -274,7 +411,7 @@ var _admnegocio = (function () {
             //var cred = $('#Textcredito').val();
             //var cre = +cred.replace(/[^\d\.-]/g, '');
             //cred = cre;
-            
+
             //var adiciones = $('#Textadiciones').val();
             //var adi = +adiciones.replace(/[^\d\.-]/g, '');
             //$('#Textadiciones').val(utl.FormatNumero(adi))
@@ -291,7 +428,7 @@ var _admnegocio = (function () {
             //var valorC = $("#Lvalor2").val();
             //var valor = +valorC.replace(/[^\d\.-]/g, '');
             //var val_casa = valor;
-            
+
             //var valorfinal = (valor + gara + adi) - descu;
             //$('#TextValorventa').val(utl.FormatNumero(valorfinal))
             //$("#Lvalor").val(valorfinal);
@@ -303,7 +440,7 @@ var _admnegocio = (function () {
             //garaje = gara;
             //descuen = descu;
             //var credito = parseFloat(inicial - separacion);
-           
+
             //$("#valcredito").val(credito);
             //var nomc;
             //amorizar = parseFloat(credito) / cuotas;
@@ -784,7 +921,7 @@ var _admnegocio = (function () {
         $("#Textadiciones").change(function () { funcalculos(); });
         $("#TextDescuento").change(function () { funcalculos(); });
         var funcalculos = function () {
-           
+
             dataSet = [];
             var date = new Date();
             var dia1 = date.getDate();
@@ -907,8 +1044,8 @@ var _admnegocio = (function () {
         }
 
         $(document).on('click', '.Btimprimir', function () {
-           // var idhoja = $(this).attr("id");
-           // window.open("Hoja_Negocio2.html?idhoja=" + idhoja + '&proyec=' + proyec, 'Graph', 'height=900px,width=650px;resizable=false');
+            // var idhoja = $(this).attr("id");
+            // window.open("Hoja_Negocio2.html?idhoja=" + idhoja + '&proyec=' + proyec, 'Graph', 'height=900px,width=650px;resizable=false');
 
         });
 
@@ -1020,7 +1157,7 @@ var _admnegocio = (function () {
                   columntype: 'string',
                   columntype: 'datetimeinput',
                   cellsformat: 'd',
-                  editable : true,
+                  editable: true,
 
               },
 
@@ -1099,7 +1236,7 @@ var _admnegocio = (function () {
         negocio.EXPEDICION = $("#TextExpedicion").val();
         negocio.FECHA_NACI = $("#Textnacimiento").val();
         negocio.LUGAR = $("#Textlugar").val();
-        negocio.N_HIJO = $("#TextNh").val(); 
+        negocio.N_HIJO = $("#TextNh").val();
         negocio.DOMICILIO = $("Textdomicilio").val();
         negocio.DIRECCION_R = $("#Textdireccion").val();
         negocio.TELEFONO_P = $("#Textphone").val();
@@ -1143,14 +1280,14 @@ var _admnegocio = (function () {
         var gas = $('#Textcreditog').val();
         var gasito = +gas.replace(/[^\d\.-]/g, '');
         negocio.VALOR_SERVICIOGAS = gasito;
-        negocio.INTERESES_SUBROGACION = 
-        
-        
-        
+        negocio.INTERESES_SUBROGACION =
+
+
+
         negocio.AUT_MENSAJE = $("#CmbAutoElectro").val();
         negocio.AUT_CORREO = $("#CmbAuto").val();
         negocio.OBSERVACIONES = $("#TextObservaciones").val();
-      //  negocio.
+        //  negocio.
 
         var Vcasa = $('#Lvalor').val();
         var Vcasas = +Vcasa.replace(/[^\d\.-]/g, '');
@@ -1168,12 +1305,12 @@ var _admnegocio = (function () {
         negocio.FECHA_SUBRO = $("#Textsubrogracion").val();
         negocio.ASESOR_INFO = $("#Textasesorinf").val();
         negocio.MEDIO_ENT = $("#TextmedioInf").val();
-       
-        
+
+
         negocio.USER_CARTERA = $("#CmbAsesorCart").val();
         negocio.ASOCIADO = cactual;
         //var separacion1 = $('#Textseparacion').val();
-       // var sep1 = +separacion1.replace(/[^\d\.-]/g, '');
+        // var sep1 = +separacion1.replace(/[^\d\.-]/g, '');
 
         negocio.SEPARACION = separaciones;
         return negocio;
@@ -1478,6 +1615,7 @@ var _admnegocio = (function () {
         $("#Lvalor2").hide();
         utl.Bancos();
         utl.AsesorCartera();
+
     }
 
     return {
@@ -1485,6 +1623,7 @@ var _admnegocio = (function () {
             _Inicio();
             _addHandlers();
             $('#BtnDisponibilidad').click();
+
         },
     }
 
