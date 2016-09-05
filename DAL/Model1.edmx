@@ -323,7 +323,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="ANTIGUEDAD" Type="varchar" MaxLength="60" />
           <Property Name="NOMBRE_CONY" Type="varchar" MaxLength="150" />
-          <Property Name="TIPO_DOCUMENTO_CONY" Type="int" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="varchar" MaxLength="30" />
           <Property Name="LUGAR_EXPEDICION" Type="varchar" MaxLength="250" />
           <Property Name="FECHA_EXPEDICION_CUY" Type="datetime" />
           <Property Name="CEDULA_CUY" Type="varchar" MaxLength="13" />
@@ -335,7 +335,6 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="ADICIONES_EXCLUSIONES" Type="decimal" Precision="20" Scale="2" />
           <Property Name="SUBSIDIO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="GARAJE" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="SALDO_FINANCIAR" Type="decimal" Precision="20" Scale="2" />
           <Property Name="DESCUENTO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VALOR_SERVICIOGAS" Type="decimal" Precision="20" Scale="2" />
           <Property Name="INTERESES_SUBROGACION" Type="decimal" Precision="20" Scale="2" />
@@ -592,17 +591,24 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.NegocioView' does not have a primar
           <Property Name="AREAS_COMUNES" Type="varchar" MaxLength="250" />
           <Property Name="AREA_PRIVADA" Type="decimal" Precision="20" Scale="2" />
           <Property Name="AREA_CONSTRUIDA" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="TIPO_DOCUMENTO_CONY" Type="int" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="varchar" MaxLength="30" />
           <Property Name="LUGAR_EXPEDICION" Type="varchar" MaxLength="250" />
           <Property Name="FECHA_EXPEDICION_CUY" Type="datetime" />
           <Property Name="ADICIONES_EXCLUSIONES" Type="decimal" Precision="20" Scale="2" />
           <Property Name="SUBSIDIO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="GARAJE" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="SALDO_FINANCIAR" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VALOR_SERVICIOGAS" Type="decimal" Precision="20" Scale="2" />
           <Property Name="INTERESES_SUBROGACION" Type="decimal" Precision="20" Scale="2" />
           <Property Name="AUT_MENSAJE" Type="int" />
           <Property Name="AUT_CORREO" Type="int" />
+          <Property Name="OBSERVACIONES" Type="nvarchar(max)" />
+          <Property Name="DESCUENTO" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="DOMICILIO" Type="nvarchar(max)" />
+          <Property Name="TIPO_PERSONA" Type="nvarchar(max)" />
+          <Property Name="TIPO_DOCUMENTO" Type="nvarchar(max)" />
+          <Property Name="LUGAR_EXPE" Type="nvarchar(max)" />
+          <Property Name="DIRECCION_CORRESPON" Type="nvarchar(max)" />
+          <Property Name="CELULAR" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VActInmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1574,11 +1580,18 @@ FROM [dbo].[historial_acuerdos_pagos] AS [historial_acuerdos_pagos]</DefiningQue
 [NegocioView].[ADICIONES_EXCLUSIONES] AS [ADICIONES_EXCLUSIONES], 
 [NegocioView].[SUBSIDIO] AS [SUBSIDIO], 
 [NegocioView].[GARAJE] AS [GARAJE], 
-[NegocioView].[SALDO_FINANCIAR] AS [SALDO_FINANCIAR], 
 [NegocioView].[VALOR_SERVICIOGAS] AS [VALOR_SERVICIOGAS], 
 [NegocioView].[INTERESES_SUBROGACION] AS [INTERESES_SUBROGACION], 
 [NegocioView].[AUT_MENSAJE] AS [AUT_MENSAJE], 
-[NegocioView].[AUT_CORREO] AS [AUT_CORREO]
+[NegocioView].[AUT_CORREO] AS [AUT_CORREO], 
+[NegocioView].[OBSERVACIONES] AS [OBSERVACIONES], 
+[NegocioView].[DESCUENTO] AS [DESCUENTO], 
+[NegocioView].[DOMICILIO] AS [DOMICILIO], 
+[NegocioView].[TIPO_PERSONA] AS [TIPO_PERSONA], 
+[NegocioView].[TIPO_DOCUMENTO] AS [TIPO_DOCUMENTO], 
+[NegocioView].[LUGAR_EXPE] AS [LUGAR_EXPE], 
+[NegocioView].[DIRECCION_CORRESPON] AS [DIRECCION_CORRESPON], 
+[NegocioView].[CELULAR] AS [CELULAR]
 FROM [dbo].[NegocioView] AS [NegocioView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VActInmuebles" EntityType="Self.VActInmuebles" store:Type="Views" store:Schema="dbo">
@@ -2614,7 +2627,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="ANTIGUEDAD" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_CONY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="TIPO_DOCUMENTO_CONY" Type="Int32" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="LUGAR_EXPEDICION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="FECHA_EXPEDICION_CUY" Type="DateTime" Precision="3" />
           <Property Name="CEDULA_CUY" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
@@ -2626,7 +2639,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="ADICIONES_EXCLUSIONES" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="SUBSIDIO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="GARAJE" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="SALDO_FINANCIAR" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="DESCUENTO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VALOR_SERVICIOGAS" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="INTERESES_SUBROGACION" Type="Decimal" Precision="20" Scale="2" />
@@ -2913,17 +2925,24 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="AREAS_COMUNES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="AREA_PRIVADA" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="AREA_CONSTRUIDA" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="TIPO_DOCUMENTO_CONY" Type="Int32" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="LUGAR_EXPEDICION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="FECHA_EXPEDICION_CUY" Type="DateTime" Precision="3" />
           <Property Name="ADICIONES_EXCLUSIONES" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="SUBSIDIO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="GARAJE" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="SALDO_FINANCIAR" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VALOR_SERVICIOGAS" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="INTERESES_SUBROGACION" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="AUT_MENSAJE" Type="Int32" />
           <Property Name="AUT_CORREO" Type="Int32" />
+          <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DESCUENTO" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="DOMICILIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TIPO_PERSONA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TIPO_DOCUMENTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LUGAR_EXPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DIRECCION_CORRESPON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CELULAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VActInmuebles">
           <Key>
@@ -4047,7 +4066,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="INTERESES_SUBROGACION" ColumnName="INTERESES_SUBROGACION" />
                 <ScalarProperty Name="VALOR_SERVICIOGAS" ColumnName="VALOR_SERVICIOGAS" />
                 <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
-                <ScalarProperty Name="SALDO_FINANCIAR" ColumnName="SALDO_FINANCIAR" />
                 <ScalarProperty Name="GARAJE" ColumnName="GARAJE" />
                 <ScalarProperty Name="SUBSIDIO" ColumnName="SUBSIDIO" />
                 <ScalarProperty Name="ADICIONES_EXCLUSIONES" ColumnName="ADICIONES_EXCLUSIONES" />
@@ -4296,11 +4314,18 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="NegocioView">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.NegocioView">
               <MappingFragment StoreEntitySet="NegocioView">
+                <ScalarProperty Name="CELULAR" ColumnName="CELULAR" />
+                <ScalarProperty Name="DIRECCION_CORRESPON" ColumnName="DIRECCION_CORRESPON" />
+                <ScalarProperty Name="LUGAR_EXPE" ColumnName="LUGAR_EXPE" />
+                <ScalarProperty Name="TIPO_DOCUMENTO" ColumnName="TIPO_DOCUMENTO" />
+                <ScalarProperty Name="TIPO_PERSONA" ColumnName="TIPO_PERSONA" />
+                <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
+                <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
                 <ScalarProperty Name="AUT_CORREO" ColumnName="AUT_CORREO" />
                 <ScalarProperty Name="AUT_MENSAJE" ColumnName="AUT_MENSAJE" />
                 <ScalarProperty Name="INTERESES_SUBROGACION" ColumnName="INTERESES_SUBROGACION" />
                 <ScalarProperty Name="VALOR_SERVICIOGAS" ColumnName="VALOR_SERVICIOGAS" />
-                <ScalarProperty Name="SALDO_FINANCIAR" ColumnName="SALDO_FINANCIAR" />
                 <ScalarProperty Name="GARAJE" ColumnName="GARAJE" />
                 <ScalarProperty Name="SUBSIDIO" ColumnName="SUBSIDIO" />
                 <ScalarProperty Name="ADICIONES_EXCLUSIONES" ColumnName="ADICIONES_EXCLUSIONES" />

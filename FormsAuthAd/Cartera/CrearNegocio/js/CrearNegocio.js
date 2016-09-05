@@ -19,6 +19,19 @@ var _admnegocio = (function () {
     var fechaEscr;
     var _addHandlers = function () {
 
+
+        $(document).on('click', '#BtnSiguiente', function () {
+            //  $('.nav-tabs a:last').tab('show');
+            $('#myTab li:eq(1) a').tab('show');
+        });
+        $(document).on('click', '#BtnSiguiente2g', function () {
+            //  $('.nav-tabs a:last').tab('show');
+            $('#myTab li:eq(2) a').tab('show');
+        });
+       
+
+        
+
         $("#checkmanzada").click(function () {
             tipoint = "Manzana";
             $("#checktorre").attr('checked', false);
@@ -114,6 +127,13 @@ var _admnegocio = (function () {
             var ingres = +ingresos.replace(/[^\d\.-]/g, '');
             $('#TextIngresos').val((utl.FormatNumero(ingres)))
         });
+
+        $("#Textsubsidio").change(function () {
+            var Subsidio = $('#Textsubsidio').val();
+            var Subs = +Subsidio.replace(/[^\d\.-]/g, '');
+            $('#Textsubsidio').val((utl.FormatNumero(Subs)))
+        });
+        
 
         $("#Textinicial").change(function () {
             var c_inicial = $('#Textinicial').val()
@@ -1130,7 +1150,9 @@ var _admnegocio = (function () {
         var ad = $("#Textadiciones").val();
         var adi = +ad.replace(/[^\d\.-]/g, '');
         negocio.ADICIONES_EXCLUSIONES = adi;
-        negocio.SUBSIDIO = $("#Textsubsidio").val();
+        var subsi = $("#Textsubsidio").val(); 
+        var subsido = +subsi.replace(/[^\d\.-]/g, '');
+        negocio.SUBSIDIO = subsido;
         var gara = $("#TextGaraje").val();
         var garej = +gara.replace(/[^\d\.-]/g, '');
         negocio.GARAJE = garej;
@@ -1502,6 +1524,10 @@ $(document).ready(function () {
         format: 'yyyy/mm/dd',
     });
 
+    $('#TextExpedicion').datepicker({
+        format: 'yyyy/mm/dd',
+    });
+    
     $('#Textescritura').datepicker({
         format: 'yyyy/mm/dd',
     });

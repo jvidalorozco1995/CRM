@@ -7,6 +7,7 @@ var _admhoja = (function () {
 
     var Wdtohoja = funcionUrlGlobal("/Servicios/WNegocio.asmx/lisHoja");
     var Wacuerdo = funcionUrlGlobal("/Servicios/WNegocio.asmx/_Acuerdopago");
+    var WacuerdoGas = funcionUrlGlobal("/Servicios/WNegocio.asmx/_Acuerdopagogas");
     var WAddConfiguracionNegociogetAll = funcionUrlGlobal("/Servicios/WConfiguracionNegocios.asmx/getAll");
 
     var idhoja = utl.getUrl('idhoja');
@@ -23,7 +24,7 @@ var _admhoja = (function () {
             type: "POST", url: Wdtohoja, data: jsondata,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
-            async: true,
+            async: false,
             success: function (result) {
                 if (result.d == null) {
                     
@@ -31,16 +32,73 @@ var _admhoja = (function () {
                 else {
                     
                     var eval = result.d;
-                   
+                    $("#codifox").append(eval.CODIGO_F);
+                  
+                    
+                    $("#LblClaseInmu").append(eval.CLASE_INMU);
+                    $("#Lblfechanegocio").append(moment(eval.FECHA_NEGOCIO).format("YYYY/DD/MM"));
+                    $("#LblUbicacionInmueble").append(eval.CLASE_INMU);
+                    $("#LblManzana").append("Manzana : " + eval.INMUEBLE.substring(6, 8) + " Casa o torre : " + eval.INMUEBLE.substring(8, 13));
+                    $("#LblAreaPrivada").append(eval.AREA_PRIVADA+" Mt2" );
+                    $("#LblAreaConstruida").append(eval.AREA_CONSTRUIDA + " Mt2");
+                    $("#LblParqueadero").append(eval.PARQUEADERO);
+                    $("#LblAreasComunes").append(eval.AREAS_COMUNES);
+                    $("#Lblpropietario").append(eval.PROPIETARIO);
+                    $("#Lbltpersona").append(eval.TIPO_PERSONA);
+                    $("#Lblcivil").append(eval.ESTADO_C);
+                    $("#Lbltdocumento").append(eval.TIPO_DOCUMENTO);
+                    $("#Lblcedula").append(eval.CEDULA_P);
+                    $("#LblExpedicion").append(eval.LUGAR_EXPE);
+                    $("#Lblfexpedicion").append(moment(eval.EXPEDICION).format("YYYY/DD/MM"));
+                    $("#Lblfechanacimiento").append(moment(eval.FECHA_NACI).format("YYYY/DD/MM"));
+                    $("#Lbllugarnacimiento").append(eval.LUGAR);
+                    $("#LblNroHijos").append(eval.N_HIJO);
+                    $("#LblDomicilio").append(eval.DIRECCION_R);
+                    $("#LblDireccionCorresp").append(eval.DIRECCION_CORRESPON);
+                    $("#LblCorreo").append(eval.CORREO);
+                    $("#LblTelefono").append(eval.TELEFONO_P);
+                    $("#LblCelular").append(eval.CELULAR);
+                    $("#LblEmpresa").append(" "+eval.EMPRESA);
+                    $("#LblCargo").append(eval.CARGO);
+                    $("#LblProfesion").append(eval.PROFESION);
+                    $("#LblDireccion").append(eval.DIRECCION_EMPR);
+                    $("#LblIngresos").append(utl.FormatNumero(eval.INGRESO));
+                    $("#LblAntiguedad").append(eval.ANTIGUEDAD);
+                    $("#LblNombreconyugue").append(eval.NOMBRE_CONY);
+                    $("#Lbltipodocumentocony").append(eval.TIPO_DOCUMENTO_CONY);
+                    $("#LblNumerodocumentocony").append(eval.CEDULA_CUY);
+                    $("#Lbllugarexpedicioncony").append(eval.LUGAR_EXPEDICION);
+                    $("#LblFechaexpedicionconyu").append(moment(eval.FECHA_EXPEDICION_CUY).format("YYYY/DD/MM"));
+                    $("#LblTelefonoconyu").append(eval.TELE_CONY);
+                    $("#LblValorInmueble").append(utl.FormatNumero(eval.VALOR_CASA));
+                    $("#LblCuotaInicial").append(utl.FormatNumero(eval.INICIAL));
+                    $("#LblAdiciones").append(utl.FormatNumero(eval.ADICIONES_EXCLUSIONES));
+                    $("#LblSubsidio").append(utl.FormatNumero(eval.SUBSIDIO)); 
+                    $("#LblGaraje").append(utl.FormatNumero(eval.GARAJE));
+                    $("#LblSaldofinanciar").append(utl.FormatNumero(eval.CREDITO));
+                    $("#LblDescuento").append(utl.FormatNumero(eval.DESCUENTO));
+                    $("#LblBanco").append(eval.NOMBRE_BANCO);
+                    $("#LblValortotal").append(utl.FormatNumero(eval.VALOR_CASA));
+                    $("#LblValorserviciogas").append(utl.FormatNumero(eval.VALOR_SERVICIOGAS));
+                    $("#LblNroCuotas").append(eval.NO_CREDITO);
+                    $("#LblIntereses").append(eval.INTERESES_SUBROGACION+" %");
+                  
+                    
+
+                    $("#TxtObservaciones").append(eval.OBSERVACIONES);
+                 
                     $("#Pinteres").append(eval.PROYECTO_INT);
-                    $("#Lpropietario").append(eval.PROPIETARIO)
-                    $("#Lcedula").append(eval.CEDULA_P);
+                    $("#Lasesor").append(eval.ASESOR_INFO);
+                    $("#Lentero").append(eval.MEDIO_ENT);
+                    $("#LasesorC").append(eval.USER_CREO);
+                    
+/*
+                    $("#Pinteres").append(eval.PROYECTO_INT);
                     $("#Lcivil").append(eval.ESTADO_C);
-                    $("#Lfnaci").append(moment(eval.FECHA_NACI).format("YYYY/DD/MM"));
                     $("#Lalugar").append(eval.LUGAR);
                     $("#LdireccionCr").append(eval.DIRECCION_R);
                     $("#Lfijo").append(eval.TELEFONO_P);
-                    $("#Lempresa").append(eval.EMPRESA);
+                   
                     $("#Lcargo").append(eval.CARGO);
                     $("#Lprofesion").append(eval.PROFESION);
                     $("#LadireEmp").append(eval.DIRECCION_EMPR);
@@ -59,7 +117,7 @@ var _admhoja = (function () {
                     $("#linmueble").append(eval.NOMBRE_BLO);
                     
 
-                    $("#Lfexpedicion").append(moment(eval.EXPEDICION).format("YYYY/DD/MM"));
+                   
                     //$("#Lpropietario").append(eval.NO_CREDITO);
                     $("#Fescritura").append(moment(eval.FECHA_ES).format("YYYY/DD/MM"));
                     $("#Fentrega").append(moment(eval.FECHA_ENT).format("YYYY/DD/MM"));
@@ -67,11 +125,11 @@ var _admhoja = (function () {
                     $("#Lasesor").append(eval.ASESOR_INFO);
                     $("#Lentero").append(eval.MEDIO_ENT);
                     $("#LasesorC").append(eval.USER_NEGOCIO);
-                    $("#codifox").append(eval.CODIGO_F);
+                   
                     $("#LIngresos").append(utl.FormatNumero(eval.INGRESO));
-                    $("#lfechanegocio").append(moment(eval.FECHA_NEGOCIO).format("YYYY/DD/MM"));
+                  
                     
-                    //$("#Lpropietario").append(eval[0].CLASE_INMU);
+                    //$("#Lpropietario").append(eval[0].CLASE_INMU);*/
                 }
             },
             error: function (obj, error, objError) { alert(obj.responseText); }
@@ -117,7 +175,7 @@ var _admhoja = (function () {
             type: "POST", url: Wacuerdo, data: jsondata,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
-            async: true,
+            async: false,
             success: function (result) {
 
                 if (result.d == null) {
@@ -132,7 +190,27 @@ var _admhoja = (function () {
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
     }
-      
+    var acuerdogas = function (idhoja) {
+        jsondata = "{'ac':" + JSON.stringify(idhoja) + "}"
+        $.ajax({
+            type: "POST", url: WacuerdoGas, data: jsondata,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: false,
+            success: function (result) {
+
+                if (result.d == null) {
+
+                }
+                else {
+                    LLenarTablaGas(result.d);
+                    //alert(JSON.stringify(result.d))
+                }
+            },
+            error: function (obj, error, objError) { alert(obj.responseText); }
+        });
+    }
+    
 
     var LLenarTabla = function (datos) {
         document.getElementById('tablapagos').innerHTML = "";
@@ -158,6 +236,34 @@ var _admhoja = (function () {
         $('#tablapagos').append(tabla);
     }
 
+    var LLenarTablaGas = function (datos) {
+        document.getElementById('tablapagosgas').innerHTML = "";
+        var tabla = '<table class="table" style="font-size: 75%!important;" id="tablaspa2">';
+        tabla += '<thead>';
+        tabla += '<tr>';
+        tabla += '<th class="col-lg-4">Cuota</th>';
+        tabla += '<th class="col-lg-4">Fecha</th>';
+        tabla += '<th class="col-lg-4">Valor</th>';
+        tabla += '</tr>';
+        tabla += '</thead>';
+        tabla += '<tbody>';
+        $.each(datos, function (i, item) {
+            tabla += '<tr>';
+            tabla += '<td  class="col-lg-4">' + item.DETALLE + '</td>';
+            tabla += '<td>' + moment(item.FECHA_PAGO).format("YYYY/MM/DD") + '</td>';
+            tabla += '<td>' + utl.FormatNumero(item.VALOR_CUOTA) + '</td>';
+            tabla += ' </tr>';
+        });
+
+        tabla += '</tbody>';
+        tabla += '</table>';
+        $('#tablapagosgas').append(tabla);
+    }
+
+    
+
+
+
     var imprimir = function () {
 
         $("#BtnImprimir").click(function () {
@@ -173,8 +279,11 @@ var _admhoja = (function () {
     var _Inicio = function () {
       
         getHoha(idhoja);
+
         acuerdo(idhoja);
-        
+
+        acuerdogas(idhoja);
+
         ConfiguracionNegocio(proyec);
         imprimir();
     }

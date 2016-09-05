@@ -62,16 +62,23 @@ namespace DAL
         public string AREAS_COMUNES { get; set; }
         public Nullable<decimal> AREA_PRIVADA { get; set; }
         public Nullable<decimal> AREA_CONSTRUIDA { get; set; }
-        public Nullable<int> TIPO_DOCUMENTO_CONY { get; set; }
+        public string TIPO_DOCUMENTO_CONY { get; set; }
         public string LUGAR_EXPEDICION { get; set; }
         public Nullable<System.DateTime> FECHA_EXPEDICION_CUY { get; set; }
         public Nullable<decimal> ADICIONES_EXCLUSIONES { get; set; }
         public Nullable<decimal> SUBSIDIO { get; set; }
         public Nullable<decimal> GARAJE { get; set; }
-        public Nullable<decimal> SALDO_FINANCIAR { get; set; }
         public Nullable<decimal> VALOR_SERVICIOGAS { get; set; }
         public Nullable<decimal> INTERESES_SUBROGACION { get; set; }
         public Nullable<int> AUT_MENSAJE { get; set; }
         public Nullable<int> AUT_CORREO { get; set; }
+        public string OBSERVACIONES { get; set; }
+        public Nullable<decimal> DESCUENTO { get; set; }
+        public string DOMICILIO { get; set; }
+        public string TIPO_PERSONA { get; set; }
+        public string TIPO_DOCUMENTO { get; set; }
+        public string LUGAR_EXPE { get; set; }
+        public string DIRECCION_CORRESPON { get; set; }
+        public string CELULAR { get; set; }
     }
 }

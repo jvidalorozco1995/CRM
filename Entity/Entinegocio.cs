@@ -10,11 +10,14 @@ namespace Entity
     {
         public string T_CEDULA { get; set; }
         public string ID_NEGOCIO { get; set; }
+        public string TIPO_PERSONA { get; set; }
+        public string TIPO_DOCUMENTO { get; set; }
         public string PROPIETARIO { get; set; }
         public string CEDULA_P { get; set; }
         public string ESTADO_C { get; set; }
         public Nullable<System.DateTime> EXPEDICION { get; set; }
         public Nullable<System.DateTime> FECHA_NACI { get; set; }
+        public string LUGAR_EXPE { get; set; }
         public string LUGAR { get; set; }
         public string DIRECCION_R { get; set; }
         public string TELEFONO_P { get; set; }
@@ -36,6 +39,7 @@ namespace Entity
         public string CREDITO { get; set; }
         public int? BANCO { get; set; }
         public string NO_CREDITO { get; set; }
+        public string DOMICILIO { get; set; }
         public Nullable<System.DateTime> FECHA_ES { get; set; }
         public Nullable<System.DateTime> FECHA_ENT { get; set; }
         public Nullable<System.DateTime> FECHA_SUBRO { get; set; }
@@ -59,7 +63,7 @@ namespace Entity
         public string AREAS_COMUNES { get; set; }
         public Nullable<decimal> AREA_PRIVADA { get; set; }
         public Nullable<decimal> AREA_CONSTRUIDA { get; set; }
-        public Nullable<int> TIPO_DOCUMENTO_CONY { get; set; }
+        public string TIPO_DOCUMENTO_CONY { get; set; }
         public string LUGAR_EXPEDICION { get; set; }
         public Nullable<System.DateTime> FECHA_EXPEDICION_CUY { get; set; }
         public Nullable<decimal> ADICIONES_EXCLUSIONES { get; set; }
@@ -70,6 +74,8 @@ namespace Entity
         public Nullable<decimal> INTERESES_SUBROGACION { get; set; }
         public int? AUT_MENSAJE { get; set; }
         public int? AUT_CORREO { get; set; }
-
+        public string DIRECCION_CORRESPON { get; set; }
+        public string CELULAR { get; set; }
+        public string OBSERVACIONES { get; set; }
     }
 }

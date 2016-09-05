@@ -70,7 +70,10 @@ namespace BLLCRM
         {
             foreach (var entity in bd.ChangeTracker.Entries())
             {
-                entity.Reload();
+                
+                    entity.Reload();
+                
+               
             }
         }
 
@@ -78,7 +81,7 @@ namespace BLLCRM
            
             try
            {
-                RefreshAll();
+               RefreshAll();
                NegocioView item = bd.NegocioView.Where(i => i.ID_NEGOCIO == idhoja).FirstOrDefault();
          
                 if (item != null)
@@ -88,6 +91,9 @@ namespace BLLCRM
 
 
                     hn.ID_NEGOCIO = item.ID_NEGOCIO;
+                    hn.LUGAR_EXPE = item.LUGAR_EXPE;
+                    hn.TIPO_DOCUMENTO = item.TIPO_DOCUMENTO;
+                    hn.TIPO_PERSONA = item.TIPO_PERSONA;
                     hn.ID_HOJA = item.ID_HOJA;
                     hn.PROPIETARIO = item.PROPIETARIO;
                     hn.CEDULA_P = item.CEDULA_P;
@@ -144,12 +150,14 @@ namespace BLLCRM
                     hn.ADICIONES_EXCLUSIONES = item.ADICIONES_EXCLUSIONES;
                     hn.SUBSIDIO = item.SUBSIDIO;
                     hn.GARAJE = item.GARAJE;
-                    hn.SALDO_FINANCIAR = item.SALDO_FINANCIAR;
+                  //  hn.SALDO_FINANCIAR = item.SALDO_FINANCIAR;
                     hn.VALOR_SERVICIOGAS = item.VALOR_SERVICIOGAS;
                     hn.INTERESES_SUBROGACION = item.INTERESES_SUBROGACION;
                     hn.AUT_MENSAJE = item.AUT_MENSAJE;
                     hn.AUT_CORREO = item.AUT_CORREO;
-                    
+                    hn.DIRECCION_CORRESPON = item.DIRECCION_CORRESPON;
+                    hn.CELULAR = item.CELULAR;
+                    hn.OBSERVACIONES = item.OBSERVACIONES;
                     return hn;
                 }
                 else {
@@ -216,7 +224,7 @@ namespace BLLCRM
                        hn.ANTIGUEDAD = item.ANTIGUEDAD;
                        hn.CORREO = item.CORREO;
                        hn.NOMBRE_CONY = item.NOMBRE_CONY;
-                       hn.CEDULA_CUY = item.CEDULA_CUY;
+                   
                        hn.TELE_CONY = item.TELE_CONY;
                        hn.N_HIJO = item.N_HIJO;
                        hn.INTERES_COM = item.INTERES_COM;
@@ -246,7 +254,7 @@ namespace BLLCRM
                         hn.ADICIONES_EXCLUSIONES = item.ADICIONES_EXCLUSIONES;
                         hn.SUBSIDIO = item.SUBSIDIO;
                         hn.GARAJE = item.GARAJE;
-                        hn.SALDO_FINANCIAR = item.SALDO_FINANCIAR;
+                       /// hn.SALDO_FINANCIAR = item.SALDO_FINANCIAR;
                         hn.VALOR_SERVICIOGAS = item.VALOR_SERVICIOGAS;
                         hn.INTERESES_SUBROGACION = item.INTERESES_SUBROGACION;
                         hn.AUT_MENSAJE = item.AUT_MENSAJE;
@@ -469,6 +477,28 @@ namespace BLLCRM
            }
        }
 
+        public List<Entiacuerdo_pago> Lisacuerdopgas(string acp)
+        {
+            try
+            {
+                List<acuerdo_pago_banco> lacp = bd.acuerdo_pago_banco.Where(p => p.NO_ACUERDO == acp).ToList();
+                List<Entiacuerdo_pago> acuerdo = new List<Entiacuerdo_pago>();
+                foreach (var item in lacp)
+                {
+                    Entiacuerdo_pago ac = new Entiacuerdo_pago();
+                    ac.DETALLE = item.CUOTA;
+                    ac.FECHA_PAGO = item.FECHA_PAGO;
+                    ac.VALOR_CUOTA = item.VALOR_CUOTA;
+                    acuerdo.Add(ac);
+                }
+                return acuerdo;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public string Updatenegocio(negocio n, string inm, List<acuerdo_pago> ac, List<acuerdo_pago_banco> acg)
         {
             try
@@ -521,7 +551,7 @@ namespace BLLCRM
                 ctx.ADICIONES_EXCLUSIONES = n.ADICIONES_EXCLUSIONES;
                 ctx.SUBSIDIO = n.SUBSIDIO;
                 ctx.GARAJE = n.GARAJE;
-                ctx.SALDO_FINANCIAR = n.SALDO_FINANCIAR;
+                //ctx.SALDO_FINANCIAR = n.SALDO_FINANCIAR;
                 ctx.VALOR_SERVICIOGAS = n.VALOR_SERVICIOGAS;
                 ctx.INTERESES_SUBROGACION = n.INTERESES_SUBROGACION;
                 ctx.AUT_MENSAJE = n.AUT_MENSAJE;

@@ -262,16 +262,16 @@
                                                  <div class="form-group col-lg-6">
                                         <label>Tipo de documento:</label>
                                     <select id="TxtTipoIdentificacionConyu" title="Filtar tipo de documento" class="form-control">
-                                       <option value="0">
+                                       <option value="CC">
                                             Seleccione tipo de documento...
                                        </option>
-                                        <option value="2">
+                                        <option value="CC">
                                             Cedula Ciudadania
                                        </option>
-                                        <option value="1">
+                                        <option value="CE">
                                               Cedula Extranjeria
                                        </option>
-                                        <option value="3">
+                                        <option value="Nit">
                                               Nit
                                        </option>
                                     </select>

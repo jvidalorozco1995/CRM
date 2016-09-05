@@ -74,9 +74,7 @@ namespace FormsAuthAd.Servicios
             BLLnegocio hn = new BLLnegocio();
             foreach (var item in ac)
             {
-
-
-
+                
                 item.NO_ACUERDO = n.ID_NEGOCIO;
                 item.FECHA_PAGO = item.FECHA_PAGO;
                 item.CUOTA = item.CUOTA;
@@ -92,8 +90,6 @@ namespace FormsAuthAd.Servicios
             }
             foreach (var item in acg)
             {
-
-
 
                 item.NO_ACUERDO = n.ID_NEGOCIO;
                 item.FECHA_PAGO = item.FECHA_PAGO;
@@ -132,6 +128,13 @@ namespace FormsAuthAd.Servicios
         {
             BLLnegocio hn = new BLLnegocio();
             return hn.Lisacuerdop(ac);
+        }
+
+        [WebMethod]
+        public List<Entiacuerdo_pago> _Acuerdopagogas(string ac)
+        {
+            BLLnegocio hn = new BLLnegocio();
+            return hn.Lisacuerdopgas(ac);
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
