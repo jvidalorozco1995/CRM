@@ -70,6 +70,7 @@ var _admnegocio = (function () {
         });
 
    
+
         $(document).on('click', '#BtnDisponibilidad', function () {
             switch (bandera) {
                 case 0:
@@ -799,7 +800,9 @@ var _admnegocio = (function () {
             $('#dataTable2').jqxGrid('refreshdata');
 
         });
-
+        $("#TextGaraje").change(function () { funcalculos(); });
+        $("#Textadiciones").change(function () { funcalculos(); });
+        $("#TextDescuento").change(function () { funcalculos(); });
         var funcalculos = function () {
            
             dataSet = [];

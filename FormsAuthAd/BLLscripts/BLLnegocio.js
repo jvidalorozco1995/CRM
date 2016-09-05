@@ -1,4 +1,5 @@
 ﻿var Wcliente = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/cliente");
+var Wcliente2 = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/Clienteactualiza");
 var WclienteAsociado = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_getAsociado");
 
 
@@ -312,7 +313,7 @@ BLLnegocio.prototype = {
         var re;
 
 
-        var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + ",'acg':" + JSON.stringify(ac) + "}";
+        var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + ",'acg':" + JSON.stringify(acg) + "}";
       $.ajax({
           type: "POST", url: Waddnegocio, data: datos,
           contentType: "application/json; charset=utf-8",
@@ -354,7 +355,7 @@ BLLnegocio.prototype = {
 
 
 
-       var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + ",'acg':" + JSON.stringify(ac) + "}";
+       var datos = "{'n':" + JSON.stringify(dto) + ",'inm':" + JSON.stringify(inm) + ",'ac':" + JSON.stringify(ac) + ",'acg':" + JSON.stringify(acg) + "}";
        $.ajax({
            type: "POST", url: Waddnegocio2, data: datos,
            contentType: "application/json; charset=utf-8",
@@ -391,7 +392,57 @@ BLLnegocio.prototype = {
 
    },
 
+    
+       _GetclienteActualiza: function (cedula) {
+      
+           var datos = "{ 'c':" + JSON.stringify(cedula) + " }";
+           $.ajax({
+               type:"POST", url: Wcliente2, data:datos,
+               contentType: "application/json; charset=utf-8",
+               dataType: 'json',
+               async: true,
+               success: function (result) {
+                
+                   if (result.d == "") {  _Dto = result.d } else {
+                     
+                    
+                       document.getElementById("Tvalor").innerHTML = "";
+                   
+                       item = result.d[0];
+                   
 
+
+                       $('#TxtNombres').val(item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO);
+                       $('#Textcivil').val(item.ESTADO_CIVIL);
+                       $('#Textdireccion').val(item.DIRECCION + " " + item.BARRIO);
+                       $('#Textphone').val(item.TELEFONO2);
+                       $('#TextEmp').val(item.EMPRESA);
+                       $('#Textcorreo').val(item.EMAIL);
+                       $('#TextInt').val(item.INMU_INTERES);
+                       $('#Textasesorinf').val(item.ASESOR);
+                       $('#TextmedioInf').val(item.INFORMACION);
+                       $('#TextPinteres').val(item.PROYEC_INTERES);
+                       $('#Lvalor').val(utl.FormatNumero(item.VALOR_INM));
+                       $('#Lvalor2').val(utl.FormatNumero(item.VALOR_INM));
+                       $("#Tvalor").append(utl.FormatNumero(item.VALOR_INM));
+                       $("#Textcelular").val(item.TELEFONO2);
+                       $("#TxtTipoIdentificacion").val(item.TIPODOCUMENTO);
+                       $("#TxtTipoPersona").val(item.TIPO);
+                         
+                        
+                       val_casa = item.VALOR_INM;
+                       inicial = parseFloat(val_casa) * (30) / 100;
+                       credito = parseFloat(val_casa) - (inicial);
+                       separacion = parseFloat(inicial / 10);
+                       $('#Textinicial').val((utl.FormatNumero(inicial)))
+                       $('#Textcredito').val((utl.FormatNumero(credito)))
+                       $('#Textseparacion').val((utl.FormatNumero(separacion)))
+                   }
+               },
+               error: function (msg) { alert(msg.responseText); }
+           });
+           this._Dtocliente(_Dto)
+       },
    _Getcliente: function (cedula) {
       
          var datos = "{ 'c':" + JSON.stringify(cedula) + " }";
