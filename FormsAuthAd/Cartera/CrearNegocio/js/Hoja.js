@@ -301,4 +301,6 @@ $(document).ready(function () {
 
     _admhoja.init();
     setTimeout(function () { javascript: window.print(); }, 1000);
+    setTimeout(function () { window.close(); }, 1000);
+   
 })

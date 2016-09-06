@@ -2,13 +2,6 @@
 
 
 
-
-
-http://www.eltiempo.com/multimedia/fotos/deportes21/brasil-colombia-por-eliminatorias/16692523
-
-
-
-
 var _negocio = new BLLnegocio();
 var utl = new BLLUtilidades();
 var emailreg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
@@ -19,6 +12,7 @@ var _admnegocio = (function () {
     var bandera = 0;
     var ced = utl.getUrl('cedula');
     var inmu = utl.getUrl('inmueble');
+    var proyec = utl.getUrl('proyec');
     var separaciones = utl.getUrl('separacion');
     var cactual = "";
     var dataSet = [];
@@ -30,6 +24,12 @@ var _admnegocio = (function () {
     var fechaEscr;
     var _addHandlers = function () {
 
+
+        $(document).on('click', '.Btimprimir', function () {
+            var idhoja = $(this).attr("id");
+            window.open("Hoja_Negocio2.html?idhoja=" + idhoja + '&proyec=' + proyec, 'Graph', 'height=900px,width=650px;resizable=false');
+
+        });
 
         $(document).on('click', '#BtnSiguiente', function () {
             //  $('.nav-tabs a:last').tab('show');
@@ -937,11 +937,7 @@ var _admnegocio = (function () {
             $('#dataTable').jqxGrid('refreshdata');
         }
 
-        $(document).on('click', '.Btimprimir', function () {
-           // var idhoja = $(this).attr("id");
-           // window.open("Hoja_Negocio2.html?idhoja=" + idhoja + '&proyec=' + proyec, 'Graph', 'height=900px,width=650px;resizable=false');
-
-        });
+       
 
     }
 
@@ -1507,8 +1503,10 @@ var _admnegocio = (function () {
 
 $(document).ready(function () {
 
-
-
+    
+    $('#TxtFechaExpConyu').datepicker({
+        format: 'yyyy/mm/dd',
+    });
     $('#TextExpedicion').datepicker({
         format: 'yyyy/mm/dd',
     });
