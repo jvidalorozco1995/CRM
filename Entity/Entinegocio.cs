@@ -77,5 +77,6 @@ namespace Entity
         public string DIRECCION_CORRESPON { get; set; }
         public string CELULAR { get; set; }
         public string OBSERVACIONES { get; set; }
+        public Nullable<decimal> DESCUENTO { get; set; }
     }
 }

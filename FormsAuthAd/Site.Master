@@ -230,6 +230,9 @@
     <script src='<%= ResolveUrl("jqwidgets/jqxinput.js") %>'></script>
     <script src='<%= ResolveUrl("jqwidgets/jqxcalendar.js") %>'></script>
     <script src='<%= ResolveUrl("jqwidgets/jqxdatetimeinput.js") %>'></script>
+     <script src='<%= ResolveUrl("jqwidgets/jqxmenu.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxgrid.aggregates.js") %>'></script>
+    <script src='<%= ResolveUrl("jqwidgets/jqxgrid.grouping.js") %>'></script>
     <script src='<%= ResolveUrl("jqwidgets/jqxgrid.selection.js") %>'></script>
     <script src='<%= ResolveUrl("jqwidgets/jqxdropdownlist.js") %>'></script>
     <script src='<%= ResolveUrl("jqwidgets/jqxslider.js") %>'></script>

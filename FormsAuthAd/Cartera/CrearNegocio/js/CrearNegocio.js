@@ -952,45 +952,36 @@ var _admnegocio = (function () {
         var dataAdapter = new $.jqx.dataAdapter(source);
 
 
-        // initialize jqxDataTable
         $("#dataTable").jqxGrid(
-         {
-             width: "100%",
-             source: dataAdapter,
-             pageable: true,
-             editable: true,
-             //   autoheight: true,
-             //  columnsresize: true,
-             //   autoRowHeight: true,
-             columns: [
-               {
-                   text: 'CUOTA',
-                   columntype: 'CUOTA',
-                   datafield: 'CUOTA',
-                   editable: false,
-               },
-               {
-
-                   text: 'FECHA PAGO',
-                   datafield: 'FECHA_PAGO',
-                   columntype: 'string',
-                   columntype: 'datetimeinput',
-                   cellsformat: 'd',
-                   editable: true,
-
-               },
-
-              {
-                  text: 'VALOR CUOTA',
-                  editable: true,
-                  // columntype: 'decimal',
-                  datafield: 'VALOR_CUOTA',
-                  cellsFormat: 'c2',
-                  editable: true,
-
-              }
-             ]
-         });
+        {
+            width: "100%",
+            source: dataAdapter,
+            pageable: true,
+            // groupable: true,
+            editable: true,
+            //selectionmode: 'singlecell',
+            showstatusbar: true,
+            showaggregates: true,
+            statusbarheight: 25,
+            //groups: ['price'],
+            columns: [
+              { text: 'CUOTA', columntype: 'CUOTA', datafield: 'CUOTA', editable: false, },
+              { text: 'FECHA PAGO', datafield: 'FECHA_PAGO', columntype: 'string', columntype: 'datetimeinput', cellsformat: 'd', editable: true, },
+              //{ text: 'Total', groupable: true, columntype: 'dropdownlist', datafield: 'VALOR_CUOTA', width: 200 },
+                 {
+                     text: 'VALOR CUOTA', datafield: 'VALOR_CUOTA', aggregates: ["sum"], cellsalign: 'right', cellsformat: 'c2',
+                     cellsrenderer: function (row, column, value, defaultRender, column, rowData) {
+                         if (value.toString().indexOf("Sum") >= 0) {
+                             return defaultRender.replace("Sum", "VALOR CUOTA");
+                         }
+                     },
+                     aggregatesrenderer: function (aggregates, column, element) {
+                         var renderstring = '<div style="position: relative; margin-top: 4px; margin-right:5px; text-align: right; overflow: hidden;">' + "Total" + ': ' + aggregates.sum + '</div>';
+                         return renderstring;
+                     }
+                 }
+            ]
+        });
         $(".jqx-disableselect").removeClass("jqx-disableselect");
 
         console.log(dataAdapter)
@@ -1016,45 +1007,36 @@ var _admnegocio = (function () {
         var dataAdapter = new $.jqx.dataAdapter(source);
 
 
-        // initialize jqxDataTable
         $("#dataTable2").jqxGrid(
-        {
-            width: "100%",
-            source: dataAdapter,
-            pageable: true,
-            editable: true,
-            //   autoheight: true,
-            //  columnsresize: true,
-            //   autoRowHeight: true,
-            columns: [
-              {
-                  text: 'CUOTA',
-                  columntype: 'CUOTA',
-                  datafield: 'CUOTA',
-                  editable: false,
-              },
-              {
-
-                  text: 'FECHA PAGO',
-                  datafield: 'FECHA_PAGO',
-                  columntype: 'string',
-                  columntype: 'datetimeinput',
-                  cellsformat: 'd',
-                  editable : true,
-
-              },
-
-             {
-                 text: 'VALOR CUOTA',
-                 editable: true,
-                 // columntype: 'decimal',
-                 datafield: 'VALOR_CUOTA',
-                 cellsFormat: 'c2',
-                 editable: true,
-
-             }
-            ]
-        });
+          {
+              width: "100%",
+              source: dataAdapter,
+              pageable: true,
+              // groupable: true,
+              editable: true,
+              //selectionmode: 'singlecell',
+              showstatusbar: true,
+              showaggregates: true,
+              statusbarheight: 25,
+              //groups: ['price'],
+              columns: [
+                { text: 'CUOTA', columntype: 'CUOTA', datafield: 'CUOTA', editable: false, },
+                { text: 'FECHA PAGO', datafield: 'FECHA_PAGO', columntype: 'string', columntype: 'datetimeinput', cellsformat: 'd', editable: true, },
+                //{ text: 'Total', groupable: true, columntype: 'dropdownlist', datafield: 'VALOR_CUOTA', width: 200 },
+                   {
+                       text: 'VALOR CUOTA', datafield: 'VALOR_CUOTA', aggregates: ["sum"], cellsalign: 'right', cellsformat: 'c2',
+                       cellsrenderer: function (row, column, value, defaultRender, column, rowData) {
+                           if (value.toString().indexOf("Sum") >= 0) {
+                               return defaultRender.replace("Sum", "VALOR CUOTA");
+                           }
+                       },
+                       aggregatesrenderer: function (aggregates, column, element) {
+                           var renderstring = '<div style="position: relative; margin-top: 4px; margin-right:5px; text-align: right; overflow: hidden;">' + "Total" + ': ' + aggregates.sum + '</div>';
+                           return renderstring;
+                       }
+                   }
+              ]
+          });
         $(".jqx-disableselect").removeClass("jqx-disableselect");
 
         console.log(dataAdapter)
