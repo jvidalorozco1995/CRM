@@ -263,7 +263,8 @@
     <script src="../../BLLscripts/BLLTareas.js"></script>
     <script src="../../BLLscripts/BLLProyectos.js"></script>
 
-    <script src="../../Cartera/js/Cartera.js"></script>
+  
+    <script src="js/Cartera.js"></script>
     <script src="js/Negocios.js"></script>
 
     <script src="../../vendor/sweetalert/lib/sweet-alert.min.js"></script>

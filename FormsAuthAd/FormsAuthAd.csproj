@@ -1367,6 +1367,7 @@
     <Content Include="Cartera\CrearNegocio\js\CrearNegocio.js" />
     <Content Include="Cartera\CrearNegocio\ListadoSeparaciones.aspx" />
     <Content Include="Cartera\ListaNegocioFox\Estacuenta.html" />
+    <Content Include="Cartera\ListaNegocioFox\js\Cartera.js" />
     <Content Include="Cartera\SeguimientoNegocio\Estacuenta.html" />
     <Content Include="Cartera\SeguimientoNegocio\GesNegocio.aspx" />
     <Content Include="Cartera\CrearNegocio\GesCartera.aspx" />
