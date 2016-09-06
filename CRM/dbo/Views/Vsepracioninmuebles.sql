@@ -6,8 +6,11 @@ SELECT        dbo.proyectos.NOMBRE_PROYEC, dbo.bloques.NOMBRE_BLO, dbo.inmuebles
                          dbo.inmueble_separacion.INMUEBLE, dbo.inmueble_separacion.FECHASEPARACION, dbo.inmueble_separacion.FECHAFINAL, dbo.inmueble_separacion.ESTADO, dbo.inmuebles.INMUDECS, 
                          dbo.clientes.PROYEC_INTERES, dbo.clientes.EMAIL, dbo.clientes.EMPRESA, dbo.clientes.SUELDO, dbo.clientes.PRESU_COMPRA, dbo.clientes.INTERES_VI, dbo.clientes.MOT_COMPRA, 
                          dbo.clientes.INFORMACION, dbo.empresas.ID_EMP, dbo.empresas.NOMBRE_EMP, dbo.empresas.TEL_EMP, dbo.sala_ventas.NOMBRE_SALA, dbo.sala_ventas.ID_SALA, 
-                         dbo.trabajadores.NOMBRES AS TRABAJADOR, dbo.clientes.ASESOR, dbo.clientes.INMU_INTERES, dbo.inmueble_separacion.ID_SEPARACION, dbo.negocio.CODIGO_F, dbo.negocio.ID_NEGOCIO
-FROM            dbo.inmueble_separacion INNER JOIN
+                         dbo.trabajadores.NOMBRES AS TRABAJADOR, dbo.clientes.ASESOR, dbo.clientes.INMU_INTERES, dbo.inmueble_separacion.ID_SEPARACION, dbo.negocio.CODIGO_F, dbo.negocio.ID_NEGOCIO, 
+                         dbo.tipo_personas.TIPO, dbo.tipo_documentos.TIPO AS TIPODOCUMENTO
+FROM            dbo.negocio RIGHT OUTER JOIN
+                         dbo.tipo_personas INNER JOIN
+                         dbo.inmueble_separacion INNER JOIN
                          dbo.inmuebles ON dbo.inmueble_separacion.INMUEBLE = dbo.inmuebles.REFERENCIA INNER JOIN
                          dbo.Vclienteseparacion INNER JOIN
                          dbo.proyectos INNER JOIN
@@ -16,8 +19,8 @@ FROM            dbo.inmueble_separacion INNER JOIN
                          dbo.bloques ON dbo.inmuebles.INMUOBRA = dbo.bloques.ID_BLOQUE AND dbo.proyectos.ID_PROYEC = dbo.bloques.BLOQUE_OBRA INNER JOIN
                          dbo.empresas ON dbo.clientes.EMPRESA = dbo.empresas.ID_EMP INNER JOIN
                          dbo.sala_ventas ON dbo.clientes.SALA_VENTA = dbo.sala_ventas.ID_SALA INNER JOIN
-                         dbo.trabajadores ON dbo.clientes.ASESOR = dbo.trabajadores.T_CEDULA LEFT OUTER JOIN
-                         dbo.negocio ON dbo.Vclienteseparacion.ID_SEPARACION = dbo.negocio.SEPARACION
+                         dbo.trabajadores ON dbo.clientes.ASESOR = dbo.trabajadores.T_CEDULA ON dbo.tipo_personas.ID = dbo.clientes.TIPO_PERSONA INNER JOIN
+                         dbo.tipo_documentos ON dbo.clientes.TIPO_DOCUMENTO = dbo.tipo_documentos.ID ON dbo.negocio.SEPARACION = dbo.Vclienteseparacion.ID_SEPARACION
 
 
 
@@ -59,6 +62,26 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'    Displa
             DisplayFlags = 280
             TopColumn = 0
          End
+         Begin Table = "tipo_documentos"
+            Begin Extent = 
+               Top = 282
+               Left = 1048
+               Bottom = 378
+               Right = 1218
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "tipo_personas"
+            Begin Extent = 
+               Top = 145
+               Left = 1052
+               Bottom = 241
+               Right = 1222
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
       End
    End
    Begin SQLPane = 
@@ -66,7 +89,7 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'    Displa
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
-      Begin ColumnWidths = 40
+      Begin ColumnWidths = 42
          Width = 284
          Width = 2235
          Width = 3885
@@ -86,6 +109,8 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'    Displa
          Width = 1500
          Width = 1500
          Width = 885
+         Width = 1500
+         Width = 1500
          Width = 1500
          Width = 1500
          Width = 1500
@@ -128,6 +153,8 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'    Displa
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vsepracioninmuebles';
+
+
 
 
 GO
@@ -250,7 +277,7 @@ Begin DesignProperties =
                Right = 987
             End
             DisplayFlags = 280
-            TopColumn = 6
+            TopColumn = 1
          End
          Begin Table = "bloques"
             Begin Extent = 
@@ -270,4 +297,6 @@ Begin DesignProperties =
                Right = 1177
             End
         ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vsepracioninmuebles';
+
+
 

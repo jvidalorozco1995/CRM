@@ -4,13 +4,22 @@ SELECT        dbo.negocio.ID_NEGOCIO, dbo.negocio.PROPIETARIO, dbo.negocio.CEDUL
                          dbo.negocio.TELEFONO_P, dbo.negocio.EMPRESA, dbo.negocio.TELFONO_EMP, dbo.negocio.CARGO, dbo.negocio.PROFESION, dbo.negocio.DIRECCION_EMPR, dbo.negocio.ANTIGUEDAD, 
                          dbo.negocio.CORREO, dbo.negocio.NOMBRE_CONY, dbo.negocio.CEDULA_CUY, dbo.negocio.TELE_CONY, dbo.negocio.N_HIJO, dbo.negocio.INTERES_COM, dbo.negocio.VALOR_CASA, dbo.negocio.INICIAL, 
                          dbo.negocio.CREDITO, dbo.negocio.BANCO, dbo.negocio.NO_CREDITO, dbo.negocio.FECHA_ES, dbo.negocio.FECHA_ENT, dbo.negocio.FECHA_SUBRO, dbo.negocio.ASESOR_INFO, dbo.negocio.MEDIO_ENT, 
-                         dbo.negocio.ASOCIADO, dbo.negocio.CLASE_INMU, dbo.negocio.ID_HOJA, dbo.negocio.SEPARACION, dbo.trabajadores.NOMBRES, dbo.proyectos.NOMBRE_PROYEC, dbo.negocio.INGRESO, 
-                         dbo.negocio.CODIGO_F, dbo.inmueble_separacion.INMUEBLE, dbo.bloques.NOMBRE_BLO
-FROM            dbo.trabajadores INNER JOIN
+                         dbo.negocio.ASOCIADO, dbo.negocio.CLASE_INMU, dbo.negocio.SEPARACION, dbo.trabajadores.NOMBRES, dbo.proyectos.NOMBRE_PROYEC, dbo.negocio.INGRESO, dbo.negocio.CODIGO_F, 
+                         dbo.inmueble_separacion.INMUEBLE, dbo.bloques.NOMBRE_BLO, dbo.negocio.ID_HOJA, dbo.negocio.USER_CARTERA, dbo.negocio.FECHA_NEGOCIO, dbo.bancos.NOMBRE_BANCO, 
+                         dbo.negocio.PARQUEADERO, dbo.negocio.AREAS_COMUNES, dbo.negocio.AREA_PRIVADA, dbo.negocio.AREA_CONSTRUIDA, dbo.negocio.TIPO_DOCUMENTO_CONY, dbo.negocio.LUGAR_EXPEDICION, 
+                         dbo.negocio.FECHA_EXPEDICION_CUY, dbo.negocio.ADICIONES_EXCLUSIONES, dbo.negocio.SUBSIDIO, dbo.negocio.GARAJE, dbo.negocio.VALOR_SERVICIOGAS, dbo.negocio.INTERESES_SUBROGACION, 
+                         dbo.negocio.AUT_MENSAJE, dbo.negocio.AUT_CORREO, dbo.negocio.OBSERVACIONES, dbo.negocio.DESCUENTO, dbo.negocio.DOMICILIO, dbo.tipo_personas.TIPO AS TIPO_PERSONA, 
+                         dbo.tipo_documentos.TIPO AS TIPO_DOCUMENTO, dbo.negocio.LUGAR_EXPE, dbo.clientes.DIRECCION_CORRESPON, dbo.clientes.CELULAR
+FROM            dbo.tipo_documentos INNER JOIN
+                         dbo.clientes INNER JOIN
+                         dbo.trabajadores INNER JOIN
                          dbo.negocio ON dbo.trabajadores.T_CEDULA = dbo.negocio.USER_CREO INNER JOIN
                          dbo.proyectos ON dbo.negocio.PROYECTO_INT = dbo.proyectos.ID_PROYEC INNER JOIN
                          dbo.inmueble_separacion ON dbo.negocio.SEPARACION = dbo.inmueble_separacion.ID_SEPARACION INNER JOIN
-                         dbo.bloques ON dbo.bloques.ID_BLOQUE = SUBSTRING(dbo.inmueble_separacion.INMUEBLE, 0, 7)
+                         dbo.bloques ON dbo.bloques.ID_BLOQUE = SUBSTRING(dbo.inmueble_separacion.INMUEBLE, 0, 7) INNER JOIN
+                         dbo.bancos ON dbo.negocio.BANCO = dbo.bancos.ID_BANCO ON dbo.clientes.ASESOR = dbo.trabajadores.T_CEDULA AND dbo.clientes.PROYEC_INTERES = dbo.proyectos.ID_PROYEC AND 
+                         dbo.clientes.CEDULA = dbo.inmueble_separacion.CLIENTE AND dbo.clientes.CEDULA = dbo.inmueble_separacion.CLIENTE INNER JOIN
+                         dbo.tipo_personas ON dbo.clientes.TIPO_PERSONA = dbo.tipo_personas.ID ON dbo.tipo_documentos.ID = dbo.clientes.TIPO_DOCUMENTO
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
@@ -84,12 +93,32 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "trabajadores"
+         Begin Table = "tipo_documentos"
             Begin Extent = 
                Top = 6
                Left = 38
-               Bottom = 136
+               Bottom = 102
                Right = 208
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "clientes"
+            Begin Extent = 
+               Top = 6
+               Left = 246
+               Bottom = 136
+               Right = 469
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "trabajadores"
+            Begin Extent = 
+               Top = 6
+               Left = 507
+               Bottom = 136
+               Right = 677
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -97,9 +126,9 @@ Begin DesignProperties =
          Begin Table = "negocio"
             Begin Extent = 
                Top = 6
-               Left = 246
+               Left = 715
                Bottom = 136
-               Right = 432
+               Right = 948
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -107,9 +136,9 @@ Begin DesignProperties =
          Begin Table = "proyectos"
             Begin Extent = 
                Top = 6
-               Left = 470
+               Left = 986
                Bottom = 102
-               Right = 657
+               Right = 1173
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -117,19 +146,57 @@ Begin DesignProperties =
          Begin Table = "inmueble_separacion"
             Begin Extent = 
                Top = 6
-               Left = 695
+               Left = 1211
                Bottom = 136
-               Right = 892
+               Right = 1408
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "bloques"
             Begin Extent = 
-               Top = 6
-               Left = 930
-               Bottom = 136
-               Right = 1100
+               Top = 102
+               Left = 38
+               Bottom = 232
+               Right = 208
+            End
+       ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
+
+
+
+
+
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'     DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "bancos"
+            Begin Extent = 
+               Top = 102
+               Left = 986
+               Bottom = 198
+               Right = 1170
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "tipo_personas"
+            Begin Extent = 
+               Top = 138
+               Left = 246
+               Bottom = 234
+               Right = 416
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -156,27 +223,13 @@ Begin DesignProperties =
          Filter = 1350
          Or = 1350
          Or = 1350
-  ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
-
-
-
-
-
-
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
-
-
-
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'       Or = 1350
+         Or = 1350
       End
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
 
 
 

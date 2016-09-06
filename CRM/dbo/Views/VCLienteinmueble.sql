@@ -1,16 +1,16 @@
-﻿CREATE VIEW [dbo].[VCLienteinmueble]
+﻿CREATE VIEW dbo.VCLienteinmueble
 AS
-SELECT        dbo.clientes.NOMBRES, dbo.clientes.P_APELLIDO, dbo.clientes.S_APELLIDO, dbo.clientes.DIRECCION, dbo.clientes.EMAIL, DATEDIFF(DD, dbo.inmueble_separacion.FECHASEPARACION, GETDATE()) AS DIAS_T, 
-                         DATEDIFF(DD, dbo.inmueble_separacion.FECHASEPARACION, dbo.inmueble_separacion.FECHAFINAL) AS DIAS, dbo.clientes.PROYEC_INTERES, dbo.clientes.ASESOR, dbo.inmuebles.INMUDECS, 
-                         dbo.inmuebles.VAL_INMUEBLE, dbo.inmuebles.REFERENCIA, dbo.inmueble_separacion.ESTADO, dbo.inmueble_separacion.CLIENTE, dbo.clientes.CEDULA, dbo.proyectos.NOMBRE_PROYEC, 
-                         dbo.clientes.TELEFONO2, dbo.clientes.BARRIO, dbo.inmueble_separacion.INMUEBLE, dbo.inmueble_separacion.FECHASEPARACION, dbo.inmueble_separacion.FECHAFINAL, 
+SELECT DISTINCT 
+                         TOP (100) PERCENT dbo.clientes.NOMBRES, dbo.clientes.P_APELLIDO, dbo.clientes.S_APELLIDO, dbo.clientes.DIRECCION, dbo.clientes.EMAIL, DATEDIFF(DD, a.FECHASEPARACION, GETDATE()) AS DIAS_T, 
+                         DATEDIFF(DD, a.FECHASEPARACION, a.FECHAFINAL) AS DIAS, dbo.clientes.PROYEC_INTERES, dbo.clientes.ASESOR, dbo.inmuebles.INMUDECS, dbo.inmuebles.VAL_INMUEBLE, dbo.inmuebles.REFERENCIA, 
+                         a.ESTADO, a.CLIENTE, dbo.clientes.CEDULA, dbo.proyectos.NOMBRE_PROYEC, dbo.clientes.TELEFONO2, dbo.clientes.BARRIO, a.INMUEBLE, a.FECHASEPARACION, a.FECHAFINAL, 
                          dbo.clientes.ESTADO AS ESTADO_C
-FROM            dbo.proyectos INNER JOIN
-                         dbo.clientes ON dbo.proyectos.ID_PROYEC = dbo.clientes.PROYEC_INTERES LEFT OUTER JOIN
-                         dbo.inmuebles INNER JOIN
-                         dbo.inmueble_separacion ON dbo.inmuebles.REFERENCIA = dbo.inmueble_separacion.INMUEBLE INNER JOIN
-                         dbo.Vclienteseparacion ON dbo.inmueble_separacion.ID_SEPARACION = dbo.Vclienteseparacion.ID_SEPARACION ON dbo.clientes.CEDULA = dbo.Vclienteseparacion.CLIENTE AND 
-                         dbo.clientes.CEDULA = dbo.inmueble_separacion.CLIENTE
+FROM            dbo.clientes INNER JOIN
+                         dbo.proyectos ON dbo.proyectos.ID_PROYEC = dbo.clientes.PROYEC_INTERES LEFT OUTER JOIN
+                             (SELECT        CLIENTE, INMUEBLE, FECHASEPARACION, FECHAFINAL, ESTADO
+                               FROM            dbo.Vclienteseparacion
+                               WHERE        (ESTADO <> 'D')) AS a ON dbo.clientes.CEDULA = a.CLIENTE LEFT OUTER JOIN
+                         dbo.inmuebles ON dbo.inmuebles.REFERENCIA = a.INMUEBLE
 
 
 
@@ -19,20 +19,7 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @leve
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N' Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 1500
-         Width = 2430
-         Width = 1500
-         Width = 3000
-         Width = 1500
-      End
-   End
-   Begin CriteriaPane = 
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N' 
       Begin ColumnWidths = 11
          Column = 3300
          Alias = 900
@@ -51,6 +38,8 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N' Width = 1
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VCLienteinmueble';
+
+
 
 
 GO
@@ -155,22 +144,12 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
-         Begin Table = "inmueble_separacion"
+         Begin Table = "a"
             Begin Extent = 
-               Top = 0
-               Left = 699
-               Bottom = 202
-               Right = 896
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "Vclienteseparacion"
-            Begin Extent = 
-               Top = 0
-               Left = 78
-               Bottom = 152
-               Right = 254
+               Top = 966
+               Left = 38
+               Bottom = 1096
+               Right = 235
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -196,5 +175,20 @@ Begin DesignProperties =
          Width = 1500
          Width = 1500
          Width = 1500
-        ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VCLienteinmueble';
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 2430
+         Width = 1500
+         Width = 3000
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane =', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VCLienteinmueble';
+
+
 

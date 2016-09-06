@@ -1,16 +1,11 @@
-﻿CREATE VIEW dbo.Vclienteseparacion
+﻿CREATE VIEW dbo.VDocumentosActividades
 AS
-SELECT        CLIENTE, ID_SEPARACION, FECHASEPARACION, FECHAFINAL, ESTADO, INMUEBLE
-FROM            dbo.inmueble_separacion
-WHERE        (CLIENTE IN
-                             (SELECT        CEDULA
-                               FROM            dbo.clientes))
-GROUP BY CLIENTE, ID_SEPARACION, FECHASEPARACION, FECHAFINAL, ESTADO, INMUEBLE
-
-
-
+SELECT        dbo.Actividades_Inmueble.id AS 'idactividad', dbo.Documento.Nombre, dbo.Documento.Id AS 'id'
+FROM            dbo.Actividades_Inmueble INNER JOIN
+                         dbo.Actividades ON dbo.Actividades.id = dbo.Actividades_Inmueble.IdActividad INNER JOIN
+                         dbo.Documento ON dbo.Documento.Id_Actividad = dbo.Actividades.id
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vclienteseparacion';
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VDocumentosActividades';
 
 
 GO
@@ -19,7 +14,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[37] 4[18] 2[18] 3) )"
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -85,12 +80,32 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "inmueble_separacion"
+         Begin Table = "Actividades_Inmueble"
             Begin Extent = 
                Top = 6
                Left = 38
-               Bottom = 193
-               Right = 251
+               Bottom = 136
+               Right = 244
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Actividades"
+            Begin Extent = 
+               Top = 6
+               Left = 282
+               Bottom = 136
+               Right = 493
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Documento"
+            Begin Extent = 
+               Top = 6
+               Left = 531
+               Bottom = 119
+               Right = 701
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -115,7 +130,7 @@ Begin DesignProperties =
       End
    End
    Begin CriteriaPane = 
-      Begin ColumnWidths = 12
+      Begin ColumnWidths = 11
          Column = 1440
          Alias = 900
          Table = 1170
@@ -132,5 +147,5 @@ Begin DesignProperties =
       End
    End
 End
-', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vclienteseparacion';
+', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VDocumentosActividades';
 

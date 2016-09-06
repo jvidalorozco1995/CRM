@@ -1,9 +1,10 @@
-﻿CREATE VIEW [dbo].[Vclientes]
+﻿CREATE VIEW dbo.Vclientes
 AS
 SELECT        dbo.clientes.CEDULA, dbo.empresas.NOMBRE_EMP, dbo.clientes.NOMBRES, dbo.clientes.P_APELLIDO, dbo.clientes.S_APELLIDO, dbo.clientes.ESTADO_CIVIL, dbo.clientes.DIRECCION, dbo.clientes.BARRIO, 
                          dbo.clientes.TELEFONO2, dbo.clientes.PROYEC_INTERES, dbo.clientes.EMAIL, dbo.clientes.EMPRESA, dbo.clientes.SUELDO, dbo.clientes.PRESU_COMPRA, dbo.clientes.INMU_INTERES, 
                          dbo.clientes.INTERES_VI, dbo.clientes.MOT_COMPRA, dbo.clientes.FECHACREACION, dbo.clientes.FECHAMOD, dbo.clientes.INFORMACION, dbo.empresas.ID_EMP, dbo.trabajadores.NOMBRES AS TRABAJADOR,
-                          dbo.empresas.TEL_EMP, dbo.sala_ventas.NOMBRE_SALA, dbo.clientes.ASOCIADO
+                          dbo.empresas.TEL_EMP, dbo.sala_ventas.NOMBRE_SALA, dbo.clientes.ASOCIADO, dbo.clientes.ASESOR, dbo.clientes.TIPO_PERSONA, dbo.clientes.TIPO_DOCUMENTO, dbo.clientes.DIRECCION_CORRESPON, 
+                         dbo.clientes.CELULAR
 FROM            dbo.clientes LEFT OUTER JOIN
                          dbo.empresas ON dbo.clientes.EMPRESA = dbo.empresas.ID_EMP LEFT OUTER JOIN
                          dbo.trabajadores ON dbo.clientes.ASESOR = dbo.trabajadores.T_CEDULA LEFT OUTER JOIN
@@ -16,7 +17,9 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @leve
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'd
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'dth = 1500
+         Width = 1500
+      End
    End
    Begin CriteriaPane = 
       Begin ColumnWidths = 11
@@ -37,6 +40,8 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'd
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vclientes';
+
+
 
 
 GO
@@ -107,7 +112,7 @@ Begin DesignProperties =
    End
    Begin DiagramPane = 
       Begin Origin = 
-         Top = -192
+         Top = 0
          Left = -86
       End
       Begin Tables = 
@@ -116,10 +121,10 @@ Begin DesignProperties =
                Top = 0
                Left = 888
                Bottom = 339
-               Right = 1072
+               Right = 1122
             End
             DisplayFlags = 280
-            TopColumn = 7
+            TopColumn = 1
          End
          Begin Table = "empresas"
             Begin Extent = 
@@ -158,7 +163,7 @@ Begin DesignProperties =
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
-      Begin ColumnWidths = 25
+      Begin ColumnWidths = 27
          Width = 284
          Width = 1500
          Width = 1500
@@ -184,5 +189,7 @@ Begin DesignProperties =
          Width = 1500
          Width = 1500
          Width = 1500
-      En', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vclientes';
+         Wi', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vclientes';
+
+
 
