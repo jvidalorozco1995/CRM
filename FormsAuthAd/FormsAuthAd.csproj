@@ -4655,9 +4655,6 @@
       <DependentUpon>Actualizarnegocio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cartera\UpdateNegocio\Actualizarnegocio.aspx.designer.cs">
-      <DependentUpon>Actualizarnegocio.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Cartera\UpdateNegocio\GesCarteraU.aspx.cs">
       <DependentUpon>GesCarteraU.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

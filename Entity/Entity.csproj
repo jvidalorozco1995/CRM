@@ -42,7 +42,6 @@
     <Compile Include="Bancos.cs" />
     <Compile Include="Configuracion_Negocio.cs" />
     <Compile Include="Entiacuerdo_pago.cs" />
-    <Compile Include="Entiacuerdo_pagosg.cs" />
     <Compile Include="EntiBitacoras.cs" />
     <Compile Include="EntiBloques.cs" />
     <Compile Include="EntiClientes.cs" />

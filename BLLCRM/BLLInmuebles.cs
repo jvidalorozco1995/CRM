@@ -124,7 +124,7 @@ namespace BLLCRM
                          //   var ctx = db.inmuebles.First(inm => inm.REFERENCIA );
                             if (item2 != null)
                             {
-                                if (item2.INMUESTADO.Equals("3"))
+                                if (item2.INMUESTADO.Equals("3") || item2.INMUESTADO.Equals("1"))
                                 {
                                     item2.VAL_INMUEBLE = item.VAL_INMUEBLE;
                                     item2.AREA = item.AREA;
@@ -151,7 +151,7 @@ namespace BLLCRM
                         var ctx = db.inmuebles.First(inm => inm.REFERENCIA == item.REFERENCIA && inm.INMUOBRA == b);
                         if (ctx != null)
                         {
-                            if (ctx.INMUESTADO.Equals("3"))
+                            if (ctx.INMUESTADO.Equals("3") || ctx.INMUESTADO.Equals("1"))
                             {
                                 ctx.VAL_INMUEBLE = item.VAL_INMUEBLE;
                                 ctx.AREA = item.AREA;

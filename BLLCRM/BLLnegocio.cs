@@ -336,7 +336,7 @@ namespace BLLCRM
        {
            try
            {
-               var ctx = bd.inmueble_separacion.First(t=> t.INMUEBLE==inm);
+               var ctx = bd.inmueble_separacion.First(t=> t.INMUEBLE==inm && t.ESTADO != "C");
                ctx.ESTADO = "C";
                bd.SaveChanges();
            }
