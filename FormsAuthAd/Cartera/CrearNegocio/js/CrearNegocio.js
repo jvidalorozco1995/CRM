@@ -1,4 +1,15 @@
-﻿var _negocio = new BLLnegocio();
+﻿
+
+
+
+
+
+http://www.eltiempo.com/multimedia/fotos/deportes21/brasil-colombia-por-eliminatorias/16692523
+
+
+
+
+var _negocio = new BLLnegocio();
 var utl = new BLLUtilidades();
 var emailreg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 var Numeros = /[0-9]/;
