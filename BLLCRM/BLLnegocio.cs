@@ -158,6 +158,8 @@ namespace BLLCRM
                     hn.DIRECCION_CORRESPON = item.DIRECCION_CORRESPON;
                     hn.CELULAR = item.CELULAR;
                     hn.OBSERVACIONES = item.OBSERVACIONES;
+                    hn.DESCUENTO = item.DESCUENTO;
+                    hn.DOMICILIO = item.DOMICILIO;
                     return hn;
                 }
                 else {
