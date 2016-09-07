@@ -4557,6 +4557,9 @@
     <Content Include="vendor\toastr\build\toastr.js.map" />
     <Content Include="vendor\xeditable\LICENSE-MIT" />
     <Content Include="vendor\xeditable\README.md" />
+    <Content Include="Upload\110702AP404" />
+    <Content Include="Upload\110702AP404.pdf" />
+    <Content Include="Upload\Hoja_Torre#2_JorgeVidal.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

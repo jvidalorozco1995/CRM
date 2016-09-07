@@ -20,10 +20,10 @@ namespace FormsAuthAd.handler
         public void ProcessRequest(HttpContext context)
         {
 
-
+            string CODIGOCRM = context.Request["CODIGOCRM"];
             if (context.Request.Files.Count > 0)
             {
-
+              
                 HttpFileCollection files = context.Request.Files;
                 for (int i = 0; i < files.Count; i++)
                 {
@@ -32,11 +32,11 @@ namespace FormsAuthAd.handler
                     if (HttpContext.Current.Request.Browser.Browser.ToUpper() == "IE" || HttpContext.Current.Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
                     {
                         string[] testfiles = file.FileName.Split(new char[] { '\\' });
-                        fname = testfiles[testfiles.Length - 1];
+                        fname = CODIGOCRM+".pdf";
                     }
                     else
                     {
-                        fname = file.FileName;
+                        fname = CODIGOCRM+".pdf";
                     }
                     fname = Path.Combine(context.Server.MapPath("~/Upload/"), fname);
                     file.SaveAs(fname);
@@ -44,6 +44,7 @@ namespace FormsAuthAd.handler
             }
             context.Response.ContentType = "text/plain";
             context.Response.Write("Adjunto guardado satisfactoriamente");
+         
         }
         public bool IsReusable
         {

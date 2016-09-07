@@ -185,6 +185,10 @@ var admUser = (function () {
 
         //Subir el archivo a la carpeta de imagenes que se llama UPLOAD
         $(document).on('click', '.RemoverP', function () {
+
+            var d = new Date();
+            var n = d.getMilliseconds();
+
            // cedula = $(this).attr("id");
             var c = $("#UploadFile").get(0);
             var files = c.files;
@@ -192,16 +196,17 @@ var admUser = (function () {
 
                 var test = new FormData();
                 for (var i = 0; i < files.length; i++) {
-                    test.append(files[i].name, files[i]);
+                    test.append(CODIGOCRM+n, files[i]);
                 }
                 $.ajax({
-                    url: "../../handler/SubirArchivoHandler.ashx",
+                    url: "../../handler/SubirArchivoHandler.ashx?CODIGOCRM=" + CODIGOCRM+n,
                     type: "POST",
                     contentType: false,
                     processData: false,
                     data: test,
+                  
                     success: function (result) {
-                        neg.ListActualizarAdj(WsActualizarAdjFox, CODIGOCRM, files[0].name);
+                        neg.ListActualizarAdj(WsActualizarAdjFox, CODIGOCRM, CODIGOCRM+n+".pdf");
                        
                       
                         setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 1000);
