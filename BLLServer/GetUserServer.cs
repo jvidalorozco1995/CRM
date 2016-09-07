@@ -57,7 +57,7 @@ namespace BLLServer
           DirectoryEntry ldapConnection = new DirectoryEntry();
           ldapConnection.Path="LDAP://192.168.0.5/OU=MAYALES,DC=mayales,DC=local";
           ldapConnection.Username="administrador";
-          ldapConnection.Password = "SelayaM2014#";
+          ldapConnection.Password = "m4y4l3sSelayaM2014#";
           ldapConnection.AuthenticationType = AuthenticationTypes.Secure;
           return ldapConnection;
        }
