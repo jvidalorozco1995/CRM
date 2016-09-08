@@ -97,11 +97,11 @@
                                                 </div>
                                                  <div class="form-group col-lg-4">
                                                     <label>Area privada</label>
-                                                    <input type="text" value="" id="TxtAreaprivada" class="form-control" name="" placeholder="Area privada">
+                                                    <input type="text" value="" id="TxtAreaprivada" class="form-control" name="" placeholder="Area privada" onKeyUp="javascript:this.value = this.value.replace(/,/,'.');" >
                                                 </div>
                                                 <div class="form-group col-lg-4">
                                                     <label>Area construida</label>
-                                                    <input type="text" value="" id="TxtAreaConstruida" class="form-control" name="" placeholder="Area construida" >
+                                                    <input type="text" value="" id="TxtAreaConstruida" class="form-control" name="" placeholder="Area construida" onKeyUp="javascript:this.value = this.value.replace(/,/,'.');" >
                                                 </div>
                                                 <div class="form-group col-lg-4">
                                                     <label>Parqueadero</label>

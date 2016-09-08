@@ -78,7 +78,11 @@ var _admhoja = (function () {
                     $("#LblSaldofinanciar").append(utl.FormatNumero(eval.CREDITO));
                     $("#LblDescuento").append(utl.FormatNumero(eval.DESCUENTO));
                     $("#LblBanco").append(eval.NOMBRE_BANCO);
-                    $("#LblValortotal").append(utl.FormatNumero(eval.VALOR_CASA));
+
+                    var valortotalitario = eval.VALOR_CASA + eval.ADICIONES_EXCLUSIONES + eval.GARAJE - eval.DESCUENTO;
+                    $("#LblValortotal").append(utl.FormatNumero(valortotalitario));
+
+
                     $("#LblValorserviciogas").append(utl.FormatNumero(eval.VALOR_SERVICIOGAS));
                     $("#LblNroCuotas").append(eval.NO_CREDITO);
                     $("#LblIntereses").append(eval.INTERESES_SUBROGACION+" %");

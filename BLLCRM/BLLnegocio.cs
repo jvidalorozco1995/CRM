@@ -42,7 +42,7 @@ namespace BLLCRM
                 Acuerdopago(ac, n.ID_NEGOCIO);
                 Acuerdopagogas(acg, n.ID_NEGOCIO);
                 ProcesoCompra(inm);
-                UpdateSepracion(inm);
+                UpdateSepracion(n.SEPARACION);
                 HistorialCliente(n.CEDULA_P, inm);
                 HistorialInmu(n.CEDULA_P, inm);
                 bd.SaveChanges();
@@ -332,11 +332,11 @@ namespace BLLCRM
            }
        }
 
-       protected void UpdateSepracion(string inm)
+       protected void UpdateSepracion(int? idseparacion)
        {
            try
            {
-               var ctx = bd.inmueble_separacion.First(t=> t.INMUEBLE==inm && t.ESTADO != "C");
+               var ctx = bd.inmueble_separacion.First(t=> t.ID_SEPARACION == idseparacion);
                ctx.ESTADO = "C";
                bd.SaveChanges();
            }
