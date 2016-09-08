@@ -580,6 +580,9 @@ namespace BLLCRM
                 ctx.INTERESES_SUBROGACION = n.INTERESES_SUBROGACION;
                 ctx.AUT_MENSAJE = n.AUT_MENSAJE;
                 ctx.AUT_CORREO = n.AUT_CORREO;
+                ctx.OBSERVACIONES = n.OBSERVACIONES;
+                ctx.DESCUENTO = n.DESCUENTO;
+                ctx.DOMICILIO = n.DOMICILIO;
                 bd.SaveChanges();
                 AcuerdopagoUpdate(ac, n.ID_NEGOCIO);
                 AcuerdopagoUpdateGas(acg, n.ID_NEGOCIO);
