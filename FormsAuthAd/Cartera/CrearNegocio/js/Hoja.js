@@ -79,7 +79,7 @@ var _admhoja = (function () {
                     $("#LblDescuento").append(utl.FormatNumero(eval.DESCUENTO));
                     $("#LblBanco").append(eval.NOMBRE_BANCO);
 
-                    var valortotalitario = eval.VALOR_CASA + eval.ADICIONES_EXCLUSIONES + eval.GARAJE - eval.DESCUENTO;
+                    var valortotalitario = parseFloat(eval.VALOR_CASA) +  parseFloat(eval.ADICIONES_EXCLUSIONES) +  parseFloat(eval.GARAJE) -  parseFloat(eval.DESCUENTO);
                     $("#LblValortotal").append(utl.FormatNumero(valortotalitario));
 
 
