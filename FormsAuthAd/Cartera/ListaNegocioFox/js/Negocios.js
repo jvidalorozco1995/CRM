@@ -196,17 +196,17 @@ var admUser = (function () {
 
                 var test = new FormData();
                 for (var i = 0; i < files.length; i++) {
-                    test.append(CODIGOCRM+n, files[i]);
+                    test.append(CODIGOCRM, files[i]);
                 }
                 $.ajax({
-                    url: "../../handler/SubirArchivoHandler.ashx?CODIGOCRM=" + CODIGOCRM+n,
+                    url: "../../handler/SubirArchivoHandler.ashx?CODIGOCRM=" + CODIGOCRM,
                     type: "POST",
                     contentType: false,
                     processData: false,
                     data: test,
                   
                     success: function (result) {
-                        neg.ListActualizarAdj(WsActualizarAdjFox, CODIGOCRM, CODIGOCRM+n+".pdf");
+                        neg.ListActualizarAdj(WsActualizarAdjFox, CODIGOCRM, CODIGOCRM+".pdf");
                        
                       
                         setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 1000);
