@@ -209,7 +209,7 @@ BLLnegocio.prototype = {
          });
      },
 
-
+     
      ListNegocioFOX: function (Wsurl, neg) {
 
          $.ajax({

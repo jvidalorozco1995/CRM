@@ -1,7 +1,6 @@
 ﻿//var Wbancos = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_Bancos");
 
 var WsBancos = funcionUrlGlobal("/Servicios/WBancos.asmx/LisBancos");
-
 var Wgetcliente = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");
 var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores");
 

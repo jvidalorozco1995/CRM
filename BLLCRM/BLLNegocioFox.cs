@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,32 @@ namespace BLLCRM
                 return 1;
             }
             catch (Exception ex) {
+
+                return 0;
+            }
+
+        }
+        public int ListaryActualizar()
+        {
+
+            try
+            {
+                DirectoryInfo di = new DirectoryInfo(@"\\192.168.0.5\wwwroot\CRM\Upload");
+                foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories))
+                {
+                   var acuerdo = fi.Name.Substring(0, 11);
+                    var nom = acuerdo + ".pdf";
+                    var item = bd.negocio.Where(t => t.CODIGO_F == acuerdo).FirstOrDefault();
+                    if (item != null && item.DOCUMENTO == null) { 
+                    item.DOCUMENTO = nom;
+                    bd.SaveChanges();
+                    }
+                }
+                return 1;
+               
+            }
+            catch (Exception ex)
+            {
 
                 return 0;
             }

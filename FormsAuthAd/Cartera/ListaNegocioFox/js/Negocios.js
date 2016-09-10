@@ -11,14 +11,29 @@ var admUser = (function () {
     var WsListNegocio = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/lisHoja");//Consulto los negocios CRM
     var WsListNegocioID = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/lisNegoID");//Consulto los negocios por id CRM
     var WsActualizarAdjFox = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ActualizarAdj");//Actualizar el adjunto CRM
-    var Wsurltodosnegocios = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/TODO"); //Actualizar todos los negocios de CRM desde MULTIFOX
+    var WsListaryActualizar = funcionUrlGlobal("/Servicios/WNegocioFox.asmx/ListaryActualizar");//Actualizar el adjunto insertado por bd
+    var Wsurltodosnegocios = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/TODO"); //Actualizar todos los negocios de CRM desde MULTIFOX 
     var negocio;
     var cedula;
     var CODIGOCRM;
     //Manejadores de los botones y eventos
     var _addHandlers = function () {
 
- 
+        $.ajax({
+            type: "POST", url: WsListaryActualizar,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+                }
+                else {
+                    
+                }
+            },
+            error: function (obj, error, objError) { alert(obj.responseText); }
+        });
+
         //Boton para imprimir los compromisos de pagoss
         $("#BtnImprimirCuenta").click(function () {
 
@@ -46,8 +61,9 @@ var admUser = (function () {
             $('#PanelTareas').hide();
             $('#Tareas').hide();
             $('#Cargando').show();
+            
             neg.ActualizarTodosLosNegocios(Wsurltodosnegocios);
-           
+                        
             setTimeout(function () { neg.ListNegocioFOX(WsListNegocio, "Negocio"); }, 2000);
             setTimeout(function () {
                if (negocio != undefined) {
