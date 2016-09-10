@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BLLCRM;
 
 namespace FormsAuthAd.Cartera
 {
@@ -11,7 +12,7 @@ namespace FormsAuthAd.Cartera
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+       
         }
     }
 }

@@ -51,10 +51,15 @@ namespace FormsAuthAd.Servicios
             BLLNegocioFox hn = new BLLNegocioFox();
             return hn.ActualizarDocumentoAdj(CodCRM, Documento);
         }
-
-
-
         [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int ListaryActualizar()
+        {
+            BLLNegocioFox hn = new BLLNegocioFox();
+            return hn.ListaryActualizar();
+        }
+
+      [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<EntitiNegociosCompro> ConsultaNegociosCompromisos(string c)
         {
