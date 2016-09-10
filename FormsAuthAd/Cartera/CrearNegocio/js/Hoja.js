@@ -38,7 +38,7 @@ var _admhoja = (function () {
                     $("#LblClaseInmu").append(eval.CLASE_INMU);
                     $("#Lblfechanegocio").append(moment(eval.FECHA_NEGOCIO).format("YYYY/DD/MM"));
                     $("#LblUbicacionInmueble").append(eval.CLASE_INMU);
-                    $("#LblManzana").append("Manzana : " + eval.INMUEBLE.substring(6, 8) + " Casa o torre : " + eval.INMUEBLE.substring(8, 13));
+                    $("#LblManzana").append("Manzana o torre : " + eval.NOMBRE_BLO + "<br/> Casa o apartamento : " + eval.INMUEBLE.substring(8, 13));
                     $("#LblAreaPrivada").append(eval.AREA_PRIVADA+" Mt2" );
                     $("#LblAreaConstruida").append(eval.AREA_CONSTRUIDA + " Mt2");
                     $("#LblParqueadero").append(eval.PARQUEADERO);
