@@ -322,7 +322,7 @@ namespace BLLCRM
            try
            {
                var ctx = bd.inmuebles.First(i=> i.REFERENCIA==inmu);
-               ctx.INMUESTADO = "1";
+               ctx.INMUESTADO = "5";
                bd.SaveChanges();
            }
            catch (Exception)
