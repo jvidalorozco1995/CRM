@@ -11,9 +11,42 @@
         <div class="row">
             <!---Panel Informacion General--->
             <div class="col-lg-7" id="Principal">
-                <div class="panel panel-danger">
-                    <div class="panel-heading hbuilt">
-                        General de clientes
+
+                <div class="hpanel">
+                        <div class="panel-tools">
+                            <a class="showhide" style="background: #E50000"><i class="fa fa-chevron-up"></i></a>
+                            <a class="Pcreartarea" style="background: #E50000"><i class="fa fa-times"></i></a>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <div class="pull-right">
+                              
+                                  <button class="btn btn-primary" type="button" id="BtnActInmuebles">Act. Inmuebles</button>
+                                  <button class="btn btn-danger btn-btn-circle" type="button" id="BtnSCliente">Crear Cliente</button>
+                                <!---<button class="btn btn-primary " type="button" id="BtnCancelar"><i class="fa fa-check"></i>Nuevo</button>--->
+                            </div>
+                            <li class="active"><a data-toggle="tab" href="#tab-1">Clientes</a></li>
+               
+                            <li class=""><a data-toggle="tab" href="#tab-2">Inmuebles</a></li>
+                         
+                            <li class=""><a data-toggle="tab" href="#tab-6">separaciones</a></li>
+                           
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                            <div class="panel panel-danger">
+                    <div class="panel">
+                        
+                        <label></label>
+                        <div class="pull-left">
+                               <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.5s; -webkit-animation-delay: 0.5s; padding-top: 10px">
+                            <div data-toggle="buttons" class="btn-group">
+                             <button class="btn btn-danger btn-xs" type="button" id="Btnvencido">Vencido</button>
+                             <button class="btn btn-success btn-xs" type="button" id="Btnterminada">Atendidas</button>
+                             <button class="btn btn-warning btn-xs" type="button" id="Btnespera">No atendidas</button>
+                             <button class="btn btn-warning btn-xs" type="button" id="Btnpospuesta" style="background:#E67E22">Pospuesta</button>
+                            </div>
+                        </div>
+                        </div>
                         <div class="pull-right">
 
                             <div class="form-group">
@@ -26,23 +59,15 @@
                                        </option>
                                     </select>
                                     <select id="CombAsesores" style="height: 22px;width:100px" title="Filtar asesores">
-                                       
                                     </select>
                                     <button type="button" id="BtnFiltar" class="btn btn-success btn-xs">Filtar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="pull-righ">
-                        <div class="col-lg-6 animated-panel zoomIn" style="animation-delay: 0.5s; -webkit-animation-delay: 0.5s; padding-top: 10px">
-                            <div data-toggle="buttons" class="btn-group">
-                             <button class="btn btn-danger btn-xs" type="button" id="Btnvencido">Vencido</button>
-                             <button class="btn btn-success btn-xs" type="button" id="Btnterminada">Atendidas</button>
-                             <button class="btn btn-warning btn-xs" type="button" id="Btnespera">No atendidas</button>
-                             <button class="btn btn-warning btn-xs" type="button" id="Btnpospuesta" style="background:#E67E22">Pospuesta</button>
-                            </div>
-                        </div>
-                    </div>
+               
+                     
+                   
                 
                     <div class="panel-body" id="clientesData">
                   
@@ -52,6 +77,39 @@
                         
                     </div>
                  </div>
+                            </div>
+                          
+
+                              <!--tab2-->
+                            <div id="tab-2" class="tab-pane">
+                                <div class="panel-body" id="TablaInmueble">
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">  <label id="lblact">Ultima vez actualizado</label></div>
+                                        <div class="panel-body" style="text-align: center">
+                                            <div class="btn-group" role="group">
+                                                <label>
+                                                    <input type="radio" value="0" id="checkDisponible" name="optionsRadios">Disponibles</label>
+                                                <label>
+                                                    <input type="radio" value="1" id="checkOcupados" name="optionsRadios">Ocupados</label>
+                                                <label>
+                                                    <input type="radio" value="2" id="checkSeparados" name="optionsRadios">Separados</label>
+                                                <select id="Mazanasb"></select>
+                                            </div>
+                                            <div class="alert alert-danger" role="alert" id="alertbloques">
+                                                <h4>CRM - Mayales</h4>
+                                                <h5>No existen inmuebles disponibles para bloque selecccionado..!</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tables">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                
             </div>
             <div class="col-lg-5" id="historial">
                 <div class="panel panel-danger">
@@ -199,7 +257,7 @@
                                     </div>
                                      <div class="form-group col-lg-6">
                                         <label>Asesor:</label>
-                                    <select id="CombAsesores2" title="Filtar asesores" class="form-control">
+                                    <select id="CombAsesores2" title="Filtar asesores" class="form-control" disabled>
                                        <option>
                                             Seleccione asesor...
                                        </option>
@@ -207,7 +265,7 @@
                                     </div>
                                      <div class="form-group col-lg-12">
                                         <label>Proyecto de interes:</label>
-                                    <select id="ComProyect2" title="Filtar proyectos" class="form-control">
+                                    <select id="ComProyect2" title="Filtar proyectos" class="form-control" disabled>
                                        <option>
                                             Seleccione proyecto...
                                        </option>
@@ -218,7 +276,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                             <button type="button" id="BtnActualizarCliente" class="btn btn-primary">Actualizar</button>
+                            <%--SE OCULTO ESTE BOTON PORQUE YA NO SE PUEDEN CAMBIAR LOS ASESORES NI EL PROYECTO --%>
+                         <%--    <button type="button" id="BtnActualizarCliente" class="btn btn-primary" >Actualizar</button>--%>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>

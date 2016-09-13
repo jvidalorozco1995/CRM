@@ -229,6 +229,7 @@ function BLLComercial() {
             tabla += "<td style='width:20px;height: 20px'>";
             tabla += "<img src='"+funcionUrlGlobal('/images_crm/Crear.png')+"'class='BtnTarea' type='button' id='" + item.CEDULA + "/" + item.EMAIL + "' title='Crear Tareas'></img>";
             tabla += "</td>";
+          
             if (item.ESTADO_I == null)
             {
                 tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/agregar.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "' class='ClienteS' title='Agregar a separacion'></img></td>";
