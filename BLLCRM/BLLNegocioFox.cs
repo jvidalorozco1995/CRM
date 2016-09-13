@@ -42,11 +42,12 @@ namespace BLLCRM
                 DirectoryInfo di = new DirectoryInfo(@"\\192.168.0.5\wwwroot\CRM\Upload");
                 foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories))
                 {
-                   var acuerdo = fi.Name.Substring(0, 11);
-                    var nom = acuerdo + ".pdf";
+
+                   var acuerdo = Buscar_Punto(fi.Name);
+                    //var nom = acuerdo + ".pdf";
                     var item = bd.negocio.Where(t => t.CODIGO_F == acuerdo).FirstOrDefault();
                     if (item != null && item.DOCUMENTO == null) { 
-                    item.DOCUMENTO = nom;
+                    item.DOCUMENTO = fi.Name;
                     bd.SaveChanges();
                     }
                 }
@@ -300,6 +301,41 @@ namespace BLLCRM
                 return result;
             }
             return DBNull.Value;
+        }
+        public static string Buscar_Punto(string Cadena)
+        {
+
+            string cadenas;
+            var cade = "";
+            cadenas = "";
+            var band = "";
+
+
+            //Cadena = Cadena.ToLower();
+            int max = Cadena.ToLower().Length - 1;
+            for (int x = 0; x <= max; x++)
+            {
+                if (band == "0") { } else { 
+                 if (Cadena[x].ToString() == "_")
+                    {
+                        cade = cadenas ;
+                        band = "0";
+                    }
+                    else
+                    {
+                        cadenas = cadenas + Cadena[x].ToString();
+                        band = "1";
+                    }
+
+                }
+            }
+
+            if (band == "1"){
+                cade = Cadena.Substring(0, max - 3);
+            }
+
+            return cade;
+
         }
 
 
