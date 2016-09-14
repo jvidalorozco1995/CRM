@@ -1396,8 +1396,12 @@
     <Content Include="Cartera\UpdateNegocio\Updatenegocio.aspx" />
     <Content Include="Comercial\clientes\Clientes.aspx" />
     <Content Include="Comercial\clientes\ClientesXusuario.aspx" />
+    <Content Include="Comercial\clientes\CrearNegocioOtroAsesor.aspx" />
+    <Content Include="Comercial\clientes\GesClientes.aspx" />
     <Content Include="Comercial\clientes\js\clientes.js" />
+    <Content Include="Comercial\clientes\js\ClientesNegocioOtroAsesor.js" />
     <Content Include="Comercial\clientes\js\clientesxusuario.js" />
+    <Content Include="Comercial\clientes\js\GesClientes.js" />
     <Content Include="Comercial\GesComercial.aspx" />
     <Content Include="Comercial\Informes\InfocomercialAsesor.aspx" />
     <Content Include="Comercial\Informes\InfocomercialProyecspx.aspx" />
@@ -4686,6 +4690,20 @@
     </Compile>
     <Compile Include="Comercial\clientes\ClientesXusuario.aspx.designer.cs">
       <DependentUpon>ClientesXusuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comercial\clientes\CrearNegocioOtroAsesor.aspx.cs">
+      <DependentUpon>CrearNegocioOtroAsesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comercial\clientes\CrearNegocioOtroAsesor.aspx.designer.cs">
+      <DependentUpon>CrearNegocioOtroAsesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comercial\clientes\GesClientes.aspx.cs">
+      <DependentUpon>GesClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comercial\clientes\GesClientes.aspx.designer.cs">
+      <DependentUpon>GesClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comercial\GesComercial.aspx.cs">
       <DependentUpon>GesComercial.aspx</DependentUpon>

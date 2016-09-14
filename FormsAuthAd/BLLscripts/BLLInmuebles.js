@@ -237,6 +237,8 @@ function BLLInmuebles() {
         document.body.removeChild(link);
     }
 
+
+   // _SepracionInmuebles
     BLLInmuebles.prototype._Sepracioninmuebles = function () {
      
         $.ajax({
@@ -756,7 +758,13 @@ function BLLInmuebles() {
             }
             else
             {
-                if (item.INMUESTADO == '1')
+                if (item.INMUESTADO == '5') {
+                    tabla += "<td>Ocupado</td>";
+                    tabla += "<td style='width:22px'></td>";
+                }
+
+                else
+                    if (item.INMUESTADO == '1')
                 {
                     tabla += "<td>Ocupado</td>";
                     tabla += "<td style='width:22px'></td>";
@@ -824,19 +832,22 @@ function BLLInmuebles() {
                 if (item.FECHASEPARACION == null)
                 {
                     tabla += "<td></td>";
+
                 } else {
                     tabla += "<td>" + moment(item.FECHASEPARACION).format("YYYY/MM/DD") + "</td>";
                 }
                 if (item.ESTADO == "P") {
-                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/libre.png') +"'></td>";
+                    tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "'> Dias " + item.DIAS + "</td>";
+
                 }
                 else {
                     if (item.ESTADO == "D") {
                         tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'></td>";
                     }
                     else {
+
                         if (item.ESTADO == "L") {
-                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "> <img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
+                            tabla += "<td class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "> <img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
                         }
                         else {
                             if (item.ESTADO ==null) {

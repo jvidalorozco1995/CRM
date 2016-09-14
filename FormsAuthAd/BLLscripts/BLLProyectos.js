@@ -71,6 +71,7 @@ function BLLProyectos() {
                 }
                 else
                 {
+
                     switch (op) {
                         case 1:
                             BLLProyectos.CrearTabla(result.d);
@@ -90,8 +91,9 @@ function BLLProyectos() {
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
     }
-
     BLLProyectos.ComboPryectos = function (proyec) {
+        document.getElementById('ComProyect').innerHTML = "";
+       
         for (var i = 0; i < proyec.length; i++) {
             var comb = '<option value=' + proyec[i]["ID_PROYEC"] + '>';
             comb += proyec[i]["NOMBRE_PROYEC"];
@@ -486,6 +488,31 @@ function BLLProyectos() {
         });
     }
 
+
+    //Listado de Proyectos asignados al Trabajador
+    BLLProyectos.prototype.LisProyectrabajdoresClientes = function (Wsurl) {
+        ///jsonData = "{ 'c':" + JSON.stringify(persona) + " }";
+        $.ajax({
+            type: "POST", url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                    BLLProyectos.ComProyecAsignadoClientes(result.d);
+                }
+                else {
+                    BLLProyectos.ComProyecAsignadoClientes(result.d);
+                }
+            },
+            error: function (obj, error, objError) { alert(error.responseText); }
+        });
+    }
+
+
+    
+
     //Listado de Proyectos asignados al Trabajador
     BLLProyectos.prototype.LisProyecSeparacion= function (Wsurl) {
         ///jsonData = "{ 'c':" + JSON.stringify(persona) + " }";
@@ -669,6 +696,33 @@ function BLLProyectos() {
 
     }
 
+
+    //Creamos los proyectos asignados a cada usuario
+    BLLProyectos.ComProyecAsignadoClientes = function (Lista, op) {
+
+        var respuesta = null;
+        var cont = Lista.length;
+        var comp = "";
+        respuesta = BLLProyectos.CLass(cont);
+        $.each(Lista, function (i, item) {
+
+            comp = '<div class="' + respuesta + '">';
+            comp += '<div class="hpanel hred contact-panel">';
+            comp += '<div class="panel-body">';
+            comp += '<h3 class="Inmueble"><a href="CrearNegocioOtroAsesor.aspx?proyec=' + item.ID_PROYEC + '">' + item.NOMBRE_PROYEC + '</a></h3>';
+            comp += '<div class="text-muted font-bold m-b-xs">Valledupar - Cesar</div>';
+            comp += '</div>';
+            comp += '<div class="panel-footer contact-footer">';
+            comp += '<div class="row">';
+            comp += '<div class="col-md-12 border-right"> <div class="contact-stat"><span>Inmuebles </span> <strong></strong></div> </div>';
+            comp += '</div>';
+            comp += '</div';
+            comp += '</div>';
+            comp += '</div>';
+            $('#result').append(comp);
+        });
+
+    }
 
     //Creamos los proyectos asignados a cada usuario
     BLLProyectos.ComProyecAsignados = function (Lista, op) {

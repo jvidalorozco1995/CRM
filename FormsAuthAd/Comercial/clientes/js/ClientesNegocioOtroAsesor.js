@@ -41,9 +41,9 @@ var admComercial = (function () {
     if (dia < 10) { dia = '0' + dia }
     if (mes < 10) { mes = '0' + mes }
     fecha = año + "/" + mes + "/" + dia;
-    var confirmar ={};
-    var cl ="";
-    var inmu ="";
+    var confirmar = {};
+    var cl = "";
+    var inmu = "";
     var separacion = {};
 
 
@@ -56,7 +56,7 @@ var admComercial = (function () {
     var WSCrearTarea = funcionUrlGlobal("/Servicios/WTareas.asmx/InsertTarea");//Crear Treas
     var WsLisImnuE = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/InmuEstados");//Listar Tareas
     var WAcActualizado = funcionUrlGlobal("/Servicios/WAcInmuebles.asmx/UltimaVezAct"); //Ultima vez actualizado
- 
+    var WsLisClientesTodos = funcionUrlGlobal("/Servicios/WClientes.asmx/LisClientesTodos");///Listado de clientes
 
     var _addHandlers = function () {
 
@@ -80,17 +80,17 @@ var admComercial = (function () {
             $('#Empresar').modal('show');
         });
 
-       
+
 
         $(document).on('click', '.select', function () {
             codigoEmp = $(this).attr("id");
             var NombEmp = $(this).attr("tag");
             $('#CombEmpresa').val(NombEmp);
             $('#ModalAsignar').modal('hide');
-            
+
         });
-        
-        
+
+
 
         $('#Btnsocio').click(function () {
             $("#asociado").modal('show');
@@ -103,8 +103,7 @@ var admComercial = (function () {
             if ($('#TxtMotivo').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>No se a digitado una descripción');
-            } else
-            {
+            } else {
 
                 $('#Cancelargestion').modal("show"); $('#ButnCerrarG').hide();
             }
@@ -112,7 +111,7 @@ var admComercial = (function () {
 
         $(document).on('change', '#gestcancelar', function () {
             var tipo = $('#gestcancelar').val();
-           
+
             switch (tipo) {
                 case "N":
                     //gestion terminada porq el cliente decice comprar
@@ -121,7 +120,7 @@ var admComercial = (function () {
                     setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
                     setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
                     setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
-                    setTimeout(function () { listc.ListClientes(proyec, WsLisClientes) }, 1000);
+                    setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 1000);
                     break;
                 case "C":
                     listc._Cancelargestion(_BitacorasDTO(), cedula, "C");
@@ -129,27 +128,27 @@ var admComercial = (function () {
                     setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
                     setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
                     setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
-                    setTimeout(function () { listc.ListClientes(proyec, WsLisClientes) }, 1000);
+                    setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 1000);
                     break;
             }
         });
 
 
-        
-       
+
+
         $(document).on('click', '#BtnActInmuebles', function () {
 
             inm.UdateInmuebles(proyec);
             setTimeout(function () {
                 act.ListActInmueble(proyec, WAcActualizado);
                 inm.InmuenlesFox(proyec, WsInmueblesFox);
-                // inm._Linmuebles(proyec);
+                // inm._Sepracioninmuebles();
                 inm.LisInmuebles(proyec);
 
                 $(".s").addClass("ClienteS");
                 $(".ClienteS").removeClass("s");
-              //  $(".s").prop("disabled", true);
-              
+                //  $(".s").prop("disabled", true);
+
                 //  $(".ClienteS").removeAttr('disabled');
 
             }, 2000);
@@ -171,20 +170,20 @@ var admComercial = (function () {
 
         $(document).on('click', '#Btnocompra', function () { listc._Lgescancelar(proyec, "N"); })
 
-        $(document).on('click', '#BtnTodos', function () { listc.ListClientes(proyec, WsLisClientes); })
+        $(document).on('click', '#BtnTodos', function () { listc.ListClientesTodos(WsLisClientesTodos);; })
 
         $(document).on('click', '#BtnDisponibilidad', function () {
-            var busqueda=$('#TxtIdentidad').val();
+            var busqueda = $('#TxtIdentidad').val();
             Cli.ValidarCliente(busqueda);
         });
 
         $('#BtnGuardarC').click(function () {
             Cli.UpdateClientes(_DatosUpdate());
-            setTimeout(function () { listc.ListClientes(proyec, WsLisClientes) }, 3000);
+            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 3000);
         });
 
         $(document).on('click', '#BtnEditarC', function () {
-            
+
             $('#Text2').attr('readonly', false); $('#Text3').attr('readonly', false);
             $('#Text4').attr('readonly', false); $('#Text5').attr('readonly', false);
             $('#Text6').attr('readonly', false); $('#Text7').attr('readonly', false);
@@ -212,7 +211,7 @@ var admComercial = (function () {
         });
 
 
-        
+
 
         $(document).on('click', '.Info', function () {
             var datos = $(this).attr("id");
@@ -227,7 +226,7 @@ var admComercial = (function () {
             $('#TxtInmueD').val(inmu); $('#TxtInmueD').attr('readonly', true);
             $('#Txtdias').val(diasC); $('#Txtdias').attr('readonly', true);
 
-            
+
             $('#lbldiasfaltantes').hide();
             $('#Btnconfitse').hide();
             $('#Txtdias').hide();
@@ -235,7 +234,7 @@ var admComercial = (function () {
 
         $(document).on('click', '.desistir', function () {
 
-            
+
             $('#lbldiasfaltantes').show();
             $('#Btnconfitse').show();
             $('#Txtdias').show();
@@ -246,6 +245,7 @@ var admComercial = (function () {
             inmu = result[1];
             var diasC = result[2];
             id_sp = result[3];
+            alert(id_sp);
             separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu };
             $('#Desistirseparacion').modal('show');
             $('#TxtclienteD').val(cl); $('#TxtclienteD').attr('readonly', true);
@@ -259,35 +259,33 @@ var admComercial = (function () {
         $(document).on('click', "#Btnconfitse", function () {
             separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu, };
             inm.Confirmarseparacion(id_sp, separacion);
-            setTimeout(function () { inm._Linmuebles(proyec); }, 2000)
+            setTimeout(function () { inm._Sepracioninmuebles(); }, 2000)
             setTimeout(function () { inm.LisInmuebles(proyec); }, 2000)
-            setTimeout(function () { listc.ListClientes(proyec, WsLisClientes); }, 2000)
+            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos);; }, 2000)
             $('#Desistirseparacion').modal('hide');
 
         });
 
         $('#BtnLiberar').click(function () {
             inm.desistirinmueble(separacion);
-            setTimeout(function () { inm._Linmuebles(proyec); }, 2000)
+            setTimeout(function () { inm._Sepracioninmuebles(); }, 2000)
             setTimeout(function () { inm.LisInmuebles(proyec); }, 2000)
-            setTimeout(function () { listc.ListClientes(proyec, WsLisClientes); }, 2000)
+            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos);; }, 2000)
             $('#Desistirseparacion').modal('hide');
         });
 
 
         $(document).on('change', '#CombEmpresa', function () {
             var selec = $('#CombEmpresa').val();
-            if (selec == "Otro")
-            {
-                $('#Empresar').modal('show');       
+            if (selec == "Otro") {
+                $('#Empresar').modal('show');
             }
-            else
-            {
+            else {
                 empresa = $('#CombEmpresa').val();
-               
+
             }
         });
-        
+
         $('#Btnempresa').click(function () {
             var e = $('#Empresa').val();
             var tel = $('#teltrabajo').val();
@@ -295,20 +293,20 @@ var admComercial = (function () {
             emp.Addempresa(_DtoEmpresa(e, tel));
             setTimeout(function () { emp.GetEmpresa() }, 1000);
             $('#ModalAsignar').modal('show');
-            });
+        });
 
-        $('#BtncDetalle').click(function () { $('#detallesepracion').hide(); $('#SepararInmueble').hide(); $('#Informacion').hide();})
+        $('#BtncDetalle').click(function () { $('#detallesepracion').hide(); $('#SepararInmueble').hide(); $('#Informacion').hide(); })
 
         $('#BtnsepararC').click(function () { $('#SepararInmueble').hide(); })
 
 
-      /*  $(document).on('click', '.s', function () {
-           
-                toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>Actualize los inmuebles, en el boton azul, que esta arriba por favor..');
-            
-            
-        });*/
+        /*  $(document).on('click', '.s', function () {
+             
+                  toastr.error('CRM Mayales - Notificacion' +
+                     '</br></br>Actualize los inmuebles, en el boton azul, que esta arriba por favor..');
+              
+              
+          });*/
 
 
         $(document).on('click', '.ClienteS', function () {
@@ -320,8 +318,7 @@ var admComercial = (function () {
                 toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>No se a seleccionado un inmueble aun para realizar la separacion');
             }
-            else
-            {
+            else {
                 $('#Cliente').val(clienteS)
                 $('#EmailCliente').val(Emailcl)
             }
@@ -329,45 +326,39 @@ var admComercial = (function () {
 
         $('#Btnseparar').click(function () {
             var fechafin = $('#Fechafinal').val();
-        
-            if (fechafin < fecha)
-            {
-                toastr.error('CRM Mayales - Notificación'+
+
+            if (fechafin < fecha) {
+                toastr.error('CRM Mayales - Notificación' +
                 '<br/>La fecha de final no puede ser menor a la actual.');
             }
-            else
-            {
+            else {
                 var result = fechafin.split("/");
                 var year = result[0];
                 var month = result[1];
                 var day = result[2];
                 diasr = day - dia;
 
-                if (diasr > 5)
-                {
+                if (diasr > 5) {
                     toastr.error('CRM Mayales - Notificacion' +
                     '<br/>los dias para la separacion no pueden ser mayores a 5.!');
                 }
-                else
-                {
-                    if ($('#Cliente').val().length < 1)
-                    {
+                else {
+                    if ($('#Cliente').val().length < 1) {
                         toastr.error('CRM Mayales - Notificacion' +
                     '<br/>Debe selccionar un cliente para continuar con el proceso de separación');
                     }
-                    else
-                    {
-                        inm.SepararInmueble(_Dtoseparacion(inmuebleS, clienteS, fechafin), Emailcl,proyec);
-                        setTimeout(function () { listc.ListClientes(proyec, WsLisClientes) }, 4000);
-                        setTimeout(function () { inm._Linmuebles(proyec); }, 4000)
+                    else {
+                        inm.SepararInmueble(_Dtoseparacion(inmuebleS, clienteS, fechafin), Emailcl, proyec);
+                        setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 4000);
+                        setTimeout(function () { inm._Sepracioninmuebles(); }, 4000)
                         $('#loadig').show();
 
                     }
-                        
+
                 }
             }
-                
-            
+
+
         });
 
         $(document).on('click', '.Detallett', function () {
@@ -424,21 +415,19 @@ var admComercial = (function () {
             cedula = resul[0];
             $('#infoCLiente').modal('show');
             Cli.getClientes(cedula);
-        
+
         });
-        
+
         $('#BtnTerminada').click(function () {
             t = $('#TxtIdTarea').val();
-            if ($('#TxtMotivo').val() === "")
-            {
+            if ($('#TxtMotivo').val() === "") {
                 toastr.error('CRM Mayales - Notificacion' +
                 '</br> El campo descripcion se encuentra vacio');
             }
-            else
-            {
+            else {
                 Tr.Etareas(_DtoTareas(), _BitacorasDTO());
-               
-             }
+
+            }
         })
 
         $('#BtnEditar').click(function () {
@@ -446,55 +435,48 @@ var admComercial = (function () {
             $('#BtnPost').show();
             $('#BtnTerminada').hide();
             $('#ButnCerrarG').hide();
-            
+
             $('#Txtdetalle').attr('readonly', false);
             $('#fechainfo').attr('readonly', false);
         })
 
         $('#BtnPost').click(function () {
-           if ($('#Txtdetalle').val().length < 1)
-           {
-               toastr.error('CRM Mayales - Notificacion' +
-                   '</br> El campo descricpion de Tarea se encuentra vacio');
+            if ($('#Txtdetalle').val().length < 1) {
+                toastr.error('CRM Mayales - Notificacion' +
+                    '</br> El campo descricpion de Tarea se encuentra vacio');
             }
-            else
-            {
-                if ($('#fechainfo').val().length < 1)
-                {
-                   toastr.error('CRM Mayales - Notificacion' +
-                   '</br> El campo Fecha de Tarera se encuentra vacio');
+            else {
+                if ($('#fechainfo').val().length < 1) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                    '</br> El campo Fecha de Tarera se encuentra vacio');
                 }
-                else
-                {
-                    if ($('#TxtMotivo').val().length < 1)
-                    {
+                else {
+                    if ($('#TxtMotivo').val().length < 1) {
                         toastr.error('CRM Mayales - Notificacion' +
                         '</br> El campo descripcion se encuentra vacio');
                     }
-                    else
-                    {
+                    else {
                         var fechaEs = $('#fechainfo').val()
-                        if (fechaEs < fecha)
-                        {
+                        if (fechaEs < fecha) {
                             dia = null;
                             mes = null;
                             toastr.error('CRM Mayales - Notificacion' +
                            '</br> La fecha selcccionada no puede ser menor a la del dia actual');
                         }
-                        else
-                        {   dia = null;
+                        else {
+                            dia = null;
                             mes = null;
 
                             Tr.PosponerTarea(_PosTareas(), _BitacorasDTO());
                             setTimeout(function () { Tr.lisbitacoras(t); }, 1000)
-                            setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000); 
+                            setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
                             setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
                             setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
                         }
 
                     }
                 }
-             }
+            }
 
 
         });
@@ -522,18 +504,18 @@ var admComercial = (function () {
             $('#Clientes').hide();
             $('#TxtDescripcion').val("");
             listc.GetClientes(cedula, WsGetClientes);
-            Tr.LisTareas(cedula,0);
+            Tr.LisTareas(cedula, 0);
             admComercial.HabilitarP();
             $('#Btntareas').show();
             $('#Tareas').hide();
             $('#hisorialcliente').show();
             Cli.ClienteHistorial(cedula);
         });
-      
+
         $(document).on('click', '#Btntareas', function () {
             $('#Tareas').show();
             $('#Bitatareas').hide();
-           // $('#Btntareas').hide();
+            // $('#Btntareas').hide();
         });
 
         $(document).on('click', '.BtnHistorial', function (event) {
@@ -544,35 +526,31 @@ var admComercial = (function () {
         });
 
         $(document).on('click', '#BtnCreaTarea', function (event) {
-            if ($('#TxtDescripcion').val().length < 1)
-            {
+            if ($('#TxtDescripcion').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
                 '<br/> no ha digitado nada en el campo descripcion de tarea');
             }
-            else
-            {
+            else {
                 if ($('#TxtFecha').val().length < 1) {
                     toastr.error('CRM Mayales- Notificacion' +
                         '<br/> No a seleccionado ninguna Fecha para realizar la tarea');
                 }
-                else
-                {      
+                else {
                     var fechata = $('#TxtFecha').val()
                     if (fechata < fecha) {
                         toastr.error('CRM  Mayales Notificacion' +
                             '</br> la fecha seleccionada para la tarea no puede ser menor que la actual');
                     }
-                    else
-                    {
+                    else {
                         Tr.CrearTarea(_DtoTareas(), WSCrearTarea);
-                      
-                      }
-                   }
-               }
+
+                    }
+                }
+            }
         });
 
         $(document).on('click', '.BitaCerrar', function (event) {
-           // $('#Bitatareas').hide();
+            // $('#Bitatareas').hide();
 
         });
 
@@ -604,11 +582,10 @@ var admComercial = (function () {
 
         $('#BtnRegCliente').click(function (event) {
             var validar = admComercial.Validar();
-            if (validar == true)
-            {
+            if (validar == true) {
                 Cli.CrearCliente(_Datos(), WsCrearCliente);
                 if ($('#teltrabajo').val() != "") { emp.AddPhone($('#teltrabajo').val(), _Datos().Empresa); }
-                setTimeout(function () { listc.ListClientes(proyec, WsLisClientes) }, 1000);
+                setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 1000);
                 var cedula2 = $('#TxtIdentidad').val()
                 $('#TxtClientes').val(cedula2);
                 _LimpiarFormulario();
@@ -624,7 +601,7 @@ var admComercial = (function () {
         $(document).on('click', '#checkDisponible', function () {
             estado = $('#checkDisponible').val();
         })
-        
+
         $(document).on('click', '#checkOcupados', function () {
             estado = $('#checkOcupados').val();
             $('#alertbloques').hide();
@@ -657,7 +634,7 @@ var admComercial = (function () {
 
         $(document).on('click', '#BtnUpdate', function () {
             Cli.UpdateClientes(_Datos());
-            setTimeout(function () { listc.ListClientes(proyec, WsLisClientes) }, 4000);
+            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 4000);
         });
 
         $(document).on('click', '#check1', function () {
@@ -671,17 +648,17 @@ var admComercial = (function () {
         });
 
         $(document).on('click', '#check3', function () {
-           $("#check4").attr('checked', false);
+            $("#check4").attr('checked', false);
             motivo = $('#check3').val()
         });
 
         $(document).on('click', '#check4', function () {
-             $("#check3").attr('checked', false);
-             motivo = $('#check4').val()
+            $("#check3").attr('checked', false);
+            motivo = $('#check4').val()
         });
 
         $(document).on('click', '#Btnsocio', function () {
-            
+
             $('#Btncrearasc').show();
         });
 
@@ -689,25 +666,44 @@ var admComercial = (function () {
             Cli.CrearClienteAs(_DatosAsociado(), WAsociado);
 
             if ($('#teltrabajo').val() != "") { emp.AddPhone($('#teltrabajo').val(), _Datos().Empresa); }
-            setTimeout(function () { listc.ListClientes(proyec, WsLisClientes) }, 1000);
+            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 1000);
         })
 
     };
 
     var _Inic = function () {
 
-        inm._Linmuebles(proyec);
+   ///     inm._Sepracioninmuebles();
+        inm._Sepracioninmuebles();
         Tr.ListadoTareasUser();
         sala.ListaSala(1, WsLisala);
-        listc.ListClientes(proyec, WsLisClientes);
+     //   listc.ListClientes(proyec, WsLisClientes);
+        listc.ListClientesTodos(WsLisClientesTodos);
         listc.Proyecto(proyec);
         listc.listaProyectocrm();
         listc.ListbProyec(proyec);
         listc.LisEmpresas();
-        inm.LisInmuebles(proyec);
+      
         listc.InfoEntero();
 
+
+        
+     /*   sala.ListaSala(1, WsLisala);
+        // listc.ListClientesTodos(WsLisClientesTodos);;
+       
+        listc.Proyecto(proyec);
+        listc.listaProyectocrm();
+        listc.ListbProyec(proyec);
+        listc.LisEmpresas();
+        //inm.LisInmuebles(proyec);
+        
+        listc.InfoEntero();
+        inm._Sepracioninmuebles();
+        Tr.ListadoTareasUser();
+        */
+
         $('#Btnsocio').hide()
+        /// $('#tntnsocio').hide();
         $('#Btncrearasc').hide();
         $('#BtnPost').hide();
         $('#Clientes').hide();
@@ -744,7 +740,7 @@ var admComercial = (function () {
     var _Datos = function () {
         persona = {};
 
-        persona.Tipo_documento= $('#ComTipoDocumento').val();
+        persona.Tipo_documento = $('#ComTipoDocumento').val();
         persona.Tipo_persona = $('#ComTipoPersona').val();
         persona.DIRECCION_CORRESPON = $('#TxtDireccionCorrespondenicia').val();
         persona.CELULAR = $('#TxtCelular').val();
@@ -772,7 +768,7 @@ var admComercial = (function () {
 
 
     var _LimpiarFormulario = function () {
-       
+
         $('#TxtIdentidad').val('');
         $('#TxtNombres').val('');
         $('#TxtP_apellido').val('');
@@ -793,27 +789,27 @@ var admComercial = (function () {
     }
 
     var _DatosAsociado = function () {
-      asociado = {};
-      asociado.Cedula = ce_asociado;
-      asociado.Nombres = $('#nomasocioado').val().toUpperCase();
-     
-      asociado.P_apellido = $('#Txtapeasociado').val().toUpperCase();
-      asociado.S_Apellido = $('#Txtapeasociado2').val().toUpperCase();
-      asociado.Telefono2 = tel_asoc;
-      asociado.Direccion = $('#TxtDireccion').val().toUpperCase();
-      asociado.Barrio = $('#TxtBarrio').val();
-      asociado.Estado_civil = $('#Combestadoc').val();
-      asociado.proyec_interes = proyec;
-      asociado.Empresa = empresa;
-      asociado.Sueldo = $('#CombSueldo').val();
-      asociado.presu_compra = $('#Combpresuesto').val();
-      asociado.Inmu_Interes = $('#ComboBuscando').val();
-      asociado.Interes_vi = vivir;
-      asociado.Mot_Compra = motivo;
-      asociado.sala_venta = $('#CombSala').val();
-      asociado.Asesor = "";
-      asociado.Informacion = $('#ComboEntero').val();
-      return asociado;
+        asociado = {};
+        asociado.Cedula = ce_asociado;
+        asociado.Nombres = $('#nomasocioado').val().toUpperCase();
+
+        asociado.P_apellido = $('#Txtapeasociado').val().toUpperCase();
+        asociado.S_Apellido = $('#Txtapeasociado2').val().toUpperCase();
+        asociado.Telefono2 = tel_asoc;
+        asociado.Direccion = $('#TxtDireccion').val().toUpperCase();
+        asociado.Barrio = $('#TxtBarrio').val();
+        asociado.Estado_civil = $('#Combestadoc').val();
+        asociado.proyec_interes = proyec;
+        asociado.Empresa = empresa;
+        asociado.Sueldo = $('#CombSueldo').val();
+        asociado.presu_compra = $('#Combpresuesto').val();
+        asociado.Inmu_Interes = $('#ComboBuscando').val();
+        asociado.Interes_vi = vivir;
+        asociado.Mot_Compra = motivo;
+        asociado.sala_venta = $('#CombSala').val();
+        asociado.Asesor = "";
+        asociado.Informacion = $('#ComboEntero').val();
+        return asociado;
     }
 
     var _DatosUpdate = function () {
@@ -823,8 +819,8 @@ var admComercial = (function () {
         actualizar.DIRECCION_CORRESPON = $('#TxtDireccionCorrespondenicia1').val();
         actualizar.CELULAR = $('#TxtCelular1').val();
         actualizar.Cedula = $('#Text1').val();
-        actualizar.Nombres = $('#Text2').val(); 
-        actualizar.P_apellido = $('#Text3').val(); 
+        actualizar.Nombres = $('#Text2').val();
+        actualizar.P_apellido = $('#Text3').val();
         actualizar.S_Apellido = $('#Text4').val();
         actualizar.Estado_civil = $('#Text5').val();
         actualizar.Direccion = $('#Text6').val();
@@ -885,13 +881,13 @@ var admComercial = (function () {
         separacion.fechafinal = fechafin;
         return separacion;
     }
-    
+
     var _initialize = function () {
 
-        
+
         act.ListActInmueble(proyec, WAcActualizado);
         inm.InmuenlesFox(proyec, WsInmueblesFox);
-        
+
 
         var mapOptions = {
             zoom: 10
@@ -943,7 +939,7 @@ var admComercial = (function () {
     return {
 
         init: function () {
-            
+
             _Inic();
             TipPer.ListaTipoPersonas();
             TipDoc.ListaTipoDocumentos();
@@ -1048,9 +1044,9 @@ var admComercial = (function () {
                                 }
                             }
                         }
-                        }
                     }
                 }
+            }
 
         },
 

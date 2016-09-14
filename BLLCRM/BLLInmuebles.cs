@@ -744,8 +744,8 @@ namespace BLLCRM
         public List<Vdetalleseparacion.SepracionInmueble> Sepracionclientes() {
             try
             {
-                List<Vsepracioninmuebles> lis = db.Vsepracioninmuebles.ToList();
-                    List<Vdetalleseparacion.SepracionInmueble> Linmuebles = new List<Vdetalleseparacion.SepracionInmueble>();
+                List<Vsepracioninmuebles> lis = db.Vsepracioninmuebles.Where(l => l.ESTADO != "D").ToList();
+                List<Vdetalleseparacion.SepracionInmueble> Linmuebles = new List<Vdetalleseparacion.SepracionInmueble>();
                     if (lis.Count.Equals(0))
                     {
                         return Linmuebles;
@@ -792,7 +792,7 @@ namespace BLLCRM
         {
             try
             {
-                inmueble_separacion ctx = db.inmueble_separacion.OrderByDescending(o=> o.ID_SEPARACION).First(l => l.CLIENTE == i.CLIENTE);
+                inmueble_separacion ctx = db.inmueble_separacion.OrderByDescending(o=> o.ID_SEPARACION).First(l => l.CLIENTE == i.CLIENTE && l.INMUEBLE== i.INMUEBLE);
                 ///db.inmueble_separacion.Remove(ctx);
                 ctx.ESTADO = "D";
                 Hsepracion_Clientes(i, "D");
@@ -801,7 +801,7 @@ namespace BLLCRM
                 db.SaveChanges();
                 return mensaje = "El inmueble " + i.inmuebles + " a sido liberado de manera exitosa";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return mensaje = "No se pudo llevar a cabo el proceso de desistimiento del inmueble "+i.INMUEBLE+"";
                 throw;

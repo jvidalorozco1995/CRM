@@ -56,6 +56,21 @@ namespace FormsAuthAd.Servicios
             return cl.LisClientes(p);
         }
 
+
+        /// <summary>
+        /// Metodo rerorna un alista de clientes asigandos a un 
+        /// trabajador especifico
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<VclienteInmu> LisClientesTodos()
+        {
+            return cl.LisClientesTodos();
+        }
+        
         /// <summary>
         /// Metodo retorna informacion perteneciente a un 
         /// cliente
@@ -112,7 +127,6 @@ namespace FormsAuthAd.Servicios
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-
         public List<EntiClientes> LClientes() {
             return cl.LClientes();
         }
@@ -152,6 +166,9 @@ namespace FormsAuthAd.Servicios
         public List<Historial>Historialcliente(string c){
             return cl.Historial_cliente(c);
         }
+
+
+
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

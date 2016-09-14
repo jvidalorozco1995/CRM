@@ -158,6 +158,8 @@
                             <li><a href='<%= ResolveUrl("Comercial/clientes/ClientesXusuario.aspx")%>'>Mis clientes</a></li>
                             <li><a href='<%= ResolveUrl("Comercial/clientes/Clientes.aspx")%>'>Listado general clientes</a></li>
                             <li><a href='<%= ResolveUrl("Comercial/Separaciones/Separaciones.aspx")%>'>Separaciones</a></li>
+                             <li style="padding-left:20px"><a href='<%= ResolveUrl("Comercial/clientes/GesClientes.aspx")%>'>Separaciones otro Asesor</a></li>
+                    
                             <li><a href="">Informes</a>
                            <ul class="nav nav-second-level">
                             <li style="padding-left:20px"><a href='<%= ResolveUrl("Comercial/informes/InformesComercial.aspx")%>'>General</a></li>
@@ -181,7 +183,7 @@
                         <a href="#"><span class="nav-label">Tramites</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
                             <li><a href= '<%= ResolveUrl("TramitesVenta/ConfigTramites/ConfigTramites.aspx")%>'>Configuración de tramites</a></li>
-                             <li><a href= '<%= ResolveUrl("TramitesVenta/GestionTramites/GesTramites.aspx")%>'>Tramites</a></li>
+                            <li><a href= '<%= ResolveUrl("TramitesVenta/GestionTramites/GesTramites.aspx")%>'>Tramites</a></li>
                         </ul>
                     </li>
                     <li>

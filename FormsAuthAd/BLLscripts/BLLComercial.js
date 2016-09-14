@@ -109,6 +109,29 @@ function BLLComercial() {
         });
     }
 
+
+    BLLComercial.prototype.ListClientesTodos = function (Wsurl) {
+      
+        $.ajax({
+            type: "POST", url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                    BLLComercial.CrearTabla(result.d)
+                }
+                else {
+                    BLLComercial.CrearTabla(result.d)
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+
+    }
+
     BLLComercial.prototype.ListClientes = function (proyecto, Wsurl) {
       jsonData = "{ 'p':" + JSON.stringify(proyecto) + "}";
         $.ajax({
