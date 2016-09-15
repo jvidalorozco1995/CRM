@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
+using System.Web.Security;
 using System.Web.Services;
 
 namespace FormsAuthAd.Servicios
@@ -36,6 +37,18 @@ namespace FormsAuthAd.Servicios
         {
             return sp.SepracioneProyectos(p);
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<Vdetalleseparacion.SepracionInmueble> _sepracionesproyectoAsesor(string p)
+        {
+            //SE QUITO POR ORDEN DE BEIMER
+            /* var user = Membership.GetUser().ToString();
+              return sp.SepracioneAP(p,user);*/
+            return sp.SepracioneProyectos(p);
+        }
+
+        
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

@@ -174,6 +174,50 @@ namespace BLLCRM
         }
 
 
+        /// <summary>
+        /// Meotodo retorna un alista de clientes
+        /// interesados en un proyecto en especifico 
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public List<VclienteInmu> LisClientesProyectos(string p)
+        {
+            try
+            {
+                user = Membership.GetUser().ToString();
+                List<VCLienteinmueble> LisC = db.VCLienteinmueble.Where(l => l.PROYEC_INTERES == p && l.ESTADO != "P" && l.ESTADO != "D").ToList();
+                List<VclienteInmu> EntiC = new List<VclienteInmu>();
+                if (LisC.Count.Equals(0))
+                {
+                    return EntiC;
+                }
+                else
+                {
+                    foreach (var item in LisC)
+                    {
+                        VclienteInmu Ec = new VclienteInmu();
+                        Ec.CEDULA = item.CEDULA;
+                        Ec.NOMBRES = item.NOMBRES;
+                        Ec.P_APELLIDO = item.P_APELLIDO;
+                        Ec.S_APELLIDO = item.S_APELLIDO;
+                        Ec.DIRECCION = item.DIRECCION;
+                        Ec.TELEFONO2 = item.TELEFONO2;
+                        Ec.EMAIL = item.EMAIL;
+                        Ec.REFERENCIA = item.REFERENCIA;
+                        Ec.ESTADO_I = item.ESTADO;
+                        Ec.ESTADO_C = item.ESTADO_C;
+                        EntiC.Add(Ec);
+                    }
+                    return EntiC;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
 
 
         /// <summary>

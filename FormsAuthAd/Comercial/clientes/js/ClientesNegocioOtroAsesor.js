@@ -51,6 +51,9 @@ var admComercial = (function () {
     var WsLisala = funcionUrlGlobal("/Servicios/WSala_Ventas.asmx/ListSala");//Listado de salas de ventas
     var WAsociado = funcionUrlGlobal("/Servicios/WClientes.asmx/_InsertClienteAs");
     var WsLisClientes = funcionUrlGlobal("/Servicios/WClientes.asmx/LisClientes");///Listado de clientes
+    var WsLisClientesProyectos = funcionUrlGlobal("/Servicios/WClientes.asmx/LisClientesProyectos");///Listado de clientes
+
+    
     var WsGetClientes = funcionUrlGlobal("/Servicios/WClientes.asmx/GetClientesT");//trae Información de cliente
     var WsInmueblesFox = funcionUrlGlobal("/ServiciosFox/WFox.asmx/InmueblesFox");//LIstado de Inmuebles Multifox por Proyectos
     var WSCrearTarea = funcionUrlGlobal("/Servicios/WTareas.asmx/InsertTarea");//Crear Treas
@@ -120,7 +123,7 @@ var admComercial = (function () {
                     setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
                     setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
                     setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
-                    setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 1000);
+                    setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos) }, 1000);
                     break;
                 case "C":
                     listc._Cancelargestion(_BitacorasDTO(), cedula, "C");
@@ -128,7 +131,7 @@ var admComercial = (function () {
                     setTimeout(function () { Tr.LisTareas(cedula, 0); }, 1000);
                     setTimeout(function () { Cli.ClienteHistorial(cedula); }, 2000);
                     setTimeout(function () { Tr.ListadoTareasUser(); }, 2000);
-                    setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 1000);
+                    setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos) }, 1000);
                     break;
             }
         });
@@ -142,7 +145,7 @@ var admComercial = (function () {
             setTimeout(function () {
                 act.ListActInmueble(proyec, WAcActualizado);
                 inm.InmuenlesFox(proyec, WsInmueblesFox);
-                // inm._Sepracioninmuebles();
+                // inm._ProyectoseparacionAsesor(proyec);
                 inm.LisInmuebles(proyec);
 
                 $(".s").addClass("ClienteS");
@@ -170,7 +173,7 @@ var admComercial = (function () {
 
         $(document).on('click', '#Btnocompra', function () { listc._Lgescancelar(proyec, "N"); })
 
-        $(document).on('click', '#BtnTodos', function () { listc.ListClientesTodos(WsLisClientesTodos);; })
+        $(document).on('click', '#BtnTodos', function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos); })
 
         $(document).on('click', '#BtnDisponibilidad', function () {
             var busqueda = $('#TxtIdentidad').val();
@@ -179,7 +182,7 @@ var admComercial = (function () {
 
         $('#BtnGuardarC').click(function () {
             Cli.UpdateClientes(_DatosUpdate());
-            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 3000);
+            setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos) }, 3000);
         });
 
         $(document).on('click', '#BtnEditarC', function () {
@@ -245,7 +248,7 @@ var admComercial = (function () {
             inmu = result[1];
             var diasC = result[2];
             id_sp = result[3];
-            alert(id_sp);
+        
             separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu };
             $('#Desistirseparacion').modal('show');
             $('#TxtclienteD').val(cl); $('#TxtclienteD').attr('readonly', true);
@@ -259,18 +262,18 @@ var admComercial = (function () {
         $(document).on('click', "#Btnconfitse", function () {
             separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu, };
             inm.Confirmarseparacion(id_sp, separacion);
-            setTimeout(function () { inm._Sepracioninmuebles(); }, 2000)
+            setTimeout(function () { inm._ProyectoseparacionAsesor(proyec); }, 2000)
             setTimeout(function () { inm.LisInmuebles(proyec); }, 2000)
-            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos);; }, 2000)
+            setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos); }, 2000)
             $('#Desistirseparacion').modal('hide');
 
         });
 
         $('#BtnLiberar').click(function () {
             inm.desistirinmueble(separacion);
-            setTimeout(function () { inm._Sepracioninmuebles(); }, 2000)
+            setTimeout(function () { inm._ProyectoseparacionAsesor(proyec); }, 2000)
             setTimeout(function () { inm.LisInmuebles(proyec); }, 2000)
-            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos);; }, 2000)
+            setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos); }, 2000)
             $('#Desistirseparacion').modal('hide');
         });
 
@@ -349,8 +352,8 @@ var admComercial = (function () {
                     }
                     else {
                         inm.SepararInmueble(_Dtoseparacion(inmuebleS, clienteS, fechafin), Emailcl, proyec);
-                        setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 4000);
-                        setTimeout(function () { inm._Sepracioninmuebles(); }, 4000)
+                        setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos) }, 4000);
+                        setTimeout(function () { inm._ProyectoseparacionAsesor(proyec); }, 4000)
                         $('#loadig').show();
 
                     }
@@ -585,7 +588,7 @@ var admComercial = (function () {
             if (validar == true) {
                 Cli.CrearCliente(_Datos(), WsCrearCliente);
                 if ($('#teltrabajo').val() != "") { emp.AddPhone($('#teltrabajo').val(), _Datos().Empresa); }
-                setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 1000);
+                setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos) }, 1000);
                 var cedula2 = $('#TxtIdentidad').val()
                 $('#TxtClientes').val(cedula2);
                 _LimpiarFormulario();
@@ -634,7 +637,7 @@ var admComercial = (function () {
 
         $(document).on('click', '#BtnUpdate', function () {
             Cli.UpdateClientes(_Datos());
-            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 4000);
+            setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos) }, 4000);
         });
 
         $(document).on('click', '#check1', function () {
@@ -666,19 +669,19 @@ var admComercial = (function () {
             Cli.CrearClienteAs(_DatosAsociado(), WAsociado);
 
             if ($('#teltrabajo').val() != "") { emp.AddPhone($('#teltrabajo').val(), _Datos().Empresa); }
-            setTimeout(function () { listc.ListClientesTodos(WsLisClientesTodos); }, 1000);
+            setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos) }, 1000);
         })
 
     };
 
     var _Inic = function () {
 
-   ///     inm._Sepracioninmuebles();
-        inm._Sepracioninmuebles();
+   ///     inm._ProyectoseparacionAsesor(proyec);
+        inm._ProyectoseparacionAsesor(proyec);
         Tr.ListadoTareasUser();
         sala.ListaSala(1, WsLisala);
-     //   listc.ListClientes(proyec, WsLisClientes);
-        listc.ListClientesTodos(WsLisClientesTodos);
+     //   listc.LisClientesProyectos(proyec, WsLisClientesProyectos);
+        listc.LisClientesProyectos(proyec, WsLisClientesProyectos)
         listc.Proyecto(proyec);
         listc.listaProyectocrm();
         listc.ListbProyec(proyec);
@@ -689,7 +692,7 @@ var admComercial = (function () {
 
         
      /*   sala.ListaSala(1, WsLisala);
-        // listc.ListClientesTodos(WsLisClientesTodos);;
+        // listc.LisClientesProyectos(proyec, WsLisClientesProyectos);
        
         listc.Proyecto(proyec);
         listc.listaProyectocrm();
@@ -698,7 +701,7 @@ var admComercial = (function () {
         //inm.LisInmuebles(proyec);
         
         listc.InfoEntero();
-        inm._Sepracioninmuebles();
+        inm._ProyectoseparacionAsesor(proyec);
         Tr.ListadoTareasUser();
         */
 

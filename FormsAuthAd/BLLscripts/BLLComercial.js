@@ -120,7 +120,7 @@ function BLLComercial() {
             success: function (result) {
                 if (result.d == null) {
 
-                    BLLComercial.CrearTabla(result.d)
+                    BLLComercial.ListClientesTodos(result.d)
                 }
                 else {
                     BLLComercial.CrearTabla(result.d)
@@ -154,6 +154,29 @@ function BLLComercial() {
         });
 
     }
+
+    BLLComercial.prototype.LisClientesProyectos = function (proyecto, Wsurl) {
+        jsonData = "{ 'p':" + JSON.stringify(proyecto) + "}";
+        $.ajax({
+            type: "POST", url: Wsurl, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+                    BLLComercial.CrearTabla(result.d)
+                }
+                else {
+                    BLLComercial.CrearTabla(result.d)
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+
+    }
+
+    
 
     BLLComercial.prototype._Lgescancelar = function (proyecto,estado) {
         jsonData = "{ 'p':" + JSON.stringify(proyecto) + ",'e':" + JSON.stringify(estado) + "}";

@@ -12,6 +12,8 @@ function BLLInmuebles() {
 
     var WsepAsesor = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesAsesor");
     var Wseproyecto = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesproyecto");
+    var WseproyectoAsesor = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesproyectoAsesor");
+
     var WseparacionAP = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesAP");
     var WseparacionFechas = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesFechas");
     var Wseparacionde = funcionUrlGlobal("/Servicios/WSeparaciones.asmx/_sepracionesDetalle");
@@ -133,6 +135,26 @@ function BLLInmuebles() {
             error: function (obj, error, objError) { alert(obj.responseText); }
         });
     }
+
+    BLLInmuebles.prototype._ProyectoseparacionAsesor = function (p) {
+        data = "{'p':" + JSON.stringify(p) + "}";
+        $.ajax({
+            type: "POST", url: WseproyectoAsesor, data: data,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+                    BLLInmuebles.Tablasepracion(result.d);
+                }
+                else {
+                    BLLInmuebles.Tablasepracion(result.d);
+                }
+            },
+            error: function (obj, error, objError) { alert(obj.responseText); }
+        });
+    }
+
 
     BLLInmuebles.prototype._SeparacionAP = function (p,asesor) {
         data = "{'p':" + JSON.stringify(p) + ",'asesor':" + JSON.stringify(asesor) + "}";

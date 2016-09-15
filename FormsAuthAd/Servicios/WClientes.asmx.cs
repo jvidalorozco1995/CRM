@@ -56,6 +56,21 @@ namespace FormsAuthAd.Servicios
             return cl.LisClientes(p);
         }
 
+        /// <summary>
+        /// Metodo rerorna un alista de clientes asigandos a un 
+        /// proyecto especifico
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<VclienteInmu> LisClientesProyectos(string p)
+        {
+            return cl.LisClientesProyectos(p);
+        }
+
+        
 
         /// <summary>
         /// Metodo rerorna un alista de clientes asigandos a un 
