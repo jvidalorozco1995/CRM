@@ -1345,6 +1345,7 @@
     <Content Include="BLLscripts\BLLDocumentosConfigTramite.js" />
     <Content Include="BLLscripts\BLLDocumentosTramites.js" />
     <Content Include="BLLscripts\BLLEmpresa.js" />
+    <Content Include="BLLscripts\BLLEntregas.js" />
     <Content Include="BLLscripts\BLLIndex.js" />
     <Content Include="BLLscripts\BLLInfocomercial.js" />
     <Content Include="BLLscripts\BLLInfocomercialase.js" />
@@ -1492,6 +1493,8 @@
     <Content Include="Csstabla\dataTables.tableTools.css" />
     <Content Include="Csstabla\font-awesome.css" />
     <Content Include="Csstabla\jquery.dataTables.css" />
+    <Content Include="Entrega\ProgramacionEntregas\js\ProgramacionEntregas.js" />
+    <Content Include="Entrega\ProgramacionEntregas\WebProgramacionEntregas.aspx" />
     <Content Include="fonts\pe-icon-7-stroke\css\helper.css" />
     <Content Include="fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
     <Content Include="fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
@@ -4824,6 +4827,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entrega\ProgramacionEntregas\WebProgramacionEntregas.aspx.cs">
+      <DependentUpon>WebProgramacionEntregas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entrega\ProgramacionEntregas\WebProgramacionEntregas.aspx.designer.cs">
+      <DependentUpon>WebProgramacionEntregas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

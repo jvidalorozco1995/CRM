@@ -43,12 +43,14 @@ namespace DAL
         public DbSet<Documento_ActInmueble> Documento_ActInmueble { get; set; }
         public DbSet<documentos_negocio> documentos_negocio { get; set; }
         public DbSet<empresas> empresas { get; set; }
+        public DbSet<Entregas> Entregas { get; set; }
         public DbSet<historial_clientes> historial_clientes { get; set; }
         public DbSet<historial_inmueble> historial_inmueble { get; set; }
         public DbSet<historialIngreso> historialIngreso { get; set; }
         public DbSet<informacion> informacion { get; set; }
         public DbSet<inmueble_separacion> inmueble_separacion { get; set; }
         public DbSet<inmuebles> inmuebles { get; set; }
+        public DbSet<INMUEBLES_ENTREGAS> INMUEBLES_ENTREGAS { get; set; }
         public DbSet<negocio> negocio { get; set; }
         public DbSet<negocio_fox> negocio_fox { get; set; }
         public DbSet<Notificaciones> Notificaciones { get; set; }
@@ -82,6 +84,7 @@ namespace DAL
         public DbSet<Vinmuebles> Vinmuebles { get; set; }
         public DbSet<VInmueblesConTramites> VInmueblesConTramites { get; set; }
         public DbSet<VinteresProyect> VinteresProyect { get; set; }
+        public DbSet<VListadoEntregas> VListadoEntregas { get; set; }
         public DbSet<VnegocioFox> VnegocioFox { get; set; }
         public DbSet<VNegocioscompromisos> VNegocioscompromisos { get; set; }
         public DbSet<Vsepracioninmuebles> Vsepracioninmuebles { get; set; }
@@ -91,8 +94,5 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
-        public DbSet<Entregas> Entregas { get; set; }
-        public DbSet<INMUEBLES_ENTREGAS> INMUEBLES_ENTREGAS { get; set; }
-        public DbSet<VListadoEntregas> VListadoEntregas { get; set; }
     }
 }

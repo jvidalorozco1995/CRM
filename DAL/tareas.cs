@@ -24,8 +24,6 @@ namespace DAL
         public string ESTADO { get; set; }
         public string TIPO { get; set; }
     
-        public virtual clientes clientes { get; set; }
-        public virtual clientes clientes1 { get; set; }
         public virtual trabajadores trabajadores { get; set; }
         public virtual trabajadores trabajadores1 { get; set; }
     }
