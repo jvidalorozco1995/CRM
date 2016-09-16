@@ -11,7 +11,7 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.Xml.Serialization;
+    
     public partial class proyectos
     {
         public proyectos()
@@ -20,18 +20,16 @@ namespace DAL
             this.clientes = new HashSet<clientes>();
             this.planos_Proyectos = new HashSet<planos_Proyectos>();
             this.proyectos_trabajador = new HashSet<proyectos_trabajador>();
+            this.Entregas = new HashSet<Entregas>();
         }
     
         public string ID_PROYEC { get; set; }
         public string NOMBRE_PROYEC { get; set; }
-
-        [XmlIgnore]
+    
         public virtual ICollection<bloques> bloques { get; set; }
-        [XmlIgnore]
         public virtual ICollection<clientes> clientes { get; set; }
-        [XmlIgnore]
         public virtual ICollection<planos_Proyectos> planos_Proyectos { get; set; }
-        [XmlIgnore]
         public virtual ICollection<proyectos_trabajador> proyectos_trabajador { get; set; }
+        public virtual ICollection<Entregas> Entregas { get; set; }
     }
 }

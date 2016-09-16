@@ -24,6 +24,7 @@ var _admnegocio = (function () {
     var Wdtohoja = funcionUrlGlobal("/Servicios/WNegocio.asmx/lisHoja");
     var Wacuerdo = funcionUrlGlobal("/Servicios/WNegocio.asmx/_Acuerdopago");
     var Wacuerdog = funcionUrlGlobal("/Servicios/WNegocio.asmx/_Acuerdopagogas");
+   
     var _addHandlers = function () {
 
         $("#checkmanzada").click(function () {
@@ -87,14 +88,7 @@ var _admnegocio = (function () {
                     cedula = ced;
                     _negocio._GetclienteActualiza(cedula);
                     cactual = cedula;
-                //    break;
-                //case 1:
-                //    document.getElementById("Lvalor").innerHTML = "";
-                //    cedula = $("#TxtIdentidad").val();
-                //    utl._DtoAsociado(cedula);
-                //    cactual = localStorage.getItem("CedulaAct");
-                //    _negocio._Getcliente(cactual);
-                //    break;
+            //    break;
 
             //}
             jsondata = "{'idhoja':" + JSON.stringify(negocios) + "}"
@@ -769,7 +763,7 @@ var _admnegocio = (function () {
         });
 
     }
-
+    
     var tabla = function (setdata) {
 
         var source =

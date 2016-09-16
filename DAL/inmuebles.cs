@@ -11,12 +11,13 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.Xml.Serialization;
+    
     public partial class inmuebles
     {
         public inmuebles()
         {
             this.inmueble_separacion = new HashSet<inmueble_separacion>();
+            this.INMUEBLES_ENTREGAS = new HashSet<INMUEBLES_ENTREGAS>();
         }
     
         public string REFERENCIA { get; set; }
@@ -29,8 +30,8 @@ namespace DAL
         public string AREA { get; set; }
         public Nullable<decimal> VAL_INMUEBLE { get; set; }
         public string INMUESTADO { get; set; }
-
-        [XmlIgnore]
+    
         public virtual ICollection<inmueble_separacion> inmueble_separacion { get; set; }
+        public virtual ICollection<INMUEBLES_ENTREGAS> INMUEBLES_ENTREGAS { get; set; }
     }
 }

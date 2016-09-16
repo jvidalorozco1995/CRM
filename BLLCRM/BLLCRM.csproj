@@ -62,7 +62,9 @@
     <Compile Include="BLLCompromisosCuota.cs" />
     <Compile Include="BLLDocumentoActiInmu.cs" />
     <Compile Include="BLLDocumentos.cs" />
+    <Compile Include="BLLEntregas.cs" />
     <Compile Include="BLLHistorialIngreso.cs" />
+    <Compile Include="BLLInmueblesEntrega.cs" />
     <Compile Include="BLLNegociosCompro.cs" />
     <Compile Include="BLLConfiguracionNegocio.cs" />
     <Compile Include="BLLEmpresas.cs" />

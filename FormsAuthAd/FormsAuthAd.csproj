@@ -2304,6 +2304,7 @@
     <Content Include="Servicios\WDocumentos.asmx" />
     <Content Include="Servicios\WEmpresas.asmx" />
     <Content Include="ServiciosFox\WFox.asmx" />
+    <Content Include="Servicios\WEntregas.asmx" />
     <Content Include="Servicios\Winfocomercial.asmx" />
     <Content Include="Servicios\WInfocomercialAsesor.asmx" />
     <Content Include="Servicios\WInfocomercialProyec.asmx" />
@@ -4908,6 +4909,10 @@
     </Compile>
     <Compile Include="ServiciosFox\WFox.asmx.cs">
       <DependentUpon>WFox.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WEntregas.asmx.cs">
+      <DependentUpon>WEntregas.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\Winfocomercial.asmx.cs">
