@@ -54,6 +54,12 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<Entregas> ListEntregasPor(string user)
+        {
+            return cl.ListEntregasPor(user);
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int InsertInmuebleEntregas(INMUEBLES_ENTREGAS b)
         {
             return ie.InserInmueblesEntregas(b);
