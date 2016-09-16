@@ -11,7 +11,7 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Xml.Serialization;
     public partial class bancos
     {
         public bancos()
@@ -22,6 +22,6 @@ namespace DAL
         public int ID_BANCO { get; set; }
         public string NOMBRE_BANCO { get; set; }
     
-        public virtual ICollection<Tramites> Tramites { get; set; }
+        [XmlIgnore] public virtual ICollection<Tramites> Tramites { get; set; }
     }
 }

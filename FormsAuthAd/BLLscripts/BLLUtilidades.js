@@ -7,7 +7,7 @@ var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores");
 
 //Funcion que devuelve la URL del proyecto
 function funcionUrlGlobal(url) {
-    var opcion = 'PU';
+    var opcion = '';
     var UrlGlobal= "";
     if (opcion == 'PU') { UrlGlobal = '/CRM' + url; } else if (opcion == '') { UrlGlobal = url; } else if (opcion == 'PR') { UrlGlobal = '/CRM_TEST' + url; }
     return UrlGlobal;

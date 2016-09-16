@@ -186,6 +186,13 @@
                             <li><a href= '<%= ResolveUrl("TramitesVenta/GestionTramites/GesTramites.aspx")%>'>Tramites</a></li>
                         </ul>
                     </li>
+                        <li>
+                        <a href="#"><span class="nav-label">Entregas</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href= '<%= ResolveUrl("Entrega/ProgramacionEntregas/WebProgramacionEntregas.aspx")%>'>Programación de entregas</a></li>
+                           
+                        </ul>
+                    </li>
                     <li>
                         <a href="#"><span class="nav-label">Administración</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
