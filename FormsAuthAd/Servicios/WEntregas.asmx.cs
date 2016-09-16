@@ -54,9 +54,9 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<Entregas> ListEntregasPor(string user)
+        public List<Entregas> ListEntregasPor()
         {
-            return cl.ListEntregasPor(user);
+            return cl.ListEntregasPor();
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]

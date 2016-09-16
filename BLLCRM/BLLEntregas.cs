@@ -115,9 +115,9 @@ namespace BLLCRM
                 throw;
             }
         }
-        public List<Entregas> ListEntregasPor(string user)
+        public List<Entregas> ListEntregasPor()
         {
-
+           var user = Membership.GetUser().ToString();
             try
             {
                 List<Entregas> lisb = bd.Entregas.Where(t => t.ENVIADOA == user || t.USUARIO == user || t.ENVIADOPOR == user).ToList();
