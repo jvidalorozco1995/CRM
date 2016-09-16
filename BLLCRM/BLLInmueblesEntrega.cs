@@ -23,7 +23,7 @@ namespace BLLCRM
         {
             try
             {
-                
+                b.FECHAREG = DateTime.Now;
                 bd.INMUEBLES_ENTREGAS.Add(b);
                 bd.SaveChanges();
                 return 1;

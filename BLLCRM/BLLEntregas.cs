@@ -28,6 +28,7 @@ namespace BLLCRM
                 if (consecu == null) { cons = 0; } else { cons = Convert.ToInt32(consecu.CONSECUTIVO); }
                 
                 b.CONSECUTIVO = (cons + 1);
+                b.FECHAREG = DateTime.Now;
                 bd.Entregas.Add(b);
                 bd.SaveChanges();
                 return 1;
@@ -114,7 +115,43 @@ namespace BLLCRM
                 throw;
             }
         }
+        public List<Entregas> ListEntregasPor(string user)
+        {
 
+            try
+            {
+                List<Entregas> lisb = bd.Entregas.Where(t => t.ENVIADOA == user || t.USUARIO == user || t.ENVIADOPOR == user).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Entregas> lisbcrm = new List<Entregas>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Entregas entb = new Entregas();
+                        entb.ID_ENTREGAS = item.ID_ENTREGAS;
+                        entb.FECHAREG = item.FECHAREG;
+                        entb.ID_PROYECTO = item.ID_PROYECTO;
+                        entb.DIROBRA = item.DIROBRA;
+                        entb.USUARIO = item.USUARIO;
+                        entb.ENVIADO = item.ENVIADO;
+                        entb.ENVIADOA = item.ENVIADOA;
+                        entb.ENVIADOPOR = item.ENVIADOPOR;
+                        entb.CONSECUTIVO = item.CONSECUTIVO;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         /// <summary>
         /// rertorna listado de bancos pertenecientes al proyecto
         /// </summary>
