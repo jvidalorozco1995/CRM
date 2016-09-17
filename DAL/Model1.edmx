@@ -955,6 +955,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntregas' does not have a p
         <EntityType Name="VListadoEntregas">
           <Key>
             <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
+            <PropertyRef Name="ID_PROYEC" />
           </Key>
           <Property Name="ID_INMUEBLES_ENTREGAS" Type="int" Nullable="false" />
           <Property Name="ID_ENTREGA" Type="int" />
@@ -969,6 +970,9 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntregas' does not have a p
           <Property Name="FECHACLIENTE" Type="date" />
           <Property Name="FECHAENTREGA" Type="date" />
           <Property Name="ESTADOENTREGA" Type="int" />
+          <Property Name="NOMBRE_BLO" Type="varchar" MaxLength="50" />
+          <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
+          <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1836,7 +1840,10 @@ FROM [dbo].[VinteresProyect] AS [VinteresProyect]</DefiningQuery>
 [VListadoEntregas].[ENTREGAOBRA] AS [ENTREGAOBRA], 
 [VListadoEntregas].[FECHACLIENTE] AS [FECHACLIENTE], 
 [VListadoEntregas].[FECHAENTREGA] AS [FECHAENTREGA], 
-[VListadoEntregas].[ESTADOENTREGA] AS [ESTADOENTREGA]
+[VListadoEntregas].[ESTADOENTREGA] AS [ESTADOENTREGA], 
+[VListadoEntregas].[NOMBRE_BLO] AS [NOMBRE_BLO], 
+[VListadoEntregas].[NOMBRE_PROYEC] AS [NOMBRE_PROYEC], 
+[VListadoEntregas].[ID_PROYEC] AS [ID_PROYEC]
 FROM [dbo].[VListadoEntregas] AS [VListadoEntregas]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VnegocioFox" EntityType="Self.VnegocioFox" store:Type="Views" store:Schema="dbo">
@@ -3204,6 +3211,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
         <EntityType Name="VListadoEntregas">
           <Key>
             <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
+            <PropertyRef Name="ID_PROYEC" />
           </Key>
           <Property Name="ID_INMUEBLES_ENTREGAS" Type="Int32" Nullable="false" />
           <Property Name="ID_ENTREGA" Type="Int32" />
@@ -3218,6 +3226,9 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="FECHACLIENTE" Type="DateTime" Precision="0" />
           <Property Name="FECHAENTREGA" Type="DateTime" Precision="0" />
           <Property Name="ESTADOENTREGA" Type="Int32" />
+          <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_PROYEC" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VnegocioFox">
           <Key>
@@ -4640,6 +4651,9 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="VListadoEntregas">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.VListadoEntregas">
               <MappingFragment StoreEntitySet="VListadoEntregas">
+                <ScalarProperty Name="ID_PROYEC" ColumnName="ID_PROYEC" />
+                <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
+                <ScalarProperty Name="NOMBRE_BLO" ColumnName="NOMBRE_BLO" />
                 <ScalarProperty Name="ESTADOENTREGA" ColumnName="ESTADOENTREGA" />
                 <ScalarProperty Name="FECHAENTREGA" ColumnName="FECHAENTREGA" />
                 <ScalarProperty Name="FECHACLIENTE" ColumnName="FECHACLIENTE" />

@@ -9,11 +9,16 @@ var admEntregas= (function () {
     var bandera = 0;
 
     var _addHandlers = function () {
+        $(document).on('click', '.Info', function () {
+            proyecto = $(this).attr("id");
+          
+            setTimeout(function () { Entg.ListInmueblesProyecto(proyecto); $("#datos").show(); }, 1000);
 
+        });
        
     }
     var _Inicio = function () {
-
+        $("#datos").hide();
         Entg.ListProgramacionEntregas();
     }
     return {

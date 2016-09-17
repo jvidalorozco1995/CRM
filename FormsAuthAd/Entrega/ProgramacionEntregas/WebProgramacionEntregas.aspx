@@ -61,7 +61,30 @@
             <div class="col-lg-5 scroll " style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
                 <div class="panel panel-success">
                     <div class="panel-body" id="datos">
-                        </div>
+                          <!--DATOS DE SOLICITUDES--->
+                            <div class="hpanel" id="Informacion">
+                                <div class="panel-heading hbuilt">
+                                    <div class="panel-tools">
+                                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                                        <a class="Pcreartarea"><i class="fa fa-times"></i></a>
+                                    </div>
+                                    Datos solicitud
+                                </div>
+                                <div class="Border no-padding">
+                                    <div class="tab-content">
+                                        <div id="tablainmuebles" class="p-m tab-pane active">
+
+                                        </div>
+
+                                    </div>
+                                     
+                          
+                                    
+
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
                     </div>
                 </div>
             </div>
