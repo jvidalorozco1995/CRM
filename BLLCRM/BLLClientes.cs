@@ -402,7 +402,8 @@ namespace BLLCRM
                     ctx.INMU_INTERES = c.INMU_INTERES.ToUpper();
                     ctx.INTERES_VI = c.INTERES_VI;
                     ctx.MOT_COMPRA = c.MOT_COMPRA;
-
+                    ctx.DIRECCION_CORRESPON = c.DIRECCION_CORRESPON;
+                    ctx.CELULAR = c.CELULAR;
                     
                     db.SaveChanges();
                     return 1;

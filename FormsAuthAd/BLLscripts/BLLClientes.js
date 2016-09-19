@@ -372,8 +372,8 @@ function BLLClientes() {
 
             
             
-            $('#TxtDireccionCorrespondenicia').val(item.DIRECCION_CORRESPON);
-            $('#TxtCelular').val(item.CELULAR);
+            $('#TxtDireccionCorrespondenicia1').val(item.DIRECCION_CORRESPON);
+            $('#TxtCelular1').val(item.CELULAR);
 
             $('#CombAsesores2').val(item.ASESOR);
             $('#ComProyect2').val(item.PROYEC_INTERES);

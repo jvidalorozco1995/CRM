@@ -18,6 +18,9 @@ function BLLEntregas() {
                 }
                 else {
                     BLLEntregas.CrearTabla(result.d)
+             
+                    
+                    
                 }
 
             },
@@ -108,10 +111,10 @@ function BLLEntregas() {
             if (item.ENVIADO == null) {
                 tabla += "<td style='width:22px'><button id='" + item.ID_PROYECTO + "'class='btn btn-success btn-xs separar' type='button'>Enviar</button></td>";
 
-                tabla += "<td style='width:20px;height: 20px' class='desistir'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'></td>";
+                tabla += "<td style='width:20px;height: 20px' class='desistir' id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'></td>";
             } else {
                 tabla += "<td></td>"
-                tabla += "<td style='width:20px;height: 20px' class='Info'id=" + item.ID_PROYECTO +"><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
+                tabla += "<td style='width:20px;height: 20px' tag='" + moment(item.ENVIADO).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "'class='Info'id=" + item.ID_PROYECTO + " ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
                
             }
            
@@ -125,6 +128,9 @@ function BLLEntregas() {
 
     }
 
-
+  /*  alert(result.d[0].ENVIADO);
+    $("#TxtFechaEnviado").val(moment(result.d[0].ENVIADO).format("YYYY/DD/MM"));
+    $("#TxtEnviadoA").val(result.d[0].ENVIADOA);
+    $("#TxtEnviadoPor").val(result.d[0].ENVIADOPOR);*/
 }
 

@@ -192,6 +192,8 @@ var admComercial = (function () {
             $('#Text9').attr('readonly', false); $('#Text10').attr('readonly', false);
             $('#Text11').attr('readonly', false); $('#Text12').attr('readonly', false);
             $('#Text16').attr('readonly', false); $('#Text17').attr('readonly', false);
+            $('#TxtDireccionCorrespondenicia1').attr('readonly', false); $('#TxtDireccionCorrespondenicia1').attr('readonly', false);
+            $('#TxtCelular1').attr('readonly', false); $('#TxtCelular1').attr('readonly', false);
             $('#Text18').attr('readonly', false); $('#Txt15').attr('readonly', false);
         });
 
