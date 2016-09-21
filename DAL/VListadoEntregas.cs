@@ -30,7 +30,7 @@ namespace DAL
         public string NOMBRE_BLO { get; set; }
         public string NOMBRE_PROYEC { get; set; }
         public string ID_PROYEC { get; set; }
-
+        public Nullable<System.DateTime> OBSERVACIONES { get; set; }
         public int CONTADOR { get; set; }
     }
 }
