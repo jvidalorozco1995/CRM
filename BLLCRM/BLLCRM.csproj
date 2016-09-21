@@ -88,6 +88,7 @@
     <Compile Include="BLLTrabajador.cs" />
     <Compile Include="BLLTramites.cs" />
     <Compile Include="BLLTramitesInmueble.cs" />
+    <Compile Include="EnviaCorrreo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

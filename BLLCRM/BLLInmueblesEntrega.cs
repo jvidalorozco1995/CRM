@@ -55,6 +55,7 @@ namespace BLLCRM
                 ctx.FECHACLIENTE = i.FECHACLIENTE;
                 ctx.ESTADOENTREGA = i.ESTADOENTREGA;
                 ctx.FECHAENTREGA = i.FECHAENTREGA;
+                ctx.OBSERVACIONES = i.OBSERVACIONES;
                 bd.SaveChanges();
 
                 return 1;
@@ -93,6 +94,8 @@ namespace BLLCRM
                         entb.ID_PROYEC = item.ID_PROYEC;
                         entb.NOMBRE_BLO = item.NOMBRE_BLO;
                         entb.NOMBRE_PROYEC = item.NOMBRE_PROYEC;
+                        entb.OBSERVACIONES = item.OBSERVACIONES;
+                        
                         lisbcrm.Add(entb);
                         Contador = Contador + 1;
                     }
@@ -129,6 +132,7 @@ namespace BLLCRM
                         entb.MZA = item.MZA;
                         entb.INMUEBLE = item.INMUEBLE;
                         entb.CONTADOR = Contador;
+                        entb.OBSERVACIONES = item.OBSERVACIONES;
                         lisbcrm.Add(entb);
                         Contador = Contador + 1;
                     }

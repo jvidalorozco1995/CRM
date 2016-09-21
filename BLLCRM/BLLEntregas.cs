@@ -26,9 +26,11 @@ namespace BLLCRM
                 var cons = 0;
                 var consecu = bd.Entregas.OrderByDescending(u => u.CONSECUTIVO).FirstOrDefault();
                 if (consecu == null) { cons = 0; } else { cons = Convert.ToInt32(consecu.CONSECUTIVO); }
-                
+                b.ENVIADO = DateTime.Now;
                 b.CONSECUTIVO = (cons + 1);
                 b.FECHAREG = DateTime.Now;
+                b.USUARIO = Membership.GetUser().ToString();
+                b.ENVIADOPOR = Membership.GetUser().ToString();
                 bd.Entregas.Add(b);
                 bd.SaveChanges();
                 return 1;

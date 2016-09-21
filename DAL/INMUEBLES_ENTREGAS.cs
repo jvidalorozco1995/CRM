@@ -27,6 +27,7 @@ namespace DAL
         public Nullable<System.DateTime> FECHACLIENTE { get; set; }
         public Nullable<int> ESTADOENTREGA { get; set; }
         public Nullable<System.DateTime> FECHAENTREGA { get; set; }
+        public Nullable<System.DateTime> OBSERVACIONES { get; set; }
     
         public virtual Entregas Entregas { get; set; }
         public virtual inmuebles inmuebles { get; set; }
