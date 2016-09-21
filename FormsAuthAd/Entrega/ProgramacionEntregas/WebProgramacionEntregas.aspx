@@ -261,7 +261,7 @@
                     <div class="modal-content">
                         <div class="color-line"></div>
                         <div class="modal-header">
-                            <h5 class="modal-title">Persona Asociada</h5>
+                            <h5 class="modal-title">Nueva solicitud</h5>
 
                         </div>
                         <div class="modal-body">
@@ -270,13 +270,13 @@
                                     <div class="row">
                                         <div class="form-group col-lg-6">
                                             <label>Proyecto:</label>
-                                            <select id="ComTipoDocumento1" title="Filtar tipo de documento" class="form-control">
+                                            <select id="ComProyect" title="Filtar tipo de documento" class="form-control">
                                                 <option></option>
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-6">
                                             <label>Dir Obra:</label>
-                                            <select id="ComTipoDocumento1" title="Filtar tipo de documento" class="form-control">
+                                            <select id="CombAsesores" title="Filtar tipo de documento" class="form-control">
                                                 <option></option>
                                             </select>
                                         </div>
@@ -287,19 +287,19 @@
 
                                         <div class="form-group col-lg-5">
                                             <label id="label10">Manzana</label>
-                                            <select id="ComTipoDocumento1" title="Filtar tipo de documento" class="form-control">
+                                            <select id="Mazanasb" title="Filtar tipo de documento" class="form-control">
                                                 <option></option>
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-5">
                                             <label id="label10">Inmueble</label>
-                                            <select id="ComTipoDocumento1" title="Filtar tipo de documento" class="form-control">
+                                            <select id="Inmueble" title="Filtar tipo de documento" class="form-control">
                                                 <option></option>
                                             </select>
                                         </div>
                                         <label id="label10">Inmueble</label>
                                         <div class="form-group col-lg-1">
-                                            <button class="btn btn-success " type="button" id="Btnregis_asc">+</button>
+                                            <button class="btn btn-success " type="button" id="BtnAdd">+</button>
                                         </div>
 
 
@@ -307,6 +307,9 @@
                                 </div>
 
                             </div>
+                            <div style="border-top:solid;color:#E50000"><h4>Historial de tarea</h4></div>
+                        <div id="TablaInmueblesEntregas">
+                        </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-success " type="button" id="Btnregis_asc">Crear asociado</button>
@@ -354,6 +357,12 @@
         <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
 
         <script src="../../BLLscripts/BLLUtilidades.js"></script>
+        <script src="../../BLLscripts/BLLProyectos.js"></script>
+        <script src="../../BLLscripts/BLLEmpresa.js"></script>
+        <script src="../../BLLscripts/BLLComercial.js"></script>
+        <script src="../../BLLscripts/BLLActInmuebles.js"></script>
+        <script src="../../BLLscripts/BLLInmuebles.js"></script>
+        <script src="../../BLLscripts/BLLTrabajadores.js"></script>
         <script src="../../BLLscripts/BLLEntregas.js"></script>
         <script src="js/ProgramacionEntregas.js"></script>
         <script src="../../scripts_crm/bootstrap-datepicker.js"></script>

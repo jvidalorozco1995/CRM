@@ -698,6 +698,7 @@ var admComercial = (function () {
 
     var _Inic = function () {
 
+        
         inm._Linmuebles(proyec);
         Tr.ListadoTareasUser();
         sala.ListaSala(1, WsLisala);

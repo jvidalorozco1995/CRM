@@ -62,8 +62,6 @@ function BLLEntregas() {
         tabla += "<th>No</th>";
         tabla += "<th>Manzana</th>";
         tabla += "<th>Inmueble</th>";
-     
-  
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -83,7 +81,34 @@ function BLLEntregas() {
     }
     
 
+    BLLEntregas.prototype.CrearTablaInmueblesBorrador = function (clientes) {
+        document.getElementById('TablaInmueblesEntregas').innerHTML = "";
+        var tabla = '<table id="esd2" class="table table-striped table-bordered table-hover">';
+        tabla += "<thead>";
+        tabla += "<tr>";
+        tabla += "<th>No</th>";
+        tabla += "<th>Manzana</th>";
+        tabla += "<th>Inmueble</th>";
+        tabla += "<th></th>";
+        tabla += "</tr>";
+        tabla += "</thead>";
+        tabla += "<tbody>";
+        $.each(clientes, function (i, item) {
 
+           // if (item.REFERENCIA_INMUEBLE )
+            tabla += "<tr>";
+            tabla += "<td>" + item.REFERENCIA_INMUEBLE+ "</td>";
+            tabla += "<td>" + item.MANZANA_O_TORRE + "</td>";
+            tabla += "<td>" + item.CASA_O_APTO + "</td>";
+            tabla += "<td style='width:22px'><button id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-warning btn-xs quitar' type='button'>-</button></td>";
+        });
+        tabla += "</tbody>";
+        tabla += '</table>';
+        $('#TablaInmueblesEntregas').append(tabla);
+        $('#esd2').dataTable();
+
+    }
+    
 
 
     BLLEntregas.CrearTabla = function (clientes) {

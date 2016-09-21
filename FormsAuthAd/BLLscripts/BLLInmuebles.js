@@ -732,6 +732,7 @@ function BLLInmuebles() {
         });
     }
 
+
     BLLInmuebles.prototype.EstadosInmuebles = function (Wsurl, op, p) {
         jsonData = "{ 'op':" + parseInt(op) + ",'p':" + JSON.stringify(p) + "}";
         $.ajax({
@@ -742,15 +743,50 @@ function BLLInmuebles() {
             success: function (result) {
                 if (result.d == null) {
                     document.getElementById('tables').innerHTML = "";
-
+                    document.getElementById('Inmueble').innerHTML = "";
                 }
                 else {
                     BLLInmuebles.CompenenteInmueble(result.d)
+                    BLLInmuebles.CompenenteP(result.d)
+
                 }
 
             },
             error: function (obj, error, objError) { alert(error.responseText); }
         });
+    }
+    BLLInmuebles.prototype.EstadosInmuebles2 = function (Wsurl, op, p) {
+        jsonData = "{ 'op':" + parseInt(op) + ",'p':" + JSON.stringify(p) + "}";
+        $.ajax({
+            type: "POST", url: Wsurl, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+              
+                if (result.d == null) {
+                  
+                    document.getElementById('Inmueble').innerHTML = "";
+                }
+                else {
+                  
+                    BLLInmuebles.CompenenteP(result.d)
+                    
+                }
+
+            },
+            error: function (obj, error, objError) { alert(error.responseText); }
+        });
+    }
+    BLLInmuebles.CompenenteP = function (bloque) {
+
+        for (var i = 0; i < bloque.length; i++) {
+            var lista = '<option value=' + bloque[i]["REFERENCIA"] + '>';
+            lista += bloque[i]["INMUEBLE"];
+            lista += '</option>'
+            $("#Inmueble").append(lista);
+        }
+
     }
 
     BLLInmuebles.CompenenteInmueble = function (inmuebles) {
