@@ -23,7 +23,7 @@ var admEntregas= (function () {
             EnviadoPor = result[1];
             EnviadoA = result[2];
 
-            $("#TxtFechaEnviado").val(moment(Enviado).format("YYYY/DD/MM"));
+            $("#TxtFechaEnviado").val(Enviado);
             $("#TxtEnviadoA").val(EnviadoA);
             $("#TxtEnviadoPor").val(EnviadoPor);
 
@@ -47,13 +47,14 @@ var admEntregas= (function () {
 
         });
         var favorites = [];
+        var myObj;
         $(document).on('click', '#BtnAdd', function () {
 
 
             //create object
-            var myObj = {
+             myObj = {
                 "ID_PROYECTO": $("#ComProyect").val(),    //your artist variable
-                "DIR_OBRA": $("#CombAsesores").val(),   //your title variable
+                "DIROBRA": $("#CombAsesores").val(),   //your title variable
             };
             
             alert(JSON.stringify(myObj));
@@ -70,8 +71,7 @@ var admEntregas= (function () {
             var index = favorites.findIndex(function (item, i) {
                 return item.REFERENCIA_INMUEBLE === $("#Inmueble").val()
             });
-
-            alert(index);
+          
 
             if (index == -1) {
                 favorites.push(myObj2);
@@ -92,11 +92,26 @@ var admEntregas= (function () {
                 return item.REFERENCIA_INMUEBLE === referencia
             });
 
-            alert(referencia+" "+JSON.stringify(index));
+          
             favorites.splice(index, 1);
+
+         
+
             Entg.CrearTablaInmueblesBorrador(favorites);
+          
         });
         
+        
+        $("#Btnregis").click(function () {
+
+            Entg.InsertEntregas(myObj, favorites);
+           
+        });
+
+        $(document).on('click', '.enviar', function () {
+            var id = $(this).attr("id");
+            Entg.UpdateEntregas(id);
+        });
 
         
         

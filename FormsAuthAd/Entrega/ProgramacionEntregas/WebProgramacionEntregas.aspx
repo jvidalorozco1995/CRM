@@ -312,7 +312,7 @@
                         </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-success " type="button" id="Btnregis_asc">Crear asociado</button>
+                            <button class="btn btn-success " type="button" id="Btnregis">Crear</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 
                         </div>

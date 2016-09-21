@@ -4,7 +4,65 @@ function BLLEntregas() {
 
     var WsProgramacionEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/ListEntregasPor");///Listado de clientes
     var WsProgramacionProyectos = funcionUrlGlobal("/Servicios/WEntregas.asmx/ListInmueblesEntregasproyecto");///Listado de clientes
+    var WsInsertEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/InsertEntregas");///Listado de clientes
+    var WsUpdateEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/UpdateEntregas");///Listado de clientes
+
+    BLLEntregas.prototype.InsertEntregas = function (p, lista) {
+
+        jsonData = "{'b':" + JSON.stringify(p) + ",'lista':" + JSON.stringify(lista) + "}";
+        $.ajax({
+            
+            type: "POST", url: WsInsertEntregas, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+                   
+                }
+                else {
+                    toastr.success('CRM Mayales - Notificacion' +
+                             '</br></br>Solicitud Guardada');
+
+                    setTimeout(function () { Entg.ListProgramacionEntregas(); }, 1000);
+                    favorites = [];
+                    $('#ModalAsignar').modal('hide');
+
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+
+    }
+
+    BLLEntregas.prototype.UpdateEntregas = function (id) {
+
+        jsonData = "{'i':" + JSON.stringify(id) + "}";
+        $.ajax({
+
+            type: "POST", url: WsUpdateEntregas, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                }
+                else {
+                    toastr.success('CRM Mayales - Notificacion' +
+                             '</br></br>Solicitud Enviada');
+                    setTimeout(function () { Entg.ListProgramacionEntregas(); }, 1000);
+                  
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+
+    }
     
+
     BLLEntregas.prototype.ListProgramacionEntregas = function () {
        
         $.ajax({
@@ -126,7 +184,7 @@ function BLLEntregas() {
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(clientes, function (i, item) {
-
+            
             tabla += "<tr>";
             tabla += "<td>" + item.CONSECUTIVO + "</td>";
             tabla += "<td>" + item.ID_PROYECTO + "</td>";
@@ -134,7 +192,7 @@ function BLLEntregas() {
             tabla += "<td>" + item.DIROBRA + "</td>";
             
             if (item.ENVIADO == null) {
-                tabla += "<td style='width:22px'><button id='" + item.ID_PROYECTO + "'class='btn btn-success btn-xs separar' type='button'>Enviar</button></td>";
+                tabla += "<td style='width:22px'><button id='" + item.ID_ENTREGAS + "'class='btn btn-success btn-xs enviar' type='button'>Enviar</button></td>";
 
                 tabla += "<td style='width:20px;height: 20px' class='desistir' id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'></td>";
             } else {
