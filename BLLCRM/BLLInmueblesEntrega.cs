@@ -91,12 +91,12 @@ namespace BLLCRM
                 throw;
             }
         }
-        public List<VListadoEntregas> ListInmueblesEntregasproyecto(string PROYECTO)
+        public List<VListadoEntregas> ListInmueblesEntregasproyecto(int PROYECTO)
         {
             var Contador = 1;
             try
             {
-                List<VListadoEntregas> lisb = bd.VListadoEntregas.Where(t => t.ID_PROYEC == PROYECTO).ToList();
+                List<VListadoEntregas> lisb = bd.VListadoEntregas.Where(t => t.ID_ENTREGA == PROYECTO).ToList();
                 //bd.compromisosxcuota.ToList();
                 List<VListadoEntregas> lisbcrm = new List<VListadoEntregas>();
                 if (lisb.Count.Equals(0))

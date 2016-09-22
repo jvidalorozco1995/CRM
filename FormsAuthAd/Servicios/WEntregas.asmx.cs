@@ -78,7 +78,7 @@ namespace FormsAuthAd.Servicios
         }
          [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<VListadoEntregas> ListInmueblesEntregasproyecto(string p)
+        public List<VListadoEntregas> ListInmueblesEntregasproyecto(int p)
         {
             return ie.ListInmueblesEntregasproyecto(p);
         }

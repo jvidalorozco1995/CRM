@@ -12,8 +12,10 @@ var admEntregas= (function () {
     var cliente = null;
     var bandera = 0;
     var proyecto;
-
+    var favorites = [];
+    var myObj;
     var _addHandlers = function () {
+
         $(document).on('click', '.Info', function () {
             proyecto = $(this).attr("id");
             
@@ -27,14 +29,22 @@ var admEntregas= (function () {
             $("#TxtEnviadoA").val(EnviadoA);
             $("#TxtEnviadoPor").val(EnviadoPor);
 
-            setTimeout(function () { Entg.ListInmueblesProyecto(proyecto); $("#datos").show(); }, 1000);
+            setTimeout(function () {
+                Entg.ListInmueblesProyecto(proyecto); $("#datos").show();
+            }, 1000);
 
         });
 
         $("#BtnNueva").click(function () {
-            var favorites = [];
+            favorites = [];
             $('#ModalAsignar').modal('show');
         });
+
+        $("#BtnCerrar").click(function () {
+            favorites = [];
+            Entg.CrearTablaInmueblesBorrador(favorites);
+        });
+
        
         $(document).on('change', '#ComProyect', function () {
 
@@ -46,8 +56,7 @@ var admEntregas= (function () {
             inm.EstadosInmuebles2(WsLisImnuE, 24, $('#Mazanasb').val());
 
         });
-        var favorites = [];
-        var myObj;
+       
         $(document).on('click', '#BtnAdd', function () {
 
             if (Entg.ValidarReferencia($("#Inmueble").val()) != 1) {
@@ -60,7 +69,7 @@ var admEntregas= (function () {
                     "DIROBRA": $("#CombAsesores").val(),   //your title variable
                 };
 
-                alert(JSON.stringify(myObj));
+              
 
 
                 //create object
@@ -94,18 +103,33 @@ var admEntregas= (function () {
         });
      
         $(document).on('click', '.quitar', function () {
+
+
             var referencia = $(this).attr("id");
           
-            var index = favorites.findIndex(function (item, i) {
-                return item.REFERENCIA_INMUEBLE === referencia
-            });
 
-          
-            favorites.splice(index, 1);
+            event.stopPropagation();
+            if (confirm("Estas seguro(a) de eliminar esto?")) {
+                this.click;
+
+                var index = favorites.findIndex(function (item, i) {
+                    return item.REFERENCIA_INMUEBLE === referencia
+                });
+
+
+                favorites.splice(index, 1);
+
+
+
+                Entg.CrearTablaInmueblesBorrador(favorites);
+
+            }
+            else {
+
+            }
+            event.preventDefault();
 
          
-
-            Entg.CrearTablaInmueblesBorrador(favorites);
           
         });
         

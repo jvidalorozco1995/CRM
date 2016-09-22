@@ -73,6 +73,31 @@
                                 </div>
                                 <div class="Border no-padding">
                                     <div class="tab-content">
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group col-lg-4">
+
+                                                    <label>F. Enviado</label>
+                                                    <input type="text" value="" id="TxtFechaEnviado1" class="form-control" name="" placeholder="" readonly="" />
+
+                                                </div>
+                                                <div class="form-group col-lg-4">
+
+                                                    <label>Enviado A:</label>
+                                                    <input type="text" value="" id="TxtEnviadoA1" class="form-control" name="" placeholder="" readonly="" />
+
+                                                </div>
+                                                <div class="form-group col-lg-4">
+
+                                                    <label>Enviado por:</label>
+                                                    <input type="text" value="" id="TxtEnviadoPor1" class="form-control" name="" placeholder="" readonly="" />
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                         <div id="tablainmuebles" class="p-m tab-pane active">
                                         </div>
 
@@ -97,9 +122,6 @@
 
                                                 </div>
                                             </div>
-
-
-
 
                                         </div>
                                     </div>
@@ -313,7 +335,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-success " type="button" id="Btnregis">Crear</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-default" id="BtnCerrar" data-dismiss="modal">Cerrar</button>
 
                         </div>
                     </div>

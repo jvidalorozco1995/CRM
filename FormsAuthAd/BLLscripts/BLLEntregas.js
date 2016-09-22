@@ -24,10 +24,11 @@ function BLLEntregas() {
                 else {
                     toastr.success('CRM Mayales - Notificacion' +
                              '</br></br>Solicitud Guardada');
-                    favorites = [];
+                   
                     setTimeout(function () { Entg.ListProgramacionEntregas(); }, 1000);
                     Entg.CrearTablaInmueblesBorrador(favorites);
                     $('#ModalAsignar').modal('hide');
+                    favorites = [];
 
                 }
 
@@ -153,7 +154,16 @@ function BLLEntregas() {
         tabla += "</tbody>";
         tabla += '</table>';
         $('#tablainmuebles').append(tabla);
-        $('#esd').dataTable();
+        $('#esd').dataTable({"bProcessing": true,
+            "sAutoWidth": false,
+            "bDestroy":true,
+            "sPaginationType": "bootstrap", // full_numbers
+            "iDisplayStart ": 10,
+            "iDisplayLength": 10,
+            "bPaginate": false, //hide pagination
+            "bFilter": false, //hide Search bar
+            "bInfo": false, // hide showing entries 
+        });
 
     }
     
@@ -216,12 +226,9 @@ function BLLEntregas() {
                 tabla += "<td style='width:20px;height: 20px' class='desistir' id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'></td>";
             } else {
                 tabla += "<td></td>"
-                tabla += "<td style='width:20px;height: 20px' tag='" + moment(item.ENVIADO).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "'class='Info'id=" + item.ID_PROYECTO + " ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
+                tabla += "<td style='width:20px;height: 20px' tag='" + moment(item.ENVIADO).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "'class='Info'id=" + item.ID_ENTREGAS + " ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
                
-            }
-           
-
-          ;
+            };
         });
         tabla += "</tbody>";
         tabla += '</table>';
