@@ -58,10 +58,10 @@ namespace BLLCRM
                 ctx.FECHAREG = i.FECHAREG;
                 ctx.ID_PROYECTO = i.ID_PROYECTO;
                 ctx.DIROBRA = i.DIROBRA;
-                ctx.USUARIO = i.USUARIO;
-                ctx.ENVIADO = i.ENVIADO;
+                ctx.USUARIO = Membership.GetUser().ToString();
+                ctx.ENVIADO = DateTime.Now;
                 ctx.ENVIADOA = i.ENVIADOA;
-                ctx.ENVIADOPOR = i.ENVIADOPOR;
+                ctx.ENVIADOPOR = Membership.GetUser().ToString();
                 ctx.CONSECUTIVO = i.CONSECUTIVO;
                 bd.SaveChanges();
 

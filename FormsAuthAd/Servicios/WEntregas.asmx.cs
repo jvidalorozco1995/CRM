@@ -82,6 +82,11 @@ namespace FormsAuthAd.Servicios
         {
             return ie.ListInmueblesEntregasproyecto(p);
         }
-        
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int ValidaReferencia(string Referencia)
+        {
+            return ie.ValidaReferencia(Referencia);
+        }
     }
 }

@@ -68,6 +68,29 @@ namespace BLLCRM
             }
         }
 
+        public int ValidaReferencia(string Referencia)
+        {
+            try
+            {
+                var ctx = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == Referencia);
+
+                if(ctx == null)
+                {
+                    return 0;
+                }
+                else {
+                    return 1;
+                }
+
+                
+            }
+
+            catch (Exception ex)
+            {
+                return 0;
+                throw;
+            }
+        }
         public List<VListadoEntregas> ListInmueblesEntregasproyecto(string PROYECTO)
         {
             var Contador = 1;
