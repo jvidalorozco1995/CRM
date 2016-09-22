@@ -6,6 +6,7 @@ function BLLEntregas() {
     var WsProgramacionProyectos = funcionUrlGlobal("/Servicios/WEntregas.asmx/ListInmueblesEntregasproyecto");///Listado de clientes
     var WsInsertEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/InsertEntregas");///Listado de clientes
     var WsUpdateEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/UpdateEntregas");///Listado de clientes
+    var WsValidarEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/ValidaReferencia");///Listado de clientes
 
     BLLEntregas.prototype.InsertEntregas = function (p, lista) {
 
@@ -23,9 +24,9 @@ function BLLEntregas() {
                 else {
                     toastr.success('CRM Mayales - Notificacion' +
                              '</br></br>Solicitud Guardada');
-
-                    setTimeout(function () { Entg.ListProgramacionEntregas(); }, 1000);
                     favorites = [];
+                    setTimeout(function () { Entg.ListProgramacionEntregas(); }, 1000);
+                    Entg.CrearTablaInmueblesBorrador(favorites);
                     $('#ModalAsignar').modal('hide');
 
                 }
@@ -85,6 +86,24 @@ function BLLEntregas() {
             error: function (error) { alert(error.responseText); }
         });
 
+    }
+
+
+    BLLEntregas.prototype.ValidarReferencia = function (ref) {
+        jsonData = "{'Referencia':" + JSON.stringify(ref) + "}";
+        var estado;
+        $.ajax({
+            type: "POST", url: WsValidarEntregas, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: false,
+            success: function (result) {
+               
+                estado =  result.d;
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+        return estado;
     }
 
     BLLEntregas.prototype.ListInmueblesProyecto = function (p) {

@@ -30,7 +30,7 @@ namespace FormsAuthAd.Servicios
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int InsertEntregas(Entregas b, List<INMUEBLES_ENTREGAS> lista)
+        public string InsertEntregas(Entregas b, List<INMUEBLES_ENTREGAS> lista)
         {
             return cl.InserEntregas(b, lista);
         }

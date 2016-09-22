@@ -19,7 +19,7 @@ namespace BLLCRM
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public int InserEntregas(Entregas b,List<INMUEBLES_ENTREGAS> list)
+        public string InserEntregas(Entregas b,List<INMUEBLES_ENTREGAS> list)
         {
             try
             {
@@ -46,11 +46,19 @@ namespace BLLCRM
                     }
                     bd.SaveChanges();
                 }
-                return 1;
+                return "Se ha guardado satisfactoriamente la solicitud";
             }
             catch (DbUpdateException ex)
             {
-                throw ex;
+                if (ex.InnerException.ToString().Contains("No se puede insertar una fila de clave duplicada"))
+                {
+
+                    return "Este inmueble ya tiene solicitudes agregadas";
+                }
+                else
+                {
+                    throw ex;
+                }
             }
             catch (Exception ex)
             {

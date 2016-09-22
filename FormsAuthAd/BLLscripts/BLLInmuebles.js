@@ -769,7 +769,7 @@ function BLLInmuebles() {
                     document.getElementById('Inmueble').innerHTML = "";
                 }
                 else {
-                  
+                   
                     BLLInmuebles.CompenenteP(result.d)
                     
                 }
@@ -779,7 +779,7 @@ function BLLInmuebles() {
         });
     }
     BLLInmuebles.CompenenteP = function (bloque) {
-
+        document.getElementById('Inmueble').innerHTML = "";
         for (var i = 0; i < bloque.length; i++) {
             var lista = '<option value=' + bloque[i]["REFERENCIA"] + '>';
             lista += bloque[i]["INMUEBLE"];

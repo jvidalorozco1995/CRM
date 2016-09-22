@@ -32,7 +32,7 @@ var admEntregas= (function () {
         });
 
         $("#BtnNueva").click(function () {
-
+            var favorites = [];
             $('#ModalAsignar').modal('show');
         });
        
@@ -50,37 +50,45 @@ var admEntregas= (function () {
         var myObj;
         $(document).on('click', '#BtnAdd', function () {
 
+            if (Entg.ValidarReferencia($("#Inmueble").val()) != 1) {
 
-            //create object
-             myObj = {
-                "ID_PROYECTO": $("#ComProyect").val(),    //your artist variable
-                "DIROBRA": $("#CombAsesores").val(),   //your title variable
-            };
-            
-            alert(JSON.stringify(myObj));
 
-           
-            //create object
-            var  myObj2 =  {
-               
-                "REFERENCIA_INMUEBLE": $("#Inmueble").val(),   //your title variable
-                "MANZANA_O_TORRE": $("#Mazanasb option:selected").text(),   //your title variable
-                "CASA_O_APTO": $("#Inmueble option:selected").text(),   //your title variable
-            };
 
-            var index = favorites.findIndex(function (item, i) {
-                return item.REFERENCIA_INMUEBLE === $("#Inmueble").val()
-            });
-          
+                //create object
+                myObj = {
+                    "ID_PROYECTO": $("#ComProyect").val(),    //your artist variable
+                    "DIROBRA": $("#CombAsesores").val(),   //your title variable
+                };
 
-            if (index == -1) {
-                favorites.push(myObj2);
+                alert(JSON.stringify(myObj));
+
+
+                //create object
+                var myObj2 = {
+
+                    "REFERENCIA_INMUEBLE": $("#Inmueble").val(),   //your title variable
+                    "MANZANA_O_TORRE": $("#Mazanasb option:selected").text(),   //your title variable
+                    "CASA_O_APTO": $("#Inmueble option:selected").text(),   //your title variable
+                };
+
+                var index = favorites.findIndex(function (item, i) {
+                    return item.REFERENCIA_INMUEBLE === $("#Inmueble").val()
+                });
+
+
+                if (index == -1) {
+                    favorites.push(myObj2);
+                } else {
+                    toastr.error('CRM Mayales - Notificacion' +
+                          '</br></br>Este inmueble ya se encuentra agregado.');
+                }
+
+                Entg.CrearTablaInmueblesBorrador(favorites);
             } else {
-                toastr.error('CRM Mayales - Notificacion' +
-                      '</br></br>Este inmueble ya se encuentra agregado.');
-            }
 
-            Entg.CrearTablaInmueblesBorrador(favorites);
+                toastr.error('CRM Mayales - Notificacion' +
+                         '</br></br>Ya hay una solicitud con este inmueble.');
+            }
 
             
         });
