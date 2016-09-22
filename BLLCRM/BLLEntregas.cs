@@ -19,20 +19,33 @@ namespace BLLCRM
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public int InserEntregas(Entregas b)
+        public int InserEntregas(Entregas b,List<INMUEBLES_ENTREGAS> list)
         {
             try
             {
                 var cons = 0;
                 var consecu = bd.Entregas.OrderByDescending(u => u.CONSECUTIVO).FirstOrDefault();
                 if (consecu == null) { cons = 0; } else { cons = Convert.ToInt32(consecu.CONSECUTIVO); }
-                b.ENVIADO = DateTime.Now;
+               // b.ENVIADO = DateTime.Now;
                 b.CONSECUTIVO = (cons + 1);
                 b.FECHAREG = DateTime.Now;
                 b.USUARIO = Membership.GetUser().ToString();
                 b.ENVIADOPOR = Membership.GetUser().ToString();
-                bd.Entregas.Add(b);
-                bd.SaveChanges();
+                var item = bd.Entregas.Add(b);
+                var a =  bd.SaveChanges();
+                if (a > 0) {
+                    foreach (var entidad in list) {
+
+                        INMUEBLES_ENTREGAS inmu = new INMUEBLES_ENTREGAS();
+                        inmu.REFERENCIA_INMUEBLE = entidad.REFERENCIA_INMUEBLE;
+                        inmu.FECHAREG = DateTime.Now;
+                        inmu.ID_ENTREGA = item.ID_ENTREGAS;
+
+                        bd.INMUEBLES_ENTREGAS.Add(inmu);
+                       
+                    }
+                    bd.SaveChanges();
+                }
                 return 1;
             }
             catch (DbUpdateException ex)
@@ -46,23 +59,17 @@ namespace BLLCRM
         }
 
    
-        public int UpdateEntregas(Entregas i)
+        public int UpdateEntregas(int id)
         {
 
             try
             {
                 
 
-                var ctx = bd.Entregas.First(inm => inm.ID_ENTREGAS == i.ID_ENTREGAS);
+                var ctx = bd.Entregas.First(inm => inm.ID_ENTREGAS == id);
 
-                ctx.FECHAREG = i.FECHAREG;
-                ctx.ID_PROYECTO = i.ID_PROYECTO;
-                ctx.DIROBRA = i.DIROBRA;
-                ctx.USUARIO = Membership.GetUser().ToString();
                 ctx.ENVIADO = DateTime.Now;
-                ctx.ENVIADOA = i.ENVIADOA;
-                ctx.ENVIADOPOR = Membership.GetUser().ToString();
-                ctx.CONSECUTIVO = i.CONSECUTIVO;
+                ctx.ENVIADOA = Membership.GetUser().ToString();
                 bd.SaveChanges();
 
                 return 1;
