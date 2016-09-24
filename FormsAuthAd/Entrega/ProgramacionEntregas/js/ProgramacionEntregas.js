@@ -24,10 +24,19 @@ var admEntregas= (function () {
             Enviado = result[0];
             EnviadoPor = result[1];
             EnviadoA = result[2];
-
+            Proyectos = result[3];
+            Fecha = result[4];
+            DirObra = result[5];
+            Nsolicitud = result[6];
+            
             $("#TxtFechaEnviado").val(Enviado);
             $("#TxtEnviadoA").val(EnviadoA);
             $("#TxtEnviadoPor").val(EnviadoPor);
+            $("#TxtProyectos").val(Proyectos);
+            $("#TxtFecha").val(Fecha);
+            $("#TxtDirObra").val(DirObra);
+            $("#Nsolicitud").text(Nsolicitud);
+            
 
             setTimeout(function () {
                 Entg.ListInmueblesProyecto(proyecto); $("#datos").show();
@@ -59,45 +68,58 @@ var admEntregas= (function () {
        
         $(document).on('click', '#BtnAdd', function () {
 
-            if (Entg.ValidarReferencia($("#Inmueble").val()) != 1) {
+          
+                if ($("#Mazanasb").val().length == 0) {
 
-
-
-                //create object
-                myObj = {
-                    "ID_PROYECTO": $("#ComProyect").val(),    //your artist variable
-                    "DIROBRA": $("#CombAsesores").val(),   //your title variable
-                };
-
-              
-
-
-                //create object
-                var myObj2 = {
-
-                    "REFERENCIA_INMUEBLE": $("#Inmueble").val(),   //your title variable
-                    "MANZANA_O_TORRE": $("#Mazanasb option:selected").text(),   //your title variable
-                    "CASA_O_APTO": $("#Inmueble option:selected").text(),   //your title variable
-                };
-
-                var index = favorites.findIndex(function (item, i) {
-                    return item.REFERENCIA_INMUEBLE === $("#Inmueble").val()
-                });
-
-
-                if (index == -1) {
-                    favorites.push(myObj2);
-                } else {
                     toastr.error('CRM Mayales - Notificacion' +
-                          '</br></br>Este inmueble ya se encuentra agregado.');
+                      '</br></br> Seleccione una manzana');
+                } else if ($("#Inmueble").val().length == 0) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                         '</br></br> Seleccione un inmueble');
+                } 
+               else {
+
+                    if (Entg.ValidarReferencia($("#Inmueble").val()) != 1) {
+                        //create object
+                        myObj = {
+                            "ID_PROYECTO": $("#ComProyect").val(),    //your artist variable
+                            "DIROBRA": $("#CombAsesores").val(),   //your title variable
+                        };
+
+
+
+
+                        //create object
+                        var myObj2 = {
+
+                            "REFERENCIA_INMUEBLE": $("#Inmueble").val(),   //your title variable
+                            "MANZANA_O_TORRE": $("#Mazanasb option:selected").text(),   //your title variable
+                            "CASA_O_APTO": $("#Inmueble option:selected").text(),   //your title variable
+                        };
+
+                        var index = favorites.findIndex(function (item, i) {
+                            return item.REFERENCIA_INMUEBLE === $("#Inmueble").val()
+                        });
+
+
+                        if (index == -1) {
+                            favorites.push(myObj2);
+                        } else {
+                            toastr.error('CRM Mayales - Notificacion' +
+                                  '</br></br>Este inmueble ya se encuentra agregado.');
+                        }
+
+                        Entg.CrearTablaInmueblesBorrador(favorites);
+                    } else {
+
+                        toastr.error('CRM Mayales - Notificacion' +
+                                 '</br></br>Ya hay una solicitud con este inmueble.');
+                    }
+
                 }
 
-                Entg.CrearTablaInmueblesBorrador(favorites);
-            } else {
-
-                toastr.error('CRM Mayales - Notificacion' +
-                         '</br></br>Ya hay una solicitud con este inmueble.');
-            }
+             
+        
 
             
         });
@@ -136,8 +158,30 @@ var admEntregas= (function () {
         
         $("#Btnregis").click(function () {
 
-            Entg.InsertEntregas(myObj, favorites);
+            // Initialize your table
+            var oTable = $('#esd2').dataTable();
+
            
+            
+            if ($("#ComProyect").val().length == 0) {
+
+                toastr.error('CRM Mayales - Notificacion' +
+                  '</br></br> Seleccione un proyecto');
+            } else if ($("#CombAsesores").val().length == 0) {
+                toastr.error('CRM Mayales - Notificacion' +
+                     '</br></br> Seleccione un director de obra');
+            } else if (oTable.fnGetData().length == 0) {
+                toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br> Agregue inmuebles por favor');
+            } else {
+                Entg.InsertEntregas(myObj, favorites);
+                favorites = [];
+                Entg.CrearTablaInmueblesBorrador(favorites);
+                $('#ModalAsignar').modal('hide');
+
+            }
+           
+
         });
 
         $(document).on('click', '.enviar', function () {

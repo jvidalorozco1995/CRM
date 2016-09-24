@@ -140,6 +140,7 @@ function BLLEntregas() {
         tabla += "<th>No</th>";
         tabla += "<th>Manzana</th>";
         tabla += "<th>Inmueble</th>";
+        tabla += "<th ></th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -149,7 +150,12 @@ function BLLEntregas() {
             tabla += "<td>" + item.ID_INMUEBLES_ENTREGAS + "</td>";
             tabla += "<td>" + item.NOMBRE_BLO + "</td>";
             tabla += "<td>" + item.INMUEBLE + "</td>";
-         
+            
+            if (item.CONFIRMAOBRA == null || item.CONFIRMAOBRA == '0') {
+                tabla += "<td><input type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "' value='second_checkbox' disabled> </td>";
+            } else if(item.CONFIRMAOBRA=='1') {
+                tabla += "<td><input type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "' value='second_checkbox' disabled checked> </td>";
+            }
         });
         tabla += "</tbody>";
         tabla += '</table>';
@@ -226,7 +232,8 @@ function BLLEntregas() {
                 tabla += "<td style='width:20px;height: 20px' class='desistir' id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Suspendido.png') + "'></td>";
             } else {
                 tabla += "<td></td>"
-                tabla += "<td style='width:20px;height: 20px' tag='" + moment(item.ENVIADO).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "'class='Info'id=" + item.ID_ENTREGAS + " ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
+                tabla += "<td style='width:20px;height: 20px' tag='" + moment(item.ENVIADO).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR +
+                       "/" + item.ID_PROYECTO + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "/" + item.DIROBRA + "/" + item.CONSECUTIVO + "'class='Info'id=" + item.ID_ENTREGAS + " ><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
                
             };
         });

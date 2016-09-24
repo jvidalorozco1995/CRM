@@ -118,7 +118,7 @@ namespace BLLCRM
                         entb.NOMBRE_BLO = item.NOMBRE_BLO;
                         entb.NOMBRE_PROYEC = item.NOMBRE_PROYEC;
                         entb.OBSERVACIONES = item.OBSERVACIONES;
-                        
+                        entb.CONFIRMAOBRA = item.CONFIRMAOBRA;
                         lisbcrm.Add(entb);
                         Contador = Contador + 1;
                     }

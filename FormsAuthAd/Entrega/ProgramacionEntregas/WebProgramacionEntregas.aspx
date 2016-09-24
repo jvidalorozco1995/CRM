@@ -69,35 +69,36 @@
                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                                         <a class="Pcreartarea"><i class="fa fa-times"></i></a>
                                     </div>
-                                    Datos solicitud
+                                    <strong> Solicitud No: </strong>  <label id="Nsolicitud"> </label> 
                                 </div>
-                                <div class="Border no-padding">
+                                <div class="Border padding">
                                     <div class="tab-content">
-
+                                      
                                         <div class="row">
+                                           
                                             <div class="col-lg-12">
                                                 <div class="form-group col-lg-4">
 
-                                                    <label>F. Enviado</label>
-                                                    <input type="text" value="" id="TxtFechaEnviado1" class="form-control" name="" placeholder="" readonly="" />
+                                                    <label>Proyecto</label>
+                                                    <input type="text" value="" id="TxtProyectos" class="form-control" name="" placeholder="" readonly="" />
 
                                                 </div>
                                                 <div class="form-group col-lg-4">
 
-                                                    <label>Enviado A:</label>
-                                                    <input type="text" value="" id="TxtEnviadoA1" class="form-control" name="" placeholder="" readonly="" />
+                                                    <label>Fecha</label>
+                                                    <input type="text" value="" id="TxtFecha" class="form-control" name="" placeholder="" readonly="" />
 
                                                 </div>
                                                 <div class="form-group col-lg-4">
 
-                                                    <label>Enviado por:</label>
-                                                    <input type="text" value="" id="TxtEnviadoPor1" class="form-control" name="" placeholder="" readonly="" />
+                                                    <label>Dir Obra</label>
+                                                    <input type="text" value="" id="TxtDirObra" class="form-control" name="" placeholder="" readonly="" />
 
                                                 </div>
                                             </div>
 
                                         </div>
-
+                                          <div style="color:#E50000; text-align:center"><h4>Listado de inmuebles</h4></div>
                                         <div id="tablainmuebles" class="p-m tab-pane active">
                                         </div>
 

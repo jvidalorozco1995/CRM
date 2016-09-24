@@ -132,7 +132,7 @@ function BLLUtilidades() {
             $('#TextInt').val(item.INMU_INTERES);
             $('#Textasesorinf').val(item.ASESOR);
             $('#TextmedioInf').val(item.INFORMACION);
-        })
+        });
 
     }
 
