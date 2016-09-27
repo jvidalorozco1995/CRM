@@ -50,7 +50,6 @@ namespace DAL
         public DbSet<informacion> informacion { get; set; }
         public DbSet<inmueble_separacion> inmueble_separacion { get; set; }
         public DbSet<inmuebles> inmuebles { get; set; }
-        public DbSet<INMUEBLES_ENTREGAS> INMUEBLES_ENTREGAS { get; set; }
         public DbSet<negocio> negocio { get; set; }
         public DbSet<negocio_fox> negocio_fox { get; set; }
         public DbSet<Notificaciones> Notificaciones { get; set; }
@@ -93,6 +92,7 @@ namespace DAL
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
         public DbSet<NegocioView> NegocioView { get; set; }
+        public DbSet<INMUEBLES_ENTREGAS> INMUEBLES_ENTREGAS { get; set; }
         public DbSet<VListadoEntregas> VListadoEntregas { get; set; }
     }
 }

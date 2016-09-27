@@ -30,7 +30,6 @@
         <EntityTypeShape EntityType="CRM_PRUEBAModel.informacion" Width="1.5" PointX="14.75" PointY="15.75" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.inmueble_separacion" Width="1.5" PointX="8.25" PointY="25.375" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.inmuebles" Width="1.5" PointX="6" PointY="25" />
-        <EntityTypeShape EntityType="CRM_PRUEBAModel.INMUEBLES_ENTREGAS" Width="1.5" PointX="8.25" PointY="14.75" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.negocio" Width="1.5" PointX="16.75" PointY="15.75" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.negocio_fox" Width="1.5" PointX="17.75" PointY="0.75" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.Notificaciones" Width="1.5" PointX="13.25" PointY="8.875" />
@@ -83,11 +82,9 @@
         <AssociationConnector Association="CRM_PRUEBAModel.FK__clientes__EMPRES__5CD6CB2B" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__clientes__PROYEC__32E0915F" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK_Entregas_proyectos" />
-        <AssociationConnector Association="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_Entregas" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__historial__traba__1FF8A574" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__historial__traba__503BEA1C" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__inmueble___INMUE__20CCCE1C" />
-        <AssociationConnector Association="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_inmuebles" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__planos_Pr__PROYE__68487DD7" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__proyectos__PROYE__1D9B5BB6" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK__proyectos__TRABA__1CA7377D" />
@@ -95,6 +92,9 @@
         <AssociationConnector Association="CRM_PRUEBAModel.FK__tareas__TRABAJAD__571DF1D5" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK_Tramites_Inmueble_Tramites" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.NegocioView" Width="1.5" PointX="18.625" PointY="18.625" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.INMUEBLES_ENTREGAS" Width="1.5" PointX="8.375" PointY="15.375" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_Entregas" />
+        <AssociationConnector Association="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_inmuebles" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.VListadoEntregas" Width="1.5" PointX="27.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>

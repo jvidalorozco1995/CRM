@@ -316,7 +316,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="FECHACLIENTE" Type="date" />
           <Property Name="ESTADOENTREGA" Type="int" />
           <Property Name="FECHAENTREGA" Type="date" />
-          <Property Name="OBSERVACIONES" Type="datetime" />
+          <Property Name="OBSERVACIONES" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="negocio">
           <Key>
@@ -953,7 +953,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntregas' does not have a p
           <Property Name="NOMBRE_BLO" Type="varchar" MaxLength="50" />
           <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="OBSERVACIONES" Type="datetime" />
+          <Property Name="OBSERVACIONES" Type="varchar" MaxLength="250" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2125,7 +2125,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="informacion" EntityType="CRM_PRUEBAModel.informacion" />
           <EntitySet Name="inmueble_separacion" EntityType="CRM_PRUEBAModel.inmueble_separacion" />
           <EntitySet Name="inmuebles" EntityType="CRM_PRUEBAModel.inmuebles" />
-          <EntitySet Name="INMUEBLES_ENTREGAS" EntityType="CRM_PRUEBAModel.INMUEBLES_ENTREGAS" />
           <EntitySet Name="negocio" EntityType="CRM_PRUEBAModel.negocio" />
           <EntitySet Name="negocio_fox" EntityType="CRM_PRUEBAModel.negocio_fox" />
           <EntitySet Name="Notificaciones" EntityType="CRM_PRUEBAModel.Notificaciones" />
@@ -2211,10 +2210,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="Entregas" EntitySet="Entregas" />
           </AssociationSet>
-          <AssociationSet Name="FK_INMUEBLES_ENTREGAS_Entregas" Association="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_Entregas">
-            <End Role="Entregas" EntitySet="Entregas" />
-            <End Role="INMUEBLES_ENTREGAS" EntitySet="INMUEBLES_ENTREGAS" />
-          </AssociationSet>
           <AssociationSet Name="FK__historial__traba__1FF8A574" Association="CRM_PRUEBAModel.FK__historial__traba__1FF8A574">
             <End Role="trabajadores" EntitySet="trabajadores" />
             <End Role="historial_clientes" EntitySet="historial_clientes" />
@@ -2226,10 +2221,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <AssociationSet Name="FK__inmueble___INMUE__20CCCE1C" Association="CRM_PRUEBAModel.FK__inmueble___INMUE__20CCCE1C">
             <End Role="inmuebles" EntitySet="inmuebles" />
             <End Role="inmueble_separacion" EntitySet="inmueble_separacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_INMUEBLES_ENTREGAS_inmuebles" Association="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_inmuebles">
-            <End Role="inmuebles" EntitySet="inmuebles" />
-            <End Role="INMUEBLES_ENTREGAS" EntitySet="INMUEBLES_ENTREGAS" />
           </AssociationSet>
           <AssociationSet Name="FK__planos_Pr__PROYE__68487DD7" Association="CRM_PRUEBAModel.FK__planos_Pr__PROYE__68487DD7">
             <End Role="proyectos" EntitySet="proyectos" />
@@ -2256,6 +2247,15 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
           </AssociationSet>
           <EntitySet Name="NegocioView" EntityType="CRM_PRUEBAModel.NegocioView" />
+          <EntitySet Name="INMUEBLES_ENTREGAS" EntityType="CRM_PRUEBAModel.INMUEBLES_ENTREGAS" />
+          <AssociationSet Name="FK_INMUEBLES_ENTREGAS_Entregas" Association="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_Entregas">
+            <End Role="Entregas" EntitySet="Entregas" />
+            <End Role="INMUEBLES_ENTREGAS" EntitySet="INMUEBLES_ENTREGAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_INMUEBLES_ENTREGAS_inmuebles" Association="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_inmuebles">
+            <End Role="inmuebles" EntitySet="inmuebles" />
+            <End Role="INMUEBLES_ENTREGAS" EntitySet="INMUEBLES_ENTREGAS" />
+          </AssociationSet>
           <EntitySet Name="VListadoEntregas" EntityType="CRM_PRUEBAModel.VListadoEntregas" />
         </EntityContainer>
         <EntityType Name="ActInmuebles">
@@ -2560,27 +2560,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="INMUESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="inmueble_separacion" Relationship="CRM_PRUEBAModel.FK__inmueble___INMUE__20CCCE1C" FromRole="inmuebles" ToRole="inmueble_separacion" />
           <NavigationProperty Name="INMUEBLES_ENTREGAS" Relationship="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_inmuebles" FromRole="inmuebles" ToRole="INMUEBLES_ENTREGAS" />
-        </EntityType>
-        <EntityType Name="INMUEBLES_ENTREGAS">
-          <Key>
-            <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
-          </Key>
-          <Property Name="ID_INMUEBLES_ENTREGAS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_ENTREGA" Type="Int32" />
-          <Property Name="REFERENCIA_INMUEBLE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
-          <Property Name="FECHAREG" Type="DateTime" Precision="3" />
-          <Property Name="CONFIRMAOBRA" Type="Int32" />
-          <Property Name="FECHACONFIRMA" Type="DateTime" Precision="3" />
-          <Property Name="INSPECCIONCAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADOAVAL" Type="Int32" />
-          <Property Name="RADICADOVENTA" Type="DateTime" Precision="0" />
-          <Property Name="ENTREGAOBRA" Type="DateTime" Precision="0" />
-          <Property Name="FECHACLIENTE" Type="DateTime" Precision="0" />
-          <Property Name="ESTADOENTREGA" Type="Int32" />
-          <Property Name="FECHAENTREGA" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Entregas" Relationship="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_Entregas" FromRole="INMUEBLES_ENTREGAS" ToRole="Entregas" />
-          <NavigationProperty Name="inmuebles" Relationship="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_inmuebles" FromRole="INMUEBLES_ENTREGAS" ToRole="inmuebles" />
-          <Property Name="OBSERVACIONES" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="negocio">
           <Key>
@@ -3456,18 +3435,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_INMUEBLES_ENTREGAS_Entregas">
-          <End Type="CRM_PRUEBAModel.Entregas" Role="Entregas" Multiplicity="0..1" />
-          <End Type="CRM_PRUEBAModel.INMUEBLES_ENTREGAS" Role="INMUEBLES_ENTREGAS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Entregas">
-              <PropertyRef Name="ID_ENTREGAS" />
-            </Principal>
-            <Dependent Role="INMUEBLES_ENTREGAS">
-              <PropertyRef Name="ID_ENTREGA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__historial__traba__1FF8A574">
           <End Type="CRM_PRUEBAModel.trabajadores" Role="trabajadores" Multiplicity="0..1" />
           <End Type="CRM_PRUEBAModel.historial_clientes" Role="historial_clientes" Multiplicity="*" />
@@ -3503,18 +3470,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Principal>
             <Dependent Role="inmueble_separacion">
               <PropertyRef Name="INMUEBLE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_INMUEBLES_ENTREGAS_inmuebles">
-          <End Type="CRM_PRUEBAModel.inmuebles" Role="inmuebles" Multiplicity="0..1" />
-          <End Type="CRM_PRUEBAModel.INMUEBLES_ENTREGAS" Role="INMUEBLES_ENTREGAS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="inmuebles">
-              <PropertyRef Name="REFERENCIA" />
-            </Principal>
-            <Dependent Role="INMUEBLES_ENTREGAS">
-              <PropertyRef Name="REFERENCIA_INMUEBLE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3670,6 +3625,51 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="DIRECCION_CORRESPON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CELULAR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="INMUEBLES_ENTREGAS">
+          <Key>
+            <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
+          </Key>
+          <Property Name="ID_INMUEBLES_ENTREGAS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ENTREGA" Type="Int32" />
+          <Property Name="REFERENCIA_INMUEBLE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="FECHAREG" Type="DateTime" Precision="3" />
+          <Property Name="CONFIRMAOBRA" Type="Int32" />
+          <Property Name="FECHACONFIRMA" Type="DateTime" Precision="3" />
+          <Property Name="INSPECCIONCAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADOAVAL" Type="Int32" />
+          <Property Name="RADICADOVENTA" Type="DateTime" Precision="0" />
+          <Property Name="ENTREGAOBRA" Type="DateTime" Precision="0" />
+          <Property Name="FECHACLIENTE" Type="DateTime" Precision="0" />
+          <Property Name="ESTADOENTREGA" Type="Int32" />
+          <Property Name="FECHAENTREGA" Type="DateTime" Precision="0" />
+          <Property Name="OBSERVACIONES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Entregas" Relationship="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_Entregas" FromRole="INMUEBLES_ENTREGAS" ToRole="Entregas" />
+          <NavigationProperty Name="inmuebles" Relationship="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_inmuebles" FromRole="INMUEBLES_ENTREGAS" ToRole="inmuebles" />
+        </EntityType>
+        <Association Name="FK_INMUEBLES_ENTREGAS_Entregas">
+          <End Type="CRM_PRUEBAModel.Entregas" Role="Entregas" Multiplicity="0..1" />
+          <End Type="CRM_PRUEBAModel.INMUEBLES_ENTREGAS" Role="INMUEBLES_ENTREGAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entregas">
+              <PropertyRef Name="ID_ENTREGAS" />
+            </Principal>
+            <Dependent Role="INMUEBLES_ENTREGAS">
+              <PropertyRef Name="ID_ENTREGA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_INMUEBLES_ENTREGAS_inmuebles">
+          <End Type="CRM_PRUEBAModel.inmuebles" Role="inmuebles" Multiplicity="0..1" />
+          <End Type="CRM_PRUEBAModel.INMUEBLES_ENTREGAS" Role="INMUEBLES_ENTREGAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inmuebles">
+              <PropertyRef Name="REFERENCIA" />
+            </Principal>
+            <Dependent Role="INMUEBLES_ENTREGAS">
+              <PropertyRef Name="REFERENCIA_INMUEBLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="VListadoEntregas">
           <Key>
             <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
@@ -3691,7 +3691,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ID_PROYEC" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="OBSERVACIONES" Type="DateTime" Precision="3" />
+          <Property Name="OBSERVACIONES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -4003,26 +4003,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="INMUDECS" ColumnName="INMUDECS" />
                 <ScalarProperty Name="INMUOBRA" ColumnName="INMUOBRA" />
                 <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="INMUEBLES_ENTREGAS">
-            <EntityTypeMapping TypeName="CRM_PRUEBAModel.INMUEBLES_ENTREGAS">
-              <MappingFragment StoreEntitySet="INMUEBLES_ENTREGAS">
-                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
-                <ScalarProperty Name="FECHAENTREGA" ColumnName="FECHAENTREGA" />
-                <ScalarProperty Name="ESTADOENTREGA" ColumnName="ESTADOENTREGA" />
-                <ScalarProperty Name="FECHACLIENTE" ColumnName="FECHACLIENTE" />
-                <ScalarProperty Name="ENTREGAOBRA" ColumnName="ENTREGAOBRA" />
-                <ScalarProperty Name="RADICADOVENTA" ColumnName="RADICADOVENTA" />
-                <ScalarProperty Name="ESTADOAVAL" ColumnName="ESTADOAVAL" />
-                <ScalarProperty Name="INSPECCIONCAL" ColumnName="INSPECCIONCAL" />
-                <ScalarProperty Name="FECHACONFIRMA" ColumnName="FECHACONFIRMA" />
-                <ScalarProperty Name="CONFIRMAOBRA" ColumnName="CONFIRMAOBRA" />
-                <ScalarProperty Name="FECHAREG" ColumnName="FECHAREG" />
-                <ScalarProperty Name="REFERENCIA_INMUEBLE" ColumnName="REFERENCIA_INMUEBLE" />
-                <ScalarProperty Name="ID_ENTREGA" ColumnName="ID_ENTREGA" />
-                <ScalarProperty Name="ID_INMUEBLES_ENTREGAS" ColumnName="ID_INMUEBLES_ENTREGAS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4826,6 +4806,26 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="CEDULA_P" ColumnName="CEDULA_P" />
                 <ScalarProperty Name="PROPIETARIO" ColumnName="PROPIETARIO" />
                 <ScalarProperty Name="ID_NEGOCIO" ColumnName="ID_NEGOCIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INMUEBLES_ENTREGAS">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.INMUEBLES_ENTREGAS">
+              <MappingFragment StoreEntitySet="INMUEBLES_ENTREGAS">
+                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+                <ScalarProperty Name="FECHAENTREGA" ColumnName="FECHAENTREGA" />
+                <ScalarProperty Name="ESTADOENTREGA" ColumnName="ESTADOENTREGA" />
+                <ScalarProperty Name="FECHACLIENTE" ColumnName="FECHACLIENTE" />
+                <ScalarProperty Name="ENTREGAOBRA" ColumnName="ENTREGAOBRA" />
+                <ScalarProperty Name="RADICADOVENTA" ColumnName="RADICADOVENTA" />
+                <ScalarProperty Name="ESTADOAVAL" ColumnName="ESTADOAVAL" />
+                <ScalarProperty Name="INSPECCIONCAL" ColumnName="INSPECCIONCAL" />
+                <ScalarProperty Name="FECHACONFIRMA" ColumnName="FECHACONFIRMA" />
+                <ScalarProperty Name="CONFIRMAOBRA" ColumnName="CONFIRMAOBRA" />
+                <ScalarProperty Name="FECHAREG" ColumnName="FECHAREG" />
+                <ScalarProperty Name="REFERENCIA_INMUEBLE" ColumnName="REFERENCIA_INMUEBLE" />
+                <ScalarProperty Name="ID_ENTREGA" ColumnName="ID_ENTREGA" />
+                <ScalarProperty Name="ID_INMUEBLES_ENTREGAS" ColumnName="ID_INMUEBLES_ENTREGAS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
