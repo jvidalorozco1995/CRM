@@ -14,6 +14,8 @@ var admEntregas= (function () {
     var proyecto;
     var favorites = [];
     var myObj;
+    var UserIdentity;
+    var DirObra;
     var _addHandlers = function () {
 
         $(document).on('click', '.Info', function () {
@@ -27,7 +29,8 @@ var admEntregas= (function () {
             Proyectos = result[3];
             Fecha = result[4];
             DirObra = result[5];
-            Nsolicitud = result[6];
+            UserIdentity = result[6];
+            Nsolicitud = result[7];
             
             $("#TxtFechaEnviado").val(Enviado);
             $("#TxtEnviadoA").val(EnviadoA);
@@ -42,6 +45,31 @@ var admEntregas= (function () {
                 Entg.ListInmueblesProyecto(proyecto); $("#datos").show();
             }, 1000);
 
+
+            if (UserIdentity == DirObra) {
+                $("#BtnEditar").show();
+            } else {
+                $("#BtnEditar").hide();
+            }
+
+        });
+
+
+        $("#BtnEditar").click(function(){
+            $(".check").prop('disabled', false);
+            $(".text").prop('disabled', false);
+            
+            $("#BtnEditar").hide();
+            $("#BtnGuardar").show();
+            $("#BtnCancelar").show();
+        });
+
+        $("#BtnCancelar").click(function () {
+            $(".check").prop('disabled', true);
+            $(".text").prop('disabled', true);
+            $("#BtnEditar").show();
+            $("#BtnGuardar").hide();
+            $("#BtnCancelar").hide();
         });
 
         $("#BtnNueva").click(function () {
@@ -192,12 +220,18 @@ var admEntregas= (function () {
         
         
     }
+
     var _Inicio = function () {
         $("#datos").hide();
+        $("#BtnEditar").hide();
+        $("#BtnGuardar").hide();
+        $("#BtnCancelar").hide();
         Entg.ListProgramacionEntregas();
       
         Proy.ListProyec(2, WsListProyec);
         Tra.getrabajadores();
+      
+       
     }
     return {
         init: function () {

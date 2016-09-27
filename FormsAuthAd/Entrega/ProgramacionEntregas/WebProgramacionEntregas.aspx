@@ -125,6 +125,13 @@
                                             </div>
 
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"  id="BtnGuardar">Guardar</button>
+                                           <button type="button" class="btn btn-success" id="BtnEditar">Editar</button>
+                                             <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCancelar">Cancelar</button>
+
+                                        <%--   <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCancelar">Guardar</button>--%>
+                                       </div>
                                     </div>
                                 </div>
                             </div>

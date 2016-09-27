@@ -152,7 +152,7 @@ namespace BLLCRM
                         entb.ID_ENTREGAS = item.ID_ENTREGAS;
                         entb.FECHAREG = item.FECHAREG;
                         entb.ID_PROYECTO = item.ID_PROYECTO;
-                        entb.DIROBRA = item.DIROBRA;
+                        entb.DIROBRA = item.DIROBRA + "/" +user;
                         entb.USUARIO = item.USUARIO;
                         entb.ENVIADO = item.ENVIADO;
                         entb.ENVIADOA = item.ENVIADOA;

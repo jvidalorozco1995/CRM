@@ -140,7 +140,9 @@ function BLLEntregas() {
         tabla += "<th>No</th>";
         tabla += "<th>Manzana</th>";
         tabla += "<th>Inmueble</th>";
-        tabla += "<th ></th>";
+        tabla += "<th >Confirmado</th>";
+        tabla += "<th>Observaciones</th>";
+       
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -150,12 +152,14 @@ function BLLEntregas() {
             tabla += "<td>" + item.ID_INMUEBLES_ENTREGAS + "</td>";
             tabla += "<td>" + item.NOMBRE_BLO + "</td>";
             tabla += "<td>" + item.INMUEBLE + "</td>";
-            
+          
+
             if (item.CONFIRMAOBRA == null || item.CONFIRMAOBRA == '0') {
-                tabla += "<td><input type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "' value='second_checkbox' disabled> </td>";
+                tabla += "<td><input class='check'  type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "' value='second_checkbox' disabled> </td>";
             } else if(item.CONFIRMAOBRA=='1') {
-                tabla += "<td><input type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "' value='second_checkbox' disabled checked> </td>";
+                tabla += "<td><input class='check' type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "' value='second_checkbox' disabled checked> </td>";
             }
+            tabla += "<td><input class='text' style='width:100%' type='text' disabled/></td>";
         });
         tabla += "</tbody>";
         tabla += '</table>';
@@ -224,7 +228,10 @@ function BLLEntregas() {
             tabla += "<td>" + item.CONSECUTIVO + "</td>";
             tabla += "<td>" + item.ID_PROYECTO + "</td>";
             tabla += "<td>" + moment(item.FECHAREG).format("YYYY/DD/MM"); + "</td>";
-            tabla += "<td>" + item.DIROBRA + "</td>";
+
+            var result = item.DIROBRA.split("/")
+           
+            tabla += "<td>" + result[0]+ "</td>";
             
             if (item.ENVIADO == null) {
                 tabla += "<td style='width:22px'><button id='" + item.ID_ENTREGAS + "'class='btn btn-success btn-xs enviar' type='button'>Enviar</button></td>";
