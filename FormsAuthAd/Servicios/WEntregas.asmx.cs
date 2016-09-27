@@ -88,5 +88,11 @@ namespace FormsAuthAd.Servicios
         {
             return ie.ValidaReferencia(Referencia);
         }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int ConfirmaObservaciones(List<INMUEBLES_ENTREGAS> a)
+        {
+            return ie.ConfirmaObservaciones(a);
+        }
     }
 }

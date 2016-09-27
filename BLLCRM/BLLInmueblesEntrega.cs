@@ -67,6 +67,27 @@ namespace BLLCRM
                 throw;
             }
         }
+         
+     public int ConfirmaObservaciones(List<INMUEBLES_ENTREGAS> a)
+        {
+            try
+            {
+                foreach (var item in a)
+                {
+                    var ctx = bd.INMUEBLES_ENTREGAS.First(inm => inm.ID_INMUEBLES_ENTREGAS == item.ID_INMUEBLES_ENTREGAS);
+                    ctx.CONFIRMAOBRA = item.CONFIRMAOBRA;
+                    ctx.OBSERVACIONES = item.OBSERVACIONES;
+                    bd.SaveChanges();
+                }
+                return 1;
+            }
+
+            catch (Exception ex)
+            {
+               
+                throw;
+            }
+        }
 
         public int ValidaReferencia(string Referencia)
         {
