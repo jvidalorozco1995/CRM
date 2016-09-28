@@ -51,5 +51,34 @@ namespace BLLCRM
                 throw;
             }
         }
+        public List<ResponsableCalidad> ListResponsableCalidad()
+        {
+            try
+            {
+                List<ResponsableCalidad> lisb = bd.ResponsableCalidad.ToList();
+                //bd.compromisosxcuota.ToList();
+                List<ResponsableCalidad> lisbcrm = new List<ResponsableCalidad>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        ResponsableCalidad entb = new ResponsableCalidad();
+                        entb.Id = item.Id;
+                        entb.Proyecto = item.Proyecto;
+                        entb.Usuario = item.Usuario;
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
