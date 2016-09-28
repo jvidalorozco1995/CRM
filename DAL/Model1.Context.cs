@@ -94,5 +94,6 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
+        public DbSet<ResponsableCalidad> ResponsableCalidad { get; set; }
     }
 }

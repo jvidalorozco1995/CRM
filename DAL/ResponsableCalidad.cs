@@ -12,16 +12,10 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Vspt
+    public partial class ResponsableCalidad
     {
-        public string NOMBRE_PROYEC { get; set; }
-        public string T_CEDULA { get; set; }
-        public string ID_PROYEC { get; set; }
-        public int ID_PY { get; set; }
-        public string NOMBRES { get; set; }
-        public string TRABAJADOR { get; set; }
-        public string ESTADO { get; set; }
-        public int CONTADOR { get; set; }
-
+        public int Id { get; set; }
+        public string Proyecto { get; set; }
+        public string Usuario { get; set; }
     }
 }

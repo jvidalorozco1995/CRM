@@ -80,6 +80,7 @@
     <Compile Include="BLLPagosFox.cs" />
     <Compile Include="BLLPlanos.cs" />
     <Compile Include="BLLProyectos.cs" />
+    <Compile Include="BLLResponsableCalidad.cs" />
     <Compile Include="BLLSala_Ventas.cs" />
     <Compile Include="BLLseparaciones.cs" />
     <Compile Include="BLLTareas.cs" />

@@ -159,12 +159,6 @@
           <Property Name="ID_TAREA" Type="int" />
           <Property Name="CODIGO" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.concepto_p' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="concepto_p">
-          <Property Name="ID_CON" Type="varchar" MaxLength="50" />
-          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="configuracion">
           <Key>
             <PropertyRef Name="ID_CONT" />
@@ -496,6 +490,14 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="ID_PY" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TRABAJADOR" Type="varchar" MaxLength="30" />
           <Property Name="PROYECTO" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ResponsableCalidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Proyecto" Type="varchar" MaxLength="150" />
+          <Property Name="Usuario" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="sala_ventas">
           <Key>
@@ -871,15 +873,6 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VDocumentosActividades' does not ha
           <Property Name="id" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VfechasAsesor">
-          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
-          <Property Name="MES" Type="int" />
-          <Property Name="YEAR" Type="int" />
-          <Property Name="CONTADOR" Type="int" />
-          <Property Name="T_CEDULA" Type="varchar" MaxLength="30" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
@@ -945,12 +938,6 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VistaTareasPorClientes">
-          <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
-          <Property Name="ID_TAREA" Type="int" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntregas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VListadoEntregas">
@@ -1507,6 +1494,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a pr
           <EntitySet Name="planos_Proyectos" EntityType="Self.planos_Proyectos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="proyectos" EntityType="Self.proyectos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="proyectos_trabajador" EntityType="Self.proyectos_trabajador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResponsableCalidad" EntityType="Self.ResponsableCalidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sala_ventas" EntityType="Self.sala_ventas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tareas" EntityType="Self.tareas" Schema="dbo" store:Type="Tables" />
@@ -2278,6 +2266,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="Tramites" EntitySet="Tramites" />
             <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
           </AssociationSet>
+          <EntitySet Name="ResponsableCalidad" EntityType="CRM_PRUEBAModel.ResponsableCalidad" />
         </EntityContainer>
         <EntityType Name="ActInmuebles">
           <Key>
@@ -3714,6 +3703,14 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ResponsableCalidad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Proyecto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4870,6 +4867,15 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="IdTramite" ColumnName="IdTramite" />
                 <ScalarProperty Name="NombreBanco" ColumnName="NombreBanco" />
                 <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResponsableCalidad">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.ResponsableCalidad">
+              <MappingFragment StoreEntitySet="ResponsableCalidad">
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

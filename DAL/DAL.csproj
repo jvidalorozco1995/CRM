@@ -173,6 +173,9 @@
     <Compile Include="proyectos_trabajador.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ResponsableCalidad.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="sala_ventas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
