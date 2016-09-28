@@ -12,6 +12,7 @@ function fRight(str, n) {
         return String(str).substring(iLen, iLen - n);
     }
 }
+//nadasd
 function fLeft(str, n) {
     if (n <= 0)
         return "";

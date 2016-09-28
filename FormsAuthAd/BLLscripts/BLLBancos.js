@@ -1,9 +1,10 @@
 ﻿function BLLBancos() {
 
     var bloquesCRM = null;
-    
-  
-
+    //sd
+    //http://stackoverflow.com/questions/37704514/visual-studio-2015-database-project-directory-contains-a-file-with-extension-jfm
+  //as
+    //Ssdsdsd
     //Retorna una lista de bancos de MultiFox
     BLLBancos.prototype.CrearBanco = function (Wsurl,banco) {
 

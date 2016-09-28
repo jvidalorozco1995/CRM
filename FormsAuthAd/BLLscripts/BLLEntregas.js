@@ -1,4 +1,4 @@
-﻿
+﻿//sdsd
 
 function BLLEntregas() {
 
@@ -7,6 +7,11 @@ function BLLEntregas() {
     var WsInsertEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/InsertEntregas");///Listado de clientes
     var WsUpdateEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/UpdateEntregas");///Listado de clientes
     var WsValidarEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/ValidaReferencia");///Listado de clientes
+    var WsConfirmarEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/ConfirmaObservaciones");///Listado de clientes
+
+
+        
+
 
     BLLEntregas.prototype.InsertEntregas = function (p, lista) {
 
@@ -37,6 +42,36 @@ function BLLEntregas() {
         });
 
     }
+
+
+    BLLEntregas.prototype.ConfirmarEntrega = function (lista) {
+
+        jsonData = "{'a':" + JSON.stringify(lista) + "}";
+        $.ajax({
+
+            type: "POST", url: WsConfirmarEntregas, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == 0) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                           '</br></br>No se ha podido guardar');
+                   
+                }
+                else {
+                    toastr.success('CRM Mayales - Notificacion' +
+                             '</br></br>Actualizado satisfactoriamente');
+                   
+
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+
+    }
+
 
     BLLEntregas.prototype.UpdateEntregas = function (id) {
 
@@ -155,11 +190,18 @@ function BLLEntregas() {
           
 
             if (item.CONFIRMAOBRA == null || item.CONFIRMAOBRA == '0') {
-                tabla += "<td><input class='check'  type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "' value='second_checkbox' disabled> </td>";
-            } else if(item.CONFIRMAOBRA=='1') {
-                tabla += "<td><input class='check' type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "' value='second_checkbox' disabled checked> </td>";
+
+                tabla += "<td><input class='check'  type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "'  disabled> </td>";
+            } else if(item.CONFIRMAOBRA == '1') {
+                tabla += "<td><input class='check' type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "'  disabled checked> </td>";
             }
-            tabla += "<td><input class='text' style='width:100%' type='text' disabled/></td>";
+
+            if (item.OBSERVACIONES != null) {
+                tabla += "<td><input class='text' value='" + item.OBSERVACIONES + "' style='width:100%' type='text' disabled/></td>";
+            } else {
+                tabla += "<td><input class='text'  style='width:100%' type='text' disabled/></td>";
+            }
+            tabla += "</tr>";
         });
         tabla += "</tbody>";
         tabla += '</table>';

@@ -1,4 +1,4 @@
-﻿
+﻿//DSDasas
 var Entg = new BLLEntregas();
 var Com = new BLLComercial();
 var inm = new BLLInmuebles();
@@ -18,6 +18,24 @@ var admEntregas= (function () {
     var DirObra;
     var _addHandlers = function () {
 
+        function Recargar() {
+            setTimeout(function () {
+                Entg.ListInmueblesProyecto(proyecto); $("#datos").show();
+
+            }, 1000);
+
+
+            if (UserIdentity == DirObra) {
+                $("#BtnEditar").show();
+                $("#BtnGuardar").hide();
+                $("#BtnCancelar").hide();
+            } else {
+                $("#BtnEditar").hide();
+                $("#BtnGuardar").hide();
+                $("#BtnCancelar").hide();
+            }
+
+        }
         $(document).on('click', '.Info', function () {
             proyecto = $(this).attr("id");
             
@@ -39,21 +57,40 @@ var admEntregas= (function () {
             $("#TxtFecha").val(Fecha);
             $("#TxtDirObra").val(DirObra);
             $("#Nsolicitud").text(Nsolicitud);
-            
-
-            setTimeout(function () {
-                Entg.ListInmueblesProyecto(proyecto); $("#datos").show();
-            }, 1000);
-
-
-            if (UserIdentity == DirObra) {
-                $("#BtnEditar").show();
-            } else {
-                $("#BtnEditar").hide();
-            }
-
+          
+            Recargar();
         });
+        $("#BtnGuardar").click(function () {
+           
 
+            var ListadoInmuebles = [];
+            $('#esd tbody tr').each(function () {
+               
+                var Id = $(this).find("td").eq(0).html();
+                var Manzana = $(this).find("td").eq(1).html();
+                var Inmueble = $(this).find("td").eq(2).html();
+
+                if( $(this).find(('input[type="checkbox"]')).is(":checked") == true){
+                    var Confirmado = 1;
+                    }else{
+                    var Confirmado = 0;
+                }
+               
+
+                var Observaciones = $(this).find(('input[type="text"]')).val();
+
+                var InmuebleConfirmado = {
+
+                    "ID_INMUEBLES_ENTREGAS": Id,
+                    "CONFIRMAOBRA": Confirmado,   
+                    "OBSERVACIONES": Observaciones,   
+                };
+                ListadoInmuebles.push(InmuebleConfirmado);
+            });
+            //if (ListadoInmuebles)
+            Entg.ConfirmarEntrega(ListadoInmuebles);
+            Recargar();
+        });
 
         $("#BtnEditar").click(function(){
             $(".check").prop('disabled', false);

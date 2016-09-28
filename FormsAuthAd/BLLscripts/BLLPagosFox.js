@@ -1,4 +1,5 @@
-﻿var utl = new BLLUtilidades();
+﻿//ASA
+var utl = new BLLUtilidades();
 var BLLPagosFox = function () {
 
 };
