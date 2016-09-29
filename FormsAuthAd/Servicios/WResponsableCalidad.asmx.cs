@@ -43,5 +43,11 @@ namespace FormsAuthAd.Servicios
         {
             return cl.ListResponsableCalidad();
         }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int proyectosComparados()
+        {
+            return cl.proyectosComparados();
+        }
     }
 }
