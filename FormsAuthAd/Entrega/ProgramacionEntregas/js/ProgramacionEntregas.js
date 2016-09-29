@@ -4,7 +4,8 @@ var Com = new BLLComercial();
 var inm = new BLLInmuebles();
 var Proy = new BLLProyectos();
 var WsListProyec = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos CRM
-var WsLisImnuE = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/InmuEstados");//Listar Tareas
+var WsLisImnuE = funcionUrlGlobal("/ServiciosFox/WInmuebles.asmx/InmuEstados");//Listar 
+var Wacuerdo = funcionUrlGlobal("/Servicios/WResponsableCalidad.asmx/proyectosComparados");//Listar Tareas
 var Tra = new BLLTrabajadores();
 var admEntregas= (function () {
 
@@ -17,7 +18,23 @@ var admEntregas= (function () {
     var UserIdentity;
     var DirObra;
     var _addHandlers = function () {
+        // tabla
+        jsondata = "{}"
+        $.ajax({
+            type: "POST", url: Wacuerdo, data: jsondata,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
 
+                if (result.d == null) {
+
+                }
+                else {
+                     }
+            },
+            error: function (obj, error, objError) { alert(obj.responseText); }
+        });
         function Recargar() {
             setTimeout(function () {
                 Entg.ListInmueblesProyecto(proyecto); $("#datos").show();

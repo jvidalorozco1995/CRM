@@ -80,5 +80,42 @@ namespace BLLCRM
                 throw;
             }
         }
+        public int proyectosComparados()
+        {
+            var bandera = 0;
+            try
+            {
+                List<proyectos> lisb = bd.proyectos.ToList();
+                List<ResponsableCalidad> respon = bd.ResponsableCalidad.ToList();
+                //bd.compromisosxcuota.ToList();
+                foreach (var item in lisb)
+                    {
+
+                        foreach (var item2 in respon)
+                        {
+                            if (item.NOMBRE_PROYEC == item2.Proyecto)
+                            {
+                                bandera = 1;
+                            }
+
+                        }
+                        if (bandera == 0)
+                        {
+                            ResponsableCalidad b = new ResponsableCalidad();
+                            b.Proyecto = item.NOMBRE_PROYEC;
+                            bd.ResponsableCalidad.Add(b);
+                            bd.SaveChanges();
+                            
+                        }
+                        bandera = 0;
+                    }
+                    return 1;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
