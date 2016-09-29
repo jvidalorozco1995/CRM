@@ -72,7 +72,9 @@ var admEntregas= (function () {
 
                 if( $(this).find(('input[type="checkbox"]')).is(":checked") == true){
                     var Confirmado = 1;
-                    }else{
+
+                }
+                else {
                     var Confirmado = 0;
                 }
                
@@ -90,6 +92,8 @@ var admEntregas= (function () {
             //if (ListadoInmuebles)
             Entg.ConfirmarEntrega(ListadoInmuebles);
             Recargar();
+
+            //$('#ModalAsignar').modal('hide');
         });
 
         $("#BtnEditar").click(function(){

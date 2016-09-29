@@ -136,7 +136,9 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Administracion\AdminUsuarios.aspx" />
+    <Content Include="Administracion\AdminUsuariosEntregas.aspx" />
     <Content Include="Administracion\js\Admingestusu.js" />
+    <Content Include="Administracion\js\Entregas.js" />
     <Content Include="Administracion\js\Serveruser.js" />
     <Content Include="assets\css\bootstrap.css" />
     <Content Include="assets\css\custom.css" />
@@ -1363,6 +1365,7 @@
     <Content Include="BLLscripts\BLLConfigTramites.js" />
     <Content Include="BLLscripts\BLLTramites.js" />
     <Content Include="BLLscripts\BLLUser.js" />
+    <Content Include="BLLscripts\BLLUsuariosEntregas.js" />
     <Content Include="BLLscripts\BLLUtilidades.js" />
     <Content Include="Cartera\CrearNegocio\Crearnegocio.aspx" />
     <Content Include="Cartera\CrearNegocio\js\CrearNegocio.js" />
@@ -4583,6 +4586,13 @@
     </Compile>
     <Compile Include="Administracion\AdminUsuarios.aspx.designer.cs">
       <DependentUpon>AdminUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\AdminUsuariosEntregas.aspx.cs">
+      <DependentUpon>AdminUsuariosEntregas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\AdminUsuariosEntregas.aspx.designer.cs">
+      <DependentUpon>AdminUsuariosEntregas.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
