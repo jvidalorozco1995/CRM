@@ -248,6 +248,9 @@
     <Compile Include="VinteresProyect.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="VListadoEntegrasC.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="VListadoEntregas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

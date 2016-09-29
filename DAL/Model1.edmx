@@ -939,6 +939,35 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntegrasC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VListadoEntegrasC">
+          <Key>
+            <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
+            <PropertyRef Name="ID_PROYEC" />
+            <PropertyRef Name="CONSECUTIVO" />
+          </Key>
+          <Property Name="ID_INMUEBLES_ENTREGAS" Type="int" Nullable="false" />
+          <Property Name="ID_ENTREGA" Type="int" />
+          <Property Name="REFERENCIA_INMUEBLE" Type="varchar" MaxLength="16" />
+          <Property Name="MZA" Type="varchar" MaxLength="10" />
+          <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
+          <Property Name="CONFIRMAOBRA" Type="int" />
+          <Property Name="INSPECCIONCAL" Type="varchar" MaxLength="20" />
+          <Property Name="ESTADOAVAL" Type="int" />
+          <Property Name="RADICADOVENTA" Type="date" />
+          <Property Name="ENTREGAOBRA" Type="date" />
+          <Property Name="FECHACLIENTE" Type="date" />
+          <Property Name="FECHAENTREGA" Type="date" />
+          <Property Name="ESTADOENTREGA" Type="int" />
+          <Property Name="NOMBRE_BLO" Type="varchar" MaxLength="50" />
+          <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
+          <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="OBSERVACIONES" Type="varchar" MaxLength="250" />
+          <Property Name="CONSECUTIVO" Type="int" Nullable="false" />
+          <Property Name="FECHACONFIRMA" Type="datetime" />
+          <Property Name="Expr1" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntregas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VListadoEntregas">
           <Key>
@@ -1816,6 +1845,30 @@ FROM [dbo].[VInmueblesConTramites] AS [VInmueblesConTramites]</DefiningQuery>
 [VinteresProyect].[ID_PROYEC] AS [ID_PROYEC]
 FROM [dbo].[VinteresProyect] AS [VinteresProyect]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VListadoEntegrasC" EntityType="Self.VListadoEntegrasC" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VListadoEntegrasC].[ID_INMUEBLES_ENTREGAS] AS [ID_INMUEBLES_ENTREGAS], 
+[VListadoEntegrasC].[ID_ENTREGA] AS [ID_ENTREGA], 
+[VListadoEntegrasC].[REFERENCIA_INMUEBLE] AS [REFERENCIA_INMUEBLE], 
+[VListadoEntegrasC].[MZA] AS [MZA], 
+[VListadoEntegrasC].[INMUEBLE] AS [INMUEBLE], 
+[VListadoEntegrasC].[CONFIRMAOBRA] AS [CONFIRMAOBRA], 
+[VListadoEntegrasC].[INSPECCIONCAL] AS [INSPECCIONCAL], 
+[VListadoEntegrasC].[ESTADOAVAL] AS [ESTADOAVAL], 
+[VListadoEntegrasC].[RADICADOVENTA] AS [RADICADOVENTA], 
+[VListadoEntegrasC].[ENTREGAOBRA] AS [ENTREGAOBRA], 
+[VListadoEntegrasC].[FECHACLIENTE] AS [FECHACLIENTE], 
+[VListadoEntegrasC].[FECHAENTREGA] AS [FECHAENTREGA], 
+[VListadoEntegrasC].[ESTADOENTREGA] AS [ESTADOENTREGA], 
+[VListadoEntegrasC].[NOMBRE_BLO] AS [NOMBRE_BLO], 
+[VListadoEntegrasC].[NOMBRE_PROYEC] AS [NOMBRE_PROYEC], 
+[VListadoEntegrasC].[ID_PROYEC] AS [ID_PROYEC], 
+[VListadoEntegrasC].[OBSERVACIONES] AS [OBSERVACIONES], 
+[VListadoEntegrasC].[CONSECUTIVO] AS [CONSECUTIVO], 
+[VListadoEntegrasC].[FECHACONFIRMA] AS [FECHACONFIRMA], 
+[VListadoEntegrasC].[Expr1] AS [Expr1]
+FROM [dbo].[VListadoEntegrasC] AS [VListadoEntegrasC]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VListadoEntregas" EntityType="Self.VListadoEntregas" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [VListadoEntregas].[ID_INMUEBLES_ENTREGAS] AS [ID_INMUEBLES_ENTREGAS], 
@@ -2267,6 +2320,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
           </AssociationSet>
           <EntitySet Name="ResponsableCalidad" EntityType="CRM_PRUEBAModel.ResponsableCalidad" />
+          <EntitySet Name="VListadoEntegrasC" EntityType="CRM_PRUEBAModel.VListadoEntegrasC" />
         </EntityContainer>
         <EntityType Name="ActInmuebles">
           <Key>
@@ -3711,6 +3765,33 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="Proyecto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Usuario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="VListadoEntegrasC">
+          <Key>
+            <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
+            <PropertyRef Name="ID_PROYEC" />
+            <PropertyRef Name="CONSECUTIVO" />
+          </Key>
+          <Property Name="ID_INMUEBLES_ENTREGAS" Type="Int32" Nullable="false" />
+          <Property Name="ID_ENTREGA" Type="Int32" />
+          <Property Name="REFERENCIA_INMUEBLE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="MZA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="INMUEBLE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CONFIRMAOBRA" Type="Int32" />
+          <Property Name="INSPECCIONCAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADOAVAL" Type="Int32" />
+          <Property Name="RADICADOVENTA" Type="DateTime" Precision="0" />
+          <Property Name="ENTREGAOBRA" Type="DateTime" Precision="0" />
+          <Property Name="FECHACLIENTE" Type="DateTime" Precision="0" />
+          <Property Name="FECHAENTREGA" Type="DateTime" Precision="0" />
+          <Property Name="ESTADOENTREGA" Type="Int32" />
+          <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_PROYEC" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACIONES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CONSECUTIVO" Type="Int32" Nullable="false" />
+          <Property Name="FECHACONFIRMA" Type="DateTime" Precision="3" />
+          <Property Name="Expr1" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4876,6 +4957,32 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
                 <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VListadoEntegrasC">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VListadoEntegrasC">
+              <MappingFragment StoreEntitySet="VListadoEntegrasC">
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="FECHACONFIRMA" ColumnName="FECHACONFIRMA" />
+                <ScalarProperty Name="CONSECUTIVO" ColumnName="CONSECUTIVO" />
+                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+                <ScalarProperty Name="ID_PROYEC" ColumnName="ID_PROYEC" />
+                <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
+                <ScalarProperty Name="NOMBRE_BLO" ColumnName="NOMBRE_BLO" />
+                <ScalarProperty Name="ESTADOENTREGA" ColumnName="ESTADOENTREGA" />
+                <ScalarProperty Name="FECHAENTREGA" ColumnName="FECHAENTREGA" />
+                <ScalarProperty Name="FECHACLIENTE" ColumnName="FECHACLIENTE" />
+                <ScalarProperty Name="ENTREGAOBRA" ColumnName="ENTREGAOBRA" />
+                <ScalarProperty Name="RADICADOVENTA" ColumnName="RADICADOVENTA" />
+                <ScalarProperty Name="ESTADOAVAL" ColumnName="ESTADOAVAL" />
+                <ScalarProperty Name="INSPECCIONCAL" ColumnName="INSPECCIONCAL" />
+                <ScalarProperty Name="CONFIRMAOBRA" ColumnName="CONFIRMAOBRA" />
+                <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
+                <ScalarProperty Name="MZA" ColumnName="MZA" />
+                <ScalarProperty Name="REFERENCIA_INMUEBLE" ColumnName="REFERENCIA_INMUEBLE" />
+                <ScalarProperty Name="ID_ENTREGA" ColumnName="ID_ENTREGA" />
+                <ScalarProperty Name="ID_INMUEBLES_ENTREGAS" ColumnName="ID_INMUEBLES_ENTREGAS" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
