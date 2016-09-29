@@ -89,12 +89,6 @@ namespace BLLCRM
                 throw;
             }
         }
-
-        /// <summary>
-        /// rertorna listado de bancos pertenecientes al proyecto
-        /// </summary>
-        /// <param name="b"></param>
-        /// <returns></returns>
         public List<Entregas> ListEntregas(int id)
         {
 
@@ -169,11 +163,7 @@ namespace BLLCRM
                 throw;
             }
         }
-        /// <summary>
-        /// rertorna listado de bancos pertenecientes al proyecto
-        /// </summary>
-        /// <param name="b"></param>
-        /// <returns></returns>
+      
         public List<Entregas> ListEntregas()
         {
 
@@ -203,6 +193,44 @@ namespace BLLCRM
                         entb.ENVIADOA = item.ENVIADOA;
                         entb.ENVIADOPOR = item.ENVIADOPOR;
                         entb.CONSECUTIVO = item.CONSECUTIVO;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public List<VListadoEntegrasC> ListEntregasC()
+        {
+
+            try
+            {
+                List<VListadoEntegrasC> lisb = bd.VListadoEntegrasC.ToList();
+                //bd.compromisosxcuota.ToList();
+                List<VListadoEntegrasC> lisbcrm = new List<VListadoEntegrasC>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+
+
+
+                        VListadoEntegrasC entb = new VListadoEntegrasC();
+                        entb.CONSECUTIVO = item.CONSECUTIVO;
+                        entb.NOMBRE_PROYEC = item.NOMBRE_PROYEC;
+                        entb.MZA = item.MZA;
+                        entb.ID_INMUEBLES_ENTREGAS = item.ID_INMUEBLES_ENTREGAS;
+                        entb.INMUEBLE = item.INMUEBLE;
+                        entb.FECHACONFIRMA = item.FECHACONFIRMA;
+                        entb.ESTADOAVAL = item.ESTADOAVAL;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;

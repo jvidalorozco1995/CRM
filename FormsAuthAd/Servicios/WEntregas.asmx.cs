@@ -94,5 +94,11 @@ namespace FormsAuthAd.Servicios
         {
             return ie.ConfirmaObservaciones(a);
         }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<VListadoEntegrasC> ListEntregasC()
+        {
+            return cl.ListEntregasC();
+        }
     }
 }

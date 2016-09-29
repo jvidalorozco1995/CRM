@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="38cf66d7ef674934a5d8dfb12698e990" Name="Diagram1" ZoomLevel="13">
+      <Diagram DiagramId="38cf66d7ef674934a5d8dfb12698e990" Name="Diagram1" ZoomLevel="55">
         <EntityTypeShape EntityType="CRM_PRUEBAModel.ActInmuebles" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.Actividades" Width="1.5" PointX="11" PointY="7" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.Actividades_Inmueble" Width="1.5" PointX="0.75" PointY="14.75" />
@@ -97,6 +97,7 @@
         <AssociationConnector Association="CRM_PRUEBAModel.FK__tareas__TRABAJAD__571DF1D5" />
         <AssociationConnector Association="CRM_PRUEBAModel.FK_Tramites_Inmueble_Tramites" />
         <EntityTypeShape EntityType="CRM_PRUEBAModel.ResponsableCalidad" Width="1.5" PointX="17.375" PointY="26.75" />
+        <EntityTypeShape EntityType="CRM_PRUEBAModel.VListadoEntegrasC" Width="1.5" PointX="19.375" PointY="26.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
