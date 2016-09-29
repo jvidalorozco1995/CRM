@@ -8,10 +8,10 @@
         <!---Contenedor-->
         <div class="content animate-panel">
             <div class="row">
-                <div class="col-lg-12" id="Principal">
+                <div class="col-lg-6" id="Principal">
                     <div class="hpanel">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab-1" id="usuarioms">usuarios</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab-1" id="usuarioms"><strong>CONFIGURACIÓN DE USUARIOS ENTREGAS</strong></a></li>
                           
                         </ul>
                         <div class="tab-content">
@@ -28,6 +28,26 @@
                     </div>
                 </div>
             </div>
+
+            <!--Modal Empresas--->
+            <div class="modal fade hmodal-success" id="ModalAsignar" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 id="Proyecto" class="modal-title">Listado de usuarios</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <!--Empresas--->
+                        <div id="Tblusuarios"  >
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
          </div>
     
     <script src="../vendor/jquery/dist/jquery.min.js"></script>

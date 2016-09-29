@@ -35,10 +35,10 @@ namespace BLLCRM
         {
             try
             {
-                var ctx = bd.ResponsableCalidad.First(inm => inm.Proyecto == i.Proyecto);
+                var ctx = bd.ResponsableCalidad.First(inm => inm.Id == i.Id);
 
 
-                ctx.Proyecto = i.Proyecto;
+              
                 ctx.Usuario = i.Usuario;
                 bd.SaveChanges();
 
@@ -71,7 +71,7 @@ namespace BLLCRM
                         entb.Proyecto = item.Proyecto;
                         entb.Usuario = item.Usuario;
                     }
-                    return lisbcrm;
+                    return lisb;
                 }
             }
             catch (Exception)
@@ -88,7 +88,7 @@ namespace BLLCRM
                 List<proyectos> lisb = bd.proyectos.ToList();
                 List<ResponsableCalidad> respon = bd.ResponsableCalidad.ToList();
                 //bd.compromisosxcuota.ToList();
-                foreach (var item in lisb)
+                  foreach (var item in lisb)
                     {
 
                         foreach (var item2 in respon)
