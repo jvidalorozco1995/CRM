@@ -33,6 +33,5 @@ namespace DAL
         public string OBSERVACIONES { get; set; }
         public int CONSECUTIVO { get; set; }
         public Nullable<System.DateTime> FECHACONFIRMA { get; set; }
-        public Nullable<int> Expr1 { get; set; }
     }
 }

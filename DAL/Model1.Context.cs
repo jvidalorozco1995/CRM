@@ -32,6 +32,8 @@ namespace DAL
         public DbSet<acuerdo_fox> acuerdo_fox { get; set; }
         public DbSet<acuerdo_pago> acuerdo_pago { get; set; }
         public DbSet<acuerdo_pago_banco> acuerdo_pago_banco { get; set; }
+        public DbSet<Ambiente> Ambiente { get; set; }
+        public DbSet<Aval> Aval { get; set; }
         public DbSet<bancos> bancos { get; set; }
         public DbSet<bitacora_tareas> bitacora_tareas { get; set; }
         public DbSet<bloques> bloques { get; set; }
@@ -58,6 +60,7 @@ namespace DAL
         public DbSet<planos_Proyectos> planos_Proyectos { get; set; }
         public DbSet<proyectos> proyectos { get; set; }
         public DbSet<proyectos_trabajador> proyectos_trabajador { get; set; }
+        public DbSet<ResponsableCalidad> ResponsableCalidad { get; set; }
         public DbSet<sala_ventas> sala_ventas { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<tareas> tareas { get; set; }
@@ -84,6 +87,7 @@ namespace DAL
         public DbSet<Vinmuebles> Vinmuebles { get; set; }
         public DbSet<VInmueblesConTramites> VInmueblesConTramites { get; set; }
         public DbSet<VinteresProyect> VinteresProyect { get; set; }
+        public DbSet<VListadoEntegrasC> VListadoEntegrasC { get; set; }
         public DbSet<VListadoEntregas> VListadoEntregas { get; set; }
         public DbSet<VnegocioFox> VnegocioFox { get; set; }
         public DbSet<VNegocioscompromisos> VNegocioscompromisos { get; set; }
@@ -94,7 +98,5 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
-        public DbSet<ResponsableCalidad> ResponsableCalidad { get; set; }
-        public DbSet<VListadoEntegrasC> VListadoEntegrasC { get; set; }
     }
 }

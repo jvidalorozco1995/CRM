@@ -1355,6 +1355,7 @@
     <Content Include="BLLscripts\BLLInmuebles.js" />
     <Content Include="BLLscripts\BLLnegocio.js" />
     <Content Include="BLLscripts\BLLPagosFox.js" />
+    <Content Include="BLLscripts\BLLRevisionCalidad.js" />
     <Content Include="BLLscripts\BLLSala_Ventas.js" />
     <Content Include="BLLscripts\BLLSeguiNegocios.js" />
     <Content Include="BLLscripts\BLLTareas.js" />
@@ -1498,6 +1499,8 @@
     <Content Include="Csstabla\jquery.dataTables.css" />
     <Content Include="Entrega\ProgramacionEntregas\js\ProgramacionEntregas.js" />
     <Content Include="Entrega\ProgramacionEntregas\WebProgramacionEntregas.aspx" />
+    <Content Include="Entrega\RevisionCalidad\js\RevisionCalidad.js" />
+    <Content Include="Entrega\RevisionCalidad\WebRevisionCalidad.aspx" />
     <Content Include="fonts\pe-icon-7-stroke\css\helper.css" />
     <Content Include="fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
     <Content Include="fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
@@ -4845,6 +4848,13 @@
     </Compile>
     <Compile Include="Entrega\ProgramacionEntregas\WebProgramacionEntregas.aspx.designer.cs">
       <DependentUpon>WebProgramacionEntregas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entrega\RevisionCalidad\WebRevisionCalidad.aspx.cs">
+      <DependentUpon>WebRevisionCalidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entrega\RevisionCalidad\WebRevisionCalidad.aspx.designer.cs">
+      <DependentUpon>WebRevisionCalidad.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

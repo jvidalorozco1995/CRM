@@ -72,6 +72,12 @@
     <Compile Include="acuerdo_pago_banco.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ambiente.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Aval.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="bancos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
