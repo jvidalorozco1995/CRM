@@ -15,8 +15,6 @@ namespace DAL
     public partial class Ambiente
     {
         public int Id { get; set; }
-        public string Zona { get; set; }
-        public Nullable<int> PosicionItem { get; set; }
-        public string Item { get; set; }
+        public string Ambiente1 { get; set; }
     }
 }

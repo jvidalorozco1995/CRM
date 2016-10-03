@@ -56,6 +56,8 @@
     <Compile Include="BLLActInmueble.cs" />
     <Compile Include="BLLActividades.cs" />
     <Compile Include="BLLAcuerdoFox.cs" />
+    <Compile Include="BLLAmbiente.cs" />
+    <Compile Include="BLLAmbienteXitems.cs" />
     <Compile Include="BLLBancos.cs" />
     <Compile Include="BLLBloques.cs" />
     <Compile Include="BLLClientes.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="BLLEntregas.cs" />
     <Compile Include="BLLHistorialIngreso.cs" />
     <Compile Include="BLLInmueblesEntrega.cs" />
+    <Compile Include="BLLItems.cs" />
     <Compile Include="BLLNegociosCompro.cs" />
     <Compile Include="BLLConfiguracionNegocio.cs" />
     <Compile Include="BLLEmpresas.cs" />

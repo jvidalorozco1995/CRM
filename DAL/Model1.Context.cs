@@ -32,7 +32,6 @@ namespace DAL
         public DbSet<acuerdo_fox> acuerdo_fox { get; set; }
         public DbSet<acuerdo_pago> acuerdo_pago { get; set; }
         public DbSet<acuerdo_pago_banco> acuerdo_pago_banco { get; set; }
-        public DbSet<Ambiente> Ambiente { get; set; }
         public DbSet<Aval> Aval { get; set; }
         public DbSet<bancos> bancos { get; set; }
         public DbSet<bitacora_tareas> bitacora_tareas { get; set; }
@@ -98,5 +97,8 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
+        public DbSet<Ambiente> Ambiente { get; set; }
+        public DbSet<Item> Item { get; set; }
+        public DbSet<ItemXambiente> ItemXambiente { get; set; }
     }
 }

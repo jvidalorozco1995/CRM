@@ -99,9 +99,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Zona" Type="varchar" MaxLength="150" />
-          <Property Name="PosicionItem" Type="int" />
-          <Property Name="Item" Type="varchar" MaxLength="150" />
+          <Property Name="Ambiente" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Aval">
           <Key>
@@ -185,12 +183,6 @@
           <Property Name="ID_TAREA" Type="int" />
           <Property Name="CODIGO" Type="varchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.concepto_p' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="concepto_p">
-          <Property Name="ID_CON" Type="varchar" MaxLength="50" />
-          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
-        </EntityType>-->
         <EntityType Name="configuracion">
           <Key>
             <PropertyRef Name="ID_CONT" />
@@ -349,6 +341,22 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="ESTADOENTREGA" Type="int" />
           <Property Name="FECHAENTREGA" Type="date" />
           <Property Name="OBSERVACIONES" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Item" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="ItemXambiente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAmbiente" Type="int" />
+          <Property Name="IdItem" Type="int" />
+          <Property Name="Consecutivo" Type="int" />
         </EntityType>
         <EntityType Name="negocio">
           <Key>
@@ -905,15 +913,6 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VDocumentosActividades' does not ha
           <Property Name="id" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VfechasAsesor">
-          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
-          <Property Name="MES" Type="int" />
-          <Property Name="YEAR" Type="int" />
-          <Property Name="CONTADOR" Type="int" />
-          <Property Name="T_CEDULA" Type="varchar" MaxLength="30" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
@@ -979,12 +978,6 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VistaTareasPorClientes">
-          <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
-          <Property Name="ID_TAREA" Type="int" />
-        </EntityType>-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntegrasC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VListadoEntegrasC">
@@ -1564,6 +1557,8 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a pr
           <EntitySet Name="inmueble_separacion" EntityType="Self.inmueble_separacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="inmuebles" EntityType="Self.inmuebles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="INMUEBLES_ENTREGAS" EntityType="Self.INMUEBLES_ENTREGAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemXambiente" EntityType="Self.ItemXambiente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="negocio" EntityType="Self.negocio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="negocio_fox" EntityType="Self.negocio_fox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Notificaciones" EntityType="Self.Notificaciones" Schema="dbo" store:Type="Tables" />
@@ -2216,7 +2211,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="acuerdo_fox" EntityType="CRM_PRUEBAModel.acuerdo_fox" />
           <EntitySet Name="acuerdo_pago" EntityType="CRM_PRUEBAModel.acuerdo_pago" />
           <EntitySet Name="acuerdo_pago_banco" EntityType="CRM_PRUEBAModel.acuerdo_pago_banco" />
-          <EntitySet Name="Ambiente" EntityType="CRM_PRUEBAModel.Ambiente" />
           <EntitySet Name="Aval" EntityType="CRM_PRUEBAModel.Aval" />
           <EntitySet Name="bancos" EntityType="CRM_PRUEBAModel.bancos" />
           <EntitySet Name="bitacora_tareas" EntityType="CRM_PRUEBAModel.bitacora_tareas" />
@@ -2370,6 +2364,9 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="Tramites" EntitySet="Tramites" />
             <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
           </AssociationSet>
+          <EntitySet Name="Ambiente" EntityType="CRM_PRUEBAModel.Ambiente" />
+          <EntitySet Name="Item" EntityType="CRM_PRUEBAModel.Item" />
+          <EntitySet Name="ItemXambiente" EntityType="CRM_PRUEBAModel.ItemXambiente" />
         </EntityContainer>
         <EntityType Name="ActInmuebles">
           <Key>
@@ -2464,15 +2461,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="CUOTA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FECHA_PAGO" Type="DateTime" Precision="0" />
           <Property Name="VALOR_CUOTA" Type="Decimal" Precision="18" Scale="0" />
-        </EntityType>
-        <EntityType Name="Ambiente">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Zona" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="PosicionItem" Type="Int32" />
-          <Property Name="Item" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Aval">
           <Key>
@@ -3866,6 +3854,29 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Ambiente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ambiente1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Item1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ItemXambiente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAmbiente" Type="Int32" />
+          <Property Name="IdItem" Type="Int32" />
+          <Property Name="Consecutivo" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3965,16 +3976,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="CUOTA" ColumnName="CUOTA" />
                 <ScalarProperty Name="NO_ACUERDO" ColumnName="NO_ACUERDO" />
                 <ScalarProperty Name="ID_AC_PF" ColumnName="ID_AC_PF" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Ambiente">
-            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Ambiente">
-              <MappingFragment StoreEntitySet="Ambiente">
-                <ScalarProperty Name="Item" ColumnName="Item" />
-                <ScalarProperty Name="PosicionItem" ColumnName="PosicionItem" />
-                <ScalarProperty Name="Zona" ColumnName="Zona" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5084,6 +5085,32 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="IdTramite" ColumnName="IdTramite" />
                 <ScalarProperty Name="NombreBanco" ColumnName="NombreBanco" />
                 <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ambiente">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Ambiente">
+              <MappingFragment StoreEntitySet="Ambiente">
+                <ScalarProperty Name="Ambiente1" ColumnName="Ambiente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Item1" ColumnName="Item" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemXambiente">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.ItemXambiente">
+              <MappingFragment StoreEntitySet="ItemXambiente">
+                <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="IdAmbiente" ColumnName="IdAmbiente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
