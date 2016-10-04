@@ -34,6 +34,70 @@ namespace BLLCRM
                 throw;
             }
         }
+        
+        public List<Ambiente> ListaAmbientes()
+        {
+            try
+            {
+                List<Ambiente> lisb = bd.Ambiente.ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Ambiente> lisbcrm = new List<Ambiente>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Ambiente entb = new Ambiente();
+                        entb.Id = item.Id;
+                        entb.Ambiente1 = item.Ambiente1;
+                      
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+        public List<Item> ListaItems()
+        {
+            try
+            {
+                List<Item> lisb = bd.Item.ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Item> lisbcrm = new List<Item>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Item entb = new Item();
+                        entb.Id = item.Id;
+                        entb.Item1 = item.Item1;
+
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public int UpdateAmbiente(int id, string Ambiente)
         {
 

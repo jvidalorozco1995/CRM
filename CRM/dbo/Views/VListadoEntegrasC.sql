@@ -1,21 +1,49 @@
-﻿CREATE VIEW dbo.VListadoEntregas
+﻿CREATE VIEW dbo.VListadoEntegrasC
 AS
 SELECT        dbo.INMUEBLES_ENTREGAS.ID_INMUEBLES_ENTREGAS, dbo.INMUEBLES_ENTREGAS.ID_ENTREGA, dbo.INMUEBLES_ENTREGAS.REFERENCIA_INMUEBLE, inm.MZA, inm.INMUEBLE, 
                          dbo.INMUEBLES_ENTREGAS.CONFIRMAOBRA, dbo.INMUEBLES_ENTREGAS.INSPECCIONCAL, dbo.INMUEBLES_ENTREGAS.ESTADOAVAL, dbo.INMUEBLES_ENTREGAS.RADICADOVENTA, 
                          dbo.INMUEBLES_ENTREGAS.ENTREGAOBRA, dbo.INMUEBLES_ENTREGAS.FECHACLIENTE, dbo.INMUEBLES_ENTREGAS.FECHAENTREGA, dbo.INMUEBLES_ENTREGAS.ESTADOENTREGA, 
-                         dbo.bloques.NOMBRE_BLO, dbo.proyectos.NOMBRE_PROYEC, dbo.proyectos.ID_PROYEC, dbo.INMUEBLES_ENTREGAS.OBSERVACIONES
+                         dbo.bloques.NOMBRE_BLO, dbo.proyectos.NOMBRE_PROYEC, dbo.proyectos.ID_PROYEC, dbo.INMUEBLES_ENTREGAS.OBSERVACIONES, dbo.Entregas.CONSECUTIVO, 
+                         dbo.INMUEBLES_ENTREGAS.FECHACONFIRMA
 FROM            dbo.INMUEBLES_ENTREGAS INNER JOIN
                          dbo.inmuebles AS inm ON inm.REFERENCIA = dbo.INMUEBLES_ENTREGAS.REFERENCIA_INMUEBLE INNER JOIN
                          dbo.bloques ON SUBSTRING(inm.REFERENCIA, 0, 7) = dbo.bloques.ID_BLOQUE INNER JOIN
-                         dbo.proyectos ON dbo.bloques.BLOQUE_OBRA = dbo.proyectos.ID_PROYEC
+                         dbo.proyectos ON dbo.bloques.BLOQUE_OBRA = dbo.proyectos.ID_PROYEC INNER JOIN
+                         dbo.Entregas ON dbo.INMUEBLES_ENTREGAS.ID_ENTREGA = dbo.Entregas.ID_ENTREGAS
+WHERE        (dbo.INMUEBLES_ENTREGAS.CONFIRMAOBRA = 1) AND (dbo.INMUEBLES_ENTREGAS.ESTADOENTREGA IS NULL)
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 1, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VListadoEntregas';
-
-
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VListadoEntegrasC';
 
 
 GO
-
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N' Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VListadoEntegrasC';
 
 
 GO
@@ -130,6 +158,16 @@ Begin DesignProperties =
             DisplayFlags = 280
             TopColumn = 0
          End
+         Begin Table = "Entregas"
+            Begin Extent = 
+               Top = 6
+               Left = 947
+               Bottom = 136
+               Right = 1117
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
       End
    End
    Begin SQLPane = 
@@ -137,26 +175,20 @@ Begin DesignProperties =
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
-   End
-   Begin CriteriaPane = 
-      Begin ColumnWidths = 11
-         Column = 1440
-         Alias = 900
-         Table = 1170
-         Output = 720
-         Append = 1400
-         NewValue = 1170
-         SortType = 1350
-         SortOrder = 1410
-         GroupBy = 1350
-         Filter = 1350
-         Or = 1350
-         Or = 1350
-         Or = 1350
-      End
-   End
-End
-', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VListadoEntregas';
-
-
+      Begin ColumnWidths = 21
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+        ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VListadoEntegrasC';
 

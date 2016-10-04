@@ -79,5 +79,20 @@ namespace FormsAuthAd.Servicios
             return axi.ListItemXambiente(id);
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<Ambiente> ListaAmbientes()
+        {
+            return cl.ListaAmbientes();
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<Item> ListaItems()
+        {
+            return cl.ListaItems();
+        }
+
     }
 }

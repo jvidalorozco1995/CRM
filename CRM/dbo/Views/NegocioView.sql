@@ -1,15 +1,16 @@
 ﻿CREATE VIEW dbo.NegocioView
 AS
-SELECT        dbo.negocio.ID_NEGOCIO, dbo.negocio.PROPIETARIO, dbo.negocio.CEDULA_P, dbo.negocio.ESTADO_C, dbo.negocio.EXPEDICION, dbo.negocio.FECHA_NACI, dbo.negocio.LUGAR, dbo.negocio.DIRECCION_R, 
-                         dbo.negocio.TELEFONO_P, dbo.negocio.EMPRESA, dbo.negocio.TELFONO_EMP, dbo.negocio.CARGO, dbo.negocio.PROFESION, dbo.negocio.DIRECCION_EMPR, dbo.negocio.ANTIGUEDAD, 
-                         dbo.negocio.CORREO, dbo.negocio.NOMBRE_CONY, dbo.negocio.CEDULA_CUY, dbo.negocio.TELE_CONY, dbo.negocio.N_HIJO, dbo.negocio.INTERES_COM, dbo.negocio.VALOR_CASA, dbo.negocio.INICIAL, 
-                         dbo.negocio.CREDITO, dbo.negocio.BANCO, dbo.negocio.NO_CREDITO, dbo.negocio.FECHA_ES, dbo.negocio.FECHA_ENT, dbo.negocio.FECHA_SUBRO, dbo.negocio.ASESOR_INFO, dbo.negocio.MEDIO_ENT, 
-                         dbo.negocio.ASOCIADO, dbo.negocio.CLASE_INMU, dbo.negocio.SEPARACION, dbo.trabajadores.NOMBRES, dbo.proyectos.NOMBRE_PROYEC, dbo.negocio.INGRESO, dbo.negocio.CODIGO_F, 
-                         dbo.inmueble_separacion.INMUEBLE, dbo.bloques.NOMBRE_BLO, dbo.negocio.ID_HOJA, dbo.negocio.USER_CARTERA, dbo.negocio.FECHA_NEGOCIO, dbo.bancos.NOMBRE_BANCO, 
-                         dbo.negocio.PARQUEADERO, dbo.negocio.AREAS_COMUNES, dbo.negocio.AREA_PRIVADA, dbo.negocio.AREA_CONSTRUIDA, dbo.negocio.TIPO_DOCUMENTO_CONY, dbo.negocio.LUGAR_EXPEDICION, 
-                         dbo.negocio.FECHA_EXPEDICION_CUY, dbo.negocio.ADICIONES_EXCLUSIONES, dbo.negocio.SUBSIDIO, dbo.negocio.GARAJE, dbo.negocio.VALOR_SERVICIOGAS, dbo.negocio.INTERESES_SUBROGACION, 
-                         dbo.negocio.AUT_MENSAJE, dbo.negocio.AUT_CORREO, dbo.negocio.OBSERVACIONES, dbo.negocio.DESCUENTO, dbo.negocio.DOMICILIO, dbo.tipo_personas.TIPO AS TIPO_PERSONA, 
-                         dbo.tipo_documentos.TIPO AS TIPO_DOCUMENTO, dbo.negocio.LUGAR_EXPE, dbo.clientes.DIRECCION_CORRESPON, dbo.clientes.CELULAR
+SELECT        dbo.negocio.ID_NEGOCIO, dbo.clientes.NOMBRES + ' ' + dbo.clientes.P_APELLIDO + ' ' + dbo.clientes.S_APELLIDO AS PROPIETARIO, dbo.negocio.CEDULA_P, dbo.negocio.ESTADO_C, dbo.negocio.EXPEDICION, 
+                         dbo.negocio.FECHA_NACI, dbo.negocio.LUGAR, dbo.negocio.DIRECCION_R, dbo.negocio.TELEFONO_P, dbo.negocio.EMPRESA, dbo.negocio.TELFONO_EMP, dbo.negocio.CARGO, dbo.negocio.PROFESION, 
+                         dbo.negocio.DIRECCION_EMPR, dbo.negocio.ANTIGUEDAD, dbo.negocio.CORREO, dbo.negocio.NOMBRE_CONY, dbo.negocio.CEDULA_CUY, dbo.negocio.TELE_CONY, dbo.negocio.N_HIJO, 
+                         dbo.negocio.INTERES_COM, dbo.negocio.VALOR_CASA, dbo.negocio.INICIAL, dbo.negocio.CREDITO, dbo.negocio.BANCO, dbo.negocio.NO_CREDITO, dbo.negocio.FECHA_ES, dbo.negocio.FECHA_ENT, 
+                         dbo.negocio.FECHA_SUBRO, dbo.negocio.ASESOR_INFO, dbo.negocio.MEDIO_ENT, dbo.negocio.ASOCIADO, dbo.negocio.CLASE_INMU, dbo.negocio.SEPARACION, dbo.trabajadores.NOMBRES, 
+                         dbo.proyectos.NOMBRE_PROYEC, dbo.negocio.INGRESO, dbo.negocio.CODIGO_F, dbo.inmueble_separacion.INMUEBLE, dbo.bloques.NOMBRE_BLO, dbo.negocio.ID_HOJA, dbo.negocio.USER_CARTERA, 
+                         dbo.negocio.FECHA_NEGOCIO, dbo.bancos.NOMBRE_BANCO, dbo.negocio.PARQUEADERO, dbo.negocio.AREAS_COMUNES, dbo.negocio.AREA_PRIVADA, dbo.negocio.AREA_CONSTRUIDA, 
+                         dbo.negocio.TIPO_DOCUMENTO_CONY, dbo.negocio.LUGAR_EXPEDICION, dbo.negocio.FECHA_EXPEDICION_CUY, dbo.negocio.ADICIONES_EXCLUSIONES, dbo.negocio.SUBSIDIO, dbo.negocio.GARAJE, 
+                         dbo.negocio.VALOR_SERVICIOGAS, dbo.negocio.INTERESES_SUBROGACION, dbo.negocio.AUT_MENSAJE, dbo.negocio.AUT_CORREO, dbo.negocio.OBSERVACIONES, dbo.negocio.DESCUENTO, 
+                         dbo.negocio.DOMICILIO, dbo.tipo_personas.TIPO AS TIPO_PERSONA, dbo.tipo_documentos.TIPO AS TIPO_DOCUMENTO, dbo.negocio.LUGAR_EXPE, dbo.clientes.DIRECCION_CORRESPON, 
+                         dbo.clientes.CELULAR
 FROM            dbo.tipo_documentos INNER JOIN
                          dbo.clientes INNER JOIN
                          dbo.trabajadores INNER JOIN
@@ -17,8 +18,8 @@ FROM            dbo.tipo_documentos INNER JOIN
                          dbo.proyectos ON dbo.negocio.PROYECTO_INT = dbo.proyectos.ID_PROYEC INNER JOIN
                          dbo.inmueble_separacion ON dbo.negocio.SEPARACION = dbo.inmueble_separacion.ID_SEPARACION INNER JOIN
                          dbo.bloques ON dbo.bloques.ID_BLOQUE = SUBSTRING(dbo.inmueble_separacion.INMUEBLE, 0, 7) INNER JOIN
-                         dbo.bancos ON dbo.negocio.BANCO = dbo.bancos.ID_BANCO ON dbo.clientes.ASESOR = dbo.trabajadores.T_CEDULA AND dbo.clientes.PROYEC_INTERES = dbo.proyectos.ID_PROYEC AND 
-                         dbo.clientes.CEDULA = dbo.inmueble_separacion.CLIENTE AND dbo.clientes.CEDULA = dbo.inmueble_separacion.CLIENTE INNER JOIN
+                         dbo.bancos ON dbo.negocio.BANCO = dbo.bancos.ID_BANCO ON dbo.clientes.PROYEC_INTERES = dbo.proyectos.ID_PROYEC AND dbo.clientes.CEDULA = dbo.inmueble_separacion.CLIENTE AND 
+                         dbo.clientes.CEDULA = dbo.inmueble_separacion.CLIENTE INNER JOIN
                          dbo.tipo_personas ON dbo.clientes.TIPO_PERSONA = dbo.tipo_personas.ID ON dbo.tipo_documentos.ID = dbo.clientes.TIPO_DOCUMENTO
 
 GO
@@ -208,6 +209,33 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'     Displ
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
+      Begin ColumnWidths = 25
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
    End
    Begin CriteriaPane = 
       Begin ColumnWidths = 11
@@ -228,6 +256,8 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'     Displ
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'NegocioView';
+
+
 
 
 
