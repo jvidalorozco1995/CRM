@@ -2307,6 +2307,7 @@
     <Content Include="Servicios\WActividades.asmx" />
     <Content Include="Servicios\WActividadesInmueble.asmx" />
     <Content Include="Servicios\WActividadesTramites.asmx" />
+    <Content Include="Servicios\WAmbiente.asmx" />
     <Content Include="Servicios\WBancos.asmx" />
     <Content Include="Servicios\WClientes.asmx" />
     <Content Include="Servicios\WCompromisoCuota.asmx" />
@@ -4917,6 +4918,10 @@
     </Compile>
     <Compile Include="Servicios\WActividadesTramites.asmx.cs">
       <DependentUpon>WActividadesTramites.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WAmbiente.asmx.cs">
+      <DependentUpon>WAmbiente.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WBancos.asmx.cs">
