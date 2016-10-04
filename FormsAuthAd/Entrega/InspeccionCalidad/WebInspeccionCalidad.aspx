@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebRevisionCalidad.aspx.cs" Inherits="FormsAuthAd.Entrega.RevisionCalidad.WebRevisionCalidad" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="WebInspeccionCalidad.aspx.cs" Inherits="FormsAuthAd.Entrega.InspeccionCalidad.WebInspeccionCalidad" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
@@ -38,13 +38,13 @@
                         </div>
                         <ul class="nav nav-tabs">
                             
-                            <li class="active"><a data-toggle="tab" href="#tab-1">Revisión calidad</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab-1">Listado de ambientes</a></li>
 
 
                         </ul>
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">
-                                <div class="panel-body" id="TablaPendientes">
+                                <div class="panel-body" id="TablaAmbientes">
                                 </div>
 
                             </div>
@@ -248,3 +248,4 @@
         <script src="../../scripts_crm/bootstrap-datepicker.js"></script>
         <script src="../../scripts_crm/accounting.js"></script>
 </asp:Content>
+
