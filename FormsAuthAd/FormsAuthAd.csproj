@@ -1353,6 +1353,7 @@
     <Content Include="BLLscripts\BLLInfocomercialase.js" />
     <Content Include="BLLscripts\BLLinfocomercialProyec.js" />
     <Content Include="BLLscripts\BLLInmuebles.js" />
+    <Content Include="BLLscripts\BLLInspeccionCalidad.js" />
     <Content Include="BLLscripts\BLLnegocio.js" />
     <Content Include="BLLscripts\BLLPagosFox.js" />
     <Content Include="BLLscripts\BLLRevisionCalidad.js" />
@@ -1497,6 +1498,7 @@
     <Content Include="Csstabla\dataTables.tableTools.css" />
     <Content Include="Csstabla\font-awesome.css" />
     <Content Include="Csstabla\jquery.dataTables.css" />
+    <Content Include="Entrega\InspeccionCalidad\WebInspeccionCalidad.aspx" />
     <Content Include="Entrega\ProgramacionEntregas\js\ProgramacionEntregas.js" />
     <Content Include="Entrega\ProgramacionEntregas\WebProgramacionEntregas.aspx" />
     <Content Include="Entrega\RevisionCalidad\js\RevisionCalidad.js" />
@@ -4843,6 +4845,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entrega\InspeccionCalidad\WebInspeccionCalidad.aspx.cs">
+      <DependentUpon>WebInspeccionCalidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entrega\InspeccionCalidad\WebInspeccionCalidad.aspx.designer.cs">
+      <DependentUpon>WebInspeccionCalidad.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Entrega\ProgramacionEntregas\WebProgramacionEntregas.aspx.cs">
       <DependentUpon>WebProgramacionEntregas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5092,6 +5101,7 @@
     <Folder Include="assets\js\aci-tree\php\tree\Item 7\Item 4\Item 4\" />
     <Folder Include="assets\js\selectboxit\css\" />
     <Folder Include="Cartera\Upload\" />
+    <Folder Include="Entrega\InspeccionCalidad\js\" />
     <Folder Include="Uplodad\" />
   </ItemGroup>
   <ItemGroup>
