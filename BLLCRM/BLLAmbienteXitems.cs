@@ -165,7 +165,7 @@ namespace BLLCRM
                 List<ItemXambiente> lisb = bd.ItemXambiente.OrderBy(t => t.Consecutivo).Where(t => t.IdAmbiente == id).ToList();
                 List<Item> lisitem = bd.Item.OrderBy(t => t.Id).ToList();
                 List<Item> lisbcrm = new List<Item>();
-                if (lisb.Count.Equals(0))
+                if (lisitem.Count.Equals(0))
                 {
                     return lisbcrm;
                 }
