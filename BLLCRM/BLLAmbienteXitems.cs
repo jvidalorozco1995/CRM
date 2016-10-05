@@ -157,33 +157,41 @@ namespace BLLCRM
                 throw;
             }
         }
-        public List<ItemXambiente> ListItemXambientenoincluido(int id)
+        public List<Item> ListItemXambientenoincluido(int id)
         {
-
+            var bandera = 0;
             try
             {
                 List<ItemXambiente> lisb = bd.ItemXambiente.OrderBy(t => t.Consecutivo).Where(t => t.IdAmbiente == id).ToList();
                 List<Item> lisitem = bd.Item.OrderBy(t => t.Id).ToList();
-                List<ItemXambiente> lisbcrm = new List<ItemXambiente>();
+                List<Item> lisbcrm = new List<Item>();
                 if (lisb.Count.Equals(0))
                 {
                     return lisbcrm;
                 }
                 else
                 {
-                    foreach (var item in lisb)
+                    foreach (var item in lisitem)
                     {
-                        foreach (var item2 in lisitem)
+                        foreach (var item2 in lisb )
                         {
-                           if(item.IdItem == item2.Id)
+                            if (bandera == 0)
                             {
-                                ItemXambiente entb = new ItemXambiente();
-                                entb.Id = item.Id;
-                                entb.IdAmbiente = item.IdAmbiente;
-                                entb.IdItem = item.IdItem;
-                                lisbcrm.Add(entb);
+                                if (item.Id == item2.IdItem)
+                                {
+                                   bandera = 1;
+                                }
                             }
+                           
                         }
+                        if (bandera == 0)
+                        {
+                            Item entb = new Item();
+                            entb.Id = item.Id;
+                            entb.Item1 = item.Item1;
+                            lisbcrm.Add(entb);
+                        }
+                        bandera = 0;
                         
                     }
                     return lisbcrm;
