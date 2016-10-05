@@ -80,6 +80,12 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<Item> ListItemXambientenoincluido(int id)
+        {
+            return axi.ListItemXambientenoincluido(id);
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<Ambiente> listambiente()
         {
             return cl.Listambiente();
