@@ -119,5 +119,35 @@ namespace BLLCRM
                 throw;
             }
         }
+        public List<Ambiente> Listambiente()
+        {
+
+            try
+            {
+                List<Ambiente> lisb = bd.Ambiente.OrderBy(t => t.Id).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Ambiente> lisbcrm = new List<Ambiente>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Ambiente entb = new Ambiente();
+                        entb.Id = item.Id;
+                        entb.Ambiente1 = item.Ambiente1;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -51,5 +51,35 @@ namespace BLLCRM
                 throw;
             }
         }
+        public List<Item> Listitem()
+        {
+
+            try
+            {
+                List<Item> lisb = bd.Item.OrderBy(t => t.Id).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Item> lisbcrm = new List<Item>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Item entb = new Item();
+                        entb.Id = item.Id;
+                        entb.Item1 = item.Item1;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
