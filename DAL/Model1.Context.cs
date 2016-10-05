@@ -100,5 +100,6 @@ namespace DAL
         public DbSet<Ambiente> Ambiente { get; set; }
         public DbSet<Item> Item { get; set; }
         public DbSet<ItemXambiente> ItemXambiente { get; set; }
+        public DbSet<VistaAmbiente> VistaAmbiente { get; set; }
     }
 }

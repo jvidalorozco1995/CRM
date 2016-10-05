@@ -74,7 +74,7 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<ItemXambiente> Listitemxambiente(int id)
+        public List<VistaAmbiente> Listitemxambiente(int id)
         {
             return axi.ListItemXambiente(id);
         }

@@ -979,6 +979,18 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAmbiente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VistaAmbiente">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Idambiente" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Idambiente" Type="int" Nullable="false" />
+          <Property Name="Ambiente" Type="varchar" MaxLength="150" />
+          <Property Name="Item" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntegrasC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VListadoEntegrasC">
           <Key>
@@ -1888,6 +1900,14 @@ FROM [dbo].[VInmueblesConTramites] AS [VInmueblesConTramites]</DefiningQuery>
 [VinteresProyect].[ID_PROYEC] AS [ID_PROYEC]
 FROM [dbo].[VinteresProyect] AS [VinteresProyect]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VistaAmbiente" EntityType="Self.VistaAmbiente" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VistaAmbiente].[Id] AS [Id], 
+[VistaAmbiente].[Idambiente] AS [Idambiente], 
+[VistaAmbiente].[Ambiente] AS [Ambiente], 
+[VistaAmbiente].[Item] AS [Item]
+FROM [dbo].[VistaAmbiente] AS [VistaAmbiente]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VListadoEntegrasC" EntityType="Self.VListadoEntegrasC" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [VListadoEntegrasC].[ID_INMUEBLES_ENTREGAS] AS [ID_INMUEBLES_ENTREGAS], 
@@ -2367,6 +2387,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="Ambiente" EntityType="CRM_PRUEBAModel.Ambiente" />
           <EntitySet Name="Item" EntityType="CRM_PRUEBAModel.Item" />
           <EntitySet Name="ItemXambiente" EntityType="CRM_PRUEBAModel.ItemXambiente" />
+          <EntitySet Name="VistaAmbiente" EntityType="CRM_PRUEBAModel.VistaAmbiente" />
         </EntityContainer>
         <EntityType Name="ActInmuebles">
           <Key>
@@ -3877,6 +3898,16 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="IdItem" Type="Int32" />
           <Property Name="Consecutivo" Type="Int32" />
         </EntityType>
+        <EntityType Name="VistaAmbiente">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Idambiente" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Idambiente" Type="Int32" Nullable="false" />
+          <Property Name="Ambiente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Item" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5110,6 +5141,16 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="Consecutivo" ColumnName="Consecutivo" />
                 <ScalarProperty Name="IdItem" ColumnName="IdItem" />
                 <ScalarProperty Name="IdAmbiente" ColumnName="IdAmbiente" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaAmbiente">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VistaAmbiente">
+              <MappingFragment StoreEntitySet="VistaAmbiente">
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Ambiente" ColumnName="Ambiente" />
+                <ScalarProperty Name="Idambiente" ColumnName="Idambiente" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

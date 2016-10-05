@@ -125,13 +125,45 @@ namespace BLLCRM
                 throw;
             }
         }
-        public List<ItemXambiente> ListItemXambiente(int id)
+        public List<VistaAmbiente> ListItemXambiente(int id)
+        {
+
+            try
+            {
+                List<VistaAmbiente> lisb = bd.VistaAmbiente.OrderBy(t => t.Id).Where(t => t.Idambiente == id).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<VistaAmbiente> lisbcrm = new List<VistaAmbiente>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        VistaAmbiente entb = new VistaAmbiente();
+                        entb.Id = item.Id;
+                        entb.Idambiente = item.Idambiente;
+                        entb.Ambiente = item.Ambiente;
+                        entb.Item = item.Item;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public List<ItemXambiente> ListItemXambientenoincluido(int id)
         {
 
             try
             {
                 List<ItemXambiente> lisb = bd.ItemXambiente.OrderBy(t => t.Consecutivo).Where(t => t.IdAmbiente == id).ToList();
-                //bd.compromisosxcuota.ToList();
+                List<Item> lisitem = bd.Item.OrderBy(t => t.Id).ToList();
                 List<ItemXambiente> lisbcrm = new List<ItemXambiente>();
                 if (lisb.Count.Equals(0))
                 {
@@ -141,11 +173,18 @@ namespace BLLCRM
                 {
                     foreach (var item in lisb)
                     {
-                        ItemXambiente entb = new ItemXambiente();
-                        entb.Id = item.Id;
-                        entb.IdAmbiente = item.IdAmbiente;
-                        entb.IdItem = item.IdItem;
-                        lisbcrm.Add(entb);
+                        foreach (var item2 in lisitem)
+                        {
+                           if(item.IdItem == item2.Id)
+                            {
+                                ItemXambiente entb = new ItemXambiente();
+                                entb.Id = item.Id;
+                                entb.IdAmbiente = item.IdAmbiente;
+                                entb.IdItem = item.IdItem;
+                                lisbcrm.Add(entb);
+                            }
+                        }
+                        
                     }
                     return lisbcrm;
                 }
