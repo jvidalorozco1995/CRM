@@ -20,8 +20,22 @@ namespace BLLCRM
         {
             try
             {
+
+
+                 int? im = bd.ItemXambiente.Where(t => t.IdAmbiente == p.IdAmbiente).Max(t=>t.Consecutivo);
+
+                if (im != null)
+                {
+                    p.Consecutivo = im.Value + 1;
+                }
+                else {
+                    p.Consecutivo = 1;
+                }
+
                 bd.ItemXambiente.Add(p);
                 bd.SaveChanges();
+                //   UpdatePosicionItemXambiente(a);
+
                 return 1;
             }
             catch (DbUpdateException)
@@ -41,6 +55,9 @@ namespace BLLCRM
                 var ctx = bd.ItemXambiente.First(inm => inm.Id == p);
                         bd.ItemXambiente.Remove(ctx);
                         bd.SaveChanges();
+
+
+
                 return 1;
 
             }
@@ -49,6 +66,7 @@ namespace BLLCRM
                 return 0;
             }
         }
+
         public int UpdatePosicionItemXambiente(ItemXambiente i)
         {
 

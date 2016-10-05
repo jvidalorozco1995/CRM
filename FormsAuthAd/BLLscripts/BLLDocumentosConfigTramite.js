@@ -14,11 +14,11 @@
             success: function (result) {
                 if (result.d == 1) {
 
-                    toastr.success('CRM Mayales - Notificacion' +
+                    toastr.success('CRM Mayales - Notificación' +
                    '</br></br>Se elimino satisfactoriamente');
                 }
                 else {
-                    toastr.error('CRM Mayales - Notificacion' +
+                    toastr.error('CRM Mayales - Notificación' +
                   '</br></br>No fue posible eliminar');
 
                 }

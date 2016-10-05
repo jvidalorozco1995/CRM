@@ -792,7 +792,7 @@ namespace BLLCRM
         {
             try
             {
-                inmueble_separacion ctx = db.inmueble_separacion.OrderByDescending(o=> o.ID_SEPARACION).First(l => l.CLIENTE == i.CLIENTE && l.INMUEBLE== i.INMUEBLE);
+                inmueble_separacion ctx = db.inmueble_separacion.OrderByDescending(o=> o.ID_SEPARACION).First(l => l.ID_SEPARACION == i.ID_SEPARACION);
                 ///db.inmueble_separacion.Remove(ctx);
                 ctx.ESTADO = "D";
                 Hsepracion_Clientes(i, "D");

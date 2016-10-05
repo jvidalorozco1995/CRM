@@ -55,7 +55,7 @@ namespace BLLCRM
         public List<Vdetalleseparacion.SepracionInmueble> SepracionesAsesor(string asesor) {
             try
             {
-                List<Vsepracioninmuebles> ls = bd.Vsepracioninmuebles.Where(T => T.ASESOR == asesor).ToList();
+                List<Vsepracioninmuebles> ls = bd.Vsepracioninmuebles.Where(T => T.ASESOR == asesor ).ToList();
                 List<Vdetalleseparacion.SepracionInmueble> _Lseparacion = new List<Vdetalleseparacion.SepracionInmueble>();
                 if (ls.Count.Equals(0))
                 {
@@ -103,7 +103,7 @@ namespace BLLCRM
         {
             try
             {
-                List<Vsepracioninmuebles> ls = bd.Vsepracioninmuebles.Where(T => T.ID_PROYEC == p).ToList();
+                List<Vsepracioninmuebles> ls = bd.Vsepracioninmuebles.Where(T => T.ID_PROYEC == p && T.ESTADO != "D").ToList();
                 List<Vdetalleseparacion.SepracionInmueble> _Lseparacion = new List<Vdetalleseparacion.SepracionInmueble>();
                 if (ls.Count.Equals(0))
                 {

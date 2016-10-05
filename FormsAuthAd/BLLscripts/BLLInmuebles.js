@@ -488,7 +488,7 @@ function BLLInmuebles() {
                     }
                     else {
                         if (item.ESTADO == "L") {
-                            tabla += "<td class='Info'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
+                            tabla += "<td class='Info'id=" + item.CLIENTE + "/" + item.INMUEBLE + "/" + item.DIAS + "/" + item.ID_S + "><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'></td>";
                         }
                         else {
                             if (item.ESTADO == null) {

@@ -3,10 +3,11 @@
 
 //DSDasas
 var Insp = new BLLInspeccionCalidad();
-
+ 
 
 var admRevision = (function () {
-
+    var Ambiente;
+    var id;
 
     var _addHandlers = function () {
 
@@ -20,6 +21,35 @@ var admRevision = (function () {
             $("#ModalCrearItem").modal('show');
         });
 
+        $(document).on('click', '.Guardar', function () {
+            var IdItem = $(this).attr("id");
+            
+
+            var DtoItemXambiente = {
+
+                'IdAmbiente': id,
+                'IdItem': IdItem
+            }
+            Insp.AgregarItemXAmbiente(DtoItemXambiente);
+
+            setTimeout(function () {
+
+                Insp.ListItem(id);
+                Insp.ListItemXambientes(id);
+            }, 1000);
+        });
+
+        $(document).on('click', '.Quitar', function () {
+            var idQuitar = $(this).attr("id");
+
+            Insp.DeleteItemXambiente(idQuitar);
+            setTimeout(function () {
+
+                Insp.ListItem(id);
+                Insp.ListItemXambientes(id);
+            }, 1000);
+        });
+        
        
         $(document).on('click', '.ver', function () {
 
@@ -29,7 +59,8 @@ var admRevision = (function () {
             Ambiente = result[1];
 
             $("#Ambiente").text(Ambiente);
-
+            Insp.ListItem(id);
+            Insp.ListItemXambientes(id);
             $("#datos").show();
         });
        
@@ -53,10 +84,10 @@ var admRevision = (function () {
             } else {
                 toastr.error(' CRM - Mayales notificación' +
                                      '</br></br>No ha escrito nada en el cambo nombre');
-
-            }
+           }
             
         });
+
 
         $("#BtnregisItem").click(function () {
 
@@ -68,15 +99,11 @@ var admRevision = (function () {
                 }
                 Insp.InsertarAmbiente(DtoItem);
 
-                setTimeout(function () {
-                    Insp.ListItem();
-                }, 1000);
                 $("#TxtNombreItem").val('');
                 $("#ModalCrearItem").modal('hide');
             } else {
                 toastr.error(' CRM - Mayales notificación' +
                                      '</br></br>No ha escrito nada en el cambo nombre');
-
             }
 
         });
@@ -87,7 +114,7 @@ var admRevision = (function () {
         
         $("#datos").hide();
         Insp.ListAmbiente();
-        Insp.ListItem();
+        
     }
     return {
         init: function () {

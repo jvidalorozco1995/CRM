@@ -62,6 +62,10 @@
                                             </div>
 
                                         </div>
+                                         <div style="color:#E50000; text-align:center"><h4>Listado de items asignados</h4></div>
+                                        <div id="tablaitemsxambiente" class="p-m tab-pane active">
+                                        </div>
+
                                           <div style="color:#E50000; text-align:center"><h4>Listado de items</h4></div>
                                         <div id="tablaitems" class="p-m tab-pane active">
                                         </div>
