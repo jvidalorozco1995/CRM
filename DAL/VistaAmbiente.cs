@@ -18,5 +18,6 @@ namespace DAL
         public int Idambiente { get; set; }
         public string Ambiente { get; set; }
         public string Item { get; set; }
+        public Nullable<int> Consecutivo { get; set; }
     }
 }

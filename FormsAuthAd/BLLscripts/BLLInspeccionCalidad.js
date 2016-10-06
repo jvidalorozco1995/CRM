@@ -239,7 +239,7 @@ function BLLInspeccionCalidad() {
 
     BLLInspeccionCalidad.CrearTablaItemsXambientes = function (itemsxambientes) {
         
-
+        var PosicionAnterior = 0;
         document.getElementById('tablaitemsxambiente').innerHTML = "";
         var tabla = '<table id="exampsdsd" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
@@ -252,11 +252,34 @@ function BLLInspeccionCalidad() {
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(itemsxambientes, function (i, item) {
-
+            
             tabla += "<tr>";
             tabla += "<td>" + item.Id + "</td>";
             tabla += "<td>" + item.Item + "</td>";
-            tabla += "<td style='width:22px'><button id='" + item.Id+ "'class='btn btn-success btn-xs ' type='button'>Ver</button></td>";
+           
+           
+                 if (item.Consecutivo > 1 && item.Consecutivo != itemsxambientes.length) {
+
+                    PosicionAnterior = item.Consecutivo - 1;
+
+                    if (PosicionAnterior < item.Consecutivo ) {
+
+                        tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Subir ' type='button'>↑</button><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Bajar ' type='button'>↓</button></td>";
+                      
+
+                    } else {
+
+                        tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-success btn-xs ' type='button'>|ARRIBA</button></td>";
+                    }
+
+                 } else if (item.Consecutivo == itemsxambientes.length) {
+                     tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Subir' type='button'>↑</button></td>";
+                 }
+                  else {
+
+                     tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Bajar' type='button'>↓</button></td>";
+                }
+  
             tabla += "<td style='width:22px'><button id='" + item.Id + "'class='btn btn-danger btn-xs Quitar' type='button'>-</button></td>";
 
         });

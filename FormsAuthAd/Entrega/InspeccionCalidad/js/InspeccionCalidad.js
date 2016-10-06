@@ -21,6 +21,16 @@ var admRevision = (function () {
             $("#ModalCrearItem").modal('show');
         });
 
+        $(document).on('click', '.Subir', function () {
+            var rrt = $(this).attr("id");
+            alert(JSON.stringify("sUBIR"+rrt));
+        });
+        $(document).on('click', '.Bajar', function () {
+            var rrt = $(this).attr("id");
+            alert(JSON.stringify("BAJAR" + rrt));
+        });
+
+
         $(document).on('click', '.Guardar', function () {
             var IdItem = $(this).attr("id");
             
@@ -97,7 +107,7 @@ var admRevision = (function () {
 
                     'item1': $("#TxtNombreItem").val()
                 }
-                Insp.InsertarAmbiente(DtoItem);
+                Insp.InsertarItem(DtoItem);
 
                 $("#TxtNombreItem").val('');
                 $("#ModalCrearItem").modal('hide');

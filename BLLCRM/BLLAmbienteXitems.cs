@@ -52,9 +52,11 @@ namespace BLLCRM
         {
             try
             {
+               
                 var ctx = bd.ItemXambiente.First(inm => inm.Id == p);
-                        bd.ItemXambiente.Remove(ctx);
-                        bd.SaveChanges();
+                UpdatePosicionItemXambiente(ctx);
+                bd.ItemXambiente.Remove(ctx);
+                bd.SaveChanges();
 
 
 
@@ -78,7 +80,7 @@ namespace BLLCRM
 
                 var range1 = bd.ItemXambiente
                .Where(t => t.Id == i.Id).FirstOrDefault();
-                posicion = i.Consecutivo;
+                posicion = 99;
                 actual = range1.Consecutivo;
                 //if (range1 != null)
                 //{
@@ -164,6 +166,7 @@ namespace BLLCRM
                         entb.Idambiente = item.Idambiente;
                         entb.Ambiente = item.Ambiente;
                         entb.Item = item.Item;
+                        entb.Consecutivo = item.Consecutivo;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;
