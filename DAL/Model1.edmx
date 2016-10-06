@@ -376,7 +376,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="AREA_CONSTRUIDA" Type="decimal" Precision="20" Scale="2" />
           <Property Name="PARQUEADERO" Type="varchar" MaxLength="250" />
           <Property Name="AREAS_COMUNES" Type="varchar" MaxLength="250" />
-          <Property Name="PROPIETARIO" Type="varchar" MaxLength="40" />
+          <Property Name="PROPIETARIO" Type="nvarchar(max)" />
           <Property Name="ESTADO_C" Type="varchar" MaxLength="30" />
           <Property Name="CEDULA_P" Type="varchar" MaxLength="13" />
           <Property Name="LUGAR_EXPE" Type="nvarchar(max)" />
@@ -385,14 +385,14 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="LUGAR" Type="varchar" MaxLength="250" />
           <Property Name="N_HIJO" Type="int" />
           <Property Name="DOMICILIO" Type="nvarchar(max)" />
-          <Property Name="DIRECCION_R" Type="varchar" MaxLength="250" />
+          <Property Name="DIRECCION_R" Type="nvarchar(max)" />
           <Property Name="TELEFONO_P" Type="varchar" MaxLength="13" />
           <Property Name="CORREO" Type="varchar" MaxLength="250" />
           <Property Name="EMPRESA" Type="varchar" MaxLength="100" />
           <Property Name="CARGO" Type="varchar" MaxLength="100" />
           <Property Name="TELFONO_EMP" Type="varchar" MaxLength="13" />
           <Property Name="PROFESION" Type="varchar" MaxLength="100" />
-          <Property Name="DIRECCION_EMPR" Type="varchar" MaxLength="250" />
+          <Property Name="DIRECCION_EMPR" Type="nvarchar(max)" />
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="ANTIGUEDAD" Type="varchar" MaxLength="60" />
           <Property Name="NOMBRE_CONY" Type="varchar" MaxLength="150" />
@@ -2788,7 +2788,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="AREA_CONSTRUIDA" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="PARQUEADERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="AREAS_COMUNES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="PROPIETARIO" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PROPIETARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ESTADO_C" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="LUGAR_EXPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -2797,14 +2797,14 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="LUGAR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="N_HIJO" Type="Int32" />
           <Property Name="DOMICILIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DIRECCION_R" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION_R" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="CORREO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="EMPRESA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CARGO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="TELFONO_EMP" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
           <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION_EMPR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION_EMPR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="ANTIGUEDAD" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_CONY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />

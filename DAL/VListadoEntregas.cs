@@ -31,6 +31,8 @@ namespace DAL
         public string NOMBRE_PROYEC { get; set; }
         public string ID_PROYEC { get; set; }
         public string OBSERVACIONES { get; set; }
+
         public int CONTADOR { get; set; }
+        public string ESTADO { get; set; }
     }
 }

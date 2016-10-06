@@ -9,7 +9,7 @@ function BLLInspeccionCalidad() {
     var WsListaItemXambiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/ListItemXambiente");///Listado de clientes
     var WsInsertItemXambiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/InsertItemxambiente");///Listado de clientes
     var WsDeleteItemXambiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/DeleteItemXambiente");///Listado de clientes
-
+    var WsUpdatePosicionItemXambiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/Updateitemxambiente");///Listado de clientes
     
 
     BLLInspeccionCalidad.prototype.DeleteItemXambiente = function (id) {
@@ -23,7 +23,6 @@ function BLLInspeccionCalidad() {
             url: WsDeleteItemXambiente,
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
-            async: true,
             success: function (result) {
                 if (result.d != null) {
 
@@ -34,6 +33,35 @@ function BLLInspeccionCalidad() {
                 else {
                     toastr.error(' CRM - Mayales notificacion' +
                       '</br></br>No se pudo agregar en el sistema');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
+    BLLInspeccionCalidad.prototype.UpdatePosicionItemXambiente = function (item) {
+
+
+        jsonData = "{'b':" + JSON.stringify(item) + "}";
+
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: WsUpdatePosicionItemXambiente,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d != null) {
+
+                    toastr.success(' CRM - Mayales notificacion' +
+                      '</br></br>Movido satisfactoriamente');
+
+                }
+                else {
+                    toastr.error(' CRM - Mayales notificacion' +
+                      '</br></br>No se pudo mover en el sistema');
                 }
 
             },
@@ -214,7 +242,7 @@ function BLLInspeccionCalidad() {
         tabla += "<th>No</th>";
         tabla += "<th>Ambiente</th>";
         tabla += "<th></th>";
-        
+        tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -224,7 +252,7 @@ function BLLInspeccionCalidad() {
             tabla += "<td>" + item.Id + "</td>";
             tabla += "<td>" + item.Ambiente1 + "</td>";
             tabla += "<td style='width:22px'><button id='" + item.Id + "/" + item.Ambiente1 + "'class='btn btn-success btn-xs ver' type='button'>Ver</button></td>";
-           
+            tabla += "<td style='width:22px'><button id='" + item.Id + "/" + item.Ambiente1 + "'class='btn btn-success btn-xs EditarAmbiente' type='button'>Editar</button></td>";
 
         });
         tabla += "</tbody>";
@@ -258,27 +286,27 @@ function BLLInspeccionCalidad() {
             tabla += "<td>" + item.Item + "</td>";
            
            
-                 if (item.Consecutivo > 1 && item.Consecutivo != itemsxambientes.length) {
+            if (item.Consecutivo > 1 && item.Consecutivo != itemsxambientes.length) {
 
-                    PosicionAnterior = item.Consecutivo - 1;
+                PosicionAnterior = item.Consecutivo - 1;
 
-                    if (PosicionAnterior < item.Consecutivo ) {
+                if (PosicionAnterior < item.Consecutivo ) {
 
-                        tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Subir ' type='button'>↑</button><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Bajar ' type='button'>↓</button></td>";
+                    tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Subir ' type='button'>↑</button><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Bajar ' type='button'>↓</button></td>";
                       
 
-                    } else {
+                } else {
 
-                        tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-success btn-xs ' type='button'>|ARRIBA</button></td>";
-                    }
-
-                 } else if (item.Consecutivo == itemsxambientes.length) {
-                     tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Subir' type='button'>↑</button></td>";
-                 }
-                  else {
-
-                     tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Bajar' type='button'>↓</button></td>";
+                    tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-success btn-xs ' type='button'>|ARRIBA</button></td>";
                 }
+
+            } else if (item.Consecutivo == itemsxambientes.length) {
+                tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Subir' type='button'>↑</button></td>";
+            }
+            else {
+
+                tabla += "<td style='width:60px'><button id='" + JSON.stringify(item) + "'class='btn btn-primary btn-xs Bajar' type='button'>↓</button></td>";
+            }
   
             tabla += "<td style='width:22px'><button id='" + item.Id + "'class='btn btn-danger btn-xs Quitar' type='button'>-</button></td>";
 
@@ -286,7 +314,7 @@ function BLLInspeccionCalidad() {
         tabla += "</tbody>";
         tabla += '</table>';
         $('#tablaitemsxambiente').append(tabla);
-        $('#exampsdsd').dataTable();
+        $('#exampsdsd').dataTable( { "bSort": false});
     }
 
     BLLInspeccionCalidad.CrearTablaItems = function (items) {
@@ -296,7 +324,8 @@ function BLLInspeccionCalidad() {
         tabla += "<thead>";
         tabla += "<tr>";
         tabla += "<th>No</th>";
-        tabla += "<th>Ambiente</th>";
+        tabla += "<th>Item</th>";
+        tabla += "<th></th>";
         tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
@@ -307,6 +336,7 @@ function BLLInspeccionCalidad() {
             tabla += "<td>" + item.Id + "</td>";
             tabla += "<td>" + item.Item1 + "</td>";
             tabla += "<td style='width:22px'><button id='" + item.Id + "'class='btn btn-primary btn-xs Guardar' type='button'>+</button></td>";
+            tabla += "<td style='width:22px'><button id='" + item.Id + "/" + item.Item1 + "'class='btn btn-success btn-xs EditarItem' type='button'>Editar</button></td>";
 
 
         });

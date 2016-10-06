@@ -23,11 +23,67 @@ var admRevision = (function () {
 
         $(document).on('click', '.Subir', function () {
             var rrt = $(this).attr("id");
-            alert(JSON.stringify("sUBIR"+rrt));
+            var a = JSON.parse(rrt);
+
+            var Objeto ={
+                "Id":a.Id,
+                "IdAmbiente":a.Idambiente,
+                "IdItem":0,
+                "Consecutivo":a.Consecutivo - 1,
+            }
+
+            Insp.UpdatePosicionItemXambiente(Objeto);
+
+            setTimeout(function () {
+
+                Insp.ListItem(id);
+                Insp.ListItemXambientes(id);
+            }, 1000);
+
         });
+
+
+        
+        $(document).on('click', '.EditarItem', function () {
+            var datos = $(this).attr("id");
+            var result = datos.split("/");
+            var id1 = result[0];
+            var Item = result[1];
+
+           
+            $("#ModalCrearItem").modal('show');
+            $("#TxtNombreItem").val(Item);
+          
+        });
+
+        $(document).on('click', '.EditarAmbiente', function () {
+            var datos = $(this).attr("id");
+            var result = datos.split("/");
+           var id1= result[0];
+            var Ambiente1 = result[1];
+           
+            $("#ModalCrearAmbiente").modal('show');
+            $("#TxtNombreAmbiente").val(Ambiente1);
+        });
+
         $(document).on('click', '.Bajar', function () {
             var rrt = $(this).attr("id");
-            alert(JSON.stringify("BAJAR" + rrt));
+            var a = JSON.parse(rrt);
+
+            var Objeto = {
+                "Id": a.Id,
+                "IdAmbiente": a.Idambiente,
+                "IdItem": 0,
+                "Consecutivo": a.Consecutivo + 1,
+            }
+
+            Insp.UpdatePosicionItemXambiente(Objeto);
+
+            setTimeout(function () {
+
+                Insp.ListItem(id);
+                Insp.ListItemXambientes(id);
+            }, 1000);
         });
 
 
@@ -54,7 +110,6 @@ var admRevision = (function () {
 
             Insp.DeleteItemXambiente(idQuitar);
             setTimeout(function () {
-
                 Insp.ListItem(id);
                 Insp.ListItemXambientes(id);
             }, 1000);
