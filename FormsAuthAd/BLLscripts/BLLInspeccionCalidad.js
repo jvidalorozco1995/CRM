@@ -10,6 +10,9 @@ function BLLInspeccionCalidad() {
     var WsInsertItemXambiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/InsertItemxambiente");///Listado de clientes
     var WsDeleteItemXambiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/DeleteItemXambiente");///Listado de clientes
     var WsUpdatePosicionItemXambiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/Updateitemxambiente");///Listado de clientes
+    var WsUpdateAmbiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/UpdateAmbiente");///Listado de clientes
+    var WsUpdateItem = funcionUrlGlobal("/Servicios/WAmbiente.asmx/UpdateItem");///Listado de clientes
+    
     
 
     BLLInspeccionCalidad.prototype.DeleteItemXambiente = function (id) {
@@ -26,8 +29,7 @@ function BLLInspeccionCalidad() {
             success: function (result) {
                 if (result.d != null) {
 
-                    toastr.success(' CRM - Mayales notificacion' +
-                      '</br></br>Eliminado satisfactoriamente');
+                  
 
                 }
                 else {
@@ -54,9 +56,6 @@ function BLLInspeccionCalidad() {
             async: true,
             success: function (result) {
                 if (result.d != null) {
-
-                    toastr.success(' CRM - Mayales notificacion' +
-                      '</br></br>Movido satisfactoriamente');
 
                 }
                 else {
@@ -201,6 +200,65 @@ function BLLInspeccionCalidad() {
         });
     }
 
+    BLLInspeccionCalidad.prototype.UpdateItem= function (item) {
+
+
+        jsonData = "{'b':" + JSON.stringify(item) + "}";
+
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: WsUpdateItem,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d != null) {
+
+                    toastr.success(' CRM - Mayales notificacion' +
+                      '</br></br>Actualizado satisfactoriamente');
+
+                }
+                else {
+                    toastr.error(' CRM - Mayales notificacion' +
+                      '</br></br>No se pudo agregar en el sistema');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
+
+
+    BLLInspeccionCalidad.prototype.UpdateAmbiente = function (ambiente) {
+
+
+        jsonData = "{'b':" + JSON.stringify(ambiente) + "}";
+
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: WsUpdateAmbiente,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d != null) {
+
+                    toastr.success(' CRM - Mayales notificacion' +
+                      '</br></br>Actualizado satisfactoriamente');
+
+                }
+                else {
+                    toastr.error(' CRM - Mayales notificacion' +
+                      '</br></br>No se pudo agregar en el sistema');
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
 
 
     BLLInspeccionCalidad.prototype.InsertarItem = function (item) {
@@ -282,7 +340,7 @@ function BLLInspeccionCalidad() {
         $.each(itemsxambientes, function (i, item) {
             
             tabla += "<tr>";
-            tabla += "<td>" + item.Id + "</td>";
+            tabla += "<td>" + item.Consecutivo + "</td>";
             tabla += "<td>" + item.Item + "</td>";
            
            
@@ -314,7 +372,18 @@ function BLLInspeccionCalidad() {
         tabla += "</tbody>";
         tabla += '</table>';
         $('#tablaitemsxambiente').append(tabla);
-        $('#exampsdsd').dataTable( { "bSort": false});
+        $('#exampsdsd').dataTable({
+            "bProcessing": true,
+            "sAutoWidth": false,
+            "bDestroy": true,
+            "sPaginationType": "bootstrap", // full_numbers
+            "iDisplayStart ": 10,
+            "iDisplayLength": 10,
+            "bPaginate": false, //hide pagination
+            "bFilter": false, //hide Search bar
+            "bInfo": false, // hide showing entrie
+            "bSort": false
+        });
     }
 
     BLLInspeccionCalidad.CrearTablaItems = function (items) {

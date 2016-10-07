@@ -98,16 +98,16 @@ namespace BLLCRM
             }
         }
 
-        public int UpdateAmbiente(int id, string Ambiente)
+        public int UpdateAmbiente(Ambiente ambiente)
         {
 
             try
             {
 
 
-                var ctx = bd.Ambiente.First(inm => inm.Id == id);
+                var ctx = bd.Ambiente.First(inm => inm.Id == ambiente.Id);
 
-                ctx.Ambiente1 = Ambiente;
+                ctx.Ambiente1 = ambiente.Ambiente1;
                 bd.SaveChanges();
 
                 return 1;

@@ -106,9 +106,9 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-success " type="button" id="BtnregisAmbiente">Crear</button>
+                             <button class="btn btn-primary " type="button" id="BtnEditarAmbiente">Editar</button>
                             <button type="button" class="btn btn-default" id="BtnCerrar" data-dismiss="modal">Cerrar</button>
-
-                        </div>
+                       </div>
                     </div>
                 </div>
             </div>
@@ -138,6 +138,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-success " type="button" id="BtnregisItem">Crear</button>
+                            <button class="btn btn-primary " type="button" id="BtnEditarItem">Editar</button>
                             <button type="button" class="btn btn-default" id="BtnCerrar2" data-dismiss="modal">Cerrar</button>
 
                         </div>

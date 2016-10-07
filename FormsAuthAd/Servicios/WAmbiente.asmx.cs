@@ -36,9 +36,9 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int UpdateAmbiente(int i,string ambiente)
+        public int UpdateAmbiente(Ambiente b)
         {
-            return cl.UpdateAmbiente(i,ambiente);
+            return cl.UpdateAmbiente(b);
         }
         //servicios item
         [WebMethod]
@@ -49,9 +49,9 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int Updateitem(int i, string item)
+        public int UpdateItem(Item b)
         {
-            return it.UpdateItem(i, item);
+            return it.UpdateItem(b);
         }
         // servicios ambientesxitem
         [WebMethod]

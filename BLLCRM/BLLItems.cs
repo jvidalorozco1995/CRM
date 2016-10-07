@@ -34,13 +34,13 @@ namespace BLLCRM
                 throw;
             }
         }
-        public int UpdateItem(int id, string Item)
+        public int UpdateItem(Item item)
         {
             try
             {
-                var ctx = bd.Item.First(inm => inm.Id == id);
+                var ctx = bd.Item.First(inm => inm.Id == item.Id);
 
-                ctx.Item1 = Item;
+                ctx.Item1 = item.Item1;
                 bd.SaveChanges();
                 return 1;
             }

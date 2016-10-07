@@ -8,17 +8,27 @@ var Insp = new BLLInspeccionCalidad();
 var admRevision = (function () {
     var Ambiente;
     var id;
+    var idItemEditar;
+    var ItemNombreEditar;
 
     var _addHandlers = function () {
 
         $("#BtnModalCrearAmbiente").click(function () {
-
+           
             $("#ModalCrearAmbiente").modal('show');
+            $("#TxtNombreAmbiente").val('');
+            $("#BtnregisAmbiente").show();
+            $("#BtnEditarAmbiente").hide();
+            
         });
         
         $("#BtnModalCrearItem").click(function () {
 
             $("#ModalCrearItem").modal('show');
+            $("#TxtNombreItem").val('');
+            $("#BtnregisItem").show();
+            $("#BtnEditarItem").hide();
+
         });
 
         $(document).on('click', '.Subir', function () {
@@ -47,23 +57,28 @@ var admRevision = (function () {
         $(document).on('click', '.EditarItem', function () {
             var datos = $(this).attr("id");
             var result = datos.split("/");
-            var id1 = result[0];
-            var Item = result[1];
+             idItemEditar = result[0];
+             ItemNombreEditar = result[1];
+
 
            
             $("#ModalCrearItem").modal('show');
-            $("#TxtNombreItem").val(Item);
+            $("#BtnregisItem").hide();
+            $("#BtnEditarItem").show();
+            $("#TxtNombreItem").val(ItemNombreEditar);
           
         });
 
         $(document).on('click', '.EditarAmbiente', function () {
             var datos = $(this).attr("id");
             var result = datos.split("/");
-           var id1= result[0];
-            var Ambiente1 = result[1];
+            id = result[0];
+            Ambiente = result[1];
            
             $("#ModalCrearAmbiente").modal('show');
-            $("#TxtNombreAmbiente").val(Ambiente1);
+            $("#BtnregisAmbiente").hide();
+            $("#BtnEditarAmbiente").show();
+            $("#TxtNombreAmbiente").val(Ambiente);
         });
 
         $(document).on('click', '.Bajar', function () {
@@ -154,18 +169,22 @@ var admRevision = (function () {
         });
 
 
-        $("#BtnregisItem").click(function () {
 
-            if ($("#TxtNombreItem").val().length > 0) {
+        $("#BtnEditarAmbiente").click(function () {
 
-                var DtoItem = {
+            if ($("#TxtNombreAmbiente").val().length > 0) {
 
-                    'item1': $("#TxtNombreItem").val()
+                var DtoAmbiente = {
+                    'Id': id,
+                    'Ambiente1': $("#TxtNombreAmbiente").val()
                 }
-                Insp.InsertarItem(DtoItem);
+                Insp.UpdateAmbiente(DtoAmbiente);
 
-                $("#TxtNombreItem").val('');
-                $("#ModalCrearItem").modal('hide');
+                setTimeout(function () {
+                    Insp.ListAmbiente();
+                }, 1000);
+                $("#TxtNombreAmbiente").val('');
+                $("#ModalCrearAmbiente").modal('hide');
             } else {
                 toastr.error(' CRM - Mayales notificación' +
                                      '</br></br>No ha escrito nada en el cambo nombre');
@@ -173,10 +192,65 @@ var admRevision = (function () {
 
         });
 
+
+
+        $("#BtnregisItem").click(function () {
+
+            if ($("#TxtNombreItem").val().length > 0) {
+
+                var DtoItem = {
+                   
+                    'item1': $("#TxtNombreItem").val()
+                }
+                Insp.InsertarItem(DtoItem);
+
+
+                $("#TxtNombreItem").val('');
+                $("#ModalCrearItem").modal('hide');
+
+                if (id != null) {
+                    setTimeout(function () {
+                        Insp.ListItem(id);
+                        Insp.ListItemXambientes(id);
+                    }, 1000);
+                }
+            } else {
+                toastr.error(' CRM - Mayales notificación' +
+                                     '</br></br>No ha escrito nada en el cambo nombre');
+            }
+
+        });
+
+
+        $("#BtnEditarItem").click(function () {
+
+            if ($("#TxtNombreItem").val().length > 0) {
+
+                var DtoItem = {
+                    'Id': idItemEditar,
+                    'item1': $("#TxtNombreItem").val()
+                }
+                Insp.UpdateItem(DtoItem);
+
+                $("#TxtNombreItem").val('');
+                $("#ModalCrearItem").modal('hide');
+                setTimeout(function () {
+                    Insp.ListItem(id);
+                    Insp.ListItemXambientes(id);
+                }, 1000);
+            } else {
+                toastr.error(' CRM - Mayales notificación' +
+                                     '</br></br>No ha escrito nada en el cambo nombre');
+            }
+
+        });
+        
+        
+
     }
 
     var _Inicio = function () {
-        
+
         $("#datos").hide();
         Insp.ListAmbiente();
         
