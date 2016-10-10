@@ -26,5 +26,6 @@ namespace DAL
         public Nullable<System.DateTime> FechaInsp1 { get; set; }
         public Nullable<System.DateTime> FechaInsp2 { get; set; }
         public Nullable<System.DateTime> FechaFinApro { get; set; }
+        public string ReferenciaInmueble { get; set; }
     }
 }

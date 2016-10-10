@@ -231,6 +231,7 @@ namespace BLLCRM
                         entb.INMUEBLE = item.INMUEBLE;
                         entb.FECHACONFIRMA = item.FECHACONFIRMA;
                         entb.ESTADOAVAL = item.ESTADOAVAL;
+                        entb.ReferenciaInmueble = item.ReferenciaInmueble;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;
