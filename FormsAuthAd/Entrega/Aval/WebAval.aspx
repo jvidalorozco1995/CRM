@@ -9,7 +9,7 @@
         <div class="content animate-panel"  style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
             <div class="row">
                 <!---Panel Informacion General--->
-                <div class="col-lg-9" id="Principal">
+                <div class="col-lg-6" id="Principal">
                     <div class="hpanel">
                         <div class="panel-tools">
                             <a class="showhide" style="background: #E50000"><i class="fa fa-chevron-up"></i></a>
@@ -40,23 +40,32 @@
                                                     <div class="row">
                                                         <div class="form-group col-lg-6">
                                                             <label>No Registro</label>
-                                                            <input type="text" value="" id="TxtRegistro" class="form-control">
+                                                            <input type="text" value="" id="TxtRegistro" class="form-control" readonly="">
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <label>Nombres</label>
-                                                            <input type="text" id="TxtNombre" class="form-control"  />
+                                                            <label>Proyecto</label>
+                                                            <input type="text" id="TxtProyecto" class="form-control"  readonly=""/>
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <label>Direccion</label>
-                                                            <input type="text" value="" id="txtResidencia" class="form-control" name="">
+                                                            <label>Inmueble</label>
+                                                            <input type="text" value="" id="TxtInmueble" class="form-control" readonly="">
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <label>Telefono</label>
-                                                            <input type="text" value="" id="TxtTelefono" class="form-control" name="">
+                                                            <label>Propietario</label>
+                                                            <input type="text" value="" id="TxtPropietario" class="form-control" name="">
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <label>Email</label>
-                                                            <input type="text" value="" id="Txtcorreo" class="form-control" name="">
+                                                            <label>Residente</label>
+                                                            <input type="text" value="" id="TxtResidente" class="form-control" name="">
+                                                        </div>
+                                                        <div class="form-group col-lg-6">
+                                                            <label>Inspección</label>
+                                                            <input type="text" value="" id="TxtInspeccion" class="form-control" name="">
+                                                        </div>
+                                                        <div class="form-group col-lg-6">
+                                                            <label>Aprueba</label>
+                                                            <input name="Si"  value="si" type="checkbox">Si</input>
+                                                            <input name="No" value="no" type="checkbox">No</input>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -91,33 +100,25 @@
   position: relative;
 }
 </style>
-     <script src="../vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../vendor/jquery-ui/jquery-ui.min.js"></script>
+     <script src="../../vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../../vendor/jquery-ui/jquery-ui.min.js"></script>
      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <link rel="stylesheet" href="../vendor/sweetalert/lib/sweet-alert.css" />
     <link rel="stylesheet" href="../vendor/toastr/build/toastr.min.css" />
     <link rel="stylesheet" href="../styles_crm/static_custom.css">
-    <script src="../gmaps/gmap3.js"></script>
+    <script src="../../gmaps/gmap3.js"></script>
     
-    <script src="../vendor/sweetalert/lib/sweet-alert.min.js"></script>
-    <script src="../vendor/toastr/build/toastr.min.js"></script>
-    <script src="../vendor/moment/moment.js"></script>
-    <script src="../vendor/select2-3.5.2/select2.min.js"></script>
-    <script src="../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="../BLLscripts/BLLEmpresa.js"></script>
-    <script src="../BLLscripts/BLLUtilidades.js"></script>
-    <script src="../BLLscripts/BLLActInmuebles.js"></script>
-     <script src="../BLLscripts/BLLInmuebles.js"></script>
-    <script src="../BLLscripts/BLLProyectos.js"></script>
-    <script src="../BLLscripts/BLLTareas.js"></script>
-    <script src="../BLLscripts/BLLSala_Ventas.js"></script>
-    <script src="../BLLscripts/BLLClientes.js"></script>
-    <script src="../BLLscripts/BLLComercial.js"></script>
-    <script src="../BLLscripts/BLLTipoDocumentos.js"></script>
-    <script src="../BLLscripts/BLLTipoPersonas.js"></script>
-    <script src="js/proyecInfo.js"></script>
-    <script src="../scripts_crm/bootstrap-datepicker.js"></script>
-    <script src="../scripts_crm/accounting.js"></script>
+    <script src="../../vendor/sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="../../vendor/toastr/build/toastr.min.js"></script>
+    <script src="../../vendor/moment/moment.js"></script>
+    <script src="../../vendor/select2-3.5.2/select2.min.js"></script>
+    <script src="../../vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="../../vendor/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+   
+    <script src="../../BLLscripts/BLLUtilidades.js"></script>
+     <script src="../../BLLscripts/BLLAval.js"></script>
+    <script src="js/Aval.js"></script>
+    <script src="../../scripts_crm/bootstrap-datepicker.js"></script>
+    <script src="../../scripts_crm/accounting.js"></script>
 </asp:Content>
 

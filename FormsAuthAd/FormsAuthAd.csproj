@@ -1338,6 +1338,7 @@
     <Content Include="BLLscripts\BLLActInmuebles.js" />
     <Content Include="BLLscripts\BLLActividades.js" />
     <Content Include="BLLscripts\BLLAcuerdosFox.js" />
+    <Content Include="BLLscripts\BLLAval.js" />
     <Content Include="BLLscripts\BLLBancos.js" />
     <Content Include="BLLscripts\BLLBloques.js" />
     <Content Include="BLLscripts\BLLClientes.js" />

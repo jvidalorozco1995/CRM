@@ -79,7 +79,7 @@ function BLLRevisionCalidad() {
 
             } else {
 
-                tabla += "<td style='width:22px'><button id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-danger btn-xs' type='button'>Ver</button></td>";
+                tabla += "<td style='width:22px'><button id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-danger btn-xs VERAVAL' type='button'>Ver</button></td>";
                 tabla += "<td style='width:22px'><a  id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
 
             }

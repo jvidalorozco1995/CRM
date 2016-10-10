@@ -63,6 +63,7 @@ namespace BLLCRM
                     {
                         VistaAVal entb = new VistaAVal();
                         entb.id = item.id;
+                        entb.Registro = item.Registro;
                         entb.Propietario = item.Propietario;
                         entb.Residente = item.Residente;
                         entb.Inspeccion = item.Inspeccion;
