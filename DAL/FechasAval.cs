@@ -12,16 +12,10 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Aval
+    public partial class FechasAval
     {
-        public int id { get; set; }
-        public Nullable<int> Registro { get; set; }
-        public string Propietario { get; set; }
-        public string Residente { get; set; }
-        public string Inspeccion { get; set; }
-        public Nullable<int> Aprueba { get; set; }
-        public string UsuarioAprueba { get; set; }
-        public Nullable<System.DateTime> FechaFinApro { get; set; }
-        public string ReferenciaInmueble { get; set; }
+        public int Id { get; set; }
+        public Nullable<System.DateTime> FechaInspeccion { get; set; }
+        public Nullable<int> idRegistro { get; set; }
     }
 }
