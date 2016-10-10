@@ -1498,6 +1498,8 @@
     <Content Include="Csstabla\dataTables.tableTools.css" />
     <Content Include="Csstabla\font-awesome.css" />
     <Content Include="Csstabla\jquery.dataTables.css" />
+    <Content Include="Entrega\Aval\js\Aval.js" />
+    <Content Include="Entrega\Aval\WebAval.aspx" />
     <Content Include="Entrega\InspeccionCalidad\js\InspeccionCalidad.js" />
     <Content Include="Entrega\InspeccionCalidad\WebInspeccionCalidad.aspx" />
     <Content Include="Entrega\ProgramacionEntregas\js\ProgramacionEntregas.js" />
@@ -4846,6 +4848,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entrega\Aval\WebAval.aspx.cs">
+      <DependentUpon>WebAval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entrega\Aval\WebAval.aspx.designer.cs">
+      <DependentUpon>WebAval.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entrega\InspeccionCalidad\WebInspeccionCalidad.aspx.cs">
       <DependentUpon>WebInspeccionCalidad.aspx</DependentUpon>

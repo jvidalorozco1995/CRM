@@ -38,6 +38,8 @@ function BLLRevisionCalidad() {
         tabla += "<th>Inmueble</th>";
         tabla += "<th>F. config</th>";
         tabla += "<th>Aval</th>";
+        tabla += "<th></th>";
+        tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -48,8 +50,8 @@ function BLLRevisionCalidad() {
             tabla += "<td>" + item.NOMBRE_PROYEC + "</td>";
             tabla += "<td>" + item.MZA + "</td>";
             tabla += "<td>" + item.INMUEBLE + "</td>";
-            tabla += "<td>" + item.FECHACONFIRMA + "</td>";
-
+            tabla += "<td>" + moment(item.FECHACONFIRMA).format("YYYY/DD/MM")+"</td>";
+            
             if (item.ESTADOAVAL == 0) {
                
                 tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "' id='" + item.ID_INMUEBLES_ENTREGAS + "/" + item.NOMBRE_PROYEC + "' class='ClienteS' title='Agregar a separacion'></img></td>";
@@ -66,6 +68,19 @@ function BLLRevisionCalidad() {
 
             } else {
                 tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "' id='" + item.ID_INMUEBLES_ENTREGAS + "/" + item.NOMBRE_PROYEC + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+
+            }
+
+            if (item.ReferenciaInmueble == null) {
+
+                tabla += "<td style='width:22px'><button id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs AVAL' type='button'>+ AVAL</button></td>";
+                tabla += "<td style='width:22px'><a  id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs fa fa-clock '><i class='fa fa-clock-o'></i></a></td>";
+
+
+            } else {
+
+                tabla += "<td style='width:22px'><button id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-danger btn-xs' type='button'>Ver</button></td>";
+                tabla += "<td style='width:22px'><a  id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
 
             }
 
