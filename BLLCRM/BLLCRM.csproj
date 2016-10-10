@@ -58,6 +58,7 @@
     <Compile Include="BLLAcuerdoFox.cs" />
     <Compile Include="BLLAmbiente.cs" />
     <Compile Include="BLLAmbienteXitems.cs" />
+    <Compile Include="BLLAval.cs" />
     <Compile Include="BLLBancos.cs" />
     <Compile Include="BLLBloques.cs" />
     <Compile Include="BLLClientes.cs" />

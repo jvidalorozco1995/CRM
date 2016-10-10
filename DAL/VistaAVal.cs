@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Aval
+    public partial class VistaAVal
     {
         public int id { get; set; }
         public Nullable<int> Registro { get; set; }
@@ -22,6 +22,7 @@ namespace DAL
         public Nullable<int> Aprueba { get; set; }
         public string UsuarioAprueba { get; set; }
         public Nullable<System.DateTime> FechaFinApro { get; set; }
-        public string ReferenciaInmueble { get; set; }
+        public string NOMBRE_PROYEC { get; set; }
+        public string NOMBRE_BLO { get; set; }
     }
 }

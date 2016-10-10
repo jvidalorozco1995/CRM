@@ -107,15 +107,11 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Registro" Type="int" />
-          <Property Name="Proyecto" Type="varchar" MaxLength="150" />
-          <Property Name="Inmueble" Type="varchar" MaxLength="150" />
           <Property Name="Propietario" Type="varchar" MaxLength="150" />
           <Property Name="Residente" Type="varchar" MaxLength="150" />
           <Property Name="Inspeccion" Type="varchar" MaxLength="150" />
           <Property Name="Aprueba" Type="int" />
           <Property Name="UsuarioAprueba" Type="varchar" MaxLength="150" />
-          <Property Name="FechaInsp1" Type="datetime" />
-          <Property Name="FechaInsp2" Type="datetime" />
           <Property Name="FechaFinApro" Type="datetime" />
           <Property Name="ReferenciaInmueble" Type="varchar" MaxLength="50" />
         </EntityType>
@@ -248,6 +244,14 @@
           <Property Name="ENVIADOA" Type="varchar" MaxLength="50" />
           <Property Name="ENVIADOPOR" Type="varchar" MaxLength="50" />
           <Property Name="CONSECUTIVO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FechasAval">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FechaInspeccion" Type="datetime" />
+          <Property Name="idRegistro" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -914,15 +918,6 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VDocumentosActividades' does not ha
           <Property Name="id" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VfechasAsesor">
-          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
-          <Property Name="MES" Type="int" />
-          <Property Name="YEAR" Type="int" />
-          <Property Name="CONTADOR" Type="int" />
-          <Property Name="T_CEDULA" Type="varchar" MaxLength="30" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
@@ -1002,11 +997,22 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAmbiente' does not have a prim
           <Property Name="Consecutivo" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VistaTareasPorClientes">
-          <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
-          <Property Name="ID_TAREA" Type="int" />
-        </EntityType>-->
+warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAVal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VistaAVal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Registro" Type="int" />
+          <Property Name="Propietario" Type="varchar" MaxLength="150" />
+          <Property Name="Residente" Type="varchar" MaxLength="150" />
+          <Property Name="Inspeccion" Type="varchar" MaxLength="150" />
+          <Property Name="Aprueba" Type="int" />
+          <Property Name="UsuarioAprueba" Type="varchar" MaxLength="150" />
+          <Property Name="FechaFinApro" Type="datetime" />
+          <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
+          <Property Name="NOMBRE_BLO" Type="varchar" MaxLength="50" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntegrasC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VListadoEntegrasC">
@@ -1558,6 +1564,38 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="tareas_actualizar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="CRM_PRUEBAModelStoreContainer">
           <EntitySet Name="ActInmuebles" EntityType="Self.ActInmuebles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Actividades" EntityType="Self.Actividades" Schema="dbo" store:Type="Tables" />
@@ -1580,6 +1618,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a pr
           <EntitySet Name="documentos_negocio" EntityType="Self.documentos_negocio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="empresas" EntityType="Self.empresas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Entregas" EntityType="Self.Entregas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FechasAval" EntityType="Self.FechasAval" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="historial_clientes" EntityType="Self.historial_clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="historial_inmueble" EntityType="Self.historial_inmueble" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="historialIngreso" EntityType="Self.historialIngreso" Schema="dbo" store:Type="Tables" />
@@ -1927,6 +1966,20 @@ FROM [dbo].[VinteresProyect] AS [VinteresProyect]</DefiningQuery>
 [VistaAmbiente].[Consecutivo] AS [Consecutivo]
 FROM [dbo].[VistaAmbiente] AS [VistaAmbiente]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VistaAVal" EntityType="Self.VistaAVal" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VistaAVal].[id] AS [id], 
+[VistaAVal].[Registro] AS [Registro], 
+[VistaAVal].[Propietario] AS [Propietario], 
+[VistaAVal].[Residente] AS [Residente], 
+[VistaAVal].[Inspeccion] AS [Inspeccion], 
+[VistaAVal].[Aprueba] AS [Aprueba], 
+[VistaAVal].[UsuarioAprueba] AS [UsuarioAprueba], 
+[VistaAVal].[FechaFinApro] AS [FechaFinApro], 
+[VistaAVal].[NOMBRE_PROYEC] AS [NOMBRE_PROYEC], 
+[VistaAVal].[NOMBRE_BLO] AS [NOMBRE_BLO]
+FROM [dbo].[VistaAVal] AS [VistaAVal]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VListadoEntegrasC" EntityType="Self.VListadoEntegrasC" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [VListadoEntegrasC].[ID_INMUEBLES_ENTREGAS] AS [ID_INMUEBLES_ENTREGAS], 
@@ -2265,6 +2318,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="documentos_negocio" EntityType="CRM_PRUEBAModel.documentos_negocio" />
           <EntitySet Name="empresas" EntityType="CRM_PRUEBAModel.empresas" />
           <EntitySet Name="Entregas" EntityType="CRM_PRUEBAModel.Entregas" />
+          <EntitySet Name="FechasAval" EntityType="CRM_PRUEBAModel.FechasAval" />
           <EntitySet Name="historial_clientes" EntityType="CRM_PRUEBAModel.historial_clientes" />
           <EntitySet Name="historial_inmueble" EntityType="CRM_PRUEBAModel.historial_inmueble" />
           <EntitySet Name="historialIngreso" EntityType="CRM_PRUEBAModel.historialIngreso" />
@@ -2408,6 +2462,38 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="Tramites" EntitySet="Tramites" />
             <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
           </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CRM_PRUEBAModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CRM_PRUEBAModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="tareas_actualizar" />
+          <EntitySet Name="VistaAVal" EntityType="CRM_PRUEBAModel.VistaAVal" />
         </EntityContainer>
         <EntityType Name="ActInmuebles">
           <Key>
@@ -2516,15 +2602,11 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Registro" Type="Int32" />
-          <Property Name="Proyecto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Inmueble" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Propietario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Residente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Inspeccion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Aprueba" Type="Int32" />
           <Property Name="UsuarioAprueba" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="FechaInsp1" Type="DateTime" Precision="3" />
-          <Property Name="FechaInsp2" Type="DateTime" Precision="3" />
           <Property Name="FechaFinApro" Type="DateTime" Precision="3" />
           <Property Name="ReferenciaInmueble" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -2668,6 +2750,14 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="CONSECUTIVO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="proyectos" Relationship="CRM_PRUEBAModel.FK_Entregas_proyectos" FromRole="Entregas" ToRole="proyectos" />
           <NavigationProperty Name="INMUEBLES_ENTREGAS" Relationship="CRM_PRUEBAModel.FK_INMUEBLES_ENTREGAS_Entregas" FromRole="Entregas" ToRole="INMUEBLES_ENTREGAS" />
+        </EntityType>
+        <EntityType Name="FechasAval">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaInspeccion" Type="DateTime" Precision="3" />
+          <Property Name="idRegistro" Type="Int32" />
         </EntityType>
         <EntityType Name="historial_clientes">
           <Key>
@@ -3931,6 +4021,32 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="VistaAVal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Registro" Type="Int32" />
+          <Property Name="Propietario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Residente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Inspeccion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Aprueba" Type="Int32" />
+          <Property Name="UsuarioAprueba" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FechaFinApro" Type="DateTime" Precision="3" />
+          <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4046,15 +4162,11 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
               <MappingFragment StoreEntitySet="Aval">
                 <ScalarProperty Name="ReferenciaInmueble" ColumnName="ReferenciaInmueble" />
                 <ScalarProperty Name="FechaFinApro" ColumnName="FechaFinApro" />
-                <ScalarProperty Name="FechaInsp2" ColumnName="FechaInsp2" />
-                <ScalarProperty Name="FechaInsp1" ColumnName="FechaInsp1" />
                 <ScalarProperty Name="UsuarioAprueba" ColumnName="UsuarioAprueba" />
                 <ScalarProperty Name="Aprueba" ColumnName="Aprueba" />
                 <ScalarProperty Name="Inspeccion" ColumnName="Inspeccion" />
                 <ScalarProperty Name="Residente" ColumnName="Residente" />
                 <ScalarProperty Name="Propietario" ColumnName="Propietario" />
-                <ScalarProperty Name="Inmueble" ColumnName="Inmueble" />
-                <ScalarProperty Name="Proyecto" ColumnName="Proyecto" />
                 <ScalarProperty Name="Registro" ColumnName="Registro" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
@@ -4199,6 +4311,15 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="ID_PROYECTO" ColumnName="ID_PROYECTO" />
                 <ScalarProperty Name="FECHAREG" ColumnName="FECHAREG" />
                 <ScalarProperty Name="ID_ENTREGAS" ColumnName="ID_ENTREGAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FechasAval">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.FechasAval">
+              <MappingFragment StoreEntitySet="FechasAval">
+                <ScalarProperty Name="idRegistro" ColumnName="idRegistro" />
+                <ScalarProperty Name="FechaInspeccion" ColumnName="FechaInspeccion" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5178,6 +5299,47 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="IdTramite" ColumnName="IdTramite" />
                 <ScalarProperty Name="NombreBanco" ColumnName="NombreBanco" />
                 <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CRM_PRUEBAModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CRM_PRUEBAModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CRM_PRUEBAModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="CRM_PRUEBAModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CRM_PRUEBAModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="CRM_PRUEBAModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CRM_PRUEBAModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CRM_PRUEBAModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="CRM_PRUEBAModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="tareas_actualizar" FunctionName="CRM_PRUEBAModel.Store.tareas_actualizar" />
+          <EntitySetMapping Name="VistaAVal">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VistaAVal">
+              <MappingFragment StoreEntitySet="VistaAVal">
+                <ScalarProperty Name="NOMBRE_BLO" ColumnName="NOMBRE_BLO" />
+                <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
+                <ScalarProperty Name="FechaFinApro" ColumnName="FechaFinApro" />
+                <ScalarProperty Name="UsuarioAprueba" ColumnName="UsuarioAprueba" />
+                <ScalarProperty Name="Aprueba" ColumnName="Aprueba" />
+                <ScalarProperty Name="Inspeccion" ColumnName="Inspeccion" />
+                <ScalarProperty Name="Residente" ColumnName="Residente" />
+                <ScalarProperty Name="Propietario" ColumnName="Propietario" />
+                <ScalarProperty Name="Registro" ColumnName="Registro" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

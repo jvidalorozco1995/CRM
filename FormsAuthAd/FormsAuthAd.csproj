@@ -2309,6 +2309,7 @@
     <Content Include="Servicios\WActividadesInmueble.asmx" />
     <Content Include="Servicios\WActividadesTramites.asmx" />
     <Content Include="Servicios\WAmbiente.asmx" />
+    <Content Include="Servicios\WAval.asmx" />
     <Content Include="Servicios\WBancos.asmx" />
     <Content Include="Servicios\WClientes.asmx" />
     <Content Include="Servicios\WCompromisoCuota.asmx" />
@@ -4923,6 +4924,10 @@
     </Compile>
     <Compile Include="Servicios\WAmbiente.asmx.cs">
       <DependentUpon>WAmbiente.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WAval.asmx.cs">
+      <DependentUpon>WAval.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WBancos.asmx.cs">
