@@ -75,6 +75,11 @@ namespace BLLCRM
                 foreach (var item in a)
                 {
                     var ctx = bd.INMUEBLES_ENTREGAS.First(inm => inm.ID_INMUEBLES_ENTREGAS == item.ID_INMUEBLES_ENTREGAS);
+                    var obra = ctx.REFERENCIA_INMUEBLE.Substring(0, 3);
+                    var pro = bd.proyectos.First(inm2 => inm2.ID_PROYEC == obra);
+                    var repre = bd.ResponsableCalidad.First(inm3 => inm3.Proyecto == pro.NOMBRE_PROYEC);
+                    ctx.FECHACONFIRMA = DateTime.Now;
+                    ctx.INSPECCIONCAL = repre.Usuario;
                     ctx.CONFIRMAOBRA = item.CONFIRMAOBRA;
                     ctx.OBSERVACIONES = item.OBSERVACIONES;
                     bd.SaveChanges();
