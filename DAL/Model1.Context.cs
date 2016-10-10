@@ -94,6 +94,7 @@ namespace DAL
         public DbSet<VInmueblesConTramites> VInmueblesConTramites { get; set; }
         public DbSet<VinteresProyect> VinteresProyect { get; set; }
         public DbSet<VistaAmbiente> VistaAmbiente { get; set; }
+        public DbSet<VistaAVal> VistaAVal { get; set; }
         public DbSet<VListadoEntegrasC> VListadoEntegrasC { get; set; }
         public DbSet<VListadoEntregas> VListadoEntregas { get; set; }
         public DbSet<VnegocioFox> VnegocioFox { get; set; }
@@ -105,7 +106,6 @@ namespace DAL
         public DbSet<VtareasNegocio> VtareasNegocio { get; set; }
         public DbSet<VTracliente> VTracliente { get; set; }
         public DbSet<VTramitesBancos> VTramitesBancos { get; set; }
-        public DbSet<VistaAVal> VistaAVal { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

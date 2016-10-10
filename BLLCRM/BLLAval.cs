@@ -24,6 +24,10 @@ namespace BLLCRM
                 if (consecu == null) { cons = 0; } else { cons = Convert.ToInt32(consecu.Registro); }
                 // b.ENVIADO = DateTime.Now;
                 p.Registro = (cons + 1);
+                if (p.Aprueba == 1)
+                {
+                    p.UsuarioAprueba = Membership.GetUser().ToString();
+                }
                 bd.Aval.Add(p);
                 bd.SaveChanges();
                 //   UpdatePosicionItemXambiente(a);
@@ -40,13 +44,13 @@ namespace BLLCRM
                 throw;
             }
         }
-        public List<VistaAVal> ListIAval(int id)
+        public List<VistaAVal> ListIAval(string id)
         {
             
 
             try
             {
-                List<VistaAVal> lisb = bd.VistaAVal.Where(t=> t.Registro == id).ToList();
+                List<VistaAVal> lisb = bd.VistaAVal.Where(t=> t.ReferenciaInmueble == id).ToList();
                 //bd.compromisosxcuota.ToList();
                 List<VistaAVal> lisbcrm = new List<VistaAVal>();
                 if (lisb.Count.Equals(0))
@@ -67,6 +71,8 @@ namespace BLLCRM
                         entb.FechaFinApro = item.FechaFinApro;
                         entb.NOMBRE_PROYEC = item.NOMBRE_PROYEC;
                         entb.NOMBRE_BLO = item.NOMBRE_BLO;
+                        entb.ReferenciaInmueble = item.ReferenciaInmueble;
+                        entb.INMUEBLE = item.INMUEBLE;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;

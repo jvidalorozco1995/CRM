@@ -33,7 +33,7 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public List<VistaAVal> ListAval(int id)
+        public List<VistaAVal> ListAval(string id)
         {
             return cl.ListIAval(id);
         }
