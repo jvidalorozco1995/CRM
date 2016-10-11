@@ -58,6 +58,7 @@ namespace DAL
         public DbSet<inmuebles> inmuebles { get; set; }
         public DbSet<INMUEBLES_ENTREGAS> INMUEBLES_ENTREGAS { get; set; }
         public DbSet<Item> Item { get; set; }
+        public DbSet<ItemAval> ItemAval { get; set; }
         public DbSet<ItemXambiente> ItemXambiente { get; set; }
         public DbSet<negocio> negocio { get; set; }
         public DbSet<negocio_fox> negocio_fox { get; set; }

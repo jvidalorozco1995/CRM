@@ -21,6 +21,7 @@ namespace FormsAuthAd.Servicios
     {
         BLLAval cl = new BLLAval();
         BLLFechasAval cel = new BLLFechasAval();
+        BBLItemAval ita = new BBLItemAval();
         [WebMethod]
         public string HelloWorld()
         {
@@ -48,6 +49,13 @@ namespace FormsAuthAd.Servicios
         public List<FechasAval> ListFechaAval(int registro)
         {
             return cel.ListFechaAval(registro);
+
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public string InsertItemAval(List<ItemAval> itemAval)
+        {
+            return ita.InserItemAval(itemAval);
 
         }
     }

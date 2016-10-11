@@ -360,6 +360,21 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Item" Type="varchar" MaxLength="150" />
         </EntityType>
+        <EntityType Name="ItemAval">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAval" Type="int" />
+          <Property Name="Ambiente" Type="varchar" MaxLength="150" />
+          <Property Name="Numero" Type="int" />
+          <Property Name="Item" Type="varchar" MaxLength="150" />
+          <Property Name="Cumple" Type="int" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="500" />
+          <Property Name="FechaCompromiso" Type="datetime" />
+          <Property Name="FechaRecibido" Type="datetime" />
+          <Property Name="UsuarioAprueba" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="ItemXambiente">
           <Key>
             <PropertyRef Name="Id" />
@@ -1650,6 +1665,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a pr
           <EntitySet Name="inmuebles" EntityType="Self.inmuebles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="INMUEBLES_ENTREGAS" EntityType="Self.INMUEBLES_ENTREGAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemAval" EntityType="Self.ItemAval" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemXambiente" EntityType="Self.ItemXambiente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="negocio" EntityType="Self.negocio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="negocio_fox" EntityType="Self.negocio_fox" Schema="dbo" store:Type="Tables" />
@@ -2383,6 +2399,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="inmuebles" EntityType="CRM_PRUEBAModel.inmuebles" />
           <EntitySet Name="INMUEBLES_ENTREGAS" EntityType="CRM_PRUEBAModel.INMUEBLES_ENTREGAS" />
           <EntitySet Name="Item" EntityType="CRM_PRUEBAModel.Item" />
+          <EntitySet Name="ItemAval" EntityType="CRM_PRUEBAModel.ItemAval" />
           <EntitySet Name="ItemXambiente" EntityType="CRM_PRUEBAModel.ItemXambiente" />
           <EntitySet Name="negocio" EntityType="CRM_PRUEBAModel.negocio" />
           <EntitySet Name="negocio_fox" EntityType="CRM_PRUEBAModel.negocio_fox" />
@@ -2519,7 +2536,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="Tramites" EntitySet="Tramites" />
             <End Role="Tramites_Inmueble" EntitySet="Tramites_Inmueble" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -2890,6 +2907,21 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Item1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ItemAval">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAval" Type="Int32" />
+          <Property Name="Ambiente" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Numero" Type="Int32" />
+          <Property Name="Item" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Cumple" Type="Int32" />
+          <Property Name="Observaciones" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCompromiso" Type="DateTime" Precision="3" />
+          <Property Name="FechaRecibido" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioAprueba" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ItemXambiente">
           <Key>
@@ -4472,6 +4504,22 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ItemAval">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.ItemAval">
+              <MappingFragment StoreEntitySet="ItemAval">
+                <ScalarProperty Name="UsuarioAprueba" ColumnName="UsuarioAprueba" />
+                <ScalarProperty Name="FechaRecibido" ColumnName="FechaRecibido" />
+                <ScalarProperty Name="FechaCompromiso" ColumnName="FechaCompromiso" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="Cumple" ColumnName="Cumple" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Ambiente" ColumnName="Ambiente" />
+                <ScalarProperty Name="IdAval" ColumnName="IdAval" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ItemXambiente">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.ItemXambiente">
               <MappingFragment StoreEntitySet="ItemXambiente">
@@ -5372,7 +5420,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
