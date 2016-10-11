@@ -20,6 +20,7 @@ namespace FormsAuthAd.Servicios
     public class WAval : System.Web.Services.WebService
     {
         BLLAval cl = new BLLAval();
+        BLLFechasAval cel = new BLLFechasAval();
         [WebMethod]
         public string HelloWorld()
         {
@@ -29,6 +30,10 @@ namespace FormsAuthAd.Servicios
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int InsertAval(Aval b)
         {
+            FechasAval p = new FechasAval();
+            p.FechaInspeccion = DateTime.Now;
+            p.idRegistro = b.Registro;
+            cel.InsertFechasAval(p);
             return cl.InsertIAval(b);
         }
         [WebMethod]
@@ -36,6 +41,8 @@ namespace FormsAuthAd.Servicios
         public List<VistaAVal> ListAval(string id)
         {
             return cl.ListIAval(id);
+            
         }
+        
     }
 }

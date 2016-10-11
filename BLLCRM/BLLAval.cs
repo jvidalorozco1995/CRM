@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
+using BLLCRM;
+
 
 namespace BLLCRM
 {
@@ -30,8 +32,6 @@ namespace BLLCRM
                 }
                 bd.Aval.Add(p);
                 bd.SaveChanges();
-                //   UpdatePosicionItemXambiente(a);
-
                 return 1;
             }
             catch (DbUpdateException)

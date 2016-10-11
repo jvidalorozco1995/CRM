@@ -220,9 +220,7 @@ namespace BLLCRM
                 {
                     foreach (var item in lisb)
                     {
-
-
-
+                        
                         VListadoEntegrasC entb = new VListadoEntegrasC();
                         entb.CONSECUTIVO = item.CONSECUTIVO;
                         entb.NOMBRE_PROYEC = item.NOMBRE_PROYEC;
@@ -231,7 +229,6 @@ namespace BLLCRM
                         entb.INMUEBLE = item.INMUEBLE;
                         entb.FECHACONFIRMA = item.FECHACONFIRMA;
                         entb.ESTADOAVAL = item.ESTADOAVAL;
-                        entb.ReferenciaInmueble = item.ReferenciaInmueble;
                         entb.REFERENCIA_INMUEBLE = item.REFERENCIA_INMUEBLE;
                         lisbcrm.Add(entb);
                     }

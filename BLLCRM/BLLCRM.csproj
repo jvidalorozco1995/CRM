@@ -66,6 +66,7 @@
     <Compile Include="BLLDocumentoActiInmu.cs" />
     <Compile Include="BLLDocumentos.cs" />
     <Compile Include="BLLEntregas.cs" />
+    <Compile Include="BLLFechasAval.cs" />
     <Compile Include="BLLHistorialIngreso.cs" />
     <Compile Include="BLLInmueblesEntrega.cs" />
     <Compile Include="BLLItems.cs" />
