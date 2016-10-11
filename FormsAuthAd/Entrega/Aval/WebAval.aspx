@@ -6,30 +6,26 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div id="wrapper">
 
-        <div class="content animate-panel"  style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
-            <div class="row">
-                <!---Panel Informacion General--->
-                <div class="col-lg-6" id="Principal">
-                    <div class="hpanel">
-                        <div class="panel-tools">
-                            <a class="showhide" style="background: #E50000"><i class="fa fa-chevron-up"></i></a>
-                            <a class="Pcreartarea" style="background: #E50000"><i class="fa fa-times"></i></a>
-                        </div>
-                        <ul class="nav nav-tabs">
-                            <div class="pull-right">
-                              
-                                
-                                <!---<button class="btn btn-primary " type="button" id="BtnCancelar"><i class="fa fa-check"></i>Nuevo</button>--->
-                            </div>
-                            <li class="active"><a data-toggle="tab" href="#tab-1">Aval</a></li>
-                     
-                           
-                        </ul>
-                        <div class="tab-content">
-                            <div id="tab-1" class="tab-pane active">
+             <div class="content animate-panel">
+            <div class="row scroll" >
+              
+
+                <!--Modal del los crear negocios-->
+                <div class="col-lg-12  center" style=" padding-left:200px; padding-right:200px">
+                    <div class="panel panel-success">
+                        <div class="panel-body" id="datos">
+
+                            <!--Informacion cliente--->
+                            <div class="hpanel">
+                                <ul class="nav nav-tabs" id="myTab">
+                                     <li class="active"><a data-toggle="tab" data-target="#tab-1">Aval</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                     <!---------Tab 1---------->
+                                    <div id="tab-1" class="tab-pane active">
                                      <div class="hpanel" id="Informacion">
                               
-                                <div class="Border no-padding">
+                                    <div class="Border no-padding">
                                     <div class="tab-content">
                                         <div id="Div3" class="p-m tab-pane active">
 
@@ -69,21 +65,39 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+
+                                                  <div class="col-lg-12">
+                                                       <ul class="nav nav-tabs" id="myTab1">
+                                                          
+                                                       </ul>
+                                                         <div class="tab-content">
+                                                            
+                             <div id="1003" class="tab-pane active">
+                               
+                                 kasasjjajajajajajaja
+                                </div>
+                                                             </div>
+                                                   <a class="btn btn-success" id="BtnSiguiente2g">Siguiente</a>
+                                                  </div>
 
                                     </div>
                                 </div>
                             </div>
                             </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-             </div>
+            </div>
         </div>
-     </div>
+        </div>
+                                                </div>
+        </div>
+    
 
-  
+            
+
 
  
             
