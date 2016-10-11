@@ -43,6 +43,12 @@ namespace FormsAuthAd.Servicios
             return cl.ListIAval(id);
             
         }
-        
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<FechasAval> ListFechaAval(int registro)
+        {
+            return cel.ListFechaAval(registro);
+
+        }
     }
 }
