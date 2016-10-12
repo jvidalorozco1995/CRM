@@ -7,8 +7,12 @@ var letras = /[a-zA-Z]/;
 var admAval = (function () {
 
     var referencia = utl.getUrl('referencia');
-
+    var ListadoItemAval = [];
     var _addHandlers = function () {
+
+        $('.fechas').datepicker({
+            format: 'yyyy/mm/dd',
+        });
 
         $(document).on('click', '#BtnSiguiente2g', function () {
             
@@ -19,7 +23,64 @@ var admAval = (function () {
 
 
         
-        $(document).on('click', '#BtnRecorrer', function () {
+        $(document).on('click', '#BtnGuardar', function () {
+
+
+            $('.Tablas tbody tr').each(function () {
+                /*  public int Id { get; set; }
+                  public Nullable<int> IdAval { get; set; }
+                  public string Ambiente { get; set; }
+                  public Nullable<int> Numero { get; set; }
+                  public string Item { get; set; }
+                  public Nullable<int> Cumple { get; set; }
+                  public string Observaciones { get; set; }
+                  public Nullable<System.DateTime> FechaCompromiso { get; set; }
+                  public Nullable<System.DateTime> FechaRecibido { get; set; }
+                  public string UsuarioAprueba { get; set; }*/
+
+                var Consecutivo = $(this).find("td").eq(0).html();
+                var Ambiente = $(this).find("td").eq(1).html();
+                var Item = $(this).find("td").eq(2).html();
+                alert(Item);
+                var Cumple = $(this).find(('input[type="radio"]:checked')).val();
+                var Observaciones = $(this).find(('input[class="observaciones"]')).val();
+                var Fecha = $(this).find(('input[class="fechas"]')).val();
+
+
+
+                if (Observaciones == undefined) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                    '</br></br>1 - No a digitado nada en el campo observaciones' +
+                    '</br>2 - Verifique que no haya ingresado letras en el campo');
+                    return false;
+                } else if (Cumple == undefined) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - No a digitado nada en el campo cumplido' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                    return false;
+                } /*else if (fecha == undefined) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                    '</br></br>1 - No a digitado nada en el campo fecha de compromiso' +
+                    '</br>2 - Verifique que no haya ingresado letras en el campo');
+                    return false;
+                }*/ else {
+
+
+
+                    var DtoItemAval = {
+                        "Ambiente": Ambiente,
+                        "Numero": Consecutivo,
+                        "Item": Item,
+                        "Observaciones": Observaciones,
+                        "Fechas": Fecha,
+                    }
+
+
+                    ListadoItemAval.push(DtoItemAval);
+
+                }
+            });
+
             if ($("input:radio[name ='RAprueba']:checked").val() == undefined) {
                 toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo de aprobación' 
@@ -57,62 +118,9 @@ var admAval = (function () {
 
                 }
 
-                alert(JSON.stringify(DtoAval));
+                Aval.InsertarAval(DtoAval, ListadoItemAval);
             }
-            $('.Tablas tbody tr').each(function () {
-              /*  public int Id { get; set; }
-                public Nullable<int> IdAval { get; set; }
-                public string Ambiente { get; set; }
-                public Nullable<int> Numero { get; set; }
-                public string Item { get; set; }
-                public Nullable<int> Cumple { get; set; }
-                public string Observaciones { get; set; }
-                public Nullable<System.DateTime> FechaCompromiso { get; set; }
-                public Nullable<System.DateTime> FechaRecibido { get; set; }
-                public string UsuarioAprueba { get; set; }*/
-
-                var Consecutivo = $(this).find("td").eq(0).html();
-                var Ambiente = $(this).find("td").eq(1).html();
-                var Item = $(this).find("td").eq(2).html();
-             
-                var Cumple = $(this).find(('input[type="radio"]:checked')).val();
-                var Observaciones = $(this).find(('input[class="observaciones"]')).val();
-                var Fecha = $(this).find(('input[class="fechas"]')).val();
-
-
-
-                if (Observaciones == undefined) {
-                    toastr.error('CRM Mayales - Notificacion' +
-                    '</br></br>1 - No a digitado nada en el campo observaciones' +
-                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-                    return false;
-                } else if (Cumple == undefined) {
-                    toastr.error('CRM Mayales - Notificacion' +
-                        '</br></br>1 - No a digitado nada en el campo cumplido' +
-                        '</br>2 - Verifique que no haya ingresado letras en el campo');
-                    return false;
-                } else if (fecha == undefined) {
-                    toastr.error('CRM Mayales - Notificacion' +
-                    '</br></br>1 - No a digitado nada en el campo fecha de compromiso' +
-                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-                    return false;
-                } else {
-
-                    alert(Observaciones + Cumple + Fecha);
-
-                    var DtoItemAval = {
-                        "Ambiente": Ambiente,
-                        "Numero": Consecutivo,
-                        "Item": Item,
-                        "Observaciones": Observaciones,
-                        "Fechas": Fecha,
-                    }
-
-
-
-                    alert(JSON.stringify(DtoItemAval));
-                }
-            });
+          
         });
 
 
@@ -133,6 +141,7 @@ var admAval = (function () {
        
         Aval.Aval(referencia);
         Aval.ListadoAmbientes();
+       
 
 
     }
@@ -147,11 +156,10 @@ var admAval = (function () {
 $(document).ready(function () {
 
 
+ 
     $('.fechas').datepicker({
         format: 'yyyy/mm/dd',
     });
-
-    
 
     $('#TxtFeInspeccion1').datepicker({
         format: 'yyyy/mm/dd',

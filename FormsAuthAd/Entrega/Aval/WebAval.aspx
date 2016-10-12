@@ -55,14 +55,14 @@
                                                                    <input type="radio"  name="RAprueba" value="1"> Si<br>
                                                                    <input type="radio" name="RAprueba" value="0">No<br>
                                                              </div>
-                                                              <div class="form-group col-lg-3">
+                                                          <%--    <div class="form-group col-lg-3">
                                                                  <label>F. de inspeccion 1</label>
                                                                  <input type="text" value="" id="TxtFeInspeccion1" class="form-control" name="" readonly="">
                                                              </div>
                                                               <div class="form-group col-lg-3">
                                                                  <label>F. de inspeccion 2</label>
                                                                  <input type="text" value="" id="TxtFeInspeccion2" class="form-control" name="" readonly="">
-                                                             </div>
+                                                             </div>--%>
                                                               <div class="form-group col-lg-3">
                                                                  <label>F. Fin Aprobación</label>
                                                                  <input type="text" value="" id="TxtFinalAprob" class="form-control" readonly="">
@@ -90,8 +90,12 @@
                         <div class="tab-content" id="tabs">
                           
                         </div>
-                         <a class="btn btn-success" id="BtnSiguiente2g">Siguiente</a>
-                          <a class="btn btn-primary" id="BtnRecorrer">RECORRER</a>
+                        <div class="pull-right">
+
+                             <a class="btn btn-success" id="BtnSiguiente2g">Siguiente</a>
+                        </div>
+                        
+                          <a class="btn btn-primary" id="BtnGuardar">Guardar</a>
                     </div>
                 </div>
 
