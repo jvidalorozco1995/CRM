@@ -30,7 +30,7 @@ namespace BLLCRM
                 {
                     p.UsuarioAprueba = Membership.GetUser().ToString();
                 }
-                bd.Aval.Add(p);
+                var Avalinsertado = bd.Aval.Add(p);
                 bd.SaveChanges();
                 // se gurada la primera fecha de inspeccion
                 FechasAval fechas = new FechasAval();
@@ -38,7 +38,7 @@ namespace BLLCRM
                 fechas.idRegistro = p.Registro;
                 InsertFechasAval(fechas);
                 // se guarda los item por registro de aval
-                InserItemAval(itemAval, p.Registro);
+                InserItemAval(itemAval, Avalinsertado.id);
                 return 1;
             }
             catch (DbUpdateException)
@@ -111,7 +111,7 @@ namespace BLLCRM
                 throw;
             }
         }
-        public string InserItemAval(List<ItemAval> list, int? registro)
+        public string InserItemAval(List<ItemAval> list, int? aval)
         {
             try
             {
@@ -120,7 +120,7 @@ namespace BLLCRM
                 {
 
                     ItemAval inmu = new ItemAval();
-                    inmu.IdAval = registro;
+                    inmu.IdAval = aval;
                     inmu.Ambiente = item.Ambiente;
                     inmu.Cumple = item.Cumple;
                     inmu.Observaciones = item.Observaciones;
