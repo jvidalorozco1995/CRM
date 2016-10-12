@@ -1,6 +1,9 @@
 ﻿
 var utl = new BLLUtilidades();
 var Aval = new BLLAval();
+var emailreg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+var Numeros = /[0-9]/;
+var letras = /[a-zA-Z]/;
 var admAval = (function () {
 
     var referencia = utl.getUrl('referencia');
@@ -14,6 +17,84 @@ var admAval = (function () {
 
         });
 
+
+        
+        $(document).on('click', '#BtnRecorrer', function () {
+            if ($("input:radio[name ='RAprueba']:checked").val() == undefined) {
+                toastr.error('CRM Mayales - Notificacion' +
+                   '</br></br>1 - No a digitado nada en el campo de aprobación' 
+                   );
+               
+            } else  if ($('#TxtPropietario').val().length < 1 || !letras.test($('#TxtPropietario').val())) {
+                toastr.error('CRM Mayales - Notificacion' +
+                    '</br></br>1 - No a digitado nada en el campo propietario' +
+                    '</br>2 - Verifique que no haya ingresado letras en el campo');
+                $('#TxtPropietario').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+             
+
+            } else if ($('#TxtResidente').val().length < 1 || !letras.test($('#TxtResidente').val())) {
+                toastr.error('CRM Mayales - Notificacion' +
+                    '</br></br>1 - No a digitado nada en el campo residente' +
+                    '</br>2 - Verifique que no haya ingresado letras en el campo');
+                $('#TxtResidente').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+               
+
+            } else if ($('#TxtInspeccion').val().length < 1 || !letras.test($('#TxtInspeccion').val())) {
+                toastr.error('CRM Mayales - Notificacion' +
+                    '</br></br>1 - No a digitado nada en el campo residente' +
+                    '</br>2 - Verifique que no haya ingresado letras en el campo');
+                $('#TxtInspeccion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+            
+
+            } else {
+
+                var DtoAval = {
+
+                    "Propietario": $("#TxtPropietario").val(),
+                    "Residente": $("#TxtResidente").val(),
+                    "Inspeccion": $("#TxtInspeccion").val(),
+                    "Aprueba": $("input:radio[name ='RAprueba']:checked").val(),
+
+                }
+
+                alert(JSON.stringify(DtoAval));
+            }
+            $('.Tablas tbody tr').each(function () {
+              /*  public int Id { get; set; }
+                public Nullable<int> IdAval { get; set; }
+                public string Ambiente { get; set; }
+                public Nullable<int> Numero { get; set; }
+                public string Item { get; set; }
+                public Nullable<int> Cumple { get; set; }
+                public string Observaciones { get; set; }
+                public Nullable<System.DateTime> FechaCompromiso { get; set; }
+                public Nullable<System.DateTime> FechaRecibido { get; set; }
+                public string UsuarioAprueba { get; set; }*/
+
+                var Consecutivo = $(this).find("td").eq(0).html();
+                var Ambiente = $(this).find("td").eq(1).html();
+                var Item = $(this).find("td").eq(2).html();
+             
+                var Cumple = $(this).find(('input[type="radio"]:checked')).val();
+                var Observaciones = $(this).find(('input[class="observaciones"]')).val();
+                var Fecha = $(this).find(('input[class="fechas"]')).val();
+
+                alert(Observaciones + Cumple +Fecha);
+
+                var DtoItemAval = {
+                    "Ambiente": Ambiente,
+                    "Numero": Consecutivo,
+                    "Item": Item,
+                    "Observaciones": Observaciones,
+                    "Fechas": Fecha,
+                }
+
+               
+
+                alert(JSON.stringify(DtoItemAval));
+              
+            });
+        });
 
 
 /*$("ul.tabs li").click(function ()     //cada vez que se hace click en un li
@@ -45,6 +126,22 @@ var admAval = (function () {
 }());
 
 $(document).ready(function () {
+
+
+    $('.fechas').datepicker({
+        format: 'yyyy/mm/dd',
+    });
+
+    
+
+    $('#TxtFeInspeccion1').datepicker({
+        format: 'yyyy/mm/dd',
+    });
+
+    $('#TxtFeInspeccion2').datepicker({
+        format: 'yyyy/mm/dd',
+    });
+
 
     admAval.init();
 });

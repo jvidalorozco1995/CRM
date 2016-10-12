@@ -6,6 +6,8 @@
     var WsItems = funcionUrlGlobal("/Servicios/WAmbiente.asmx/Listitemxambiente");
 
 
+    var WsInsertarAval = funcionUrlGlobal("/Servicios/WAval.asmx/InsertAval");
+
     BLLAval.prototype.Aval = function (referencia) {
 
         jsonData = "{ 'id':" + JSON.stringify(referencia) + " }";
@@ -21,6 +23,7 @@
                     $("#TxtRegistro").val(result.d[0].Registro);
                     $("#TxtProyecto").val(result.d[0].NOMBRE_PROYEC);
                     $("#TxtInmueble").val(result.d[0].INMUEBLE);
+                    $("#TxtFinalAprob").val(result.d[0].FechaFinApro);
                     
                     
 
@@ -34,6 +37,36 @@
             error: function (obj, error, objError) { alert(objError); }
         });
     }
+
+
+    BLLAval.prototype.InsertarAval = function (data,itemAval) {
+
+
+        jsonData = "{'b':" + JSON.stringify(aval) + ",'ItemAval':" + JSON.stringify(itemAval) + "}";
+      
+
+        $.ajax({
+            type: "POST", url: WsInsertarAval, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d != null) {
+
+
+
+
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>Ha habido un error en el sistema y no se ha podido guardar');
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
+
 
     BLLAval.prototype.ListadoAmbientes = function () {
 
@@ -87,8 +120,7 @@
                 tabla1 += "<div id='" + item.Id + "'class='tab-pane active'>"
                 tabla1 += "<div class='panel-body'>";
                 tabla1 += "<h4>" + item.Ambiente1 + "</h1>"
-                tabla1 += "<div class ='ITEM"+item.Id+"'></div>";
-               
+                tabla1 += "<div class ='Tablas ITEM"+item.Id+"'></div>";
                 llamar(item);
                 tabla1 += "</div>";
                 tabla1 += "</div>";
@@ -97,8 +129,8 @@
                 tabla1 += "<div id='" + item.Id + "'class='tab-pane'>"
                 tabla1 += "<div class='panel-body'>";
                 tabla1 += "<h4>" + item.Ambiente1 + "</h1>"
-                tabla1 += "<div class ='ITEM" + item.Id + "'></div>";
-                 llamar(item);
+                tabla1 += "<div class ='Tablas ITEM" + item.Id + "'></div>";
+                llamar(item);
                 tabla1 += "</div>";
                 tabla1 += "</div>";
             }
@@ -121,7 +153,7 @@
             success: function (result) {
                 if (result.d != null) {
 
-                    BLLAval.CrearTablaItems(result.d);
+                    BLLAval.CrearTablaItems(item.Ambiente1, result.d);
 
 
 
@@ -136,13 +168,14 @@
         });
     }
 
-    BLLAval.CrearTablaItems = function (items) {
+    BLLAval.CrearTablaItems = function (nombreambiente,items) {
         
         document.getElementsByClassName("ITEM" + items[0].Idambiente).innerHTML = "";
-        var tabla = '<table id="example3" class="table table-striped table-bordered table-hover">';
+        var tabla = '<table class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr>";
         tabla += "<th>Consecutivo</th>";
+        tabla += "<th>Ambiente</th>";
         tabla += "<th>Item</th>";
         tabla += "<th>Cumple</th>";
         tabla += "<th>Observaciones</th>";
@@ -156,12 +189,13 @@
            
             tabla += " <tr>";
             tabla += "<td style='width:100px'>" + item.Consecutivo + "</td>";
+            tabla += "<td style='width:100px'>" + nombreambiente + "</td>";
             tabla += "<td style=''>" + item.Item + "</td>";
-            tabla +="<td><input type='radio' name='gender' value='male'> Si<br><input type='radio' name='gender' value='female'>No<br></td>"
-            tabla += "<td><textarea></textarea></td>"
+            tabla += "<td><input type='radio' name='RAcumple" + item.Id + "'value='1'> Si<br><input type='radio' name='RAcumple" + item.Id + "' value='0'>No<br></td>"
+            tabla += "<td><input type='text' class='observaciones'></input></td>"
+            tabla += "<td><input type='text' class='fechas'></input></td>"
             tabla += "<td></td>"
-            tabla += "<td></td>"
-            tabla += "<td><input type='radio' name='gender' value='male'> Si<br><input type='radio' name='gender' value='female'>No<br></td>"
+            tabla += "<td><input type='radio' class='RAaprobacion" + item.Id + "' value='1'> Si<br><input type='radio' name='RAaprobacion' value='0'>No<br></td>"
             
             tabla += "</tr>";
             ///images/cancel.png
