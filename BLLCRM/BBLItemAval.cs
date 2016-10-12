@@ -23,9 +23,8 @@ namespace BLLCRM
             try
             {
 
-
+                // modifica la linea donde se aprobo el aval
                 var ctx = bd.ItemAval.First(inm => inm.IdAval == id);
-
                 ctx.FechaRecibido = DateTime.Now;
                 ctx.UsuarioAprueba = Membership.GetUser().ToString();
                 bd.SaveChanges();
