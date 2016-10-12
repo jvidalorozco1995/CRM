@@ -24,27 +24,27 @@ var admAval = (function () {
                 toastr.error('CRM Mayales - Notificacion' +
                    '</br></br>1 - No a digitado nada en el campo de aprobación' 
                    );
-               
+                return false;
             } else  if ($('#TxtPropietario').val().length < 1 || !letras.test($('#TxtPropietario').val())) {
                 toastr.error('CRM Mayales - Notificacion' +
                     '</br></br>1 - No a digitado nada en el campo propietario' +
                     '</br>2 - Verifique que no haya ingresado letras en el campo');
                 $('#TxtPropietario').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
-             
+                return false;
 
             } else if ($('#TxtResidente').val().length < 1 || !letras.test($('#TxtResidente').val())) {
                 toastr.error('CRM Mayales - Notificacion' +
                     '</br></br>1 - No a digitado nada en el campo residente' +
                     '</br>2 - Verifique que no haya ingresado letras en el campo');
                 $('#TxtResidente').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
-               
+                return false;
 
             } else if ($('#TxtInspeccion').val().length < 1 || !letras.test($('#TxtInspeccion').val())) {
                 toastr.error('CRM Mayales - Notificacion' +
                     '</br></br>1 - No a digitado nada en el campo residente' +
                     '</br>2 - Verifique que no haya ingresado letras en el campo');
                 $('#TxtInspeccion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
-            
+                return false;
 
             } else {
 
@@ -79,20 +79,39 @@ var admAval = (function () {
                 var Observaciones = $(this).find(('input[class="observaciones"]')).val();
                 var Fecha = $(this).find(('input[class="fechas"]')).val();
 
-                alert(Observaciones + Cumple +Fecha);
 
-                var DtoItemAval = {
-                    "Ambiente": Ambiente,
-                    "Numero": Consecutivo,
-                    "Item": Item,
-                    "Observaciones": Observaciones,
-                    "Fechas": Fecha,
+
+                if (Observaciones == undefined) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                    '</br></br>1 - No a digitado nada en el campo observaciones' +
+                    '</br>2 - Verifique que no haya ingresado letras en el campo');
+                    return false;
+                } else if (Cumple == undefined) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                        '</br></br>1 - No a digitado nada en el campo cumplido' +
+                        '</br>2 - Verifique que no haya ingresado letras en el campo');
+                    return false;
+                } else if (fecha == undefined) {
+                    toastr.error('CRM Mayales - Notificacion' +
+                    '</br></br>1 - No a digitado nada en el campo fecha de compromiso' +
+                    '</br>2 - Verifique que no haya ingresado letras en el campo');
+                    return false;
+                } else {
+
+                    alert(Observaciones + Cumple + Fecha);
+
+                    var DtoItemAval = {
+                        "Ambiente": Ambiente,
+                        "Numero": Consecutivo,
+                        "Item": Item,
+                        "Observaciones": Observaciones,
+                        "Fechas": Fecha,
+                    }
+
+
+
+                    alert(JSON.stringify(DtoItemAval));
                 }
-
-               
-
-                alert(JSON.stringify(DtoItemAval));
-              
             });
         });
 

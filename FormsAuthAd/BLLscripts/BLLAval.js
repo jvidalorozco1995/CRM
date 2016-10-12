@@ -24,9 +24,9 @@
                     $("#TxtProyecto").val(result.d[0].NOMBRE_PROYEC);
                     $("#TxtInmueble").val(result.d[0].INMUEBLE);
                     $("#TxtFinalAprob").val(result.d[0].FechaFinApro);
+                    $("#TxtPropietario").val(result.d[0].Propietario);
                     
                     
-
                 } else {
                     toastr.error(' CRM - Notificacion' +
                         '</br>Ha habido un error en el sistema y no se ha podido guardar');

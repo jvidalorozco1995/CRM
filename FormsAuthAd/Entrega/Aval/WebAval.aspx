@@ -39,7 +39,7 @@
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Propietario</label>
-                                                                 <input type="text" value="" id="TxtPropietario" class="form-control" name="">
+                                                                 <input type="text" value="" id="TxtPropietario" class="form-control"readonly="">
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Residente</label>
