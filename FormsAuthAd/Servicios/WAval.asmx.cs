@@ -29,13 +29,9 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int InsertAval(Aval b)
+        public int InsertAval(Aval b, List<ItemAval> ItemAval)
         {
-            FechasAval p = new FechasAval();
-            p.FechaInspeccion = DateTime.Now;
-            p.idRegistro = b.Registro;
-            cel.InsertFechasAval(p);
-            return cl.InsertIAval(b);
+            return cl.InsertIAval(b, ItemAval);          
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -51,12 +47,6 @@ namespace FormsAuthAd.Servicios
             return cel.ListFechaAval(registro);
 
         }
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string InsertItemAval(List<ItemAval> itemAval)
-        {
-            return ita.InserItemAval(itemAval);
-
-        }
+        
     }
 }

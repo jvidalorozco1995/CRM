@@ -17,7 +17,7 @@ namespace BLLCRM
  public class BLLAval
     {
         CRMEntiti bd = new CRMEntiti();
-        public int InsertIAval(Aval p)
+        public int InsertIAval(Aval p, List<ItemAval> itemAval)
         {
             try
             {
@@ -32,6 +32,13 @@ namespace BLLCRM
                 }
                 bd.Aval.Add(p);
                 bd.SaveChanges();
+                // se gurada la primera fecha de inspeccion
+                FechasAval fechas = new FechasAval();
+                fechas.FechaInspeccion = DateTime.Now;
+                fechas.idRegistro = p.Registro;
+                InsertFechasAval(fechas);
+                // se guarda los item por registro de aval
+                InserItemAval(itemAval, p.Registro);
                 return 1;
             }
             catch (DbUpdateException)
@@ -83,6 +90,63 @@ namespace BLLCRM
             {
 
                 throw;
+            }
+        }
+        public int InsertFechasAval(FechasAval p)
+        {
+            try
+            {
+
+                bd.FechasAval.Add(p);
+                bd.SaveChanges();
+                return 1;
+            }
+            catch (DbUpdateException)
+            {
+                return 0;
+            }
+            catch (Exception)
+            {
+                return 2;
+                throw;
+            }
+        }
+        public string InserItemAval(List<ItemAval> list, int? registro)
+        {
+            try
+            {
+
+                foreach (var item in list)
+                {
+
+                    ItemAval inmu = new ItemAval();
+                    inmu.IdAval = registro;
+                    inmu.Ambiente = item.Ambiente;
+                    inmu.Cumple = item.Cumple;
+                    inmu.Observaciones = item.Observaciones;
+                    inmu.FechaCompromiso = item.FechaCompromiso;
+                    bd.ItemAval.Add(inmu);
+
+                }
+                bd.SaveChanges();
+
+                return "Se ha guardado satisfactoriamente el registro";
+            }
+            catch (DbUpdateException ex)
+            {
+                if (ex.InnerException.ToString().Contains("No se puede insertar una fila de clave duplicada"))
+                {
+
+                    return "Error 404 validation no found";
+                }
+                else
+                {
+                    throw ex;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

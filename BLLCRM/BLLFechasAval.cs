@@ -15,25 +15,7 @@ namespace BLLCRM
   public class BLLFechasAval
     {
         CRMEntiti bd = new CRMEntiti();
-      public int InsertFechasAval(FechasAval p)
-        {
-            try
-            {
-                
-                bd.FechasAval.Add(p);
-                bd.SaveChanges();
-                return 1;
-            }
-            catch (DbUpdateException)
-            {
-                return 0;
-            }
-            catch (Exception)
-            {
-                return 2;
-                throw;
-            }
-        }
+     
         public List<FechasAval> ListFechaAval( int registro)
         {
 
