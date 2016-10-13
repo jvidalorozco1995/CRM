@@ -39,7 +39,7 @@
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Propietario</label>
-                                                                 <input type="text" value="" id="TxtPropietario" class="form-control" name="">
+                                                                 <input type="text" value="" id="TxtPropietario" class="form-control"readonly="">
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Residente</label>
@@ -49,11 +49,25 @@
                                                                  <label>Inspección</label>
                                                                  <input type="text" value="" id="TxtInspeccion" class="form-control" name="">
                                                              </div>
-                                                             <div class="form-group col-lg-6">
+                                                             <div class="form-group col-lg-3">
                                                                  <label>Aprueba</label>
-                                                                 <input name="Si" value="si" type="checkbox">Si</input>
-                                                                 <input name="No" value="no" type="checkbox">No</input>
+                                                                 <br />
+                                                                   <input type="radio"  name="RAprueba" value="1"> Si<br>
+                                                                   <input type="radio" name="RAprueba" value="0">No<br>
                                                              </div>
+                                                          <%--    <div class="form-group col-lg-3">
+                                                                 <label>F. de inspeccion 1</label>
+                                                                 <input type="text" value="" id="TxtFeInspeccion1" class="form-control" name="" readonly="">
+                                                             </div>
+                                                              <div class="form-group col-lg-3">
+                                                                 <label>F. de inspeccion 2</label>
+                                                                 <input type="text" value="" id="TxtFeInspeccion2" class="form-control" name="" readonly="">
+                                                             </div>--%>
+                                                              <div class="form-group col-lg-3">
+                                                                 <label>F. Fin Aprobación</label>
+                                                                 <input type="text" value="" id="TxtFinalAprob" class="form-control" readonly="">
+                                                             </div>
+                                                             
                                                          </div>
                                                      </div>
 
@@ -76,7 +90,12 @@
                         <div class="tab-content" id="tabs">
                           
                         </div>
-                         <a class="btn btn-success" id="BtnSiguiente2g">Siguiente</a>
+                        <div class="pull-right">
+
+                             <a class="btn btn-success" id="BtnSiguiente2g">Siguiente</a>
+                        </div>
+                        
+                          <a class="btn btn-primary" id="BtnGuardar">Guardar</a>
                     </div>
                 </div>
 

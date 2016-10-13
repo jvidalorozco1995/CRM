@@ -13,7 +13,7 @@ using BLLCRM;
 
 namespace BLLCRM
 {
-  public class BBLItemAval
+    public class BBLItemAval
     {
         CRMEntiti bd = new CRMEntiti();
         public int UpdateItemAval(int id)
@@ -48,4 +48,5 @@ namespace BLLCRM
 
             }
         }
+    }
 }

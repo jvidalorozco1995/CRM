@@ -17,7 +17,16 @@ var admRevision = (function () {
             window.location.replace("./../Aval/WebAval.aspx?referencia=" + referencia);
             
         });
+
+        $(document).on('click', '.AVAL', function () {
+            var referencia = $(this).attr("id");
+
+            window.location.replace("./../Aval/WebAval.aspx?referencia=" + referencia);
+
+        });
     }
+
+    
 
     var _Inicio = function () {
        
