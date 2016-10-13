@@ -180,8 +180,8 @@
         tabla += "<th>Cumple</th>";
         tabla += "<th>Observaciones</th>";
         tabla += "<th>F.Compromiso</th>";
-     //   tabla += "<th>Recibo a satisfación</th>";
-      //  tabla += "<th>Aprobación</th>";
+     //   tabla += "<th>Recibo a satisfaci�n</th>";
+      //  tabla += "<th>Aprobaci�n</th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -191,9 +191,9 @@
             tabla += "<td style='width:100px'>" + item.Consecutivo + "</td>";
             tabla += "<td style='width:100px'>" + nombreambiente + "</td>";
             tabla += "<td style=''>" + item.Item + "</td>";
-            tabla += "<td><input type='radio' name='RAcumple" + item.Id + "'value='1'> Si<br><input type='radio' name='RAcumple" + item.Id + "' value='0'>No<br></td>"
+            tabla += "<td><input type='radio' class='RAcumple' tag='" + item.Id + "'name='RAcumple" + item.Id + "'value='1'> Si<br><input type='radio' tag='" + item.Id + "' class='RAcumple' name='RAcumple" + item.Id + "' value='0'>No<br></td>"
             tabla += "<td><input type='text' class='observaciones'></input></td>"
-            tabla += "<td><input type='date' id='fechas' class='form-control'></input></td>"
+            tabla += "<td><input type='date' id='fechas" + item.Id + "' class='fechas form-control' disabled></input></td>"
          //   tabla += "<td></td>"
            // tabla += "<td><input type='radio' class='RAaprobacion" + item.Id + "' value='1'> Si<br><input type='radio' name='RAaprobacion' value='0'>No<br></td>"
             

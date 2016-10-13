@@ -4,6 +4,11 @@ var Aval = new BLLAval();
 var emailreg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 var Numeros = /[0-9]/;
 var letras = /[a-zA-Z]/;
+
+
+var banderaso;
+
+
 var admAval = (function () {
 
     var referencia = utl.getUrl('referencia');
@@ -22,21 +27,62 @@ var admAval = (function () {
         });
 
 
+        $(document).on('click', '#BtnAprobarEntrega', function () {
+
+
+            banderaso = 0;
+            var result = confirm("Estas seguro(a) de que deseas aprobar esto?");
+            if (result) {
+
+                $('.Tablas tbody tr').each(function () {
+
+                    var Cumple = $(this).find(('input[type="radio"]:checked')).val();
+                   
+                    if (Cumple == 0 || Cumple == undefined) {
+
+                        banderaso++;
+                       
+                    }
+
+                });
+                if (banderaso > 0) {
+
+                    $('input:radio[name=RAprueba][value=0]').attr('checked', true);
+                    alert("NO SE PUEDE APROBAR PORQUE");
+                } else {
+
+                    //  $('input:radio[class=RAcumple][value=1]').attr('checked', true);
+                    $('input:radio[name=RAprueba][value=1]').attr('checked', true);
+                }
+            }
+        
+          
+        });
+
+
+       $(document).on('change', 'input:radio[class=RAcumple]', function () {
+           var datos = $(this).attr("tag");
+           
+            if (this.value == '1') {
+               
+              
+                $("#fechas" + datos).prop('disabled', true);
+               
+            }
+            else if (this.value == '0') {
+               
+                $("#fechas" + datos).prop('disabled', false);
+            }
+        });
+        
+
         
         $(document).on('click', '#BtnGuardar', function () {
 
+            banderaso = 0;
 
             $('.Tablas tbody tr').each(function () {
-                /*  public int Id { get; set; }
-                  public Nullable<int> IdAval { get; set; }
-                  public string Ambiente { get; set; }
-                  public Nullable<int> Numero { get; set; }
-                  public string Item { get; set; }
-                  public Nullable<int> Cumple { get; set; }
-                  public string Observaciones { get; set; }
-                  public Nullable<System.DateTime> FechaCompromiso { get; set; }
-                  public Nullable<System.DateTime> FechaRecibido { get; set; }
-                  public string UsuarioAprueba { get; set; }*/
+            
 
                 var Consecutivo = $(this).find("td").eq(0).html();
                 var Ambiente = $(this).find("td").eq(1).html();
@@ -44,10 +90,19 @@ var admAval = (function () {
               
                 var Cumple = $(this).find(('input[type="radio"]:checked')).val();
                 var Observaciones = $(this).find(('input[class="observaciones"]')).val();
-                var Fecha = $(this).find(('input[class="fechas"]')).val();
+                var Fecha = $(this).find(('input[type="date"]')).val();
 
+            
+                if (Cumple == 0 || Cumple == undefined) {
 
+                    banderaso++;
+                       
+                }
 
+          
+         
+
+                
                 if (Observaciones == undefined) {
                     toastr.error('CRM Mayales - Notificacion' +
                     '</br></br>1 - No a digitado nada en el campo observaciones' +
@@ -58,21 +113,17 @@ var admAval = (function () {
                         '</br></br>1 - No a digitado nada en el campo cumplido' +
                         '</br>2 - Verifique que no haya ingresado letras en el campo');
                     return false;
-                } /*else if (fecha == undefined) {
-                    toastr.error('CRM Mayales - Notificacion' +
-                    '</br></br>1 - No a digitado nada en el campo fecha de compromiso' +
-                    '</br>2 - Verifique que no haya ingresado letras en el campo');
-                    return false;
-                }*/ else {
+                }
+                else {
 
-                    alert(Item);
-
+                   
                     var DtoItemAval = {
                         "Ambiente": Ambiente,
                         "Numero": Consecutivo,
                         "Item": Item,
                         "Observaciones": Observaciones,
-                        "Fechas": Fecha,
+                        "FechaCompromiso": Fecha,
+                      
                     }
 
 
@@ -80,10 +131,20 @@ var admAval = (function () {
 
                 }
             });
+            alert(parseInt(banderaso));
+            if (banderaso > 0) {
+
+                $('input:radio[name=RAprueba][value=0]').attr('checked', true);
+              
+            } else {
+
+                //  $('input:radio[class=RAcumple][value=1]').attr('checked', true);
+                $('input:radio[name=RAprueba][value=1]').attr('checked', true);
+            }
 
             if ($("input:radio[name ='RAprueba']:checked").val() == undefined) {
                 toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - No a digitado nada en el campo de aprobación' 
+                   '</br></br>1 - No a digitado nada en el campo de aprobaci�n' 
                    );
                 return false;
             } else  if ($('#TxtPropietario').val().length < 1 || !letras.test($('#TxtPropietario').val())) {
@@ -115,7 +176,7 @@ var admAval = (function () {
                     "Residente": $("#TxtResidente").val(),
                     "Inspeccion": $("#TxtInspeccion").val(),
                     "Aprueba": $("input:radio[name ='RAprueba']:checked").val(),
-
+                    "ReferenciaInmueble": referencia,
                 }
 
                 Aval.InsertarAval(DtoAval, ListadoItemAval);
@@ -123,17 +184,8 @@ var admAval = (function () {
           
         });
 
+       
 
-/*$("ul.tabs li").click(function ()     //cada vez que se hace click en un li
-        {
-            $("ul.tabs li").removeClass("active"); //removemos clase active de todos
-            $(this).addClass("active"); //añadimos a la actual la clase active
-            $(".tab_content").hide(); //escondemos todo el contenido
-
-            var content = $(this).find("a").attr("href"); //obtenemos atributo href del link
-            $(content).fadeIn(); // mostramos el contenido
-            return false; //devolvemos false para el evento click
-        });*/
     }
 
     var _Inicio = function () {
@@ -155,7 +207,11 @@ var admAval = (function () {
 
 $(document).ready(function () {
 
+    
 
+    $('#TxtFinalAprob').datepicker({
+        format: 'yyyy/mm/dd',
+    });
  
     $('.fechas').datepicker({
         format: 'yyyy/mm/dd',

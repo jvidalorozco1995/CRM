@@ -22,7 +22,7 @@
                                            <div id="Div3" class="p-m tab-pane active">
                                                <div class="row">
                                                      <div class="col-lg-12 text-center">
-                                                        <h1> Estado : Aprobado</h1>
+                                                     
                                                      </div>
                                                      <div class="col-lg-12">
                                                          <div class="row">
@@ -53,8 +53,8 @@
                                                              <div class="form-group col-lg-3">
                                                                  <label>Aprueba</label>
                                                                  <br />
-                                                                   <input type="radio"  name="RAprueba" value="1"> Si<br>
-                                                                   <input type="radio" name="RAprueba" value="0">No<br>
+                                                                   <input type="radio"  name="RAprueba" value="1" disabled> Si<br>
+                                                                   <input type="radio" name="RAprueba" value="0" disabled>No<br>
                                                              </div>
                                                           <%--    <div class="form-group col-lg-3">
                                                                  <label>F. de inspeccion 1</label>
@@ -71,7 +71,7 @@
                                                               <div class="form-group col-lg-3">
                                                                  <label>Click en el boton para aprobar</label>
                                                                   <br />
-                                                                <a class="btn btn-warning" id="">Aprobar Entrega</a>
+                                                                <a class="btn btn-warning" id="BtnAprobarEntrega">Aprobar Entrega</a>
                                                              </div>
                                                          </div>
                                                      </div>
