@@ -96,7 +96,7 @@ var admEntregas= (function () {
                 }
                
 
-                var Observaciones = $(this).find(('textarea')).val();
+                var Observaciones = $(this).find(('input[class="text"]')).val();
 
                 var InmuebleConfirmado = {
 

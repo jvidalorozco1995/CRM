@@ -41,7 +41,7 @@ var admAval = (function () {
                 var Consecutivo = $(this).find("td").eq(0).html();
                 var Ambiente = $(this).find("td").eq(1).html();
                 var Item = $(this).find("td").eq(2).html();
-                alert(Item);
+              
                 var Cumple = $(this).find(('input[type="radio"]:checked')).val();
                 var Observaciones = $(this).find(('input[class="observaciones"]')).val();
                 var Fecha = $(this).find(('input[class="fechas"]')).val();
@@ -65,7 +65,7 @@ var admAval = (function () {
                     return false;
                 }*/ else {
 
-
+                    alert(Item);
 
                     var DtoItemAval = {
                         "Ambiente": Ambiente,

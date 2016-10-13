@@ -32,7 +32,7 @@ namespace FormsAuthAd.Servicios
         public int InsertAval(Aval b, List<ItemAval> ItemAval)
         {
             return cl.InsertIAval(b, ItemAval);          
-        }
+        } 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<VistaAVal> ListAval(string id)
