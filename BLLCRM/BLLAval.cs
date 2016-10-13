@@ -35,7 +35,7 @@ namespace BLLCRM
                 // se gurada la primera fecha de inspeccion
                 FechasAval fechas = new FechasAval();
                 fechas.FechaInspeccion = DateTime.Now;
-                fechas.idRegistro = p.Registro;
+                fechas.idRegistro = Avalinsertado.id;
                 InsertFechasAval(fechas);
                 // se guarda los item por registro de aval
                 InserItemAval(itemAval, Avalinsertado.id);
@@ -122,6 +122,8 @@ namespace BLLCRM
                     ItemAval inmu = new ItemAval();
                     inmu.IdAval = aval;
                     inmu.Ambiente = item.Ambiente;
+                    inmu.Numero = item.Numero;
+                    inmu.Item = item.Item;
                     inmu.Cumple = item.Cumple;
                     inmu.Observaciones = item.Observaciones;
                     inmu.FechaCompromiso = item.FechaCompromiso;
