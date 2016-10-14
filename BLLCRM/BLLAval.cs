@@ -116,7 +116,7 @@ namespace BLLCRM
                         entb.MZA = item.MZA;
                         entb.INMUEBLE = item.INMUEBLE;
                         entb.REFERENCIA = item.REFERENCIA;
-                        entb.PROPIETARIO = item.PROPIETARIO;
+                        entb.NOMBRECLIENTE = item.NOMBRECLIENTE;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;

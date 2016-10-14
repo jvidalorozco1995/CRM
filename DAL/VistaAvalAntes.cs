@@ -20,6 +20,7 @@ namespace DAL
         public string MZA { get; set; }
         public string INMUEBLE { get; set; }
         public string REFERENCIA { get; set; }
-        public string PROPIETARIO { get; set; }
+        public string NOMBRECLIENTE { get; set; }
+
     }
 }

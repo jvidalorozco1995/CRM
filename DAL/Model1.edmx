@@ -1057,7 +1057,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAvalAntes' does not have a pri
           <Property Name="MZA" Type="varchar" MaxLength="10" />
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
           <Property Name="REFERENCIA" Type="varchar" MaxLength="16" Nullable="false" />
-          <Property Name="PROPIETARIO" Type="nvarchar(max)" />
+          <Property Name="NOMBRECLIENTE" Type="varchar" MaxLength="300" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -2043,7 +2043,7 @@ FROM [dbo].[VistaAVal] AS [VistaAVal]</DefiningQuery>
 [VistaAvalAntes].[MZA] AS [MZA], 
 [VistaAvalAntes].[INMUEBLE] AS [INMUEBLE], 
 [VistaAvalAntes].[REFERENCIA] AS [REFERENCIA], 
-[VistaAvalAntes].[PROPIETARIO] AS [PROPIETARIO]
+[VistaAvalAntes].[NOMBRECLIENTE] AS [NOMBRECLIENTE]
 FROM [dbo].[VistaAvalAntes] AS [VistaAvalAntes]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VListadoEntegrasC" EntityType="Self.VListadoEntegrasC" store:Type="Views" store:Schema="dbo">
@@ -3613,7 +3613,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="MZA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="INMUEBLE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="REFERENCIA" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
-          <Property Name="PROPIETARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NOMBRECLIENTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VListadoEntegrasC">
           <Key>
@@ -5216,7 +5216,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="VistaAvalAntes">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.VistaAvalAntes">
               <MappingFragment StoreEntitySet="VistaAvalAntes">
-                <ScalarProperty Name="PROPIETARIO" ColumnName="PROPIETARIO" />
+                <ScalarProperty Name="NOMBRECLIENTE" ColumnName="NOMBRECLIENTE" />
                 <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
                 <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
                 <ScalarProperty Name="MZA" ColumnName="MZA" />
