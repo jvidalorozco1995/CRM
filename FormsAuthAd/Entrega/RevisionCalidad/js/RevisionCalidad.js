@@ -13,15 +13,16 @@ var admRevision = (function () {
         
         $(document).on('click', '.VERAVAL', function () {
             var referencia = $(this).attr("id");
+            var idAval = $(this).attr("tag");
 
-            window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia +"&accion=2";
+            window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia +"&accion=2&idaval="+idAval;
             
         });
 
         $(document).on('click', '.AVAL', function () {
             var referencia = $(this).attr("id");
 
-            window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia + "&accion=1";
+            window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia + "&accion=1&idaval=" + idAval;
 
         });
     }

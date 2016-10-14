@@ -71,15 +71,15 @@ function BLLRevisionCalidad() {
 
             }
          
-            if (item.ReferenciaInmueble == null) {
+            if (item.IdAval == null) {
 
-                tabla += "<td style='width:22px'><button id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs AVAL' type='button'>+ AVAL</button></td>";
+                tabla += "<td style='width:22px'><button  id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs AVAL' type='button'>+ AVAL</button></td>";
                 tabla += "<td style='width:22px'><a  id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs fa fa-clock '><i class='fa fa-clock-o'></i></a></td>";
 
 
             } else {
 
-                tabla += "<td style='width:22px'><button id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-danger btn-xs VERAVAL' type='button'>Ver</button></td>";
+                tabla += "<td style='width:22px'><button tag='" + item.IdAval+ "' id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-danger btn-xs VERAVAL' type='button'>Ver</button></td>";
                 tabla += "<td style='width:22px'><a  id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
 
             }

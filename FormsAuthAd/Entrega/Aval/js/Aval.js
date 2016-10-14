@@ -13,6 +13,7 @@ var admAval = (function () {
 
     var referencia = utl.getUrl('referencia');
     var accion = utl.getUrl('accion');
+    var idaval = utl.getUrl('idaval');
 
     var ListadoItemAval = [];
     var _addHandlers = function () {
@@ -238,7 +239,7 @@ var admAval = (function () {
         }
        
         Aval.Aval(referencia);
-        Aval.ListadoAmbientes(accion);
+        Aval.ListadoAmbientes(accion, idaval);
        
 
 
