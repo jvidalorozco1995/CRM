@@ -187,5 +187,31 @@ namespace BLLCRM
                 throw ex;
             }
         }
+        public int Aprobar(string referenciainmueble, int idaval)
+        {
+
+            try
+            {
+
+
+                var ctx = bd.Aval.First(inm => inm.id == idaval);
+
+                ctx.Aprueba = 1;
+                ctx.UsuarioAprueba = Membership.GetUser().ToString();
+                bd.SaveChanges();
+
+                var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == referenciainmueble);
+                ctx2.ESTADOAVAL = 1;
+                bd.SaveChanges();
+
+                return 1;
+            }
+
+            catch (Exception ex)
+            {
+                return 0;
+                throw;
+            }
+        }
     }
 }

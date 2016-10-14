@@ -60,6 +60,11 @@ namespace FormsAuthAd.Servicios
         {
             return ita.UpdateItemAval(idaval);
         }
-        
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int Aprobar(string referencia,int idaval)
+        {
+            return cl.Aprobar(referencia,idaval);
+        }
     }
 }
