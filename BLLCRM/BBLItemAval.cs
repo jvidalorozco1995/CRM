@@ -16,7 +16,7 @@ namespace BLLCRM
     public class BBLItemAval
     {
         CRMEntiti bd = new CRMEntiti();
-        public int UpdateItemAval(int id)
+        public int UpdateItemAval(int id,string referenciainmueble)
         {
             // Query the database for the row to be updated.
             var query =
@@ -32,6 +32,9 @@ namespace BLLCRM
                 ord.UsuarioAprueba = Membership.GetUser().ToString();
                 // Insert any additional changes to column values.
             }
+            var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == referenciainmueble);
+            ctx2.ESTADOAVAL = 1;
+            bd.SaveChanges();
 
             // Submit the changes to the database.
             try
@@ -46,6 +49,43 @@ namespace BLLCRM
                 //
 
 
+            }
+        }
+        public List<ItemAval> ListItemAval(int id)
+        {
+
+            try
+            {
+                List<ItemAval> lisb = bd.ItemAval.Where(t => t.IdAval == id).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<ItemAval> lisbcrm = new List<ItemAval>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        ItemAval entb = new ItemAval();
+                        entb.IdAval = item.IdAval;
+                        entb.Ambiente = item.Ambiente;
+                        entb.Numero = item.Numero;
+                        entb.Item = item.Item;
+                        entb.Cumple = item.Cumple;
+                        entb.Observaciones = item.Observaciones;
+                        entb.FechaCompromiso = item.FechaCompromiso;
+                        entb.FechaRecibido = item.FechaRecibido;
+                        entb.UsuarioAprueba = item.UsuarioAprueba;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

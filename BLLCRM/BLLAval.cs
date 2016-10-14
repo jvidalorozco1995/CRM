@@ -38,7 +38,7 @@ namespace BLLCRM
                 fechas.idRegistro = Avalinsertado.id;
                 InsertFechasAval(fechas);
                 // se guarda los item por registro de aval
-                InserItemAval(itemAval, Avalinsertado.id);
+                InserItemAval(itemAval, Avalinsertado.id,p.ReferenciaInmueble);
                 return 1;
             }
             catch (DbUpdateException)
@@ -147,7 +147,7 @@ namespace BLLCRM
                 throw;
             }
         }
-        public string InserItemAval(List<ItemAval> list, int? aval)
+        public string InserItemAval(List<ItemAval> list, int? aval,string referenciainmueble)
         {
             try
             {
@@ -168,6 +168,9 @@ namespace BLLCRM
                 }
                 bd.SaveChanges();
 
+                var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == referenciainmueble);
+                ctx2.ESTADOAVAL = 1;
+                bd.SaveChanges();
                 return "Se ha guardado satisfactoriamente el registro";
             }
             catch (DbUpdateException ex)
@@ -201,7 +204,7 @@ namespace BLLCRM
                 bd.SaveChanges();
 
                 var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == referenciainmueble);
-                ctx2.ESTADOAVAL = 1;
+                ctx2.ESTADOAVAL = 2;
                 bd.SaveChanges();
 
                 return 1;
