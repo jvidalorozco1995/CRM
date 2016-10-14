@@ -45,7 +45,6 @@ namespace FormsAuthAd.Servicios
         public List<VistaAvalAntes> ListAvalAntes(string id)
         {
             return cl.ListIAvalAntes(id);
-
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
