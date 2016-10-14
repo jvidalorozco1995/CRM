@@ -21,6 +21,5 @@ namespace DAL
         public string INMUEBLE { get; set; }
         public string REFERENCIA { get; set; }
         public string NOMBRECLIENTE { get; set; }
-
     }
 }

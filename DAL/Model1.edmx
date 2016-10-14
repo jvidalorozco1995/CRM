@@ -1092,7 +1092,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntegrasC' does not have a 
           <Property Name="OBSERVACIONES" Type="varchar" MaxLength="250" />
           <Property Name="CONSECUTIVO" Type="int" Nullable="false" />
           <Property Name="FECHACONFIRMA" Type="datetime" />
-          <Property Name="ReferenciaInmueble" Type="varchar" MaxLength="50" />
+          <Property Name="IdAval" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntregas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -2067,7 +2067,7 @@ FROM [dbo].[VistaAvalAntes] AS [VistaAvalAntes]</DefiningQuery>
 [VListadoEntegrasC].[OBSERVACIONES] AS [OBSERVACIONES], 
 [VListadoEntegrasC].[CONSECUTIVO] AS [CONSECUTIVO], 
 [VListadoEntegrasC].[FECHACONFIRMA] AS [FECHACONFIRMA], 
-[VListadoEntegrasC].[ReferenciaInmueble] AS [ReferenciaInmueble]
+[VListadoEntegrasC].[IdAval] AS [IdAval]
 FROM [dbo].[VListadoEntegrasC] AS [VListadoEntegrasC]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VListadoEntregas" EntityType="Self.VListadoEntregas" store:Type="Views" store:Schema="dbo">
@@ -3640,7 +3640,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="OBSERVACIONES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="CONSECUTIVO" Type="Int32" Nullable="false" />
           <Property Name="FECHACONFIRMA" Type="DateTime" Precision="3" />
-          <Property Name="ReferenciaInmueble" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdAval" Type="Int32" />
         </EntityType>
         <EntityType Name="VListadoEntregas">
           <Key>
@@ -5229,7 +5229,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="VListadoEntegrasC">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.VListadoEntegrasC">
               <MappingFragment StoreEntitySet="VListadoEntegrasC">
-                <ScalarProperty Name="ReferenciaInmueble" ColumnName="ReferenciaInmueble" />
+                <ScalarProperty Name="IdAval" ColumnName="IdAval" />
                 <ScalarProperty Name="FECHACONFIRMA" ColumnName="FECHACONFIRMA" />
                 <ScalarProperty Name="CONSECUTIVO" ColumnName="CONSECUTIVO" />
                 <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />

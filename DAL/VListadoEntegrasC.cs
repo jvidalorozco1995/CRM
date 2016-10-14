@@ -33,6 +33,6 @@ namespace DAL
         public string OBSERVACIONES { get; set; }
         public int CONSECUTIVO { get; set; }
         public Nullable<System.DateTime> FECHACONFIRMA { get; set; }
-        public string ReferenciaInmueble { get; set; }
+        public Nullable<int> IdAval { get; set; }
     }
 }
