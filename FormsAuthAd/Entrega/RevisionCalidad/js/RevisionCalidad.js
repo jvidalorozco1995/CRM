@@ -14,14 +14,14 @@ var admRevision = (function () {
         $(document).on('click', '.VERAVAL', function () {
             var referencia = $(this).attr("id");
 
-            window.location.replace("./../Aval/WebAval.aspx?referencia=" + referencia);
+            window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia +"&accion=2";
             
         });
 
         $(document).on('click', '.AVAL', function () {
             var referencia = $(this).attr("id");
 
-            window.location.replace("./../Aval/WebAval.aspx?referencia=" + referencia);
+            window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia + "&accion=1";
 
         });
     }

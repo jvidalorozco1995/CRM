@@ -7,11 +7,13 @@ var letras = /[a-zA-Z]/;
 
 
 var banderaso;
-
+var banderaso2;
 
 var admAval = (function () {
 
     var referencia = utl.getUrl('referencia');
+    var accion = utl.getUrl('accion');
+
     var ListadoItemAval = [];
     var _addHandlers = function () {
 
@@ -31,6 +33,7 @@ var admAval = (function () {
 
 
             banderaso = 0;
+            banderaso2 = 0;
             var result = confirm("Estas seguro(a) de que deseas aprobar esto?");
             if (result) {
 
@@ -38,17 +41,21 @@ var admAval = (function () {
 
                     var Cumple = $(this).find(('input[type="radio"]:checked')).val();
                    
-                    if (Cumple == 0 || Cumple == undefined) {
+                    if (Cumple == 0) {
 
                         banderaso++;
                        
                     }
 
+                   else if (Cumple == undefined) {
+
+                       banderaso2++;
+                    }
                 });
                 if (banderaso > 0) {
 
                     $('input:radio[name=RAprueba][value=0]').attr('checked', true);
-                    alert("NO SE PUEDE APROBAR PORQUE");
+                    
                 } else {
 
                     //  $('input:radio[class=RAcumple][value=1]').attr('checked', true);
@@ -76,10 +83,17 @@ var admAval = (function () {
         });
         
 
+       $(document).on('click', '#BtnEditar', function () {
+
+
+
+       });
+       
+
         
         $(document).on('click', '#BtnGuardar', function () {
 
-            banderaso = 0;
+       
 
             $('.Tablas tbody tr').each(function () {
             
@@ -93,10 +107,13 @@ var admAval = (function () {
                 var Fecha = $(this).find(('input[type="date"]')).val();
 
             
-                if (Cumple == 0 || Cumple == undefined) {
+                if (Cumple == 0) {
 
                     banderaso++;
                        
+                } else if (Cumple == undefined) {
+
+                    banderaso2++;
                 }
 
           
@@ -123,7 +140,7 @@ var admAval = (function () {
                         "Item": Item,
                         "Observaciones": Observaciones,
                         "FechaCompromiso": Fecha,
-                      
+                        "Cumple": Cumple
                     }
 
 
@@ -131,20 +148,22 @@ var admAval = (function () {
 
                 }
             });
-            alert(parseInt(banderaso));
+           
             if (banderaso > 0) {
-
-                $('input:radio[name=RAprueba][value=0]').attr('checked', true);
+               
+                $('input:radio[name=RAprueba][value=0]').prop("checked", true)
+                $('input:radio[name=RAprueba][value=1]').prop('checked', false);
               
             } else {
-
+               
                 //  $('input:radio[class=RAcumple][value=1]').attr('checked', true);
-                $('input:radio[name=RAprueba][value=1]').attr('checked', true);
+                $('input:radio[name=RAprueba][value=1]').prop("checked", true)
+                $('input:radio[name=RAprueba][value=0]').prop("checked", false)
             }
 
             if ($("input:radio[name ='RAprueba']:checked").val() == undefined) {
                 toastr.error('CRM Mayales - Notificacion' +
-                   '</br></br>1 - No a digitado nada en el campo de aprobaci�n' 
+                   '</br></br>1 - No a digitado nada en el campo de aprobacion' 
                    );
                 return false;
             } else  if ($('#TxtPropietario').val().length < 1 || !letras.test($('#TxtPropietario').val())) {
@@ -168,6 +187,14 @@ var admAval = (function () {
                 $('#TxtInspeccion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
                 return false;
 
+            } else if (banderaso2 > 0) {
+
+                toastr.error('CRM Mayales - Notificacion' +
+                    '</br></br>1 - No se ha seleccionado un estado de cumplimiento' +
+                    '</br>2 - Verifique que halla checkeado todos los campos de cumple');
+                $('#TxtInspeccion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
+                return false;
+
             } else {
 
                 var DtoAval = {
@@ -180,6 +207,8 @@ var admAval = (function () {
                 }
 
                 Aval.InsertarAval(DtoAval, ListadoItemAval);
+                banderaso = 0;
+                banderaso2 = 0;
             }
           
         });
@@ -191,8 +220,25 @@ var admAval = (function () {
     var _Inicio = function () {
 
        
+        if (accion == 1) {
+
+            $("#BtnAprobarEntrega").hide();
+            $("#BtnGuardar").show();
+            $("#BtnEditar").hide();
+            $("#BtnHabilitar").hide();
+            
+
+        } else if (accion == 2) {
+
+            $("#BtnAprobarEntrega").hide();
+            $("#BtnGuardar").hide();
+            $("#BtnEditar").hide();
+            $("#BtnHabilitar").show();
+
+        }
+       
         Aval.Aval(referencia);
-        Aval.ListadoAmbientes();
+        Aval.ListadoAmbientes(accion);
        
 
 

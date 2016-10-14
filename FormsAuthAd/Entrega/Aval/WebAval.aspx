@@ -8,7 +8,7 @@
     <div id="wrapper">
 
         <div class="content animate-panel">
-            <div class="row scroll">
+            <div class="row">
 
                 <div class="col-lg-12  center" style="padding-left: 200px; padding-right: 200px">
                     <div class="panel panel-success">
@@ -28,19 +28,19 @@
                                                          <div class="row">
                                                              <div class="form-group col-lg-6">
                                                                  <label>No Registro</label>
-                                                                 <input type="text" value="" id="TxtRegistro" class="form-control" >
+                                                                 <input type="text" value="" id="TxtRegistro" class="form-control" readonly="">
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Proyecto</label>
-                                                                 <input type="text" id="TxtProyecto" class="form-control"  />
+                                                                 <input type="text" id="TxtProyecto" class="form-control"  readonly=""/>
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Inmueble</label>
-                                                                 <input type="text" value="" id="TxtInmueble" class="form-control" >
+                                                                 <input type="text" value="" id="TxtInmueble" class="form-control" readonly="">
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Propietario</label>
-                                                                 <input type="text" value="" id="TxtPropietario" class="form-control">
+                                                                 <input type="text" value="" id="TxtPropietario" class="form-control" readonly="">
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Residente</label>
@@ -48,7 +48,7 @@
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Inspección</label>
-                                                                 <input type="text" value="" id="TxtInspeccion" class="form-control" name="">
+                                                                 <input type="text" value="" id="TxtInspeccion" class="form-control" name="" >
                                                              </div>
                                                              <div class="form-group col-lg-3">
                                                                  <label>Aprueba</label>
@@ -66,12 +66,12 @@
                                                              </div>--%>
                                                               <div class="form-group col-lg-3">
                                                                  <label>F. Fin Aprobación</label>
-                                                                 <input type="text" value="" id="TxtFinalAprob" class="form-control" >
+                                                                 <input type="text" value="" id="TxtFinalAprob" class="form-control" readonly="" >
                                                              </div>
                                                               <div class="form-group col-lg-3">
-                                                                 <label>Click en el boton para aprobar</label>
+                                                                
                                                                   <br />
-                                                                <a class="btn btn-warning" id="BtnAprobarEntrega">Aprobar Entrega</a>
+                                                              
                                                              </div>
                                                          </div>
                                                      </div>
@@ -95,12 +95,21 @@
                         <div class="tab-content" id="tabs">
                           
                         </div>
+                        
+                        
+                        <div class="modal-footer">
+                      
+                              <div class="pull-left">
+
+                             <button type="button" class="btn btn-primary" id="BtnGuardar">Guardar</button>
+                             <button type="button" class="btn btn-primary" id="BtnEditar">Editar</button>
+                                   <button type="button" class="btn btn-primary" id="BtnHabilitar">Editar el formulario</button>
+                                  </div>
                         <div class="pull-right">
 
                              <a class="btn btn-success" id="BtnSiguiente2g">Siguiente</a>
                         </div>
-                        
-                          <a class="btn btn-primary" id="BtnGuardar">Guardar</a>
+                        </div>
                     </div>
                 </div>
 
