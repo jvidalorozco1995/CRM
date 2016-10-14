@@ -1,7 +1,7 @@
 ﻿function BLLAval() {
     
    
-    var WsAval = funcionUrlGlobal("/Servicios/WAval.asmx/ListAval");
+    var WsAval = funcionUrlGlobal("/Servicios/WAval.asmx/ListAvalAntes");
     var WsAmbiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/Listambiente");
     var WsItems = funcionUrlGlobal("/Servicios/WAmbiente.asmx/Listitemxambiente");
 
@@ -24,7 +24,7 @@
                     $("#TxtProyecto").val(result.d[0].NOMBRE_PROYEC);
                     $("#TxtInmueble").val(result.d[0].INMUEBLE);
                     $("#TxtFinalAprob").val(result.d[0].FechaFinApro);
-                    $("#TxtPropietario").val(result.d[0].Propietario);
+                    $("#TxtPropietario").val(result.d[0].NOMBRECLIENTE);
                     
                     
                 } else {
@@ -53,8 +53,12 @@
             success: function (result) {
                 if (result.d != null) {
 
+                    toastr.success(' CRM - Notificacion' +
+                       '</br>Se ha guardado el aval satisfactoriamente');
+                    setTimeout(function () {
+                        window.location.replace("./../RevisionCalidad/WebRevisionCalidad.aspx");
 
-
+                    }, 1000);
 
                 } else {
                     toastr.error(' CRM - Notificacion' +
@@ -68,7 +72,7 @@
     }
 
 
-    BLLAval.prototype.ListadoAmbientes = function () {
+    BLLAval.prototype.ListadoAmbientes = function (accion) {
 
         $.ajax({
             type: "POST", url: WsAmbiente,
@@ -78,8 +82,12 @@
             success: function (result) {
                 if (result.d != null) {
 
-                    BLLAval.CrearAmbientes(result.d);
 
+                  
+                        BLLAval.CrearAmbientes(result.d, accion);
+
+                   
+                    
 
 
                 } else {
@@ -93,7 +101,7 @@
         });
     }
 
-    BLLAval.CrearAmbientes = function (ambientes) {
+    BLLAval.CrearAmbientes = function (ambientes,accion) {
         var tabla = document.getElementById('myTab1').innerHTML = "";
         var tabla1 = document.getElementById('tabs').innerHTML = "";
       
@@ -103,25 +111,29 @@
             if (i == 0) 
             {
 
-                tabla += "<li class='active'><a data-toggle='tab' class='a' data-nexttab='" + (i + 1) + "' href='#" + item.Id + "'>" + item.Ambiente1 + "</a></li>";
+                tabla += "<li class='active'><a data-toggle='tab' class='a' data-nexttab='" + (i + 1) + "' href='#" + item.Id + "'>" + 1 + "</a></li>";
                
             } else
 
             {
-                tabla += "<li class=''><a data-toggle='tab' class='a' data-nexttab='" + (i + 1) + "' href='#" + item.Id + "'>" + item.Ambiente1 + "</a></li>";
+                tabla += "<li class=''><a data-toggle='tab' class='a' data-nexttab='" + (i + 1) + "' href='#" + item.Id + "'>" + (i + 1)  + "</a></li>";
 
             }
            
 
-        });
+       });
 
         $.each(ambientes, function (i, item) {
             if (i == 0) {
                 tabla1 += "<div id='" + item.Id + "'class='tab-pane active'>"
                 tabla1 += "<div class='panel-body'>";
                 tabla1 += "<h4>" + item.Ambiente1 + "</h1>"
-                tabla1 += "<div class ='Tablas ITEM"+item.Id+"'></div>";
-                llamar(item);
+                tabla1 += "<div class ='Tablas ITEM" + item.Id + "'></div>";
+                if (accion == 1) {
+                    Crear(item);
+                } else {
+                    Actualizar(item);
+                }
                 tabla1 += "</div>";
                 tabla1 += "</div>";
             } else {
@@ -130,7 +142,11 @@
                 tabla1 += "<div class='panel-body'>";
                 tabla1 += "<h4>" + item.Ambiente1 + "</h1>"
                 tabla1 += "<div class ='Tablas ITEM" + item.Id + "'></div>";
-                llamar(item);
+                if (accion == 1) {
+                    Crear(item)
+                } else {
+                    Actualizar(item);
+                }
                 tabla1 += "</div>";
                 tabla1 += "</div>";
             }
@@ -142,7 +158,10 @@
                                   
     }
 
-    function llamar(item) {
+
+
+
+    function Crear(item) {
 
         var datos = "{ 'id':" + JSON.stringify(item.Id) + " }";
         $.ajax({
@@ -167,6 +186,34 @@
             error: function (obj, error, objError) { alert(objError); }
         });
     }
+
+
+    function Actualizar(item) {
+
+        var datos = "{ 'id':" + JSON.stringify(item.Id) + " }";
+        $.ajax({
+            type: "POST", url: WsItems, data: datos,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+
+            success: function (result) {
+                if (result.d != null) {
+
+                    BLLAval.CrearTablaItems(item.Ambiente1, result.d);
+
+
+
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>Ha habido un error en el sistema y no se ha podido guardar');
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
+
 
     BLLAval.CrearTablaItems = function (nombreambiente,items) {
         
