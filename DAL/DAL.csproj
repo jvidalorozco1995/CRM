@@ -278,6 +278,9 @@
     <Compile Include="VistaAVal.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="VistaAvalAntes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="VListadoEntegrasC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

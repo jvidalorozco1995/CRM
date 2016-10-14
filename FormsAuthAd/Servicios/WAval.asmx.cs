@@ -42,6 +42,13 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<VistaAvalAntes> ListAvalAntes(string id)
+        {
+            return cl.ListIAvalAntes(id);
+
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<FechasAval> ListFechaAval(int registro)
         {
             return cel.ListFechaAval(registro);

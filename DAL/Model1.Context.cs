@@ -96,6 +96,7 @@ namespace DAL
         public DbSet<VinteresProyect> VinteresProyect { get; set; }
         public DbSet<VistaAmbiente> VistaAmbiente { get; set; }
         public DbSet<VistaAVal> VistaAVal { get; set; }
+        public DbSet<VistaAvalAntes> VistaAvalAntes { get; set; }
         public DbSet<VListadoEntegrasC> VListadoEntegrasC { get; set; }
         public DbSet<VListadoEntregas> VListadoEntregas { get; set; }
         public DbSet<VnegocioFox> VnegocioFox { get; set; }

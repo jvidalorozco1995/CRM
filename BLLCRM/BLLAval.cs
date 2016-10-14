@@ -92,6 +92,42 @@ namespace BLLCRM
                 throw;
             }
         }
+        public List<VistaAvalAntes> ListIAvalAntes(string id)
+        {
+
+
+            try
+            {
+                List<VistaAvalAntes> lisb = bd.VistaAvalAntes.Where(t => t.REFERENCIA == id).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<VistaAvalAntes> lisbcrm = new List<VistaAvalAntes>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        VistaAvalAntes entb = new VistaAvalAntes();
+                        entb.NOMBRE_PROYEC = item.NOMBRE_PROYEC;
+                        entb.NOMBRE_BLO = item.NOMBRE_BLO;
+                        entb.INMUOBRA = item.INMUOBRA;
+                        entb.MZA = item.MZA;
+                        entb.INMUEBLE = item.INMUEBLE;
+                        entb.REFERENCIA = item.REFERENCIA;
+                        entb.PROPIETARIO = item.PROPIETARIO;
+                        lisbcrm.Add(entb);
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public int InsertFechasAval(FechasAval p)
         {
             try

@@ -12,15 +12,14 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Vspt
+    public partial class VistaAvalAntes
     {
         public string NOMBRE_PROYEC { get; set; }
-        public string T_CEDULA { get; set; }
-        public string ID_PROYEC { get; set; }
-        public int ID_PY { get; set; }
-        public string NOMBRES { get; set; }
-        public string TRABAJADOR { get; set; }
-        public string ESTADO { get; set; }
-        public int CONTADOR { get; set; }
+        public string NOMBRE_BLO { get; set; }
+        public string INMUOBRA { get; set; }
+        public string MZA { get; set; }
+        public string INMUEBLE { get; set; }
+        public string REFERENCIA { get; set; }
+        public string PROPIETARIO { get; set; }
     }
 }

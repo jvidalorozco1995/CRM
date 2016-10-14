@@ -1046,6 +1046,20 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAVal' does not have a primary 
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAvalAntes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VistaAvalAntes">
+          <Key>
+            <PropertyRef Name="REFERENCIA" />
+          </Key>
+          <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
+          <Property Name="NOMBRE_BLO" Type="varchar" MaxLength="50" />
+          <Property Name="INMUOBRA" Type="varchar" MaxLength="10" />
+          <Property Name="MZA" Type="varchar" MaxLength="10" />
+          <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
+          <Property Name="REFERENCIA" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="PROPIETARIO" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="VistaTareasPorClientes">
           <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
@@ -2021,6 +2035,17 @@ FROM [dbo].[VistaAmbiente] AS [VistaAmbiente]</DefiningQuery>
 [VistaAVal].[INMUEBLE] AS [INMUEBLE]
 FROM [dbo].[VistaAVal] AS [VistaAVal]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VistaAvalAntes" EntityType="Self.VistaAvalAntes" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[VistaAvalAntes].[NOMBRE_PROYEC] AS [NOMBRE_PROYEC], 
+[VistaAvalAntes].[NOMBRE_BLO] AS [NOMBRE_BLO], 
+[VistaAvalAntes].[INMUOBRA] AS [INMUOBRA], 
+[VistaAvalAntes].[MZA] AS [MZA], 
+[VistaAvalAntes].[INMUEBLE] AS [INMUEBLE], 
+[VistaAvalAntes].[REFERENCIA] AS [REFERENCIA], 
+[VistaAvalAntes].[PROPIETARIO] AS [PROPIETARIO]
+FROM [dbo].[VistaAvalAntes] AS [VistaAvalAntes]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VListadoEntegrasC" EntityType="Self.VListadoEntegrasC" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
 [VListadoEntegrasC].[ID_INMUEBLES_ENTREGAS] AS [ID_INMUEBLES_ENTREGAS], 
@@ -2437,6 +2462,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySet Name="VinteresProyect" EntityType="CRM_PRUEBAModel.VinteresProyect" />
           <EntitySet Name="VistaAmbiente" EntityType="CRM_PRUEBAModel.VistaAmbiente" />
           <EntitySet Name="VistaAVal" EntityType="CRM_PRUEBAModel.VistaAVal" />
+          <EntitySet Name="VistaAvalAntes" EntityType="CRM_PRUEBAModel.VistaAvalAntes" />
           <EntitySet Name="VListadoEntegrasC" EntityType="CRM_PRUEBAModel.VListadoEntegrasC" />
           <EntitySet Name="VListadoEntregas" EntityType="CRM_PRUEBAModel.VListadoEntregas" />
           <EntitySet Name="VnegocioFox" EntityType="CRM_PRUEBAModel.VnegocioFox" />
@@ -3576,6 +3602,18 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ReferenciaInmueble" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="INMUEBLE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VistaAvalAntes">
+          <Key>
+            <PropertyRef Name="REFERENCIA" />
+          </Key>
+          <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INMUOBRA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MZA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="INMUEBLE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="REFERENCIA" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="PROPIETARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VListadoEntegrasC">
           <Key>
@@ -5172,6 +5210,19 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
                 <ScalarProperty Name="Propietario" ColumnName="Propietario" />
                 <ScalarProperty Name="Registro" ColumnName="Registro" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VistaAvalAntes">
+            <EntityTypeMapping TypeName="CRM_PRUEBAModel.VistaAvalAntes">
+              <MappingFragment StoreEntitySet="VistaAvalAntes">
+                <ScalarProperty Name="PROPIETARIO" ColumnName="PROPIETARIO" />
+                <ScalarProperty Name="REFERENCIA" ColumnName="REFERENCIA" />
+                <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
+                <ScalarProperty Name="MZA" ColumnName="MZA" />
+                <ScalarProperty Name="INMUOBRA" ColumnName="INMUOBRA" />
+                <ScalarProperty Name="NOMBRE_BLO" ColumnName="NOMBRE_BLO" />
+                <ScalarProperty Name="NOMBRE_PROYEC" ColumnName="NOMBRE_PROYEC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
