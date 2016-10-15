@@ -69,6 +69,7 @@ namespace BLLCRM
                     {
                         ItemAval entb = new ItemAval();
                         entb.IdAval = item.IdAval;
+                        entb.Id = item.Id;
                         entb.Ambiente = item.Ambiente;
                         entb.Numero = item.Numero;
                         entb.Item = item.Item;
