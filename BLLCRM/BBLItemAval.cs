@@ -16,12 +16,12 @@ namespace BLLCRM
     public class BBLItemAval
     {
         CRMEntiti bd = new CRMEntiti();
-        public int UpdateItemAval(int id,string referenciainmueble, ItemAval p)
+        public int UpdateItemAval(string referenciainmueble, ItemAval p)
         {
             // Query the database for the row to be updated.
             var query =
                 from ord in bd.ItemAval
-                where ord.IdAval == id
+                where ord.IdAval == p.Id
                 select ord;
 
             // Execute the query, and change the column values
@@ -51,8 +51,6 @@ namespace BLLCRM
                 Console.WriteLine(e);
                 return 0;
                 //
-
-
             }
         }
         public List<ItemAval> ListItemAval(int id)

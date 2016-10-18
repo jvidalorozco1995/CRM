@@ -341,20 +341,21 @@
                          tabla1 += "<div id='" + items[i].Id + "'class='tab-pane active'>"
                          tabla1 += "<div class='panel-body'>";
                          tabla1 += "<h4>" + items[i].Ambiente + "</h1>"
-                         tabla1 += "<div class ='Tablas ITEM" + numero2 + "'></div>";
+                         tabla1 += "<div class ='Tablas ITEM" + numero2 + "'>";
 
                          tabla1 += CrearActualizar(numero, findValor(items, items[i].Ambiente));
-                        
+                         tabla1 += "</div>";
                          tabla1 += "</div>";
                          tabla1 += "</div>";
                      } else {
                          tabla1 += "<div id='" + items[i].Id + "'class='tab-pane '>"
                          tabla1 += "<div class='panel-body'>";
                          tabla1 += "<h4>" + items[i].Ambiente + "</h1>"
-                         tabla1 += "<div class ='Tablas ITEM" + numero2 + "'></div>";
+                         tabla1 += "<div class ='Tablas ITEM" + numero2 + "'>";
 
 
                          tabla1 += CrearActualizar(numero, findValor(items, items[i].Ambiente));
+                         tabla1+="</div>";
                          tabla1 += "</div>";
                          tabla1 += "</div>";
                      }
@@ -365,11 +366,12 @@
                  tabla1 += "<div id='" + items[i].Id + "'class='tab-pane '>"
                  tabla1 += "<div class='panel-body'>";
                  tabla1 += "<h4>" + items[i].Ambiente + "</h1>"
-                 tabla1 += "<div class ='Tablas ITEM" + numero2 + "'></div>";
+                 tabla1 += "<div class ='Tablas ITEM" + numero2 + "'>";
 
 
-                 tabla1+= CrearActualizar(numero, findValor(items, items[i].Ambiente));
+                 tabla1 += CrearActualizar(numero, findValor(items, items[i].Ambiente));
 
+                 tabla1 += "</div>";
                  tabla1 += "</div>";
                  tabla1 += "</div>";
 

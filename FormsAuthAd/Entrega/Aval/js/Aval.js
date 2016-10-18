@@ -89,6 +89,51 @@ var admAval = (function () {
 
 
        });
+
+       $(document).on('click', '#BtnCancelar', function () {
+
+           $('.Tablas tbody tr').each(function () {
+
+               var Cumple = $(this).find(('input[class="RAcumple"]'));
+               var Observaciones = $(this).find(('input[class="observaciones"]'));
+               var Fecha = $(this).find(('input[type="date"]'));
+               var UsuarioAprueba = $(this).find(('input[class="UsuarioAprueba"]'));
+
+               if (Cumple.val() == 0) {
+
+                   Observaciones.prop("disabled", true);
+                   Fecha.prop("disabled", true);
+                   Cumple.prop("disabled", true);
+               }
+           });
+
+           $("#BtnHabilitar").show();
+           $("#BtnEditar").hide();
+           $("#BtnCancelar").hide();
+       });
+
+
+       $(document).on('click', '#BtnHabilitar', function () {
+       
+           $('.Tablas tbody tr').each(function () {
+               
+               var Cumple = $(this).find(('input[class="RAcumple"]'));
+               var Observaciones = $(this).find(('input[class="observaciones"]'));
+               var Fecha = $(this).find(('input[type="date"]'));
+               var UsuarioAprueba = $(this).find(('input[class="UsuarioAprueba"]'));
+               
+               if (Cumple.val() == 0) {
+
+                   Observaciones.prop("disabled", false);
+                   Fecha.prop("disabled", false);
+                   Cumple.prop("disabled", false);
+               }
+           });
+
+           $("#BtnHabilitar").hide();
+           $("#BtnEditar").show();
+           $("#BtnCancelar").show();
+       });
        
 
         
@@ -220,7 +265,7 @@ var admAval = (function () {
 
     var _Inicio = function () {
 
-       
+        $("#BtnCancelar").hide();
         if (accion == 1) {
 
             $("#BtnAprobarEntrega").hide();

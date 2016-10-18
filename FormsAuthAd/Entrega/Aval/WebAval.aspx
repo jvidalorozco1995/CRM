@@ -104,7 +104,8 @@
                              <button type="button" class="btn btn-primary" id="BtnGuardar">Guardar</button>
                              <button type="button" class="btn btn-primary" id="BtnEditar">Editar</button>
                                    <button type="button" class="btn btn-primary" id="BtnHabilitar">Editar el formulario</button>
-                                  </div>
+                                    <button type="button" class="btn btn-default" id="BtnCancelar">Cancelar</button>
+</div>
                         <div class="pull-right">
 
                              <a class="btn btn-success" id="BtnSiguiente2g">Siguiente</a>
