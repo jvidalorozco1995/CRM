@@ -55,9 +55,9 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int UpdateItemAval(int idaval, string referenciainmueble)
+        public int UpdateItemAval( string referenciainmueble, List<ItemAval> ItemAval)
         {
-            return ita.UpdateItemAval(idaval, referenciainmueble);
+            return ita.UpdateItemAval(referenciainmueble,ItemAval);
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
