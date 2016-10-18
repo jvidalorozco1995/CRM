@@ -78,7 +78,7 @@ namespace BLLCRM
                         entb.FechaCompromiso = item.FechaCompromiso;
                         entb.FechaRecibido = item.FechaRecibido;
                         entb.UsuarioAprueba = item.UsuarioAprueba;
-                        entb.Usuario = Membership.GetUser().ToString();
+                        
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;

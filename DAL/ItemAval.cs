@@ -24,6 +24,6 @@ namespace DAL
         public Nullable<System.DateTime> FechaCompromiso { get; set; }
         public Nullable<System.DateTime> FechaRecibido { get; set; }
         public string UsuarioAprueba { get; set; }
-        public string Usuario { get; set; }
+        
     }
 }
