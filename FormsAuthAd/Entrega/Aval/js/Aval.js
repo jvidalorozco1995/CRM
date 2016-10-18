@@ -238,7 +238,7 @@ var admAval = (function () {
 
         }
        
-        Aval.Aval(referencia);
+        Aval.Aval(accion,referencia);
         Aval.ListadoAmbientes(accion, idaval);
        
 
