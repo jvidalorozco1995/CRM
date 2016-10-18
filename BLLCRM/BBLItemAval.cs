@@ -16,7 +16,7 @@ namespace BLLCRM
     public class BBLItemAval
     {
         CRMEntiti bd = new CRMEntiti();
-        public int UpdateItemAval(int id,string referenciainmueble)
+        public int UpdateItemAval(int id,string referenciainmueble, ItemAval p)
         {
             // Query the database for the row to be updated.
             var query =
@@ -30,6 +30,10 @@ namespace BLLCRM
             {
                 ord.FechaRecibido = DateTime.Now;
                 ord.UsuarioAprueba = Membership.GetUser().ToString();
+                ord.Cumple = p.Cumple;
+                ord.Observaciones = p.Observaciones;
+                ord.FechaCompromiso = p.FechaCompromiso;
+
                 // Insert any additional changes to column values.
             }
             var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == referenciainmueble);
