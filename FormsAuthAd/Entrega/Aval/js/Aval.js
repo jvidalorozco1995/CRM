@@ -68,27 +68,49 @@ var admAval = (function () {
         });
 
 
-       $(document).on('change', 'input:radio[class=RAcumple]', function () {
-           var datos = $(this).attr("tag");
-           
-            if (this.value == '1') {
-               
-              
-                $("#fechas" + datos).prop('disabled', true);
-               
-            }
-            else if (this.value == '0') {
-               
-                $("#fechas" + datos).prop('disabled', false);
+        $(document).on('change', 'input:radio[class=RAcumple]', function () {
+
+            if (accion == 1) {
+                var datos = $(this).attr("tag");
+
+                if (this.value == '1') {
+
+
+                    $("#fechas" + datos).prop('disabled', true);
+
+                }
+                else if (this.value == '0') {
+
+                    $("#fechas" + datos).prop('disabled', false);
+                }
             }
         });
         
 
        $(document).on('click', '#BtnEditar', function () {
+           var ListaItem = [];
+           $('.Tablas tbody tr').each(function () {
 
+               var Cumple = $(this).find(('input[class="RAcumple"]'));
+               var Observaciones = $(this).find(('input[class="observaciones"]')).val();
+               var Fecha = $(this).find(('input[class="fechas"]')).val();
 
+               var item = {
 
+                   "Id": Cumple.attr("tag"),
+                   "Cumple": $(this).find(('input[class="RAcumple"]:checked')).val(),
+                   "Observaciones": Observaciones,
+                   "FechaCompromiso":Fecha
+               }
+               ListaItem.push(item);
+           });
+           
+
+           Aval.ActualizarAval(referencia, ListaItem);
+           alert(JSON.stringify(ListaItem));
+       
        });
+
 
        $(document).on('click', '#BtnCancelar', function () {
 
@@ -96,15 +118,15 @@ var admAval = (function () {
 
                var Cumple = $(this).find(('input[class="RAcumple"]'));
                var Observaciones = $(this).find(('input[class="observaciones"]'));
-               var Fecha = $(this).find(('input[type="date"]'));
+               var Fecha = $(this).find(('input[class="fechas"]'));
                var UsuarioAprueba = $(this).find(('input[class="UsuarioAprueba"]'));
 
-               if (Cumple.val() == 0) {
+            
 
                    Observaciones.prop("disabled", true);
-                   Fecha.prop("disabled", true);
+                 //  Fecha.prop("disabled", true);
                    Cumple.prop("disabled", true);
-               }
+               
            });
 
            $("#BtnHabilitar").show();
@@ -116,16 +138,16 @@ var admAval = (function () {
        $(document).on('click', '#BtnHabilitar', function () {
        
            $('.Tablas tbody tr').each(function () {
-               
+              
                var Cumple = $(this).find(('input[class="RAcumple"]'));
                var Observaciones = $(this).find(('input[class="observaciones"]'));
-               var Fecha = $(this).find(('input[type="date"]'));
+               //var Fecha = $(this).find(('input[class="fechas"]'));
                var UsuarioAprueba = $(this).find(('input[class="UsuarioAprueba"]'));
-               
-               if (Cumple.val() == 0) {
+             
+               if ($(this).find(('input[class="RAcumple"]:checked')).val() == 0) {
 
                    Observaciones.prop("disabled", false);
-                   Fecha.prop("disabled", false);
+                 //  Fecha.prop("disabled", false);
                    Cumple.prop("disabled", false);
                }
            });
@@ -181,6 +203,7 @@ var admAval = (function () {
 
                    
                     var DtoItemAval = {
+
                         "Ambiente": Ambiente,
                         "Numero": Consecutivo,
                         "Item": Item,

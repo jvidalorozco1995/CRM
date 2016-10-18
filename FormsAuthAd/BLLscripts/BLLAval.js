@@ -7,6 +7,8 @@
     var WsAvalAntes = funcionUrlGlobal("/Servicios/WAval.asmx/ListAvalAntes");
     
     var WsInsertarAval = funcionUrlGlobal("/Servicios/WAval.asmx/InsertAval");
+    var WsActualizarAval = funcionUrlGlobal("/Servicios/WAval.asmx/UpdateItemAval");
+
     var WsListaItemAval = funcionUrlGlobal("/Servicios/WAval.asmx/ListItemAval");
 
 
@@ -50,6 +52,7 @@
                 error: function (obj, error, objError) { alert(objError); }
             });
         } else {
+            alert("accion 1");
             jsonData = "{ 'id':" + JSON.stringify(referencia) + " }";
 
             $.ajax({
@@ -114,6 +117,35 @@
         });
     }
 
+
+    BLLAval.prototype.ActualizarAval = function (referenciainmueble, ItemAval) {
+
+
+        jsonData = "{'referenciainmueble':" + JSON.stringify(referenciainmueble) + ",'ItemAval':" + JSON.stringify(ItemAval) + "}";
+
+
+        $.ajax({
+            type: "POST", url: WsActualizarAval, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d != null) {
+
+                    toastr.success(' CRM - Notificacion' +
+                       '</br>Se ha actualizado el aval satisfactoriamente');
+               
+
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>Ha habido un error en el sistema y no se ha podido guardar');
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
 
     BLLAval.prototype.ListadoAmbientes = function (accion,idaval) {
 
@@ -432,11 +464,11 @@
                  tabla += "<td><input type='radio' class='RAcumple' tag='" + item.Id + "'name='RAcumple" + item.Id + "'value='1' checked disabled> Si<br><input type='radio' tag='" + item.Id + "' class='RAcumple' name='RAcumple" + item.Id + "' value='0' disabled>No<br></td>"
              } else {
  
-                 tabla += "<td><input type='radio' class='RAcumple' tag='" + item.Id + "'name='RAcumple" + item.Id + "'value='0' disabled> Si<br><input type='radio' tag='" + item.Id + "' class='RAcumple' name='RAcumple" + item.Id + "' value='0' checked disabled>No<br></td>"
+                 tabla += "<td><input type='radio' class='RAcumple' tag='" + item.Id + "'name='RAcumple" + item.Id + "'value='1' disabled> Si<br><input type='radio' tag='" + item.Id + "' class='RAcumple' name='RAcumple" + item.Id + "' value='0' checked disabled>No<br></td>"
  
              } tabla += "<td><input type='text' value='" + item.Observaciones + "' class='observaciones' disabled></input></td>"
-             tabla += "<td><input type='date' required pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}' title='Ingresa una fecha valida YYYY-MM-DD' placeholder='YYYY-MM-DD' id='fechas" + item.Id + "' value='" + moment(item.FechaCompromiso).format("YYYY-DD-MM") + "' class='fechas form-control' disabled></input></td>"
-             tabla += "<td><input type='date' required pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}' title='Ingresa una fecha valida YYYY-MM-DD' placeholder='YYYY-MM-DD' id='fechasSatisfaccion" + item.Id + "' value='" + moment(item.FechaRecibido).format("YYYY-DD-MM") + "' class='fechas form-control' disabled></input></td>"
+             tabla += "<td><input type='date'  title='Ingresa una fecha valida YYYY-MM-DD'  id='fechas" + item.Id + "' value='" + moment(item.FechaCompromiso).format("YYYY-DD-MM") + "' class='fechas' disabled></input></td>"
+             tabla += "<td><input type='date'  title='Ingresa una fecha valida YYYY-MM-DD'  id='fechasSatisfaccion" + item.Id + "' value='" + moment(item.FechaRecibido).format("YYYY-DD-MM") + "' class='' disabled></input></td>"
              tabla += "<td><input type='text' value='" + item.UsuarioAprueba + "' class='UsuarioAprueba' disabled></input></td>"
              //   tabla += "<td></td>"
              // tabla += "<td><input type='radio' class='RAaprobacion" + item.Id + "' value='1'> Si<br><input type='radio' name='RAaprobacion' value='0'>No<br></td>"
