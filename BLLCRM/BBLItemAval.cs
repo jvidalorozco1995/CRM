@@ -19,6 +19,7 @@ namespace BLLCRM
         public int UpdateItemAval( string referenciainmueble, List<ItemAval> i)
         {
             try
+                //su pinche madre
             {
                 foreach (var item in i)
                 {
