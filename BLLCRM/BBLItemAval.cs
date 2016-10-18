@@ -16,41 +16,33 @@ namespace BLLCRM
     public class BBLItemAval
     {
         CRMEntiti bd = new CRMEntiti();
-        public int UpdateItemAval(string referenciainmueble, ItemAval p)
+        public int UpdateItemAval( string referenciainmueble, List<ItemAval> i)
         {
-            // Query the database for the row to be updated.
-            var query =
-                from ord in bd.ItemAval
-                where ord.IdAval == p.Id
-                select ord;
-
-            // Execute the query, and change the column values
-            // you want to change.
-            foreach (ItemAval ord in query)
-            {
-                ord.FechaRecibido = DateTime.Now;
-                ord.UsuarioAprueba = Membership.GetUser().ToString();
-                ord.Cumple = p.Cumple;
-                ord.Observaciones = p.Observaciones;
-                ord.FechaCompromiso = p.FechaCompromiso;
-
-                // Insert any additional changes to column values.
-            }
-            var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == referenciainmueble);
-            ctx2.ESTADOAVAL = 1;
-            bd.SaveChanges();
-
-            // Submit the changes to the database.
             try
             {
+                foreach (var item in i)
+                {
+                    var ctx = bd.ItemAval.First(inm => inm.Id == item.Id);
+                    ItemAval inmu = new ItemAval();
+                    ctx.FechaRecibido = DateTime.Now; 
+                    ctx.UsuarioAprueba = Membership.GetUser().ToString(); ;
+                    ctx.Cumple = item.Cumple;
+                    ctx.Observaciones = item.Observaciones;
+                    ctx.FechaCompromiso = item.FechaCompromiso;
+
+                    bd.SaveChanges();
+                }
+                var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == referenciainmueble);
+                ctx2.ESTADOAVAL = 1;
+
                 bd.SaveChanges();
                 return 1;
             }
-            catch (Exception e)
+
+            catch (Exception ex)
             {
-                Console.WriteLine(e);
                 return 0;
-                //
+                throw;
             }
         }
         public List<ItemAval> ListItemAval(int id)
