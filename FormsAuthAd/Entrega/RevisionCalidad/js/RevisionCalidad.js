@@ -22,7 +22,7 @@ var admRevision = (function () {
         $(document).on('click', '.AVAL', function () {
             var referencia = $(this).attr("id");
 
-            window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia + "&accion=1&idaval=" + idAval;
+            window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia + "&accion=1";
 
         });
     }

@@ -1,43 +1,84 @@
 ﻿function BLLAval() {
     
    
-    var WsAval = funcionUrlGlobal("/Servicios/WAval.asmx/ListAvalAntes");
+    var WsAval = funcionUrlGlobal("/Servicios/WAval.asmx/ListAval");
     var WsAmbiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/Listambiente");
     var WsItems = funcionUrlGlobal("/Servicios/WAmbiente.asmx/Listitemxambiente");
-
+    var WsAvalAntes = funcionUrlGlobal("/Servicios/WAval.asmx/ListAvalAntes");
     
     var WsInsertarAval = funcionUrlGlobal("/Servicios/WAval.asmx/InsertAval");
     var WsListaItemAval = funcionUrlGlobal("/Servicios/WAval.asmx/ListItemAval");
 
 
-    BLLAval.prototype.Aval = function (referencia) {
+    BLLAval.prototype.Aval = function (accion,referencia) {
+      
+        if (accion == 2) {
+            jsonData = "{ 'id':" + JSON.stringify(referencia) + " }";
 
-        jsonData = "{ 'id':" + JSON.stringify(referencia) + " }";
+            $.ajax({
+                type: "POST", url: WsAval, data: jsonData,
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                async: true,
+                success: function (result) {
+                    if (result.d != null) {
 
-        $.ajax({
-            type: "POST", url: WsAval, data: jsonData,
-            contentType: "application/json; charset=utf-8",
-            dataType: 'json',
-            async: true,
-            success: function (result) {
-                if (result.d != null) {
-                 
-                    $("#TxtRegistro").val(result.d[0].Registro);
-                    $("#TxtProyecto").val(result.d[0].NOMBRE_PROYEC);
-                    $("#TxtInmueble").val(result.d[0].INMUEBLE);
-                    $("#TxtFinalAprob").val(result.d[0].FechaFinApro);
-                    $("#TxtPropietario").val(result.d[0].NOMBRECLIENTE);
+                        $("#TxtRegistro").val(result.d[0].Registro);
+                        $("#TxtProyecto").val(result.d[0].NOMBRE_PROYEC);
+                        $("#TxtInmueble").val(result.d[0].INMUEBLE);
+                        $("#TxtFinalAprob").val(result.d[0].FechaFinApro);
+                        $("#TxtPropietario").val(result.d[0].Propietario);
+                        $("#TxtResidente").val(result.d[0].Residente);
+                        $("#TxtInspeccion").val(result.d[0].Inspeccion);
+
+                       
+                        if (result.d[0].Aprueba == 1) {
+                            $('input:radio[name=RAprueba][value=1]').attr('checked', true);
+                            $('input:radio[name=RAprueba][value=0]').attr('checked', false);
+                        } else {
+                            $('input:radio[name=RAprueba][value=0]').attr('checked', true);
+                            $('input:radio[name=RAprueba][value=1]').attr('checked', false);
+                        }
+
+                    } else {
+                        toastr.error(' CRM - Notificacion' +
+                            '</br>Ha habido un error en el sistema y no se ha podido guardar');
+
+                    }
+
+                },
+                error: function (obj, error, objError) { alert(objError); }
+            });
+        } else {
+            jsonData = "{ 'id':" + JSON.stringify(referencia) + " }";
+
+            $.ajax({
+                type: "POST", url: WsAvalAntes, data: jsonData,
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                async: true,
+                success: function (result) {
+                    if (result.d != null) {
+
+                        $("#TxtRegistro").val(result.d[0].Registro);
+                        $("#TxtProyecto").val(result.d[0].NOMBRE_PROYEC);
+                        $("#TxtInmueble").val(result.d[0].INMUEBLE);
+                        $("#TxtFinalAprob").val(result.d[0].FechaFinApro);
+                        $("#TxtPropietario").val(result.d[0].NOMBRECLIENTE);
+                        $("#TxtResidente").val(result.d[0].Residente);
+                        $("#TxtInspeccion").val(result.d[0].Inspeccion);
+                        
                     
-                    
-                } else {
-                    toastr.error(' CRM - Notificacion' +
-                        '</br>Ha habido un error en el sistema y no se ha podido guardar');
+                    } else {
+                        toastr.error(' CRM - Notificacion' +
+                            '</br>Ha habido un error en el sistema y no se ha podido guardar');
 
-                }
+                    }
 
-            },
-            error: function (obj, error, objError) { alert(objError); }
-        });
+                },
+                error: function (obj, error, objError) { alert(objError); }
+            });
+        }
     }
 
 
@@ -300,20 +341,20 @@
                          tabla1 += "<div id='" + items[i].Id + "'class='tab-pane active'>"
                          tabla1 += "<div class='panel-body'>";
                          tabla1 += "<h4>" + items[i].Ambiente + "</h1>"
-                         tabla1 += "<div id ='ITEM" + numero2 + "'></div>";
+                         tabla1 += "<div class ='Tablas ITEM" + numero2 + "'></div>";
 
-
-                         findValor(numero2, items, items[i].Ambiente)
+                         tabla1 += CrearActualizar(numero, findValor(items, items[i].Ambiente));
+                        
                          tabla1 += "</div>";
                          tabla1 += "</div>";
                      } else {
                          tabla1 += "<div id='" + items[i].Id + "'class='tab-pane '>"
                          tabla1 += "<div class='panel-body'>";
                          tabla1 += "<h4>" + items[i].Ambiente + "</h1>"
-                         tabla1 += "<div id ='ITEM" + numero2 + "'></div>";
+                         tabla1 += "<div class ='Tablas ITEM" + numero2 + "'></div>";
 
 
-                         findValor(numero2, items, items[i].Ambiente)
+                         tabla1 += CrearActualizar(numero, findValor(items, items[i].Ambiente));
                          tabla1 += "</div>";
                          tabla1 += "</div>";
                      }
@@ -324,10 +365,11 @@
                  tabla1 += "<div id='" + items[i].Id + "'class='tab-pane '>"
                  tabla1 += "<div class='panel-body'>";
                  tabla1 += "<h4>" + items[i].Ambiente + "</h1>"
-                 tabla1 += "<div id ='ITEM" + numero2 + "'></div>";
+                 tabla1 += "<div class ='Tablas ITEM" + numero2 + "'></div>";
 
 
-                 findValor(numero2, items, items[i].Ambiente)
+                 tabla1+= CrearActualizar(numero, findValor(items, items[i].Ambiente));
+
                  tabla1 += "</div>";
                  tabla1 += "</div>";
 
@@ -341,26 +383,27 @@
         $('#tabs').append(tabla1);
 
      
+     
 
 
     }
 
-    function findValor(numero,items, valor) {
+    function findValor(items, valor) {
         var array=[];
         $.each(items, function (i, item) {
             if (item.Ambiente == valor) {
                 array.push(item);
             }
         });
-
-        CrearActualizar(numero,array);
+        return array;
+       // CrearActualizar(numero,array);
     }
 
  
     
 
     function CrearActualizar(numero,items) {
-       var Clase = "ITEM" + numero;
+     
         // document.getElementById("ITEM"+ numero).innerHTML = "";
          var tabla = '<table class="table table-striped table-bordered table-hover">';
          tabla += "<thead>";
@@ -371,7 +414,8 @@
          tabla += "<th>Cumple</th>";
          tabla += "<th>Observaciones</th>";
          tabla += "<th>F.Compromiso</th>";
- 
+         tabla += "<th>Recibo a satisfacción</th>";
+         tabla += "<th>Aprobación</th>";
          tabla += "</tr>";
          tabla += "</thead>";
          tabla += "<tbody>";
@@ -383,13 +427,15 @@
              tabla += "<td style=''>" + item.Item + "</td>";
              if (item.Cumple == 1) {
  
-                 tabla += "<td><input type='radio' class='RAcumple' tag='" + item.Id + "'name='RAcumple" + item.Id + "'value='1' checked> Si<br><input type='radio' tag='" + item.Id + "' class='RAcumple' name='RAcumple" + item.Id + "' value='0'>No<br></td>"
+                 tabla += "<td><input type='radio' class='RAcumple' tag='" + item.Id + "'name='RAcumple" + item.Id + "'value='1' checked disabled> Si<br><input type='radio' tag='" + item.Id + "' class='RAcumple' name='RAcumple" + item.Id + "' value='0' disabled>No<br></td>"
              } else {
  
-                 tabla += "<td><input type='radio' class='RAcumple' tag='" + item.Id + "'name='RAcumple" + item.Id + "'value='1'> Si<br><input type='radio' tag='" + item.Id + "' class='RAcumple' name='RAcumple" + item.Id + "' value='0' checked>No<br></td>"
+                 tabla += "<td><input type='radio' class='RAcumple' tag='" + item.Id + "'name='RAcumple" + item.Id + "'value='0' disabled> Si<br><input type='radio' tag='" + item.Id + "' class='RAcumple' name='RAcumple" + item.Id + "' value='0' checked disabled>No<br></td>"
  
-             } tabla += "<td><input type='text' class='observaciones'></input></td>"
-             tabla += "<td><input type='date' id='fechas" + item.Id + "' class='fechas form-control' disabled></input></td>"
+             } tabla += "<td><input type='text' value='" + item.Observaciones + "' class='observaciones' disabled></input></td>"
+             tabla += "<td><input type='date' required pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}' title='Ingresa una fecha valida YYYY-MM-DD' placeholder='YYYY-MM-DD' id='fechas" + item.Id + "' value='" + moment(item.FechaCompromiso).format("YYYY-DD-MM") + "' class='fechas form-control' disabled></input></td>"
+             tabla += "<td><input type='date' required pattern='[0-9]{4}-[0-9]{2}-[0-9]{2}' title='Ingresa una fecha valida YYYY-MM-DD' placeholder='YYYY-MM-DD' id='fechasSatisfaccion" + item.Id + "' value='" + moment(item.FechaRecibido).format("YYYY-DD-MM") + "' class='fechas form-control' disabled></input></td>"
+             tabla += "<td><input type='text' value='" + item.UsuarioAprueba + "' class='UsuarioAprueba' disabled></input></td>"
              //   tabla += "<td></td>"
              // tabla += "<td><input type='radio' class='RAaprobacion" + item.Id + "' value='1'> Si<br><input type='radio' name='RAaprobacion' value='0'>No<br></td>"
  
@@ -398,11 +444,9 @@
          });
          tabla += "</tbody>";
          tabla += "</table>";
-         console.log(tabla);
-         
-       
-         console.log(Clase);
-         $("#"+Clase).append(tabla);
+  
+         return tabla;
+         //$(".ITEM"+numero).append(tabla);
         //$('#example3').dataTable();*/
     }
 
