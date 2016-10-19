@@ -6,8 +6,8 @@ var Numeros = /[0-9]/;
 var letras = /[a-zA-Z]/;
 
 
-var banderaso;
-var banderaso2;
+var banderaso =0;
+var banderaso2 =0;
 
 var admAval = (function () {
 
@@ -36,14 +36,11 @@ var admAval = (function () {
         $(document).on('click', '#BtnAprobarEntrega', function () {
 
 
-           // banderaso = 0;
-            //banderaso2 = 0;
+           var banderasoAprobar = 0;
+           var banderaso2Aprobar = 0;
             var result = confirm("Estas seguro(a) de que deseas aprobar esto?");
 
             if (result) {
-                Aval.AprobarAval(referencia,idaval);
-            }
-            /*if (result) {
 
                 $('.Tablas tbody tr').each(function () {
 
@@ -51,25 +48,28 @@ var admAval = (function () {
                    
                     if (Cumple == 0) {
 
-                        banderaso++;
+                        banderasoAprobar++;
                        
                     }
 
                    else if (Cumple == undefined) {
 
-                       banderaso2++;
+                       banderaso2Aprobar++;
                     }
                 });
-                if (banderaso > 0) {
+                if (banderasoAprobar > 0) {
 
                     $('input:radio[name=RAprueba][value=0]').attr('checked', true);
-                    
+                    toastr.error('CRM Mayales - Notificacion' +
+                      '</br></br>1 - Falta items por cumplir' +
+                      '</br>2 - Verifique que haya cumplido todos los items');
                 } else {
-
-                    //  $('input:radio[class=RAcumple][value=1]').attr('checked', true);
                     $('input:radio[name=RAprueba][value=1]').attr('checked', true);
+                    Aval.AprobarAval(referencia, idaval);
+                   
+                 
                 }
-            }*/
+            }
         
           
         });
@@ -114,7 +114,7 @@ var admAval = (function () {
            
 
            Aval.ActualizarAval(referencia, ListaItem);
-           alert(JSON.stringify(ListaItem));
+         
        
        });
 
@@ -168,8 +168,9 @@ var admAval = (function () {
 
         
         $(document).on('click', '#BtnGuardar', function () {
-
-       
+             banderaso = 0;
+             banderaso2 = 0;
+            ListadoItemAval = [];
 
             $('.Tablas tbody tr').each(function () {
             
@@ -182,7 +183,8 @@ var admAval = (function () {
                 var Observaciones = $(this).find(('input[class="observaciones"]')).val();
                 var Fecha = $(this).find(('input[type="date"]')).val();
 
-            
+                console.log(" Cumplimiento" + JSON.stringify(Cumple));
+
                 if (Cumple == 0) {
 
                     banderaso++;
@@ -225,7 +227,11 @@ var admAval = (function () {
 
                 }
             });
-           
+
+            console.log("banderaso 1" + JSON.stringify(banderaso));
+            console.log("banderaso 2" + JSON.stringify(banderaso2));
+
+
             if (banderaso > 0) {
                
                 $('input:radio[name=RAprueba][value=0]').prop("checked", true)
@@ -259,7 +265,7 @@ var admAval = (function () {
 
             } else if ($('#TxtInspeccion').val().length < 1 || !letras.test($('#TxtInspeccion').val())) {
                 toastr.error('CRM Mayales - Notificacion' +
-                    '</br></br>1 - No a digitado nada en el campo residente' +
+                    '</br></br>1 - No a digitado nada en el campo inspeccion' +
                     '</br>2 - Verifique que no haya ingresado letras en el campo');
                 $('#TxtInspeccion').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
                 return false;
@@ -284,8 +290,7 @@ var admAval = (function () {
                 }
 
                 Aval.InsertarAval(DtoAval, ListadoItemAval);
-                banderaso = 0;
-                banderaso2 = 0;
+               
             }
           
         });

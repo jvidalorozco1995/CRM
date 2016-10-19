@@ -41,9 +41,9 @@
             success: function (result) {
                 if (result.d === null)
                 {
-                    $('#CombAsesores').append('<option></option>');
-                    $('#CombAsesores2').append('<option></option>');
-                    BLLTrabajadores.ComAsesor(result.d);
+                   // $('#CombAsesores').append('<option></option>');
+                    //$('#CombAsesores2').append('<option></option>');
+                    //BLLTrabajadores.ComAsesor(result.d);
                 }
                 else
                 {

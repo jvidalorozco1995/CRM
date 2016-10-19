@@ -124,7 +124,7 @@
 
     BLLAval.prototype.InsertarAval = function (aval,itemAval) {
 
-
+        $("#BtnGuardar").hide();
         jsonData = "{'b':" + JSON.stringify(aval) + ",'ItemAval':" + JSON.stringify(itemAval) + "}";
       
 
@@ -136,6 +136,7 @@
             success: function (result) {
                 if (result.d != null) {
 
+
                     toastr.success(' CRM - Notificacion' +
                        '</br>Se ha guardado el aval satisfactoriamente');
                     setTimeout(function () {
@@ -143,10 +144,11 @@
 
                     }, 1000);
 
+
                 } else {
                     toastr.error(' CRM - Notificacion' +
                         '</br>Ha habido un error en el sistema y no se ha podido guardar');
-
+                    $("#BtnGuardar").show();
                 }
 
             },
