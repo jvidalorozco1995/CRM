@@ -11,10 +11,13 @@
 
     var WsListaItemAval = funcionUrlGlobal("/Servicios/WAval.asmx/ListItemAval");
 
+    var WsAprobar = funcionUrlGlobal("/Servicios/WAval.asmx/Aprobar");
+    
+
 
     BLLAval.prototype.Aval = function (accion,referencia) {
       
-        if (accion == 2) {
+        if (accion == 2 || accion==3) {
             jsonData = "{ 'id':" + JSON.stringify(referencia) + " }";
 
             $.ajax({
@@ -52,7 +55,7 @@
                 error: function (obj, error, objError) { alert(objError); }
             });
         } else {
-            alert("accion 1");
+           
             jsonData = "{ 'id':" + JSON.stringify(referencia) + " }";
 
             $.ajax({
@@ -84,6 +87,40 @@
         }
     }
 
+    
+
+
+    BLLAval.prototype.AprobarAval = function (ref, idav) {
+
+
+        jsonData = "{'referencia':" + JSON.stringify(ref) + ",'idaval':" + JSON.stringify(idav) + "}";
+
+
+        $.ajax({
+            type: "POST", url: WsAprobar, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d != null) {
+
+                    toastr.success(' CRM - Notificacion' +
+                       '</br>Se ha aprobado el aval satisfactoriamente');
+                    setTimeout(function () {
+                        window.location.replace("./../RevisionCalidad/WebRevisionCalidad.aspx");
+
+                    }, 1000);
+
+                } else {
+                    toastr.error(' CRM - Notificacion' +
+                        '</br>Ha habido un error en el sistema y no se ha podido guardar');
+
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError); }
+        });
+    }
 
     BLLAval.prototype.InsertarAval = function (aval,itemAval) {
 
@@ -134,7 +171,10 @@
 
                     toastr.success(' CRM - Notificacion' +
                        '</br>Se ha actualizado el aval satisfactoriamente');
-               
+                    setTimeout(function () {
+                        window.location.replace("./../RevisionCalidad/WebRevisionCalidad.aspx");
+
+                    }, 1000);
 
                 } else {
                     toastr.error(' CRM - Notificacion' +
@@ -467,8 +507,8 @@
                  tabla += "<td><input type='radio' class='RAcumple' tag='" + item.Id + "'name='RAcumple" + item.Id + "'value='1' disabled> Si<br><input type='radio' tag='" + item.Id + "' class='RAcumple' name='RAcumple" + item.Id + "' value='0' checked disabled>No<br></td>"
  
              } tabla += "<td><input type='text' value='" + item.Observaciones + "' class='observaciones' disabled></input></td>"
-             tabla += "<td><input type='date'  title='Ingresa una fecha valida YYYY-MM-DD'  id='fechas" + item.Id + "' value='" + moment(item.FechaCompromiso).format("YYYY-DD-MM") + "' class='fechas' disabled></input></td>"
-             tabla += "<td><input type='date'  title='Ingresa una fecha valida YYYY-MM-DD'  id='fechasSatisfaccion" + item.Id + "' value='" + moment(item.FechaRecibido).format("YYYY-DD-MM") + "' class='' disabled></input></td>"
+             tabla += "<td><input type='text'    id='fechas" + item.Id + "' value='" + moment(item.FechaCompromiso).format("YYYY-MM-DD") + "' class='' disabled></input></td>"
+             tabla += "<td><input type='text'  id='fechasSatisfaccion" + item.Id + "' value='" + moment(item.FechaRecibido).format("YYYY-MM-DD") + "' class='' disabled></input></td>"
              tabla += "<td><input type='text' value='" + item.UsuarioAprueba + "' class='UsuarioAprueba' disabled></input></td>"
              //   tabla += "<td></td>"
              // tabla += "<td><input type='radio' class='RAaprobacion" + item.Id + "' value='1'> Si<br><input type='radio' name='RAaprobacion' value='0'>No<br></td>"

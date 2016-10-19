@@ -71,7 +71,7 @@
                                                               <div class="form-group col-lg-3">
                                                                 
                                                                   <br />
-                                                              
+                                                                <button type="button" class="btn btn-warning" id="BtnAprobarEntrega">Aprobar</button>
                                                              </div>
                                                          </div>
                                                      </div>

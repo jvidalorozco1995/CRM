@@ -67,6 +67,7 @@ function BLLRevisionCalidad() {
                 tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' id='" + item.ID_INMUEBLES_ENTREGAS + "/" + item.NOMBRE_PROYEC + "' class='ClienteS' title='Agregar a separacion'></img></td>";
 
             } else {
+
                 tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "' id='" + item.ID_INMUEBLES_ENTREGAS + "/" + item.NOMBRE_PROYEC + "' class='ClienteS' title='Agregar a separacion'></img></td>";
 
             }
@@ -77,9 +78,14 @@ function BLLRevisionCalidad() {
                 tabla += "<td style='width:22px'><a  id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs fa fa-clock '><i class='fa fa-clock-o'></i></a></td>";
 
 
-            } else {
+            } else if (item.IdAval != null && item.ESTADOAVAL ==2)
+            {
+                tabla += "<td style='width:22px'><button tag='" + item.IdAval + "' id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-primary btn-xs VER' type='button'>Ver</button></td>";
+                tabla += "<td style='width:22px'><a  id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
+            }
+            else {
 
-                tabla += "<td style='width:22px'><button tag='" + item.IdAval+ "' id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-danger btn-xs VERAVAL' type='button'>Ver</button></td>";
+                tabla += "<td style='width:22px'><button tag='" + item.IdAval+ "' id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-danger btn-xs VERAVAL' type='button'>Editar</button></td>";
                 tabla += "<td style='width:22px'><a  id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
 
             }

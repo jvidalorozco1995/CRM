@@ -18,10 +18,13 @@ var admAval = (function () {
     var ListadoItemAval = [];
     var _addHandlers = function () {
 
-        $('.fechas').datepicker({
+      /*  $('.fechas').datepicker({
             format: 'yyyy/mm/dd',
         });
+        */
 
+
+     
         $(document).on('click', '#BtnSiguiente2g', function () {
             
             var id = $('li.active .a').data('nexttab');
@@ -33,10 +36,14 @@ var admAval = (function () {
         $(document).on('click', '#BtnAprobarEntrega', function () {
 
 
-            banderaso = 0;
-            banderaso2 = 0;
+           // banderaso = 0;
+            //banderaso2 = 0;
             var result = confirm("Estas seguro(a) de que deseas aprobar esto?");
+
             if (result) {
+                Aval.AprobarAval(referencia,idaval);
+            }
+            /*if (result) {
 
                 $('.Tablas tbody tr').each(function () {
 
@@ -62,7 +69,7 @@ var admAval = (function () {
                     //  $('input:radio[class=RAcumple][value=1]').attr('checked', true);
                     $('input:radio[name=RAprueba][value=1]').attr('checked', true);
                 }
-            }
+            }*/
         
           
         });
@@ -130,6 +137,7 @@ var admAval = (function () {
            });
 
            $("#BtnHabilitar").show();
+           $("#BtnAprobarEntrega").show();
            $("#BtnEditar").hide();
            $("#BtnCancelar").hide();
        });
@@ -151,7 +159,7 @@ var admAval = (function () {
                    Cumple.prop("disabled", false);
                }
            });
-
+           $("#BtnAprobarEntrega").hide();
            $("#BtnHabilitar").hide();
            $("#BtnEditar").show();
            $("#BtnCancelar").show();
@@ -299,11 +307,17 @@ var admAval = (function () {
 
         } else if (accion == 2) {
 
-            $("#BtnAprobarEntrega").hide();
+            $("#BtnAprobarEntrega").show();
             $("#BtnGuardar").hide();
             $("#BtnEditar").hide();
             $("#BtnHabilitar").show();
 
+        } else if (accion == 3) {
+
+            $("#BtnAprobarEntrega").hide();
+            $("#BtnGuardar").hide();
+            $("#BtnEditar").hide();
+            $("#BtnHabilitar").hide();
         }
        
         Aval.Aval(accion,referencia);
@@ -329,7 +343,7 @@ $(document).ready(function () {
     });
  
     $('.fechas').datepicker({
-        format: 'yyyy/mm/dd',
+        format: 'yyyy-MM-dd',
     });
 
     $('#TxtFeInspeccion1').datepicker({

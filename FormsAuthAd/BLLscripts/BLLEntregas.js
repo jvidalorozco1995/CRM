@@ -265,7 +265,7 @@ function BLLEntregas() {
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(clientes, function (i, item) {
-            
+            alert(item.ENVIADOA);
             tabla += "<tr>";
             tabla += "<td>" + item.CONSECUTIVO + "</td>";
             tabla += "<td>" + item.ID_PROYECTO + "</td>";
