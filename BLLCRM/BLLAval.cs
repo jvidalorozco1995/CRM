@@ -164,9 +164,10 @@ namespace BLLCRM
                     if (item.Cumple == 1) {
                         inmu.FechaRecibido = DateTime.Now;
                         inmu.UsuarioAprueba = Membership.GetUser().ToString();
+                        inmu.FechaCompromiso = DateTime.Now;
                     }
                     inmu.Observaciones = item.Observaciones;
-                    inmu.FechaCompromiso = item.FechaCompromiso;
+                    
                     bd.ItemAval.Add(inmu);
 
                 }
