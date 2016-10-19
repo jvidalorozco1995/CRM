@@ -77,7 +77,7 @@ namespace BLLCRM
                 var ctx = bd.Entregas.First(inm => inm.ID_ENTREGAS == id);
 
                 ctx.ENVIADO = DateTime.Now;
-                ctx.ENVIADOA = Membership.GetUser().ToString();
+                ctx.ENVIADOA = ctx.DIROBRA;
                 bd.SaveChanges();
 
                 return 1;
