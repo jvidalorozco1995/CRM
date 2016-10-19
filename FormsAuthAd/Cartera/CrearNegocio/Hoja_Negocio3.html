@@ -1,0 +1,571 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Neon Admin Panel" />
+    <meta name="author" content="" />
+
+    <title>CRM_Hoja_de_negocio</title>
+
+
+    <link rel="stylesheet" href="../../assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
+    <link rel="stylesheet" href="../../assets/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../../assets/css/neon-core.css">
+    <link rel="stylesheet" href="../../assets/css/neon-theme.css">
+    <link rel="stylesheet" href="../../assets/css/neon-forms.css">
+    <link rel="stylesheet" href="../../assets/css/custom.css">
+
+    <script src="../../assets/js/jquery-1.11.0.min.js"></script>
+
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <style>
+        .txtarea {
+            width: 100%;
+            height: 300px;
+        }
+        .centrar {
+            /*nos posicionamos en el centro del navegador*/
+            /*determinamos una anchura*/
+            /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+            /*determinamos una altura*/
+            /*indicamos que el margen superior, es la mitad de la altura*/
+            width: 98%;
+            margin: 0 auto;
+            border: 1px solid #808080;
+            padding: 5px;
+            
+           
+        }
+        
+       
+        html * {
+            font-size: 100%;
+            /*color: #000 !important;
+            font-family: Arial !important;*/
+        }
+
+        
+    </style>
+</head>
+<body style="margin-top:0px;" data-url="http://neon.dev">
+
+     <!-------------------------------------------------HEADER---------------------------------------------------->
+    <div class="centrar">
+        <table border="1" cellspacing="0" cellpadding="0" style="width:100%; height:98%;">
+            <tr>
+                <td width="30%" rowspan="4" style="text-align:center;">
+
+                    <img src="../../images_crm/logo.png" />
+                </td>
+                <td width=201 rowspan="2" style="text-align:center;">
+                    <strong> HOJA DE NEGOCIOS</strong>
+                </td>
+                <td valign=top style="text-align:center;">
+                    CODIGO
+                </td>
+            </tr>
+            <tr>
+                <td valign=top style="text-align:center;">
+                    GV-FO-01
+                </td>
+            </tr>
+            <tr>
+                <td rowspan=2 style="text-align:center;">
+                    PROCESO:<strong>GESTIÓN DE VENTAS</strong>
+                </td>
+                <td width=201 valign=top style="text-align:center;">
+                    VERSIÓN:5
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    FECHA: AGOSTO 2016
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-------------------------------------------------------------------------------------------------------->
+
+
+    <div class="centrar">
+        <div id="infoconyugue">
+
+            <div>
+                <div class="container">
+
+
+                    <!---------TABLA NOMBRE DEL PROYECTO-------->
+
+                    <table>
+                        <tr>
+                            <td class="col-lg-4"></td>
+                            <td style="padding-left:200px !important" class="col-lg-2">
+                                <label><strong>NOMBRE DEL PROYECTO</strong></label> <label id="Pinteres"></label>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!------------------------------------------>
+                    <!---------TITULO DATOS DEL INMUEBLE-------->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><label style="font-size:small"><strong>1. Datos del Inmueble</strong></label></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                    <!------------------------------------------>
+                    <!---------TABLAS DATOS DEL INMUEBLE-------->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Tipo de inmueble</strong></th>
+                                <th class="col-lg-4"><strong>Fecha</strong></th>
+                                <th class="col-lg-4"><strong>Codigo CRM</strong></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="LblClaseInmu"></label></td>
+                                <td class="col-lg-4"><label id="Lblfechanegocio"></label></td>
+                                <td class="col-lg-4"><label id="codifox"></label></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-12"><strong>Ubicación del inmueble comprado</strong></th>
+                                <th class="col-lg-6"><strong>Area privada</strong></th>
+                                <th class="col-lg-6"><strong>Area construida</strong></th>
+                                <th class="col-lg-6"><strong>Parqueadero</strong></th>
+                                <th class="col-lg-6"><strong>Areas comunes</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="LblManzana"></label></td>
+                                <td class="col-lg-6"><label id="LblAreaPrivada"></label></td>
+                                <td class="col-lg-6"><label id="LblAreaConstruida"></label></td>
+                                <td class="col-lg-6"><label id="LblParqueadero"></label></td>
+                                <td class="col-lg-6"><label id="LblAreasComunes"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!---------------------------------------------------------------------------------------->
+                    <!---------TITULO DATOS DEL PROPIETARIO-------->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><label style="font-size:small"><strong>2. Datos del cliente</strong></label></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                    <!------------------------------------------>
+                    <!---------TABLAS DATOS DEL PROPIETARIO-------->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Comprador</strong></th>
+                                <th class="col-lg-4"><strong>Tipo de persona</strong></th>
+                                <th class="col-lg-12"><strong>Estado civil</strong></th>
+                                <th class="col-lg-12"><strong>Tipo de documento</strong></th>
+                                <th class="col-lg-12"><strong>Documento</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="Lblpropietario"></label></td>
+                                <td class="col-lg-4"><label id="Lbltpersona"></label></td>
+                                <td class="col-lg-12"><label id="Lblcivil"></label></td>
+                                <td class="col-lg-12"><label id="Lbltdocumento"></label></td>
+                                <td class="col-lg-12"><label id="Lblcedula"></label></td>
+
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Lugar de expedición</strong></th>
+                                <th class="col-lg-4"><strong>Fecha</strong></th>
+                                <th class="col-lg-4"><strong>Fecha de nacimiento</strong></th>
+                                <th class="col-lg-4"><strong>Lugar de nacimiento</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="LblExpedicion"></label></td>
+                                <td class="col-lg-4"><label id="Lblfexpedicion"></label></td>
+                                <td class="col-lg-4"><label id="Lblfechanacimiento"></label></td>
+                                <td class="col-lg-4"><label id="Lbllugarnacimiento"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>No. Hijos</strong></th>
+                                <th class="col-lg-4"><strong>Domicilio</strong></th>
+                                <th class="col-lg-4"><strong>Direccion de correspondencia</strong></th>
+                                <th class="col-lg-4"><strong>Correo</strong></th>
+                                <th class="col-lg-4"><strong>Teléfono</strong></th>
+                                <th class="col-lg-4"><strong>Celular</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="LblNroHijos"></label></td>
+                                <td class="col-lg-4"><label id="LblDomicilio"></label></td>
+                                <td class="col-lg-4"><label id="LblDireccionCorresp"></label></td>
+                                <td class="col-lg-4"><label id="LblCorreo"></label></td>
+                                <td class="col-lg-4"><label id="LblTelefono"></label></td>
+                                <td class="col-lg-4"><label id="LblCelular"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <!---------------------------------------------------------------------------------------->
+                    <!---------TITULO DATOS EMPRESA-------->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><label style="font-size:small"><strong>Empresa </strong></label> <label id="LblEmpresa"></label></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                    <!------------------------------------------>
+                    <!---------TABLAS DATOS DEL PROPIETARIO-------->
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Cargo</strong></th>
+                                <th class="col-lg-4"><strong>Profesión</strong></th>
+                                <th class="col-lg-12"><strong>Dirección</strong></th>
+                                <th class="col-lg-12"><strong>Ingresos mensuales</strong></th>
+                                <th class="col-lg-12"><strong>Antiguedad</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="LblCargo"></label></td>
+                                <td class="col-lg-4"><label id="LblProfesion"></label></td>
+                                <td class="col-lg-12"><label id="LblDireccion"></label></td>
+                                <td class="col-lg-12"><label id="LblIngresos"></label></td>
+                                <td class="col-lg-12"><label id="LblAntiguedad"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!---------------------------------------------------------------------------------------->
+                    <!---------TITULO DATOS EMPRESA-------->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><label style="font-size:small"><strong>Nombre del conyugue </strong></label> <label id="LblNombreconyugue"></label></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                    <!------------------------------------------>
+                    <!---------TABLAS DATOS DEL PROPIETARIO-------->
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Tipo de documento</strong></th>
+                                <th class="col-lg-4"><strong> Numero de documento</strong></th>
+                                <th class="col-lg-12"><strong>Lugar de expedición</strong></th>
+                                <th class="col-lg-12"><strong>Fecha de expedición</strong></th>
+                                <th class="col-lg-12"><strong>Telefóno</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="Lbltipodocumentocony"></label></td>
+                                <td class="col-lg-4"><label id="LblNumerodocumentocony"></label></td>
+                                <td class="col-lg-12"><label id="Lbllugarexpedicioncony"></label></td>
+                                <td class="col-lg-12"><label id="LblFechaexpedicionconyu"></label></td>
+                                <td class="col-lg-12"><label id="LblTelefonoconyu"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!---------------------------------------------------------------------------------------->
+                    <!---------TITULO DATOS DEL INMUEBLE-------->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><label style="font-size:small"><strong>3. Costo del Inmueble </strong></label></th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                    <!------------------------------------------>
+                    <!---------TABLAS DATOS DEL INMUEBLE------->
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Valor Estimado</strong></th>
+                                <th class="col-lg-12"><strong>Adiciones y exclusiones</strong></th>
+                                <th class="col-lg-12"><strong>Garaje</strong></th>
+                                <th class="col-lg-4"><strong>Descuento</strong></th>
+                                <th class="col-lg-12"><strong>Valor total de venta</strong></th>
+                                <th class="col-lg-12"><strong>Nro cuotas para pagar el saldo inicial</strong></th>
+
+
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="LblValorInmueble"></label></td>
+                                <td class="col-lg-12"><label id="LblAdiciones"></label></td>
+                                <td class="col-lg-12"><label id="LblGaraje"></label></td>
+                                <td class="col-lg-4"><label id="LblDescuento"></label></td>
+                                <td class="col-lg-12"><label id="LblValortotal"></label></td>
+                                <td class="col-lg-12"><label id="LblNroCuotas"></label></td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Valor del inmueble</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><label id="Lb" style="width:13px"></label>135 (SMLV) Salarios mínimos legales vigente del año en que se escriture el inmueble.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="col-lg-4"><strong>Cuota inicial</strong></th>
+                                <th class="col-lg-12"><strong>Subsidio</strong></th>
+                                <th class="col-lg-12"><strong>Saldo a financiar</strong></th>
+                                <th class="col-lg-4"><strong>Banco</strong></th>
+                                <th class="col-lg-12"><strong>Valor servicio de gas</strong></th>
+                                <th class="col-lg-12"><strong>Intereses subrogación</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-lg-4"><label id="LblCuotaInicial"></label></td>
+                                <td class="col-lg-12"><label id="LblSubsidio"></label></td>
+                                <td class="col-lg-12"><label id="LblSaldofinanciar"></label></td>
+                                <td class="col-lg-4"><label id="LblBanco"></label></td>
+                                <td class="col-lg-12"><label id="LblValorserviciogas"></label></td>
+                                <td class="col-lg-12"><label id="LblIntereses"></label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!---------------------------------------------------------------------------------------->
+
+
+
+
+
+                </div>
+            </div>
+
+            <h3 style="text-align:center"><strong>4. Forma de Pago cuota inicial</strong></h3>
+            <div class="container">
+                <div id="tablapagos" style="padding:0px; margin:0px;"></div>
+
+            </div>
+            <h3 style="text-align:center"><strong>5. Forma de pago servicio de gas</strong></h3>
+            <div class="container">
+                <div id="tablapagosgas" style="padding:0px; margin:0px;"></div>
+                <label id="" style="width:100%; height:100%;">Los pagos de las cuotas convencidas en las opciones de compras y en los contratos de promesa de compra venta se consignarán unicamente en las cuentas de la Constructora los Mayales S.A</label>
+            </div>
+            
+
+            <div class="container">
+                
+                <!---------TITULO NOTA ACLARATORIA-------->
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-lg-4"><label style="font-size:small"><strong>6. El comprador conoce y acepta los siguientes terminos</strong></label></th>
+
+                        </tr>
+                    </thead>
+                </table>
+                <!------------------------------------------>
+                <!---------TABLAS  NOTA ACLARATORIA-------->
+
+                <table>
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label id="TxtConf" style="width:100%; height:100%;"></label></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+       
+
+            <div class="container">
+
+                <!---------TITULO OBSERCACIONES-------->
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-lg-4"><label style="font-size:small"><strong>Observaciones</strong></label></th>
+
+                        </tr>
+                    </thead>
+                </table>
+                <!------------------------------------------>
+                <!---------TABLAS OBSERVACIONES-------->
+
+                <table>
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-lg-4"><label id="TxtObservaciones"></label></td>
+
+                        </tr>
+                        <tr>
+                            <td class="col-lg-4"><label>Autorizo recibir información por mensaje a mi celular : </label>Si___  No____</td>
+
+                        </tr>
+                        <tr>
+                            <td class="col-lg-4"><label>Autorizo recibir información por mensaje a mi correo electronico : </label>Si___  No____</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="container">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td> <label><strong>CONOZCO Y ACEPTO LO AQUI ESTIPULADO</strong></label></td>
+                        </tr>
+                        <tr>
+                            <td> <label>En constancia de lo anterior, se firma este documento en Valledupar, Cr 10 N. 16B - 43</label></td>
+                        </tr>
+                        <tr>
+                            <td><label style="text-align:center">____________________________________</label></td>
+                        </tr>
+                        <tr>
+                            <td> <label style="text-align:center">Firma del comprador</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container">
+                <table style="border:0px;">
+                    <thead>
+                        <tr>
+                            <th style="width:60%"></th>
+                            <th style="width:20%"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Asesor que dio la información: </strong> <label id="Lasesor"></label></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Asesor que digilencio la hoja de negocio: <label style="text-align:center">____________________________________</label> </strong></td>
+
+
+                        <tr>
+                            <td><strong>Medio por el cual se entero del proyecto?</strong></td>
+                        </tr>
+                        <tr>
+                            <td><label id="Lentero"></label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="col-sm-9">
+
+                <table border="1" style="width: 100%; ">
+                    <tr>
+                        <td style="border-left-style:solid"><strong> Elaborado por :</strong> Asesor de ventas</td>
+                        <td><strong>Aprobado por :</strong> Director de ventas</td>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="invoice-right">
+
+
+
+                    <a id="BtnImprimir" class="btn btn-primary btn-icon icon-left hidden-print">
+                        imprimir hoja de negocio
+                        <i class="entypo-doc-text"></i>
+                    </a>
+
+                    &nbsp;
+                </div>
+            </div>
+          
+        </div>
+       
+    </div>
+    <!-- Bottom Scripts -->
+    <script src="../../assets/js/gsap/main-gsap.js"></script>
+    <script src="../../assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/joinable.js"></script>
+    <script src="../../assets/js/resizeable.js"></script>
+    <script src="../../assets/js/neon-api.js"></script>
+    <script src="../../assets/js/neon-chat.js"></script>
+    <script src="../../assets/js/neon-custom.js"></script>
+    <script src="../../assets/js/neon-demo.js"></script>
+    <script src="../../assets/js/jquery.dataTables.min.js"></script>
+    <script src="../../assets/js/datatables/TableTools.min.js"></script>
+    <script src="../../assets/js/dataTables.bootstrap.js"></script>
+    <script src="../../assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+    <script src="../../assets/js/datatables/lodash.min.js"></script>
+    <script src="../../assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+    <script src="../.././vendor/moment/moment.js"></script>
+    <script src="../../scripts_crm/accounting.js"></script>
+    <script src="../../BLLscripts/BLLUtilidades.js"></script>
+    <script src="js/Hoja.js"></script>
+</body>
+</html>

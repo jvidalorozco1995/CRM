@@ -541,7 +541,7 @@ function BLLInmuebles() {
             if (item.ESTADO == 'C')
             {
                 
-                tabla += "<td class='Btimprimir'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td>";
+                tabla += "<td class='Btimprimir'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td> <td class='Btimprimir2'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Reporte2</button></td>";
             }
             else if (item.ESTADO == 'L')
             {

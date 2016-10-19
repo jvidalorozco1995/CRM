@@ -31,6 +31,13 @@ var _admnegocio = (function () {
             window.history.back();
         });
 
+        $(document).on('click', '.Btimprimir2', function () {
+            var idhoja = $(this).attr("id");
+            window.open("Hoja_Negocio3.html?idhoja=" + idhoja + '&proyec=' + proyec, 'Graph', 'height=900px,width=650px;resizable=false');
+            window.history.back();
+        });
+
+
         $(document).on('click', '#BtnSiguiente', function () {
             //  $('.nav-tabs a:last').tab('show');
             $('#myTab li:eq(1) a').tab('show');
