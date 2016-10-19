@@ -170,6 +170,7 @@ var admEntregas= (function () {
                         myObj = {
                             "ID_PROYECTO": $("#ComProyect").val(),    //your artist variable
                             "DIROBRA": $("#CombAsesores").val(),   //your title variable
+                            "ENVIADOA": $("#CombAsesores").val(),
                         };
 
 

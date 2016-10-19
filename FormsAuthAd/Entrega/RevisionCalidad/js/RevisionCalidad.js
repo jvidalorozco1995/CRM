@@ -25,6 +25,16 @@ var admRevision = (function () {
             window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia + "&accion=1";
 
         });
+
+
+        $(document).on('click', '.VER', function () {
+            var referencia = $(this).attr("id");
+            var idAval = $(this).attr("tag");
+
+            window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia + "&accion=3&idaval=" + idAval;
+
+        });
+        
     }
 
     
