@@ -34,6 +34,17 @@ var admRevision = (function () {
             window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia + "&accion=3&idaval=" + idAval;
 
         });
+        $(document).on('click', '.VERFECHAS', function () {
+            var idAval = $(this).attr("id");
+            var tag = $(this).attr("tag");
+            $("#Nregistro").append(tag);
+            $("#datos").show();
+            Revi.ListadoFechasInspeccion(idAval);
+
+        });
+
+        
+
         
     }
 
@@ -42,7 +53,7 @@ var admRevision = (function () {
     var _Inicio = function () {
        
         Revi.Listado();
-
+        $("#datos").hide();
 
 
 

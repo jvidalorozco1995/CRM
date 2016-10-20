@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <%--<div class="col-lg-5 scroll " style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
+              <div class="col-lg-5 scroll " style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
                     <div class="panel panel-success">
                         <div class="panel-body" id="datos">
                             <!--DATOS DE SOLICITUDES--->
@@ -64,75 +64,23 @@
                                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                                         <a class="Pcreartarea"><i class="fa fa-times"></i></a>
                                     </div>
-                                    <strong> Solicitud No: </strong>  <label id="Nsolicitud"> </label> 
+                                    <strong> Registro Aval No: </strong>  <label id="Nregistro"> </label> 
                                 </div>
                                 <div class="Border padding">
                                     <div class="tab-content">
                                       
-                                        <div class="row">
-                                           
-                                            <div class="col-lg-12">
-                                                <div class="form-group col-lg-4">
-
-                                                    <label>Proyecto</label>
-                                                    <input type="text" value="" id="TxtProyectos" class="form-control" name="" placeholder="" readonly="" />
-
-                                                </div>
-                                                <div class="form-group col-lg-4">
-
-                                                    <label>Fecha</label>
-                                                    <input type="text" value="" id="TxtFecha" class="form-control" name="" placeholder="" readonly="" />
-
-                                                </div>
-                                                <div class="form-group col-lg-4">
-
-                                                    <label>Dir Obra</label>
-                                                    <input type="text" value="" id="TxtDirObra" class="form-control" name="" placeholder="" readonly="" />
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                          <div style="color:#E50000; text-align:center"><h4>Listado de inmuebles</h4></div>
-                                        <div id="tablainmuebles" class="p-m tab-pane active">
+                                       
+                                          <div style="color:#E50000; text-align:center"><h4>Listado de fechas</h4></div>
+                                        <div id="tablafechas" class="p-m tab-pane active">
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="form-group col-lg-4">
-
-                                                    <label>F. Enviado</label>
-                                                    <input type="text" value="" id="TxtFechaEnviado" class="form-control" name="" placeholder="" readonly="" />
-
-                                                </div>
-                                                <div class="form-group col-lg-4">
-
-                                                    <label>Enviado A:</label>
-                                                    <input type="text" value="" id="TxtEnviadoA" class="form-control" name="" placeholder="" readonly="" />
-
-                                                </div>
-                                                <div class="form-group col-lg-4">
-
-                                                    <label>Enviado por:</label>
-                                                    <input type="text" value="" id="TxtEnviadoPor" class="form-control" name="" placeholder="" readonly="" />
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal"  id="BtnGuardar">Guardar</button>
-                                           <button type="button" class="btn btn-success" id="BtnEditar">Editar</button>
-                                             <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCancelar">Cancelar</button>
-
-                                        <%--   <button type="button" class="btn btn-default" data-dismiss="modal"  id="BtnCancelar">Guardar</button>
-                                       </div>
+                                     
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>--%>
+                </div>
 
 
             </div>

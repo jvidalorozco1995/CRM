@@ -22,9 +22,9 @@ var admAval = (function () {
             format: 'yyyy/mm/dd',
         });
         */
-
-
-     
+        $(document).on('click', '#BtnAtras', function () {
+            window.history.back();
+        });
         $(document).on('click', '#BtnSiguiente2g', function () {
             
             var id = $('li.active .a').data('nexttab');

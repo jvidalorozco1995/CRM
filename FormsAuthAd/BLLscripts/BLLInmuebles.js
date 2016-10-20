@@ -60,7 +60,7 @@ function BLLInmuebles() {
             dataType: 'json',
             async: true,
             success: function (result) {
-                if (result.d == null) { BLLInmuebles.TablasepracionNegocio(result.d) }
+                if (result.d == null) {  }
                 else { BLLInmuebles.TablasepracionNegocio(result.d)}
             },
             error: function (msg) { alert(msg.responseText); }
@@ -518,6 +518,7 @@ function BLLInmuebles() {
         tabla += "<th>Inmueble</th>";
         tabla += "<th>Proyecto</th>";
         tabla += "<th></th>";
+        tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -541,7 +542,8 @@ function BLLInmuebles() {
             if (item.ESTADO == 'C')
             {
                 
-                tabla += "<td class='Btimprimir'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td> <td class='Btimprimir2'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Reporte2</button></td>";
+                tabla += "<td class='Btimprimir'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Imprimir</button></td>";
+                tabla += "<td class='Btimprimir2'id=" + item.ID_NEGOCIO + "  style='width:22px'><button class='btn btn-primary btn-xs' type='button'>Reporte2</button></td>";
             }
             else if (item.ESTADO == 'L')
             {
@@ -550,7 +552,7 @@ function BLLInmuebles() {
 
                 //id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + "
                 tabla += "<td class='CargarN' id=" + item.CLIENTE + "/" + item.ID_S + "/" + item.INMUEBLE + " href=Crearnegocio.aspx?proyec="+item.CLIENTE + " style='width:22px'><button class='btn btn-success btn-xs' type='button'>Crear Hoja de negocio</button></td>";
-
+                tabla+="<td></td>"
 
             }
               tabla += "</tr>";

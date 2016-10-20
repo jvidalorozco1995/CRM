@@ -100,9 +100,9 @@
                         <div class="modal-footer">
                       
                               <div class="pull-left">
-
+                                   <button type="button" class="btn btn-primary" id="BtnAtras">Regresar a la pag. ant</button>
                              <button type="button" class="btn btn-primary" id="BtnGuardar">Guardar</button>
-                             <button type="button" class="btn btn-primary" id="BtnEditar">Editar</button>
+                             <button type="button" class="btn btn-primary" id="BtnEditar">Guardar</button>
                                    <button type="button" class="btn btn-primary" id="BtnHabilitar">Editar el formulario</button>
                                     <button type="button" class="btn btn-default" id="BtnCancelar">Cancelar</button>
 </div>

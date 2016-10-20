@@ -1,0 +1,2 @@
+﻿Could not parse the configuration file. The error message is: 'Value cannot be null.
+Parameter name: projectItems'. Try editing the file manually and then saving it.

@@ -11,7 +11,7 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Xml.Serialization;
     public partial class Actividades
     {
         public Actividades()
@@ -28,9 +28,10 @@ namespace DAL
         public string Descripcion { get; set; }
         public Nullable<int> Simultaneo { get; set; }
         public Nullable<int> Actividad_Dependiente { get; set; }
-    
-        public virtual ICollection<ActividadxTramite> ActividadxTramite { get; set; }
-        public virtual ICollection<Documento> Documento { get; set; }
-        public virtual ICollection<Notificaciones> Notificaciones { get; set; }
+
+   
+        [XmlIgnore] public virtual ICollection<ActividadxTramite> ActividadxTramite { get; set; }
+        [XmlIgnore] public virtual ICollection<Documento> Documento { get; set; }
+        [XmlIgnore] public virtual ICollection<Notificaciones> Notificaciones { get; set; }
     }
 }

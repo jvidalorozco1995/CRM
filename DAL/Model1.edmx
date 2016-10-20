@@ -181,7 +181,7 @@
           <Property Name="CODIGO" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.concepto_p' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+warning 6013: The table/view 'CRM_TEST.dbo.concepto_p' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="concepto_p">
           <Property Name="ID_CON" Type="varchar" MaxLength="50" />
           <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
@@ -260,7 +260,7 @@ warning 6013: The table/view 'CRM_PRUEBA.dbo.concepto_p' does not have a primary
           <Property Name="idRegistro" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.historial_acuerdos_pagos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="historial_acuerdos_pagos">
           <Key>
             <PropertyRef Name="ID_HISTORIAL" />
@@ -390,65 +390,65 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
             <PropertyRef Name="ID_HOJA" />
           </Key>
           <Property Name="ID_NEGOCIO" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CLASE_INMU" Type="varchar" MaxLength="45" />
+          <Property Name="CLASE_INMU" Type="nvarchar(max)" />
           <Property Name="FECHA_NEGOCIO" Type="datetime" />
           <Property Name="AREA_PRIVADA" Type="decimal" Precision="20" Scale="2" />
           <Property Name="AREA_CONSTRUIDA" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="PARQUEADERO" Type="varchar" MaxLength="250" />
-          <Property Name="AREAS_COMUNES" Type="varchar" MaxLength="250" />
+          <Property Name="PARQUEADERO" Type="nvarchar(max)" />
+          <Property Name="AREAS_COMUNES" Type="nvarchar(max)" />
           <Property Name="PROPIETARIO" Type="nvarchar(max)" />
-          <Property Name="ESTADO_C" Type="varchar" MaxLength="30" />
-          <Property Name="CEDULA_P" Type="varchar" MaxLength="13" />
+          <Property Name="ESTADO_C" Type="nvarchar(max)" />
+          <Property Name="CEDULA_P" Type="nvarchar(max)" />
           <Property Name="LUGAR_EXPE" Type="nvarchar(max)" />
           <Property Name="EXPEDICION" Type="date" />
           <Property Name="FECHA_NACI" Type="date" />
-          <Property Name="LUGAR" Type="varchar" MaxLength="250" />
+          <Property Name="LUGAR" Type="nvarchar(max)" />
           <Property Name="N_HIJO" Type="int" />
           <Property Name="DOMICILIO" Type="nvarchar(max)" />
           <Property Name="DIRECCION_R" Type="nvarchar(max)" />
-          <Property Name="TELEFONO_P" Type="varchar" MaxLength="13" />
-          <Property Name="CORREO" Type="varchar" MaxLength="250" />
-          <Property Name="EMPRESA" Type="varchar" MaxLength="100" />
-          <Property Name="CARGO" Type="varchar" MaxLength="100" />
-          <Property Name="TELFONO_EMP" Type="varchar" MaxLength="13" />
-          <Property Name="PROFESION" Type="varchar" MaxLength="100" />
+          <Property Name="TELEFONO_P" Type="nvarchar(max)" />
+          <Property Name="CORREO" Type="nvarchar(max)" />
+          <Property Name="EMPRESA" Type="nvarchar(max)" />
+          <Property Name="CARGO" Type="nvarchar(max)" />
+          <Property Name="TELFONO_EMP" Type="nvarchar(max)" />
+          <Property Name="PROFESION" Type="nvarchar(max)" />
           <Property Name="DIRECCION_EMPR" Type="nvarchar(max)" />
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="ANTIGUEDAD" Type="varchar" MaxLength="60" />
-          <Property Name="NOMBRE_CONY" Type="varchar" MaxLength="150" />
-          <Property Name="TIPO_DOCUMENTO_CONY" Type="varchar" MaxLength="30" />
-          <Property Name="LUGAR_EXPEDICION" Type="varchar" MaxLength="250" />
+          <Property Name="ANTIGUEDAD" Type="nvarchar(max)" />
+          <Property Name="NOMBRE_CONY" Type="nvarchar(max)" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="nvarchar(max)" />
+          <Property Name="LUGAR_EXPEDICION" Type="nvarchar(max)" />
           <Property Name="FECHA_EXPEDICION_CUY" Type="datetime" />
-          <Property Name="CEDULA_CUY" Type="varchar" MaxLength="13" />
-          <Property Name="TELE_CONY" Type="varchar" MaxLength="12" />
-          <Property Name="INTERES_COM" Type="varchar" MaxLength="100" />
-          <Property Name="PROYECTO_INT" Type="varchar" MaxLength="20" />
-          <Property Name="VALOR_CASA" Type="varchar" MaxLength="20" />
-          <Property Name="INICIAL" Type="varchar" MaxLength="20" />
+          <Property Name="CEDULA_CUY" Type="nvarchar(max)" />
+          <Property Name="TELE_CONY" Type="nvarchar(max)" />
+          <Property Name="INTERES_COM" Type="nvarchar(max)" />
+          <Property Name="PROYECTO_INT" Type="nvarchar(max)" />
+          <Property Name="VALOR_CASA" Type="nvarchar(max)" />
+          <Property Name="INICIAL" Type="nvarchar(max)" />
           <Property Name="ADICIONES_EXCLUSIONES" Type="decimal" Precision="20" Scale="2" />
           <Property Name="SUBSIDIO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="GARAJE" Type="decimal" Precision="20" Scale="2" />
           <Property Name="DESCUENTO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VALOR_SERVICIOGAS" Type="decimal" Precision="20" Scale="2" />
           <Property Name="INTERESES_SUBROGACION" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="CREDITO" Type="varchar" MaxLength="20" />
+          <Property Name="CREDITO" Type="nvarchar(max)" />
           <Property Name="BANCO" Type="int" />
-          <Property Name="NO_CREDITO" Type="varchar" MaxLength="30" />
+          <Property Name="NO_CREDITO" Type="nvarchar(max)" />
           <Property Name="FECHA_ES" Type="date" />
           <Property Name="FECHA_ENT" Type="date" />
           <Property Name="FECHA_SUBRO" Type="date" />
-          <Property Name="ASESOR_INFO" Type="varchar" MaxLength="60" />
-          <Property Name="MEDIO_ENT" Type="varchar" MaxLength="250" />
-          <Property Name="ASOCIADO" Type="varchar" MaxLength="13" />
+          <Property Name="ASESOR_INFO" Type="nvarchar(max)" />
+          <Property Name="MEDIO_ENT" Type="nvarchar(max)" />
+          <Property Name="ASOCIADO" Type="nvarchar(max)" />
           <Property Name="AUT_MENSAJE" Type="int" />
           <Property Name="AUT_CORREO" Type="int" />
           <Property Name="OBSERVACIONES" Type="nvarchar(max)" />
           <Property Name="ID_HOJA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SEPARACION" Type="int" />
-          <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
-          <Property Name="USER_CREO" Type="varchar" MaxLength="60" />
-          <Property Name="USER_CARTERA" Type="varchar" MaxLength="60" />
-          <Property Name="DOCUMENTO" Type="varchar" MaxLength="400" />
+          <Property Name="CODIGO_F" Type="nvarchar(max)" />
+          <Property Name="USER_CREO" Type="nvarchar(max)" />
+          <Property Name="USER_CARTERA" Type="nvarchar(max)" />
+          <Property Name="DOCUMENTO" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="negocio_fox">
           <Key>
@@ -638,7 +638,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.historial_acuerdos_pagos' does not 
           <Property Name="Porcentaje" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.NegocioView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.NegocioView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="NegocioView">
           <Key>
             <PropertyRef Name="ID_NEGOCIO" />
@@ -646,54 +646,54 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.NegocioView' does not have a primar
           </Key>
           <Property Name="ID_NEGOCIO" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PROPIETARIO" Type="varchar" MaxLength="132" />
-          <Property Name="CEDULA_P" Type="varchar" MaxLength="13" />
-          <Property Name="ESTADO_C" Type="varchar" MaxLength="30" />
+          <Property Name="CEDULA_P" Type="nvarchar(max)" />
+          <Property Name="ESTADO_C" Type="nvarchar(max)" />
           <Property Name="EXPEDICION" Type="date" />
           <Property Name="FECHA_NACI" Type="date" />
-          <Property Name="LUGAR" Type="varchar" MaxLength="250" />
-          <Property Name="DIRECCION_R" Type="varchar" MaxLength="250" />
-          <Property Name="TELEFONO_P" Type="varchar" MaxLength="13" />
-          <Property Name="EMPRESA" Type="varchar" MaxLength="100" />
-          <Property Name="TELFONO_EMP" Type="varchar" MaxLength="13" />
-          <Property Name="CARGO" Type="varchar" MaxLength="100" />
-          <Property Name="PROFESION" Type="varchar" MaxLength="100" />
-          <Property Name="DIRECCION_EMPR" Type="varchar" MaxLength="250" />
-          <Property Name="ANTIGUEDAD" Type="varchar" MaxLength="60" />
-          <Property Name="CORREO" Type="varchar" MaxLength="250" />
-          <Property Name="NOMBRE_CONY" Type="varchar" MaxLength="150" />
-          <Property Name="CEDULA_CUY" Type="varchar" MaxLength="13" />
-          <Property Name="TELE_CONY" Type="varchar" MaxLength="12" />
+          <Property Name="LUGAR" Type="nvarchar(max)" />
+          <Property Name="DIRECCION_R" Type="nvarchar(max)" />
+          <Property Name="TELEFONO_P" Type="nvarchar(max)" />
+          <Property Name="EMPRESA" Type="nvarchar(max)" />
+          <Property Name="TELFONO_EMP" Type="nvarchar(max)" />
+          <Property Name="CARGO" Type="nvarchar(max)" />
+          <Property Name="PROFESION" Type="nvarchar(max)" />
+          <Property Name="DIRECCION_EMPR" Type="nvarchar(max)" />
+          <Property Name="ANTIGUEDAD" Type="nvarchar(max)" />
+          <Property Name="CORREO" Type="nvarchar(max)" />
+          <Property Name="NOMBRE_CONY" Type="nvarchar(max)" />
+          <Property Name="CEDULA_CUY" Type="nvarchar(max)" />
+          <Property Name="TELE_CONY" Type="nvarchar(max)" />
           <Property Name="N_HIJO" Type="int" />
-          <Property Name="INTERES_COM" Type="varchar" MaxLength="100" />
-          <Property Name="VALOR_CASA" Type="varchar" MaxLength="20" />
-          <Property Name="INICIAL" Type="varchar" MaxLength="20" />
-          <Property Name="CREDITO" Type="varchar" MaxLength="20" />
+          <Property Name="INTERES_COM" Type="nvarchar(max)" />
+          <Property Name="VALOR_CASA" Type="nvarchar(max)" />
+          <Property Name="INICIAL" Type="nvarchar(max)" />
+          <Property Name="CREDITO" Type="nvarchar(max)" />
           <Property Name="BANCO" Type="int" />
-          <Property Name="NO_CREDITO" Type="varchar" MaxLength="30" />
+          <Property Name="NO_CREDITO" Type="nvarchar(max)" />
           <Property Name="FECHA_ES" Type="date" />
           <Property Name="FECHA_ENT" Type="date" />
           <Property Name="FECHA_SUBRO" Type="date" />
-          <Property Name="ASESOR_INFO" Type="varchar" MaxLength="60" />
-          <Property Name="MEDIO_ENT" Type="varchar" MaxLength="250" />
-          <Property Name="ASOCIADO" Type="varchar" MaxLength="13" />
-          <Property Name="CLASE_INMU" Type="varchar" MaxLength="45" />
+          <Property Name="ASESOR_INFO" Type="nvarchar(max)" />
+          <Property Name="MEDIO_ENT" Type="nvarchar(max)" />
+          <Property Name="ASOCIADO" Type="nvarchar(max)" />
+          <Property Name="CLASE_INMU" Type="nvarchar(max)" />
           <Property Name="SEPARACION" Type="int" />
           <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
           <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
           <Property Name="INGRESO" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
+          <Property Name="CODIGO_F" Type="nvarchar(max)" />
           <Property Name="INMUEBLE" Type="varchar" MaxLength="16" />
           <Property Name="NOMBRE_BLO" Type="varchar" MaxLength="50" />
           <Property Name="ID_HOJA" Type="int" Nullable="false" />
-          <Property Name="USER_CARTERA" Type="varchar" MaxLength="60" />
+          <Property Name="USER_CARTERA" Type="nvarchar(max)" />
           <Property Name="FECHA_NEGOCIO" Type="datetime" />
           <Property Name="NOMBRE_BANCO" Type="varchar" MaxLength="80" />
-          <Property Name="PARQUEADERO" Type="varchar" MaxLength="250" />
-          <Property Name="AREAS_COMUNES" Type="varchar" MaxLength="250" />
+          <Property Name="PARQUEADERO" Type="nvarchar(max)" />
+          <Property Name="AREAS_COMUNES" Type="nvarchar(max)" />
           <Property Name="AREA_PRIVADA" Type="decimal" Precision="20" Scale="2" />
           <Property Name="AREA_CONSTRUIDA" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="TIPO_DOCUMENTO_CONY" Type="varchar" MaxLength="30" />
-          <Property Name="LUGAR_EXPEDICION" Type="varchar" MaxLength="250" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="nvarchar(max)" />
+          <Property Name="LUGAR_EXPEDICION" Type="nvarchar(max)" />
           <Property Name="FECHA_EXPEDICION_CUY" Type="datetime" />
           <Property Name="ADICIONES_EXCLUSIONES" Type="decimal" Precision="20" Scale="2" />
           <Property Name="SUBSIDIO" Type="decimal" Precision="20" Scale="2" />
@@ -712,7 +712,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.NegocioView' does not have a primar
           <Property Name="CELULAR" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VActInmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VActInmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VActInmuebles">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -723,7 +723,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VActInmuebles' does not have a prim
           <Property Name="Usuario" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VActxtramite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VActxtramite' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VActxtramite">
           <Key>
             <PropertyRef Name="Id" />
@@ -743,7 +743,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VActxtramite' does not have a prima
           <Property Name="Duracion" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VacuerdosFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VacuerdosFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VacuerdosFox">
           <Key>
             <PropertyRef Name="ID" />
@@ -762,7 +762,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VacuerdosFox' does not have a prima
           <Property Name="REFERENCIA1" Type="varchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VAsesoresT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VAsesoresT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VAsesoresT">
           <Key>
             <PropertyRef Name="T_CEDULA" />
@@ -772,7 +772,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VAsesoresT' does not have a primary
           <Property Name="T_CEDULA" Type="varchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VCantidadcompromisos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VCantidadcompromisos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VCantidadcompromisos">
           <Key>
             <PropertyRef Name="ESTADO" />
@@ -782,7 +782,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VCantidadcompromisos' does not have
           <Property Name="ESTADO" Type="varchar" MaxLength="2" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VCLienteinmueble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VCLienteinmueble' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VCLienteinmueble">
           <Key>
             <PropertyRef Name="DIRECCION" />
@@ -812,7 +812,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VCLienteinmueble' does not have a p
           <Property Name="ESTADO_C" Type="varchar" MaxLength="1" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.Vclientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vclientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vclientes">
           <Key>
             <PropertyRef Name="CEDULA" />
@@ -850,7 +850,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vclientes' does not have a primary 
           <Property Name="CELULAR" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.Vclienteseparacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vclienteseparacion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vclienteseparacion">
           <Key>
             <PropertyRef Name="CLIENTE" />
@@ -864,7 +864,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vclienteseparacion' does not have a
           <Property Name="INMUEBLE" Type="varchar" MaxLength="16" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VClientesTareas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VClientesTareas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VClientesTareas">
           <Key>
             <PropertyRef Name="CEDULA" />
@@ -898,7 +898,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VClientesTareas' does not have a pr
           <Property Name="TEL_EMP" Type="varchar" MaxLength="12" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VCod_SP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VCod_SP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VCod_SP">
           <Key>
             <PropertyRef Name="COD" />
@@ -909,7 +909,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VCod_SP' does not have a primary ke
           <Property Name="CLIENTE" Type="varchar" MaxLength="13" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.Vdetallesp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vdetallesp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vdetallesp">
           <Key>
             <PropertyRef Name="REFERENCIA" />
@@ -928,7 +928,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vdetallesp' does not have a primary
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VDocumentosActividades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VDocumentosActividades' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VDocumentosActividades">
           <Key>
             <PropertyRef Name="idactividad" />
@@ -939,7 +939,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VDocumentosActividades' does not ha
           <Property Name="id" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+warning 6013: The table/view 'CRM_TEST.dbo.VfechasAsesor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="VfechasAsesor">
           <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
           <Property Name="MES" Type="int" />
@@ -948,7 +948,7 @@ warning 6013: The table/view 'CRM_PRUEBA.dbo.VfechasAsesor' does not have a prim
           <Property Name="T_CEDULA" Type="varchar" MaxLength="30" />
         </EntityType>-->
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VFechasProyectos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VFechasProyectos">
           <Key>
             <PropertyRef Name="ID_PROYEC" />
@@ -960,7 +960,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VFechasProyectos' does not have a p
           <Property Name="NOMBRE_PROYEC" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.Vinmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vinmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vinmuebles">
           <Key>
             <PropertyRef Name="ID_PROYEC" />
@@ -980,7 +980,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vinmuebles' does not have a primary
           <Property Name="BLOQUE_CODI" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VInmueblesConTramites' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VInmueblesConTramites' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VInmueblesConTramites">
           <Key>
             <PropertyRef Name="REFERENCIA" />
@@ -1003,7 +1003,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VInmueblesConTramites' does not hav
           <Property Name="USER_CARTERA" Type="varchar" MaxLength="60" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VinteresProyect' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VinteresProyect">
           <Key>
             <PropertyRef Name="ID_PROYEC" />
@@ -1014,7 +1014,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VinteresProyect' does not have a pr
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAmbiente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VistaAmbiente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VistaAmbiente">
           <Key>
             <PropertyRef Name="Id" />
@@ -1027,7 +1027,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAmbiente' does not have a prim
           <Property Name="Consecutivo" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAVal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VistaAVal' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VistaAVal">
           <Key>
             <PropertyRef Name="id" />
@@ -1046,7 +1046,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAVal' does not have a primary 
           <Property Name="INMUEBLE" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAvalAntes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VistaAvalAntes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VistaAvalAntes">
           <Key>
             <PropertyRef Name="REFERENCIA" />
@@ -1060,13 +1060,13 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VistaAvalAntes' does not have a pri
           <Property Name="NOMBRECLIENTE" Type="varchar" MaxLength="300" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+warning 6013: The table/view 'CRM_TEST.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="VistaTareasPorClientes">
           <Property Name="CLIENTE" Type="varchar" MaxLength="13" />
           <Property Name="ID_TAREA" Type="int" />
         </EntityType>-->
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntegrasC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VListadoEntegrasC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VListadoEntegrasC">
           <Key>
             <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
@@ -1095,7 +1095,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntegrasC' does not have a 
           <Property Name="IdAval" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntregas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VListadoEntregas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VListadoEntregas">
           <Key>
             <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
@@ -1120,7 +1120,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VListadoEntregas' does not have a p
           <Property Name="OBSERVACIONES" Type="varchar" MaxLength="250" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VnegocioFox' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VnegocioFox">
           <Key>
             <PropertyRef Name="ID" />
@@ -1128,26 +1128,26 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VnegocioFox' does not have a primar
           </Key>
           <Property Name="CodNegocio" Type="varchar" MaxLength="50" />
           <Property Name="NOMBREBLOQUE" Type="varchar" MaxLength="150" />
-          <Property Name="CEDULA_P" Type="varchar" MaxLength="13" />
+          <Property Name="CEDULA_P" Type="nvarchar(max)" />
           <Property Name="NOMBRECLIENTE" Type="varchar" MaxLength="300" />
           <Property Name="CODIGOINMUEBLE" Type="varchar" MaxLength="16" />
-          <Property Name="CODIGOCRM" Type="varchar" MaxLength="50" />
+          <Property Name="CODIGOCRM" Type="nvarchar(max)" />
           <Property Name="SUCURSAL" Type="varchar" MaxLength="50" />
-          <Property Name="NEGOCIO" Type="varchar" MaxLength="50" />
+          <Property Name="NEGOCIO" Type="nvarchar(max)" />
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="VLRCREDITO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VLRINICIALCUOTA" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VLRNEGOCIO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="FECHANEGOCIO" Type="varchar" MaxLength="30" />
-          <Property Name="DOCUMENTO" Type="varchar" MaxLength="400" />
-          <Property Name="TELEFONO_P" Type="varchar" MaxLength="13" />
-          <Property Name="TELFONO_EMP" Type="varchar" MaxLength="13" />
+          <Property Name="DOCUMENTO" Type="nvarchar(max)" />
+          <Property Name="TELEFONO_P" Type="nvarchar(max)" />
+          <Property Name="TELFONO_EMP" Type="nvarchar(max)" />
           <Property Name="Estado" Type="varchar" MaxLength="9" Nullable="false" />
           <Property Name="FECHA_ES" Type="date" />
-          <Property Name="USER_CREO" Type="varchar" MaxLength="60" />
+          <Property Name="USER_CREO" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VNegocioscompromisos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VNegocioscompromisos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VNegocioscompromisos">
           <Key>
             <PropertyRef Name="ID" />
@@ -1155,9 +1155,9 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VNegocioscompromisos' does not have
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="VLRCUOTA" Type="decimal" Precision="20" Scale="2" />
           <Property Name="NOMBRECLIENTE" Type="varchar" MaxLength="300" />
-          <Property Name="CEDULA_P" Type="varchar" MaxLength="13" />
+          <Property Name="CEDULA_P" Type="nvarchar(max)" />
           <Property Name="NOMBREBLOQUE" Type="varchar" MaxLength="150" />
-          <Property Name="REFERENCIA1" Type="varchar" MaxLength="50" />
+          <Property Name="REFERENCIA1" Type="nvarchar(max)" />
           <Property Name="VLRCREDITO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VLRNEGOCIO" Type="decimal" Precision="20" Scale="2" />
           <Property Name="VLRINICIALCUOTA" Type="decimal" Precision="20" Scale="2" />
@@ -1165,11 +1165,11 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VNegocioscompromisos' does not have
           <Property Name="CODIGOTAREA" Type="int" />
           <Property Name="SALDOXCOBRAR" Type="decimal" Precision="20" Scale="2" />
           <Property Name="FECHACARTERA" Type="varchar" MaxLength="30" />
-          <Property Name="TELEFONO_P" Type="varchar" MaxLength="13" />
-          <Property Name="TELFONO_EMP" Type="varchar" MaxLength="13" />
+          <Property Name="TELEFONO_P" Type="nvarchar(max)" />
+          <Property Name="TELFONO_EMP" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.Vsepracioninmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vsepracioninmuebles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vsepracioninmuebles">
           <Key>
             <PropertyRef Name="DIRECCION" />
@@ -1217,13 +1217,13 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vsepracioninmuebles' does not have 
           <Property Name="ASESOR" Type="varchar" MaxLength="30" />
           <Property Name="INMU_INTERES" Type="varchar" MaxLength="20" />
           <Property Name="ID_SEPARACION" Type="int" Nullable="false" />
-          <Property Name="CODIGO_F" Type="varchar" MaxLength="50" />
+          <Property Name="CODIGO_F" Type="nvarchar(max)" />
           <Property Name="ID_NEGOCIO" Type="varchar" MaxLength="50" />
           <Property Name="TIPO" Type="nvarchar(max)" />
           <Property Name="TIPODOCUMENTO" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.Vspt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.Vspt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vspt">
           <Key>
             <PropertyRef Name="T_CEDULA" />
@@ -1234,11 +1234,11 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vspt' does not have a primary key d
           <Property Name="T_CEDULA" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="ID_PROYEC" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="ID_PY" Type="int" Nullable="false" />
-          <Property Name="NOMBRES" Type="varchar" MaxLength="60" />
+          <Property Name="NOMBRES" Type="varchar" MaxLength="25" />
           <Property Name="TRABAJADOR" Type="varchar" MaxLength="30" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VTareas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VTareas' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VTareas">
           <Key>
             <PropertyRef Name="T_CEDULA" />
@@ -1263,7 +1263,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTareas' does not have a primary ke
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VTareasCompromiso' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VTareasCompromiso' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VTareasCompromiso">
           <Key>
             <PropertyRef Name="T_CEDULA" />
@@ -1288,7 +1288,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTareasCompromiso' does not have a 
           <Property Name="EMAIL" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VtareasNegocio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VtareasNegocio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VtareasNegocio">
           <Key>
             <PropertyRef Name="ID_TAREA" />
@@ -1304,7 +1304,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VtareasNegocio' does not have a pri
           <Property Name="NOMBRES" Type="varchar" MaxLength="132" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VTracliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VTracliente' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VTracliente">
           <Key>
             <PropertyRef Name="CEDULA" />
@@ -1326,7 +1326,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTracliente' does not have a primar
           <Property Name="PROYEC_INTERES" Type="varchar" MaxLength="10" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'CRM_TEST.dbo.VTramitesBancos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VTramitesBancos">
           <Key>
             <PropertyRef Name="IdTramite" />
@@ -1340,7 +1340,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a pr
           <Property Name="IdDocumento" Type="int" />
           <Property Name="NombreDocumento" Type="varchar" MaxLength="250" />
         </EntityType>
-        <Association Name="FK__bloques__BLOQUE___5AEE82B9">
+        <Association Name="FK__bloques__BLOQUE___59FA5E80">
           <End Role="proyectos" Type="Self.proyectos" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -1440,7 +1440,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.VTramitesBancos' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__planos_Pr__PROYE__68487DD7">
+        <Association Name="FK__planos_Pr__PROYE__60A75C0F">
           <End Role="proyectos" Type="Self.proyectos" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -2269,7 +2269,7 @@ FROM [dbo].[VTracliente] AS [VTracliente]</DefiningQuery>
 [VTramitesBancos].[NombreDocumento] AS [NombreDocumento]
 FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__bloques__BLOQUE___5AEE82B9" Association="Self.FK__bloques__BLOQUE___5AEE82B9">
+          <AssociationSet Name="FK__bloques__BLOQUE___59FA5E80" Association="Self.FK__bloques__BLOQUE___59FA5E80">
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="bloques" EntitySet="bloques" />
           </AssociationSet>
@@ -2301,7 +2301,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="inmuebles" EntitySet="inmuebles" />
             <End Role="inmueble_separacion" EntitySet="inmueble_separacion" />
           </AssociationSet>
-          <AssociationSet Name="FK__planos_Pr__PROYE__68487DD7" Association="Self.FK__planos_Pr__PROYE__68487DD7">
+          <AssociationSet Name="FK__planos_Pr__PROYE__60A75C0F" Association="Self.FK__planos_Pr__PROYE__60A75C0F">
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="planos_Proyectos" EntitySet="planos_Proyectos" />
           </AssociationSet>
@@ -2494,7 +2494,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="bancos" EntitySet="bancos" />
             <End Role="Tramites" EntitySet="Tramites" />
           </AssociationSet>
-          <AssociationSet Name="FK__bloques__BLOQUE___5AEE82B9" Association="CRM_PRUEBAModel.FK__bloques__BLOQUE___5AEE82B9">
+          <AssociationSet Name="FK__bloques__BLOQUE___59FA5E80" Association="CRM_PRUEBAModel.FK__bloques__BLOQUE___59FA5E80">
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="bloques" EntitySet="bloques" />
           </AssociationSet>
@@ -2538,7 +2538,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <End Role="inmuebles" EntitySet="inmuebles" />
             <End Role="INMUEBLES_ENTREGAS" EntitySet="INMUEBLES_ENTREGAS" />
           </AssociationSet>
-          <AssociationSet Name="FK__planos_Pr__PROYE__68487DD7" Association="CRM_PRUEBAModel.FK__planos_Pr__PROYE__68487DD7">
+          <AssociationSet Name="FK__planos_Pr__PROYE__60A75C0F" Association="CRM_PRUEBAModel.FK__planos_Pr__PROYE__60A75C0F">
             <End Role="proyectos" EntitySet="proyectos" />
             <End Role="planos_Proyectos" EntitySet="planos_Proyectos" />
           </AssociationSet>
@@ -2714,7 +2714,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="BLOQUE_OBRA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="BLOQUE_CODI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="proyectos" Relationship="CRM_PRUEBAModel.FK__bloques__BLOQUE___5AEE82B9" FromRole="bloques" ToRole="proyectos" />
+          <NavigationProperty Name="proyectos" Relationship="CRM_PRUEBAModel.FK__bloques__BLOQUE___59FA5E80" FromRole="bloques" ToRole="proyectos" />
         </EntityType>
         <EntityType Name="clientes">
           <Key>
@@ -2964,65 +2964,65 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             <PropertyRef Name="ID_HOJA" />
           </Key>
           <Property Name="ID_NEGOCIO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CLASE_INMU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CLASE_INMU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FECHA_NEGOCIO" Type="DateTime" Precision="3" />
           <Property Name="AREA_PRIVADA" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="AREA_CONSTRUIDA" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="PARQUEADERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="AREAS_COMUNES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PARQUEADERO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AREAS_COMUNES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PROPIETARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ESTADO_C" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO_C" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CEDULA_P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LUGAR_EXPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="EXPEDICION" Type="DateTime" Precision="0" />
           <Property Name="FECHA_NACI" Type="DateTime" Precision="0" />
-          <Property Name="LUGAR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="LUGAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="N_HIJO" Type="Int32" />
           <Property Name="DOMICILIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DIRECCION_R" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="CORREO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="EMPRESA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="CARGO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="TELFONO_EMP" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO_P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CORREO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMPRESA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CARGO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TELFONO_EMP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PROFESION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DIRECCION_EMPR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="ANTIGUEDAD" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRE_CONY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="TIPO_DOCUMENTO_CONY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="LUGAR_EXPEDICION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ANTIGUEDAD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NOMBRE_CONY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LUGAR_EXPEDICION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FECHA_EXPEDICION_CUY" Type="DateTime" Precision="3" />
-          <Property Name="CEDULA_CUY" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="TELE_CONY" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="INTERES_COM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PROYECTO_INT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="VALOR_CASA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="INICIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CEDULA_CUY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TELE_CONY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="INTERES_COM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PROYECTO_INT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VALOR_CASA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="INICIAL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ADICIONES_EXCLUSIONES" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="SUBSIDIO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="GARAJE" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="DESCUENTO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VALOR_SERVICIOGAS" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="INTERESES_SUBROGACION" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="CREDITO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CREDITO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="BANCO" Type="Int32" />
-          <Property Name="NO_CREDITO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NO_CREDITO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FECHA_ES" Type="DateTime" Precision="0" />
           <Property Name="FECHA_ENT" Type="DateTime" Precision="0" />
           <Property Name="FECHA_SUBRO" Type="DateTime" Precision="0" />
-          <Property Name="ASESOR_INFO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="MEDIO_ENT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="ASOCIADO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="ASESOR_INFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MEDIO_ENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ASOCIADO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AUT_MENSAJE" Type="Int32" />
           <Property Name="AUT_CORREO" Type="Int32" />
           <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_HOJA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SEPARACION" Type="Int32" />
-          <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="USER_CREO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="USER_CARTERA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="DOCUMENTO" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGO_F" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="USER_CREO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="USER_CARTERA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DOCUMENTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="negocio_fox">
           <Key>
@@ -3116,7 +3116,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="PROYECT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="IMAGEN" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="TIPO_IMG" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="proyectos" Relationship="CRM_PRUEBAModel.FK__planos_Pr__PROYE__68487DD7" FromRole="planos_Proyectos" ToRole="proyectos" />
+          <NavigationProperty Name="proyectos" Relationship="CRM_PRUEBAModel.FK__planos_Pr__PROYE__60A75C0F" FromRole="planos_Proyectos" ToRole="proyectos" />
         </EntityType>
         <EntityType Name="proyectos">
           <Key>
@@ -3124,10 +3124,10 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           </Key>
           <Property Name="ID_PROYEC" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="bloques" Relationship="CRM_PRUEBAModel.FK__bloques__BLOQUE___5AEE82B9" FromRole="proyectos" ToRole="bloques" />
+          <NavigationProperty Name="bloques" Relationship="CRM_PRUEBAModel.FK__bloques__BLOQUE___59FA5E80" FromRole="proyectos" ToRole="bloques" />
           <NavigationProperty Name="clientes" Relationship="CRM_PRUEBAModel.FK__clientes__PROYEC__32E0915F" FromRole="proyectos" ToRole="clientes" />
           <NavigationProperty Name="Entregas" Relationship="CRM_PRUEBAModel.FK_Entregas_proyectos" FromRole="proyectos" ToRole="Entregas" />
-          <NavigationProperty Name="planos_Proyectos" Relationship="CRM_PRUEBAModel.FK__planos_Pr__PROYE__68487DD7" FromRole="proyectos" ToRole="planos_Proyectos" />
+          <NavigationProperty Name="planos_Proyectos" Relationship="CRM_PRUEBAModel.FK__planos_Pr__PROYE__60A75C0F" FromRole="proyectos" ToRole="planos_Proyectos" />
           <NavigationProperty Name="proyectos_trabajador" Relationship="CRM_PRUEBAModel.FK__proyectos__PROYE__1D9B5BB6" FromRole="proyectos" ToRole="proyectos_trabajador" />
         </EntityType>
         <EntityType Name="proyectos_trabajador">
@@ -3249,54 +3249,54 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           </Key>
           <Property Name="ID_NEGOCIO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PROPIETARIO" Type="String" MaxLength="132" FixedLength="false" Unicode="false" />
-          <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO_C" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CEDULA_P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ESTADO_C" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="EXPEDICION" Type="DateTime" Precision="0" />
           <Property Name="FECHA_NACI" Type="DateTime" Precision="0" />
-          <Property Name="LUGAR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION_R" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="EMPRESA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="TELFONO_EMP" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="CARGO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PROFESION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION_EMPR" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="ANTIGUEDAD" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="CORREO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="NOMBRE_CONY" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="CEDULA_CUY" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="TELE_CONY" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="LUGAR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DIRECCION_R" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFONO_P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EMPRESA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TELFONO_EMP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CARGO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PROFESION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DIRECCION_EMPR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ANTIGUEDAD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CORREO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NOMBRE_CONY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CEDULA_CUY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TELE_CONY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="N_HIJO" Type="Int32" />
-          <Property Name="INTERES_COM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="VALOR_CASA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="INICIAL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="CREDITO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="INTERES_COM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VALOR_CASA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="INICIAL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CREDITO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="BANCO" Type="Int32" />
-          <Property Name="NO_CREDITO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NO_CREDITO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FECHA_ES" Type="DateTime" Precision="0" />
           <Property Name="FECHA_ENT" Type="DateTime" Precision="0" />
           <Property Name="FECHA_SUBRO" Type="DateTime" Precision="0" />
-          <Property Name="ASESOR_INFO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="MEDIO_ENT" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="ASOCIADO" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="CLASE_INMU" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ASESOR_INFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MEDIO_ENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ASOCIADO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CLASE_INMU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SEPARACION" Type="Int32" />
           <Property Name="NOMBRES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_PROYEC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="INGRESO" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGO_F" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="INMUEBLE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="NOMBRE_BLO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ID_HOJA" Type="Int32" Nullable="false" />
-          <Property Name="USER_CARTERA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="USER_CARTERA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FECHA_NEGOCIO" Type="DateTime" Precision="3" />
           <Property Name="NOMBRE_BANCO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="PARQUEADERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="AREAS_COMUNES" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="PARQUEADERO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AREAS_COMUNES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="AREA_PRIVADA" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="AREA_CONSTRUIDA" Type="Decimal" Precision="20" Scale="2" />
-          <Property Name="TIPO_DOCUMENTO_CONY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="LUGAR_EXPEDICION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO_DOCUMENTO_CONY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LUGAR_EXPEDICION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FECHA_EXPEDICION_CUY" Type="DateTime" Precision="3" />
           <Property Name="ADICIONES_EXCLUSIONES" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="SUBSIDIO" Type="Decimal" Precision="20" Scale="2" />
@@ -3672,23 +3672,23 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           </Key>
           <Property Name="CodNegocio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NOMBREBLOQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="CEDULA_P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NOMBRECLIENTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="CODIGOINMUEBLE" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
-          <Property Name="CODIGOCRM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGOCRM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SUCURSAL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NEGOCIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NEGOCIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="VLRCREDITO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VLRINICIALCUOTA" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VLRNEGOCIO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="FECHANEGOCIO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="DOCUMENTO" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="TELFONO_EMP" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="DOCUMENTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFONO_P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TELFONO_EMP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Estado" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
           <Property Name="FECHA_ES" Type="DateTime" Precision="0" />
-          <Property Name="USER_CREO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="USER_CREO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VNegocioscompromisos">
           <Key>
@@ -3697,9 +3697,9 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="VLRCUOTA" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="NOMBRECLIENTE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="CEDULA_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="CEDULA_P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NOMBREBLOQUE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="REFERENCIA1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="REFERENCIA1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="VLRCREDITO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VLRNEGOCIO" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="VLRINICIALCUOTA" Type="Decimal" Precision="20" Scale="2" />
@@ -3707,8 +3707,8 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="CODIGOTAREA" Type="Int32" />
           <Property Name="SALDOXCOBRAR" Type="Decimal" Precision="20" Scale="2" />
           <Property Name="FECHACARTERA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="TELEFONO_P" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
-          <Property Name="TELFONO_EMP" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO_P" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TELFONO_EMP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Vsepracioninmuebles">
           <Key>
@@ -3757,7 +3757,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="ASESOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="INMU_INTERES" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ID_SEPARACION" Type="Int32" Nullable="false" />
-          <Property Name="CODIGO_F" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CODIGO_F" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_NEGOCIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TIPO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TIPODOCUMENTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -3772,7 +3772,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="T_CEDULA" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="ID_PROYEC" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ID_PY" Type="Int32" Nullable="false" />
-          <Property Name="NOMBRES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="TRABAJADOR" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VTareas">
@@ -3928,7 +3928,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__bloques__BLOQUE___5AEE82B9">
+        <Association Name="FK__bloques__BLOQUE___59FA5E80">
           <End Type="CRM_PRUEBAModel.proyectos" Role="proyectos" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -4064,7 +4064,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__planos_Pr__PROYE__68487DD7">
+        <Association Name="FK__planos_Pr__PROYE__60A75C0F">
           <End Type="CRM_PRUEBAModel.proyectos" Role="proyectos" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
