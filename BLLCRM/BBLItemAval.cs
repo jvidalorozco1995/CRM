@@ -31,9 +31,7 @@ namespace BLLCRM
                     ctx.UsuarioAprueba = Membership.GetUser().ToString();
                     if (item.Cumple == 1)
                     {
-                        inmu.FechaRecibido = DateTime.Now;
-                        inmu.UsuarioAprueba = Membership.GetUser().ToString();
-                        
+                                              
                     }
                     else
                     {
