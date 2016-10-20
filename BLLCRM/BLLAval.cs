@@ -205,12 +205,11 @@ namespace BLLCRM
 
             try
             {
-
-
                 var ctx = bd.Aval.First(inm => inm.id == idaval);
 
                 ctx.Aprueba = 1;
                 ctx.UsuarioAprueba = Membership.GetUser().ToString();
+                ctx.FechaFinApro = DateTime.Now;
                 bd.SaveChanges();
 
                 var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == referenciainmueble);

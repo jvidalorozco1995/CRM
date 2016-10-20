@@ -20,7 +20,9 @@ namespace BLLCRM
         {
             try
                 //su pinche madre
+                
             {
+                int aval = 0;
                 foreach (var item in i)
                 {
                     var ctx = bd.ItemAval.First(inm => inm.Id == item.Id);
@@ -30,12 +32,17 @@ namespace BLLCRM
                     ctx.Cumple = item.Cumple;
                     ctx.Observaciones = item.Observaciones;
                     ctx.FechaCompromiso = item.FechaCompromiso;
-
+                    aval = item.Id;
                     bd.SaveChanges();
                 }
                 var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == referenciainmueble);
                 ctx2.ESTADOAVAL = 1;
-
+                bd.SaveChanges();
+                
+                FechasAval p = new FechasAval();
+                p.FechaInspeccion = DateTime.Now;
+                p.idRegistro = aval;
+                bd.FechasAval.Add(p);
                 bd.SaveChanges();
                 return 1;
             }
