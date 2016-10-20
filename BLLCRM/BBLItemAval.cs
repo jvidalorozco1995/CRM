@@ -28,8 +28,17 @@ namespace BLLCRM
                     var ctx = bd.ItemAval.First(inm => inm.Id == item.Id);
                     ItemAval inmu = new ItemAval();
                     ctx.FechaRecibido = DateTime.Now; 
-                    ctx.UsuarioAprueba = Membership.GetUser().ToString(); ;
-                    ctx.Cumple = item.Cumple;
+                    ctx.UsuarioAprueba = Membership.GetUser().ToString();
+                    if (item.Cumple == 1)
+                    {
+                        inmu.FechaRecibido = DateTime.Now;
+                        inmu.UsuarioAprueba = Membership.GetUser().ToString();
+                        inmu.FechaCompromiso = DateTime.Now;
+                    }
+                    else
+                    {
+                        inmu.FechaCompromiso = item.FechaCompromiso;
+                    }
                     ctx.Observaciones = item.Observaciones;
                     ctx.FechaCompromiso = item.FechaCompromiso;
                     aval = item.Id;
