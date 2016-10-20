@@ -33,7 +33,7 @@ namespace BLLCRM
                     {
                         inmu.FechaRecibido = DateTime.Now;
                         inmu.UsuarioAprueba = Membership.GetUser().ToString();
-                        inmu.FechaCompromiso = DateTime.Now;
+                        
                     }
                     else
                     {
