@@ -34,5 +34,6 @@ namespace DAL
         public int CONSECUTIVO { get; set; }
         public Nullable<System.DateTime> FECHACONFIRMA { get; set; }
         public Nullable<int> IdAval { get; set; }
+        public Nullable<System.DateTime> FECHAREG { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    using System.Xml.Serialization;
+    
     public partial class Entregas
     {
         public Entregas()
@@ -30,6 +30,6 @@ namespace DAL
         public int CONSECUTIVO { get; set; }
     
         public virtual proyectos proyectos { get; set; }
-       [XmlIgnore] public virtual ICollection<INMUEBLES_ENTREGAS> INMUEBLES_ENTREGAS { get; set; }
+        public virtual ICollection<INMUEBLES_ENTREGAS> INMUEBLES_ENTREGAS { get; set; }
     }
 }
