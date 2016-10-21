@@ -7,7 +7,6 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <div id="wrapper">
-
         <div class="content animate-panel" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
             <div class="row">
                 <div class="row">
@@ -23,9 +22,7 @@
                                     <span>Suspendido</span>
                                     <img src='<%= ResolveUrl("../../images_crm/suspendido.png") %>' style="width: 15px; height: 15px" />
                                 </a>
-
-
-                            </div>
+                           </div>
                         </div>
                     </div>
                 </div>

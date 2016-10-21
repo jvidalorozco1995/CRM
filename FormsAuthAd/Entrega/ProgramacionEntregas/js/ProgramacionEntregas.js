@@ -197,6 +197,7 @@ var admEntregas= (function () {
                         }
 
                         Entg.CrearTablaInmueblesBorrador(favorites);
+
                     } else {
 
                         toastr.error('CRM Mayales - Notificacion' +

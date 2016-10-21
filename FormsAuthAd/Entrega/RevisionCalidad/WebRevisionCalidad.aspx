@@ -69,8 +69,45 @@
                                 <div class="Border padding">
                                     <div class="tab-content">
                                       
-                                       
-                                          <div style="color:#E50000; text-align:center"><h4>Listado de fechas</h4></div>
+                                       <div class="row">
+                                           
+                                            <div class="col-lg-12">
+                                                <div class="form-group col-lg-4">
+
+                                                    <label>Proyecto</label>
+                                                    <input type="text" value="" id="TxtProyecto" class="form-control" name="" placeholder="" readonly="" />
+
+                                                </div>
+                                                <div class="form-group col-lg-4">
+
+                                                    <label>Manzana</label>
+                                                    <input type="text" value="" id="TxtManzana" class="form-control" name="" placeholder="" readonly="" />
+
+                                                </div>
+                                                <div class="form-group col-lg-4">
+
+                                                    <label>Inmueble</label>
+                                                    <input type="text" value="" id="TxtInmueble" class="form-control" name="" placeholder="" readonly="" />
+
+                                                </div>
+
+                                                <div class="form-group col-lg-4">
+
+                                                    <label>F.Solicitud</label>
+                                                    <input type="text" value="" id="TxtFSolicitud" class="form-control" name="" placeholder="" readonly="" />
+
+                                                </div>
+                                                <div class="form-group col-lg-4">
+
+                                                    <label>F.Confirmación</label>
+                                                    <input type="text" value="" id="TxtFConfirmacion" class="form-control" name="" placeholder="" readonly="" />
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                     
                                         <div id="tablafechas" class="p-m tab-pane active">
                                         </div>
 

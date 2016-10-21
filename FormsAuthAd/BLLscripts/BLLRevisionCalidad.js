@@ -56,7 +56,7 @@ function BLLRevisionCalidad() {
         var tabla = '<table id="example4343fgg" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
         tabla += "<tr>";
-    
+        tabla += "<th>No</th>";
         tabla += "<th>Fecha de inspección</th>";
     
         tabla += "</tr>";
@@ -64,8 +64,9 @@ function BLLRevisionCalidad() {
         tabla += "<tbody>";
 
         $.each(fechas, function (i, item) {
+            var No = i + 1;
             tabla += "<tr>";
-           
+            tabla += "<td>" + No   + "</td>";
             tabla += "<td>" + moment(item.FechaInspeccion).format("YYYY/DD/MM"); + "</td>";
           
 
@@ -136,13 +137,13 @@ function BLLRevisionCalidad() {
 
             } else if (item.IdAval != null && item.ESTADOAVAL ==2)
             {
-                tabla += "<td style='width:22px'><button tag='" + item.IdAval + "' id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-primary btn-xs VER' type='button'>Ver</button></td>";
-                tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "'class='VERFECHAS btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
+                tabla += "<td style='width:22px'><button  tag='" + item.IdAval + "'class='btn btn-primary btn-xs VER' type='button'>Ver</button></td>";
+                tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.NOMBRE_PROYEC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "'class='VERFECHAS btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
             }
             else {
 
-                tabla += "<td style='width:22px'><button tag='" + item.IdAval+ "' id='" + item.REFERENCIA_INMUEBLE + "'class='btn btn-danger btn-xs VERAVAL' type='button'>Editar</button></td>";
-                tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "'class='VERFECHAS btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
+                tabla += "<td style='width:22px'><button tag='" + item.IdAval + "'class='btn btn-danger btn-xs VERAVAL' type='button'>Editar</button></td>";
+                tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.NOMBRE_PROYEC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "'class='VERFECHAS btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
 
             }
 

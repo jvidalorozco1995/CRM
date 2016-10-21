@@ -18,6 +18,8 @@ var WTareasNegocioCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTare
 var WTareasNegocioCompromisoCO = funcionUrlGlobal("/Servicios/WTareas.asmx/GetTareasCompromisoCO");
 var WsInfotareaCompromiso = funcionUrlGlobal("/Servicios/WTareas.asmx/InfotareasCompromiso");
 
+
+
     var color = null;
 
     //Metodo para Crear cliente
