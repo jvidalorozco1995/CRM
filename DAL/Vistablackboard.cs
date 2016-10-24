@@ -12,7 +12,7 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class INMUEBLES_ENTREGAS
+    public partial class Vistablackboard
     {
         public int ID_INMUEBLES_ENTREGAS { get; set; }
         public Nullable<int> ID_ENTREGA { get; set; }
@@ -20,17 +20,17 @@ namespace DAL
         public Nullable<System.DateTime> FECHAREG { get; set; }
         public Nullable<int> CONFIRMAOBRA { get; set; }
         public Nullable<System.DateTime> FECHACONFIRMA { get; set; }
-        public string INSPECCIONCAL { get; set; }
         public Nullable<int> ESTADOAVAL { get; set; }
+        public string INSPECCIONCAL { get; set; }
         public Nullable<System.DateTime> RADICADOVENTA { get; set; }
         public Nullable<System.DateTime> ENTREGAOBRA { get; set; }
         public Nullable<System.DateTime> FECHACLIENTE { get; set; }
         public Nullable<int> ESTADOENTREGA { get; set; }
         public Nullable<System.DateTime> FECHAENTREGA { get; set; }
         public string OBSERVACIONES { get; set; }
-        
-
-        public virtual Entregas Entregas { get; set; }
-        public virtual inmuebles inmuebles { get; set; }
+        public string SUC { get; set; }
+        public Nullable<System.DateTime> ENVIADO { get; set; }
+        public string ENVIADOA { get; set; }
+        public string ENVIADOPOR { get; set; }
     }
 }

@@ -100,5 +100,11 @@ namespace FormsAuthAd.Servicios
         {
             return cl.ListEntregasC();
         }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public List<Vistablackboard> LisInmueblesEntregasblackboard(string proyecto)
+        {
+            return ie.LisInmueblesEntregasblackboard(proyecto);
+        }
     }
 }

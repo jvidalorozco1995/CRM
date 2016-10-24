@@ -157,7 +157,50 @@ namespace BLLCRM
                 throw;
             }
         }
+        public List<Vistablackboard> LisInmueblesEntregasblackboard(string proyecto)
+        {
+            try
+            {
+                List<Vistablackboard> lisb = bd.Vistablackboard.Where(t => t.SUC == proyecto).ToList();
+                //bd.compromisosxcuota.ToList();
+                List<Vistablackboard> lisbcrm = new List<Vistablackboard>();
+                if (lisb.Count.Equals(0))
+                {
+                    return lisbcrm;
+                }
+                else
+                {
+                    foreach (var item in lisb)
+                    {
+                        Vistablackboard entb = new Vistablackboard();
+                        entb.ID_INMUEBLES_ENTREGAS = item.ID_INMUEBLES_ENTREGAS;
+                        entb.ID_ENTREGA = item.ID_ENTREGA;
+                        entb.REFERENCIA_INMUEBLE = item.REFERENCIA_INMUEBLE;
+                        entb.FECHAREG = item.FECHAREG;
+                        entb.CONFIRMAOBRA = item.CONFIRMAOBRA;
+                        entb.FECHACONFIRMA = item.FECHACONFIRMA;
+                        entb.ESTADOAVAL = item.ESTADOAVAL;
+                        entb.INSPECCIONCAL = item.INSPECCIONCAL;
+                        entb.RADICADOVENTA = item.RADICADOVENTA;
+                        entb.ENTREGAOBRA = item.ENTREGAOBRA;
+                        entb.FECHACLIENTE = item.FECHACLIENTE;
+                        entb.ESTADOENTREGA = item.ESTADOENTREGA;
+                        entb.FECHAENTREGA = item.FECHAENTREGA;
+                        entb.OBSERVACIONES = item.OBSERVACIONES;
+                        entb.SUC = item.SUC;
+                        entb.ENVIADO = item.ENVIADO;
+                        entb.ENVIADOA = item.ENVIADOA;
+                        entb.ENVIADOPOR = item.ENVIADOPOR;
+                    }
+                    return lisbcrm;
+                }
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
         public List<VListadoEntregas> ListInmueblesEntregas(int id)
         {
             var Contador = 1;

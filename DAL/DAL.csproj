@@ -281,6 +281,9 @@
     <Compile Include="VistaAvalAntes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Vistablackboard.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="VListadoEntegrasC.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
