@@ -16,6 +16,8 @@ namespace DAL
     {
         public int ID_INMUEBLES_ENTREGAS { get; set; }
         public Nullable<int> ID_ENTREGA { get; set; }
+        public string MZA { get; set; }
+        public string INMUEBLE { get; set; }
         public string REFERENCIA_INMUEBLE { get; set; }
         public Nullable<System.DateTime> FECHAREG { get; set; }
         public Nullable<int> CONFIRMAOBRA { get; set; }
