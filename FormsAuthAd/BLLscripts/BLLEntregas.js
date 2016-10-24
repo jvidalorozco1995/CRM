@@ -280,7 +280,8 @@ function BLLEntregas() {
         tabla += "<thead>";
         tabla += "<tr>";
         tabla += "<th>No</th>";
-       
+        tabla += "<th>Manzana</th>";
+        tabla += "<th>Inmueble</th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -288,6 +289,9 @@ function BLLEntregas() {
 
             tabla += "<tr>";
             tabla += "<td>" + item.ID_INMUEBLES_ENTREGAS + "</td>";
+            tabla += "<td>" + item.MZA + "</td>";
+            tabla += "<td>" + item.INMUEBLE + "</td>";
+            
             tabla += "</tr>";
 
         });
