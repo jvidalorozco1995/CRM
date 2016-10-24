@@ -1504,6 +1504,8 @@
     <Content Include="Entrega\Aval\WebAval.aspx" />
     <Content Include="Entrega\InspeccionCalidad\js\InspeccionCalidad.js" />
     <Content Include="Entrega\InspeccionCalidad\WebInspeccionCalidad.aspx" />
+    <Content Include="Entrega\MaestroInmueble\js\Maestro.js" />
+    <Content Include="Entrega\MaestroInmueble\WebMaestroInmueble.aspx" />
     <Content Include="Entrega\ProgramacionEntregas\js\ProgramacionEntregas.js" />
     <Content Include="Entrega\ProgramacionEntregas\WebProgramacionEntregas.aspx" />
     <Content Include="Entrega\RevisionCalidad\js\RevisionCalidad.js" />
@@ -4864,6 +4866,13 @@
     </Compile>
     <Compile Include="Entrega\InspeccionCalidad\WebInspeccionCalidad.aspx.designer.cs">
       <DependentUpon>WebInspeccionCalidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entrega\MaestroInmueble\WebMaestroInmueble.aspx.cs">
+      <DependentUpon>WebMaestroInmueble.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entrega\MaestroInmueble\WebMaestroInmueble.aspx.designer.cs">
+      <DependentUpon>WebMaestroInmueble.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entrega\ProgramacionEntregas\WebProgramacionEntregas.aspx.cs">
       <DependentUpon>WebProgramacionEntregas.aspx</DependentUpon>

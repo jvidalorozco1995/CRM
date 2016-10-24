@@ -8,7 +8,7 @@ function BLLEntregas() {
     var WsUpdateEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/UpdateEntregas");///Listado de clientes
     var WsValidarEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/ValidaReferencia");///Listado de clientes
     var WsConfirmarEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/ConfirmaObservaciones");///Listado de clientes
-
+    var WsMaestro = funcionUrlGlobal("/Servicios/WEntregas.asmx/LisInmueblesEntregasblackboard");///Listado de clientes
 
         
 
@@ -99,6 +99,30 @@ function BLLEntregas() {
 
     }
     
+    BLLEntregas.prototype.ListMaestro = function (proyecto) {
+        
+        jsonData = "{'proyecto':" + JSON.stringify(proyecto) + "}";
+        $.ajax({
+            type: "POST", url: WsMaestro,data:jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+                    BLLEntregas.CrearTablaMaestro(result.d)
+                }
+                else {
+                    BLLEntregas.CrearTablaMaestro(result.d)
+
+
+
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+
+    }
 
     BLLEntregas.prototype.ListProgramacionEntregas = function () {
        
@@ -248,6 +272,31 @@ function BLLEntregas() {
 
     }
     
+
+
+    BLLEntregas.CrearTablaMaestro = function (clientes) {
+        document.getElementById('TablaMaestro').innerHTML = "";
+        var tabla = '<table id="example23456565667" class="table table-striped table-bordered table-hover">';
+        tabla += "<thead>";
+        tabla += "<tr>";
+        tabla += "<th>No</th>";
+       
+        tabla += "</tr>";
+        tabla += "</thead>";
+        tabla += "<tbody>";
+        $.each(clientes, function (i, item) {
+
+            tabla += "<tr>";
+            tabla += "<td>" + item.ID_INMUEBLES_ENTREGAS + "</td>";
+            tabla += "</tr>";
+
+        });
+        tabla += "</tbody>";
+        tabla += '</table>';
+        $('#TablaMaestro').append(tabla);
+        $('#example23456565667').dataTable();
+
+    }
 
 
     BLLEntregas.CrearTabla = function (clientes) {
