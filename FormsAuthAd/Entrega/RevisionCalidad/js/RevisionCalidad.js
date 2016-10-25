@@ -54,7 +54,7 @@ var admRevision = (function () {
             $("#TxtFSolicitud").val(solicitud);
             $("#TxtFConfirmacion").val(confirmacion);
 
-            $("#Nregistro").append(tag);
+            $("#Nregistro").text(tag);
             $("#datos").show();
 
 

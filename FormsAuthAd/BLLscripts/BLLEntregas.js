@@ -282,6 +282,14 @@ function BLLEntregas() {
         tabla += "<th>No</th>";
         tabla += "<th>Manzana</th>";
         tabla += "<th>Inmueble</th>";
+        tabla += "<th>Conf. Obra</th>";
+
+        tabla += "<th>Aval</th>";
+        tabla += "<th>Radicado venta</th>";
+        tabla += "<th>F. ent dir obra</th>";
+        tabla += "<th>F. cliente</th>";
+        tabla += "<th>F. entrega</th>";
+        tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -291,6 +299,69 @@ function BLLEntregas() {
             tabla += "<td>" + item.ID_INMUEBLES_ENTREGAS + "</td>";
             tabla += "<td>" + item.MZA + "</td>";
             tabla += "<td>" + item.INMUEBLE + "</td>";
+            if (item.CONFIRMAOBRA == null || item.CONFIRMAOBRA == '0') {
+
+                tabla += "<td><input class='check'  type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "'  disabled> </td>";
+            } else if (item.CONFIRMAOBRA == '1') {
+                tabla += "<td><input class='check' type='checkbox' id='" + item.ID_INMUEBLES_ENTREGAS + "'  disabled checked> </td>";
+            }
+         
+            if (item.ESTADOAVAL == 0) {
+
+                tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "' id='" + item.ID_INMUEBLES_ENTREGAS + "/" + item.NOMBRE_PROYEC + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+
+
+            } else if (item.ESTADOAVAL == 1) {
+
+
+                tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/Espera.png') + "' id='" + item.ID_INMUEBLES_ENTREGAS + "/" + item.NOMBRE_PROYEC + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+
+            } else if (item.ESTADOAVAL == 2) {
+
+                tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' id='" + item.ID_INMUEBLES_ENTREGAS + "/" + item.NOMBRE_PROYEC + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+
+            } else {
+
+                tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/libre.png') + "' id='" + item.ID_INMUEBLES_ENTREGAS + "/" + item.NOMBRE_PROYEC + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+
+            }
+
+            if (item.RADICADOVENTA == null) {
+
+                tabla += "<td>No tiene</td>";
+
+            } else {
+
+                tabla += "<td>" + moment(item.RADICADOVENTA).format("YYYY/DD/MM") + "</td>";
+            }
+
+            if (item.ENTREGAOBRA == null) {
+
+                tabla += "<td>No tiene</td>";
+
+            } else {
+
+                tabla += "<td>" + moment(item.ENTREGAOBRA).format("YYYY/DD/MM") + "</td>";
+            }
+
+            if (item.FECHACLIENTE == null) {
+
+                tabla += "<td>No tiene</td>";
+
+            } else {
+
+                tabla += "<td>" + moment(item.FECHACLIENTE).format("YYYY/DD/MM") + "</td>";
+            }
+
+            if (item.FECHAENTREGA == null) {
+
+                tabla += "<td>No tiene</td>";
+
+            } else {
+
+                tabla += "<td>" + moment(item.FECHAENTREGA).format("YYYY/DD/MM") + "</td>";
+            }
+            tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM")  + "/" + item.ENVIADOA  + "/" + item.ENVIADOPOR + "/" + "'class='VERFECHAS btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
             
             tabla += "</tr>";
 
@@ -304,6 +375,7 @@ function BLLEntregas() {
 
 
     BLLEntregas.CrearTabla = function (clientes) {
+
         document.getElementById('TablaProgramacion').innerHTML = "";
         var tabla = '<table id="example2" class="table table-striped table-bordered table-hover">';
         tabla += "<thead>";
@@ -312,6 +384,7 @@ function BLLEntregas() {
         tabla += "<th>Proyecto</th>";
         tabla += "<th>Fecha</th>";
         tabla += "<th>Dir Obra</th>";
+        tabla += "<th></th>";
         tabla += "<th></th>";
         tabla += "<th></th>";
         tabla += "</tr>";
