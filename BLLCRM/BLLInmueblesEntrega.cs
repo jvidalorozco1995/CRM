@@ -193,6 +193,7 @@ namespace BLLCRM
                         entb.ENVIADOPOR = item.ENVIADOPOR;
                         entb.MZA = item.MZA;
                         entb.INMUEBLE = item.INMUEBLE;
+                        entb.id = item.id; //id = idAval
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;
