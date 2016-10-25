@@ -318,7 +318,7 @@ function BLLEntregas() {
 
             } else if (item.ESTADOAVAL == 2) {
 
-                tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' id='" + item.ID_INMUEBLES_ENTREGAS + "/" + item.NOMBRE_PROYEC + "' class='ClienteS' title='Agregar a separacion'></img></td>";
+                tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "' id='" + item.REFERENCIA_INMUEBLE + "' tag='" + item.id + "' class='VER' title='Agregar a separacion'></img></td>";
 
             } else {
 
