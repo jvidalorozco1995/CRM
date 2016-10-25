@@ -1064,7 +1064,6 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vistablackboard' does not have a pr
         <EntityType Name="Vistablackboard">
           <Key>
             <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
-            <PropertyRef Name="id" />
           </Key>
           <Property Name="ID_INMUEBLES_ENTREGAS" Type="int" Nullable="false" />
           <Property Name="ID_ENTREGA" Type="int" />
@@ -1086,7 +1085,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vistablackboard' does not have a pr
           <Property Name="ENVIADO" Type="datetime" />
           <Property Name="ENVIADOA" Type="varchar" MaxLength="50" />
           <Property Name="ENVIADOPOR" Type="varchar" MaxLength="50" />
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -3675,7 +3674,6 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
         <EntityType Name="Vistablackboard">
           <Key>
             <PropertyRef Name="ID_INMUEBLES_ENTREGAS" />
-            <PropertyRef Name="id" />
           </Key>
           <Property Name="ID_INMUEBLES_ENTREGAS" Type="Int32" Nullable="false" />
           <Property Name="ID_ENTREGA" Type="Int32" />
@@ -3697,7 +3695,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="ENVIADO" Type="DateTime" Precision="3" />
           <Property Name="ENVIADOA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ENVIADOPOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" />
         </EntityType>
         <EntityType Name="VListadoEntegrasC">
           <Key>

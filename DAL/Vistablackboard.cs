@@ -34,6 +34,6 @@ namespace DAL
         public Nullable<System.DateTime> ENVIADO { get; set; }
         public string ENVIADOA { get; set; }
         public string ENVIADOPOR { get; set; }
-        public int id { get; set; }
+        public Nullable<int> id { get; set; }
     }
 }
