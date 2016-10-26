@@ -35,5 +35,6 @@ namespace DAL
         public string ENVIADOA { get; set; }
         public string ENVIADOPOR { get; set; }
         public Nullable<int> id { get; set; }
+        public int CONSECUTIVO { get; set; }
     }
 }

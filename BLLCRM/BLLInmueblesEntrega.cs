@@ -194,6 +194,7 @@ namespace BLLCRM
                         entb.MZA = item.MZA;
                         entb.INMUEBLE = item.INMUEBLE;
                         entb.id = item.id; //id = idAval
+                        entb.CONSECUTIVO = item.CONSECUTIVO;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;
