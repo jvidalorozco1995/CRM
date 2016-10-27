@@ -180,9 +180,6 @@ namespace BLLCRM
                 {
                     foreach (var item in lisb)
                     {
-
-
-
                         Entregas entb = new Entregas();
                         entb.ID_ENTREGAS = item.ID_ENTREGAS;
                         entb.FECHAREG = item.FECHAREG;

@@ -1,7 +1,7 @@
 ﻿
 
 
-//DSDasas
+//Maestro
 var Proy = new BLLProyectos();
 var Ent = new BLLEntregas();
 var WsListProyec = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos CRM
@@ -10,7 +10,7 @@ var admMaestro= (function () {
 
 
     var _addHandlers = function () {
-
+        //me
         $(document).on('click', '.VER', function () {
             var referencia = $(this).attr("id");
             var idAval = $(this).attr("tag");
@@ -30,8 +30,6 @@ var admMaestro= (function () {
         $(document).on('click', '.VERFECHAS', function () {
             var datos = $(this).attr("id");
             var tag = $(this).attr("tag");
-
-            var datos = $(this).attr("id");
             var result = datos.split("/")
             idAval = result[0];
             proyecto = result[1];
@@ -49,19 +47,15 @@ var admMaestro= (function () {
             $("#TxtFConfirmacion").val(confirmacion);
             $("#TxtEnviadoA").val(enviadoa);
             $("#TxtEnviadoPor").val(enviadopor);
-            
-
-            $("#Nregistro").val(tag);
+    
+            $("#Nregistro").empty();
+            $("#Nregistro").append(tag);
             $("#datos").show();
 
-
-            Revi.ListadoFechasInspeccion(idAval);
-
+            //Revi.ListadoFechasInspeccion(idAval);
 
         });
     }
-
-
 
     var _Inicio = function () {
       

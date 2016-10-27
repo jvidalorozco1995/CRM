@@ -296,7 +296,7 @@ function BLLEntregas() {
         $.each(clientes, function (i, item) {
 
             tabla += "<tr>";
-            tabla += "<td>" + item.ID_INMUEBLES_ENTREGAS + "</td>";
+            tabla += "<td>" + item.CONSECUTIVO + "</td>";
             tabla += "<td>" + item.MZA + "</td>";
             tabla += "<td>" + item.INMUEBLE + "</td>";
             if (item.CONFIRMAOBRA == null || item.CONFIRMAOBRA == '0') {
@@ -386,7 +386,7 @@ function BLLEntregas() {
         tabla += "<th>Dir Obra</th>";
         tabla += "<th></th>";
         tabla += "<th></th>";
-        tabla += "<th></th>";
+ 
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
