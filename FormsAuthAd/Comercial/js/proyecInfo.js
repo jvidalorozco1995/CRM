@@ -223,7 +223,9 @@ var admComercial = (function () {
             inmu = result[1];
             var diasC = result[2];
             id_sp = result[3];
-            separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu };
+
+
+            separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu, 'ID_SEPARACION':id_sp };
             $('#Desistirseparacion').modal('show');
             $('#TxtclienteD').val(cl); $('#TxtclienteD').attr('readonly', true);
             $('#TxtInmueD').val(inmu); $('#TxtInmueD').attr('readonly', true);
@@ -248,7 +250,7 @@ var admComercial = (function () {
             inmu = result[1];
             var diasC = result[2];
             id_sp = result[3];
-            separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu };
+            separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu, 'ID_SEPARACION': id_sp };
             $('#Desistirseparacion').modal('show');
             $('#TxtclienteD').val(cl); $('#TxtclienteD').attr('readonly', true);
             $('#TxtInmueD').val(inmu); $('#TxtInmueD').attr('readonly', true);
