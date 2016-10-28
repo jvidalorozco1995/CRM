@@ -261,7 +261,7 @@ var admComercial = (function () {
         });
 
         $(document).on('click', "#Btnconfitse", function () {
-            separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu, };
+            separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu, 'ID_SEPARACION': id_sp };
             inm.Confirmarseparacion(id_sp, separacion);
             setTimeout(function () { inm._Linmuebles(proyec); }, 2000)
             setTimeout(function () { inm.LisInmuebles(proyec); }, 2000)
