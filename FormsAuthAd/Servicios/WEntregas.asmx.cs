@@ -42,6 +42,12 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public int UpdateIEestados(int i, INMUEBLES_ENTREGAS idIE)
+        {
+            return ie.UpdateIEestados(i, idIE);
+        }
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public List<Entregas> ListEntregasID(int id)
         {
             return cl.ListEntregas(id);

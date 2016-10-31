@@ -15,7 +15,7 @@ var _admnegocio = (function () {
     var cactual = "";
     var dataSet = [];
     var dataSetg = [];
-    var acuerdoP = [];
+    var acuerdoP = []; 
     var acuerdoPG = [];
     var tipoint;
     var separacion;

@@ -67,8 +67,39 @@ namespace BLLCRM
                 throw;
             }
         }
-         
-     public int ConfirmaObservaciones(List<INMUEBLES_ENTREGAS> a)
+        public int UpdateIEestados(int i, INMUEBLES_ENTREGAS idIE)
+        {
+            try
+            {
+                if (i == 1)
+                {
+                    var ctx = bd.INMUEBLES_ENTREGAS.First(inm => inm.ID_INMUEBLES_ENTREGAS == idIE.ID_INMUEBLES_ENTREGAS);
+                    ctx.RADICADOVENTA = idIE.RADICADOVENTA;
+                    bd.SaveChanges();
+                }
+                else if (i == 2)
+                {
+                    var ctx1 = bd.INMUEBLES_ENTREGAS.First(inm => inm.ID_INMUEBLES_ENTREGAS == idIE.ID_INMUEBLES_ENTREGAS);
+                    ctx1.ENTREGAOBRA = idIE.ENTREGAOBRA;
+                    bd.SaveChanges();
+                }
+                else if (i == 2)
+                {
+                    var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.ID_INMUEBLES_ENTREGAS == idIE.ID_INMUEBLES_ENTREGAS);
+                    ctx2.FECHACLIENTE = idIE.FECHACLIENTE;
+                    bd.SaveChanges();
+                }
+
+                return 1;
+            }
+
+            catch (Exception ex)
+            {
+                return 0;
+                throw;
+            }
+        }
+        public int ConfirmaObservaciones(List<INMUEBLES_ENTREGAS> a)
         {
             try
             {
