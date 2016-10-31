@@ -227,6 +227,7 @@ namespace BLLCRM
                         entb.id = item.id; //id = idAval
                         entb.CONSECUTIVO = item.CONSECUTIVO;
                         entb.USUARIO = Membership.GetUser().ToString();
+                        entb.DIROBRA = item.DIROBRA;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;

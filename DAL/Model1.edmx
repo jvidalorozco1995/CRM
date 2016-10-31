@@ -1088,6 +1088,7 @@ warning 6002: The table/view 'CRM_PRUEBA.dbo.Vistablackboard' does not have a pr
           <Property Name="ENVIADOPOR" Type="varchar" MaxLength="50" />
           <Property Name="id" Type="int" />
           <Property Name="CONSECUTIVO" Type="int" Nullable="false" />
+          <Property Name="DIROBRA" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6013: The table/view 'CRM_PRUEBA.dbo.VistaTareasPorClientes' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
@@ -2100,7 +2101,8 @@ FROM [dbo].[VistaAvalAntes] AS [VistaAvalAntes]</DefiningQuery>
 [Vistablackboard].[ENVIADOA] AS [ENVIADOA], 
 [Vistablackboard].[ENVIADOPOR] AS [ENVIADOPOR], 
 [Vistablackboard].[id] AS [id], 
-[Vistablackboard].[CONSECUTIVO] AS [CONSECUTIVO]
+[Vistablackboard].[CONSECUTIVO] AS [CONSECUTIVO], 
+[Vistablackboard].[DIROBRA] AS [DIROBRA]
 FROM [dbo].[Vistablackboard] AS [Vistablackboard]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VListadoEntegrasC" EntityType="Self.VListadoEntegrasC" store:Type="Views" store:Schema="dbo">
@@ -3701,6 +3703,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <Property Name="ENVIADOPOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="id" Type="Int32" />
           <Property Name="CONSECUTIVO" Type="Int32" Nullable="false" />
+          <Property Name="DIROBRA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VListadoEntegrasC">
           <Key>
@@ -5317,6 +5320,7 @@ FROM [dbo].[VTramitesBancos] AS [VTramitesBancos]</DefiningQuery>
           <EntitySetMapping Name="Vistablackboard">
             <EntityTypeMapping TypeName="CRM_PRUEBAModel.Vistablackboard">
               <MappingFragment StoreEntitySet="Vistablackboard">
+                <ScalarProperty Name="DIROBRA" ColumnName="DIROBRA" />
                 <ScalarProperty Name="CONSECUTIVO" ColumnName="CONSECUTIVO" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ENVIADOPOR" ColumnName="ENVIADOPOR" />
