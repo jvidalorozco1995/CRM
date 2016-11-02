@@ -9,8 +9,38 @@ function BLLEntregas() {
     var WsValidarEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/ValidaReferencia");///Listado de clientes
     var WsConfirmarEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/ConfirmaObservaciones");///Listado de clientes
     var WsMaestro = funcionUrlGlobal("/Servicios/WEntregas.asmx/LisInmueblesEntregasblackboard");///Listado de clientes
-
+    var WsUpdateFecha = funcionUrlGlobal("/Servicios/WEntregas.asmx/UpdateIEestados");
         
+
+
+    BLLEntregas.prototype.UpdateFechas = function (id, lista) {
+
+        jsonData = "{'i':" + JSON.stringify(id) + ",'idIE':" + JSON.stringify(lista) + "}";
+        $.ajax({
+
+            type: "POST", url: WsUpdateFecha, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                }
+                else {
+                    toastr.success('CRM Mayales - Notificacion' +
+                             '</br></br>Fecha guardada');
+
+                  
+                   
+                   
+
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+
+    }
 
 
     BLLEntregas.prototype.InsertEntregas = function (p, lista) {
@@ -326,7 +356,12 @@ function BLLEntregas() {
 
             }
 
-            if (item.RADICADOVENTA == null) {
+
+            if (item.RADICADOVENTA == null && item.ESTADOAVAL == 1 && item.ENVIADOPOR == item.USUARIO) {
+                
+                tabla += "<td><a tag='1-" + item.ID_INMUEBLES_ENTREGAS + "' class='btn btn-primary btn-xs modalfechas'>Asignar</a></td>";
+
+            } else if (item.RADICADOVENTA == null) {
 
                 tabla += "<td>No tiene</td>";
 
@@ -335,8 +370,14 @@ function BLLEntregas() {
                 tabla += "<td>" + moment(item.RADICADOVENTA).format("YYYY/DD/MM") + "</td>";
             }
 
-            if (item.ENTREGAOBRA == null) {
 
+           
+            if (item.ENTREGAOBRA == null && item.RADICADOVENTA != null && item.DIROBRA == item.USUARIO) {
+
+
+                tabla += "<td><a tag='2-" + item.ID_INMUEBLES_ENTREGAS + "' class='btn btn-primary btn-xs modalfechas'>Asignar</a></td>";
+
+            } else if (item.ENTREGAOBRA == null) {
                 tabla += "<td>No tiene</td>";
 
             } else {
@@ -344,11 +385,47 @@ function BLLEntregas() {
                 tabla += "<td>" + moment(item.ENTREGAOBRA).format("YYYY/DD/MM") + "</td>";
             }
 
-            if (item.FECHACLIENTE == null) {
+     
+            if (item.FECHACLIENTE == null && item.ENTREGAOBRA != null && item.ENVIADOPOR == item.USUARIO) {
+
+                tabla += "<td><a tag='3-" + item.ID_INMUEBLES_ENTREGAS + "' class='btn btn-primary btn-xs modalfechas'>Asignar</a></td>";
+
+            } else if (item.FECHACLIENTE == null) {
+
+                tabla += "<td>No tiene</td>";
+            } else {
+
+                tabla += "<td><a tag='3-" + item.ID_INMUEBLES_ENTREGAS + "-" + moment(item.FECHACLIENTE).format("YYYY/DD/MM") + "' class=' modalEditarfechas'>" + moment(item.FECHACLIENTE).format("YYYY/DD/MM") + "</a></td>";
+            }
+          
+
+
+            if (item.FECHAENTREGA == null) {
 
                 tabla += "<td>No tiene</td>";
 
             } else {
+
+                tabla += "<td>" + moment(item.FECHAENTREGA).format("YYYY/DD/MM") + "</td>";
+            }
+
+           /* if (item.ENTREGAOBRA == null && item.RADICADOVENTA != null || item.DIROBRA == item.USUARIO) {
+
+               
+                tabla += "<td>" + moment(item.ENTREGAOBRA).format("YYYY/DD/MM") + "</td>";
+
+            } else if (item.ENTREGAOBRA ==null) {
+                tabla += "<td>No tiene</td>";
+              
+            }
+
+
+
+            if (item.FECHACLIENTE == null || item.ENTREGAOBRA != null || item.ENVIADOPOR == item.USUARIO) {
+
+                tabla += "<td>No tiene</td>";
+
+            } else if (item.FECHACLIENTE == null) {
 
                 tabla += "<td>" + moment(item.FECHACLIENTE).format("YYYY/DD/MM") + "</td>";
             }
@@ -360,7 +437,7 @@ function BLLEntregas() {
             } else {
 
                 tabla += "<td>" + moment(item.FECHAENTREGA).format("YYYY/DD/MM") + "</td>";
-            }
+            }*/
             tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM")  + "/" + item.ENVIADOA  + "/" + item.ENVIADOPOR + "/" + "'class='VERFECHAS btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
             
             tabla += "</tr>";

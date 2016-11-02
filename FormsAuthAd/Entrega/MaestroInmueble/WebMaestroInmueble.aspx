@@ -124,6 +124,35 @@
 
         </div>
 
+               <div class="modal fade hmodal-danger" id="modalactfechas" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Fecha</h5>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="form-group col-lg-12">
+                                        <label>Fecha</label>
+                                        <input id="TxtFecha" type="text" class="form-control" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                      </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success " type="button" id="BtnActualizar">Actualizar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
      </div>
 
 

@@ -83,7 +83,7 @@ namespace BLLCRM
                     ctx1.ENTREGAOBRA = idIE.ENTREGAOBRA;
                     bd.SaveChanges();
                 }
-                else if (i == 2)
+                else if (i == 3)
                 {
                     var ctx2 = bd.INMUEBLES_ENTREGAS.First(inm => inm.ID_INMUEBLES_ENTREGAS == idIE.ID_INMUEBLES_ENTREGAS);
                     ctx2.FECHACLIENTE = idIE.FECHACLIENTE;

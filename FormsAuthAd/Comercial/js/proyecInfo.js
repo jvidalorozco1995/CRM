@@ -224,7 +224,7 @@ var admComercial = (function () {
             var diasC = result[2];
             id_sp = result[3];
 
-
+            //aca
             separacion = { 'CLIENTE': cl, 'INMUEBLE': inmu, 'ID_SEPARACION':id_sp };
             $('#Desistirseparacion').modal('show');
             $('#TxtclienteD').val(cl); $('#TxtclienteD').attr('readonly', true);
