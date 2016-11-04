@@ -37,6 +37,7 @@ namespace BLLCRM
                     {
                         inmu.FechaCompromiso = item.FechaCompromiso;
                     }
+                    ctx.Cumple = item.Cumple;
                     ctx.Observaciones = item.Observaciones;
                     ctx.FechaCompromiso = item.FechaCompromiso;
                     aval = item.Id;

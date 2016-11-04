@@ -29,8 +29,6 @@ namespace FormsAuthAd.Servicios
             BLLnegocio hn = new BLLnegocio();
             foreach (var item in ac) {
 
-
-              
                 item.NO_ACUERDO = n.ID_NEGOCIO;
                 item.FECHA_PAGO = item.FECHA_PAGO;
                 item.CUOTA = item.CUOTA;
