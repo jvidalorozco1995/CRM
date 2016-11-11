@@ -93,7 +93,7 @@ var admAval = (function () {
             }
         });
         
-
+        //Boton para editar
        $(document).on('click', '#BtnEditar', function () {
            var ListaItem = [];
            $('.Tablas tbody tr').each(function () {
@@ -118,7 +118,7 @@ var admAval = (function () {
        
        });
 
-
+        //Boton para cancelar
        $(document).on('click', '#BtnCancelar', function () {
 
            $('.Tablas tbody tr').each(function () {
@@ -142,7 +142,7 @@ var admAval = (function () {
            $("#BtnCancelar").hide();
        });
 
-
+        //Boton para habilitar
        $(document).on('click', '#BtnHabilitar', function () {
        
            $('.Tablas tbody tr').each(function () {
@@ -161,12 +161,14 @@ var admAval = (function () {
            });
            $("#BtnAprobarEntrega").hide();
            $("#BtnHabilitar").hide();
+          // $("TxtResidente").prop("disabled", false);
+           //$("TxtInspeccion").prop("disabled", false);
            $("#BtnEditar").show();
            $("#BtnCancelar").show();
        });
        
 
-        
+        //Boton para guardar
         $(document).on('click', '#BtnGuardar', function () {
              banderaso = 0;
              banderaso2 = 0;
@@ -316,6 +318,9 @@ var admAval = (function () {
             $("#BtnGuardar").hide();
             $("#BtnEditar").hide();
             $("#BtnHabilitar").show();
+
+            $("#TxtResidente").prop("disabled", true);
+            $("#TxtInspeccion").prop("disabled", true);
 
         } else if (accion == 3) {
 

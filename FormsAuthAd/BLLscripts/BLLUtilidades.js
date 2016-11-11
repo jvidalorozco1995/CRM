@@ -13,7 +13,7 @@ function funcionUrlGlobal(url) {
     return UrlGlobal;
 }
 
-
+//Utilidades para obtener
 function BLLUtilidades() {
 
     BLLUtilidades.prototype.getUrl = function (name) {
@@ -22,6 +22,8 @@ function BLLUtilidades() {
         results = regex.exec(location.search);
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
+
+    //Obtiene la url por nombre
     BLLUtilidades.prototype.getUrlpro = function (name)
     {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -29,6 +31,7 @@ function BLLUtilidades() {
         results = j;
         return results;
     }
+    //Funcion para obtener el nombre de la url, separados por comas
     BLLUtilidades.prototype.getUrlnom = function (name)
     {
 
@@ -37,12 +40,13 @@ function BLLUtilidades() {
         var h = j.length;
         j = fLeft(j, h - 3);
         j = fRight(j, h - 11);
-      
+      //esta funcion se encarga de remplazar
         results = j.replace("%20", " ");
+        //esta otra tambien remplaza
         results = results.replace("%20", " ");
         return results;
     }
-
+    //Funcion para abrir un pdf, sin que se parta, sin que se dañe y destruya
     function openPdf(e, path, redirect) {
         // stop the browser from going to the href
         e = e || window.event; // for IE
@@ -53,6 +57,8 @@ function BLLUtilidades() {
         window.location = redirect;
     }
 
+
+    //Se gestiona el asesor de cartera
     BLLUtilidades.prototype.AsesorCartera = function () {
         $.ajax({
             type: "POST", url: WsLisTra,
@@ -74,6 +80,8 @@ function BLLUtilidades() {
         });
     }
 
+
+    //Utilidades
     BLLUtilidades.prototype.Bancos = function () {
         $.ajax({
             type: "POST", url: WsBancos,
@@ -96,6 +104,8 @@ function BLLUtilidades() {
         });
     }
 
+
+    //Aca se obtienen los clientes del asociado
     BLLUtilidades.prototype._GetclienteAsociado = function (cedula) {
         var datos = "{ 'c':" + JSON.stringify(cedula) + " }";
         $.ajax({
@@ -108,7 +118,7 @@ function BLLUtilidades() {
         });
      
     }
-
+    //Aca se crea el DTO asociado
     BLLUtilidades.prototype._DtoAsociado = function (cedula) {
         var datos = "{ 'c':" + JSON.stringify(cedula) + " }";
         $.ajax({
@@ -119,8 +129,9 @@ function BLLUtilidades() {
             success: function (result) { if (result.d == "") { BLLUtilidades.asociaodDto(result.d) } else { BLLUtilidades.asociaodDto(result.d) } },
             error: function (msg) { alert(msg.responseText); }
         });
-     }
+    }
 
+    //Utilidades de el asociado
     BLLUtilidades.asociaodDto = function (cliente) {
         $.each(cliente, function (i, item) {
             $('#TxtNombres').val(item.NOMBRES + " " + item.P_APELLIDO + " " + item.S_APELLIDO);
@@ -136,6 +147,7 @@ function BLLUtilidades() {
 
     }
 
+    //Aca se construye la tabla de asociados,
     BLLUtilidades.TablaAsociados = function (cedula) {
         document.getElementById("asociados").innerHTML = "";
         var tabla = '<table id="asociadosC" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="example2_info">';
@@ -155,7 +167,8 @@ function BLLUtilidades() {
         $('#asociados').append(tabla);
         $('#asociadosC').dataTable();
     }
-  
+
+     //Cargar los bancos
     _ComboBancos = function (bancos) {
         
         $.each(bancos, function (i, item) {
@@ -166,7 +179,7 @@ function BLLUtilidades() {
         });
          
     }
-
+    //Cargar los combox de los asesores
     _ComboAsesor = function (banco) {
 
         $.each(banco, function (i, item) {
@@ -178,7 +191,7 @@ function BLLUtilidades() {
 
     }
 
-
+    //Formatear el numero, funcion
     BLLUtilidades.prototype.FormatNumero = function (numero) {
         var NumeroF = accounting.formatMoney(numero, {
             symbol: '$',

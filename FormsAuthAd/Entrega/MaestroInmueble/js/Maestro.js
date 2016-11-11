@@ -54,12 +54,14 @@ var admMaestro= (function () {
 
                     
                     Dto = {
+
                         "id": result[0],
                         "ID_INMUEBLES_ENTREGAS": result[1],
                         "RADICADOVENTA": $("#TxtFecha").val()
                     }
                    
                 } else if (result[0] == 2) {
+
                     Dto = {
                         "id": result[0],
                         "ID_INMUEBLES_ENTREGAS": result[1],

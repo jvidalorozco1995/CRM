@@ -142,7 +142,7 @@ function BLLRevisionCalidad() {
             }
             else {
 
-                tabla += "<td style='width:22px'><button tag='" + item.IdAval + "'class='btn btn-danger btn-xs VERAVAL' type='button'>Editar</button></td>";
+                tabla += "<td style='width:22px'><button  id='" + item.REFERENCIA_INMUEBLE + "' tag='" + item.IdAval + "'class='btn btn-danger btn-xs VERAVAL' type='button'>Editar</button></td>";
                 tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.NOMBRE_PROYEC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "'class='VERFECHAS btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
 
             }
