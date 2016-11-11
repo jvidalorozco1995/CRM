@@ -117,57 +117,63 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string documento(string propietarioJ, string cedulaJ,string direccionJ, string manzanaJ,string fechaJ,string propietario2J,string conjuntoJ)
+        public int documento(string propietarioJ, string cedulaJ,string direccionJ, string manzanaJ,string fechaJ,string propietario2J,string conjuntoJ)
         {
-            object oMissing = System.Reflection.Missing.Value;
-            Word.Application objword = new Word.Application();
-            String path = Path.Combine(Server.MapPath("~/Entrega/Actas/"), "documento.docx");
-            string ruta = path;
-            object parametro = ruta;
-            object propietario1 = "propietario";
-            object cedula1 = "cedula";
-            object direccion1 = "direccion";
-            object manzana1 = "manzana";
-            object fecha1 = "fecha";
-            object propietario2 = "propietario2";
-            object conjunto1 = "conjunto";
-            Word.Document objdoc = objword.Documents.Open(parametro, oMissing);
-            Word.Range pro = objdoc.Bookmarks.get_Item(ref propietario1).Range;
-            pro.Text = propietarioJ;
-            Word.Range ced = objdoc.Bookmarks.get_Item(ref cedula1).Range;
-            ced.Text = cedulaJ;
-            Word.Range dir = objdoc.Bookmarks.get_Item(ref direccion1).Range;
-            dir.Text = direccionJ;
-            Word.Range man = objdoc.Bookmarks.get_Item(ref manzana1).Range;
-            man.Text = manzanaJ;
-            Word.Range fec = objdoc.Bookmarks.get_Item(ref fecha1).Range;
-            fec.Text = fechaJ;
-            Word.Range pro2 = objdoc.Bookmarks.get_Item(ref propietario2).Range;
-            pro2.Text = propietario2J;
-            Word.Range con = objdoc.Bookmarks.get_Item(ref conjunto1).Range;
-            con.Text = conjuntoJ;
-            object rango1 = pro;
-            object rango2 = ced;
-            object rango3 = dir;
-            object rango4 = man;
-            object rango5 = fec;
-            object rango6 = pro2;
-            object rango7 = con;
-            objdoc.Bookmarks.Add("propietario", rango1);
-            objdoc.Bookmarks.Add("cedula", rango2);
-            objdoc.Bookmarks.Add("direccion", rango3);
-            objdoc.Bookmarks.Add("manzana", rango4);
-            objdoc.Bookmarks.Add("fecha", rango5);
-            objdoc.Bookmarks.Add("propietario2", rango6);
-            objdoc.Bookmarks.Add("conjunto", rango7);
-            objword.Visible = true;
-            var destino = Path.Combine(Server.MapPath("~/Entrega/Actas/"),direccionJ + ".pdf");
-            objdoc.ExportAsFixedFormat(destino, Word.WdExportFormat.wdExportFormatPDF);
-            objword.DisplayAlerts = 0;
-            objword.ActiveDocument.Close();
-            objword.Quit();
-
-            return "1";
+            try
+            {
+                object oMissing = System.Reflection.Missing.Value;
+                Word.Application objword = new Word.Application();
+                String path = Path.Combine(Server.MapPath("~/Entrega/Actas/"), "documento.docx");
+                string ruta = path;
+                object parametro = ruta;
+                object propietario1 = "propietario";
+                object cedula1 = "cedula";
+                object direccion1 = "direccion";
+                object manzana1 = "manzana";
+                object fecha1 = "fecha";
+                object propietario2 = "propietario2";
+                object conjunto1 = "conjunto";
+                Word.Document objdoc = objword.Documents.Open(parametro, oMissing);
+                Word.Range pro = objdoc.Bookmarks.get_Item(ref propietario1).Range;
+                pro.Text = propietarioJ;
+                Word.Range ced = objdoc.Bookmarks.get_Item(ref cedula1).Range;
+                ced.Text = cedulaJ;
+                Word.Range dir = objdoc.Bookmarks.get_Item(ref direccion1).Range;
+                dir.Text = direccionJ;
+                Word.Range man = objdoc.Bookmarks.get_Item(ref manzana1).Range;
+                man.Text = manzanaJ;
+                Word.Range fec = objdoc.Bookmarks.get_Item(ref fecha1).Range;
+                fec.Text = fechaJ;
+                Word.Range pro2 = objdoc.Bookmarks.get_Item(ref propietario2).Range;
+                pro2.Text = propietario2J;
+                Word.Range con = objdoc.Bookmarks.get_Item(ref conjunto1).Range;
+                con.Text = conjuntoJ;
+                object rango1 = pro;
+                object rango2 = ced;
+                object rango3 = dir;
+                object rango4 = man;
+                object rango5 = fec;
+                object rango6 = pro2;
+                object rango7 = con;
+                objdoc.Bookmarks.Add("propietario", rango1);
+                objdoc.Bookmarks.Add("cedula", rango2);
+                objdoc.Bookmarks.Add("direccion", rango3);
+                objdoc.Bookmarks.Add("manzana", rango4);
+                objdoc.Bookmarks.Add("fecha", rango5);
+                objdoc.Bookmarks.Add("propietario2", rango6);
+                objdoc.Bookmarks.Add("conjunto", rango7);
+                objword.Visible = true;
+                var destino = Path.Combine(Server.MapPath("~/Entrega/Actas/"), direccionJ + ".pdf");
+                objdoc.ExportAsFixedFormat(destino, Word.WdExportFormat.wdExportFormatPDF);
+                objword.DisplayAlerts = 0;
+                objword.ActiveDocument.Close();
+                objword.Quit();
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
         }
     }
 }
