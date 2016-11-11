@@ -357,7 +357,7 @@ function BLLEntregas() {
             }
 
 
-            if (item.RADICADOVENTA == null && item.ESTADOAVAL == 1 && item.ENVIADOPOR == item.USUARIO) {
+            if (item.RADICADOVENTA == null && item.ESTADOAVAL == 2 && item.ENVIADOPOR == item.USUARIO) {
                 
                 tabla += "<td><a tag='1-" + item.ID_INMUEBLES_ENTREGAS + "' class='btn btn-primary btn-xs modalfechas'>Asignar</a></td>";
 

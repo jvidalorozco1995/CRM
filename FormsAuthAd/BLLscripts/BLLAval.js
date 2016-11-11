@@ -66,7 +66,7 @@
                 success: function (result) {
                     if (result.d != null) {
 
-                        $("#TxtRegistro").val(result.d[0].Registro);
+                       // $("#TxtRegistro").val(result.d[0].Registro);
                         $("#TxtProyecto").val(result.d[0].NOMBRE_PROYEC);
                         $("#TxtInmueble").val(result.d[0].INMUEBLE);
                         $("#TxtFinalAprob").val(result.d[0].FechaFinApro);

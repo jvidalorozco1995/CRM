@@ -25,7 +25,7 @@
                               </select>
                                 <!---<button class="btn btn-primary " type="button" id="BtnCancelar"><i class="fa fa-check"></i>Nuevo</button>--->
                             </div>
-                            <li class="active"><a data-toggle="tab" href="#tab-1">Maestro</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab-1">Maestro inmueble</a></li>
 
 
                         </ul>
@@ -33,15 +33,12 @@
                             <div id="tab-1" class="tab-pane active">
                                 <div class="panel-body" id="TablaMaestro">
                                 </div>
-
                             </div>
-
-
-                        </div>
+                         </div>
                     </div>
                 </div>
 
-                
+                <!--Escribir, formato de asignacion para este scroll, y poder ser mejor persona!--->
               <div class="col-lg-5 scroll " style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
                     <div class="panel panel-success">
                         <div class="panel-body" id="datos">
@@ -91,13 +88,11 @@
                                                     <input type="text" value="" id="TxtFConfirmacion" class="form-control" name="" placeholder="" readonly="" />
 
                                                 </div>
-
-                                                   <div class="form-group col-lg-4">
+                                                    <div class="form-group col-lg-4">
 
                                                     <label>Enviado A: </label>
                                                     <input type="text" value="" id="TxtEnviadoA" class="form-control" name="" placeholder="" readonly="" />
-
-                                                </div>
+                                               </div>
                                                 <div class="form-group col-lg-4">
 
                                                     <label>Enviado Por: </label>
