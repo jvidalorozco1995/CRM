@@ -2209,6 +2209,7 @@
     <Content Include="Cartera\SeguimientoNegocio\Web.config" />
     <Content Include="Cartera\CrearNegocio\Web.config" />
     <Content Include="Cartera\UpdateNegocio\Web.config" />
+    <Content Include="Entrega\Actas\documento.docx" />
     <None Include="Properties\PublishProfiles\Webmayales.pubxml" />
     <Content Include="prueb.aspx" />
     <Content Include="sampledata\data.php" />
@@ -5131,7 +5132,6 @@
     <Folder Include="assets\js\aci-tree\php\tree\Item 7\Item 4\Item 4\" />
     <Folder Include="assets\js\selectboxit\css\" />
     <Folder Include="Cartera\Upload\" />
-    <Folder Include="Entrega\Actas\" />
     <Folder Include="Uplodad\" />
   </ItemGroup>
   <ItemGroup>

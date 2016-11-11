@@ -115,9 +115,10 @@ namespace FormsAuthAd.Servicios
         {
             return ie.LisInmueblesEntregasblackboard(proyecto);
         }
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int documento(string propietarioJ, string cedulaJ,string direccionJ, string manzanaJ,string fechaJ,string propietario2J,string conjuntoJ)
+        public int documento(string propietarioJ, string cedulaJ,string direccionJ, string manzanaJ,string propietario2J,string conjuntoJ)
         {
             try
             {
@@ -143,7 +144,7 @@ namespace FormsAuthAd.Servicios
                 Word.Range man = objdoc.Bookmarks.get_Item(ref manzana1).Range;
                 man.Text = manzanaJ;
                 Word.Range fec = objdoc.Bookmarks.get_Item(ref fecha1).Range;
-                fec.Text = fechaJ;
+                fec.Text = DateTime.Now.ToShortDateString();
                 Word.Range pro2 = objdoc.Bookmarks.get_Item(ref propietario2).Range;
                 pro2.Text = propietario2J;
                 Word.Range con = objdoc.Bookmarks.get_Item(ref conjunto1).Range;

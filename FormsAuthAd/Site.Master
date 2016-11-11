@@ -189,7 +189,7 @@
                         <li>
                         <a href="#"><span class="nav-label">Entregas</span><span class="fa arrow"></span> </a>
                         <ul class="nav nav-second-level">
-                              <li><a href= '<%= ResolveUrl("Entrega/MaestroInmueble/WebMaestroInmueble.aspx")%>'>Revisión de calidad</a></li>
+                              <li><a href= '<%= ResolveUrl("Entrega/MaestroInmueble/WebMaestroInmueble.aspx")%>'>Maestro inmuebles</a></li>
                             <li><a href= '<%= ResolveUrl("Entrega/ProgramacionEntregas/WebProgramacionEntregas.aspx")%>'>Solicitud de entregas</a></li>
                             <li><a href= '<%= ResolveUrl("Entrega/RevisionCalidad/WebRevisionCalidad.aspx")%>'>Revisión de calidad</a></li>
                             <li><a href= '<%= ResolveUrl("")%>'>Configuración de entregas</a></li>

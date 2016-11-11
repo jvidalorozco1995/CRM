@@ -93,6 +93,50 @@ var admMaestro= (function () {
 
         });
 
+
+        $(document).on('click', '.IMPRIMIRACTA', function () {
+
+            var datos = $(this).attr("id");
+
+            //el tag de la implementacion
+            var tag = $(this).attr("tag");
+
+            //el resultado de la consulta
+            var result = datos.split("/")
+
+            //El id del aval lo escogemos aca
+            idAval = result[0];
+
+            //Aca va el proyecto
+            proyecto = result[1];
+
+            //Aca selecccionamos la manzana
+            manzana = result[2];
+
+            //Aca el inmueble
+            inmueble = result[3];
+
+            //aca enviamos la solicitud
+            solicitud = result[4];
+
+            //Aca seleccionamos la confrmacion
+            confirmacion = result[5];
+
+            //Aca buscamos el enviado a
+            enviadoa = result[6];
+
+            //Aca seleccionamos el enviado por
+            enviadopor = result[7];
+
+            direccion =  manzana + "-" + inmueble;
+
+            Ent.ActaEntrega("Jorge Vidal", "77899995",direccion, manzana, "Jorge Vidal", proyecto);
+
+
+            
+
+        });
+      
         $(document).on('click', '.VERFECHAS', function () {
 
             var datos = $(this).attr("id");

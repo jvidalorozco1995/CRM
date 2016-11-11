@@ -10,7 +10,47 @@ function BLLEntregas() {
     var WsConfirmarEntregas = funcionUrlGlobal("/Servicios/WEntregas.asmx/ConfirmaObservaciones");///Listado de clientes
     var WsMaestro = funcionUrlGlobal("/Servicios/WEntregas.asmx/LisInmueblesEntregasblackboard");///Listado de clientes
     var WsUpdateFecha = funcionUrlGlobal("/Servicios/WEntregas.asmx/UpdateIEestados");
-        
+    var WsActaEntrega = funcionUrlGlobal("/Servicios/WEntregas.asmx/documento");
+    
+
+    function abrirEnPestana(url) {
+        var a = document.createElement("a");
+        a.target = "_blank";
+        a.href = url;
+        a.click();
+    }
+    BLLEntregas.prototype.ActaEntrega = function (propietarioJ,cedulaJ,direccionJ,manzanaJ,propietario2J,conjuntoJ) {
+
+        jsonData = "{'propietarioJ':" + JSON.stringify(propietarioJ)
+             + ",'cedulaJ':" + JSON.stringify(cedulaJ) 
+            + ",'direccionJ':" + JSON.stringify(direccionJ) + ",'manzanaJ':" + JSON.stringify(manzanaJ)
+            + ",'propietario2J':" + JSON.stringify(propietario2J) + ",'conjuntoJ':" + JSON.stringify(conjuntoJ) + "}";
+
+        $.ajax({
+
+            type: "POST", url: WsActaEntrega, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                console.log(result.d);
+                if (result.d != null) {
+
+                    setTimeout(function () { abrirEnPestana(funcionUrlGlobal("/Entrega/Actas/" + direccion + ".pdf")) }, 2000);
+                 
+
+                }
+                else {
+                    toastr.error('CRM Mayales - Notificacion' +
+                             '</br></br>Ha ocurrido un error');
+
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+
+    }
 
 
     BLLEntregas.prototype.UpdateFechas = function (id, lista) {
@@ -29,10 +69,6 @@ function BLLEntregas() {
                 else {
                     toastr.success('CRM Mayales - Notificacion' +
                              '</br></br>Fecha guardada');
-
-                  
-                   
-                   
 
                 }
 
@@ -320,6 +356,7 @@ function BLLEntregas() {
         tabla += "<th>F. cliente</th>";
         tabla += "<th>F. entrega</th>";
         tabla += "<th></th>";
+        tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -439,7 +476,7 @@ function BLLEntregas() {
                 tabla += "<td>" + moment(item.FECHAENTREGA).format("YYYY/DD/MM") + "</td>";
             }*/
             tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM")  + "/" + item.ENVIADOA  + "/" + item.ENVIADOPOR + "/" + "'class='VERFECHAS btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
-            
+            tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "/" + "'class='IMPRIMIRACTA btn btn-primary btn-xs'><i class='fa fa-print'></i></a></td>";
             tabla += "</tr>";
 
         });
