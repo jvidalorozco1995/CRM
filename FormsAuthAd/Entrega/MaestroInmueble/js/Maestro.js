@@ -108,7 +108,7 @@ var admMaestro= (function () {
             idAval = result[0];
 
             //Aca va el proyecto
-            proyecto = result[1];
+            proyecto = result[10];
 
             //Aca selecccionamos la manzana
             manzana = result[2];
@@ -128,9 +128,13 @@ var admMaestro= (function () {
             //Aca seleccionamos el enviado por
             enviadopor = result[7];
 
-            direccion =  manzana + "-" + inmueble;
+            propietario = result[8];
 
-            Ent.ActaEntrega("Jorge Vidal", "77899995",direccion, manzana, "Jorge Vidal", proyecto);
+            cedula = result[9];
+
+            direccion = result[11];
+
+            Ent.ActaEntrega(propietario, cedula, direccion, manzana, propietario, proyecto);
 
 
             

@@ -476,7 +476,7 @@ function BLLEntregas() {
                 tabla += "<td>" + moment(item.FECHAENTREGA).format("YYYY/DD/MM") + "</td>";
             }*/
             tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM")  + "/" + item.ENVIADOA  + "/" + item.ENVIADOPOR + "/" + "'class='VERFECHAS btn btn-success btn-xs fa fa-clock'><i class='fa fa-clock-o'></i></a></td>";
-            tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "/" + "'class='IMPRIMIRACTA btn btn-primary btn-xs'><i class='fa fa-print'></i></a></td>";
+            tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "/" + item.PROPIETARIO + "/" + item.CEDULA_P + "/" + item.Direccion + "/" + item.NOMBRE_BLO + "'class='IMPRIMIRACTA btn btn-primary btn-xs'><i class='fa fa-print'></i></a></td>";
             tabla += "</tr>";
 
         });
