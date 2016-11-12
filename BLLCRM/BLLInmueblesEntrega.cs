@@ -228,6 +228,10 @@ namespace BLLCRM
                         entb.CONSECUTIVO = item.CONSECUTIVO;
                         entb.USUARIO = Membership.GetUser().ToString();
                         entb.DIROBRA = item.DIROBRA;
+                        entb.PROPIETARIO = item.PROPIETARIO;
+                        entb.CEDULA_P = item.CEDULA_P;
+                        entb.NOMBRE_BLO = item.NOMBRE_BLO;
+                        entb.Direccion = item.Direccion;
                         lisbcrm.Add(entb);
                     }
                     return lisbcrm;

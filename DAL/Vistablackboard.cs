@@ -36,7 +36,11 @@ namespace DAL
         public string ENVIADOPOR { get; set; }
         public Nullable<int> id { get; set; }
         public int CONSECUTIVO { get; set; }
-        public string USUARIO { get; set; }
         public string DIROBRA { get; set; }
+        public string PROPIETARIO { get; set; }
+        public string CEDULA_P { get; set; }
+        public string Direccion { get; set; }
+        public string NOMBRE_BLO { get; set; }
+        public string USUARIO { get; set; }
     }
 }

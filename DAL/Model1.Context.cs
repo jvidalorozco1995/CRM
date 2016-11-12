@@ -28,6 +28,7 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Vistablackboard> Vistablackboard { get; set; }
         public DbSet<ActInmuebles> ActInmuebles { get; set; }
         public DbSet<Actividades> Actividades { get; set; }
         public DbSet<Actividades_Inmueble> Actividades_Inmueble { get; set; }
@@ -69,7 +70,6 @@ namespace DAL
         public DbSet<proyectos_trabajador> proyectos_trabajador { get; set; }
         public DbSet<ResponsableCalidad> ResponsableCalidad { get; set; }
         public DbSet<sala_ventas> sala_ventas { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<tareas> tareas { get; set; }
         public DbSet<tipo_documentos> tipo_documentos { get; set; }
         public DbSet<tipo_personas> tipo_personas { get; set; }
@@ -97,7 +97,6 @@ namespace DAL
         public DbSet<VistaAmbiente> VistaAmbiente { get; set; }
         public DbSet<VistaAVal> VistaAVal { get; set; }
         public DbSet<VistaAvalAntes> VistaAvalAntes { get; set; }
-        public DbSet<Vistablackboard> Vistablackboard { get; set; }
         public DbSet<VListadoEntegrasC> VListadoEntegrasC { get; set; }
         public DbSet<VListadoEntregas> VListadoEntregas { get; set; }
         public DbSet<VnegocioFox> VnegocioFox { get; set; }
