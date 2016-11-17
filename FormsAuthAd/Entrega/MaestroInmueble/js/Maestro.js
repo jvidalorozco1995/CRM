@@ -7,7 +7,8 @@ var Ent = new BLLEntregas();
 var WsListProyec = funcionUrlGlobal("/ServiciosFox/WProyectos.asmx/LisProyectos");//Consulto Proyectos CRM
 
 var IDFECHA;
-
+var NombreDocumento;
+var ID_ENTREGA;
 var admMaestro= (function () {
 
 
@@ -23,15 +24,85 @@ var admMaestro= (function () {
 
         $(document).on('click', '.modalfechas', function () {
             $("#TxtFecha").val('');
-             IDFECHA = $(this).attr("tag");
+            IDFECHA = $(this).attr("tag");
             $("#modalactfechas").modal('show');
 
         });
 
 
+        
+
+        $(document).on('click', '#BtnGuardarDocumento', function () {
+         
+            var c = $("#UploadFile").get(0);
+            var files = c.files;
+           
+
+
+            if ($("#TxtFechaCliente").val().length == 0) {
+                 
+                toastr.error('CRM Mayales - Notificacion' +
+                              '</br></br>Digite la fecha');
+
+            } else if (files[0] == undefined) {
+            
+                toastr.error('CRM Mayales - Notificacion' +
+                                 '</br></br>Seleccione un archivo valido');
+            } else {
+
+                var Dto = {
+
+                    "ID_INMUEBLES_ENTREGAS":ID_ENTREGA,
+                    "DOCUMENTO": NombreDocumento+".pdf",
+                    "FECHAENTREGA":$("#TxtFechaCliente").val(),
+                }
+
+
+                var test = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    test.append(NombreDocumento, files[i]);
+                }
+                $.ajax({
+                    url: "../../handler/SubirArchivoAvalHandler.ashx?CODIGOAVAL=" + NombreDocumento,
+                    type: "POST",
+                    contentType: false,
+                    processData: false,
+                    data: test,
+
+                    success: function (result) {
+
+                        Ent.ActualizarAdj(Dto);
+
+                        setTimeout(function () { Ent.ListMaestro($("#ComProyect").val()); }, 1000);
+
+                        toastr.success('CRM Mayales - Notificacion' +
+                        '</br></br>Guardado satisfactoriamente');
+
+                        $("#modaldocumento").modal('hide');
+                  
+                    },
+                    error: function (err) {
+
+                        toastr.error(' CRM - Mayales' +
+                       '<br/>' + err.statusText);
+                    }
+                });
+
+
+               
+            }
+
+        });
+
         $(document).on('click', '.SUBIRDOCUMENTO', function () {
           ///  $("#TxtFecha").val('');
-            //IDFECHA = $(this).attr("tag");
+            ID_ENTREGA = $(this).attr("tag");
+            datos = $(this).attr("id");
+            //el resultado de la consulta
+            var result = datos.split("/")
+
+            NombreDocumento = result[11];
+        
             $("#modaldocumento").modal('show');
 
         });
@@ -215,6 +286,8 @@ var admMaestro= (function () {
         Proy.ListProyec(2, WsListProyec);
         Ent.ListMaestro($("#ComProyect").val());
         $("#TxtFecha").datepicker();
+        $("#TxtFechaCliente").datepicker();
+        
     }
     return {
         init: function () {

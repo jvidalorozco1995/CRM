@@ -11,6 +11,9 @@ function BLLEntregas() {
     var WsMaestro = funcionUrlGlobal("/Servicios/WEntregas.asmx/LisInmueblesEntregasblackboard");///Listado de clientes
     var WsUpdateFecha = funcionUrlGlobal("/Servicios/WEntregas.asmx/UpdateIEestados");
     var WsActaEntrega = funcionUrlGlobal("/Servicios/WEntregas.asmx/documento");
+    var WsUpdateDocumento = funcionUrlGlobal("/Servicios/WEntregas.asmx/ActualizarAdj");
+
+
     
 
     function abrirEnPestana(url) {
@@ -78,6 +81,39 @@ function BLLEntregas() {
 
     }
 
+
+    
+
+
+    BLLEntregas.prototype.ActualizarAdj = function (item) {
+
+        jsonData = "{'InmEnt':" + JSON.stringify(item) + "}";
+        $.ajax({
+
+            type: "POST", url: WsUpdateDocumento, data: jsonData,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == null) {
+
+                }
+                else {
+                    /*toastr.success('CRM Mayales - Notificacion' +
+                             '</br></br>Solicitud Guardada');
+
+                    setTimeout(function () { Entg.ListProgramacionEntregas(); }, 1000);
+                    Entg.CrearTablaInmueblesBorrador(favorites);
+                    $('#ModalAsignar').modal('hide');
+                    favorites = [];*/
+
+                }
+
+            },
+            error: function (error) { alert(error.responseText); }
+        });
+
+    }
 
     BLLEntregas.prototype.InsertEntregas = function (p, lista) {
 
@@ -362,7 +398,7 @@ function BLLEntregas() {
         tabla += "</thead>";
         tabla += "<tbody>";
         $.each(clientes, function (i, item) {
-
+           
             tabla += "<tr>";
             tabla += "<td>" + item.CONSECUTIVO + "</td>";
             tabla += "<td>" + item.MZA + "</td>";
