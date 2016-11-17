@@ -2210,6 +2210,7 @@
     <Content Include="Cartera\CrearNegocio\Web.config" />
     <Content Include="Cartera\UpdateNegocio\Web.config" />
     <Content Include="Entrega\Actas\documento.docx" />
+    <Content Include="handler\SubirArchivoAvalHandler.ashx" />
     <None Include="Properties\PublishProfiles\Webmayales.pubxml" />
     <Content Include="prueb.aspx" />
     <Content Include="sampledata\data.php" />
@@ -4896,6 +4897,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="handler\SubirArchivoAvalHandler.ashx.cs">
+      <DependentUpon>SubirArchivoAvalHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="handler\SubirArchivoHandler.ashx.cs">
       <DependentUpon>SubirArchivoHandler.ashx</DependentUpon>
     </Compile>
@@ -5131,6 +5135,7 @@
     <Folder Include="assets\js\aci-tree\php\tree\Item 7\Item 4\Item 3\" />
     <Folder Include="assets\js\aci-tree\php\tree\Item 7\Item 4\Item 4\" />
     <Folder Include="assets\js\selectboxit\css\" />
+    <Folder Include="Aval\" />
     <Folder Include="Cartera\Upload\" />
     <Folder Include="Uplodad\" />
   </ItemGroup>
