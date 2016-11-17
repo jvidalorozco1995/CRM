@@ -279,13 +279,14 @@ namespace BLLCRM
                 throw;
             }
         }
-        public int ActualizarDocumentoAdj(int CodInmueble, string Documento)
+        public int ActualizarDocumentoAdj(INMUEBLES_ENTREGAS InmEnt)
         {
 
             try
             {
-                var item = bd.INMUEBLES_ENTREGAS.Where(t => t.ID_INMUEBLES_ENTREGAS == CodInmueble).FirstOrDefault();
-                item.DOCUMENTO = Documento;
+                var item = bd.INMUEBLES_ENTREGAS.Where(t => t.ID_INMUEBLES_ENTREGAS == InmEnt.ID_INMUEBLES_ENTREGAS).FirstOrDefault();
+                item.DOCUMENTO = InmEnt.DOCUMENTO;
+                item.FECHAENTREGA = InmEnt.FECHAENTREGA;
                 bd.SaveChanges();
 
                 return 1;

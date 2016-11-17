@@ -178,10 +178,10 @@ namespace FormsAuthAd.Servicios
         }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public int ActualizarAdj(int CodInmueble, string Documento)
+        public int ActualizarAdj(INMUEBLES_ENTREGAS InmEnt)
         {
           
-            return ie.ActualizarDocumentoAdj(CodInmueble, Documento);
+            return ie.ActualizarDocumentoAdj(InmEnt);
         }
     }
 }
