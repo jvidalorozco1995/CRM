@@ -29,6 +29,15 @@ var admMaestro= (function () {
         });
 
 
+        $(document).on('click', '.SUBIRDOCUMENTO', function () {
+          ///  $("#TxtFecha").val('');
+            //IDFECHA = $(this).attr("tag");
+            $("#modaldocumento").modal('show');
+
+        });
+        
+        
+
         $(document).on('click', '.modalEditarfechas', function () {
             $("#TxtFecha").val('');
             IDFECHA = $(this).attr("tag");
@@ -39,8 +48,9 @@ var admMaestro= (function () {
         });
 
         
-
+        /*Boton actualizar*/
         $(document).on('click', '#BtnActualizar', function () {
+
             var result = IDFECHA.split("-");
             if ($("#TxtFecha").val().length == 0) {
                  

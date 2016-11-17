@@ -102,11 +102,6 @@
                                             </div>
 
                                         </div>
-
-                                     
-                                  
-
-                                     
                                     </div>
                                 </div>
                             </div>
@@ -148,6 +143,46 @@
                 </div>
             </div>
         </div>
+
+         <div class="modal fade hmodal-danger" id="modaldocumento" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Fecha</h5>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="form-group col-lg-12">
+                                        <label>Fecha</label>
+                                        <input id="TxtFechaCliente" type="text" class="form-control" readonly>
+                                    </div>
+
+                                    <div class="form-group col-lg-12">
+                                        <label>Documento</label>
+                                        <input type='file' name='UploadFile' id="UploadFile"  accept='.pdf,.docx' class='form-control subirfile' title='Detalle de separacion'/>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+
+                        </div>
+                      </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary " type="button" id="BtnGuardarDocumento">Guardar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
      </div>
 
 

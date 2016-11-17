@@ -68,6 +68,7 @@ function BLLUtilidades() {
             success: function (result) {
 
                 if (result.d == null) {
+
                     document.getElementById("#CmbAsesorCart").innerHTML = ""
                     _ComboAsesor(result.d)
                 }
