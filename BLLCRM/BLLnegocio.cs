@@ -2,6 +2,7 @@
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
@@ -94,9 +95,11 @@ namespace BLLCRM
            
             try
            {
-               //RefreshAll();
-               NegocioView item = bd.NegocioView.Where(i => i.ID_NEGOCIO == idhoja).FirstOrDefault();
-         
+                //RefreshAll();
+               
+                NegocioView item = bd.NegocioView.Where(i => i.ID_NEGOCIO == idhoja).FirstOrDefault();
+              //  bd.Entry<NegocioView>(item).Reload();
+                bd.Entry(item).State = EntityState.Detached;
                 if (item != null)
                 {
 

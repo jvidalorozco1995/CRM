@@ -7,7 +7,7 @@ var WsLisTra = funcionUrlGlobal("/Servicios/WTrabajador.asmx/ListTrabajadores");
 
 //Funcion que devuelve la URL del proyecto
 function funcionUrlGlobal(url) {
-    var opcion = 'PR';
+    var opcion = '';
     var UrlGlobal= "";
     if (opcion == 'PU') { UrlGlobal = '/CRM' + url; } else if (opcion == '') { UrlGlobal = url; } else if (opcion == 'PR') { UrlGlobal = '/CRM_TEST' + url; }
     return UrlGlobal;
@@ -119,6 +119,8 @@ function BLLUtilidades() {
         });
      
     }
+
+
     //Aca se crea el DTO asociado
     BLLUtilidades.prototype._DtoAsociado = function (cedula) {
         var datos = "{ 'c':" + JSON.stringify(cedula) + " }";
