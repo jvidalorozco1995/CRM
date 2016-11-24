@@ -47,7 +47,7 @@
                 }
                 else
                 {
-                    $('#CombAsesores').append('<option></option>');
+                  //  $('#CombAsesores').append('<option></option>');
                     $('#CombAsesores2').append('<option></option>');
                     BLLTrabajadores.ComAsesor(result.d);
                 }

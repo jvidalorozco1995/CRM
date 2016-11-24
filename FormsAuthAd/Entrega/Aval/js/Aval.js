@@ -328,6 +328,9 @@ var admAval = (function () {
             $("#BtnGuardar").hide();
             $("#BtnEditar").hide();
             $("#BtnHabilitar").hide();
+
+            $("#TxtResidente").prop("disabled", true);
+            $("#TxtInspeccion").prop("disabled", true);
         }
        
         Aval.Aval(accion,referencia);

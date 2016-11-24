@@ -5,12 +5,9 @@
     var WsAmbiente = funcionUrlGlobal("/Servicios/WAmbiente.asmx/Listambiente");
     var WsItems = funcionUrlGlobal("/Servicios/WAmbiente.asmx/Listitemxambiente");
     var WsAvalAntes = funcionUrlGlobal("/Servicios/WAval.asmx/ListAvalAntes");
-    
     var WsInsertarAval = funcionUrlGlobal("/Servicios/WAval.asmx/InsertAval");
     var WsActualizarAval = funcionUrlGlobal("/Servicios/WAval.asmx/UpdateItemAval");
-
     var WsListaItemAval = funcionUrlGlobal("/Servicios/WAval.asmx/ListItemAval");
-
     var WsAprobar = funcionUrlGlobal("/Servicios/WAval.asmx/Aprobar");
     
 
@@ -31,7 +28,7 @@
                         $("#TxtRegistro").val(result.d[0].Registro);
                         $("#TxtProyecto").val(result.d[0].NOMBRE_PROYEC);
                         $("#TxtInmueble").val(result.d[0].INMUEBLE);
-                        $("#TxtFinalAprob").val(result.d[0].FechaFinApro);
+                        $("#TxtFinalAprob").val(moment(result.d[0].FechaFinApro).format("YYYY-MM-DD"));
                         $("#TxtPropietario").val(result.d[0].Propietario);
                         $("#TxtResidente").val(result.d[0].Residente);
                         $("#TxtInspeccion").val(result.d[0].Inspeccion);
@@ -54,6 +51,7 @@
                 },
                 error: function (obj, error, objError) { alert(objError); }
             });
+
         } else {
            
             jsonData = "{ 'id':" + JSON.stringify(referencia) + " }";
@@ -69,7 +67,7 @@
                        // $("#TxtRegistro").val(result.d[0].Registro);
                         $("#TxtProyecto").val(result.d[0].NOMBRE_PROYEC);
                         $("#TxtInmueble").val(result.d[0].INMUEBLE);
-                        $("#TxtFinalAprob").val(result.d[0].FechaFinApro);
+                        $("#TxtFinalAprob").val(moment(result.d[0].FechaFinApro).format("YYYY-MM-DD"));
                         $("#TxtPropietario").val(result.d[0].NOMBRECLIENTE);
                         $("#TxtResidente").val(result.d[0].Residente);
                         $("#TxtInspeccion").val(result.d[0].Inspeccion);
@@ -143,9 +141,7 @@
                         window.location.replace("./../RevisionCalidad/WebRevisionCalidad.aspx");
 
                     }, 1000);
-
-
-                } else {
+               } else {
                     toastr.error(' CRM - Notificacion' +
                         '</br>Ha habido un error en el sistema y no se ha podido guardar');
                     $("#BtnGuardar").show();
@@ -360,11 +356,7 @@
 
         $(".ITEM" + items[0].Idambiente).append(tabla);
         //$('#example3').dataTable();
-
-
-    }
-
-
+     }
 
     BLLAval.CrearTablaItemsActualizar = function (items) {
         var tabla = document.getElementById('myTab1').innerHTML = "";
@@ -373,9 +365,7 @@
         var numero = 0;
          for (i = 0; i < items.length; i++) {
      
-        
-
-           
+             //Aca comentamos cuantos
              if (i + 1 < items.length) {
 
                 
@@ -402,12 +392,8 @@
          var numero2 = 0;
          for (i = 0; i < items.length; i++) {
 
-
-
-
              if (i + 1 < items.length) {
-
-
+                 //Rcorrers los ambientes
                  if (items[i].Ambiente != items[i + 1].Ambiente) {
 
                      numero2++;
@@ -434,6 +420,7 @@
                          tabla1 += "</div>";
                      }
                  }
+                //as
              } else if (i + 1 == items.length) {
 
                  numero2++;

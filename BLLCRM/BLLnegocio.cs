@@ -99,7 +99,7 @@ namespace BLLCRM
                
                 NegocioView item = bd.NegocioView.Where(i => i.ID_NEGOCIO == idhoja).FirstOrDefault();
               //  bd.Entry<NegocioView>(item).Reload();
-                bd.Entry(item).State = EntityState.Detached;
+                 bd.Entry(item).State = EntityState.Detached;
                 if (item != null)
                 {
 

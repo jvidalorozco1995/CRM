@@ -215,10 +215,10 @@ function BLLComercial() {
             success: function (result) {
                 if (result.d == null) {
                     $('#Mazanasb').html("")
-                    $('#Mazanasb').append('<option></option>')
+                   
                 } else {
                     $('#Mazanasb').html("")
-                    $('#Mazanasb').append('<option></option>')
+                   
                     BLLComercial.CompenenteP(result.d);
                 }
 

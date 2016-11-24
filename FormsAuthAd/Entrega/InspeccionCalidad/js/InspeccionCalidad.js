@@ -103,9 +103,11 @@ var admRevision = (function () {
 
 
         $(document).on('click', '.Guardar', function () {
+
+            $(this).prop('disabled', true);
+
             var IdItem = $(this).attr("id");
             
-
             var DtoItemXambiente = {
 
                 'IdAmbiente': id,
@@ -117,6 +119,8 @@ var admRevision = (function () {
 
                 Insp.ListItem(id);
                 Insp.ListItemXambientes(id);
+
+                $(this).prop('disabled', false);
             }, 1000);
         });
 
