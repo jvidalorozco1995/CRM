@@ -166,6 +166,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ModelUser.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUser.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelUser.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUser.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelUser.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelUser.edmx</DependentUpon>
+    </Compile>
     <Compile Include="negocio.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -220,6 +235,9 @@
     </Compile>
     <Compile Include="Tramites_Inmueble.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.cs">
+      <DependentUpon>ModelUser.tt</DependentUpon>
     </Compile>
     <Compile Include="VActInmuebles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -326,6 +344,13 @@
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
+    <EntityDeploy Include="ModelUser.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelUser.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelUser.edmx.diagram">
+      <DependentUpon>ModelUser.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -348,6 +373,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelUser.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUser.edmx</DependentUpon>
+      <LastGenOutput>ModelUser.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelUser.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelUser.edmx</DependentUpon>
+      <LastGenOutput>ModelUser.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

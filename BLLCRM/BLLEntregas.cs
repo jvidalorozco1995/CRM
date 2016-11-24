@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
@@ -12,6 +14,7 @@ namespace BLLCRM
   public  class BLLEntregas
     {
         CRMEntiti bd = new CRMEntiti();
+        USUARIOSACTIVOSEntities db = new USUARIOSACTIVOSEntities();
         string mensaje = null;
         /// <summary>
         /// Meotod para registrar los bancos en base de datos
@@ -40,12 +43,15 @@ namespace BLLCRM
                         inmu.REFERENCIA_INMUEBLE = entidad.REFERENCIA_INMUEBLE;
                         inmu.FECHAREG = DateTime.Now;
                         inmu.ID_ENTREGA = item.ID_ENTREGAS;
-
                         bd.INMUEBLES_ENTREGAS.Add(inmu);
                        
                     }
                     bd.SaveChanges();
+                   
                 }
+
+
+              
                 return "Se ha guardado satisfactoriamente la solicitud";
             }
             catch (DbUpdateException ex)
@@ -79,7 +85,7 @@ namespace BLLCRM
                 ctx.ENVIADO = DateTime.Now;
                 ctx.ENVIADOA = ctx.DIROBRA;
                 bd.SaveChanges();
-
+                EnviarCorreoSolicitud(ctx.DIROBRA, ctx.ID_ENTREGAS);
                 return 1;
             }
 
@@ -238,6 +244,66 @@ namespace BLLCRM
             {
 
                 throw;
+            }
+        }
+        public void EnviarCorreoSolicitud(string directorobra, int solicitud)
+        {
+            var ctx = db.Usuarios.Where(p => p.Dominio == directorobra).ToList();   
+            string email = null;
+            string cuerpo = null;
+            foreach (var item in ctx)
+            {
+                email = item.Correo;
+            }
+
+            MailMessage mmsg = new MailMessage();
+            mmsg.To.Add(email);
+            mmsg.Subject = "Constructora los mayales";
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            cuerpo = "<p style='text-align:justify'>" +
+            "Un nuevo proceso de entregas le ha sido asignado.</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>Numero de solicitud: " + solicitud;
+            //cuerpo += "</br>";
+            cuerpo += "<p>Ingrese al siguiene Link para mayor informacion.</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>http://servidor.mayales.com:81/CRM/Entrega/ProgramacionEntregas/WebProgramacionEntregas.aspx</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>Cordial saludo,</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>Este correo fue creado por un sistema automatico, favor no responder.</p>";
+            
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString("'<html><body>" + cuerpo + "</body></html>'<img src=cid:companylogo>", null, "text/html");
+            //create the LinkedResource (embedded image)
+            //LinkedResource logo = new LinkedResource("C:\\logo.png");
+            //logo.ContentId = "companylogo";
+            ////add the LinkedResource to the appropriate view
+            //htmlView.LinkedResources.Add(logo);
+            mmsg.AlternateViews.Add(htmlView);
+            //mmsg.Body = ;
+            mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
+            //Correo electronico desde la que enviamos el mensaje
+            mmsg.From = new System.Net.Mail.MailAddress("crm@mayales.com");
+            /*-------------------------CLIENTE DE CORREO----------------------*/
+            SmtpClient _Svcliente = new SmtpClient();
+            //Hay que crear las credenciales del correo emisor
+            _Svcliente.Credentials = new NetworkCredential("crm@mayales.com", "Crm.2015#");
+            //Lo siguiente es obligatorio si enviamos el mensaje desde Gmail
+            /*
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+            */
+            _Svcliente.Host = "mail.mayales.com"; //Para Gmail "smtp.gmail.com";
+            try
+            {
+                //Enviamos el mensaje      
+                _Svcliente.Send(mmsg);
+            }
+            catch (SmtpException ex)
+            {
+                throw ex;
+
             }
         }
     }
