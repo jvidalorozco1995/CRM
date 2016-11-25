@@ -10,13 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
 using BLLCRM;
-
+using System.Net.Mail;
+using System.Net;
 
 namespace BLLCRM
 {
  public class BLLAval
     {
         CRMEntiti bd = new CRMEntiti();
+        USUARIOSACTIVOSEntities db = new USUARIOSACTIVOSEntities();
         public int InsertIAval(Aval p, List<ItemAval> itemAval)
         {
             try
@@ -39,6 +41,7 @@ namespace BLLCRM
                 InsertFechasAval(fechas);
                 // se guarda los item por registro de aval
                 InserItemAval(itemAval, Avalinsertado.id,p.ReferenciaInmueble);
+                EnviarCorreoSolicitud(p, Avalinsertado.id);
                 return 1;
             }
             catch (DbUpdateException)
@@ -223,6 +226,77 @@ namespace BLLCRM
             {
                 return 0;
                 throw;
+            }
+        }
+        public void EnviarCorreoSolicitud(Aval x, int aval)
+        {
+            var enviado = "";
+            var dirobra = "";
+            var ctx = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == x.ReferenciaInmueble);
+            var referencia = ctx.ID_ENTREGA;
+            var cte = bd.Entregas.First(inm => inm.ID_ENTREGAS == referencia);
+            enviado = cte.ENVIADOPOR;
+            dirobra = cte.DIROBRA;
+            string email = null;
+            string cuerpo = null;
+            var ctf = db.Usuarios.Where(p => p.Dominio == dirobra).ToList();
+            foreach (var item2 in ctf)
+            {
+                email = item2.Correo;
+            }
+            ctf = db.Usuarios.Where(p => p.Dominio == enviado).ToList();
+            foreach (var item2 in ctf)
+            {
+                email = email + "," + item2.Correo;
+            }
+            MailMessage mmsg = new MailMessage();
+            mmsg.To.Add(email);
+            mmsg.Subject = "Constructora los mayales";
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            cuerpo = "<p style='text-align:justify'>" +
+            "Un nuevo proceso de Aval se ha iniciado.</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>Numero del Aval: " + aval;
+            //cuerpo += "</br>";
+            cuerpo += "<p>Ingrese al siguiene Link para mayor informacion.</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>http://servidor.mayales.com:81/CRM/Entrega/RevisionCalidad/WebRevisionCalidad.aspx</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>Cordial saludo,</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>Este correo fue creado por un sistema automatico, favor no responder.</p>";
+
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString("'<html><body>" + cuerpo + "</body></html>'<img src=cid:companylogo>", null, "text/html");
+            //create the LinkedResource (embedded image)
+            //LinkedResource logo = new LinkedResource("C:\\logo.png");
+            //logo.ContentId = "companylogo";
+            ////add the LinkedResource to the appropriate view
+            //htmlView.LinkedResources.Add(logo);
+            mmsg.AlternateViews.Add(htmlView);
+            //mmsg.Body = ;
+            mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
+            //Correo electronico desde la que enviamos el mensaje
+            mmsg.From = new System.Net.Mail.MailAddress("crm@mayales.com");
+            /*-------------------------CLIENTE DE CORREO----------------------*/
+            SmtpClient _Svcliente = new SmtpClient();
+            //Hay que crear las credenciales del correo emisor
+            _Svcliente.Credentials = new NetworkCredential("crm@mayales.com", "Crm.2015#");
+            //Lo siguiente es obligatorio si enviamos el mensaje desde Gmail
+            /*
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+            */
+            _Svcliente.Host = "mail.mayales.com"; //Para Gmail "smtp.gmail.com";
+            try
+            {
+                //Enviamos el mensaje      
+                _Svcliente.Send(mmsg);
+            }
+            catch (SmtpException ex)
+            {
+                throw ex;
+
             }
         }
     }
