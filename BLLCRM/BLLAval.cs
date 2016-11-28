@@ -235,6 +235,7 @@ namespace BLLCRM
             var nombre = "";
             var mz = "";
             var inmueb = "";
+            var estado2 = "";
             var f = bd.VListadoEntegrasC.First(inm => inm.IdAval == aval);
             nombre = f.NOMBRE_PROYEC.Trim();
             mz = f.NOMBRE_BLO.Trim();
@@ -242,6 +243,19 @@ namespace BLLCRM
 
             var ctx = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == x.ReferenciaInmueble);
             var referencia = ctx.ID_ENTREGA;
+            var estado = ctx.ESTADOAVAL;
+            if (estado == 1)
+            {
+                estado2 = "Revisado con hallazgos";
+            }
+            else if (estado == 2)
+            {
+                estado2 = "Aprobado para entrega";
+            }
+            else
+            {
+                estado2 = "No revisado";
+            }
             var cte = bd.Entregas.First(inm => inm.ID_ENTREGAS == referencia);
             enviado = cte.ENVIADOPOR;
             dirobra = cte.DIROBRA;
@@ -265,7 +279,7 @@ namespace BLLCRM
             cuerpo = "<p style='text-align:justify'>" +
             "Un nuevo proceso de Aval se ha iniciado en el proyecto: " + nombre + ", manzana : "+ mz+", inmueble: " + inmueb+".</p>";
             //cuerpo += "</br>";
-            cuerpo += "<p>Numero del Aval: " + aval;
+            cuerpo += "<p>Numero del Aval: " + aval + ". Con el estado:" + estado2;
             //cuerpo += "</br>";
             cuerpo += "<p>Ingrese al siguiene Link para mayor informacion.</p>";
             //cuerpo += "</br>";
