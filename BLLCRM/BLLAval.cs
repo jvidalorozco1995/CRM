@@ -232,6 +232,14 @@ namespace BLLCRM
         {
             var enviado = "";
             var dirobra = "";
+            var nombre = "";
+            var mz = "";
+            var inmueb = "";
+            var f = bd.VListadoEntegrasC.First(inm => inm.IdAval == aval);
+            nombre = f.NOMBRE_PROYEC.Trim();
+            mz = f.NOMBRE_BLO.Trim();
+            inmueb = f.INMUEBLE;
+
             var ctx = bd.INMUEBLES_ENTREGAS.First(inm => inm.REFERENCIA_INMUEBLE == x.ReferenciaInmueble);
             var referencia = ctx.ID_ENTREGA;
             var cte = bd.Entregas.First(inm => inm.ID_ENTREGAS == referencia);
@@ -255,7 +263,7 @@ namespace BLLCRM
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
             cuerpo = "<p style='text-align:justify'>" +
-            "Un nuevo proceso de Aval se ha iniciado.</p>";
+            "Un nuevo proceso de Aval se ha iniciado en el proyecto: " + nombre + ", manzana : "+ mz+", inmueble: " + inmueb+".</p>";
             //cuerpo += "</br>";
             cuerpo += "<p>Numero del Aval: " + aval;
             //cuerpo += "</br>";

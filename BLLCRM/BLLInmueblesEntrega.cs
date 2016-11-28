@@ -407,6 +407,15 @@ namespace BLLCRM
         {
             var enviado = "";
             var dirobra = "";
+            var nombre = "";
+            var mz = "";
+            var inmueb = "";
+            var f = bd.Vistablackboard.First(inm => inm.ID_INMUEBLES_ENTREGAS == x.ID_INMUEBLES_ENTREGAS);
+            nombre = f.SUC;
+            mz = f.NOMBRE_BLO;
+            inmueb = f.INMUEBLE;
+            var pa = bd.proyectos.First(inm => inm.ID_PROYEC == nombre);
+            nombre = pa.NOMBRE_PROYEC.Trim();
             var ctx = bd.INMUEBLES_ENTREGAS.First(inm => inm.ID_INMUEBLES_ENTREGAS == x.ID_INMUEBLES_ENTREGAS);
             var referencia = ctx.ID_ENTREGA;
             var refe = ctx.REFERENCIA_INMUEBLE;
@@ -433,8 +442,8 @@ namespace BLLCRM
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
             cuerpo = "<p style='text-align:justify'>" +
-            "Se establecio una nueva fecha para el aval registrado con el numero: " + aval + "</p>";
-            //cuerpo += "</br>";
+            "Se establecio una nueva fecha en el proyecto: " + nombre + ", manzana : " + mz + ", inmueble: " + inmueb + ".</p>";
+            cuerpo += "<p>Numero del aval: " + aval + "</p>"; 
             cuerpo += "<p>" + cad + "</p>";
             //cuerpo += "</br>";
             cuerpo += "<p>Ingrese al siguiene Link para mayor informacion.</p>";
