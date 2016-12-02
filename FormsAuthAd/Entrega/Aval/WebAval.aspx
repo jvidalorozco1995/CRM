@@ -48,7 +48,7 @@
                                                              </div>
                                                              <div class="form-group col-lg-6">
                                                                  <label>Inspección</label>
-                                                                 <input type="text" value="" id="TxtInspeccion" class="form-control" name="" >
+                                                                 <input type="number" value="" id="TxtInspeccion" class="form-control" name="" >
                                                              </div>
                                                              <div class="form-group col-lg-3">
                                                                  <label>Aprueba</label>

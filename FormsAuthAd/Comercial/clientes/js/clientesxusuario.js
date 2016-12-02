@@ -12,9 +12,11 @@ var admclientes = (function () {
 
     var _addHandlers = function () {
         
+
         $(".excel").on('click', function (event) {
             cl.exportJsonToCSV();
         });
+
         $(document).on('click', '.Infocl', function () {
             $('#infoCLiente').modal('show');
             cl.getClientes($(this).attr("id"));
