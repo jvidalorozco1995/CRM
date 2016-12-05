@@ -2323,6 +2323,7 @@
     <Content Include="Servicios\WAmbiente.asmx" />
     <Content Include="Servicios\WAval.asmx" />
     <Content Include="Servicios\WBancos.asmx" />
+    <Content Include="Servicios\WCaptcha.asmx" />
     <Content Include="Servicios\WClientes.asmx" />
     <Content Include="Servicios\WCompromisoCuota.asmx" />
     <Content Include="Servicios\WConfiguracionNegocios.asmx" />
@@ -4961,6 +4962,10 @@
     </Compile>
     <Compile Include="Servicios\WBancos.asmx.cs">
       <DependentUpon>WBancos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WCaptcha.asmx.cs">
+      <DependentUpon>WCaptcha.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WClientes.asmx.cs">
