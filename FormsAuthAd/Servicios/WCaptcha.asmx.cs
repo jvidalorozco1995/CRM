@@ -90,7 +90,7 @@ namespace FormsAuthAd.Servicios
 
             // Generate a uniqiue file name to save image as
             String fileName = new Random().Next().ToString() + ".gif";
-            raster.Save(Server.MapPath(fileName), System.Drawing.Imaging.ImageFormat.Gif);
+            raster.Save(Server.MapPath(@"..\Images\"+fileName), System.Drawing.Imaging.ImageFormat.Gif);
             raster.Dispose();
             graphicsObject = null;
 
