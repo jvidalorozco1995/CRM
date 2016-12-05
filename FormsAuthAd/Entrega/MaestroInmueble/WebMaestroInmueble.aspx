@@ -9,6 +9,26 @@
         <div class="content animate-panel" style="animation-delay: 0.2s; -webkit-animation-delay: 0.2s;">
             <div class="row">
                 
+                 <div class="row">
+                    <div class="col-sm-6 text-center">
+                        <div class="pull-center">
+                            <div class="dt-buttons btn-group">
+                                <a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                    <span>No revisado</span>
+                                    <img src='<%= ResolveUrl("../../images_crm/libre.png") %>' style="width: 20px; height: 18px" />
+                                </a>
+                                  <a class="btn btn-default buttons-copy buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                    <span>Revisado con hallazgos</span>
+                                    <img src='<%= ResolveUrl("../../images_crm/Espera.png") %>' style="width: 20px; height: 18px" />
+                                </a>
+                                <a class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0" aria-controls="example1">
+                                    <span>Aprobado para entrega</span>
+                                    <img src='<%= ResolveUrl("../../images_crm/Completa.png") %>' style="width: 15px; height: 15px" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!---Panel Informacion General--->
                 <div class="col-lg-7" id="Principal">
@@ -65,7 +85,7 @@
                                                 </div>
                                                 <div class="form-group col-lg-4">
 
-                                                    <label>Manzana</label>
+                                                    <label>Manzana o torre</label>
                                                     <input type="text" value="" id="TxtManzana" class="form-control" name="" placeholder="" readonly="" />
 
                                                 </div>

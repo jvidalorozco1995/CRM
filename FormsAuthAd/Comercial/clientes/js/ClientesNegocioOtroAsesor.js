@@ -166,7 +166,7 @@ var admComercial = (function () {
 
         });
 
-
+        //
         $(document).on('click', '#Btnactivos', function () { listc._Lgescancelar(proyec, "A"); })
 
         $(document).on('click', '#Btncompra', function () { listc._Lgescancelar(proyec, "C"); })
@@ -185,6 +185,7 @@ var admComercial = (function () {
             setTimeout(function () { listc.LisClientesProyectos(proyec, WsLisClientesProyectos) }, 3000);
         });
 
+        //Boton para deshabilitar
         $(document).on('click', '#BtnEditarC', function () {
 
             $('#Text2').attr('readonly', false); $('#Text3').attr('readonly', false);
@@ -254,8 +255,6 @@ var admComercial = (function () {
             $('#TxtclienteD').val(cl); $('#TxtclienteD').attr('readonly', true);
             $('#TxtInmueD').val(inmu); $('#TxtInmueD').attr('readonly', true);
             $('#Txtdias').val(diasC); $('#Txtdias').attr('readonly', true);
-
-
 
         });
 

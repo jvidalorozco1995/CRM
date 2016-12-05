@@ -89,7 +89,7 @@ function BLLComercial() {
             $('#ComboEntero').append(combo);
         });
     }
-
+//Obener clientes
     BLLComercial.prototype.GetClientes = function (cedula, Wsurl) {
         jsonData = "{ 'c':" + JSON.stringify(cedula) + " }";
         $.ajax({
@@ -108,7 +108,6 @@ function BLLComercial() {
             error: function (error) { alert(error.responseText); }
         });
     }
-
 
     BLLComercial.prototype.ListClientesTodos = function (Wsurl) {
       
@@ -155,6 +154,7 @@ function BLLComercial() {
 
     }
 
+    //Listado de cliente por proyecto
     BLLComercial.prototype.LisClientesProyectos = function (proyecto, Wsurl) {
         jsonData = "{ 'p':" + JSON.stringify(proyecto) + "}";
         $.ajax({
@@ -204,7 +204,7 @@ function BLLComercial() {
     BLLComercial.prototype.Proyecto = function (proyecto) {
         inm.LisInmuebles(proyecto);
     }
-
+    //List de proyectos
     BLLComercial.prototype.ListbProyec = function (proyecto) {
       jsonData = "{ 'b':" + JSON.stringify(proyecto) + " }";
         $.ajax({
@@ -226,11 +226,12 @@ function BLLComercial() {
             error: function (error) { alert(error.responseText); }
         });
     }
-
+    //Listado de empresa
     BLLComercial.prototype.LisEmpresas = function () {
         ep.GetEmpresa();
     }
 
+    //bloques recorrer
     BLLComercial.CompenenteP = function (bloque) {
         for (var i = 0; i < bloque.length; i++) {
             var lista = '<option value=' + bloque[i]["ID_BLOQUE"] + '>';
@@ -296,7 +297,7 @@ function BLLComercial() {
                         tabla += "<td style='width:20px;height: 20px' ><img src= '" + funcionUrlGlobal('/images_crm/Home2.png') + "' id='" + item.REFERENCIA + "' class='inmsdetalles' title='Detalle de separacion'></img></td>";
                     }
                     else
-                    {
+                    {//Estados
                         if (item.ESTADO_I == "P")
                         {
                             tabla += "<td style='width:20px;height: 20px' ><img src= '" + funcionUrlGlobal('/images_crm/Home2.png') + "' id='" + item.REFERENCIA + "' class='inmsdetalles' title='Detalle de separacion'></img></td>";
@@ -310,6 +311,7 @@ function BLLComercial() {
                 }
                       
             }
+            //verifica los estados
             if (item.ESTADO_C == "A")
             {
                 tabla += "<td style='width:20px;height: 20px'><img src='" + funcionUrlGlobal('/images_crm/_Auser.png') + "' id='" + item.CEDULA + "/" + item.EMAIL + "'></img></td>";
