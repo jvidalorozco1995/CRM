@@ -265,7 +265,7 @@ var admAval = (function () {
                 $('#TxtResidente').css("border", "1px solid #3366FF");///,'border-left:',' 4px solid #3366FF'
                 return false;
 
-            } else if ($('#TxtInspeccion').val().length < 1 || !letras.test($('#TxtInspeccion').val())) {
+            } else if ($('#TxtInspeccion').val().length < 1) {
                 toastr.error('CRM Mayales - Notificacion' +
                     '</br></br>1 - No a digitado nada en el campo inspeccion' +
                     '</br>2 - Verifique que no haya ingresado letras en el campo');

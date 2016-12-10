@@ -133,9 +133,10 @@ function BLLEntregas() {
                              '</br></br>Solicitud Guardada');
                    
                     setTimeout(function () { Entg.ListProgramacionEntregas(); }, 1000);
+                    favorites = [];
                     Entg.CrearTablaInmueblesBorrador(favorites);
                     $('#ModalAsignar').modal('hide');
-                    favorites = [];
+                  
 
                 }
 

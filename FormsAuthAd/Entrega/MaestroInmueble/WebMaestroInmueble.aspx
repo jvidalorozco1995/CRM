@@ -46,8 +46,6 @@
                                 <!---<button class="btn btn-primary " type="button" id="BtnCancelar"><i class="fa fa-check"></i>Nuevo</button>--->
                             </div>
                             <li class="active"><a data-toggle="tab" href="#tab-1">Maestro inmueble</a></li>
-
-
                         </ul>
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">

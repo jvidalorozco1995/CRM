@@ -199,7 +199,7 @@
                         if (result.d != null) {
 
 
-                   
+                              
                                 BLLAval.CrearAmbientes(result.d);
 
                    
@@ -225,7 +225,7 @@
                     if (result.d != null) {
 
 
-
+                      
                         BLLAval.CrearTablaItemsActualizar(result.d);
 
 
@@ -367,28 +367,34 @@
 
         var numero = 0;
          for (i = 0; i < items.length; i++) {
-     
+          
              //Aca comentamos cuantos
              if (i + 1 < items.length) {
 
                 
                  if (items[i].Ambiente != items[i + 1].Ambiente) {
-                    
+                     
                      numero++;
                     
                      if (numero == 1) {
                        
                          tabla += "<li class='active'><a data-toggle='tab' class='a' data-nexttab='" + numero + "' href='#" + items[i].Id + "'>" + numero + "</a></li>";
                      } else {
+
                          tabla += "<li class=''><a data-toggle='tab' class='a' data-nexttab='" + numero + "' href='#" + items[i].Id + "'>" + numero + "</a></li>";
                      }
                  }
+
+             } else if (numero == 0) {
+
+                 tabla += "<li class='active'><a data-toggle='tab' class='a' data-nexttab='" + 1 + "' href='#" + items[i].Id + "'>" + 1 + "</a></li>";
+
              } else if (i + 1 == items.length) {
 
                  numero++;
-                 tabla += "<li class='active'><a data-toggle='tab' class='a' data-nexttab='" + numero + "' href='#" + items[i].Id + "'>" + numero + "</a></li>";
+                 tabla += "<li class=''><a data-toggle='tab' class='a' data-nexttab='" + numero + "' href='#" + items[i].Id + "'>" + numero + "</a></li>";
 
-             
+
              }
           
         }
@@ -425,11 +431,25 @@
                          tabla1 += "</div>";
                      }
                  }
-                //as
-             } else if (i + 1 == items.length) {
+             } else if (numero2 == 0) {
 
                  numero2++;
                  tabla1 += "<div id='" + items[i].Id + "'class='tab-pane active'>"
+                 tabla1 += "<div class='panel-body'>";
+                 tabla1 += "<h4>" + items[i].Ambiente + "</h1>"
+                 tabla1 += "<div class ='Tablas ITEM" + numero2 + "'>";
+
+
+                 tabla1 += CrearActualizar(numero, findValor(items, items[i].Ambiente));
+
+                 tabla1 += "</div>";
+                 tabla1 += "</div>";
+                 tabla1 += "</div>";
+
+             } else if (i + 1 == items.length) {
+
+                 numero2++;
+                 tabla1 += "<div id='" + items[i].Id + "'class='tab-pane '>"
                  tabla1 += "<div class='panel-body'>";
                  tabla1 += "<h4>" + items[i].Ambiente + "</h1>"
                  tabla1 += "<div class ='Tablas ITEM" + numero2 + "'>";

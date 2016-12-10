@@ -266,8 +266,6 @@ var _admhoja = (function () {
 
     
 
-
-
     var imprimir = function () {
 
         $("#BtnImprimir").click(function () {
