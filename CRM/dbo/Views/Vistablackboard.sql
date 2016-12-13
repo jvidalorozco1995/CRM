@@ -1,23 +1,58 @@
-﻿CREATE VIEW [dbo].[VListadoEntegrasC]
+﻿CREATE VIEW dbo.Vistablackboard
 AS
-SELECT        dbo.INMUEBLES_ENTREGAS.ID_INMUEBLES_ENTREGAS, dbo.INMUEBLES_ENTREGAS.ID_ENTREGA, dbo.INMUEBLES_ENTREGAS.REFERENCIA_INMUEBLE, inm.MZA, inm.INMUEBLE, 
-                         dbo.INMUEBLES_ENTREGAS.CONFIRMAOBRA, dbo.INMUEBLES_ENTREGAS.INSPECCIONCAL, dbo.INMUEBLES_ENTREGAS.ESTADOAVAL, dbo.INMUEBLES_ENTREGAS.RADICADOVENTA, 
-                         dbo.INMUEBLES_ENTREGAS.ENTREGAOBRA, dbo.INMUEBLES_ENTREGAS.FECHACLIENTE, dbo.INMUEBLES_ENTREGAS.FECHAENTREGA, dbo.INMUEBLES_ENTREGAS.ESTADOENTREGA, 
-                         dbo.bloques.NOMBRE_BLO, dbo.proyectos.NOMBRE_PROYEC, dbo.proyectos.ID_PROYEC, dbo.INMUEBLES_ENTREGAS.OBSERVACIONES, dbo.Entregas.CONSECUTIVO, 
-                         dbo.INMUEBLES_ENTREGAS.FECHACONFIRMA, dbo.Aval.id AS IdAval, dbo.INMUEBLES_ENTREGAS.FECHAREG
+SELECT        dbo.INMUEBLES_ENTREGAS.ID_INMUEBLES_ENTREGAS, dbo.INMUEBLES_ENTREGAS.ID_ENTREGA, inm.MZA, inm.INMUEBLE, dbo.INMUEBLES_ENTREGAS.REFERENCIA_INMUEBLE, 
+                         dbo.INMUEBLES_ENTREGAS.FECHAREG, dbo.INMUEBLES_ENTREGAS.CONFIRMAOBRA, dbo.INMUEBLES_ENTREGAS.FECHACONFIRMA, dbo.INMUEBLES_ENTREGAS.ESTADOAVAL, 
+                         dbo.INMUEBLES_ENTREGAS.INSPECCIONCAL, dbo.INMUEBLES_ENTREGAS.RADICADOVENTA, dbo.INMUEBLES_ENTREGAS.ENTREGAOBRA, dbo.INMUEBLES_ENTREGAS.FECHACLIENTE, 
+                         dbo.INMUEBLES_ENTREGAS.ESTADOENTREGA, dbo.INMUEBLES_ENTREGAS.FECHAENTREGA, dbo.INMUEBLES_ENTREGAS.OBSERVACIONES, dbo.inmuebles.SUC, dbo.Entregas.ENVIADO, 
+                         dbo.Entregas.ENVIADOA, dbo.Entregas.ENVIADOPOR, dbo.Aval.id, dbo.Entregas.CONSECUTIVO, dbo.Entregas.DIROBRA, dbo.negocio.PROPIETARIO, dbo.negocio.CEDULA_P, 
+                         dbo.bloques.BLOQUE_OBRA AS 'Direccion', dbo.bloques.NOMBRE_BLO
 FROM            dbo.INMUEBLES_ENTREGAS INNER JOIN
+                         dbo.inmuebles ON dbo.inmuebles.REFERENCIA = dbo.INMUEBLES_ENTREGAS.REFERENCIA_INMUEBLE INNER JOIN
+                         dbo.Entregas ON dbo.Entregas.ID_ENTREGAS = dbo.INMUEBLES_ENTREGAS.ID_ENTREGA INNER JOIN
                          dbo.inmuebles AS inm ON inm.REFERENCIA = dbo.INMUEBLES_ENTREGAS.REFERENCIA_INMUEBLE INNER JOIN
                          dbo.bloques ON SUBSTRING(inm.REFERENCIA, 0, 7) = dbo.bloques.ID_BLOQUE INNER JOIN
-                         dbo.proyectos ON dbo.bloques.BLOQUE_OBRA = dbo.proyectos.ID_PROYEC INNER JOIN
-                         dbo.Entregas ON dbo.INMUEBLES_ENTREGAS.ID_ENTREGA = dbo.Entregas.ID_ENTREGAS LEFT OUTER JOIN
+                         dbo.Vclienteseparacion ON dbo.Vclienteseparacion.INMUEBLE = dbo.INMUEBLES_ENTREGAS.REFERENCIA_INMUEBLE INNER JOIN
+                         dbo.negocio ON dbo.negocio.CEDULA_P = dbo.Vclienteseparacion.CLIENTE INNER JOIN
+                         dbo.proyectos ON dbo.bloques.BLOQUE_OBRA = dbo.proyectos.ID_PROYEC LEFT OUTER JOIN
                          dbo.Aval ON dbo.Aval.ReferenciaInmueble = dbo.INMUEBLES_ENTREGAS.REFERENCIA_INMUEBLE
-WHERE        (dbo.INMUEBLES_ENTREGAS.CONFIRMAOBRA = 1) AND (dbo.INMUEBLES_ENTREGAS.ESTADOENTREGA IS NULL)
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VListadoEntegrasC';
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPaneCount', @value = 2, @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vistablackboard';
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'        Width = 2340
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'= 280
+            TopColumn = 0
+         End
+         Begin Table = "Vclienteseparacion"
+            Begin Extent = 
+               Top = 138
+               Left = 817
+               Bottom = 268
+               Right = 1014
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "negocio"
+            Begin Extent = 
+               Top = 138
+               Left = 1052
+               Bottom = 268
+               Right = 1285
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 22
+         Width = 284
+         Width = 1230
          Width = 1500
          Width = 1500
          Width = 1500
@@ -31,15 +66,18 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'        Wi
          Width = 1500
          Width = 1500
          Width = 1500
-         Width = 1245
          Width = 1500
-         Width = 1275
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
          Width = 1500
       End
    End
    Begin CriteriaPane = 
       Begin ColumnWidths = 11
-         Column = 1440
+         Column = 9975
          Alias = 900
          Table = 1170
          Output = 720
@@ -55,9 +93,7 @@ EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'        Wi
       End
    End
 End
-', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VListadoEntegrasC';
-
-
+', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vistablackboard';
 
 
 GO
@@ -66,7 +102,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[41] 4[10] 2[31] 3) )"
+         Configuration = "(H (1[35] 4[24] 2[16] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -136,38 +172,18 @@ Begin DesignProperties =
             Begin Extent = 
                Top = 6
                Left = 38
-               Bottom = 317
-               Right = 267
+               Bottom = 277
+               Right = 322
             End
             DisplayFlags = 280
-            TopColumn = 0
+            TopColumn = 2
          End
-         Begin Table = "inm"
+         Begin Table = "inmuebles"
             Begin Extent = 
                Top = 6
-               Left = 305
+               Left = 360
                Bottom = 136
-               Right = 476
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "bloques"
-            Begin Extent = 
-               Top = 6
-               Left = 514
-               Bottom = 136
-               Right = 684
-            End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-         Begin Table = "proyectos"
-            Begin Extent = 
-               Top = 6
-               Left = 722
-               Bottom = 102
-               Right = 909
+               Right = 531
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -175,35 +191,49 @@ Begin DesignProperties =
          Begin Table = "Entregas"
             Begin Extent = 
                Top = 6
-               Left = 947
+               Left = 569
                Bottom = 136
-               Right = 1117
+               Right = 739
+            End
+            DisplayFlags = 280
+            TopColumn = 3
+         End
+         Begin Table = "inm"
+            Begin Extent = 
+               Top = 6
+               Left = 777
+               Bottom = 136
+               Right = 948
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "bloques"
+            Begin Extent = 
+               Top = 6
+               Left = 986
+               Bottom = 136
+               Right = 1156
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "proyectos"
+            Begin Extent = 
+               Top = 138
+               Left = 360
+               Bottom = 234
+               Right = 547
             End
             DisplayFlags = 280
             TopColumn = 0
          End
          Begin Table = "Aval"
             Begin Extent = 
-               Top = 102
-               Left = 722
-               Bottom = 344
-               Right = 952
+               Top = 138
+               Left = 585
+               Bottom = 268
+               Right = 779
             End
-            DisplayFlags = 280
-            TopColumn = 0
-         End
-      End
-   End
-   Begin SQLPane = 
-   End
-   Begin DataPane = 
-      Begin ParameterDefaults = ""
-      End
-      Begin ColumnWidths = 21
-         Width = 284
-         Width = 1500
-         Width = 1500
- ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'VListadoEntegrasC';
-
-
+            DisplayFlags ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'Vistablackboard';
 

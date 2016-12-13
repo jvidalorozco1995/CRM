@@ -10,7 +10,7 @@ var admRevision = (function () {
 
     var _addHandlers = function () {
      
-        
+        //Ver aval que te residente
         $(document).on('click', '.VERAVAL', function () {
             var referencia = $(this).attr("id");
             var idAval = $(this).attr("tag");
@@ -18,7 +18,7 @@ var admRevision = (function () {
             window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia +"&accion=2&idaval="+idAval;
             
         });
-
+        //Aval con accion 1 
         $(document).on('click', '.AVAL', function () {
             var referencia = $(this).attr("id");
 
@@ -26,7 +26,7 @@ var admRevision = (function () {
 
         });
 
-
+        //Click para el boton accion
         $(document).on('click', '.VER', function () {
             var referencia = $(this).attr("id");
             var idAval = $(this).attr("tag");
@@ -34,7 +34,7 @@ var admRevision = (function () {
             window.location.href = "./../Aval/WebAval.aspx?referencia=" + referencia + "&accion=3&idaval=" + idAval;
 
         });
-
+        //Metodo para ver vechas
         $(document).on('click', '.VERFECHAS', function () {
             var datos = $(this).attr("id");
             var tag = $(this).attr("tag");
