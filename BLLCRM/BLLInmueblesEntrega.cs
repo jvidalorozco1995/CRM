@@ -373,10 +373,10 @@ namespace BLLCRM
 
             AlternateView htmlView = AlternateView.CreateAlternateViewFromString("'<html><body>" + cuerpo + "</body></html>'<img src=cid:companylogo>", null, "text/html");
             //create the LinkedResource (embedded image)
-            //LinkedResource logo = new LinkedResource("C:\\logo.png");
-            //logo.ContentId = "companylogo";
+            LinkedResource logo = new LinkedResource("C:\\logo.png");
+            logo.ContentId = "companylogo";
             ////add the LinkedResource to the appropriate view
-            //htmlView.LinkedResources.Add(logo);
+            htmlView.LinkedResources.Add(logo);
             mmsg.AlternateViews.Add(htmlView);
             //mmsg.Body = ;
             mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
@@ -456,12 +456,12 @@ namespace BLLCRM
 
             AlternateView htmlView = AlternateView.CreateAlternateViewFromString("'<html><body>" + cuerpo + "</body></html>'<img src=cid:companylogo>", null, "text/html");
             //create the LinkedResource (embedded image)
-            //LinkedResource logo = new LinkedResource("C:\\logo.png");
-            //logo.ContentId = "companylogo";
+            LinkedResource logo = new LinkedResource("C:\\logo.png");
+            logo.ContentId = "companylogo";
             ////add the LinkedResource to the appropriate view
-            //htmlView.LinkedResources.Add(logo);
+            htmlView.LinkedResources.Add(logo);
             mmsg.AlternateViews.Add(htmlView);
-            //mmsg.Body = ;
+           // mmsg.Body = ;
             mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
             //Correo electronico desde la que enviamos el mensaje
             mmsg.From = new System.Net.Mail.MailAddress("crm@mayales.com");

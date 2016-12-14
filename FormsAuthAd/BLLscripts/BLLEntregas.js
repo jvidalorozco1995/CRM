@@ -38,8 +38,8 @@ function BLLEntregas() {
             success: function (result) {
                 console.log(result.d);
                 if (result.d != null) {
-
-                    setTimeout(function () { abrirEnPestana(funcionUrlGlobal("/Entrega/Actas/" + direccion + ".pdf")) }, 2000);
+                    direccion = direccionJ.trim() + manzanaJ.trim();
+                    setTimeout(function () { abrirEnPestana(funcionUrlGlobal("/Entrega/Actas/" + direccion+ ".pdf")) }, 2000);
                  
 
                 }

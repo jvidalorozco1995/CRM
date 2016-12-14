@@ -192,7 +192,7 @@ var admMaestro= (function () {
             proyecto = result[10];
 
             //Aca selecccionamos la manzana
-            manzana = result[2];
+            manzana = result[11];
 
             //Aca el inmueble
             inmueble = result[3];
@@ -213,7 +213,7 @@ var admMaestro= (function () {
 
             cedula = result[9];
 
-            direccion = result[11];
+            direccion = result[3];
 
             Ent.ActaEntrega(propietario, cedula, direccion, manzana, propietario, proyecto);
 
