@@ -2212,6 +2212,8 @@
     <Content Include="Entrega\Actas\documento.docx" />
     <Content Include="handler\SubirArchivoAvalHandler.ashx" />
     <None Include="Properties\PublishProfiles\Webmayales.pubxml" />
+    <Content Include="Postventas\Clientes.aspx" />
+    <Content Include="Postventas\js\clientes.js" />
     <Content Include="prueb.aspx" />
     <Content Include="sampledata\data.php" />
     <Content Include="sampledata\debt_top10_2010.csv" />
@@ -2323,6 +2325,7 @@
     <Content Include="Servicios\WAmbiente.asmx" />
     <Content Include="Servicios\WAval.asmx" />
     <Content Include="Servicios\WBancos.asmx" />
+    <Content Include="Servicios\WCaptcha.asmx" />
     <Content Include="Servicios\WClientes.asmx" />
     <Content Include="Servicios\WCompromisoCuota.asmx" />
     <Content Include="Servicios\WConfiguracionNegocios.asmx" />
@@ -4911,6 +4914,13 @@
     <Compile Include="Logon.aspx.designer.cs">
       <DependentUpon>Logon.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Postventas\Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Postventas\Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="prueb.aspx.cs">
       <DependentUpon>prueb.aspx</DependentUpon>
@@ -4961,6 +4971,10 @@
     </Compile>
     <Compile Include="Servicios\WBancos.asmx.cs">
       <DependentUpon>WBancos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Servicios\WCaptcha.asmx.cs">
+      <DependentUpon>WCaptcha.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Servicios\WClientes.asmx.cs">

@@ -248,16 +248,25 @@ namespace BLLCRM
         }
         public void EnviarCorreoSolicitud(string directorobra, int solicitud)
         {
+            var psotventa = "";
+            var ctp = bd.ResponsableCalidad.First(inm => inm.Proyecto == "POSTVENTAS");
+            psotventa = ctp.Usuario;
             var ctx = db.Usuarios.Where(p => p.Dominio == directorobra).ToList();   
             string email = null;
             string cuerpo = null;
+            string emailAs = null;
             foreach (var item in ctx)
             {
                 email = item.Correo;
             }
-
+           var  ctf = db.Usuarios.Where(p => p.Dominio == psotventa).ToList();
+            foreach (var item3 in ctf)
+            {
+                emailAs =  item3.Correo;
+            }
             MailMessage mmsg = new MailMessage();
             mmsg.To.Add(email);
+            mmsg.CC.Add(emailAs);
             mmsg.Subject = "Constructora los mayales";
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 

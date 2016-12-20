@@ -186,6 +186,7 @@ namespace FormsAuthAd.Servicios
                 return 0;
             }
         }
+
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public int ActualizarAdj(INMUEBLES_ENTREGAS InmEnt)

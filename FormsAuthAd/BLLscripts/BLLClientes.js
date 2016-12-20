@@ -474,4 +474,155 @@ function BLLClientes() {
         $('#clientesFe').dataTable();
     };
 
+    BLLClientes.prototype.Listpostventa = function (cedula, codigo, Wsurl) {
+        jsonData = "{'cedula':" + JSON.stringify(cedula) + ",'codigo':" + JSON.stringify(codigo) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+
+                if (result.d == null) {
+
+                    BLLClientes.prototype.TablaClientes(result.d);
+                }
+                else {
+                    BLLClientes.prototype.TablaClientes(result.d);
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
+    BLLClientes.prototype.TablaClientes = function (clientes) {
+        document.getElementById('Tablaclientes').innerHTML = "";
+        var tabla = '<table id="clientes" class="table table-striped table-bordered table-hover">';
+        tabla += "<thead>";
+        tabla += "<tr>";
+        tabla += "<th>Id</th>";
+        tabla += "<th>PROYECTO</th>";
+        tabla += "<th>MZ/TORRE</th>";
+        tabla += "<th>INMUEBLE</th>";
+        tabla += "<th></th>"
+        tabla += "</tr>";
+        tabla += "</thead>";
+        tabla += "<tbody>";
+        $.each(clientes, function (i, item) {
+
+            tabla += " <tr>";
+            tabla += "<td style='width:100px'>" + item.Id + "</td>";
+            tabla += "<td>" + item.Proyecto + "</td>";
+            tabla += "<td>" + item.Mzna + "</td>";
+            tabla += "<td>" + item.CodInmueble + "</td>";
+
+            if (item.Estado == '0') {
+                tabla += "<td style='width:20px;height: 20px'>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/PV.png') + "'" + "id=" + item.Id + " class='BtVer' title='Pendiente'></img>";
+
+            }
+            else {
+                tabla += "<td style='width:20px;height: 20px'>";
+                tabla += "<img src='" + funcionUrlGlobal('/images_crm/Completa.png') + "'" + "id=" + item.Id + " class='BtVer' title='Completado'></img>";
+                tabla += "</td>";
+
+            }
+
+            tabla += "</tr>";
+
+        });
+        tabla += "</tbody>";
+        tabla += "</table>";
+        $('#Tablaclientes').append(tabla);
+        $('#Tablaclientes').dataTable();
+    };
+
+    BLLClientes.prototype.InsertPostventa = function (post, WSinsert) {
+
+        var datos = "{'p':" + JSON.stringify(post) + "}";
+        $.ajax({
+            type: "POST", url: WSinsert, data: datos,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+                if (result.d == "ER") {
+                    toastr.error(' CRM - Mayales no se pudo guardar la hoja');
+                }
+                else {
+                    BLLClientes.prototype.Listpostventa(post.CedulaP, post.CodCRM, WsPostventa);
+                    toastr.options.timeOut = 120000;
+                    toastr.success(' CRM - Mayales'
+                         + '<br/>Postventa creada correctamente,'
+                         );
+
+
+
+                }
+            },
+            error: function (msg) { alert(msg.responseText); }
+        });
+
+    }
+
+    BLLClientes.prototype.Listnegocios = function (cedula, Wsurl) {
+        jsonData = "{'cedula':" + JSON.stringify(cedula) + "}";
+        $.ajax({
+            type: "POST",
+            data: jsonData,
+            url: Wsurl,
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            async: true,
+            success: function (result) {
+
+                if (result.d == null) {
+
+                    BLLClientes.prototype.Tablanegocios(result.d);
+                }
+                else {
+                    BLLClientes.prototype.Tablanegocios(result.d);
+                }
+
+            },
+            error: function (obj, error, objError) { alert(objError.responseText); }
+        });
+    }
+
+    BLLClientes.prototype.Tablanegocios = function (negocios) {
+        document.getElementById('Tablanegocios').innerHTML = "";
+        var tabla = '<table id="negocios" class="table table-striped table-bordered table-hover">';
+        tabla += "<thead>";
+        tabla += "<tr>";
+        tabla += "<th>PROYECTO</th>";
+        tabla += "<th>CODIGO CRM</th>";
+        tabla += "<th>MZ/TORRE</th>";
+        tabla += "<th>INMUEBLE</th>";
+        tabla += "<th>TIPO DE INMUEBLE</th>";
+        tabla += "<th></th>"
+        tabla += "</tr>";
+        tabla += "</thead>";
+        tabla += "<tbody>";
+        $.each(negocios, function (i, item) {
+
+            tabla += " <tr>";
+            tabla += "<td style='width:100px'>" + item.NOMBRE_PROYEC + "</td>";
+            tabla += "<td>" + item.CODIGO_F + "</td>";
+            tabla += "<td>" + item.NOMBRE_BLO + "</td>";
+            tabla += "<td>" + item.INMUEBLE + "</td>";
+            tabla += "<td>" + item.CLASE_INMU + "</td>";
+            tabla += "<td class='BtCrear'id=" + item.CODIGO_F + "  style='width:22px'><button class='btn btn-success btn-xs' type='button'>Crear Solicitud</button></td>";
+
+            tabla += "</tr>";
+
+        });
+        tabla += "</tbody>";
+        tabla += "</table>";
+        $('#Tablanegocios').append(tabla);
+        $('#Tablanegocios').dataTable();
+    };
+
 }

@@ -221,6 +221,33 @@ var admMaestro= (function () {
             
 
         });
+        $(document).on('click', '.VERDOCUMENTO', function () {
+
+            var datos = $(this).attr("id");
+
+            //el tag de la implementacion
+            var tag = $(this).attr("tag");
+
+            //el resultado de la consulta
+            var result = datos.split("/")
+
+            //El id del aval lo escogemos aca
+            idAval = result[0];
+
+            //Aca va el proyecto
+            proyecto = result[10];
+
+            //Aca selecccionamos la manzana y la direccion
+            manzana = result[11];
+
+            direccion = result[3];
+
+            Ent.ActaEntrega(direccion, manzana);
+
+
+
+
+        });
       
         $(document).on('click', '.VERFECHAS', function () {
 
