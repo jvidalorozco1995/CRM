@@ -124,6 +124,7 @@ namespace BLLCRM
                    
                 }
                 EnviarCorreoSolicitud(a);
+                EnviarCorreoSolicitudpost(a);
                 return 1;
             }
 
@@ -315,6 +316,7 @@ namespace BLLCRM
             int? solicitud = 0;
             var enviado = "";
             var dirobra = "";
+            var psotventa = "";
             var tabla = "<table id='esd2' class='table table-striped table-bordered table-hover' border = 1>";
             tabla += "<thead>";
             tabla += "<tr>";
@@ -335,6 +337,8 @@ namespace BLLCRM
                     var cte = bd.Entregas.First(inm => inm.ID_ENTREGAS == solicitud);
                     enviado = cte.ENVIADOPOR;
                     dirobra = cte.DIROBRA;
+                    var ctp = bd.ResponsableCalidad.First(inm => inm.Proyecto == "POSTVENTAS");
+                    psotventa = ctp.Usuario;
                     tabla += "<tr>";
                     tabla += "<td>" + pro.NOMBRE_BLO + "</td>";
                     tabla += "<td>" + casa + "</td>";
@@ -344,6 +348,7 @@ namespace BLLCRM
             tabla += "</tbody>";
             tabla += "</table>";
             string email = null;
+            string emailAs = null;
             string cuerpo = null;
             var ctf = db.Usuarios.Where(p => p.Dominio == dirobra).ToList();
             foreach (var item2 in ctf)
@@ -355,16 +360,21 @@ namespace BLLCRM
             {
                 email = email + "," + item2.Correo;
             }
+            ctf = db.Usuarios.Where(p => p.Dominio == psotventa).ToList();
+            foreach (var item3 in ctf)
+            {
+                emailAs =  item3.Correo;
+            }
 
             MailMessage mmsg = new MailMessage();
             mmsg.To.Add(email);
             mmsg.Subject = "Constructora los mayales";
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
-
+            mmsg.CC.Add(emailAs);
 
             cuerpo = "<p style='text-align:justify'>";
             //cuerpo += "</br>";
-            cuerpo += "<p>El proceso de entregas con numero: " + solicitud + " ha cambiado.</p>";
+            cuerpo += "<p>El proceso de entregas con numero: " + solicitud + " ha cambiado.Estos son los inmuebles aprovados para entregar.</p>";
             cuerpo += "<p>"+ tabla +"</p>";
             cuerpo += "<p>Ingrese al siguiene Link para mayor informacion.</p>";
             //cuerpo += "</br>";
@@ -376,10 +386,102 @@ namespace BLLCRM
 
             AlternateView htmlView = AlternateView.CreateAlternateViewFromString("'<html><body>" + cuerpo + "</body></html>'<img src=cid:companylogo>", null, "text/html");
             //create the LinkedResource (embedded image)
-            //LinkedResource logo = new LinkedResource("C:\\logo.png");
-            //logo.ContentId = "companylogo";
+            LinkedResource logo = new LinkedResource("C:\\logo.png");
+            logo.ContentId = "companylogo";
             ////add the LinkedResource to the appropriate view
-            //htmlView.LinkedResources.Add(logo);
+            htmlView.LinkedResources.Add(logo);
+            mmsg.AlternateViews.Add(htmlView);
+            //mmsg.Body = ;
+            mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
+            //Correo electronico desde la que enviamos el mensaje
+            mmsg.From = new System.Net.Mail.MailAddress("crm@mayales.com");
+            /*-------------------------CLIENTE DE CORREO----------------------*/
+            SmtpClient _Svcliente = new SmtpClient();
+            //Hay que crear las credenciales del correo emisor
+            _Svcliente.Credentials = new NetworkCredential("crm@mayales.com", "Crm.2015#");
+            //Lo siguiente es obligatorio si enviamos el mensaje desde Gmail
+            /*
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+            */
+            _Svcliente.Host = "mail.mayales.com"; //Para Gmail "smtp.gmail.com";
+            try
+            {
+                //Enviamos el mensaje      
+                _Svcliente.Send(mmsg);
+            }
+            catch (SmtpException ex)
+            {
+                throw ex;
+
+            }
+        }
+        public void EnviarCorreoSolicitudpost(List<INMUEBLES_ENTREGAS> a)
+        {
+            int? solicitud = 0;
+            var dirobra = "";
+            var tabla = "<table id='esd2' class='table table-striped table-bordered table-hover' border = 1>";
+            tabla += "<thead>";
+            tabla += "<tr>";
+            tabla += "<th>Manzana</th>";
+            tabla += "<th>Inmueble</th>";
+            tabla += "</tr>";
+            tabla += "</thead>";
+            tabla += "<tbody>";
+            foreach (var item in a)
+            {
+                if (item.CONFIRMAOBRA == 1)
+                {
+                    var ctx = bd.INMUEBLES_ENTREGAS.First(inm => inm.ID_INMUEBLES_ENTREGAS == item.ID_INMUEBLES_ENTREGAS);
+                    solicitud = ctx.ID_ENTREGA;
+                    var obra = ctx.REFERENCIA_INMUEBLE.Substring(0, 6);
+                    var refe = ctx.REFERENCIA_INMUEBLE.Substring(0, 3);
+                    var pro = bd.bloques.First(inm2 => inm2.ID_BLOQUE == obra);
+                    var casa = ctx.REFERENCIA_INMUEBLE.Substring(8, 5);
+                    var cte = bd.proyectos.First(inm => inm.ID_PROYEC == refe);
+                    refe = cte.NOMBRE_PROYEC;
+                    var ctd = bd.ResponsableCalidad.First(inm => inm.Proyecto == refe);
+                    dirobra = ctd.Usuario;
+                    tabla += "<tr>";
+                    tabla += "<td>" + pro.NOMBRE_BLO + "</td>";
+                    tabla += "<td>" + casa + "</td>";
+                    tabla += "</tr>";
+                }
+            }
+            tabla += "</tbody>";
+            tabla += "</table>";
+            string email = null;
+            string cuerpo = null;
+            
+            var ctf = db.Usuarios.Where(p => p.Dominio == dirobra).ToList();
+            foreach (var item2 in ctf)
+            {
+                email = item2.Correo;
+            }
+            
+            MailMessage mmsg = new MailMessage();
+            mmsg.To.Add(email);
+            mmsg.Subject = "Constructora los mayales";
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            cuerpo = "<p style='text-align:justify'>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>El proceso de entregas con numero: " + solicitud + " ha cambiado.Estos son los inmuebles aprovados para revision de calidad.</p>";
+            cuerpo += "<p>" + tabla + "</p>";
+            cuerpo += "<p>Ingrese al siguiene Link para mayor informacion.</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>http://servidor.mayales.com:81/CRM/Entrega/Entrega/RevisionCalidad/WebRevisionCalidad.aspx</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>Cordial saludo,</p>";
+            //cuerpo += "</br>";
+            cuerpo += "<p>Este correo fue creado por un sistema automatico, favor no responder.</p>";
+
+            AlternateView htmlView = AlternateView.CreateAlternateViewFromString("'<html><body>" + cuerpo + "</body></html>'<img src=cid:companylogo>", null, "text/html");
+            //create the LinkedResource (embedded image)
+            LinkedResource logo = new LinkedResource("C:\\logo.png");
+            logo.ContentId = "companylogo";
+            ////add the LinkedResource to the appropriate view
+            htmlView.LinkedResources.Add(logo);
             mmsg.AlternateViews.Add(htmlView);
             //mmsg.Body = ;
             mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
@@ -413,6 +515,7 @@ namespace BLLCRM
             var nombre = "";
             var mz = "";
             var inmueb = "";
+            var psotventa = "";
             var f = bd.Vistablackboard.First(inm => inm.ID_INMUEBLES_ENTREGAS == x.ID_INMUEBLES_ENTREGAS);
             nombre = f.SUC;
             mz = f.NOMBRE_BLO;
@@ -427,8 +530,11 @@ namespace BLLCRM
             var cte = bd.Entregas.First(inm => inm.ID_ENTREGAS == referencia);
             enviado = cte.ENVIADOPOR;
             dirobra = cte.DIROBRA;
+            var ctp = bd.ResponsableCalidad.First(inm => inm.Proyecto == "POSTVENTAS");
+            psotventa = ctp.Usuario;
             string email = null;
             string cuerpo = null;
+            string emailAs = null;
             var ctf = db.Usuarios.Where(p => p.Dominio == dirobra).ToList();
             foreach (var item2 in ctf)
             {
@@ -439,11 +545,16 @@ namespace BLLCRM
             {
                 email = email + "," + item2.Correo;
             }
+            ctf = db.Usuarios.Where(p => p.Dominio == psotventa).ToList();
+            foreach (var item3 in ctf)
+            {
+                emailAs = item3.Correo;
+            }
             MailMessage mmsg = new MailMessage();
             mmsg.To.Add(email);
             mmsg.Subject = "Constructora los mayales";
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
-
+            mmsg.CC.Add(emailAs);
             cuerpo = "<p style='text-align:justify'>" +
             "Se establecio una nueva fecha en el proyecto: " + nombre + ", manzana : " + mz + ", inmueble: " + inmueb + ".</p>";
             cuerpo += "<p>Numero del aval: " + aval + "</p>"; 
@@ -459,12 +570,12 @@ namespace BLLCRM
 
             AlternateView htmlView = AlternateView.CreateAlternateViewFromString("'<html><body>" + cuerpo + "</body></html>'<img src=cid:companylogo>", null, "text/html");
             //create the LinkedResource (embedded image)
-            //LinkedResource logo = new LinkedResource("C:\\logo.png");
-            //logo.ContentId = "companylogo";
+            LinkedResource logo = new LinkedResource("C:\\logo.png");
+            logo.ContentId = "companylogo";
             ////add the LinkedResource to the appropriate view
-            //htmlView.LinkedResources.Add(logo);
+            htmlView.LinkedResources.Add(logo);
             mmsg.AlternateViews.Add(htmlView);
-            //mmsg.Body = ;
+           // mmsg.Body = ;
             mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
             //Correo electronico desde la que enviamos el mensaje
             mmsg.From = new System.Net.Mail.MailAddress("crm@mayales.com");

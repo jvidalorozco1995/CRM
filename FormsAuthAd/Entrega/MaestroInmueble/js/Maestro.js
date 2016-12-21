@@ -192,7 +192,7 @@ var admMaestro= (function () {
             proyecto = result[10];
 
             //Aca selecccionamos la manzana
-            manzana = result[2];
+            manzana = result[11];
 
             //Aca el inmueble
             inmueble = result[3];
@@ -213,12 +213,39 @@ var admMaestro= (function () {
 
             cedula = result[9];
 
-            direccion = result[11];
+            direccion = result[3];
 
             Ent.ActaEntrega(propietario, cedula, direccion, manzana, propietario, proyecto);
 
 
             
+
+        });
+        $(document).on('click', '.VERDOCUMENTO', function () {
+
+            var datos = $(this).attr("id");
+
+            //el tag de la implementacion
+            var tag = $(this).attr("tag");
+
+            //el resultado de la consulta
+            var result = datos.split("/")
+
+            //El id del aval lo escogemos aca
+            idAval = result[0];
+
+            //Aca va el proyecto
+            proyecto = result[10];
+
+            //Aca selecccionamos la manzana y la direccion
+            manzana = result[11];
+
+            direccion = result[3];
+
+            Ent.ActaEntrega(direccion, manzana);
+
+
+
 
         });
       

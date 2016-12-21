@@ -236,6 +236,7 @@ namespace BLLCRM
             var mz = "";
             var inmueb = "";
             var estado2 = "";
+            var psotventa = "";
             var f = bd.VListadoEntegrasC.First(inm => inm.IdAval == aval);
             nombre = f.NOMBRE_PROYEC.Trim();
             mz = f.NOMBRE_BLO.Trim();
@@ -259,7 +260,10 @@ namespace BLLCRM
             var cte = bd.Entregas.First(inm => inm.ID_ENTREGAS == referencia);
             enviado = cte.ENVIADOPOR;
             dirobra = cte.DIROBRA;
+            var ctp = bd.ResponsableCalidad.First(inm => inm.Proyecto == "POSTVENTAS");
+            psotventa = ctp.Usuario;
             string email = null;
+            string emailAs = null;
             string cuerpo = null;
             var ctf = db.Usuarios.Where(p => p.Dominio == dirobra).ToList();
             foreach (var item2 in ctf)
@@ -271,8 +275,14 @@ namespace BLLCRM
             {
                 email = email + "," + item2.Correo;
             }
+            ctf = db.Usuarios.Where(p => p.Dominio == psotventa).ToList();
+            foreach (var item3 in ctf)
+            {
+                emailAs =  item3.Correo;
+            }
             MailMessage mmsg = new MailMessage();
             mmsg.To.Add(email);
+            mmsg.CC.Add(emailAs);
             mmsg.Subject = "Constructora los mayales";
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
@@ -291,10 +301,10 @@ namespace BLLCRM
 
             AlternateView htmlView = AlternateView.CreateAlternateViewFromString("'<html><body>" + cuerpo + "</body></html>'<img src=cid:companylogo>", null, "text/html");
             //create the LinkedResource (embedded image)
-            //LinkedResource logo = new LinkedResource("C:\\logo.png");
-            //logo.ContentId = "companylogo";
+            LinkedResource logo = new LinkedResource("C:\\logo.png");
+            logo.ContentId = "companylogo";
             ////add the LinkedResource to the appropriate view
-            //htmlView.LinkedResources.Add(logo);
+            htmlView.LinkedResources.Add(logo);
             mmsg.AlternateViews.Add(htmlView);
             //mmsg.Body = ;
             mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML

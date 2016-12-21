@@ -38,8 +38,8 @@ function BLLEntregas() {
             success: function (result) {
                 console.log(result.d);
                 if (result.d != null) {
-
-                    setTimeout(function () { abrirEnPestana(funcionUrlGlobal("/Entrega/Actas/" + direccion + ".pdf")) }, 2000);
+                    direccion = direccionJ.trim() + manzanaJ.trim();
+                    setTimeout(function () { abrirEnPestana(funcionUrlGlobal("/Entrega/Actas/" + direccion+ ".pdf")) }, 2000);
                  
 
                 }
@@ -53,6 +53,10 @@ function BLLEntregas() {
             error: function (error) { alert(error.responseText); }
         });
 
+    }
+    BLLEntregas.prototype.ActaEntrega = function (direccionJ, manzanaJ) {
+        direccion = direccionJ.trim() + manzanaJ.trim();
+        setTimeout(function () { abrirEnPestana(funcionUrlGlobal("/Entrega/Actas/" + direccion + ".pdf")) }, 2000);
     }
 
 
@@ -396,6 +400,7 @@ function BLLEntregas() {
         tabla += "<th></th>";
         tabla += "<th></th>";
         tabla += "<th></th>";
+        tabla += "<th></th>";
         tabla += "</tr>";
         tabla += "</thead>";
         tabla += "<tbody>";
@@ -520,9 +525,11 @@ function BLLEntregas() {
 
                 tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "/" + item.PROPIETARIO + "/" + item.CEDULA_P + "/" + item.Direccion + "/" + item.NOMBRE_BLO + "'class='IMPRIMIRACTA btn btn-primary btn-xs'><i class='fa fa-download'></i></a></td>";
                 tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "/" + item.PROPIETARIO + "/" + item.CEDULA_P + "/" + item.Direccion + "/" + item.NOMBRE_BLO + "'class='SUBIRDOCUMENTO btn btn-primary btn-xs'><i class='fa fa-upload'></i></a></td>";
+                tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "/" + item.PROPIETARIO + "/" + item.CEDULA_P + "/" + item.Direccion + "/" + item.NOMBRE_BLO + "'class='VERDOCUMENTO btn btn-primary btn-xs'><i class='fa fa-eye'></i></a></td>";
 
             } else {
 
+                tabla += "<td></td>";
                 tabla += "<td></td>";
                 tabla += "<td></td>";
             }
