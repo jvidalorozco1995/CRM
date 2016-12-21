@@ -84,7 +84,8 @@ function BLLEntregas() {
 
     
 
-
+    //Actualizar el ajunto y enviarlo a la basde de datos. y los resultados enviados a actualizar el adjunto para poder,
+    //llenarlo y ser mejor. 
     BLLEntregas.prototype.ActualizarAdj = function (item) {
 
         jsonData = "{'InmEnt':" + JSON.stringify(item) + "}";
@@ -114,7 +115,7 @@ function BLLEntregas() {
         });
 
     }
-
+    //Metodo para insertar las entregas, que recibe dos parametros de una lista 
     BLLEntregas.prototype.InsertEntregas = function (p, lista) {
 
         jsonData = "{'b':" + JSON.stringify(p) + ",'lista':" + JSON.stringify(lista) + "}";
@@ -146,7 +147,7 @@ function BLLEntregas() {
 
     }
 
-
+    //Metodo para confirmar la entrega
     BLLEntregas.prototype.ConfirmarEntrega = function (lista) {
 
         jsonData = "{'a':" + JSON.stringify(lista) + "}";
@@ -521,6 +522,7 @@ function BLLEntregas() {
                 tabla += "<td style='width:22px'><a tag='" + item.ID_INMUEBLES_ENTREGAS + "' id='" + item.IdAval + "/" + item.SUC + "/" + item.MZA + "/" + item.INMUEBLE + "/" + moment(item.FECHACONFIRMA).format("YYYY-DD-MM") + "/" + moment(item.FECHAREG).format("YYYY-DD-MM") + "/" + item.ENVIADOA + "/" + item.ENVIADOPOR + "/" + item.PROPIETARIO + "/" + item.CEDULA_P + "/" + item.Direccion + "/" + item.NOMBRE_BLO + "'class='SUBIRDOCUMENTO btn btn-primary btn-xs'><i class='fa fa-upload'></i></a></td>";
 
             } else {
+
                 tabla += "<td></td>";
                 tabla += "<td></td>";
             }

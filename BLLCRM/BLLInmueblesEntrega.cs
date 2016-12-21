@@ -195,8 +195,10 @@ namespace BLLCRM
             {
 
                 throw;
-            }
+            }   
         }
+
+        //Cargamos la lista de entrega de la blackboard que recibe un parametro de proyecto
         public List<Vistablackboard> LisInmueblesEntregasblackboard(string proyecto)
         {
             try
@@ -252,6 +254,7 @@ namespace BLLCRM
                 throw;
             }
         }
+        ///Carga la lista de inmuebles por id
         public List<VListadoEntregas> ListInmueblesEntregas(int id)
         {
             var Contador = 1;
